@@ -1,0 +1,99 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR>
+
+<table width="80%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td align="center">
+                          {rval data/YEAR}年度　　学期:{rval data/SEMESTER}　　教科:{rval data/CLASSCD}　　科目:{rval data/SUBCLASSCD}<br>対象日　<b>{rval el/DATE}</b>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象</b></th>
+                      <th class="no_search"></th>
+                      <th><b>講座一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CLASS_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD align="left"  bgcolor="#ffffff">
+                        <TABLE>
+<!--{def is_sagatsushin}-->
+                          <TR>
+                            <TD>
+                                　<b>性別の区分</b>　　<br>
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>
+                                　　{rval data/MARK}<LABEL for="MARK">　女生徒の氏名の横に＊を印字する</LABEL>
+                            </TD>
+                          </TR>
+<!--{/def}-->
+                          <TR>
+                            <TD>
+                              　　出力件数  {rval data/KENSUU}<br><br>
+<!--{def is_not_musashi}-->
+                              　　出力順<br>
+                              　　　　　{rval data/OUTPUT1}<LABEL for="OUTPUT1">年組番号順</LABEL><br>
+                              　　　　　{rval data/OUTPUT2}<LABEL for="OUTPUT2">学籍番号順</LABEL><br>
+                              　　ふりがな出力<br>
+                              　　　　　{rval data/HURIGANA_OUTPUT1}<LABEL for="HURIGANA_OUTPUT1">あり</LABEL>　　{rval data/HURIGANA_OUTPUT2}<LABEL for="HURIGANA_OUTPUT2">なし</LABEL><br><br>
+<!--{/def}-->
+                            </TD>
+                          </TR>
+                        </TABLE>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+  <tr>
+    <td nowrap></td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}
+<script language="javascript">{rval jscript}</script>

@@ -1,0 +1,73 @@
+{rval start}
+<!--{def button}-->
+<!--{def data}-->
+<div style="padding:5px">
+<hr>
+調査書データ取込
+</div>
+<table style="width:100%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr height="30">
+                      <th nowrap class="no_search">
+                        取込元パターン選択
+                      </th>
+                      <th nowrap bgcolor="#ffffff" style="text-align:left">
+                        <input type="radio" id="pattern1" name="PATTERN" value="1" checked><label for="pattern1">パターン1</label>
+                        <input type="radio" id="pattern2" name="PATTERN" value="2"><label for="pattern2">パターン2</label>
+                        <input type="radio" id="pattern3" name="PATTERN" value="3"><label for="pattern3">パターン3</label>
+                      </th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search" height="30">
+                      <th><b>対象生徒一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="47%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*" class="no_search">
+                        {rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="47%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff">
+                      <td align="center">
+                        {rval button/btn_torikomi} {rval button/btn_back}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+<script language="JavaScript">{rval jscript}</script>
+{rval finish}

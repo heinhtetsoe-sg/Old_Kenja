@@ -1,0 +1,19 @@
+-- $Id: kojin_kyuhu_gk_kettei_hist_dat.sql 74649 2020-06-02 01:25:06Z yamashiro $
+
+DROP TABLE KOJIN_KYUHU_GK_KETTEI_HIST_DAT
+CREATE TABLE KOJIN_KYUHU_GK_KETTEI_HIST_DAT( \
+    KOJIN_NO                 VARCHAR(7)    NOT NULL, \
+    SHINSEI_YEAR             VARCHAR(4)    NOT NULL, \
+    SEQ                      smallint      NOT NULL, \
+    SHORI_DIV                VARCHAR(1)    NOT NULL, \
+    KETTEI_DATE              DATE          NOT NULL, \
+    HENKOU_UKE_YEAR          VARCHAR(4), \
+    HENKOU_UKE_NO            VARCHAR(4), \
+    HENKOU_UKE_EDABAN        VARCHAR(3), \
+    KYUHU_KETTEI_GK          INT, \
+    REGISTERCD               VARCHAR(8), \
+    UPDATED                  TIMESTAMP DEFAULT CURRENT TIMESTAMP \ 
+) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE KOJIN_KYUHU_GK_KETTEI_HIST_DAT ADD CONSTRAINT PK_K_K_GK_K_H_DAT PRIMARY KEY (KOJIN_NO, SHINSEI_YEAR, SEQ, SHORI_DIV, KETTEI_DATE)
+

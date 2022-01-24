@@ -1,0 +1,131 @@
+{rval start}
+
+<table style="width: 700px" border="0" cellpadding="1" cellspacing="1" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="2" cellpadding="1">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            
+            
+<!-- 選択データ -->
+              <tr class="no_search_line">
+                <td><!-- first table for subclass -->
+                  <table width="100%" border="0" cellspacing="1" cellpadding="2">
+
+
+                    <tr class="no_search" height="35" nowrap>
+                      <td align="center" nowrap >
+                        <B>年度</B>
+                      </td>
+                      <td align="center" nowrap style="background-color:white;color:black;" >
+                        <B>{rval GrYEAR}</B>
+                      </td>
+                      <td align="center" nowrap >
+                        <B>クラス</B>
+                      </td>
+                      <td align="center" nowrap style="background-color:white;">
+                        <B>{rval sel/HR_NAME}</B>
+                      </td>
+                      
+                      <td align="left" nowrap >
+                        <B>日付</B>
+                      </td>
+                      <td align="left" nowrap style="background-color:white">
+                        {rval sel/DATE}
+                      </td>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+<!-- 選択データ -->
+
+
+<!-- 生徒データ -->
+              <tr>
+                <td><BR>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" nowrap align="center">
+                            <th width="100px">学籍番号</th>
+                            <th width="150px">出席番号</th>
+                            <th width="300px">氏名</th>
+                            <th width="*px">単位時間</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div style="width: 100%; height: 515; overflow: auto">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+<!--{def data2}-->
+<!--結果一覧-->
+<!--{each data2}-->
+                          <tr bgcolor="#ffffff">
+                            <td width="100px"  align="center">{rval data2/SCHREGNO}</td>
+                            <td width="150px"  align="center">{rval data2/ATTENDNO}</td>
+                            <td width="300px" align="center">{rval data2/NAME}</td>
+                            <td width="*px"  align="center">{rval data2/CREDIT_TIME}</td>
+                          </tr>
+<!--{/each}-->
+<!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+              </tr>
+              
+<!-- 生徒データ -->
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr>
+                            <td width="450px">
+                                
+                            </td>
+                            <td align="left" style="background-color:white;">{rval button/btn_ok}{rval button/btn_end}{rval button/btn_del}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">
+    var sem = 0;
+    setInterval('callfunc()',500);
+
+function callfunc() {
+    if (sem == 0) {
+        datecheck(document.forms[0].DATE.value);
+    }
+}
+{rval Closing}
+{rval confirmSonota}
+</script>

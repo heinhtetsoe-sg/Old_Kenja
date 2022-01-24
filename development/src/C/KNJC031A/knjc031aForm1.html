@@ -1,0 +1,132 @@
+{rval start}
+<br>
+<table width="106%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+    <th valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+        <tr class="no_search" nowrap>
+            <td>
+                &nbsp;&nbsp;処理年度：{rval year}年度
+                &nbsp;{rval semester}
+                &nbsp;&nbsp;学級：{rval hr_class}
+                &nbsp;&nbsp;対象月：{rval month}
+                &nbsp;&nbsp;締め日：{rval SET_APPOINTED_DAY}
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </th>
+</tr>
+<tr><td><br></td></tr>
+<tr>
+    <th valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <th align="right">
+        <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+        <tr class="no_search" nowrap>
+            <th colspan="16" bgcolor="#FFFFFF"></th>
+            <th colspan="12">累積</th>
+        </tr>
+        <tr class="no_search" align="center" nowrap>
+            <td rowspan="2" width="19">No.</td>
+            <td rowspan="2" width="90">氏&nbsp;&nbsp;名</td>
+            <td rowspan="2" width="30">締<br>め<br>日</td>
+            <td rowspan="2" width="30">授<br>業<br>日<br>数</td>
+            <td rowspan="2" width="30">休<br>学<br>日<br>数</td>
+            <td rowspan="2" width="30">留<br>学<br>日<br>数</td>
+            <td rowspan="2" width="30">公<br>欠<br>日<br>数</td>
+            <td colspan="3" width="98" style="padding:0;"><font size="2">出席停止・忌引</font></td>
+            <td rowspan="2" width="43"><font size="2">出席<br>すべき<br>日数</font></td>
+            <td rowspan="2" width="30">欠<br>席<br>日<br>数</td>
+            <td rowspan="2" width="27">出<br>席<br>日<br>数</td>
+            <td rowspan="2" width="30">遅<br>刻<br>回<br>数</td>
+            <td rowspan="2" width="30">欠<br>課<br>時<br>数</td>
+            <td rowspan="2" width="30">欠<br>課<br>回<br>数</td>
+            <td rowspan="2" width="27">授<br>業<br>日<br>数</td>
+            <td colspan="3" width="98" style="padding:0;"><font size="2">出席停止・忌引</font></td>
+            <td rowspan="2" width="43"><font size="2">出席<br>すべき<br>日数</font></td>
+            <td rowspan="2" width="22">欠<br>席<br>日<br>数</td>
+            <td rowspan="2" width="22">出<br>席<br>日<br>数</td>
+            <td rowspan="2" width="22">遅<br>刻<br>回<br>数</td>
+            <td rowspan="2" width="22">欠<br>課<br>時<br>数</td>
+            <td rowspan="2" width="#">欠<br>課<br>回<br>数</td>
+        </tr>
+        <tr class="no_search" align="center" nowrap>
+            <td width="27"><font size="2">出停</font></td>
+            <td width="27"><font size="2">伝染病</font></td>
+            <td width="27"><font size="2">忌引</font></td>
+            <td width="27"><font size="2">出停</font></td>
+            <td width="27"><font size="2">伝染病</font></td>
+            <td width="27"><font size="2">忌引</font></td>
+        </tr>
+        </table>
+        </th>
+    </tr>
+    <tr>
+        <th align="right">
+        <div style="height:467;overflow:auto">
+        <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+        <!--{each attend_data}-->
+        <tr bgcolor="#FFFFFF" align="center" nowrap>
+            <td width="19">{rval attend_data/ATTENDNO}</td>        <!-- No. -->
+            <td width="90" align="left" {rval attend_data/BGCOLOR_NAME_SHOW}>{rval attend_data/NAME_SHOW}</td>   <!-- 氏名 -->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/APPOINTED_DAY}</td>   <!-- 締め日 -->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/LESSON}</td>          <!-- 授業日数 -->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/OFFDAYS}</td>         <!-- 休学日数 -->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/ABROAD}</td>          <!-- 留学日数 -->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/ABSENT}</td>          <!-- 公欠日数 -->
+            <td width="27" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/SUSPEND}</td>         <!-- 出停 -->
+            <td width="27" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/VIRUS}</td>           <!-- 伝染病 -->
+            <td width="27" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/MOURNING}</td>        <!-- 忌引 -->
+            <td width="43" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/CLASSDAYS2}</td>      <!-- 出席すべき日数 -->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/NONOTICE}</td>        <!-- 欠席日数 -->
+            <td width="27" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/CLASSDAYS3}</td>      <!-- 出席日数 -->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/LATEDETAIL}</td>      <!-- 遅刻回数 -->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/KEKKA_JISU}</td>      <!-- 欠課時数 -->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/KEKKA}</td>           <!-- 早退回数 -->
+            <td width="27">{rval attend_data/SUM_CLASSDAYS}</td>   <!-- 累積・授業日数 -->
+            <td width="27">{rval attend_data/SUM_SUSPEND}</td>     <!-- 累積・出停 -->
+            <td width="27">{rval attend_data/SUM_VIRUS}</td>       <!-- 累積・伝染病 -->
+            <td width="27">{rval attend_data/SUM_MOURNING}</td>    <!-- 累積・忌引 -->
+            <td width="43">{rval attend_data/SUM_CLASSDAYS2}</td>  <!-- 累積・出席すべき日数 -->
+            <td width="22">{rval attend_data/SUM_SICK}</td>        <!-- 累積・欠席日数 -->
+            <td width="22">{rval attend_data/SUM_CLASSDAYS3}</td>  <!-- 累積・出席日数 -->
+            <td width="22">{rval attend_data/SUM_LATEDETAIL}</td>  <!-- 累積・遅刻回数 -->
+            <td width="22">{rval attend_data/SUM_KEKKA_JISU}</td>  <!-- 累積・欠課時数 -->
+            <td width="#">{rval attend_data/SUM_KEKKA}{rval attend_data/SCHREGNO}</td>  <!-- 累積・早退回数 -->
+        </tr>
+        <!--{/each}-->
+        </table>
+        </div>
+        </th>
+    </tr>
+    <tr>
+        <th align="right">
+        <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+        <tr class="no_search" align="right" nowrap>
+            <td>
+            ※'0'データは、空白で表示します。{rval FILE}
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            {rval btn_update}
+            {rval btn_reset}
+            {rval btn_end}
+            {rval btn_print}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            </td>
+        </tr>
+        </table>
+        </th>
+    </tr>
+    </table>
+    </th>
+</tr>
+</table>
+{rval finish}
+

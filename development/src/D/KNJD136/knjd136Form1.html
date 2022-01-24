@@ -1,0 +1,56 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td nowrap width="100%" align="left" colspan="4">&nbsp;&nbsp;対象年度：{rval YEAR}&nbsp;&nbsp;&nbsp;{rval btn_copy}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td nowrap width="15%" align="left">　　学期：{rval SEMESTER}　学年：{rval GRADE}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th align="center">注釈</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td align="left" bgcolor="#ffffff">
+                        <a href="knjd136index.php?cmd=edit&SEMESTER={rval data/SEMESTER}&TESTCD={rval data/TESTCD}&GRADE={rval data/GRADE}&PROGRAMID={rval PROGRAMID}" target="right_frame">
+                            {rval data/FOOTNOTE}
+                        </a>
+                      </td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<script language="JavaScript">{rval reload}</script>
+{rval finish}

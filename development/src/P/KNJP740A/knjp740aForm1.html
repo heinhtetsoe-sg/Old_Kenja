@@ -1,0 +1,58 @@
+{rval start}
+
+<table>
+    <tr height="100">
+        　
+    </tr>
+</table>
+<table width="450" border="0" cellpadding="0" cellspacing="5" align="center">
+    <tr bgcolor="#ffffff">
+        <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5">
+                <tr class="no_search_line">
+                    <td width="100%">
+                        <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                            <tr class="no_search">
+                                <th><b>対象年度：{rval YEAR}&nbsp;校種：{rval data/SCHOOL_KIND}</b></th>
+                            </tr>
+                            <tr bgcolor="#ffffff" height="110">
+                                <td>
+                                    <table width="100%">
+                                        <tr>
+                                            <td nowrap colspan="2" align="left">
+                                                <b>●&nbsp;フォーマット指定</b><br />
+                                                　　{rval data/OUTPUT1}<label for="OUTPUT1">引落し</label>　{rval data/OUTPUT2}<label for="OUTPUT2">返金</label> <br /><br />
+                                                　　{rval data/MONTH}&nbsp;{rval data/MONTH_DATE}
+                                                <br /><br />
+                                                　　取扱銀行：{rval data/BANK_CD}
+                                                <br /><br />
+                                                <!--{def HIKIOTOSHI}-->
+                                                　　振替日変更{rval data/TRANSFER_DATE}<br />
+                                                　　※指定すると振替日が変更できます。
+                                                <!--{/def}-->
+                                                <!--{def HENKIN}-->
+                                                　　　返金日:{rval data/HENKIN_DATE}
+                                                <!--{/def}-->
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr class="no_search" align="right">
+                                <td nowrap>{rval csv_result}{rval button/btn_csv}{rval button/btn_end}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<script language="JavaScript">
+    document.forms[0].OUTPUT[1].disabled = true;
+</script>
+{rval finish}
+<script language="JavaScript">
+    {rval reload}
+</script>

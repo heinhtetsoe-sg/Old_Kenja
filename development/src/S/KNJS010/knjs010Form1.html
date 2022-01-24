@@ -1,0 +1,104 @@
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+<tr>
+    <th valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr class="no_search_line">
+        <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr class="no_search" align="left" nowrap>
+            <td>
+                &nbsp;&nbsp;{rval YEAR}年度&nbsp;&nbsp;{rval SEMESTER}<BR>
+                &nbsp;&nbsp;データ区分&nbsp;{rval DATA_DIV}
+                &nbsp;&nbsp;{rval GRADE_HR_NAME}&nbsp;{rval GRADE_HR_CLASS}
+                &nbsp;&nbsp;教科名&nbsp;{rval SUBCLASSCD}
+                &nbsp;&nbsp;{rval btn_default}
+                &nbsp;&nbsp;担任名：&nbsp;{rval STAFF_NAME}
+                &nbsp;&nbsp;出版社：&nbsp;{rval ISSUECOMPANY_NAME}
+                &nbsp;&nbsp;{rval btn_def}
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </th>
+</tr>
+<tr>
+    <th>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+    <tr class="no_search_line">
+        <th>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search" align="center" nowrap>
+                    <td width="35">選択</td>
+                    <td width="35">学期</td>
+                    <td width="35">月</td>
+                    <td width="35">配当<BR>月</td>
+                    <td width="190">大単元</td>
+                    <td width="160">中単元</td>
+                    <td width="160">小単元</td>
+                    <td width="160">項目</td>
+                    <td width="35">配当<BR>時数</td>
+                    <td width="*"    >単元<BR>種別</td>
+                </tr>
+                </table>
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+            <div style="width:100%;height:466;overflow:auto">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr class="no_search_line">
+                    <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{each data}-->
+                <tr height="30" bgcolor="{rval data/BGCOLOR}" align="center" nowrap>
+                    {rval data/RANK_JUMP}
+                    <td width="35">{rval data/RANK}</td>
+                    <td width="35">{rval data/SEMESTER}</td>
+                    <td width="35">{rval data/MONTH}</td>
+                    <td width="35">{rval data/ALLOTMENT_MONTH}</td>
+                    <td width="190">{rval data/L_TITOL}{rval data/UNIT_L_NAME}</td>
+                    <td width="160">{rval data/UNIT_M_NAME}</td>
+                    <td width="160">{rval data/UNIT_S_NAME}</td>
+                    <td width="160">{rval data/UNIT_DATA}</td>
+                    <td width="35">{rval data/ALLOTMENT_TIME}</td>
+                    <td width="*">{rval data/UNIT_DIV}</td>
+                </tr>
+                <!--{/each}-->
+                </table>
+                    </td>
+                  </tr>
+              </table>
+            </div>
+        </th>
+    </tr>
+
+    <tr class="no_search_line">
+        <th>
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr class="no_search" nowrap>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td align="left">{rval btn_add}{rval btn_ins}{rval btn_del}{rval btn_extend}{rval btn_moveUp}{rval btn_moveDown}</td>
+                <td align="right">{rval btn_update}{rval btn_reset}{rval btn_end}</td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </th>
+    </tr>
+
+    </table>
+    </th>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">
+{rval jumping}
+</script>

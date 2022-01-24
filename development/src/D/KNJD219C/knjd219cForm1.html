@@ -1,0 +1,115 @@
+{rval start}
+<br><br><br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+   <tr>
+     <table width="100%" border="0" cellspacing="1" cellpadding="1">
+     <tr>
+       <th>
+         <table width="60%" border="0" cellspacing="3" cellpadding="0" align="center">
+           <tr class="no_search_line">
+             <th>
+               <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                 <tr class="no_search">
+                   <th width="25%" nowrap>項　目</th>
+                   <th width="*" nowrap>値</th>
+                 </tr>
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap>参照学期</td>
+                   <td bgcolor="#ffffff" nowrap>&nbsp;{rval sepa/PRE_SEMESTER}&nbsp;&nbsp;{rval button/btn_copy}</td>
+                 </tr>
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap>対象学期</td>
+                   <td bgcolor="#ffffff" nowrap>&nbsp;{rval sepa/SEMESTER}</td>
+                 </tr>
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap>区分</td>
+                   <td bgcolor="#ffffff" nowrap><font color="black">&nbsp;{rval sepa/DIV1}<LABEL for="DIV1">学年</LABEL>　&nbsp;{rval sepa/DIV2}<LABEL for="DIV2">クラス</LABEL>　&nbsp;{rval sepa/DIV3}<LABEL for="DIV3">コース</LABEL>　&nbsp;{rval sepa/DIV5}<LABEL for="DIV5">コースグループ</LABEL></font></td>
+                 </tr>
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap>学年</td>
+
+                   <td bgcolor="#ffffff" nowrap>
+                   <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                   <tr>
+                   <td width="50%" align="left">&nbsp;{rval sepa/GRADE}</td>
+                   <td width="50%" align="right">{rval button/btn_inquiry}&nbsp;</td>
+                   </tr>
+                   </table>
+                   </td>
+
+                 </tr>
+<!--{def show2}-->
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap>クラス</td>
+                   <td bgcolor="#ffffff" nowrap>&nbsp;{rval sepa/HR_CLASS}</td>
+                 </tr>
+<!--{/def}-->
+<!--{def show3}-->
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap>コース</td>
+                   <td bgcolor="#ffffff" nowrap>&nbsp;{rval sepa/COURSE}</td>
+                 </tr>
+<!--{/def}-->
+<!--{def show5}-->
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap>コースグループ</td>
+                   <td bgcolor="#ffffff" nowrap>&nbsp;{rval sepa/GROUP_CD}</td>
+                 </tr>
+<!--{/def}-->
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap>科目</td>
+                   <td bgcolor="#ffffff" nowrap>&nbsp;{rval sepa/SUBCLASSCD}</td>
+                 </tr>
+               </table>
+             </th>
+           </tr>
+         </table>
+         <br>
+         <table width="60%" border="0" cellspacing="3" cellpadding="0" align="center">
+           <tr class="no_search_line">
+             <td>
+               <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" frame="box">
+               <tr class="no_search">
+                 <th width="15%">段階値</th>
+                 <th width="20%">標準の下限値</th>
+                 <th width="15%">下限</th>
+                 <th width="15%">上限</th>
+                 <th width="10%">人数</th>
+                 <th width="25%">人数割合％</th>
+               </tr>
+
+               <!--結果一覧-->
+               <!--{def data}-->
+               <!--{each data}-->
+               <tr align="center" bgcolor="#ffffff">
+                 <td>{val data/ASSESSLEVEL}</td>
+                 <td>{val data/STANDARD_ASSESSLOW_SHOW}</td>
+                 <td>{val data/ASSESSLOWTEXT}</td>
+                 <td>{val data/ASSESSHIGHTEXT}</td>
+                 <td>{val data/PERCENT_CNT_SHOW}</td>
+                 <td>{val data/PERCENT_SHOW}</td>
+               </tr>
+               <!--{/each}-->
+               <!--{/def}-->
+
+               <tr>
+                 <td colspan="6" bgcolor="#ffffff" align="right">
+                   {rval button/btn_standard}&nbsp;&nbsp;&nbsp;
+                   {rval button/btn_keisan}&nbsp;&nbsp;&nbsp;
+                   {rval button/btn_update}
+                   {rval button/btn_reset}
+                   {rval button/btn_end}&nbsp;
+                 </td>
+               </tr>
+               </table>
+             </td>
+           </tr>
+         </table>
+       </th>
+     </tr>
+     </table>
+  </td>
+   </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval Closing}</script>

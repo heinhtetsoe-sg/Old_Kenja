@@ -1,0 +1,77 @@
+{rval start}
+<BR>
+<BR>
+<table align="center" width="90%" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr height="30">
+                      <th class="no_search" nowrap>入試年度</th>
+                      <th align="center" bgcolor="#ffffff" nowrap>{rval TOP/YEAR}</th>
+                      <th class="no_search" nowrap>※ 入試制度</th>
+                      <td bgcolor="#ffffff">{rval TOP/APPLICANTDIV}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" height="30">
+                        <th width="30%" nowrap>入試区分</th>
+                        <th width="50%" nowrap>会場</th>
+                        <th width="20%" nowrap>人数</th>
+                      </tr>
+                      <!--{each data}-->
+                      <tr bgcolor="#ffffff" nowrap height="25">
+                        <td nowrap>{rval data/TESTDIVNAME}</td>
+                        <td nowrap>
+                        <a href="knjz040qindex.php?cmd=edit&EXAMHALLCD={rval data/EXAMHALLCD}&TESTDIV={rval data/TESTDIV}&APPLICANTDIV={rval data/APPLICANTDIV}" target="right_frame">{rval data/EXAMHALL_NAME}
+                        </a></td>
+                        <td align="right" nowrap>{rval data/CAPA_CNT}&nbsp;</td>
+                      </tr>
+                      <!--{/each}-->
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

@@ -1,0 +1,84 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap align="left" width="*%">
+                        <!--{def schkind}-->校種：{rval TOP/SCHKIND}　<!--{/def}-->
+                        教育課程：{rval TOP/S_CURRICULUM_CD}　
+                        教科：{rval TOP/S_CLASSCD}
+                      </th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th nowrap width="9%">科目<br>コード</th>
+                      <th nowrap width="19%">科目名称</th>
+                      <th nowrap width="6%">科目<br>略称</th>
+                      <th nowrap width="19%">科目名称英字</th>
+                      <th nowrap width="9%">科目略称英字</th>
+                      <th nowrap width="9%">調査書用科目名</th>
+                      <th nowrap width="9%">通知票用科目名</th>
+                      <th nowrap width="9%">科目名その他３</th>
+                      <th nowrap width="5%">表<br>示<br>順</th>
+                      <th nowrap width="5%">(調)<br>表<br>示<br>順</th>
+                      <th nowrap width="5%">(通)<br>表<br>示<br>順</th>
+                      <th nowrap width="7%">(調)科目<br>グループ<br>コード</th>
+                      <th nowrap width="7%">(通)科目<br>グループ<br>コード</th>
+                      <th nowrap width="5%">選<br>択</th>
+                      <th nowrap width="5%">評<br>定</th>
+                      <th nowrap width="5%">修<br>得<br>単<br>位<br>数</th>
+                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+                    <tr>
+                       <td nowrap align="center" bgcolor="#ffffff"><a href="knjz071index.php?cmd=edit&CLASSCD={val data/CLASSCD}&SCHOOL_KIND={val data/SCHOOL_KIND}&CURRICULUM_CD={val data/CURRICULUM_CD}&SUBCLASSCD={val data/SUBCLASSCD}&year_code={val year}" target="right_frame">{val data/CLASSCD}-{val data/SCHOOL_KIND}-{val data/CURRICULUM_CD}-{val data/SUBCLASSCD}</td>
+                       <td nowrap bgcolor="#ffffff">{val data/SUBCLASSNAME}</a></td>
+                       <td nowrap bgcolor="#ffffff">{val data/SUBCLASSABBV}</td>
+                       <td nowrap bgcolor="#ffffff">{val data/SUBCLASSNAME_ENG}</td>
+                       <td nowrap bgcolor="#ffffff">{val data/SUBCLASSABBV_ENG}</td>
+                       <td nowrap bgcolor="#ffffff">{val data/SUBCLASSORDERNAME1}</td>
+                       <td nowrap bgcolor="#ffffff">{val data/SUBCLASSORDERNAME2}</td>
+                       <td nowrap bgcolor="#ffffff">{val data/SUBCLASSORDERNAME3}</td>
+                       <td nowrap bgcolor="#ffffff">{val data/SHOWORDER}</td>
+                       <td nowrap bgcolor="#ffffff">{val data/SHOWORDER2}</td>
+                       <td nowrap bgcolor="#ffffff">{val data/SHOWORDER3}</td>
+                       <td nowrap bgcolor="#ffffff">{val data/SUBCLASSCD2}</td>
+                       <td nowrap bgcolor="#ffffff">{val data/SUBCLASSCD3}</td>
+                       <td nowrap bgcolor="#ffffff">{val data/ELECTDIV}</td>
+                       <td nowrap bgcolor="#ffffff">{val data/VALUATION}</td>
+                       <td nowrap bgcolor="#ffffff">{val data/GET_CREDIT}</td>
+                    </tr>
+<!--{/each}-->
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

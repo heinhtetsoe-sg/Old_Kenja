@@ -1,0 +1,114 @@
+{rval start}
+<!--{def button}-->
+<!--{def data}-->
+
+<table height={rval height}><tr><BR></tr></table>
+<table width="35%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search" align="center">
+                      <td><b>
+                        {rval data/YEAR}年度　　　{rval data/SEMESTER}
+                      </b></td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="60">
+                      <td>
+                        <table>
+                          <tr>
+                            <td nowrap><b>
+                              　　データ種別：{rval data/PROFICIENCYDIV}<br>
+                            </b></td>
+                          </tr>
+                          <tr>
+                            <td nowrap><b>
+                              　　テスト名称：{rval data/PROFICIENCYCD}<br>
+                            </b></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search" align="center">
+                      <td nowrap><b>
+                        {rval data/SELECT_DIV2}<LABEL for="SELECT_DIV2">クラス順位</LABEL>　
+                        {rval data/SELECT_DIV3}<LABEL for="SELECT_DIV3">コース順位</LABEL>　
+                        {rval data/SELECT_DIV1}<LABEL for="SELECT_DIV1">学年順位</LABEL>　　
+                        {rval data/GRADE}
+                      </b></td>
+                    </tr>
+                    <tr class="no_search" align="left">
+                      <td nowrap>　基準点:{rval data/JUNI}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+<!--{def class_course}-->
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>{rval data/NAME_LIST}</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+<!--{/def}-->
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr>
+                      <td align="left"  bgcolor="#ffffff">
+                        <table cellspacing="5">
+                          <tr>
+                            <td>
+                            　　　　　　実力科目 {rval data/PROFICIENCY_SUBCLASS_CD}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                            　　　　上位出力人数 {rval data/PRINT_COUNT} 人<br>
+                            　　　　　　<span style="color:red; font-size:85%">※指定人数目と同じ順位の人は全て出力します。</span>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap>{rval button/btn_csv}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}

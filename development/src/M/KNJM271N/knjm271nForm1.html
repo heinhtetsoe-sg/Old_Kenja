@@ -1,0 +1,193 @@
+{rval start}
+<table style="width: 1720px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+  <table style="width: 1720px" border="0" cellspacing="5" cellpadding="1">
+  <tr>
+  <td>
+    <table style="width: 1720px" border="0" cellspacing="0" cellpadding="0">
+<!-- 選択データ -->
+    <tr class="no_search_line">
+    <td><!-- first table for subclass -->
+      <table style="width: 1720px" border="0" cellspacing="1" cellpadding="4">
+      <tr class="no_search" height="35" nowrap>
+        <td align="left" nowrap colspan="2">
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<B>{rval GrYEAR}年度
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspレポート判定返送登録</B>
+        </td>
+      </tr>
+      <tr  bgcolor="#ffffff" height="120">
+        <td nowrap>
+          <table>
+            <tr>
+              <td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;評価送信日&nbsp;&nbsp;&nbsp;&nbsp;：
+              </td>
+              <td>
+                &nbsp;{rval sel/DATE}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;科目&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：
+              </td>
+              <td>
+                &nbsp;&nbsp;{rval sel/SUBCLASSCD}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;添削者&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：
+              </td>
+              <td>
+                &nbsp;&nbsp;{rval sel/STAFF}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;回数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：
+              </td>
+              <td>
+                &nbsp;&nbsp;{rval sel/STANDARD_SEQ}
+              </td>
+            </tr>
+          </table>
+          </table>
+          </tr>
+      </td></tr>
+      </table>
+    </td>
+    </tr>
+<!-- 選択データ -->
+<!-- 生徒データ -->
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="160">{val CLASS_SORT}</th>
+              <th width="80">{val SCHREGNO_SORT}</th>
+              <th width="160">{val NAME_SORT}</th>
+              <th width="100">１</th>
+              <th width="100">２</th>
+              <th width="100">３</th>
+              <th width="100">４</th>
+              <th width="100">５</th>
+              <th width="100">６</th>
+              <th width="100">７</th>
+              <th width="100">８</th>
+              <th width="100">９</th>
+              <th width="100">１０</th>
+              <th width="100">１１</th>
+              <th width="*">１２</th>
+             </tr>
+            </table>
+          </td>
+          </tr>
+         </table>
+        </td>
+        </tr>
+    <tr>
+    <td>
+      <div style="width: 100%; height:500px; overflow: auto">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <!--{def data2}-->
+            <!--結果一覧-->
+            <!--{each data2}-->
+              <tr bgcolor="{rval data2/BG_COLOR}">
+                <td width="160" rowspan="2" align="left">{rval data2/HR_NAME}</td>
+                <td width="80" rowspan="2" align="center">{rval data2/SCHREGNO}</td>
+                <td width="160" rowspan="2" align="left">{rval data2/NAME}</td>
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_VALUESUB1}</td>
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_VALUESUB2}</td>
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_VALUESUB3}</td>
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_VALUESUB4}</td>
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_VALUESUB5}</td>
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_VALUESUB6}</td>
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_VALUESUB7}</td>
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_VALUESUB8}</td>
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_VALUESUB9}</td>
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_VALUESUB10}</td>
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_VALUESUB11}</td>
+                <td width="*"   align="center" id={val data2/GRDVID}>{rval data2/GRAD_VALUESUB12}</td>
+              </tr>
+              <tr bgcolor="{rval data2/BG_COLOR}">
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_INPUT_DATE1}</td>
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_INPUT_DATE2}</td>
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_INPUT_DATE3}</td>
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_INPUT_DATE4}</td>
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_INPUT_DATE5}</td>
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_INPUT_DATE6}</td>
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_INPUT_DATE7}</td>
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_INPUT_DATE8}</td>
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_INPUT_DATE9}</td>
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_INPUT_DATE10}</td>
+                <td width="100" align="center" id={val data2/GRDVID}>{rval data2/GRAD_INPUT_DATE11}</td>
+                <td width="*"   align="center" id={val data2/GRDVID}>{rval data2/GRAD_INPUT_DATE12}</td>
+              </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+          </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <div style="width: 100%; height=25; overflow: auto">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search">
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="4">
+              <tr bgcolor="#ffffff" align="center">
+                <td colspan=5><b>トータル件数&nbsp&nbsp{rval TOTALCNT}</b></td>
+              </tr>
+            </table>
+          </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+    </tr>
+
+<!-- 生徒データ -->
+<!-- 削除ボタン -->
+    <tr>
+    <td>
+      <div style="width: 100%; height=30; overflow: auto">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <!--{def button}-->
+              <tr>
+                <td>
+                  &nbsp;&nbsp;{rval button/btn_ok}{rval button/btn_reset}{rval button/btn_end}
+                </td>
+              </tr>
+            <!--{/def}-->
+            </table>
+          </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+    </tr>
+<!-- 削除ボタン -->
+    </table>
+  </td>
+  </tr>
+  </table>
+</td>
+</tr>
+</table>
+{rval finish}
+{rval Closing}</script>

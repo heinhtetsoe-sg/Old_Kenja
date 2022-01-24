@@ -1,0 +1,59 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr > 
+      <td > 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">                   
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" height="25"> 
+                <th norwarp width="17%">入試年度</th>
+                <td norwarp width="*" bgcolor="#ffffff">{val year/VAL}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr height="5">
+          <td></td>
+        </tr>
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search"> 
+              <th nowrap width="30%">入試制度</th>
+              <th nowrap width="35%">学科コード</th>
+              <th nowrap width="35%">募集枠数</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+            <!--{each data}--> 
+            <tr> 
+             <td nowrap bgcolor="#ffffff">{val data/APPLICANTDIV}:{val data/APPLICANT_NAME}</td>
+             <td nowrap bgcolor="#ffffff"><a href="knjz010tindex.php?cmd=edit&SEND_FLG=1&APPLICANTDIV={val data/APPLICANTDIV}&MAJORCD={val data/MAJORCD}" target="right_frame">{val data/MAJORCD}:{val data/MAJORLNAME}　{val data/MAJORSNAME}</a></td>
+             <td nowrap bgcolor="#ffffff">{val data/CAPACITY}</td>
+            </tr> 
+            <!--{/each}--> 
+            <!--{/def}--> 
+            </table>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">
+<!--{def reload}-->
+<!--{each reload}-->
+{rval reload}
+<!--{/each}-->
+<!--{/def}-->
+</script>

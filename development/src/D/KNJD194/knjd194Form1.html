@@ -1,0 +1,92 @@
+{rval start} 
+<!--{def button}--> 
+<!--{def data}-->
+
+<br><br><br><br><br><br><br><br><br><br>
+
+<table width="520" border="0" cellpadding="0" cellspacing="0" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" height="30">
+                      <td align="center">
+                        <b>{rval data/YEAR}年度</b>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="130">
+                      <td>
+                        <table>
+
+                          <tr bgcolor="#ffffff">
+                            <td><br>
+                              　　　　　<b>学期 {rval data/SEMESTER}　テスト種別 {rval data/TEST_CD}</b><br>
+<!--{def SHOW_SOTEN_HYOUKA}-->
+                              　　　　　　　　{rval data/SOTEN_HYOUKA1}　<LABEL for="SOTEN_HYOUKA1">素点</LABEL>　　{rval data/SOTEN_HYOUKA2}　<LABEL for="SOTEN_HYOUKA2">評価</LABEL><br><br>
+<!--{/def}-->
+                            </td>
+                          </tr>
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              　　　　　<b>出欠集計範囲</b>（{rval data/DATE_DIV1}<LABEL for="DATE_DIV1">累計</LABEL>　{rval data/DATE_DIV2}<LABEL for="DATE_DIV2">学期</LABEL>）<br>
+                              　　　　　　　　{rval data/SDATE} ～ {rval data/EDATE}<br><br>
+                            </td>
+                          </tr>
+
+                          <tr bgcolor="#ffffff">
+                            <td><br>
+                              　　　　　<b>学年 {rval data/GRADE}</b><br><br>
+                            </td>
+                          </tr>
+<!--{def checkKettenDiv}-->
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              　　　　　<b>欠点 {rval data/KETTEN}点未満</b><br><br>
+                            </td>
+                          </tr>
+<!--{/def}-->
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              　　　　　<b>上限値基準</b><br>
+                              　　　　　　　　{rval data/JOUGEN_DIV1}<LABEL for="JOUGEN_DIV1">履修上限値を超えた者</LABEL><br>
+                              　　　　　　　　{rval data/JOUGEN_DIV2}<LABEL for="JOUGEN_DIV2">修得上限値を超えた者</LABEL><br><br>
+                            </td>
+                          </tr>
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              　　　　　<b>上限値選択</b><br>
+                              　　　　　　　　{rval data/OVER_DIV1}<LABEL for="OVER_DIV1">注意</LABEL>　{rval data/OVER_DIV2}<LABEL for="OVER_DIV2">超過</LABEL><br>
+                            </td>
+                          </tr>
+
+                        </table>
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="left">
+                        {rval button/btn_print}{rval button/btn_csv}{rval button/btn_end}<font size='2' color='red'>　※序列確定処理時の得点です。</font>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

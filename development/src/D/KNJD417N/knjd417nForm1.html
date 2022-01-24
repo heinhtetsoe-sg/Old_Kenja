@@ -1,0 +1,320 @@
+{rval start}
+<!--{def button}-->
+
+<br><br><br><br><br>
+<table width="40%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="25">
+                      <td width="30%" class="no_search" align="right" nowrap>対象年度&nbsp;</td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval YEAR}年度　　{rval button/btn_copy}</td>
+                    </tr>
+                    <tr height="25">
+                      <td class="no_search" align="right" nowrap>帳票パターン&nbsp;</td>
+                      <td bgcolor="#ffffff" nowrap>&nbsp;{rval TYOUHYOU_PATTERN1}　<LABEL for="TYOUHYOU_PATTERN1">知的用</LABEL>　　{rval TYOUHYOU_PATTERN2}　<LABEL for="TYOUHYOU_PATTERN2">自立活動中心用</LABEL></td>
+                    </tr>
+<!--{def typechk_0_is_not_30}-->
+                    <tr height="25">
+                      <td class="no_search" align="right" nowrap>構成種別&nbsp;</td>
+                      <td bgcolor="#ffffff" nowrap>&nbsp;{rval COMPOSITION_TYPE}</td>
+                    </tr>
+<!--{/def}-->
+<!--{def typechk_0_is_not_1_2_3_4_30}-->
+                    <tr height="25">
+                      <td class="no_search" align="right" nowrap>構成項目名&nbsp;</td>
+                      <td bgcolor="#ffffff" nowrap>&nbsp;{rval COMPOSITION_NAME}</td>
+                    </tr>
+                    <!--{def dispcomptype_p1}-->
+                      <tr height="25">
+                        <td class="no_search" align="right" nowrap>項目数&nbsp;</td>
+                        <td bgcolor="#ffffff" nowrap>&nbsp;{rval COMPCNT}&nbsp;{rval button/btn_comp}</td>
+                      </tr>
+                    <!--{/def}-->
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td><br><br></td>
+              </tr>
+<!--{def typechk_0_is_not_1_2_3_4_30}-->
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" frame="box">
+                    <!--{def dispcomptype_p2}-->
+                    <tr class="no_search">
+                      <th width="50%">項目名</th>
+                      <th width="50%">値{rval button/btn_capture}</th>
+                    </tr>
+                    <!--入力表-->
+                    <!--{def data}-->
+                    <!--{each data}--> 
+                    <tr align="center" bgcolor="#ffffff"> 
+                      <td>{rval data/ASSESSLEVEL}</td>
+                      <td>{rval data/ASSESSMARK}</td>
+                    </tr> 
+                    <!--{/each}-->
+                    <!--{/def}-->
+                    <!--{/def}-->
+
+                    <!--{def namespare1_is_3}-->
+                    <!--{def useGradeKindCompGroupSemester}-->
+                    <tr class="no_search">
+                      <th width="30%" align="right" nowrap>学期</th>
+                      <td width="70%" bgcolor="#ffffff">{rval SEMESTER}</td>
+                    </tr> 
+                    <!--{/def}-->
+                    <tr class="no_search">
+                      <th width="30%" align="right" nowrap>学部</th>
+                      <td width="70%" bgcolor="#ffffff">{rval GAKUBU_SCHOOL_KIND}</td>
+                    </tr> 
+                    <tr class="no_search">
+                      <th width="30%" align="right" nowrap>状態区分</th>
+                      <td width="70%" bgcolor="#ffffff">{rval CONDITION}</td>
+                    </tr> 
+                    <tr class="no_search">
+                      <th width="30%" align="right" nowrap>各教科等の記録パターン</th>
+                      <td width="70%" bgcolor="#ffffff">{rval GUIDANCE_PATTERN}</td>
+                    </tr> 
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td><br></td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" frame="box">
+                    <tr class="no_search" height="30">
+                      <th width="20%">項目</th>
+                      <th width="40%">値</th>
+                      <th width="40%">初期値&nbsp;&nbsp;{rval button/btn_set}</th>
+                    </tr>
+                    <!--{def data3}-->
+                    <!--{each data3}-->
+                    <tr align="center" bgcolor="#ffffff" height="30">
+                      <td>{val data3/ITEM}</td>
+                      <td>{val data3/ITEM_REMARK}</td>
+                      <td>{val data3/DEFAULT_REMARK}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                    <!--{/def}-->
+<!--{/def}-->
+<!--{def typechk_0_is_1}-->
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="25">
+                      <td width="40%" class="no_search" align="right" nowrap>重点目標&nbsp;</td>
+                      <td width="60%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_1_KIND_SEQ_1}</td>
+                    </tr>
+                    <tr height="25">
+                      <td width="40%" class="no_search" align="right" nowrap>課題を設定した理由・実態&nbsp;</td>
+                      <td width="60%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_1_KIND_SEQ_2}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td><br><br></td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="25">
+                      <td width="40%" class="no_search" align="right" nowrap>項目(左)&nbsp;</td>
+                      <td width="60%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_1_KIND_SEQ_3}</td>
+                    </tr>
+                    <tr height="25">
+                      <td width="40%" class="no_search" align="right" nowrap>項目(中)&nbsp;</td>
+                      <td width="60%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_1_KIND_SEQ_4}</td>
+                    </tr>
+                    <tr height="25">
+                      <td width="40%" class="no_search" align="right" nowrap>項目(右)&nbsp;</td>
+                      <td width="60%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_1_KIND_SEQ_5}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td><br><br></td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="25">
+                      <td width="40%" class="no_search" align="right" nowrap>区分&nbsp;</td>
+                      <td width="60%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_1_KIND_SEQ_6}</td>
+                    </tr>
+                    <tr height="25">
+                      <td width="40%" class="no_search" align="right" nowrap>次年度の目標(年間まとめ)&nbsp;</td>
+                      <td width="60%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_1_KIND_SEQ_7}</td>
+                    </tr>
+                    <tr height="25">
+                      <td width="40%" class="no_search" align="right" nowrap>引継ぎ事項&nbsp;</td>
+                      <td width="60%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_1_KIND_SEQ_8}</td>
+                    </tr>
+<!--{/def}-->
+<!--{def typechk_0_is_2}-->
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                          <tr height="25">
+                            <td width="100%" bgcolor="#ffffff" align="center" nowrap>変更可能な項目はありません</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><br><br></td>
+                    </tr>
+<!--{/def}-->
+<!--{def typechk_0_is_3}-->
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr height="25">
+                            <td width="30%" class="no_search" align="right" nowrap>項目(左)&nbsp;</td>
+                            <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_3_KIND_SEQ_1}</td>
+                          </tr>
+                          <tr height="25">
+                            <td width="30%" class="no_search" align="right" nowrap>項目(中)&nbsp;</td>
+                            <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_3_KIND_SEQ_2}</td>
+                          </tr>
+                          <tr height="25">
+                            <td width="30%" class="no_search" align="right" nowrap>項目(右)&nbsp;</td>
+                            <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_3_KIND_SEQ_3}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><br><br></td>
+                    </tr>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr height="25">
+                            <td width="30%" class="no_search" align="right" nowrap>総合所見&nbsp;</td>
+                            <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_3_KIND_SEQ_4}</td>
+                          </tr>
+<!--{/def}-->
+<!--{def typechk_0_is_4}-->
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr height="25">
+                                  <td width="40%" class="no_search" align="right" nowrap>年間のまとめ&nbsp;</td>
+                                  <td width="60%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_4_KIND_SEQ_1}</td>
+                                </tr>
+<!--{/def}-->
+<!--{def typechk_0_is_30}-->
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr height="25">
+                                  <td width="35%" class="no_search" align="right" nowrap>支援計画の目標&nbsp;</td>
+                                  <td width="65%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_30_KIND_SEQ_1}</td>
+                                </tr>
+                                <tr height="25">
+                                  <td width="35%" class="no_search" align="right" nowrap>配慮事項&nbsp;</td>
+                                  <td width="65%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_30_KIND_SEQ_2}</td>
+                                </tr>
+                                <tr height="25">
+                                  <td width="35%" class="no_search" align="right" nowrap>重点目標&nbsp;</td>
+                                  <td width="65%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_30_KIND_SEQ_3}</td>
+                                </tr>
+                                <tr height="25">
+                                  <td width="35%" class="no_search" align="right" nowrap>目標設定理由&nbsp;</td>
+                                  <td width="65%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_30_KIND_SEQ_4}</td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><br><br></td>
+                          </tr>
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr height="25">
+                                  <td width="35%" class="no_search" align="right" nowrap>横項目1&nbsp;</td>
+                                  <td width="65%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_30_KIND_SEQ_5}</td>
+                                </tr>
+                                <tr height="25">
+                                  <td width="35%" class="no_search" align="right" nowrap>横項目2&nbsp;</td>
+                                  <td width="65%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_30_KIND_SEQ_6}</td>
+                                </tr>
+                                <tr height="25">
+                                  <td width="35%" class="no_search" align="right" nowrap>横項目3&nbsp;</td>
+                                  <td width="65%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_30_KIND_SEQ_7}</td>
+                                </tr>
+                                <tr height="25">
+                                  <td width="35%" class="no_search" align="right" nowrap>横項目4&nbsp;</td>
+                                  <td width="65%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_30_KIND_SEQ_8}</td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><br><br></td>
+                          </tr>
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr height="25">
+                                  <td width="35%" class="no_search" align="right" nowrap>縦項目1&nbsp;</td>
+                                  <td width="65%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_30_KIND_SEQ_9}</td>
+                                </tr>
+                                <tr height="25">
+                                  <td width="35%" class="no_search" align="right" nowrap>縦項目2&nbsp;</td>
+                                  <td width="65%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_30_KIND_SEQ_10}</td>
+                                </tr>
+                                <tr height="25">
+                                  <td width="35%" class="no_search" align="right" nowrap>縦項目3&nbsp;</td>
+                                  <td width="65%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_30_KIND_SEQ_11}</td>
+                                </tr>
+                                <tr height="25">
+                                  <td width="35%" class="no_search" align="right" nowrap>縦項目4&nbsp;</td>
+                                  <td width="65%" bgcolor="#ffffff" nowrap>&nbsp;{rval KIND_NO_30_KIND_SEQ_12}</td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><br><br></td>
+                          </tr>
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{/def}-->
+                    <tr class="no_search">
+                      <td colspan="3" align="center">
+                          {rval button/btn_update}&nbsp;
+                          {rval button/btn_delete}&nbsp;
+                          {rval button/btn_reset}&nbsp;
+                          {rval button/btn_end}&nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_print}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br><br>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+{rval finish}

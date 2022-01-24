@@ -1,0 +1,70 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR><BR><BR>
+
+<table width="40%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <td align="center" nowrap>
+                        対象年度&nbsp;{rval YEAR}　
+                        {rval DATADIV1}<LABEL for="DATADIV1">新入生(転)</LABEL>　{rval DATADIV2}<LABEL for="DATADIV2">在校生</LABEL>　
+                        <!--{def schkind}-->{rval SCHOOL_KIND}<!--{/def}-->　入金グループ：{rval COLLECT_GRP_CD}　入金パターン：{rval LIST_COLLECT_PATTERN_CD}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th>対象生徒一覧</th>
+                      <th class="no_search"></th>
+                      <th>生徒一覧</th>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff">
+                      <td>入金パターン：{rval COLLECT_PATTERN_CD}{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

@@ -1,0 +1,183 @@
+{rval start}
+<style>
+.box td{
+	border-left:1px solid #CCCCCC;
+	border-bottom:1px solid #CCCCCC;
+}
+</style>
+<!--{def data}-->
+<!--{def button}-->
+<br>
+<table width="80%" border="0" cellspacing="0" cellpadding="10" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tr class="no_search" height="35" nowrap>
+                      <td align="center" nowrap colspan="2">
+                        <B>学校日誌</B>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th bgcolor="#ffffff">
+                        <!--{def sel/SCHOOL_KIND}-->&nbsp;&nbsp;校種：{rval sel/SCHOOL_KIND}<!--{/def}-->&nbsp;&nbsp;日付：{rval sel/DIARY_DATE}&nbsp;&nbsp;天気：{rval sel/WEATHER}&nbsp;{rval sel/WEATHER2}
+                      </th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr height="20"></tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr>
+                      <th class="no_search" width="17%" nowrap>項目</th>
+                      <th class="no_search" width="*" nowrap>値</th>
+                    </tr>
+                    <tr>
+                      <th class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <td>&nbsp;<td>
+                            <td align="right" nowrap>日直<td>
+                          </tr>
+                        </table>
+                      </th>
+                      <td bgcolor="#ffffff">{rval data/SEQ002_REMARK1}&nbsp;{rval data/SEQ002_REMARK2}&nbsp;時&nbsp;{rval data/SEQ002_REMARK3}&nbsp;分&nbsp;～&nbsp;{rval data/SEQ002_REMARK4}&nbsp;{rval data/SEQ002_REMARK5}&nbsp;時&nbsp;{rval data/SEQ002_REMARK6}&nbsp;分</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <td>&nbsp;<td>
+                            <td align="right" nowrap>巡視記録<td>
+                          </tr>
+                        </table>
+                      </th>
+                      <td bgcolor="#ffffff">{rval data/SEQ002_REMARK7}<br><font size=2, color="red">{rval data/SEQ002_REMARK7_COMMENT}</font></td>
+                    </tr>
+                    <tr>
+                      <th class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <td>&nbsp;<td>
+                            <td align="right" nowrap>休暇欠勤<td>
+                          </tr>
+                        </table>
+                      </th>
+                      <td bgcolor="#ffffff" style="padding:0">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+                          <tr class="no_search">
+                            <td>　氏　名</td>
+                            <td>　理　由</td>
+                          </tr>
+                          <tr>
+                            <td>{rval data/SEQ001_REMARK1}</td>
+                            <td>{rval data/SEQ001_REMARK2}</td>
+                          </tr>
+                          <tr>
+                            <td><font size=2, color="red">{rval data/SEQ001_REMARK1_COMMENT}</font></td>
+                            <td><font size=2, color="red">{rval data/SEQ001_REMARK2_COMMENT}</font></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <td>&nbsp;<td>
+                            <td align="right" nowrap>出張<td>
+                          </tr>
+                        </table>
+                      </th>
+                      <td bgcolor="#ffffff" style="padding:0">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+                          <tr class="no_search">
+                            <td>　氏　名</td>
+                            <td>　行　先</td>
+                            <td>　目　的</td>
+                          </tr>
+                          <tr>
+                            <td>{rval data/SEQ001_REMARK3}</td>
+                            <td>{rval data/SEQ001_REMARK4}</td>
+                            <td>{rval data/SEQ001_REMARK5}</td>
+                          </tr>
+                          <tr>
+                            <td><font size=2, color="red">{rval data/SEQ001_REMARK3_COMMENT}</font></td>
+                            <td><font size=2, color="red">{rval data/SEQ001_REMARK4_COMMENT}</font></td>
+                            <td><font size=2, color="red">{rval data/SEQ001_REMARK5_COMMENT}</font></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <td>&nbsp;<td>
+                            <td align="right" nowrap>来校者<td>
+                          </tr>
+                        </table>
+                      </th>
+                      <td bgcolor="#ffffff">{rval data/SEQ002_REMARK8}<br><font size=2, color="red">{rval data/SEQ002_REMARK8_COMMENT}</font></td>
+                    </tr>
+
+                    <tr>
+                      <th class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <td>&nbsp;<td>
+                            <td align="right" nowrap>学校行事<br>その他の記録<td>
+                          </tr>
+                        </table>
+                      </th>
+                      <td bgcolor="#ffffff">{rval data/SEQ003_REMARK1}<br><font size=2, color="red">{rval data/SEQ003_REMARK1_COMMENT}</font></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      <tr height="5"></tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr>
+                      <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_delete}　{rval button/btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+     </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish} 
+<script language="JavaScript">
+</script>
+

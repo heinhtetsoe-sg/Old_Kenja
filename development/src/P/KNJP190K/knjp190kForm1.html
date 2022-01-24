@@ -1,0 +1,55 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="3">
+          <tr class="no_search_line" height="24">
+            <td class="no_search" >&nbsp;{rval SCHREGNO}&nbsp;&nbsp;{rval NAME_SHOW}</td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line">
+        <td>
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search" height="30">
+            <th nowrap width="24%">交付コード</th>
+            <th nowrap width="7%">交付年度</th>
+            <th nowrap width="10%">交付開始日</th>
+            <th nowrap width="10%">交付終了日</th>
+            <th nowrap width="11%">交付金額</th>
+            <th nowrap width="*%">備考</th>
+          </tr>
+          <!--結果一覧-->
+          <!--{def data}-->
+          <!--{each data}-->
+          <tr>
+             <td nowrap bgcolor="#ffffff">
+             <a href="knjp190kindex.php?cmd=edit&GRANTCD={val data/GRANTCD}&SCHREGNO={rval SCHREGNO}" target="edit_frame">{val data/GRANTCDNAME}</a></td>
+             <td nowrap bgcolor="#ffffff" align="right">{val data/YEAR}</td>
+             <td nowrap bgcolor="#ffffff" align="center">{val data/GRANTSDATE}</td>
+             <td nowrap bgcolor="#ffffff" align="center">{val data/GRANTEDATE}</td>
+             <td nowrap bgcolor="#ffffff" align="right">{val data/GRANT_MONEY}</td>
+             <td nowrap bgcolor="#ffffff">{val data/REMARK}</td>
+          </tr>
+          <!--{/each}-->
+          <!--{/def}-->
+          </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval reload}{rval close}</script>
+{rval finish}

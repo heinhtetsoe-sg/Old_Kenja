@@ -1,0 +1,108 @@
+{rval start} 
+<!--{def button}-->
+<!--{def data}-->
+
+<table><tr height="100">　</tr></table>
+<table width="450" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr bgcolor="#ffffff">
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="5">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr class="no_search">
+                <th><b>対象年度：{rval YEAR}&nbsp;校種：{rval data/SCHOOL_KIND}</b></th>
+              </tr>
+              <tr bgcolor="#ffffff" height="110">
+                <td>
+                  <table width="100%">
+                    <tr>
+                      <td  nowrap colspan="2" align="left">
+                        <B>●&nbsp;フォーマット指定</B><BR>
+                        　　{rval data/OUTPUT1}<LABEL for="OUTPUT1">引落し</LABEL>　{rval data/OUTPUT2}<LABEL for="OUTPUT2">返金</LABEL>
+                        <BR><BR>
+                        　　{rval data/STAFF_LUNCH}<LABEL for="STAFF_LUNCH">教員給食費</LABEL>&nbsp;{rval FILE}
+                        <BR><BR>
+                        　　{rval data/MONTH}&nbsp;{rval data/MONTH_DATE}
+                        <BR><BR>
+                      <!--{def HIKIOTOSHI}-->
+                        　　振替日変更{rval data/TRANSFER_DATE}<br>
+                            　　※指定すると振替日が変更できます。
+                        <BR><BR>
+                        　　再振替日{rval data/RETRANSFER_DATE}
+                      <!--{/def}-->
+                      <!--{def HENKIN}-->
+                        　　　返金日:{rval data/HENKIN_DATE}
+                      <!--{/def}-->
+                        <BR><BR>
+                        ●&nbsp;印刷のみ<BR>
+                        　　送付日:{rval data/PRINT_DATE}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search" align="left">
+                <td nowrap>
+                &nbsp;{rval button/btn_csv}&nbsp;{rval data/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL>
+                </td>
+              </tr>
+              <tr bgcolor="#ffffff" height="50">
+                <td>
+                  <table width="100%">
+                    <tr>
+                      <td  nowrap align="left">
+                        <B>●&nbsp;帳票種類</B><BR>
+                        <!--{def HIKIOTOSHI}-->
+                          　　{rval data/PRINT_TYPE1}<LABEL for="PRINT_TYPE1">自動払込書</LABEL>
+                            　{rval data/PRINT_TYPE2}<LABEL for="PRINT_TYPE2">請求データ明細リスト</LABEL><BR>
+                        <!--{/def}-->
+                        <!--{def HENKIN}-->
+                          　　{rval data/PRINT_TYPE1}<LABEL for="PRINT_TYPE1">振替払出書</LABEL>
+                            　{rval data/PRINT_TYPE2}<LABEL for="PRINT_TYPE2">返金データ明細リスト</LABEL><BR>
+                        <!--{/def}-->
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search" align="left">
+                <td nowrap>
+                &nbsp;{rval button/btn_print}　　　　　　　　　　　　　　　{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<font color="#ffffff">{rval TOP/PRGID}</font>
+<font color="#ffffff">{rval TOP/DBNAME}</font>
+<font color="#ffffff">{rval TOP/CTRL_YEAR}</font>
+<font color="#ffffff">{rval TOP/CTRL_SEMESTER}</font>
+<font color="#ffffff">{rval TOP/CTRL_DATE}</font>
+<font color="#ffffff">{rval TOP/SCHOOLCD}</font>
+<font color="#ffffff">{rval TOP/useCurriculumcd}</font>
+<font color="#ffffff">{rval TOP/useOutputOverMonth}</font>
+<font color="#ffffff">{rval TOP/printKouzaKigou}</font>
+<font color="#ffffff">{rval TOP/printKyokuBan}</font>
+<font color="#ffffff">{rval TOP/printLimitDate}</font>
+<font color="#ffffff">{rval TOP/printLimitDate2}</font>
+<font color="#ffffff">{rval TOP/printSaiHuri}</font>
+<font color="#ffffff">{rval TOP/printTotalCnt}</font>
+<font color="#ffffff">{rval TOP/printTotalMoney}</font>
+<font color="#ffffff">{rval TOP/printSyubetsu}</font>
+<font color="#ffffff">{rval TOP/printJigyounushi}</font>
+<font color="#ffffff">{rval TOP/printUkeireJcCd}</font>
+<font color="#ffffff">{rval TOP/setLimitDay}</font>
+<font color="#ffffff">{rval TOP/toriKyouName}</font>
+<font color="#ffffff">{rval TOP/tesuRyo}</font>
+<font color="#ffffff">{rval TOP/useBenefit}</font>
+
+<!--{/def}-->
+<!--{/def}-->
+<script language="JavaScript">
+{rval printgo}
+</script>
+{rval finish}

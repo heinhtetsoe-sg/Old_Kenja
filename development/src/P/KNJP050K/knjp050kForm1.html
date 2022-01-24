@@ -1,0 +1,56 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr class="no_search_line">
+           <th>
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search">
+          <th nowrap width="120" align="center">処理年度：{rval YEAR}</th>
+          <th nowrap align = "left">&nbsp;学年：{rval GRADE}&nbsp;&nbsp;&nbsp;{rval copy_btn}</th>
+          </tr>
+        </table>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+    <tr> 
+  <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr >
+        <td > 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line"> 
+        <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search"> 
+              <th nowrap width="30%">費目グループ名称</th>
+              <th nowrap width="10%">クラス</th>
+              <th nowrap width="20%">費目中分類名称</th>
+              <th nowrap width="40%">費目小分類名称</th>
+          </tr>
+          <!--{def data}-->
+          <!--結果一覧-->
+          <!--{each data}--> 
+          <tr> 
+              <td nowrap bgcolor="#ffffff">{val data/EXPENSE_GRP_CD}</td>
+              <td nowrap bgcolor="#ffffff">{val data/HR_NAMEABBV}</td>
+              <td nowrap align="left" bgcolor="#ffffff">{val data/EXPENSE_M_CD}</td>
+              <td nowrap align="left" bgcolor="#ffffff">{val data/EXPENSE_S_CD}</td>
+          </tr> 
+          <!--{/each}--> 
+          <!--{/def}-->
+            </table>
+        </td>
+          </tr>
+      </table>
+        </td>
+    </tr>
+      </table>
+  </td>
+   </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

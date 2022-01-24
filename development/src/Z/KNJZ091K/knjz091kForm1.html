@@ -1,0 +1,67 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="8">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th norwarp width="25%">対象年度&nbsp;{rval year}</th>
+                      <td norwarp width="75%">&nbsp;{rval btn_pre_copy}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th nowrap width="15%" rowspan="2">基準額</th>
+                      <th nowrap width="8%" rowspan="2">学年</th>
+                      <th nowrap width="15%" rowspan="2">支援加算額</th>
+                      <th nowrap width="30%" colspan="2">所得割額</th>
+                      <th nowrap width="32%" rowspan="2">備考</th>
+                    </tr>
+                    <tr class="no_search" height="25">
+                      <th nowrap width="15%">下限額</th>
+                      <th nowrap width="15%">上限額</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/REDUCTIONMONEY}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/GRADE}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/REDUCTION_ADD_MONEY}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/INCOME_LOW}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/INCOME_HIGH}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/REDUCTIONREMARK}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

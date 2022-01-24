@@ -1,0 +1,86 @@
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="10">
+<tr>
+    <td width="45%">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr class="no_search_line"> 
+        <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr>
+                  <th class="no_search" align="center" colspan="3">総合的な学習の時間　評価内容一括入力</th>
+                </tr>
+                <tr>
+                  <th class="no_search" width="30" align="center">　</th>
+                  <th width="15%" height="30" align="center" class="no_search" nowrap>評価コード</th>
+                  <th class="no_search">評価定型文</th>
+                </tr>
+                <!--{def list_data}-->
+                <!--{each list_data}-->
+                <tr bgcolor="#ffffff">
+                  <td nowrap width="30" align="center">{rval list_data/CHECK}</td>
+                  <td width="30" align="center">{rval list_data/PATTERN_CD}</td>
+                  <td width="*" align="left">{rval list_data/REMARK}</td>
+                </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                <tr>
+                  <td class="no_search" width="30"></td>
+                  <td width="15%" height="30" align="center" class="no_search" nowrap></td>
+                  <td bgcolor="#ffffff" align="center">{rval button/btn_add}{rval button/btn_back}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+    <td width="55%" valign="top">
+    <table width="100%" border="0" cellpadding="0" cellspacing="10" align="center">
+    <tr>
+        <td>
+        <hr>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <!--{def TOP}--> 
+        <tr>
+            <td bgcolor="#ffffff">{rval TOP}</td>
+        </tr>
+        <!--{/def}--> 
+        </table>
+        <hr>
+        </td>
+    </tr>
+    <tr class="no_search_line"> 
+        <td nowrap> 
+        <table width="100%" border="0" cellpadding="0" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+            <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="10" >
+            <tr class="no_search_line"> 
+                <td width="100%"> 
+                <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                <tr align="center" class="no_search"> 
+                  <th><b>対象者一覧</b></th>
+                  <th class="no_search"></th>
+                  <th><b>生徒一覧</b></th>
+                </tr>
+                <tr align="center" bgcolor="#ffffff">
+                  <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                  <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                    {rval button/btn_left1}<BR>
+                    {rval button/btn_right1}<BR>
+                    {rval button/btn_rights}
+                  <td width="45%">{rval data/CATEGORY_NAME}</td>
+                </tr>
+                </table>
+                </td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+{rval finish} 

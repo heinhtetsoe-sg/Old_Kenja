@@ -1,0 +1,51 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+  <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr >
+      <td >
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr height="5">
+          <td></td>
+        </tr>
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+              <th nowrap width="25%">学科コード</th>
+              <th nowrap width="25%">大学科名称</th>
+              <th nowrap width="25%">小学科名称</th>
+              <th nowrap width="25%">(賢者)学科コード</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+            <!--{each data}-->
+            <tr>
+             <td nowrap bgcolor="#ffffff"><a href="knjz041tindex.php?cmd=edit&SEND_FLG=1&MAJORLCD={val data/MAJORLCD}&MAJORSCD={val data/MAJORSCD}" target="right_frame">{val data/MAJORLCD}{val data/MAJORSCD}</a></td>
+             <td nowrap bgcolor="#ffffff">{val data/MAJORLNAME}</td>
+             <td nowrap bgcolor="#ffffff">{val data/MAJORSNAME}</td>
+             <td nowrap bgcolor="#ffffff">{val data/MAIN_MAJORCD}</td>
+            </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">
+<!--{def reload}-->
+<!--{each reload}-->
+{rval reload}
+<!--{/each}-->
+<!--{/def}-->
+</script>

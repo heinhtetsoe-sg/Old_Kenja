@@ -1,0 +1,100 @@
+{rval start}
+<table style="width: 700px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+  <table style="width: 700px" border="0" cellspacing="5" cellpadding="1">
+  <tr> 
+  <td>
+    <table style="width: 700px" border="0" cellspacing="0" cellpadding="0">
+    <tr class="no_search_line">
+    <td><!-- first table for subclass -->
+      <table style="width: 700px" border="0" cellspacing="1" cellpadding="4">
+      <tr class="no_search" height="35" nowrap>
+      <td align="center" nowrap colspan="2"><B>検索指示入力</B></td>
+      </tr>
+      <tr  bgcolor="#ffffff" height="110">
+      <td colspan="2">
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学籍番号&nbsp;&nbsp;：{rval data/SCHREGNO}&nbsp;&nbsp;<span style="color:red">※半角８桁</span>
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;氏名(漢字)：{rval data/NAME}&nbsp;&nbsp;<span style="color:red">※全角</span>
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;氏名(かな)：{rval data/NAME_KANA}&nbsp;&nbsp;<span style="color:red">※全角</span>
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：{rval data/GRADE}&nbsp;&nbsp;<span style="color:red">※半角２桁</span>
+      <br>&nbsp;
+      </td></tr>
+      <!--{def button}-->
+      <tr class="no_search" ><td width="80%"></td>
+      <td bgcolor="#ffffff">&nbsp;&nbsp;{rval button/BTN_OK}{rval button/BTN_CLEAR}&nbsp;&nbsp;</td>
+      </tr>
+      <!--{/def}-->
+      </table>
+    </td>
+    </tr>
+    <tr>
+      <td><BR><BR>
+       <table width="100%" border="0" cellspacing="0" cellpadding="1" >
+        <tr class="no_search_line">
+           <th>
+          <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#cccccc">
+          <tr> 
+          <th align="center"><B>検索結果表示</B></th>
+          </tr>
+          </table>
+          </th>
+        </tr>
+        </table>
+      </td>
+    </tr>
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="70">クラス</th>
+              <th width="70">学籍番号</th>
+              <th width="140">氏名</th>
+              <th width="40">性別</th>
+              <th width="*">住所</th>
+             </tr>
+            </table>
+          </td>
+          </tr>
+         </table>
+        </td>
+        </tr>
+    </tr>
+    <tr>
+    <td>
+      <div style="width: 100%; height=260; overflow: auto">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3"> 
+            <!--{def data2}-->
+            <!--結果一覧-->
+            <!--{each data2}--> 
+              <tr bgcolor="#ffffff" >            
+                <td width="70" align="center">{rval data2/CLASS_NAME}</td>
+                <td width="70" align="center">{rval data2/SCHREGNO}</td>
+                <td width="140" align="left">{rval data2/NAME}</td>
+                <td width="40" align="center">{rval data2/SEX_NAME}</td>
+                <td width="*" align="left">{rval data2/ADDR}</td>
+              </tr> 
+            <!--{/each}--> 
+            <!--{/def}-->
+            </table>
+          </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+  </table>
+</td>
+</tr>
+</table>
+{rval finish} 
+<script language="JavaScript"></script>

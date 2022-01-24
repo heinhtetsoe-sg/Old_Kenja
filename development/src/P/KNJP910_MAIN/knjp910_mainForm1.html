@@ -1,0 +1,262 @@
+{rval start}
+<table style="width: 100%" border="0" cellpadding="5" cellspacing="5" align="center">
+<tr>
+<td>
+  <table style="width: 100%" border="0" cellspacing="5" cellpadding="1">
+    <tr>
+      <td>
+       <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr class="no_search_line">
+           <th>
+          <table width="100%" border="0" cellspacing="0" cellpadding="3">
+          <tr> 
+          <th height="30" align="left" class="no_search"><B>　　支出伺</B>　　　伝票番号:{rval data/REQUEST_NO}<!--{def HENKIN_FLG_SET}-->　{rval data/HENKIN_FLG}<LABEL for="HENKIN_FLG">生徒返金用</LABEL><!--{/def}--></th>
+          </tr>
+          </table>
+          </th>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                  <th width="13%" align="right" class="no_search" nowrap>預り金科目(収入)</th>
+                  <td width="35%" bgcolor="#ffffff">{rval data/INCOME_L_CD}</td>
+                  <th width="13%" align="right" class="no_search" nowrap>現入金残高</th>
+                  <td width="*%" bgcolor="#ffffff"><span id="TOTAL_ZAN_GK">{rval data/TOTAL_ZAN_GK}</span></td>
+              </tr>
+              <tr>
+                  <td width="35%" bgcolor="#ffffff" colspan="2"></td>
+                  <th width="13%" align="right" class="no_search" nowrap>収入伺い日入金残高</th>
+                  <td width="*%" bgcolor="#ffffff"><span id="TOTAL_ZAN_GK">{rval data/TOTAL_ZAN_DATE_GK}</span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+    
+    <tr height="5"></tr>
+    
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                  <th width="13%" align="right" class="no_search" nowrap>預り金項目(支出)</th>
+                  <td width="35%" bgcolor="#ffffff">{rval data/OUTGO_L_M_CD}</td>
+                  <th width="13%" align="right" class="no_search" nowrap>支出伺い日</th>
+                  <td width="*%" bgcolor="#ffffff">{rval data/REQUEST_DATE}</td>
+              </tr>
+              <tr>
+                  <!--{def NOT_HENKIN_HYOUJI}-->
+                  <td bgcolor="#ffffff" nowrap rowspan="2" colspan="2"></td>
+                  <!--{/def}-->
+                  <!--{def HENKIN_HYOUJI}-->
+                  <td align="right" class="no_search" >入金細目<BR><font size="1">※返金可能な細目のみ</font></td>
+                  <td bgcolor="#ffffff">{rval data/COLLECT_L_M_S_GRP_CD}</td>
+                  <!--{/def}-->
+                  <th align="right" class="no_search" >起案者</th>
+                  <td bgcolor="#ffffff">{rval data/REQUEST_STAFF}</td>
+              </tr>
+              <tr>
+                  <!--{def HENKIN_HYOUJI}-->
+                  <td align="right" bgcolor="#ffffff" nowrap colspan="2">{rval data/SET_HENKIN_STATUS}</td>
+                  <!--{/def}-->
+                  <th align="right" class="no_search" >支出額</th>
+                  <td bgcolor="#ffffff">{rval data/REQUEST_GK}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+    
+    <tr height="5"></tr>
+    
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                  <th width="13%" align="right" class="no_search" nowrap>決議理由</th>
+                  <td bgcolor="#ffffff" colspan="3">{rval data/REQUEST_REASON}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+    
+    <tr height="5"></tr>
+    
+    <tr>
+    <td>
+      <table width="85%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                  <th width="5%" align="center" class="no_search" nowrap>NO</th>
+                  <th width="30%" align="center" class="no_search" nowrap>品名等</td>
+                  <th width="12%" align="center" class="no_search" nowrap>単価(税込)</td>
+                  <th width="12%" align="center" class="no_search" nowrap>数量</td>
+                  <th width="12%" align="center" class="no_search" nowrap>金額(税込)</td>
+                  <th width="20%" align="center" class="no_search" nowrap>摘要</td>
+                  <th width="*" align="center" class="no_search" nowrap></td>
+              </tr>
+              <tr>
+                  <th align="center" class="no_search" nowrap>1</th>
+                  <th align="left" bgcolor="#ffffff">{rval data/LEVY_S_NAME1}</td>
+                  <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_PRICE1}</td>
+                  <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_CNT1}</td>
+                  <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_PRICE_ZEINUKI1}</td>
+                  <th align="left" bgcolor="#ffffff">{rval data/REMARK1}</td>
+                  <th align="center" bgcolor="#ffffff">{rval button/btn_schreg1}</td>
+              </tr>
+              <tr>
+                  <th align="center" class="no_search" nowrap>2</th>
+                  <th align="left" bgcolor="#ffffff">{rval data/LEVY_S_NAME2}</td>
+                  <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_PRICE2}</td>
+                  <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_CNT2}</td>
+                  <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_PRICE_ZEINUKI2}</td>
+                  <th align="left" bgcolor="#ffffff">{rval data/REMARK2}</td>
+                  <th align="center" bgcolor="#ffffff">{rval button/btn_schreg2}</td>
+              </tr>
+              <tr>
+                  <th align="center" class="no_search" nowrap>3</th>
+                  <th align="left" bgcolor="#ffffff">{rval data/LEVY_S_NAME3}</td>
+                  <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_PRICE3}</td>
+                  <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_CNT3}</td>
+                  <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_PRICE_ZEINUKI3}</td>
+                  <th align="left" bgcolor="#ffffff">{rval data/REMARK3}</td>
+                  <th align="center" bgcolor="#ffffff">{rval button/btn_schreg3}</td>
+              </tr>
+              <tr>
+                  <th align="center" class="no_search" nowrap>4</th>
+                  <th align="left" bgcolor="#ffffff">{rval data/LEVY_S_NAME4}</td>
+                  <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_PRICE4}</td>
+                  <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_CNT4}</td>
+                  <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_PRICE_ZEINUKI4}</td>
+                  <th align="left" bgcolor="#ffffff">{rval data/REMARK4}</td>
+                  <th align="center" bgcolor="#ffffff">{rval button/btn_schreg4}</td>
+              </tr>
+              <tr>
+                  <th align="center" class="no_search" nowrap>5</th>
+                  <th align="left" bgcolor="#ffffff">{rval data/LEVY_S_NAME5}</td>
+                  <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_PRICE5}</td>
+                  <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_CNT5}</td>
+                  <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_PRICE_ZEINUKI5}</td>
+                  <th align="left" bgcolor="#ffffff">{rval data/REMARK5}</td>
+                  <th align="center" bgcolor="#ffffff">{rval button/btn_schreg5}</td>
+              </tr>
+              <tr>
+                  <th align="center" class="no_search" nowrap></th>
+                  <th align="left" bgcolor="#ffffff">振込手数料</td>
+                  <th align="right"  bgcolor="#ffffff"></td>
+                  <th align="right"  bgcolor="#ffffff"></td>
+                  <th align="right"  bgcolor="#ffffff">{rval data/REQUEST_TESUURYOU}</td>
+                  <th align="left" bgcolor="#ffffff"></td>
+                  <th align="center" bgcolor="#ffffff"></td>
+              </tr>
+              <tr>
+                  <th align="center" class="no_search" colspan="2" nowrap>計</th>
+                  <th align="center" bgcolor="#ffffff"></td>
+                  <th align="center" bgcolor="#ffffff"></td>
+                  <th align="right"  bgcolor="#ffffff"><span id="SUM_TOTAL_PRICE_ALL">{rval data/SUM_TOTAL_PRICE_ALL}</span></td>
+                  <th align="center" bgcolor="#ffffff">{rval data/SET_STATUS}</td>
+                  <th align="center" bgcolor="#ffffff"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr height="5"></tr>
+<!--{def NOT_HENKIN_HYOUJI}-->
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                  <th width="13%" align="right" class="no_search" nowrap>業者コード</th>
+                  <td width="35%" bgcolor="#ffffff">{rval data/TRADER_CD}　{rval btn_torikomi}</td>
+                  <th width="13%" align="right" class="no_search" nowrap>業者名</th>
+                  <td width="*%" bgcolor="#ffffff">{rval data/TRADER_NAME}</td>
+              </tr>
+              <tr>
+                  <th width="13%" align="right" class="no_search" nowrap>銀行コード</th>
+                  <td width="35%" bgcolor="#ffffff">{rval data/BANKCD}</td>
+                  <th width="13%" align="right" class="no_search" nowrap>支店コード</th>
+                  <td width="*%" bgcolor="#ffffff">{rval data/BRANCHCD}</td>
+              </tr>
+              <tr>
+                  <th width="13%" align="right" class="no_search" nowrap>口座種別</th>
+                  <td width="35%" bgcolor="#ffffff">{rval data/BANK_DEPOSIT_ITEM}</td>
+                  <th width="13%" align="right" class="no_search" nowrap>口座番号</th>
+                  <td width="*%" bgcolor="#ffffff">{rval data/BANK_ACCOUNTNO}</td>
+              </tr>
+              <tr>
+                  <th width="13%" align="right" class="no_search" nowrap>口座名義</th>
+                  <td width="35%" bgcolor="#ffffff">{rval data/ACCOUNTNAME}</td>
+                  <th width="13%" align="right" class="no_search" nowrap>口座名義カナ</th>
+                  <td width="*%" bgcolor="#ffffff">{rval data/ACCOUNTNAME_KANA}</td>
+              </tr>
+              <tr>
+                  <th width="13%" align="right" class="no_search" nowrap>支払方法</th>
+                  <td width="*%" bgcolor="#ffffff" colspan="3">{rval data/PAY_DIV}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+<!--{/def}-->
+
+<!--{def button}-->
+    <tr>
+      <td>
+       <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr class="no_search_line">
+           <th>
+          <table width="100%" border="0" cellspacing="0" cellpadding="3">
+          <tr> 
+          <th height="30" align="center" class="no_search">{rval button/btn_update}{rval button/btn_delete}{rval button/btn_reset}{rval button/btn_end}　　{rval button/btn_kessai}<!--{def kounyu_hyouji}-->　{rval button/btn_kounyu}<!--{/def}--><!--{def sekou_hyouji}-->　{rval button/btn_sekou}<!--{/def}--><!--{def seisan_hyouji}-->　{rval button/btn_seisan}<!--{/def}-->　{rval button/btn_print}</th>
+          </tr>
+          </table>
+          </th>
+        </tr>
+        </table>
+      </td>
+    </tr>
+<!--{/def}-->
+
+    </table>
+  </td>
+  </tr>
+  </table>
+</td>
+</tr>
+</table>
+<div id="lay"></div>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>
+

@@ -1,0 +1,70 @@
+{rval start}
+&nbsp;&nbsp;<table width="410" border="0" cellspacing="10" cellpadding="0" >
+  <tr bgcolor="#006633">
+        <td>
+          <table border="0" cellpadding="3" cellspacing="1" width="100%">
+                <tr bgcolor="#CCCCCC">
+                  <td nowrap>
+                    &nbsp;{rval HEADERS/YEAR}{rval HEADERS/SEMES}&nbsp;
+                  </td>
+                  <td nowrap>
+                    &nbsp;{rval HEADERS/CMB_CLASS}&nbsp;
+                  </td>
+                </tr>
+          </table>
+        </td>
+    </tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+        <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr > 
+                  <td > 
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line"> 
+                                <td> 
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search">
+                                          <th width="2%" nowrap>&nbsp;</th>
+                                          <th width="30%" nowrap>講座名</th>
+                                          <th width="25%" nowrap>科目名</th>
+                                          <th width="25%" nowrap>担当職員</th>
+                                          <th width="18%" nowrap>受講クラス</th>
+                                        </tr>
+                                        <!--{def data}-->
+                                        <!--結果一覧-->
+                                        <!--{each data}--> 
+                                        <tr> 
+                                            <td nowrap width="2%" bgcolor="#ffffff" align="center">
+                                                {val data/COLOR_S}{val data/MAINCLASS}{val data/COLOR_E}
+                                            </td>
+                                            <td nowrap width="30%" bgcolor="#ffffff">
+                                                {val data/COLOR_S}&nbsp;{val data/LINK}{val data/COLOR_E}
+                                            </td>
+                                            <td nowrap width="45%" bgcolor="#ffffff">
+                                                {val data/COLOR_S}&nbsp;{val data/CLSNAME}&nbsp;&nbsp;{val data/SUBCLASSNAME}{val data/COLOR_E}
+                                            </td>
+                                            <td nowrap width="25%" bgcolor="#ffffff">
+                                                {val data/COLOR_S}&nbsp;{val data/STAFF}&nbsp;&nbsp;{val data/STAFFNAME_SHOW}{val data/COLOR_E}
+                                            </td>
+                                            <td nowrap width="18%" bgcolor="#ffffff">
+                                                {val data/COLOR_S}&nbsp;{val data/TARGETCLS}{val data/COLOR_E}
+                                            </td>
+                                        </tr> 
+                                        <!--{/each}--> 
+                                        <!--{/def}-->
+                                    </table>    
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+{rval finish}
+<script language="javascript">{rval reload}{rval jscript}</script>
+<!--                        <div style="width:100%;height:550;overflow:auto";>-->

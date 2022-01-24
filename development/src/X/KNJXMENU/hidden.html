@@ -1,0 +1,30 @@
+<script language="JavaScript">
+var path = top.opener.location.pathname;
+function winStart(programid){
+    top.opener.location.href = path+'?cmd=start&PROGRAMID='+programid;
+    top.window.moveTo(0,0);
+    top.window.resizeTo(window.screen.width, window.screen.height);
+    top.window.focus();
+    setInterval('observeDisp()',5000);
+}
+function winClose(programid){
+    top.opener.location.href = path+'?cmd=finish&PROGRAMID='+programid;
+}
+function is_opener() {
+
+    var ua = navigator.userAgent
+    if(!!top.window.opener)
+        if( ua.indexOf('MSIE 4')!=-1 && ua.indexOf('Win')!=-1)
+             return !top.window.opener.closed
+        else return typeof top.window.opener.document  == 'object'
+    else return false
+
+}
+function observeDisp(){
+    if (!is_opener()){
+        top.window.close();
+    }
+}
+window.onload = new Function("winStart('{rval PROGRAMID}');");
+window.onunload = new Function("winClose('{rval PROGRAMID}');");
+</script>

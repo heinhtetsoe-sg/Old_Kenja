@@ -1,0 +1,101 @@
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr class="no_search_line">
+    <td>
+      <table border="0" cellpadding="2" cellspacing="1" width="100%">
+        <tr class="no_search_line">
+          <td class="no_search" colspan="2" align="center">検索</td>
+        </tr>
+        <tr class="no_search_line">
+          <td class="no_search" style="width:40%;text-align:center;">受験番号</td>
+          <td bgcolor="ffffff">{rval EXAMNO}</td>
+        </tr>
+        <tr class="no_search_line">
+          <td class="no_search" style="text-align:center;">氏名</td>
+          <td bgcolor="ffffff">{rval NAME_SEI} {rval NAME_MEI}</td>
+        </tr>
+        <tr class="no_search_line">
+          <td class="no_search" style="text-align:center;">試験会場</td>
+          <td bgcolor="ffffff">{rval PLACECD}</td>
+        </tr>
+        <tr class="no_search_line">
+          <td class="no_search" style="text-align:center;">中学校名</td>
+          <td bgcolor="ffffff">{rval SCHOOLCD}</td>
+        </tr>
+        <tr class="no_search_line">
+          <td class="no_search" style="text-align:center;">団体名</td>
+          <td bgcolor="ffffff">{rval GROUPCD}</td>
+        </tr>
+        <tr class="no_search">
+          <td bgcolor="ffffff" colspan="2" align="center">{rval button/btn_search}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<table width="50%" border="0" cellspacing="10" cellpadding="0" style="margin-left:auto ; margin-right:auto">
+  <tr class="no_search_line">
+    <td>
+      <table border="0" cellpadding="2" cellspacing="1" width="100%">
+        <tr class="no_search_line">
+          <td class="no_search" colspan="2" align="center">申込者数</td>
+        </tr>
+        <tr class="no_search_line">
+          <td class="no_search" style="text-align:center;">今年度</td>
+          <td bgcolor="ffffff" align="right">{rval APP_COUNT1}</td>
+        </tr>
+        <tr class="no_search_line">
+          <td class="no_search" style="text-align:center;">海外</td>
+          <td bgcolor="ffffff" align="right">{rval APP_COUNT2}</td>
+        </tr>
+        <tr class="no_search_line">
+          <td class="no_search" style="text-align:center;">駿中</td>
+          <td bgcolor="ffffff" align="right">{rval APP_COUNT3}</td>
+        </tr>
+        <tr class="no_search_line">
+          <td class="no_search" style="text-align:center;"">国内</td>
+          <td bgcolor="ffffff" align="right">{rval APP_COUNT4}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th nowrap width="30%">受験番号</th>
+                      <th nowrap width="*%">氏名</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}--> 
+                    <tr> 
+                      <td nowrap bgcolor="#ffffff" align="center"><a href="knjl370qindex.php?cmd=edit&SAT_NO={val data/SAT_NO}{rval SEARCH}" target="right_frame" style="display:block;">{val data/SAT_NO}</a></td>
+                      <td nowrap bgcolor="#ffffff">{val data/NAME1}</td>
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}-->
+                    </table>
+                  </td>
+                </tr>
+              </td>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

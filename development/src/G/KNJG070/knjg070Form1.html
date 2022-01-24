@@ -1,0 +1,83 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR>
+
+<table width="550" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <td align='center'><b>{rval YEAR}年度　　{rval SEMESTER}</b></td>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td style="padding:15px 0;">
+                        　　　　　　　　　　　　　　年度 {rval data/YEAR}<br>
+                        　　　{rval data/SINNYU_TENNYU1}　<LABEL for="SINNYU_TENNYU1">新入生</LABEL><br><br>
+                        　　　{rval data/SINNYU_TENNYU2}　<LABEL for="SINNYU_TENNYU2">転入生 編入生</LABEL><br>
+                        　　　　　　　入学年月日 {rval data/SDATE} ～ {rval data/EDATE}<br>
+                        　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{rval button/btn_search}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!--{def data/CATEGORY_SELECTED}-->
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象者一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!--{/def}-->
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff">
+                      <td style="padding:10px 0 10px 70px; line-height:1.5em;"><b>
+                          記載日(証明日)　　{rval data/ENTRY_DATE}
+                      </b><br>
+                          　　　注 ： 記載日の年度に該当する校長名を出力する。
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      {rval button/btn_print}{rval button/btn_end}
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

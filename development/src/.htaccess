@@ -1,0 +1,60 @@
+#
+# look for these filenames as the directory index
+#
+DirectoryIndex index.php index.html index.htm
+AddType application/x-httpd-php .php .php3
+
+<IfModule mod_php7.c>
+
+#php_value zend_extension "/etc/httpd/modules/php_apc.so"
+#php_value apc.mode  "mmap"
+#php_value apc.cachedir "/var/gk/cache"
+#php_value apc.check_compiled_source 1 
+#php_value apc.check_mtime 1 
+
+php_value include_path ".:/usr/local/lib/php:/usr/local/shugaku/lib:/usr/local/shugaku/src/common"
+php_value auto_append_file  "/usr/local/shugaku/lib/append.inc"
+php_value auto_prepend_file "/usr/local/shugaku/lib/prepend.inc"
+php_flag magic_quotes_gpc Off
+php_flag short_open_tag  Off
+php_flag register_globals Off
+
+# Enable Output Buffering
+php_value output_buffering   On
+
+# Set mb_output_handler to enable output conversion
+php_value output_handler        mb_output_handler
+
+# Set HTTP header charset
+php_value default_charset UTF-8
+
+# Set http input encoding conversion to auto
+php_value mbstring.http_input UTF-8
+#php_value mbstring.http_input AUTO
+
+
+# Convert to SJIS
+php_value mbstring.http_output UTF-8
+
+# Set internal encoding to EUC-JP
+php_value mbstring.internal_encoding  UTF-8
+
+# Do not print invalid characters
+php_value mbstring.substitute_character none 
+
+
+#php_value mbstring.detect_order "ASCII,JIS,UTF-8,SJIS,EUC-JP"
+
+# mbereg Set internal encoding to EUC-JP
+php_value mbregex.encoding UTF-8
+</IfModule>
+
+#
+# allows pages to be run
+# throught the PHP interpretor
+#AddType application/x-httpd-php .php3
+
+#<Files ~ "\.(ihtml|inc)$">
+#   Order deny,allow
+#   deny from all
+#</Files>

@@ -1,0 +1,160 @@
+{rval start} 
+<table width="{val SEL_WIDTH}" border="0" cellpadding="0" cellspacing="10" align="center">
+
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr class="no_search" height="25">
+                <th width="152" align="right">塾　教室</th>
+                <td width="*" bgcolor="#ffffff" style="color:black;">
+                  {rval data/PRISCHOOLCD_ID}{rval data/PRISCHOOL_CLASS_CD_ID}
+                  　{rval data/btn_pri_cd_submit}
+                  　{rval data/btn_pri_kana_reference}
+                  <span id="label_priName">{rval data/PRISCHOOL_NAME}</span>　
+                  <span id="label_priClassName">{rval data/PRISCHOOL_CLASS_NAME}</span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="1" >
+        <tr class="no_search_line">
+          <th>
+            <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#cccccc">
+              <tr height="30">
+                <th align="center" class="no_search"><B>検索結果　：　{rval SEARCH_CNT}件　　{rval SEARCH_CNT_MSG}</B></th>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td style="font-weight: 700; color:white">
+      <marquee><span id="marq_msg"></span></marquee>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellpadding="7" cellspacing="1">
+              <tr align="center" class="no_search" height="25">
+                <th width="100">訪問日付</th>
+                <th width="150">教室名</th>
+                <th width="80">職員</th>
+                <th width="80">面接者</th>
+                <th width="120">コメント</th>
+                <th width="80">受験者情報</th>
+                <th width="*">備考</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <div style="width:100%; height:200; overflow:auto">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellpadding="7" cellspacing="1">
+              <!--結果一覧-->
+              <!--{def data2}-->
+              <!--{each data2}-->
+              <tr bgcolor="#ffffff">
+                <td align="center" width="100">{rval data2/VISIT_DATE}</td>
+                <td align="left" width="150">{rval data2/PRISCHOOL_NAME}</td>
+                <td align="left" width="80">{rval data2/STAFFNAME}</td>
+                <td align="left" width="80">{rval data2/PRISCHOOL_STAFF}</td>
+                <td align="left" width="120">{rval data2/COMMENT}</td>
+                <td align="left" width="80">{rval data2/EXAM_STD_INFO}</td>
+                <td align="left" width="*">{rval data2/REMARK}</td>
+              </tr>
+              <!--{/each}-->
+              <!--{/def}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <div style="width:100%; overflow:auto">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <!--登録-->
+              <tr align="center" class="no_search" height="25">
+                <th width="150">項目</th>
+                <th width="*">値</th>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <th width="150">訪問日付</th>
+                <td width="*">{rval data3/VISIT_DATE}
+                  {rval data3/SEQ}
+                  {rval data3/UPDATED}
+                </td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <th width="150">職員</th>
+                <td width="*">{rval data3/STAFFCD}</td>
+              </tr>
+              <!--{def data3/PRISCHOOL_CLASS_CD}-->
+              <tr bgcolor="#ffffff">
+                <th width="150">教室</th>
+                <td width="*">{rval data3/PRISCHOOL_CLASS_CD}</td>
+              </tr>
+              <!--{/def}-->
+              <tr bgcolor="#ffffff">
+                <th width="150">面接者</th>
+                <td width="*">{rval data3/PRISCHOOL_STAFF}</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <th width="150">コメント</th>
+                <td width="*">{rval data3/COMMENT}</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <th width="150">受験者情報</th>
+                <td width="*">{rval data3/EXAM_STD_INFO}</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <th width="150">備考</th>
+                <td width="*">{rval data3/REMARK}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </div>
+    </td>
+  </tr>
+
+  <!--{def button}--> 
+  <tr>
+    <td nowrap> {rval button/BTN_NEW}&nbsp{rval button/BTN_UPDATE}&nbsp{rval button/BTN_DELETE}&nbsp{rval button/BTN_CLEAR}&nbsp{rval button/BTN_END} </td>
+  </tr>
+  <!--{/def}--> 
+</table>
+<script language="JavaScript">{rval jscript}</script>
+{rval finish} 

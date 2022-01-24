@@ -1,0 +1,240 @@
+{rval IFRAME}
+{rval start}
+<!--{def button}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                <hr width="55%" align="left">
+                    &nbsp;{rval NAME_SHOW}
+                <hr width="55%" align="left">
+                </td>
+              </tr>
+              <!--{def dispinputflg}-->
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                    <tr>
+                      <td bgcolor="#ffffff">
+                        {rval SEMESTER}
+                      </td>
+                    </tr>
+                    
+                    <!--{def disprecactvflg}-->
+                    <tr>
+                      <td bgcolor="#ffffff">
+                        <table width={rval MAIN_WIDTH} border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr class="no_search" height="30">
+                                  <th colspan="3">行　動　の　記　録　　<font size=2>{rval TEXT_TITLE}</font></th>
+                                </tr>
+                                <!--{each data}-->
+                                <tr align="center" height="30">
+                                  <th width={rval RECORD_LABEL_WIDTH} align="left" class="no_search" nowrap>{rval data/RECORD_LABEL}</th>
+                                  <td width={rval RECORD_VALUE_WIDTH} bgcolor="#ffffff">{rval data/RECORD_VALUE}</td>
+                                </tr>
+                                <!--{/each}-->
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+              <!--{def disptotalstdyflg}-->
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                    <tr>
+                      <td bgcolor="#ffffff">
+                        <table width={rval MAIN_WIDTH} border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr class="no_search" height="30">
+                                  <th colspan="2">　　総　合　的　な　学　習　　</th>
+                                </tr>
+                                <tr align="center" height="30">
+                                  <th width=100 align="center" class="no_search" nowrap>学習内容</th>
+                                  <td width=* bgcolor="#ffffff" align="left">{rval text/totalstudy_title}<br><span id="statusarea1" style="color:blue">残り文字数</span></td>
+                                </tr>
+                                <tr align="center" height="50">
+                                  <th width=100 align="center" class="no_search" nowrap>評価</th>
+                                  <td width=* bgcolor="#ffffff" align="left">{rval text/totalstudy_eval}<br><span id="statusarea2" style="color:blue">残り文字数</span></td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!--{/def}-->
+              <!--{def dispmoralflg}-->
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                    <tr>
+                      <td bgcolor="#ffffff">
+                        <table width={rval MAIN_WIDTH} border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr class="no_search" height="30">
+                                  <th colspan="2">　　道　徳　　</th>
+                                </tr>
+                                <tr align="center" height="30">
+                                  <th width=100 align="center" class="no_search" nowrap>教材</th>
+                                  <td width=* bgcolor="#ffffff" align="left">{rval text/moral_title}<br><span id="statusarea3" style="color:blue">残り文字数</span></td>
+                                </tr>
+                                <tr align="center" height="50">
+                                  <th width=100 align="center" class="no_search" nowrap>評価</th>
+                                  <td width=* bgcolor="#ffffff" align="left">{rval text/moral_eval}<br><span id="statusarea4" style="color:blue">残り文字数</span></td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!--{/def}-->
+              <!--{def dispactclbflg}-->
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                    <tr>
+                      <td bgcolor="#ffffff">
+                        <table width=650 border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr class="no_search" height="30">
+                                  <th colspan="2">　　特別活動・クラブ活動　　</th>
+                                </tr>
+                                <tr align="center" height="30">
+                                  <th width=100 align="center" class="no_search" nowrap>部活動</th>
+                                  <td bgcolor="#ffffff">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                      <td width=50 bgcolor="#ffffff" style="vertical-align:top; text-align:left; cellspacing:0;"><div style="float:left">前期：</div></td>
+                                      <td width=200 bgcolor="#ffffff" style="vertical-align:top; text-align:left; cellspacing:0;"><div style="float:left">{rval text/club_first}<br><span id="statusarea5" style="color:blue">残り文字数</span></div></td>
+                                      <td width=50 bgcolor="#ffffff" style="vertical-align:top; text-align:left; cellspacing:0;"><div style="float:left">後期：</div></td>
+                                      <td width=* bgcolor="#ffffff" style="vertical-align:top; text-align:left; cellspacing:0;"><div style="float:left">{rval text/club_scnd}<br><span id="statusarea6" style="color:blue">残り文字数</span></div></td>
+                                    </table>
+                                  </td>
+                                </tr>
+                                <tr align="center" height="30">
+                                  <th width=100 align="center" class="no_search" nowrap>クラブ活動</th>
+                                  <td width=* bgcolor="#ffffff" align="left">{rval text/favorite_actv}<br><span id="statusarea7" style="color:blue">残り文字数</span></td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!--{/def}-->
+              <!--{def dispremarkflg}-->
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                    <tr>
+                      <td bgcolor="#ffffff">
+                        <table width={rval MAIN_WIDTH} border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr align="center" height="30">
+                                  <th width=100 align="center" class="no_search" nowrap>出欠の備考</th>
+                                  <td width=* bgcolor="#ffffff" align="left">{rval text/remark_attend}<br>
+                                                                             <span id="statusarea8" style="color:blue">残り文字数</span><br>
+                                                                             {rval button/btn_attendRemark}</td>
+                                </tr>
+                                <!--{def dispremarkttlflg}-->
+                                <tr align="center" height="30">
+                                  <th width=100 align="center" class="no_search" nowrap>特記事項</th>
+                                  <td width=* bgcolor="#ffffff" align="left">
+                                    {rval text/remark_tcttl}<br><span id="statusarea10" style="color:blue">残り文字数</span><br>
+                                  </td>
+                                </tr>
+                                <!--{/def}-->
+                                <tr align="center" height="30">
+                                  <th width=100 align="center" class="no_search" nowrap>担任からの通信</th>
+                                  <td width=* bgcolor="#ffffff" align="left">
+                                    {rval text/remark_teachercomment}<br><span id="statusarea9" style="color:blue">残り文字数</span>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!--{/def}-->
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td class="no_search" colspan="3" align="right" nowrap>
+                        {rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_back}<br>
+                        {rval button/btn_csv}　　　　　　　　　　　　　　　　　　　　　　　&nbsp&nbsp
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!--{/def}-->
+              <!--{def nonedispflg}-->
+                <tr class="no_search_line">
+                  <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="no_search" colspan="3" align="left" nowrap>
+                          {rval button/btn_back}
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              <!--{/def}-->
+              <tr>
+                <td><br>　
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+{rval finish}
+{rval javascript}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->
+<script language="javascript">{rval reload}</script>

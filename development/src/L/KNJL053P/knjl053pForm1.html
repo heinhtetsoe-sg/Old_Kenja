@@ -1,0 +1,128 @@
+{rval start}
+
+<table width="95%" border="0" cellspacing="0" cellpadding="5" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <td width="12%" class="no_search" align="center" nowrap>入試年度</td>
+                      <td width="20%" bgcolor="#ffffff" align="center">{rval TOP/YEAR}</td>
+                      <td width="12%" class="no_search" align="center" nowrap>※ 入試制度</td>
+                      <td width="20%" bgcolor="#ffffff">{rval TOP/APPLICANTDIV}</td>
+                      <td width="12%" class="no_search" align="center" nowrap>※ 入試区分</td>
+                      <td width="*"   bgcolor="#ffffff">{rval TOP/TESTDIV}　{rval button/btn_back}{rval button/btn_next}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" align="center" height="30">
+                            <td width="100" nowrap>受験番号</td>
+                            <td width="100" nowrap>計</td>
+                            <td width="100" nowrap>作文1</td>
+                            <td width="100" nowrap>作文2</td>
+                            <td width="100" nowrap>作文3</td>
+<!--表示しない
+                            <td width="100" nowrap>1</td>
+                            <td width="100" nowrap>2</td>
+                            <td width="100" nowrap>3</td>
+-->
+                            <td width="200" nowrap>氏名</td>
+                            <td width="*" nowrap>氏名かな</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <div style="height: 500px; overflow: auto;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--結果一覧-->
+                          <!--{def data}-->
+                          <!--{each data}-->
+                          <tr bgcolor="{rval data/BGCOLOR}" id="ROWID{rval data/RECEPTNO}" nowrap>
+                            <td width="100" align="center" nowrap>{rval data/RECEPTNO}</td>
+                            <td width="100" align="center" nowrap>{rval data/TOTAL}</td>
+                            <td width="100" align="center" nowrap>{rval data/VALUE1}</td>
+                            <td width="100" align="center" nowrap>{rval data/VALUE2}</td>
+                            <td width="100" align="center" nowrap>{rval data/VALUE3}</td>
+<!--表示しない
+                            <td width="100" align="center" nowrap>{rval data/SCORE1}</td>
+                            <td width="100" align="center" nowrap>{rval data/SCORE2}</td>
+                            <td width="100" align="center" nowrap>{rval data/SCORE3}</td>
+-->
+                            <td width="200" align="left" nowrap>{rval data/NAME}</td>
+                            <td width="*" align="left" nowrap>{rval data/NAME_KANA}</td>
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" nowrap>
+                            <th nowrap>{rval TOP/COMMENT}<BR>※ 計 = 40 + 5 * {(作文1 + 作文2 + 作文3) - 3}</th>
+                            <td width="30%" bgcolor="#ffffff" nowrap>{rval btn_update}{rval btn_reset}{rval btn_end}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">
+  change_flg = false;
+ var aPerfect = new Array();
+<!--{def data2}-->
+<!--{each data2}-->
+ aPerfect['{rval data2/key}'] = '{rval data2/perf}';
+<!--{/each}-->
+<!--{/def}-->
+</script>
+{rval finish}

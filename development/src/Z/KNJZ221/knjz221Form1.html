@@ -1,0 +1,77 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line">
+                <th>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <td nowrap>　　　対象年度：{rval YEAR}　　{rval btn_copy}</td>
+                    </tr>
+                  </table>
+                </th>
+              </tr>
+            </table>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <table  width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th nowrap width="70">学期</th>
+                      <th nowrap width="60">単位</th>
+                      <th nowrap width="50">10点</th>
+                      <th nowrap width="50">9点</th>
+                      <th nowrap width="50">8点</th>
+                      <th nowrap width="50">7点</th>
+                      <th nowrap width="50">6点</th>
+                      <th nowrap width="50">5点</th>
+                      <th nowrap width="50">4点</th>
+                      <th nowrap width="50">3点</th>
+                      <th nowrap width="50">2点</th>
+                      <th nowrap width="50">1点</th>
+                      <th nowrap width="50">0点</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff" height="30">
+                      <!--{def data/SEMESTERNAME}-->
+                      <td align="center" nowrap rowspan={rval data/ROWSPAN}>{rval data/SEMESTERNAME}</td>
+                      <!--{/def}-->
+                      <td align="center" nowrap><a href="knjz221index.php?cmd=edit&YEAR={rval data/YEAR}&SEMESTER={rval data/SEMESTER}&CREDIT={rval data/CREDIT}" target="right_frame">{rval data/CREDIT}単位</a></td>
+                      <td align="center" nowrap>{rval data/KEKKA10}</td>
+                      <td align="center" nowrap>{rval data/KEKKA9}</td>
+                      <td align="center" nowrap>{rval data/KEKKA8}</td>
+                      <td align="center" nowrap>{rval data/KEKKA7}</td>
+                      <td align="center" nowrap>{rval data/KEKKA6}</td>
+                      <td align="center" nowrap>{rval data/KEKKA5}</td>
+                      <td align="center" nowrap>{rval data/KEKKA4}</td>
+                      <td align="center" nowrap>{rval data/KEKKA3}</td>
+                      <td align="center" nowrap>{rval data/KEKKA2}</td>
+                      <td align="center" nowrap>{rval data/KEKKA1}</td>
+                      <td align="center" nowrap>{rval data/KEKKA0}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

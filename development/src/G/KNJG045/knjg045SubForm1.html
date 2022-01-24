@@ -1,0 +1,96 @@
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td>
+            <hr width="60%" align="left">
+              &nbsp;&nbsp;{rval TITLE}&nbsp{rval subtitle}
+            <hr width="60%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  
+  <tr>
+    <td width="100%" valign="top">
+    {rval button/btn_update}{rval button/btn_sentaku}{rval button/btn_back}
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th class="no_search" width="40">{rval koumoku}</th>
+              <!--{def tujyou}-->
+              <th width="*">名称</th>
+              <!--{/def}-->
+              <!--{def hoketsu}-->
+              <th width="160">名称</th>
+              <th width="*">回数</th>
+              <!--{/def}-->
+              <!--{def etc_hoketsu}-->
+              <th width="160">名称</th>
+              <th width="*">回数</th>
+              <!--{/def}-->
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <div style="width: 100%; height:400px; overflow: scroll">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def data}-->
+                <!--{each data}-->
+                  <tr bgcolor="{rval data/backcolor}">
+                    <td width="40" align="center">{rval data/CHECK}</td>
+                 <!--{def tujyou}-->
+                    <td width="*" align="left">{val data/SET_STAFFCD}&nbsp;&nbsp;{val data/STAFFNAME_SHOW}</td>
+                  <!--{/def}-->
+                  <!--{def hoketsu}-->
+                    <td width="150" align="left">{val data/SET_STAFFCD}&nbsp;&nbsp;{val data/STAFFNAME_SHOW}</td>
+                    <td width="*">{rval data/COUNT_CHECK1}{rval data/COUNT_CHECK2}{rval data/COUNT_CHECK3}</th>
+                  <!--{/def}-->
+                  <!--{def etc_hoketsu}-->
+                    <td width="150" align="left">{val data/SET_STAFFCD}&nbsp;&nbsp;{val data/STAFFNAME_SHOW}</td>
+                    <td width="*">{rval data/COUNT_CHECK1}{rval data/COUNT_CHECK2}{rval data/COUNT_CHECK3}{rval data/COUNT_CHECK4}{rval data/COUNT_CHECK5}</th>
+                  <!--{/def}-->
+                  </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" valign="top">
+    {rval button/btn_update}{rval button/btn_sentaku}{rval button/btn_back}
+    </td>
+  </tr>
+  
+</table>
+
+{rval finish} 
+<script language="JavaScript">{rval reload}{rval close}</script>

@@ -1,0 +1,161 @@
+{rval start}
+<script language="JavaScript">
+//画面のリサイズ
+var timer = 0;
+window.onresize = function () {
+    if (timer > 0) {
+        clearTimeout(timer);
+    }
+
+    timer = setTimeout(function () {
+        bodyHeight = (window.innerHeight || document.body.clientHeight || 0);
+        document.getElementById("tbody").style.height = bodyHeight - 270;
+    }, 200);
+};
+</script>
+
+<table style="width: 850px" border="0" cellpadding="10" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table style="width: 850px" border="0" cellspacing="5" cellpadding="1">
+        <tr> 
+          <td>
+            <table style="width: 850px" border="0" cellspacing="0" cellpadding="0">
+        <!-- 選択データ -->
+              <tr class="no_search_line">
+                <td>
+                  <table style="width: 850px" border="0" cellspacing="1" cellpadding="4">
+                    <tr class="no_search">
+                      <th width="150">※ 入試年度</th>
+                      <td width="100" bgcolor="#ffffff" style="color:black;" align="center">{rval top/YEAR}</td>
+                      <th width="100">※ 入試制度</th>
+                      <td width="150" bgcolor="#ffffff">{rval top/APPLICANTDIV}</td>
+                      <th width="100">※ 入試区分</th>
+                      <td width="*%"  bgcolor="#ffffff">{rval top/TESTDIV}</td>
+                    </tr>
+                    <tr  bgcolor="#ffffff" height="100">
+                      <td colspan="6" nowrap>
+                        <table>
+                          <tr>
+                            <td>　　　氏名&nbsp;{rval top/S_NAME}</td>
+                          </tr>
+                          <tr>
+                            <td>　ふりがな&nbsp;{rval top/S_NAME_KANA}</td>
+                          </tr>
+                          <tr>
+                            <td>　受験番号&nbsp;{rval top/S_RECEPTNO}　{rval button/btn_search}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+          <!-- 選択データ -->
+          <!-- 生徒データ -->
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" nowrap align="center">
+                            <th width="100">管理番号</th>
+                            <th width="100">受験番号</th>
+                            <th width="200">氏名</th>
+                            <th width="200">ふりがな</th>
+                            <th width="*">  出身校</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div id="tbody" style="width: 100%; height:{rval valWindowHeight}px; overflow: auto">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr class="no_search_line">
+                        <td>
+                          <table width="100%" border="0" cellspacing="1" cellpadding="3"> 
+                          <!--{def data2}-->
+                          <!--結果一覧-->
+                          <!--{each data2}--> 
+                            <tr bgcolor="#ffffff" >
+                              <td width="100" align="center">{rval data2/EXAMNO}</td>
+                              <td width="100" align="center">{rval data2/RECEPTNO}</td>
+                              <td width="200" align="left"  >{rval data2/NAME}</td>
+                              <td width="200" align="left"  >{rval data2/NAME_KANA}</td>
+                              <td width="*"   align="left"  >{rval data2/FS_NAME}</td>
+                            </tr> 
+                          <!--{/each}--> 
+                          <!--{/def}-->
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search">
+                      <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="4"> 
+                          <tr bgcolor="#ffffff" align="center">
+                            <td colspan=5><b>トータル件数&nbsp&nbsp{rval TOTALCNT}</b></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3"> 
+                          <tr >            
+                            <td align="right">
+                              &nbsp;&nbsp;{rval button/btn_end}
+                            </td>
+                          </tr> 
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<input type='hidden' name='windowHeight' value=''>
+{rval finish} 
+<script language="JavaScript">{rval reload}</script>
+<script language="JavaScript">
+    var sem = 0;
+//  document.forms[0].DATE.focus();
+    if (document.forms[0].REPNO) {
+        document.forms[0].REPNO.focus();
+        setInterval('callfunc()',500);
+    }
+    if (document.forms[0].SCHREGNO) {
+        document.forms[0].SCHREGNO.focus();
+        setInterval('callfunc()',500);
+    }
+
+function callfunc()
+{
+    if (sem == 0){
+        datecheck(document.forms[0].DATE.value);
+    }
+}
+</script>

@@ -1,0 +1,60 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR><BR><BR>
+
+<table width="40%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr > 
+    <td > 
+      <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+        <tr class="no_search_line"> 
+          <td width="100%"> 
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="left" class="no_search"> 
+                <td>&nbsp&nbsp&nbsp&nbsp<b>{rval data/YEAR}年度</b></td>
+              </tr>
+              <tr align="left" bgcolor="#ffffff" height="170">
+                <td>
+                  &nbsp&nbsp&nbsp&nbsp試験区分　　：{rval data/TESTDIV}<BR>
+                  &nbsp&nbsp&nbsp&nbsp特別理由区分：{rval data/SPECIAL_REASON_DIV}<BR><BR>
+
+                  &nbsp&nbsp&nbsp&nbsp{rval data/OUTPUT4}:一般受験者<BR>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp出力対象：{rval data/OUTPUT1}全員<BR>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp：{rval data/OUTPUT2}追加/繰上合格者名簿<BR><BR>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp追加／繰上合格グループNo：&nbsp{rval data/PASSDIV}<BR><BR>
+                  &nbsp&nbsp&nbsp&nbsp{rval data/OUTPUT5}:中高一貫者
+                </td>
+              </tr>
+<!-- NO001↓ -->
+              <tr align="left" bgcolor="#ffffff" height="70">
+                <td>
+                  &nbsp&nbsp&nbsp&nbsp出力順<BR>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/SORT1}合格コース＆受験番号順<BR>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/SORT2}受験番号順({rval data/PASS1}：合格者　{rval data/PASS2}：不合格者)
+                </td>
+              </tr>
+<!-- NO001↑ -->
+<!-- NO004↓ -->
+              <tr align="left" bgcolor="#ffffff" height="40">
+                <td>
+                  &nbsp&nbsp&nbsp&nbsp印刷日付：{rval data/DATE}
+                </td>
+              </tr>
+<!-- NO004↑ -->
+              <tr align="left" class="no_search" height="20"> 
+                <td nowrap> &nbsp{rval button/btn_print}{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

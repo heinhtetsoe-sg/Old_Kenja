@@ -1,0 +1,184 @@
+{rval IFRAME}
+{rval start}
+<br><br><br><br><br>
+<table align="center" width="70%" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line">
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="15%" nowrap>入試年度</th>
+                      <td width="10%" bgcolor="#ffffff" style="color:black; text-align:center">{rval TOP/YEAR}</td>
+                      <th width="10%" nowrap>受験番号</th>
+                      <td width="*%" bgcolor="#ffffff">&nbsp;{rval data/EXAMNO}&nbsp;{rval button/btn_reference}{rval button/btn_kana_reference}&nbsp;{rval button/btn_back_next}</td>
+                    </tr>
+                    </table>
+                  </td>
+                </tr>
+                </table>
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+        
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line">
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="26">
+                      <th nowrap>試験会場</th>
+                      <td nowrap width="*%" bgcolor="#ffffff"><font color="#000000">&nbsp;{rval data/EXAMHALL_NAME}</font></td>
+                      <th nowrap>座席番号</th>
+                      <td nowrap width="10%" colspan="3" bgcolor="#ffffff"><font color="#000000">&nbsp;{rval data/RECEPTNO}</font></td>
+                    </tr>
+                    <tr class="no_search" height="26">
+                      <th width="15%" nowrap>氏名</th>
+                      <td width="30%" nowrap bgcolor="#ffffff"><font color="#000000">&nbsp;{rval data/NAME}</font></td>
+                      <th width="15%" nowrap>氏名かな</th>
+                      <td nowrap bgcolor="#ffffff" colspan="3"><font color="#000000">&nbsp;{rval data/NAME_KANA}</font></td>
+                    </tr>
+                    <tr class="no_search" height="26">
+                      <th nowrap>生年月日</th>
+                      <td nowrap bgcolor="#ffffff"><font color="#000000">&nbsp;{rval data/BIRTHDAY}</font></td>
+                      <th nowrap>性別</th>
+                      <td nowrap width="*%" colspan="3" bgcolor="#ffffff"><font color="#000000">&nbsp;{rval data/SEX}</font></td>
+                    </tr>
+                    <tr class="no_search" height="26">
+                      <th nowrap>入試制度</th>
+                      <td nowrap bgcolor="#ffffff" style="color:black";>&nbsp;{rval data/APPLICANTDIV}</td>
+                      <th nowrap>入試区分</th>
+                      <td nowrap width="15%" bgcolor="#ffffff" style="color:black";>&nbsp;{rval data/TESTDIV}</td>
+                      <th nowrap>受験型</th>
+                      <td nowrap width="*%" bgcolor="#ffffff" style="color:black";>&nbsp;{rval data/EXAM_TYPE}</td>
+                    </tr>
+                    </table>
+                  </td>
+                </tr>
+                </table>
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+		  <td><br>
+		  </td>
+        </tr>
+
+        <tr>
+          <td valign="top">
+            <table width="45%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line" >
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="26">
+                      <th width="20%">変更後試験会場</th>
+                      <td width="30%" bgcolor="#ffffff"><font color="black">{rval data/CHANGE_HALL}&nbsp{rval data/CHANGE_HALLSNO}～{rval data/CHANGE_HALLENO}</font></td>
+                    </tr>
+                    <tr class="no_search" height="26">
+                      <th width="20%">変更後座席番号</th>
+                      <td width="30%" bgcolor="#ffffff"><font color="black">{rval data/CHANGE_RECEPTNO}</font></td>
+                    </tr>
+                    <tr class="no_search" height="26">
+                      <th width="20%">変更後受験型</th>
+                      <td width="*" bgcolor="#ffffff"><font color="black">{rval data/CHANGE_EXAM_TYPE_NAME}</font></td>
+                    </tr>
+                    </table>
+                  </td>
+                </tr>
+                </table>
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line" >
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td width="*" bgcolor="#ffffff">
+                      &nbsp;{rval button/btn_update}{rval button/btn_end}
+                      </td>
+                    </tr>
+                    </table>
+                  </td>
+                </tr>
+                </table>
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<script language="JavaScript">
+var vflg;
+{rval Closing}
+</script>
+{rval finish}
+<script language="JavaScript">
+  var auth = document.forms[0].auth_check.value;
+  if (auth == "1") {
+/*
+    document.forms[0].btn_udpate.disabled = true;
+    document.forms[0].btn_up_pre.disabled = true;
+    document.forms[0].btn_up_next.disabled = true;
+    document.forms[0].btn_reset.disabled = true;
+  } else if (auth == "0"){
+    document.forms[0].btn_udpate.disabled = true;
+    document.forms[0].btn_up_pre.disabled = true;
+    document.forms[0].btn_up_next.disabled = true;
+    document.forms[0].btn_reset.disabled = true;
+    document.forms[0].SUCCESS_NOTICENO.disabled = true;
+    document.forms[0].FAILURE_NOTICENO.disabled = true;
+    document.forms[0].JUDGEDIV.disabled = true;
+    document.forms[0].TESTDIV.disabled = true;
+    document.forms[0].APPLICANTDIV.disabled = true;
+    document.forms[0].DESIREDIV.disabled = true;
+    document.forms[0].APPLICANTDIV.disabled = true;
+    document.forms[0].SPECIAL_MEASURES.disabled = true;
+    document.forms[0].COURSEMAJOR.disabled = true;
+    document.forms[0].PROCEDUREDIV.disabled = true;
+    document.forms[0].ENTDIV.disabled = true;
+    document.forms[0].HONORDIV1.disabled = true;
+    document.forms[0].INTERVIEW_ATTEND_FLG.disabled = true;
+    document.forms[0].HONORDIV2.disabled = true;
+    document.forms[0].ADJOURNMENTDIV.disabled = true;
+    document.forms[0].APPLICANT_DIV.disabled = true;
+    document.forms[0].EXAMINEE_DIV.disabled = true;
+    document.forms[0].REMARK1.disabled = true;
+    document.forms[0].REMARK2.disabled = true;
+*/
+  }
+</script>
+

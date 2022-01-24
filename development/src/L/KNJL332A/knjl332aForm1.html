@@ -1,0 +1,77 @@
+{rval start}
+<!--{def button}-->
+<!--{def data}-->
+
+<table width="650" border="0" cellpadding="0" cellspacing="5" align="center" style="margin-top:177px;">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="5">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr class="no_search" height="30">
+                <td colspan="3" align="center"></td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" align="right">入試年度&nbsp;</td>
+                <td colspan="2" bgcolor="#ffffff">{rval data/YEAR}年度</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" width="25%" align="right">受験校種&nbsp;</td>
+                <td colspan="2" bgcolor="#ffffff" width="75%">{rval data/APPLICANTDIV}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" width="25%" align="right">印刷種別&nbsp;</td>
+                <td width="35%" bgcolor="#ffffff">{rval data/PRINT_TYPE}</td>
+
+                <td width="40%" bgcolor="#ffffff">
+                  {rval data/SIZE1}<LABEL for="SIZE1">{rval data/SIZE_NAME}</LABEL><br>
+                  {rval data/SIZE2}<LABEL for="SIZE2">長３</LABEL><br>
+                  <!--{each blanktags}-->
+                　{rval blanktags/BLANK}<LABEL for="BLANK">{rval blanktags/BLANK_NAME}</LABEL><br>
+                  　　{rval blanktags/COMMENT1}<LABEL for="COMMENT1">{rval blanktags/COMMENT_LABEL1}</LABEL><br>
+                  　　{rval blanktags/COMMENT2}<LABEL for="COMMENT2">{rval blanktags/COMMENT_LABEL2}</LABEL><br>
+                  <!--{/each}-->
+                  {rval data/SIZE3}<LABEL for="SIZE3">タックシール</LABEL>
+                </td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" width="25%" align="right">試験区分&nbsp;</td>
+                <td colspan="2" width="75%" bgcolor="#ffffff">{rval data/TESTDIV}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" width="25%" align="right">専併区分&nbsp;</td>
+                <td colspan="2" width="75%" bgcolor="#ffffff">{rval data/SHDIV}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" width="25%" align="right">出願コース&nbsp;</td>
+                <td colspan="2" width="75%" bgcolor="#ffffff">{rval data/DESIREDIV}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" width="25%" align="right">合否&nbsp;</td>
+                <td colspan="2" width="75%" bgcolor="#ffffff">{rval data/PASS_COURSE}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" width="25%" align="right">入学コース&nbsp;</td>
+                <td colspan="2" width="75%" bgcolor="#ffffff">{rval data/ENT_COURSE}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" width="25%" align="right">受験番号&nbsp;</td>
+                <td colspan="2" width="75%" bgcolor="#ffffff">{rval TOP/RECEPTNO_FROM} ～ {rval TOP/RECEPTNO_TO}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" width="25%"></td>
+                <td colspan="2" width="75%" bgcolor="#ffffff">{rval button/btn_print}
+                  {rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}

@@ -1,0 +1,99 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <hr width="25%" align="left">
+            {rval SCHREGNO}&nbsp;&nbsp;{val NAME}
+            <hr width="25%" align="left">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th align="center" nowrap width="20" height="30">{val CHECKALL}</th>
+                        <th align="center" nowrap width="20" height="30">区<BR>分</th>
+                        <th align="center" nowrap width="50" height="30">{val YEAR}</th>
+                        <th align="center" nowrap width="50" height="30">学年<BR>(年次)</th>
+                        <th align="center" nowrap width="140" height="30">教科名</th>
+                        <th align="center" nowrap width="140" height="30">{val SUBCLASSCD}</th>
+                        <th align="center" nowrap width="30" height="30">評定</th>
+                        <th align="center" nowrap width="30" height="30">修得<BR>単位</th>
+                        <th align="center" nowrap width="30" height="30">増加<BR>単位</th>
+                        <th align="center" nowrap width="30" height="30">合計</th>
+                        <th align="center" nowrap width="*" height="30">備考</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <div style="width:100%;height:200;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table id="list" width="100%" border="0" cellspacing="1" cellpadding="3" onclick="selectRow()">
+                    <tbody>
+                      <!--結果一覧--><!--{def data}--><!--{each data}-->
+                      <tr  bgcolor="#ffffff">
+                        <td align="center" nowrap width="20">{val data/CHECKED}</td>
+                        <td align="center" nowrap width="20">{val data/SCHOOLCD}</td>
+                        <td align="center" nowrap width="50">{val data/YEAR}</td>
+                        <td align="center" nowrap width="50">{val data/ANNUAL}</td>
+                        <td align="left" nowrap width="140">{val data/CLASSCD}　{val data/CLASSNAME}</td>
+                        <td align="left" nowrap width="140">{val data/SUBCLASSCD}　{val data/SUBCLASSNAME}</td>
+                        <td align="right" nowrap width="30">{val data/VALUATION}</td>
+                        <td align="right" nowrap width="30">{val data/GET_CREDIT}</td>
+                        <td align="right" nowrap width="30">{val data/ADD_CREDIT}</td>
+                        <td align="right" nowrap width="30">{val data/CREDIT}</td>
+                        <td align="left" width="*">{val data/REMARK}</td>
+                      </tr>
+                      <!--{/each}--><!--{/def}-->
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th align="center" nowrap width="20" height="30">{val btn_del}</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<script language="JavaScript">{rval reload}</script> 
+{rval finish}

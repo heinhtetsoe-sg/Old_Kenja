@@ -1,0 +1,74 @@
+{rval start}
+
+<br><br><br>
+<table width="450" border="0" cellspacing="0" cellpadding="10" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td height="50">
+            <hr width="100%" align="left">
+            <b>&nbsp;{rval YEAR}年度のマスタを{rval YEAR_ADD}年度マスタにコピー</b>
+            <hr width="100%" align="left">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th align="center" nowrap width="10%" height="30">{rval CHECKALL}</th>
+                      <th align="center" nowrap width="55%" height="30">マスタ名</th>
+                      <th align="center" nowrap width="*%" height="30">備考</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width:100%;height:300;overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table id="list" width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--結果一覧--><!--{def data}--><!--{each data}-->
+                    <tr bgcolor="#ffffff" height="30">
+                      <td align="center" width="10%" nowrap>{rval data/CHECKED}</td>
+                      <td align="left"   width="55%" nowrap>{rval data/MSTNAME}</td>
+                      <td align="center" width="*%"  nowrap>{rval data/KEKKA}</td>
+                    </tr>
+                    <!--{/each}--><!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td height="30">{rval btn_execute}{rval btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+{rval finish}

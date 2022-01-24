@@ -1,0 +1,190 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="3" cellpadding="1">
+
+  <tr> 
+
+    <td> 
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+        <tr class="no_search_line"> 
+
+          <td> 
+
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+              <tr class="no_search" nowrap> 
+
+                  <td align="center">入試年度</td>
+                  <td bgcolor="#ffffff" style="color:black; text-align:center">{rval TOP/YEAR}</td>
+                  <td align="center">※試験区分</td>
+                  <td bgcolor="#ffffff">{rval TOP/TESTDIV}</td>
+                  <td align="center">※受験科目</td>
+                  <td bgcolor="#ffffff">{rval TOP/TESTSUBCLASSCD}</td>
+                  <td align="center">受験番号</td>
+                  <td bgcolor="#ffffff" style="color:black">{rval TOP/EXAMNO} ～ {rval TOP/END_EXAMNO}</span>&nbsp;&nbsp;{rval TOP/button}</td>
+
+              </tr>
+
+            </table>
+
+          </td>
+
+        </tr>
+
+      </table>
+
+    </td>
+
+  </tr>
+
+  <tr > 
+
+    <td > 
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+        <tr bgcolor="#006633"> 
+
+          <td>
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tr class="no_search_line">
+
+                <td>    
+
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+                    <tr class="no_search" align="center" nowrap> 
+                      <th width="100" align="center" nowrap rowspan="2">受験番号</th>
+                      <th width="250" align="center" nowrap rowspan="2">氏名</th>
+                      <th width="50"  align="center" nowrap rowspan="2">性別</th>
+                      <th width="70"  align="center" nowrap >配点A</th>
+                      <th width="70"  align="center" nowrap >配点B</th>
+                      <th width="*"   align="center" nowrap rowspan="2">学科・コース</th>
+                    </tr>
+
+                    <tr class="no_search" nowrap align="center"> 
+                      <th width="70"  align="center" nowrap>得点</th>
+                      <th width="70"  align="center" nowrap>得点</th>
+                    </tr>
+                    
+                  </table>
+                  
+                </td>
+                  
+              </tr>
+
+              <tr>
+              
+                <td bgcolor="#ffffff">
+
+                  <div style="width: 100%; height=561; overflow: auto">
+
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                      <tr class="no_search_line" >
+
+                        <td>
+                          <table width="100%" border="0" cellspacing="1" cellpadding="3">  
+
+                            <!--{def data}-->
+                            <!--結果一覧-->
+                            <!--{each data}--> 
+
+                            <tr bgcolor="#ffffff" nowrap>
+                              <td width="100" align="center" nowrap>{rval data/EXAMNO}</td>
+                              <td width="250" align="left"   nowrap>&nbsp;{rval data/NAME}</td>
+                              <td width="50"  align="center" nowrap>{rval data/SEX}</td>
+                              <td width="70"  align="center" nowrap id="{rval data/A_ID}">{rval data/A_SCORE}</td>
+                              <td width="70"  align="center" nowrap id="{rval data/B_ID}">{rval data/B_SCORE}</td>
+                              <td width="*"   align="left"   nowrap>{rval data/EXAMCOURSE_NAME}</td>
+                            </tr>
+
+                            <!--{/each}--> 
+                            <!--{/def}-->
+
+                          </table>
+
+                        </td>
+
+                      </tr>
+
+                    </table>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td>
+
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                    <tr class="no_search_line">
+
+                      <td>
+
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+                          <tr class="no_search" nowrap> 
+
+                            <th nowrap></th>
+
+                            <th width="50%" align="left" bgcolor="#ffffff" nowrap>{rval btn_update}{rval update_back}{rval update_next}{rval btn_reset}{rval btn_end}</th>
+
+                          </tr>
+
+                        </table>
+
+                      </td>
+
+                    </tr>
+
+                  </table>
+
+                </td>
+
+              </tr>
+              
+            </table>
+
+          </td>
+
+        </tr>
+
+      </table>
+      
+    </td>
+    
+  </tr>
+
+</table>
+<script language="JavaScript">
+  change_flg = false;
+ var aPerfect = new Array();
+<!--{def data2}-->
+<!--{each data2}--> 
+ aPerfect['{rval data2/key}'] = '{rval data2/perf}';
+<!--{/each}-->
+<!--{/def}-->
+
+var flg = true;
+//var flgs;
+
+for (i = 0; i < document.forms[0].elements.length; i++){
+    var el = document.forms[0].elements[i];
+    if (el.type == "text" && el.tabIndex!=-1 && el.disabled==false){
+        el.focus();
+//        el.select();
+        break;
+    }
+}
+</script>
+<script language="JavaScript">{rval Closing}</script>
+{rval finish}

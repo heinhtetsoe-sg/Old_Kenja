@@ -1,0 +1,214 @@
+{rval start}
+{rval IFRAME}
+
+<br>
+<table width="1170" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="0">
+        <tr>
+          <td width="200" height="50" nowrap bgcolor="#ADFF2F" align="center" style="font-size:16px; color:#006400; font-weight:bold;">
+            諸機関との連携歴等
+          </td>
+          <td>
+            <hr width="350" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="350" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <td nowrap>
+            {rval button/btn_subform1}　　作成年月日：{rval data/WRITING_DATE}　　{rval button/btn_update}{rval button/btn_reset}{rval button/btn_back}　　{rval button/btn_print}{rval button/btn_end}　　作成日：{rval data/WRT_DATE}　{rval button/btn_insert}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                          <tr>
+                            <th align="center" class="no_search" width="30" rowspan="5">医<br>療<br>連<br>携</th>
+                            <th align="center" bgcolor="#ccffcc" width="100">障害名</th>
+                            <td bgcolor="#ffffff" width="*" colspan="5">{rval data/HANDICAP}<br>{rval button/btn_ref}</td>
+                          </tr>
+                          <tr>
+                            <th align="center" bgcolor="#ccffcc">診断時期</th>
+                            <td bgcolor="#ffffff" colspan="5"><span id="DIAGNOSIS_DATE">{rval data/DIAGNOSIS_DATE}</span></td>
+                          </tr>
+                          <tr>
+                            <th align="center" bgcolor="#ccffcc" width="100">機関</th>
+                            <td bgcolor="#ffffff" width="300">{rval data/INSTITUTES_CD}</td>
+                            <th align="center" bgcolor="#ccffcc" width="100">主治医</th>
+                            <td bgcolor="#ffffff" width="*" colspan="3">{rval data/ATTENDING_DOCTOR}</td>
+                          </tr>
+                          <tr>
+                            <th align="center" bgcolor="#ccffcc">備考</th>
+                            <td bgcolor="#ffffff" colspan="5">{rval data/REMARK}</td>
+                          </tr>
+                          <tr>
+                            <th align="center" bgcolor="#ccffcc">服薬</th>
+                            <td bgcolor="#ffffff">{rval data/MEDICINE_FLG1}<LABEL for="MEDICINE_FLG1">有</LABEL>　　{rval data/MEDICINE_FLG2}<LABEL for="MEDICINE_FLG2">無</LABEL></td>
+                            <th align="center" bgcolor="#ccffcc">薬剤名</th>
+                            <td bgcolor="#ffffff" colspan="3">{rval data/MEDICINE_NAME}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>　
+                      </td>
+                    </tr>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                          <tr>
+                            <th align="center" class="no_search" width="30" rowspan="8">諸<br>検<br>査<br>の<br>結<br>果</th>
+                            <th align="center" class="no_search" width="400" colspan="2">新版Ｋ式</th>
+                            <th align="center" class="no_search" width="*" colspan="4">WISC-Ⅳ</th>
+                          </tr>
+                          <tr>
+                            <th align="center" bgcolor="#ccffcc" width="100">実施年月</th>
+                            <td bgcolor="#ffffff" width="300">{rval data/EXAMINATION_DATE_1}</td>
+                            <th align="center" bgcolor="#ccffcc" width="100">実施年月</th>
+                            <td bgcolor="#ffffff" width="*" colspan="3">{rval data/EXAMINATION_DATE_2}</td>
+                          </tr>
+                          <tr>
+                            <th align="center" bgcolor="#ccffcc">機関</th>
+                            <td bgcolor="#ffffff">{rval data/EXAM_INST_CD_1}</td>
+                            <th align="center" bgcolor="#ccffcc">機関</th>
+                            <td bgcolor="#ffffff" colspan="3">{rval data/EXAM_INST_CD_2}</td>
+                          </tr>
+                          <tr>
+                            <th align="center" bgcolor="#ccffcc">検査者</th>
+                            <td bgcolor="#ffffff">{rval data/TESTER_NAME_1}</td>
+                            <th align="center" bgcolor="#ccffcc">検査者</th>
+                            <td bgcolor="#ffffff" colspan="3">{rval data/TESTER_NAME_2}</td>
+                          </tr>
+                          <tr>
+                            <th align="center" bgcolor="#ccffcc" width="100">認知･適応(CA)</th>
+                            <td bgcolor="#ffffff" width="300">{rval data/REMARK1_1}</td>
+                            <th align="center" bgcolor="#ccffcc" width="100">全検査IQ</th>
+                            <td bgcolor="#ffffff" width="100">{rval data/REMARK3_2}</td>
+                            <th align="center" bgcolor="#ccffcc" width="100"></th>
+                            <td bgcolor="#ffffff" width="*"></td>
+                          </tr>
+                          <tr>
+                            <th align="center" bgcolor="#ccffcc">言語･社会(LS)</th>
+                            <td bgcolor="#ffffff">{rval data/REMARK2_1}</td>
+                            <th align="center" bgcolor="#ccffcc">言語理解</th>
+                            <td bgcolor="#ffffff">{rval data/REMARK4_2}</td>
+                            <th align="center" bgcolor="#ccffcc">知覚推理</th>
+                            <td bgcolor="#ffffff">{rval data/REMARK5_2}</td>
+                          </tr>
+                          <tr>
+                            <th align="center" bgcolor="#ccffcc">全領域(DQ)</th>
+                            <td bgcolor="#ffffff">{rval data/REMARK3_1}</td>
+                            <th align="center" bgcolor="#ccffcc" style="font-size: 10px;">ワーキングメモリー</th>
+                            <td bgcolor="#ffffff">{rval data/REMARK6_2}</td>
+                            <th align="center" bgcolor="#ccffcc">処理速度</th>
+                            <td bgcolor="#ffffff">{rval data/REMARK7_2}</td>
+                          </tr>
+                          <tr>
+                            <th align="center" bgcolor="#ccffcc">解釈・<br>特記事項等</th>
+                            <td bgcolor="#ffffff">{rval data/OTHER_TEXT_1}<br><span style="font-size:13px; color:red;">{rval data/OTHER_TEXT_1_COMMENT}</span></td>
+                            <th align="center" bgcolor="#ccffcc">解釈・<br>特記事項等</th>
+                            <td bgcolor="#ffffff" colspan="3">{rval data/OTHER_TEXT_2}<br><span style="font-size:13px; color:red;">{rval data/OTHER_TEXT_2_COMMENT}</span></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>　
+                      </td>
+                    </tr>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                          <tr>
+                            <th align="center" class="no_search" width="30" rowspan="4">教<br>育<br>歴</th>
+                            <th align="center" bgcolor="#ccffcc" width="*">教育歴</th>
+                          </tr>
+                          <tr height="80">
+                            <td bgcolor="#ffffff" nowrap style="line-height:25px;">
+                                　　小学校：{rval data/P}&nbsp;&nbsp;<br>
+                                　　中学校：{rval data/J}&nbsp;&nbsp;<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th align="center" bgcolor="#ccffcc">中学校からの引き継ぎ（学習、行動・生活・その他について、具体的な支援・配慮等）</th>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff">{rval data/EDUCATION_TEXT}<br><span style="font-size:13px; color:red;">{rval data/EDUCATION_TEXT_COMMENT}</span></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>　
+                      </td>
+                    </tr>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                          <tr>
+                            <th align="center" class="no_search" width="30" rowspan="6">相<br>談<br>歴</th>
+                            <th align="center" bgcolor="#ccffcc" width="100">機関1</th>
+                            <td bgcolor="#ffffff" width="300">{rval data/CONS_INST_CD_1}</td>
+                            <th align="center" bgcolor="#ccffcc" width="100" rowspan="2">相談内容1</th>
+                            <td bgcolor="#ffffff" width="*" colspan="3" rowspan="2">{rval data/CONSULT_TEXT_1}<br><span style="font-size:13px; color:red;">{rval data/CONSULT_TEXT_1_COMMENT}</span></td>
+                          </tr>
+                          <tr>
+                            <th align="center" bgcolor="#ccffcc">時期1</th>
+                            <td bgcolor="#ffffff">{rval data/CONSULT_DATE_1}</td>
+                          </tr>
+                          <tr>
+                            <th align="center" bgcolor="#ccffcc">機関2</th>
+                            <td bgcolor="#ffffff">{rval data/CONS_INST_CD_2}</td>
+                            <th align="center" bgcolor="#ccffcc" rowspan="2">相談内容2</th>
+                            <td bgcolor="#ffffff" colspan="3" rowspan="2">{rval data/CONSULT_TEXT_2}<br><span style="font-size:13px; color:red;">{rval data/CONSULT_TEXT_2_COMMENT}</span></td>
+                          </tr>
+                          <tr>
+                            <th align="center" bgcolor="#ccffcc">時期2</th>
+                            <td bgcolor="#ffffff">{rval data/CONSULT_DATE_2}</td>
+                          </tr>
+                          <tr>
+                            <th align="center" bgcolor="#ccffcc">機関3</th>
+                            <td bgcolor="#ffffff">{rval data/CONS_INST_CD_3}</td>
+                            <th align="center" bgcolor="#ccffcc" rowspan="2">相談内容3</th>
+                            <td bgcolor="#ffffff" colspan="3" rowspan="2">{rval data/CONSULT_TEXT_3}<br><span style="font-size:13px; color:red;">{rval data/CONSULT_TEXT_3_COMMENT}</span></td>
+                          </tr>
+                          <tr>
+                            <th align="center" bgcolor="#ccffcc">時期3</th>
+                            <td bgcolor="#ffffff">{rval data/CONSULT_DATE_3}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            {rval button/btn_update}{rval button/btn_reset}{rval button/btn_back}　　{rval button/btn_end}
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<div id="lay"></div>
+
+{rval finish}

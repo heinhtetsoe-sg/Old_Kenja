@@ -1,0 +1,307 @@
+{rval start}
+<!--{def data}-->
+<!--{def button}-->
+
+<br>
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <hr width="400" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="400" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>対象年度：{rval data/YEAR}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><B>食物アレルギー・アナフィラキシー</B></td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                          <tr class="no_search" height="25">
+                            <th nowrap colspan="3"><B>病型・治療</B></th>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap valign="top" colspan="3">
+                                <B>Ａ．食物アレルギー病型（食物アレルギーありの場合のみ記載）</B><br>
+                                {rval data/CHECK01_01_01}<LABEL for="CHECK01_01_01">１．即時型</LABEL><br>
+                                {rval data/CHECK01_01_02}<LABEL for="CHECK01_01_02">２．口腔アレルギー症候群</LABEL><br>
+                                {rval data/CHECK01_01_03}<LABEL for="CHECK01_01_03">３．食物依存性運動誘発アナフィラキシー</LABEL><br>
+                            </td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap valign="top" colspan="3">
+                                <B>Ｂ．アナフィラキシー病型（アナフィラキシーの既往ありの場合のみ記載）</B><br>
+                                {rval data/CHECK01_02_01}<LABEL for="CHECK01_02_01">１．食物</LABEL><br>
+                                　　原因：{rval data/TEXT01_02_01}<br>
+                                {rval data/CHECK01_02_02}<LABEL for="CHECK01_02_02">２．食物依存性運動誘発アナフィラキシー</LABEL><br>
+                                {rval data/CHECK01_02_03}<LABEL for="CHECK01_02_03">３．運動誘発アナフィラキシー</LABEL><br>
+                                {rval data/CHECK01_02_04}<LABEL for="CHECK01_02_04">４．昆虫</LABEL><br>
+                                {rval data/CHECK01_02_05}<LABEL for="CHECK01_02_05">５．医薬品</LABEL><br>
+                                {rval data/CHECK01_02_06}<LABEL for="CHECK01_02_06">６．その他</LABEL><br>
+                                　　{rval data/TEXT01_02_06}<br>
+                            </td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap valign="top" colspan="3">
+                                <B>Ｃ．原因食物・診断根拠</B><br>
+                              <table>
+                                <tr>
+                                  <td width="230">{rval data/CHECK01_03_01}<LABEL for="CHECK01_03_01">１．鶏卵</LABEL></td>
+                                  <td width="50">{rval data/REASON01_1}<span style="color:#ff2800;font-weight:bold;"><LABEL for="REASON01_1">①</LABEL></span></td>
+                                  <td width="50">{rval data/REASON01_2}<span style="color:#0041ff;font-weight:bold;"><LABEL for="REASON01_2">②</LABEL></span></td>
+                                  <td width="60">{rval data/REASON01_3}<span style="color:#35a16b;font-weight:bold;"><LABEL for="REASON01_3">③</LABEL></span></td>
+                                  <td width="*" rowspan="5" valign="top" align="left">
+                                    <table bgcolor="#ffff99" frame="border" cellpadding="5" style="margin-top:5px;margin-bottom:5px;margin-left:20px;">
+                                      <tr>
+                                        <td nowrap style="font-size:small;">
+                                        <B>［診断根拠］</B>該当するもの全てを選択<br>
+                                            <span style="color:#ff2800;font-weight:bold;">①</span> 明らかな症状の既往<br>
+                                            <span style="color:#0041ff;font-weight:bold;">②</span> 食物負荷試験陽性<br>
+                                            <span style="color:#35a16b;font-weight:bold;">③</span> lgE抗体等検査結果陽性<br>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>{rval data/CHECK01_03_02}<LABEL for="CHECK01_03_02">２．牛乳・乳製品</LABEL></td>
+                                  <td>{rval data/REASON02_1}<span style="color:red;font-weight:bold;"><LABEL for="REASON02_1">①</LABEL></span></td>
+                                  <td>{rval data/REASON02_2}<span style="color:#0041ff;font-weight:bold;"><LABEL for="REASON02_2">②</LABEL></span></td>
+                                  <td>{rval data/REASON02_3}<span style="color:#35a16b;font-weight:bold;"><LABEL for="REASON02_3">③</LABEL></span></td>
+                                </tr>
+                                <tr>
+                                  <td>{rval data/CHECK01_03_03}<LABEL for="CHECK01_03_03">３．小麦</LABEL></td>
+                                  <td>{rval data/REASON03_1}<span style="color:red;font-weight:bold;"><LABEL for="REASON03_1">①</LABEL></span></td>
+                                  <td>{rval data/REASON03_2}<span style="color:#0041ff;font-weight:bold;"><LABEL for="REASON03_2">②</LABEL></span></td>
+                                  <td>{rval data/REASON03_3}<span style="color:#35a16b;font-weight:bold;"><LABEL for="REASON03_3">③</LABEL></span></td>
+                                </tr>
+                                <tr>
+                                  <td>{rval data/CHECK01_03_04}<LABEL for="CHECK01_03_04">４．ソバ</LABEL></td>
+                                  <td>{rval data/REASON04_1}<span style="color:red;font-weight:bold;"><LABEL for="REASON04_1">①</LABEL></span></td>
+                                  <td>{rval data/REASON04_2}<span style="color:#0041ff;font-weight:bold;"><LABEL for="REASON04_2">②</LABEL></span></td>
+                                  <td>{rval data/REASON04_3}<span style="color:#35a16b;font-weight:bold;"><LABEL for="REASON04_3">③</LABEL></span></td>
+                                </tr>
+                                <tr>
+                                  <td>{rval data/CHECK01_03_05}<LABEL for="CHECK01_03_05">５．ピーナッツ</LABEL></td>
+                                  <td>{rval data/REASON05_1}<span style="color:red;font-weight:bold;"><LABEL for="REASON05_1">①</LABEL></span></td>
+                                  <td>{rval data/REASON05_2}<span style="color:#0041ff;font-weight:bold;"><LABEL for="REASON05_2">②</LABEL></span></td>
+                                  <td>{rval data/REASON05_3}<span style="color:#35a16b;font-weight:bold;"><LABEL for="REASON05_3">③</LABEL></span></td>
+                                </tr>
+                                <tr>
+                                  <td>{rval data/CHECK01_03_06}<LABEL for="CHECK01_03_06">６．種実類・木の実類</LABEL></td>
+                                  <td>{rval data/REASON06_1}<span style="color:red;font-weight:bold;"><LABEL for="REASON06_1">①</LABEL></span></td>
+                                  <td>{rval data/REASON06_2}<span style="color:#0041ff;font-weight:bold;"><LABEL for="REASON06_2">②</LABEL></span></td>
+                                  <td>{rval data/REASON06_3}<span style="color:#35a16b;font-weight:bold;"><LABEL for="REASON06_3">③</LABEL></span></td>
+                                  <td>{rval data/DETAIL01_03_06}</td>
+                                </tr>
+                                <tr>
+                                  <td>{rval data/CHECK01_03_07}<LABEL for="CHECK01_03_07">７．甲殻類（エビ・カニ）</LABEL></td>
+                                  <td>{rval data/REASON07_1}<span style="color:red;font-weight:bold;"><LABEL for="REASON07_1">①</LABEL></span></td>
+                                  <td>{rval data/REASON07_2}<span style="color:#0041ff;font-weight:bold;"><LABEL for="REASON07_2">②</LABEL></span></td>
+                                  <td>{rval data/REASON07_3}<span style="color:#35a16b;font-weight:bold;"><LABEL for="REASON07_3">③</LABEL></span></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>{rval data/CHECK01_03_08}<LABEL for="CHECK01_03_08">８．果物類</LABEL></td>
+                                  <td>{rval data/REASON08_1}<span style="color:red;font-weight:bold;"><LABEL for="REASON08_1">①</LABEL></span></td>
+                                  <td>{rval data/REASON08_2}<span style="color:#0041ff;font-weight:bold;"><LABEL for="REASON08_2">②</LABEL></span></td>
+                                  <td>{rval data/REASON08_3}<span style="color:#35a16b;font-weight:bold;"><LABEL for="REASON08_3">③</LABEL></span></td>
+                                  <td>{rval data/DETAIL01_03_08}</td>
+                                </tr>
+                                <tr>
+                                  <td>{rval data/CHECK01_03_09}<LABEL for="CHECK01_03_09">９．魚類</LABEL></td>
+                                  <td>{rval data/REASON09_1}<span style="color:red;font-weight:bold;"><LABEL for="REASON09_1">①</LABEL></span></td>
+                                  <td>{rval data/REASON09_2}<span style="color:#0041ff;font-weight:bold;"><LABEL for="REASON09_2">②</LABEL></span></td>
+                                  <td>{rval data/REASON09_3}<span style="color:#35a16b;font-weight:bold;"><LABEL for="REASON09_3">③</LABEL></span></td>
+                                  <td>{rval data/DETAIL01_03_09}</td>
+                                </tr>
+                                <tr>
+                                  <td>{rval data/CHECK01_03_10}<LABEL for="CHECK01_03_10">10．肉類</LABEL></td>
+                                  <td>{rval data/REASON10_1}<span style="color:red;font-weight:bold;"><LABEL for="REASON10_1">①</LABEL></span></td>
+                                  <td>{rval data/REASON10_2}<span style="color:#0041ff;font-weight:bold;"><LABEL for="REASON10_2">②</LABEL></span></td>
+                                  <td>{rval data/REASON10_3}<span style="color:#35a16b;font-weight:bold;"><LABEL for="REASON10_3">③</LABEL></span></td>
+                                  <td>{rval data/DETAIL01_03_10}</td>
+                                </tr>
+                                <tr>
+                                  <td>{rval data/CHECK01_03_11}<LABEL for="CHECK01_03_11">11．その他１</LABEL></td>
+                                  <td>{rval data/REASON11_1}<span style="color:red;font-weight:bold;"><LABEL for="REASON11_1">①</LABEL></span></td>
+                                  <td>{rval data/REASON11_2}<span style="color:#0041ff;font-weight:bold;"><LABEL for="REASON11_2">②</LABEL></span></td>
+                                  <td>{rval data/REASON11_3}<span style="color:#35a16b;font-weight:bold;"><LABEL for="REASON11_3">③</LABEL></span></td>
+                                  <td>{rval data/DETAIL01_03_11}</td>
+                                </tr>
+                                <tr>
+                                  <td>{rval data/CHECK01_03_12}<LABEL for="CHECK01_03_12">12．その他２</LABEL></td>
+                                  <td>{rval data/REASON12_1}<span style="color:red;font-weight:bold;"><LABEL for="REASON12_1">①</LABEL></span></td>
+                                  <td>{rval data/REASON12_2}<span style="color:#0041ff;font-weight:bold;"><LABEL for="REASON12_2">②</LABEL></span></td>
+                                  <td>{rval data/REASON12_3}<span style="color:#35a16b;font-weight:bold;"><LABEL for="REASON12_3">③</LABEL></span></td>
+                                  <td>{rval data/DETAIL01_03_12}</td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap valign="top" rowspan="3">
+                                <B>Ｄ．緊急時に備えた処方薬</B><br>
+                                {rval data/CHECK01_04_01}<LABEL for="CHECK01_04_01">１．内服薬（抗ヒスタミン薬、ステロイド薬）</LABEL><br>
+                                {rval data/CHECK01_04_02}<LABEL for="CHECK01_04_02">２．アドレナリン自己注射薬(｢エピペンR｣)</LABEL><br>
+                                {rval data/CHECK01_04_03}<LABEL for="CHECK01_04_03">３．その他</LABEL><br>
+                                　　{rval data/TEXT01_04_03}<br>
+                            </td>
+                            <th nowrap bgcolor="#ccffcc" colspan="2"><B>保健室預り薬</B></th>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap width="150">{rval data/CHECK01_04_04}<LABEL for="CHECK01_04_04">内服薬</LABEL></td>
+                            <td nowrap>&nbsp;{rval data/TEXT01_04_04}</td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap>{rval data/CHECK01_04_05}<LABEL for="CHECK01_04_05">エピペン</LABEL></td>
+                            <td nowrap>&nbsp;{rval data/TEXT01_04_05}</td>
+                          </tr>
+                          <tr class="no_search" height="25">
+                            <th nowrap colspan="3"><B>学校生活上の留意点</B></th>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap valign="top">
+                                <B>Ａ．給食</B><br>
+                                {rval data/CHECK02_01_01}<LABEL for="CHECK02_01_01">１．管理不要</LABEL><br>
+                                {rval data/CHECK02_01_02}<LABEL for="CHECK02_01_02">２．保護者と相談し決定</LABEL><br>
+                            </td>
+                            <td nowrap valign="top" colspan="2">
+                                {rval data/TEXT02_01_02}<br>
+                                <span style="color:red;font-size:small;">{rval data/COMMENT02_01_02}</span>
+                            </td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap valign="top">
+                                <B>Ｂ．食物・食材を扱う授業・活動</B><br>
+                                {rval data/CHECK02_02_01}<LABEL for="CHECK02_02_01">１．配慮不要</LABEL><br>
+                                {rval data/CHECK02_02_02}<LABEL for="CHECK02_02_02">２．保護者と相談し決定</LABEL><br>
+                            </td>
+                            <td nowrap valign="top" colspan="2">
+                                {rval data/TEXT02_02_02}<br>
+                                <span style="color:red;font-size:small;">{rval data/COMMENT02_02_02}</span>
+                            </td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap valign="top">
+                                <B>Ｃ．運動（体育・部活動等）</B><br>
+                                {rval data/CHECK02_03_01}<LABEL for="CHECK02_03_01">１．管理不要</LABEL><br>
+                                {rval data/CHECK02_03_02}<LABEL for="CHECK02_03_02">２．保護者と相談し決定</LABEL><br>
+                            </td>
+                            <td nowrap valign="top" colspan="2">
+                                {rval data/TEXT02_03_02}<br>
+                                <span style="color:red;font-size:small;">{rval data/COMMENT02_03_02}</span>
+                            </td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap valign="top">
+                                <B>Ｄ．宿泊を伴う校外活動</B><br>
+                                {rval data/CHECK02_04_01}<LABEL for="CHECK02_04_01">１．配慮不要</LABEL><br>
+                                {rval data/CHECK02_04_02}<LABEL for="CHECK02_04_02">２．食事やイベントの際に配慮が必要</LABEL><br>
+                            </td>
+                            <td nowrap valign="top" colspan="2">
+                                {rval data/TEXT02_04_02}<br>
+                                <span style="color:red;font-size:small;">{rval data/COMMENT02_04_02}</span>
+                            </td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap valign="top">
+                                <B>Ｅ．その他の配慮・管理事由（自由記載）</B><br>
+                                {rval data/TEXT02_05_00}<br>
+                                <span style="color:red;font-size:small;">{rval data/COMMENT02_05_00}</span><br>
+                            </td>
+                            <td nowrap valign="top" colspan="2">
+                                <B>Ｆ．診断のきっかけ</B><br>
+                                {rval data/TEXT02_06_00}<br>
+                                <span style="color:red;font-size:small;">{rval data/COMMENT02_06_00}</span><br>
+                            </td>
+                          </tr>
+                          <tr class="no_search" height="25">
+                            <th nowrap colspan="3"><B>その他</B></th>
+                          </tr>
+                          <tr height="25" bgcolor="#ffff7f">
+                            <th nowrap><B>【緊急時連絡先】</B></th>
+                            <th nowrap colspan="2"><B>【緊急時対応プラン】</B></th>
+                          </tr>
+                          <tr bgcolor="#ffff7f">
+                            <td nowrap valign="top">
+                                <B>★保護者</B><br>
+                                保護者氏名：{rval data/EMERGENCYNAME}<br>
+                                　　　電話：{rval data/EMERGENCYTELNO}<br>
+                            </td>
+                            <td nowrap valign="top" rowspan="5" colspan="2">
+                                {rval data/REMARK}<br>
+                                <span style="color:red;font-size:small;">{rval data/COMMENT_REMARK}</span><br>
+                            </td>
+                          </tr>
+                          <tr bgcolor="#ffff7f">
+                            <td nowrap valign="top">
+                                <B>★連絡医療機関</B><br>
+                                医療機関名：{rval data/EMERGENCYNAME2}<br>
+                                　　　電話：{rval data/EMERGENCYTELNO2}<br>
+                            </td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap valign="top">
+                                <B>記載日</B><br>
+                                {rval data/DATE}<br>
+                            </td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap valign="top">
+                                <B>医師名</B><br>
+                                {rval data/DOCTOR}<br>
+                            </td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap valign="top">
+                                <B>医療機関名</B><br>
+                                {rval data/HOSPITAL}<br>
+                            </td>
+                          </tr>
+                          <tr class="no_search" height="25">
+                            <td nowrap colspan="3">
+                              <table width="100%">
+                                <tr>
+                                  <td>{rval button/btn_back}</td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}

@@ -1,0 +1,60 @@
+{rval start}
+
+<br><br>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="5" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr height="25">
+                      <th nowrap class="no_search" width="17%">入試年度</th>
+                      <td nowrap bgcolor="#ffffff" width="*">{rval year}&nbsp;&nbsp;{rval btn_year_add}</td>
+                    </tr>
+                    <tr height="25">
+                      <th nowrap class="no_search">入試制度</th>
+                      <td nowrap bgcolor="#ffffff">{rval APPLICANTDIV}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th nowrap width="50%">受験番号範囲</th>
+                      <th nowrap width="50%">入試区分</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff" height="25">
+                      <td nowrap align="center">{rval data/EXAMNO_FROM_TO}</td>
+                      <td nowrap>{rval data/TESTDIV_NAME}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+
+<script language="JavaScript">
+<!--{def reload}-->
+<!--{each reload}-->
+{rval reload}
+<!--{/each}-->
+<!--{/def}-->
+</script>

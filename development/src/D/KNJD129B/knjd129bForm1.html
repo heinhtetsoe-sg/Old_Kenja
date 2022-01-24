@@ -1,0 +1,184 @@
+{rval start} 
+<style type="text/css">
+<!--
+a{
+color:#ffffff;
+font-size: 3.3mm;
+}
+a:hover{
+color:#ffffff;
+font-weight:bold;
+font-size: 3.3mm;
+}
+-->
+</style>
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="48%" align="left" nowrap>処理年度：{rval YEAR}年度&nbsp;&nbsp;&nbsp;{rval GRADE}　{rval SEMESTER}　{rval TESTKIND}</th>
+                        <th width="32%" align="left" nowrap>教科：{rval CLASSCD}<BR>科目：{rval SUBCLASSCD}</th>
+                        <td width="20%">
+                            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                              <tr class="no_search">
+                                <th width="6%" bgcolor="#3399ff" nowrap><font color="#000000" size="2">公欠</font></th>
+                                <th width="6%" bgcolor="#66cc33" nowrap><font color="#000000" size="2">特別<BR>欠席</font></th>
+                                <th width="6%" bgcolor="#ff0099" nowrap><font color="#000000" size="2">病欠<BR>欠課</font></th>
+                                <th width="6%" bgcolor="#ffff00" nowrap><font color="#000000" size="2">異動<BR>生徒</font></th>
+                              </tr>
+                            </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th rowspan="2" width="50"><font size="2">見込み<br>点指定</font></th>
+                        <th rowspan="2" width="90"><font size="2">クラス-<br>出席番号</font></th>
+                        <th rowspan="2" width="150"><font size="2">氏名</font></th>
+                        <th colspan="3" ><font size="2">{rval SEMENAME1}</font></th>
+                        <th colspan="3" ><font size="2">{rval SEMENAME2}</font></th>
+                        <th colspan="3" ><font size="2">{rval SEMENAME3}</font></th>
+                        <th rowspan="2" width="*">&nbsp;</th>
+                      </tr>
+                      <tr class="no_search">
+                        <th width="50"><font size="2">{rval TESTNAME10101}</font></th>
+                        <th width="50"><font size="2">{rval TESTNAME10201}</font></th>
+                        <th width="50"><font size="2">成績</font></th>
+                        <th width="50"><font size="2">{rval TESTNAME20101}</font></th>
+                        <th width="50"><font size="2">{rval TESTNAME20201}</font></th>
+                        <th width="50"><font size="2">成績</font></th>
+                        <th width="50"><font size="2">{rval TESTNAME30101}</font></th>
+                        <th width="50"><font size="2">{rval TESTNAME30201}</font></th>
+                        <th width="50"><font size="2">成績</font></th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <div style="width:100%;height:450;overflow:auto">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                       <tr height="29">
+                          <td width="50" align="center" bgcolor="{rval data/COLOR}">{rval data/CHK_BOX}</td>
+                          <td width="90" align="center" bgcolor="{rval data/COLOR}">{rval data/ATTENDNO}</td>
+                          <td width="150" align="left" bgcolor="{rval data/COLOR}">{rval data/NAME_SHOW}</td>
+
+                          <td width="50" align="center" bgcolor="{rval data/SEM1_INTR_SCORE_COLOR}">{rval data/SEM1_INTR_SCORE}</td>
+                          <td width="50" align="center" bgcolor="{rval data/SEM1_TERM_SCORE_COLOR}">{rval data/SEM1_TERM_SCORE}</td>
+                          <td width="50" align="center" bgcolor="{rval data/SEM1_VALUE_COLOR}">{rval data/SEM1_VALUE}</td>
+
+                          <td width="50" align="center" bgcolor="{rval data/SEM2_INTR_SCORE_COLOR}">{rval data/SEM2_INTR_SCORE}</td>
+                          <td width="50" align="center" bgcolor="{rval data/SEM2_TERM_SCORE_COLOR}">{rval data/SEM2_TERM_SCORE}</td>
+                          <td width="50" align="center" bgcolor="{rval data/SEM2_VALUE_COLOR}">{rval data/SEM2_VALUE}</td>
+
+                          <td width="50" align="center" bgcolor="{rval data/SEM3_INTR_SCORE_COLOR}">{rval data/SEM3_INTR_SCORE}</td>
+                          <td width="50" align="center" bgcolor="{rval data/SEM3_TERM_SCORE_COLOR}">{rval data/SEM3_TERM_SCORE}</td>
+                          <td width="50" align="center" bgcolor="{rval data/SEM3_VALUE_COLOR}">{rval data/SEM3_VALUE}</td>
+
+                          <td width="*"  align="center" bgcolor="{rval data/COLOR}">&nbsp;</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" height="29">
+                        <th width="304">科目平均</th>
+
+                        <th width="50">{val SEM1_INTR_SCORE_AVG}</th>
+                        <th width="50">{val SEM1_TERM_SCORE_AVG}</th>
+                        <th width="50">{val SEM1_VALUE_AVG}</th>
+
+                        <th width="50">{val SEM2_INTR_SCORE_AVG}</th>
+                        <th width="50">{val SEM2_TERM_SCORE_AVG}</th>
+                        <th width="50">{val SEM2_VALUE_AVG}</th>
+
+                        <th width="50">{val SEM3_INTR_SCORE_AVG}</th>
+                        <th width="50">{val SEM3_TERM_SCORE_AVG}</th>
+                        <th width="50">{val SEM3_VALUE_AVG}</th>
+
+                        <th width="*"></th>
+                      </tr>
+                      <tr class="no_search">
+                        <td colspan="11">
+                          <table cellpadding="0" cellspacing="0">
+                            <tr class="no_search">
+                              <td width="10%" align="right">{val btn_calc}&nbsp;{val TESTNAME_MOTO}&nbsp;
+                              {val btn_show}{val btn_update}{val btn_reset}{val btn_end}&nbsp;&nbsp;
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                  </table>
+                  </td>
+                </tr>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish} 
+<script language="JavaScript">{rval close_win}</script>

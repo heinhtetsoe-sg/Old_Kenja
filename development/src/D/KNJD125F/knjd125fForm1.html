@@ -1,0 +1,179 @@
+<!--kanji=漢字-->
+<!-- <?php # $Id: knjd125fForm1.html 56581 2017-10-22 12:37:16Z maeshiro $ ?> -->
+
+{rval start} 
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search">
+                        <td width="24%" nowrap>処理年度：{rval YEAR}年度<BR>学期：{rval SEMESTER}　{rval TESTITEM}</td>
+                        <td width="*%" nowrap>科目：{rval SUBCLASSCD}　　　学級・講座：{rval CHAIRCD}</td>
+                        <td width="18%">
+                            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                              <tr class="no_search">
+                                <th width="6%" bgcolor="#3399ff" nowrap><font color="#000000" size="2">公欠</font></th>
+                                <th width="6%" bgcolor="#66cc33" nowrap><font color="#000000" size="2">出停<BR>忌引</font></th>
+                                <th width="6%" bgcolor="#ff0099" nowrap><font color="#000000" size="2">病欠<BR>欠課</font></th>
+                                <th width="6%" bgcolor="#ffff00" nowrap><font color="#000000" size="2">異動<BR>生徒</font></th>
+                              </tr>
+                            </table>
+                        </td>                      
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th rowspan="3" width="30">処理<br>指定</th>
+                        <th rowspan="3" width="90">クラス-<br>出席番号</th>
+                        <th rowspan="3" width="120">氏名</th>
+                        <th colspan="8" >対象試験</th>
+                        <th rowspan="3" width="35">学年<br>評定</th>
+                        <th rowspan="3" width="35">履修<br>単位</th>
+                        <th rowspan="3" width="35">修得<br>単位</th>
+                        <th colspan="3" width="*">累積情報</th>
+                      </tr>
+                      <tr class="no_search">
+                        <th colspan="2">１学期期末</th>
+                        <th colspan="2">２学期期末</th>
+                        <th colspan="2">３学期期末</th>
+                        <th colspan="2">４学期期末</th>
+                        <th rowspan="2" width="35">欠時<br>数</th>
+                        <th rowspan="2" width="35">遅刻<br>早退</th>
+                        <th rowspan="2" width="*">欠課<br>数</th>
+                      </tr>
+                      <tr class="no_search">
+                        <th width="50">素点</th>
+                        <th width="50">再試験</th>
+                        <th width="50">素点</th>
+                        <th width="50">再試験</th>
+                        <th width="50">素点</th>
+                        <th width="50">再試験</th>
+                        <th width="50">素点</th>
+                        <th width="50">再試験</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <div style="width:100%;height:480;overflow:auto">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+                        <tr class="no_search">
+                          <td width="30"></td>
+                          <td width="90"></td>
+                          <td width="120"></td>
+                          <td width="50"></td>
+                          <td width="50"></td>
+                          <td width="50"></td>
+                          <td width="50"></td>
+                          <td width="50"></td>
+                          <td width="50"></td>
+                          <td width="50"></td>
+                          <td width="50"></td>
+                          <td width="35"></td>
+                          <td width="35"></td>
+                          <td width="35"></td>
+                          <td width="35"></td>
+                          <td width="35"></td>
+                          <td width="*"></td>
+                        </tr>
+  <!--{each data}-->
+                       <tr height="30">
+                          <td align="center" bgcolor="#ffffff">{rval data/CHK_BOX}</td>
+                          <td align="center" bgcolor="#ffffff">{rval data/ATTENDNO}</td>
+                          <td align="left" bgcolor="#ffffff">{rval data/NAME_SHOW}</td>
+                          {rval data/SCORE101}
+                          {rval data/SCORE102}
+                          {rval data/SCORE201}
+                          {rval data/SCORE202}
+                          <td align="center" bgcolor="{rval data/COLOR}">{rval data/VALUE999}</td>
+                          <td align="center" bgcolor="{rval data/COLOR}">{rval data/COMP_CREDIT}</td>
+                          <td align="center" bgcolor="{rval data/COLOR}">{rval data/GET_CREDIT}</td>
+                          <td align="center" bgcolor="{rval data/COLOR}">{rval data/T_NOTICE}</td>
+                          <td align="center" bgcolor="{rval data/COLOR}">{rval data/T_LATEEARLY}</td>
+                          <td align="center" bgcolor="{rval data/COLOR}">{rval data/NOTICE_LATE}</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <td>
+                          <table cellpadding="0" cellspacing="0">
+                            <tr class="no_search">
+                              <td width="10%" align="right">
+                              {val btn_show}{val btn_update}{val btn_reset}{val btn_end}{val btn_print}
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                  </table>
+                  </td>
+                </tr>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish} 

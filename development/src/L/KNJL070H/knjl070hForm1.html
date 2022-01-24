@@ -1,0 +1,220 @@
+{rval start}
+<br>
+<br>
+<table width="60%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tbody>
+    <tr>
+      <td valign="top"><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr bgcolor="#006633">
+            <td align="right">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <tbody>
+                        <tr class="no_search">
+                          <th width="28%">項目</th>
+                          <th>値</th>
+                        </tr>
+                        <tr class="no_search">
+                          <th>入試年度</th>
+                          <td bgcolor="#ffffff"><span style="color:#000000">{rval CTRL_YEAR}</span></td>
+                        </tr>
+                        <tr class="no_search">
+                          <th>入試制度</th>
+                          <td bgcolor="#ffffff">{rval APPLICANTDIV}</td>
+                        </tr>
+                        <tr class="no_search">
+                          <th>※ 入試区分&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                          <td bgcolor="#ffffff">{rval TESTDIV}</td>
+                        </tr>
+                        <tr class="no_search">
+                          <th>※ 学科・コース</th>
+                          <td bgcolor="#ffffff">{rval COURSE}</td>
+                        </tr>
+                        <tr class="no_search">
+                          <th>判定対象</th>
+                          <td bgcolor="#ffffff">{rval EXAM_TYPE}</td>
+                        </tr>
+                        <tr class="no_search">
+                          <th>※ 性別&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                          <td bgcolor="#ffffff">{rval SEX}</td>
+                        </tr>
+                        <tr class="no_search">
+                          <th>※ 合格点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                          <td bgcolor="#ffffff">{rval BORDER_SCORE}<span style="color:#000000">点</span></td>
+                        </tr>
+                        <tr class="no_search">
+                          <th>合格者数</th>
+                          <td bgcolor="#ffffff">　　<span style="color:#000000">{rval SUCCESS_CNT}　名</span></td>
+                        </tr>
+                        <tr class="no_search">
+                          <th>※ 戻り率&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                          <td bgcolor="#ffffff">{rval BACK_RATE}<span style="color:#000000">％</span></td>
+                        </tr>
+                        <tr class="no_search">
+                          <th>収容人数</th>
+                          <td bgcolor="#ffffff">　　<span id="CAPA_CNT" style="color:#000000">{rval CAPA_CNT}　名</span></td>
+                        </tr>
+                        <tr class="no_search">
+                          <th>&nbsp;&nbsp;※ 繰上合格候補点</th>
+                          <td bgcolor="#ffffff">{rval BORDER_SCORE_CANDI}<span style="color:#000000">点　　{rval SUCCESS_CNT_CANDI}　名　　　　※中学・高校（一般）のみ入力可</span></td>
+                        </tr>
+                        <tr class="no_search">
+                          <th></th>
+                          <th bgcolor="#ffffff" align="left" >{rval btn_sim}&nbsp;&nbsp;&nbsp;{rval btn_decision}{rval btn_end}</th>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<BR>
+<BR>
+<table align="center" width="85%" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>確定結果一覧</td>
+    </tr>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="200" rowspan="2">学科・コース</th>
+                        <th width="50" rowspan="2" align="center" nowrap>定員</th>
+                        <th width="50" rowspan="2" align="center" nowrap>入試<BR>区分</th>
+                        <th width="50" rowspan="2" align="center" nowrap>性別</th>
+<!--
+                        <th width="200" colspan="4" align="center" nowrap>２科目</th>
+-->
+                        <th width="200" colspan="4" align="center" nowrap>&nbsp;</th>
+                        <th width="75" rowspan="2" align="center" nowrap>繰上合格<BR>候補点</th>
+                        <th width="75" rowspan="2" align="center" nowrap>繰上合格<BR>候補者数</th>
+                        <th width="*" rowspan="2" align="center" nowrap>増減</th>
+                      </tr>
+                      <tr class="no_search">
+<!--
+                        <th width="50">合格点</th>
+                        <th width="50" align="center" nowrap>合格<BR>者数</th>
+                        <th width="50" align="center" nowrap>戻り率</th>
+                        <th width="50" align="center" nowrap>収容<BR>人数</th>
+-->
+                        <th width="50">合格点</th>
+                        <th width="50" align="center" nowrap>合格<BR>者数</th>
+                        <th width="50" align="center" nowrap>戻り率</th>
+                        <th width="50" align="center" nowrap>収容<BR>人数</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <div style="border-style:solid;border-width:0.15pt;border-color:#255476;width:100%;height:150;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <!--{each data}-->
+                      <tr bgcolor="#ffffff" nowrap>
+                        <!--{def data/rowspan}-->
+                        <td width="200" align="left"  rowspan="{rval data/rowspan}">&nbsp;{rval data/COURSE}:{rval data/EXAMCOURSE_NAME}</td>
+                        <td width="50"  align="right" rowspan="{rval data/rowspan}">{rval data/CAPACITY}</td>
+                        <!--{/def}-->
+                        <td width="50" align="right" >{rval data/TESTDIV}</td>
+                        <td width="50" align="right" >{rval data/SEX}</td>
+<!--
+                        <td width="50" align="right" >{rval data/BORDER_SCORE1}</td>
+                        <td width="50" align="right" >{rval data/SUCCESS_CNT1}</td>
+                        <td width="50" align="right" >{rval data/BACK_RATE1}%</td>
+                        <td width="50" align="right" >{rval data/CAPA_CNT1}</td>
+-->
+                        <td width="50" align="right" >{rval data/BORDER_SCORE2}</td>
+                        <td width="50" align="right" >{rval data/SUCCESS_CNT2}</td>
+                        <td width="50" align="right" >{rval data/BACK_RATE2}%</td>
+                        <td width="50" align="right" >{rval data/CAPA_CNT2}</td>
+                        <td width="75" align="right" >{rval data/BORDER_SCORE_CANDI2}</td>
+                        <td width="75" align="right" >{rval data/SUCCESS_CNT_CANDI2}</td>
+                        <!--{def data/rowspan}-->
+                        <td width="*" align="right" rowspan="{rval data/rowspan}">{rval data/INCREASE}</td>
+                        <!--{/def}-->
+                      </tr>
+                      <!--{/each}-->
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="200">合計</th>
+                        <td bgcolor="#ffffff" width="50" align="right" style="color:#000000">{rval sum/CAPACITY}</td>
+                        <td bgcolor="#ffffff" width="50">　</td>
+                        <td bgcolor="#ffffff" width="50">　</td>
+<!--
+                        <td bgcolor="#ffffff" width="50">　</td>
+                        <td bgcolor="#ffffff" width="50" align="right" style="color:#000000">{rval sum/SUCCESS_CNT1}</td>
+                        <td bgcolor="#ffffff" width="50">　</td>
+                        <td bgcolor="#ffffff" width="50" align="right" style="color:#000000">{rval sum/CAPA_CNT1}</td>
+-->
+                        <td bgcolor="#ffffff" width="50">　</td>
+                        <td bgcolor="#ffffff" width="50" align="right" style="color:#000000">{rval sum/SUCCESS_CNT2}</td>
+                        <td bgcolor="#ffffff" width="50">　</td>
+                        <td bgcolor="#ffffff" width="50" align="right" style="color:#000000">{rval sum/CAPA_CNT2}</td>
+                        <td bgcolor="#ffffff" width="75">　</td>
+                        <td bgcolor="#ffffff" width="75" align="right" style="color:#000000">{rval sum/SUCCESS_CNT_CANDI2}</td>
+                        <td bgcolor="#ffffff" width="*" align="right" style="color:#000000">{rval sum/INCREASE}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}

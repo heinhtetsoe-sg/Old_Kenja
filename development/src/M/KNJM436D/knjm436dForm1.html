@@ -1,0 +1,91 @@
+{rval start}
+<table width="970" border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr class="no_search_line">
+          <th>
+            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+              <tr class="no_search">
+                <td width="300"><b>　　{rval TOP/YEAR}年度　　学期：{rval TOP/SEMESTER}</b></td>
+                <td width="*"><b>{rval TOP/ORDER1}<LABEL for="ORDER1">学籍番号順</LABEL>　　科目：{rval TOP/SUBCLASSCD}<br>
+                                 {rval TOP/ORDER2}<LABEL for="ORDER2">クラス番号順</LABEL></b>
+                </td>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="51px">
+                      <th width="100"  align="center">学籍番号</th>
+                      <th width="150" align="center">ハウス</th>
+                      <th width="350" align="center">氏　　名</th>
+                      <th width="100"  align="center">評定</th>
+                      <th width="100"  align="center">修得単位</th>
+                      <th width="*"   align="center">履修単位</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#ffffff">
+            <div style="width: 100%; height: 500; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{def data}-->
+<!--{each data}-->
+                    <tr style="height:30"; bgcolor="{rval data/COLOR}">
+                      <td width="100"  align="center">{rval data/SCHREGNO}</td>
+                      <td width="150" align="center">{rval data/HR_NAME}</td>
+                      <td width="350" align="left">&nbsp;{rval data/NAME_SHOW}</td>
+                      <td width="100"  align="center">{rval data/VALUE}</td>
+                      <td width="100"  align="center">{rval data/GET_CREDIT}</td>
+                      <td width="*"   align="center">{rval data/COMP_CREDIT}</td>
+                    </tr>
+<!--{/each}-->
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr class="no_search_line" >
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search">
+                <th>{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}

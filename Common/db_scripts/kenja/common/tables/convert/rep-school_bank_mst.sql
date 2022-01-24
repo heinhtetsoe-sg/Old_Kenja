@@ -1,0 +1,65 @@
+-- $Id: 73bc814fb67d5d48bef0efbcf6b0c7e119e998ff $
+
+drop table SCHOOL_BANK_MST_OLD
+create table SCHOOL_BANK_MST_OLD like SCHOOL_BANK_MST
+insert into SCHOOL_BANK_MST_OLD select * from SCHOOL_BANK_MST
+
+DROP TABLE SCHOOL_BANK_MST
+
+CREATE TABLE SCHOOL_BANK_MST \
+( \
+    SCHOOLCD          VARCHAR(12) NOT NULL, \
+    SCHOOL_KIND       VARCHAR(2)  NOT NULL, \
+    BANKTRANSFERCD    VARCHAR(4)  NOT NULL, \
+    BANKTRANSFERNAME  VARCHAR(60), \
+    BANKTRANSFERMONEY INTEGER, \
+    BANKCD            VARCHAR(4),  \
+    BANKNAME          VARCHAR(45),  \
+    BANKNAME_KANA     VARCHAR(45),  \
+    BRANCHCD          VARCHAR(3),  \
+    BRANCHNAME        VARCHAR(45),  \
+    BRANCHNAME_KANA   VARCHAR(45),  \
+    DEPOSIT_ITEM      VARCHAR(1),  \
+    ACCOUNTNO         VARCHAR(7),  \
+    ACCOUNTNAME       VARCHAR(120), \
+    ACCOUNTNAME_KANA  VARCHAR(120), \
+    SCHOOLZIPCD       VARCHAR(8), \
+    SCHOOLADDR1       VARCHAR(150), \
+    SCHOOLADDR2       VARCHAR(150), \
+    SCHOOLTELNO       VARCHAR(14), \
+    SCHOOLFAXNO       VARCHAR(14), \
+    REGISTERCD        VARCHAR(10), \
+    UPDATED           TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+) IN USR1DMS INDEX IN IDX1DMS
+
+INSERT INTO SCHOOL_BANK_MST \
+    SELECT \
+        SCHOOLCD, \
+        SCHOOL_KIND, \
+        BANKTRANSFERCD, \
+        BANKTRANSFERNAME, \
+        BANKTRANSFERMONEY, \
+        BANKCD,  \
+        BANKNAME,  \
+        BANKNAME_KANA,  \
+        BRANCHCD,  \
+        BRANCHNAME,  \
+        BRANCHNAME_KANA,  \
+        DEPOSIT_ITEM,  \
+        ACCOUNTNO,  \
+        ACCOUNTNAME, \
+        ACCOUNTNAME_KANA, \
+        cast(null as varchar(8)) as SCHOOLZIPCD, \
+        cast(null as varchar(150)) as SCHOOLADDR1, \
+        cast(null as varchar(150)) as SCHOOLADDR2, \
+        cast(null as varchar(14)) as SCHOOLTELNO, \
+        cast(null as varchar(14)) as SCHOOLFAXNO, \
+        REGISTERCD, \
+        UPDATED \
+    FROM \
+        SCHOOL_BANK_MST_OLD
+
+ALTER TABLE SCHOOL_BANK_MST \
+ADD CONSTRAINT PK_SCHOOL_BANK_MST \
+PRIMARY KEY \
+(SCHOOLCD, SCHOOL_KIND, BANKTRANSFERCD)

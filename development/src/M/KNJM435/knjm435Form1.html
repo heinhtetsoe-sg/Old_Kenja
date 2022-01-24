@@ -1,0 +1,235 @@
+{rval start}
+
+<style type="text/css">
+
+</style>
+<table width="92%" border="0" cellspacing="0" cellpadding="5" align="center">
+
+<tr> 
+
+<td valign="top" > 
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+    <tr> 
+
+    <td > 
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+      <tr class="no_search_line"> 
+
+      <td> 
+
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+        <tr class="no_search" nowrap> 
+
+          <td ><b>　　{rval TOP/YEAR}年度</b></td>
+          <td ><b>{rval TOP/ORDER1}<LABEL for="ORDER1">学籍番号順</LABEL>　&nbsp&nbsp&nbsp&nbsp科目　：{rval TOP/SELSUB}<br>
+                  {rval TOP/ORDER2}<LABEL for="ORDER2">クラス番号順</LABEL>&nbsp&nbsp&nbsp&nbspクラス：{rval TOP/SELCLA}</b></td>
+
+        </tr>
+
+        </table>
+
+       </td>
+
+      </tr>
+
+      </table>
+
+    </td>
+
+    </tr>
+
+    </table>
+
+</td>
+
+</tr>
+
+<tr > 
+
+<td valign="top" > 
+
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+  <tr bgcolor="#006633"> 
+
+  <td align="right">
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+    <tr> 
+
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+      <tr class="no_search_line">
+
+
+      <td>    
+
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+        <tr class="no_search" nowrap align="center"> 
+
+        <th rowspan="2" width="10%" align="center" nowrap>学籍番号</th>
+
+        <th rowspan="2" width="10%" align="center" nowrap>クラス番号</th>
+
+        <th rowspan="2" width="20%" align="center" nowrap>氏　　名</th>
+
+        <th colspan="2" width="16%" align="center" nowrap>前　期</th>
+
+        <th colspan="2" width="16%" align="center" nowrap>後　期</th>
+
+        <th rowspan="2" width="8%" align="center" nowrap>評定</th>
+
+        <th rowspan="2" width="8%" align="center" nowrap>履修単位</th>
+
+        <th rowspan="2" width="8%" align="center" nowrap>修得単位</th>
+
+        </tr>
+
+        <tr class="no_search" nowrap align="center"> 
+
+        <th width="8%" align="center" nowrap>前期素点</th>
+
+        <th width="8%" align="center" nowrap>前期評価</th>
+
+        <th width="8%" align="center" nowrap>後期素点</th>
+
+        <th width="8%" align="center" nowrap>後期評価</th>
+
+        </tr>
+
+        </table>
+
+      </td>
+
+      </tr>
+
+      </table>
+
+    </td>
+
+    </tr>
+
+    <tr>
+
+    <td bgcolor="#ffffff">
+
+      <div style="width: 100%; height=600; overflow: auto">
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+      <tr class="no_search_line" >
+
+      <td>
+
+      <table width="100%" border="0" cellspacing="1" cellpadding="3">  
+
+      <!--{def data}-->
+
+      <!--結果一覧-->
+
+      <!--{each data}--> 
+
+      <tr style="height:25"; bgcolor="#ffffff" id="ROWID{rval data/SUBCD}" nowrap>
+
+        <td width="10%"  align="center" nowrap>{rval data/SCHREGNO}{rval data/SCH_HIDDEN}</td>
+
+        <td width="10%" align="center" nowrap>{rval data/GRA_HR_ATTEND}</td>
+
+        <td width="20%" align="left" nowrap>　　{rval data/NAME_SHOW}{rval data/CREDITS_HIDDEN}</td>
+
+        <td width="8%" align="center" nowrap>{rval data/SEM1_TERM_SCORE}</td>
+
+        <td width="8%" align="center" nowrap>{rval data/SEM1_VALUE}</td>
+
+        <td width="8%" align="center" nowrap>{rval data/SEM2_TERM_SCORE}</td>
+
+        <td width="8%" align="center" nowrap>{rval data/SEM2_VALUE}</td>
+
+        <td width="8%"  align="center" nowrap>{rval data/GRAD_VALUE}</td>
+
+        <td width="8%" align="center" nowrap>{rval data/COMP_CREDIT}</td>
+
+        <td width="8%"  align="center" nowrap>{rval data/GET_CREDIT}</td>
+
+      </tr>
+
+      <!--{/each}--> 
+
+      <!--{/def}-->
+
+      </table>
+
+      </td>
+
+      </tr>
+
+      </table>
+
+      </div>
+
+    </td>
+
+    </tr>
+
+    <tr> 
+
+    <td>
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+      <tr class="no_search_line">
+
+      <td>    
+
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+        <tr class="no_search" nowrap> 
+
+          <!--<th width="30%" align="left" nowrap>{rval btn_update}{rval btn_reset}{rval btn_end}</th>-->
+
+          <th width="30%" nowrap>{rval btn_update}{rval btn_reset}{rval btn_end}</th>
+
+          <th width="30%" nowrap>{rval page_count}</th>
+
+          <th width="30%" nowrap>{rval btn_pre}{rval btn_next}</th>
+
+        </tr>
+
+        </table>
+
+      </td>
+
+      </tr>
+
+      </table>
+
+    </td>
+
+    </tr>
+
+    </table>
+
+  </td>
+
+  </tr>
+
+
+  </table>
+
+</td>
+
+</tr>
+
+</table>
+
+<script language="JavaScript">{rval Closing}</script>
+
+{rval finish}

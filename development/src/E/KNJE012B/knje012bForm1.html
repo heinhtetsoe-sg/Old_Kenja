@@ -1,0 +1,251 @@
+{rval start}
+{rval IFRAME}
+<style>
+.ActiveColor{
+    background-color:pink;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+.checkbox {
+  box-sizing: border-box;
+  -webkit-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+  position: relative;
+  display: inline-block;
+  margin: 0 5px 8px 0;
+  padding: 12px 12px 12px 42px;
+  border-radius: 8px;
+  background-color: #fff;
+  vertical-align: middle;
+  cursor: pointer;
+  width:200px;
+}
+.checkbox:after {
+  -webkit-transition: border-color 0.2s linear;
+  transition: border-color 0.2s linear;
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  display: block;
+  margin-top: -10px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #bbb;
+  border-radius: 6px;
+  content: '';
+}
+.checkbox:before {
+  -webkit-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+  position: absolute;
+  top: 50%;
+  left: 21px;
+  display: block;
+  margin-top: -7px;
+  width: 5px;
+  height: 9px;
+  border-right: 3px solid #666;
+  border-bottom: 3px solid #666;
+  content: '';
+  opacity: 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+input[type=checkbox]:checked + .checkbox:before {
+  opacity: 1;
+}
+input[type=checkbox]:checked + .checkbox{
+  background: #fff;
+}
+
+.ActiveColorCb {
+  box-sizing: border-box;
+  -webkit-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+  position: relative;
+  display: inline-block;
+  margin: 0 5px 8px 0;
+  padding: 12px 12px 12px 42px;
+  border-radius: 8px;
+  background-color: #fff;
+  vertical-align: middle;
+  cursor: pointer;
+  width:200px;
+}
+.ActiveColorCb:after {
+  -webkit-transition: border-color 0.2s linear;
+  transition: border-color 0.2s linear;
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  display: block;
+  margin-top: -10px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid pink;
+  border-radius: 6px;
+  content: '';
+}
+.ActiveColorCb:before {
+  -webkit-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+  position: absolute;
+  top: 50%;
+  left: 21px;
+  display: block;
+  margin-top: -7px;
+  width: 5px;
+  height: 9px;
+  border-right: 3px solid pink;
+  border-bottom: 3px solid pink;
+  content: '';
+  opacity: 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+input[type=checkbox]:checked + .ActiveColorCb:before {
+  opacity: 1;
+}
+input[type=checkbox]:checked + .ActiveColorCb{
+  background: #fff;
+}
+</style>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+    <tr>
+      <td nowrap>
+      <table width="100%" border="0" cellspacing="3" cellpadding="0">
+        <tbody>
+          <tr>
+           <td width="50%">
+            <hr>{rval NAME_SHOW}<hr>
+           </td>
+           <td align="right" width="50%">&nbsp;</td>
+          </tr>
+          <tr class="no_search">
+            <th colspan="4">１．文部科学省実用英語検定試験等</th>
+          </tr>
+          <tr bgcolor="#ffffff">
+            <td colspan="4">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr>
+                    <td>{rval ZITUYOUSIKEN}<br><font color="red" size="-1">{rval ZITUYOUSIKEN_TYUI}</font><br>{rval btn_qualified}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr class="no_search">
+            <th colspan="4">２．学校生活全般の総合所見&nbsp;{rval btn_sougousyoken_sansyou}</th>
+          </tr>
+          <tr bgcolor="#ffffff">
+            <td colspan="4">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr>
+                    <td>{rval SOUGOUSYOKEN}</td>
+                  </tr>
+                  <tr>
+                    <td><br><font color="red" size="-1">{rval SOUGOUSYOKEN_TYUI}</font>{rval btn_club}{rval btn_club_kirokubikou}{rval btn_committee}{rval btn_qualified2}{rval btn_tokubetu_sidou_sansyou}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr class="no_search_line">
+            <td colspan="4">
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr bgcolor="#ffffff">
+                <th class="no_search" width="15%">学年(年次)</th>
+                <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td align="left">{rval ANNUAL}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr class="no_search">
+            <th colspan="4">３．出欠の記録（主な欠席理由）&nbsp;{rval btn_syukketu_sansyou}</th>
+          </tr>
+          <tr bgcolor="#ffffff">
+            <td colspan="4">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr>
+                    <td>{rval ATTENDREC_REMARK}<br><font color="red" size="-1">{rval ATTENDREC_REMARK_TYUI}</font><br>{rval btn_syukketu}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr class="no_search">
+            <th colspan="4">４．特別活動等の記録&nbsp;{rval btn_tokubetu_sansyou}</th>
+          </tr>
+          <tr>
+            <td colspan="4">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search" align="left">
+                    <th>生徒会・学校行事・HR活動</th>
+                    <th>クラブ活動</th>
+                    <th></th>
+                  </tr>
+                  <tr bgcolor="#ffffff">
+                    <td>{rval SPECIALACTREC}<br><font color="red" size="-1">{rval SPECIALACTREC_TYUI}</font></td>
+                    <td>{rval CLUBACT}<br><font color="red" size="-1">{rval CLUBACT_TYUI}</font></td>
+                    <td></td>
+                  </tr>
+                  <tr bgcolor="#ffffff">
+                    <td>{rval btn_committee2}{rval btn_qualified3}{rval btn_hyosyo}{rval btn_batsu}</td>
+                    <td>{rval btn_club2}{rval btn_club_kirokubikou2}</td>
+                    <td>{rval btn_zentorikomi}&nbsp;{rval btn_tokubetu_sidou_sansyou}</td>
+                  </tr>
+                <tbody>
+              </table>
+            </td>
+          </tr>
+          <tr class="no_search">
+            <th colspan="4">５．特別活動等全体の総評</th>
+          </tr>
+          <tr bgcolor="#ffffff">
+            <td style="clear: both;">
+              <div style="float:left;width: 150px;padding:2px;">{rval STUDENTACT}&nbsp;<label for="STUDENTACT" {rval studentactClass}>生徒会活動</label></div>
+              <div style="float:left;width: 150px;padding:2px;">{rval CALSSACT}&nbsp;<label for="CALSSACT" {rval classactClass}>学級活動</label></div>
+              <div style="float:left;width: 150px;padding:2px;">{rval SCHOOLEVENT}&nbsp;<label for="SCHOOLEVENT" {rval schooleventClass}>学校行事</label></div>
+            </td>
+          </tr>
+          <tr class="no_search_line">
+            <td colspan="4">
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr bgcolor="#ffffff">
+                  <td colspan="4">{rval btn_hreportremark}　{rval btn_update}{rval btn_up_pre}{rval btn_up_next}{rval btn_reset}{rval btn_back}<br>{rval btn_csv}</td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->
+<script language="javascript">{rval reload}</script>

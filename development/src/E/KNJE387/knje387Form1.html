@@ -1,0 +1,114 @@
+{rval IFRAME}
+{rval start}
+<table width="1060px" border="0" cellspacing="0" cellpadding="5" align="left">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td width="10%" align="left">&nbsp&nbsp&nbsp&nbsp年度：{rval TOP/YEAR}&nbsp&nbsp&nbsp&nbsp学年：{rval TOP/GRADE}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr bgcolor="#006633">
+          <td align="right">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" align="center">
+                            <th width="120px" height="30" align="center">{rval TOP/HRCLASS_ATTENDNO}</th>
+                            <th width="300px" align="center">氏名</th>
+                            <th width="90px" align="center">{rval TOP/TOTAL_STR}</th>
+                            <th width="90px" align="center">{rval TOP/SCORE_TITLE1}</th>
+                            <th width="90px" align="center">{rval TOP/SCORE_TITLE2}</th>
+                            <th width="120px" align="center">{rval TOP/SCORE_TITLE3}</th>
+                            <th width="90px" align="center">{rval TOP/SCORE_TITLE4}</th>
+                            <th width="*" align="center">{rval TOP/SCORE_TITLE5}</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <div style="width: 100%; height:554; overflow: auto;">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr class="no_search_line">
+                        <td>
+                          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--結果一覧-->
+                          <!--{def data}-->
+                          <!--{each data}-->
+                            <tr bgcolor="#ffffff" bgcolor="no_search" id="ROWID{rval data/SCHREGNO}">
+                              <td width="120px"  align="center">{rval data/HRCLASS_ATTEND}</td>
+                              <td width="300px" align="left">{rval data/NAME}</td>
+                              <td width="90px" align="right">{rval data/SCORE_TOTAL}</td>
+                              <td width="90px" align="right">{rval data/SCORE1}</td>
+                              <td width="90px" align="right">{rval data/SCORE2}</td>
+                              <td width="120px" align="right">{rval data/SCORE3}</td>
+                              <td width="90px" align="right">{rval data/SCORE4}</td>
+                              <td width="*" align="center">{rval data/INPUT_ADJUST}</td>
+                            </tr>
+                            <!--{/each}-->
+                            <!--{/def}-->
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th width="40%" align="right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval btn_update}{rval btn_reset}{rval btn_end}</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">
+  change_flg = false;
+ var aPerfect = new Array();
+<!--{def data2}-->
+<!--{each data2}--> 
+ aPerfect['{rval data2/key}'] = '{rval data2/perf}';
+<!--{/each}-->
+<!--{/def}-->
+</script>
+{rval finish}

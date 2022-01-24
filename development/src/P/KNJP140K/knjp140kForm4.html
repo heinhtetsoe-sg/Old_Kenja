@@ -1,0 +1,71 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search_line">
+                <td class="no_search" > 分納回数：{rval INST_CD}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr><td><br></td></tr>
+        <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search_line">
+              <th class="no_search" width="20%">項目</th>
+              <th class="no_search" >値</th>
+            </tr>
+<!--結果一覧-->
+<!--{def data}-->
+
+    <tr>
+                <th align="right" class="no_search" nowrap>
+                編集選択
+                </th>
+                <td bgcolor="#ffffff">分納対象費目編集：<input type="radio" name="radiodiv" value="M" OnClick="ChgEdit('1');" {rval data/checked1}>
+                          &nbsp;&nbsp;分納の期限と金額編集：<input type="radio" name="radiodiv" value="S" OnClick="ChgEdit('2');" {rval data/checked2}></td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>※分納</th>
+                <td bgcolor="#ffffff">納入必要金額：{rval data/INST_MONEY_DUE}&nbsp;円&nbsp;&nbsp;&nbsp;
+                                      分納期限：{rval data/INST_DUE_DATE}
+                </td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>入金</th>
+                <td bgcolor="#ffffff">入金額：{rval data/PAID_MONEY}&nbsp;円&nbsp;&nbsp;
+                                      入金区分：{rval data/PAID_MONEY_DIV}&nbsp;&nbsp;
+                                      入金日：{rval data/PAID_MONEY_DATE}
+                </td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>返金</th>
+                <td bgcolor="#ffffff">返金額：{rval data/REPAY_MONEY}&nbsp;円&nbsp;&nbsp;
+                                      返金日：{rval data/REPAY_DATE}
+                </td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>備考</th>
+                <td bgcolor="#ffffff">{rval data/REMARK}&nbsp;</td>
+              </tr>
+<!--{/def}-->
+<!--{def button}-->
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}</td>
+              </tr>
+<!--{/def}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval check}</script>

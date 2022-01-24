@@ -1,0 +1,85 @@
+﻿{rval start}
+
+<!--{def data}-->
+<!--{def button}-->
+
+<br>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                          <tr>
+                            <th align="center" width="10%" class="no_search" nowrap></th>
+                            <th align="center" width="20%" class="no_search" nowrap"></th>
+                            <!--{def WIN_PATTERN1}-->
+                            <th align="center" class="no_search" colspan="2" nowrap>{rval data/STATUS_NAME}<BR>{rval data/CHECK_YOKO1}
+                            <!--{/def}-->
+                            <!--{def WIN_PATTERN2}-->
+                            <th align="center" class="no_search" nowrap>{rval data/STATUS_NAME}<BR>{rval data/CHECK_YOKO1}
+                            <th align="center" class="no_search" nowrap>{rval data/GROWUP_NAME}<BR>{rval data/CHECK_YOKO2}
+                            <!--{/def}-->
+                          </tr>
+                          <!--{each list}-->
+                          <tr>
+                            <th align="center" width="10%" class="no_search" nowrap>{rval list/CHECK_TATE}</th>
+                            <th align="center" width="20%" class="no_search" >{rval list/DATA_DIV_NAME}</th>
+                            <!--{def WIN_PATTERN1}-->
+                            <td align="left" bgcolor="#ffffff" colspan="2" nowrap>{rval list/STATUS}<BR>
+                            <font size=2 color="red">&nbsp;{rval list/STATUS_COMMENT}</font></td>
+                            <!--{/def}-->
+                            <!--{def WIN_PATTERN2}-->
+                            <td align="left" bgcolor="#ffffff" nowrap>{rval list/STATUS}<BR>
+                            <font size=2 color="red">&nbsp;{rval list/STATUS_COMMENT}</font></td>
+                            <td align="left" bgcolor="#ffffff" nowrap>{rval list/GROWUP}<BR>
+                            <font size=2 color="red">&nbsp;{rval list/GROWUP_COMMENT}</font></td>
+                            <!--{/def}-->
+                          </tr>
+                          <!--{/each}-->
+
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            {rval button/btn_torikomi} {rval button/btn_end}
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript"></script>
+<!--{/def}-->

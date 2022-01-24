@@ -1,0 +1,187 @@
+{rval start}
+<table style="width: 800px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+  <table style="width: 800px" border="0" cellspacing="5" cellpadding="1">
+  <tr> 
+  <td>
+    <table style="width: 800px" border="0" cellspacing="0" cellpadding="0">
+<!-- 選択データ -->
+    <tr class="no_search_line">
+    <td>
+      <table style="width: 800px" border="0" cellspacing="1" cellpadding="1">
+      <tr class="no_search" height="35" nowrap>
+        <td align="center" nowrap colspan="2">
+          <B>学校日誌</B>
+        </td>
+      </tr>
+
+      <tr  bgcolor="#ffffff">
+        <td colspan="2" nowrap>
+          <table>
+            <tr>
+              <td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;校種：{rval sel/SCHOOL_KIND}&nbsp;&nbsp;日付：{rval sel/DIARY_DATE}&nbsp;&nbsp;天気：{rval sel/WEATHER}
+              </td>
+            </tr>
+
+<!--{def useNurseoffAttend}-->
+            <tr>
+              <td>
+                <table width={rval header/WIDTH} border="0" cellspacing="0" cellpadding="0">
+                  <tr class="no_search_line">
+                    <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tr>
+                          <th class="no_search" nowrap colspan={rval header/COLSPAN}><b>欠　席　状　況</b></th>
+                        </tr>
+                        <tr class="no_search">
+                            {rval header/GRADE}
+                        </tr>
+                        <!--{def attend}-->
+                        <!--{each attend}-->
+                        <tr bgcolor="#ffffff">
+                          {rval attend}
+                        </tr>
+                        <!--{/each}-->
+                        <!--{/def}-->
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+<!--{/def}-->
+
+          <tr class="no_search_line">
+            <td >
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+
+              <tbody>
+
+                <tr class="no_search" height="20">
+                  <th width="400" colspan="{rval data/colspanLeft}">重要事項</th>
+                  <th width="400" colspan="{rval data/colspanRight}">来校者・氏名・用件</th>
+                </tr>
+
+                <tr valign="top" bgcolor="#ffffff">
+                  <td colspan="{rval data/colspanLeft}">
+                      　{rval data/IMPORTANT_MATTER}<br>
+                      　<font color="red" size="-1">(全角22文字×10行まで)</font>
+                  </td>
+                  <td colspan="{rval data/colspanRight}">
+                      　{rval data/GUEST}<br>
+                      　<font color="red" size="-1">(全角22文字×10行まで)</font>
+                  </td>
+                </tr>
+
+                <tr class="no_search" height="20">
+                  <th colspan="{rval data/colspanSingle}">記事</th>
+                </tr>
+
+                <tr valign="top" bgcolor="#ffffff">
+                  <td colspan="{rval data/colspanSingle}">
+                      　{rval data/REPORT}<br>
+                      　<font color="red" size="-1">(全角47文字×10行まで)</font>
+                  </td>
+                </tr>
+
+                <tr class="no_search" height="20">
+                  <th width="400" colspan="{rval data/colspanLeft}">収受公文書</th>
+                  <th width="400" colspan="{rval data/colspanRight}">発送公文書</th>
+                </tr>
+
+                <tr valign="top" bgcolor="#ffffff">
+                  <td colspan="{rval data/colspanLeft}">
+                      　{rval data/RECEIVE_OFFICIAL_DOCUMENTS}<br>
+                      　<font color="red" size="-1">(全角22文字×10行まで)</font>
+                  </td>
+                  <td colspan="{rval data/colspanRight}">
+                      　{rval data/SENDING_OFFICIAL_DOCUMENTS}<br>
+                      　<font color="red" size="-1">(全角22文字×10行まで)</font>
+                  </td>
+                </tr>
+
+                <tr class="no_search" height="20">
+                  <th width="400" colspan="{rval data/colspanLeft}">出張　{rval button/btn_trip}</th>
+                  <th width="400" colspan="{rval data/colspanRight}">休暇　{rval button/btn_vacation}</th>
+                </tr>
+
+                <tr valign="top" bgcolor="#ffffff">
+                  <td colspan="{rval data/colspanLeft}">
+                      　{rval data/BUSINESS_TRIP}<br>
+                      　<font color="red" size="-1">(全角22文字×7行まで)</font>
+                  </td>
+                  <td colspan="{rval data/colspanRight}">
+                      　{rval data/VACATION}<br>
+                      　<font color="red" size="-1">(全角22文字×7行まで)</font>
+                  </td>
+                </tr>
+
+                <tr class="no_search" height="20">
+                  <th colspan="{rval data/colspanSingle}">慶弔・産休等</th>
+                </tr>
+
+                <tr valign="top" bgcolor="#ffffff">
+                  <td colspan="{rval data/colspanSingle}">
+                      　{rval data/SPECIAL_LEAVE}<br>
+                      　<font color="red" size="-1">(全角22文字×7行まで)</font>
+                  </td>
+                </tr>
+
+                <tr class="no_search" height="20">
+                  <th width="400" colspan="{rval data/colspanLeft}">欠勤</th>
+                  <th width="400" colspan="{rval data/colspanRight}">遅刻・早退</th>
+                </tr>
+
+                <tr valign="top" bgcolor="#ffffff">
+                  <td colspan="{rval data/colspanLeft}">
+                      　{rval data/ABSENCE}<br>
+                      　<font color="red" size="-1">(全角22文字×5行まで)</font>
+                  </td>
+                  <td colspan="{rval data/colspanRight}">
+                      　{rval data/LATE_EARLY}<br>
+                      　<font color="red" size="-1">(全角22文字×5行まで)</font>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+            </td>
+          </tr>
+
+            <!--{def button}-->
+            <tr>
+              <td>
+                &nbsp;&nbsp;{rval button/btn_print}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_update}{rval button/btn_del}{rval button/btn_end}
+              </td>
+            </tr>
+            <!--{/def}-->
+
+          </table>
+          </table>
+          </tr>
+      </td></tr>
+      </table>
+    </td>
+    </tr>
+
+    </table>
+  </td>
+  </tr>
+  </table>
+</td>
+</tr>
+</table>
+{rval finish} 
+<script language="JavaScript">
+    var sem = 0;
+    setInterval('callfunc()',500);
+function callfunc()
+{
+    if (sem == 0){
+        datecheck(document.forms[0].DIARY_DATE.value);
+    }
+}
+</script>

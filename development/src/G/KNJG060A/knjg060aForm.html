@@ -1,0 +1,176 @@
+{rval start}
+{rval IFRAME}
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+
+             <tr class="no_search_line"> 
+               <td width="100%"> 
+                 <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td><b>
+                              　　　　　　　　　　　　　　　　　　　　{rval data0/NENDO}　　{rval data0/SEMESTER}　　　{rval data0/GROUP1} <label for="GROUP1">クラス</label>　{rval data0/GROUP2} <label for="GROUP2">学年</label>　　　　　 {rval data0/GRADE_HR_CLASS}　　
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+               <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data0/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">
+                        {rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data0/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td bgcolor="#ffffff" colspan="6">
+                   <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                      <tr class="no_search_line">
+                        <td>
+                          <table width="100%" border="0" cellspacing="0" cellpadding="3">
+
+                            <tr bgcolor="#ffffff">
+                              <td >
+                                    　　　●&nbsp;月数&nbsp;{rval div/MONTH_DIV}　　　　　有効期間 {rval div/STR_DATE}　～　{rval div/END_DATE}　発行日付 {rval div/DATE}
+                               </td>
+                               <td align="right" colspan="6" bgcolor="#ffffff">{rval button/btn_read}　</td>
+                            </tr>
+
+                         </table>
+                        </td>
+                      </tr>
+
+                    </table>
+                  </td>
+                </tr>
+
+               </table>
+             </td>
+           </tr>
+         </table>
+ 
+     <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td align="center">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--結果一覧-->
+                    
+                    <tr>
+                      <td bgcolor="#ffffff" colspan="6">
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                          <tr class="no_search_line">
+                          <td>
+                            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <tr class="no_search" nowrap align="center" height=50>
+                              <th width="50">発行 {rval data0/CHECK_ALL}</th>
+                              <th width="65">学籍番号</th>
+                              <th width="200">氏名</th>
+                              <th width="70">年組</th>
+                              <th width="90">出席番号</th>
+                              <!--{def PRINT_DIV1}-->
+                                  <th width="100">期間：開始</th>
+                                  <th width="100">期間：終了</th>
+                                  <th width="*">備考</th>
+                              <!--{/def}-->
+                              <!--{def PRINT_DIV2}-->
+                                  <th width="100">駅から</th>
+                                  <th width="100">駅まで</th>
+                                  <th width="*">経由</th>
+                              <!--{/def}-->
+                            </tr>
+                            </table>
+                          </td>
+                          </tr>
+
+                          <tr>
+                          <td bgcolor="#ffffff">
+                            <div style="width: 100%; height=300; overflow: auto">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr class="no_search_line">
+                                <td>
+                                  <table id="list" width="100%" border="0" cellspacing="1" cellpadding="3"> 
+                                  <!--結果一覧-->
+                                  <!--{each data}--> 
+                                    <tr bgcolor="#ffffff" >
+                                        <td width="50" align="center">{rval data/PRINT_CHECK}</td>
+                                        <th width="65">{rval data/SCHREGNO}</th>
+                                        <th width="200" align="left">{rval data/NAME}</th>
+                                        <th width="70">{rval data/HR_NAME}</th>
+                                        <th width="90">{rval data/ATTENDNO}</th>
+                                        <!--{def PRINT_DIV1}-->
+                                            <th width="100" align="left">{rval data/ENT_DATE}</th>
+                                            <th width="100" align="left">{rval data/GRD_SCHEDULE_DATE}</th>
+                                            <th width="*" align="left">{rval data/REMARK1}</th>
+                                        <!--{/def}-->
+                                        <!--{def PRINT_DIV2}-->
+                                            <th width="100" align="left">{rval data/STATION_FROM}</th>
+                                            <th width="100" align="left">{rval data/STATION_TO}</th>
+                                            <th width="*" align="left">{rval data/STATION_VIA}</th>
+                                        <!--{/def}-->
+                                    </tr> 
+                                  <!--{/each}--> 
+                                  </table>
+                                </td>
+                              </table>
+                            </div>
+                          </td>
+                          </tr>
+                          <tr>
+                           <td align="right" colspan="6" bgcolor="#ffffff">{rval button/btn_print}　{rval button/btn_end}</td>
+                          </tr>
+                      </table>
+                      </td>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+<!--{def data1}-->
+<!--{each data1}-->
+<input type='hidden' name='SCHREGNO[]' value='{rval data1/SCHREGNO}'>
+<!--{/each}-->
+<!--{/def}-->
+<!--{def data2}-->
+<!--{each data2}-->
+<input type='hidden' name='SEITO[]' value='{rval data2/SEITO}'>
+<!--{/each}-->
+<!--{/def}-->
+<!--{def data3}-->
+<!--{each data3}-->
+<input type='hidden' name='TUGAKU' value='{rval data3/TUGAKU}'>
+<!--{/each}-->
+<!--{/def}-->
+<!--{def data4}-->
+<!--{each data4}-->
+<input type='hidden' name='UNTIN[]' value='{rval data4/UNTIN}'>
+<!--{/each}-->
+<!--{/def}-->
+{rval finish}
+<script language="JavaScript">
+    compareInfo = JSON.parse(document.getElementsByName("compareInfo")[0].value);
+{rval print}
+</script>

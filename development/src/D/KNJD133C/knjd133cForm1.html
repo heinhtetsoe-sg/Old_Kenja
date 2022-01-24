@@ -1,0 +1,96 @@
+{rval start}
+
+{rval IFRAME}
+<table width={rval ALLWIDTH} border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" height="30">
+                <td nowrap align="center">
+                    処理年度：{rval YEAR}年度　　
+                    <!--{def KNJD133C_semesCombo}-->
+                    学期：{rval SEMESTER}　　
+                    <!--{/def}-->
+                    {rval SCHOOL_KIND}　　
+                    科目：{rval SUBCLASSCD}　　学級・講座：{rval CHAIRCD}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="item_header">
+                    <tr class="no_search">
+                      <th width="120">クラス-<br>出席番号</th>
+                      <th width="160">氏名</th>
+                      <!--{each item}-->
+                      <th width="{rval item/WIDTH}">{rval item/ITEMNAME}　　{rval item/btn_teikei}<br>
+                          <span style="color:red;font-size:small;">{rval item/COMMENT}</span>
+                      </th>
+                      <!--{/each}-->
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div id="REC_MAIN" style="width:100%;height:460;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+  <!--{each data}-->
+                    <tr>
+                      <td width="120" align="left" bgcolor="{rval data/COLOR}">&nbsp;{rval data/ATTENDNO}</td>
+                      <td width="160" align="left" bgcolor="{rval data/COLOR}">&nbsp;{rval data/NAME_SHOW}</td>
+                      <!--{each data/item}-->
+                      <td width="{rval data/item/WIDTH}" align="left" bgcolor="{rval data/COLOR}">{rval data/item/data}</td>
+                      <!--{/each}-->
+                    </tr>
+  <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <td align="right">
+                        {rval FILE}{rval btn_input}&nbsp;{rval btn_output}　{rval btn_replace}　　{rval btn_update}{rval btn_reset}{rval btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

@@ -1,0 +1,68 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap align="left">　年度：{rval YEAR}　学年{rval GRADE}　クラス{rval HR_CLASS}</th>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap align="left">　資格{rval SIKAKUCD}　試験日{rval TOP_TEST_DATE}　受験級{rval TOP_TEST_CD}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="20%">年-組-番 氏名</th>
+                      <th nowrap width="10%">試験日</th>
+                      <th nowrap width="10%">テストCD</th>
+                      <th nowrap width="10%">テスト名</th>
+                      <th nowrap width="10%">直近受験日</th>
+                      <th nowrap width="10%">直近受験級</th>
+                      <th nowrap width="10%">受験結果</th>
+                      <th nowrap width="*%">取得済資格級</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}--> 
+                    <div id="mainDiv">
+                    <tr> 
+                      <td nowrap bgcolor="#ffffff">{rval data/NAME}</td>
+                      <td nowrap bgcolor="#ffffff">{rval data/TEST_DATE}</td>
+                      <td nowrap bgcolor="#ffffff">{rval data/TEST_CD}</td>
+                      <td nowrap bgcolor="#ffffff">{rval data/TEST_NAME_ABBV}</td>
+                      <td nowrap bgcolor="#ffffff">{rval data/BEF_TEST_DATE}</td>
+                      <td nowrap bgcolor="#ffffff">{rval data/BEF_TEST_NAME}</td>
+                      <td nowrap bgcolor="#ffffff">{rval data/RESULT}</td>
+                      <td nowrap bgcolor="#ffffff">{rval data/GET_TEST_NAME}</td>
+                    </tr> 
+                    </div>
+                    <!--{/each}--> 
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

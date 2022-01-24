@@ -1,0 +1,59 @@
+<style type="text/css">
+<!--
+div {
+    margin:10px;
+}
+div.left_side {
+    text-align:left;
+    width:350px;
+    padding-left:20px;
+}
+div.middle {
+    padding-left:40px;
+}
+div.go_center {
+    text-align:center;
+}
+-->
+</style>{rval start}
+<input type="hidden" name="selectdata" size="70"><br>
+
+<br><br><br><br><br><br><br><br>
+<table style="width: 350px" border="0" cellpadding="10" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table style="width: 350px" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <td>
+            <tablestyle="width: 350px" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table style="width: 500px"     border="0" cellspacing="1" cellpadding="4">
+                    <tr class="no_search" height="35">
+                      <td><b>　　　{rval data/YEAR}年度</b></td>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td>
+                        <div class="left_side"><b>スクーリング出欠状況リスト（集計）</b></div>
+                        <div class="middle">{rval data/PRINT_DIV1}日付別出欠状況リスト（日付別集計）</div>
+                        <div class="middle">{rval data/PRINT_DIV2}日付・科目・校時別出欠状況リスト（日付・科目・校時別集計）</div>
+                        <div class="go_center">集計日付：{rval date/DATE}</div>
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="left">
+                        {rval button/btn_print}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish} 

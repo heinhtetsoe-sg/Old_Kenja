@@ -1,0 +1,150 @@
+{rval start}
+
+<style type="text/css">
+
+</style>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" align="center">
+<tr> 
+<td valign="top" > 
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+    <td > 
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line"> 
+      <td>
+
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr class="no_search" nowrap> 
+            <td align="center">入試年度</td>
+            <td bgcolor="#ffffff" style="color:black; text-align:center">{rval TOP/YEAR}</td>
+            <td align="center">※ 入試区分</td>
+            <td bgcolor="#ffffff">{rval TOP/TESTDIV}</td>
+            <td align="center">※ 受験型</td>
+            <td bgcolor="#ffffff">{rval TOP/EXAM_TYPE}</td>
+            <td align="center">※ 受験番号</td>
+            <td bgcolor="#ffffff" style="color:black">{rval TOP/EXAMNO} ～ {rval TOP/END_EXAMNO}</span>&nbsp;&nbsp;{rval TOP/button}</td>
+        </tr>
+        </table>
+
+       </td>
+      </tr>
+      </table>
+
+    </td>
+    </tr>
+    </table>
+
+</td>
+</tr>
+
+<tr > 
+<td valign="top" > 
+
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr bgcolor="#006633"> 
+  <td align="right">
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+    <td>
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line">
+      <td>
+
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr class="no_search" nowrap align="center"> 
+                <th width="50" align="center" nowrap>受験<BR>番号</th>
+                <th width="50" align="center" nowrap>座席<BR>番号</th>
+                <th width="170" align="center" nowrap>氏名</th>
+                <th width="230" align="center" nowrap>氏名かな</th>
+                <th width="50" align="center" nowrap>性別</th>
+                <th width="100" align="center" nowrap>受験型</th>
+                <th width="100" align="center" nowrap>入試制度</th>
+                <th width="*" align="center" nowrap>試験会場</th>
+        </tr>
+        </table>
+
+      </td>
+      </tr>
+      </table>
+
+    </td>
+    </tr>
+    <tr>
+    <td bgcolor="#ffffff">
+      <div style="width: 100%; height=535; overflow: auto">
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line" >
+      <td>
+
+      <table width="100%" border="0" cellspacing="1" cellpadding="3">  
+      <!--{def data}-->
+      <!--結果一覧-->
+      <!--{each data}--> 
+      <tr bgcolor="#ffffff" bgcolor="no_search" id="ROWID{rval data/EXAMNO}" nowrap>
+                <td width="50"  align="center" nowrap>{rval data/EXAMNO}</th>
+                <td width="50"  align="center" nowrap>{rval data/RECEPTNO}</th>
+                <td width="170" align="left"   nowrap>{rval data/NAME}</th>
+                <td width="230" align="left"   nowrap>{rval data/NAME_KANA}</th>
+                <td width="50"  align="center" nowrap>{rval data/SEX_NAME}</th>
+                <td width="100" align="center" nowrap>{rval data/EXAM_TYPE_NAME}</th>
+                <td width="100" align="center" nowrap>{rval data/APPLICANTDIV_NAME}</th>
+                <td width="*"   align="left"   nowrap>&nbsp;{rval data/EXAMHALL_NAME}</th>
+      </tr>
+      <!--{/each}--> 
+      <!--{/def}-->
+      </table>
+
+      </td>
+      </tr>
+      </table>
+
+      </div>
+    </td>
+    </tr>
+
+    <tr> 
+    <td>
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line">
+      <td>    
+
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr class="no_search" nowrap> 
+          <th nowrap>{rval FILE}</th>
+          <th width="30%" align="left" bgcolor="#ffffff" nowrap>{rval btn_update}{rval btn_reset}{rval btn_end}</th>
+        </tr>
+        </table>
+
+      </td>
+      </tr>
+      </table>
+
+    </td>
+    </tr>
+    </table>
+
+  </td>
+  </tr>
+  </table>
+
+</td>
+</tr>
+</table>
+<script language="JavaScript">
+change_flg = false;
+for (i = 0; i < document.forms[0].elements.length; i++){
+    var el = document.forms[0].elements[i];
+    if (el.type == "text" && el.tabIndex!=-1 && el.disabled==false){
+        el.focus();
+        break;
+    }
+}
+</script>
+{rval finish}

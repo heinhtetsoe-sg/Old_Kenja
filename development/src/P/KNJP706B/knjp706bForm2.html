@@ -1,0 +1,125 @@
+{rval IFRAME}
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+      <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+              <tr class="no_search_line" height="24">
+                <td class="no_search" >&nbsp;{rval TARGET_COLLECT}</td>
+                <td class="no_search" align="right">{rval button/btn_reset}{rval button/btn_end}</td>
+              </tr>
+            </table>
+            </td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+              <tr class="no_search_line">
+                <th align="left" colspan="2" class="no_search">　　　　　　　&nbsp;会計項目情報　単価：{rval data/TANKA}</th>
+              </tr>
+
+              <tr>
+                <th align="right" class="no_search" nowrap>入金必要額</th>
+                <td bgcolor="#ffffff">{rval data/MONEY_DUE}　数量:{rval data/COLLECT_CNT}</td>
+              </tr>
+
+              <tr>
+                <th align="right" class="no_search" nowrap>納入種別/期限</th>
+                <td bgcolor="#ffffff">{rval data/PAY_DIV1}<LABEL for="PAY_DIV1">口座</LABEL>　{rval data/PAY_DIV2}<LABEL for="PAY_DIV2">窓口</LABEL>　納入期限：{rval data/PAY_DATE}</td>
+              </tr>
+
+              <tr>
+                <th align="right" class="no_search" nowrap>徴収変更</th>
+                <td bgcolor="#ffffff">{rval data/CHANGE_CD}　　　{rval button/btn_due_update}{rval button/btn_due_delete}</td>
+              </tr>
+
+              <tr {rval data/TR_SINSEI_DATE} id="TR_SINSEI_DATE">
+                <th align="right" class="no_search" nowrap>申請日</th>
+                <td bgcolor="#ffffff">{rval data/SINSEI_DATE}</td>
+              </tr>
+
+              <tr {rval data/TR_GENMEN} id="TR_GENMEN">
+                <th align="right" class="no_search" nowrap>減免</th>
+                <td bgcolor="#ffffff">減免額：{rval data/GENMEN_MONEY}　減免科目数：{rval data/GENMEN_CNT}</td>
+              </tr>
+
+              <tr>
+                <th align="right" class="no_search" nowrap>徴収期間</th>
+                <td bgcolor="#ffffff">{rval data/CHANGE_DATE_F}&nbsp;～&nbsp;{rval data/CHANGE_DATE_T}</td>
+              </tr>
+
+              <tr>
+                <th align="right" class="no_search" nowrap>備考</th>
+                <td bgcolor="#ffffff">{rval data/CHANGE_REMARK}</td>
+              </tr>
+
+              <tr >
+                <td colspan="2" bgcolor="#ffffff" height="10"></td>
+              </tr>
+
+              <tr class="no_search_line">
+                <th align="left" colspan="2" class="no_search">　　　　　　　&nbsp;入金：{rval data/PAID_SEQ}</th>
+              </tr>
+              <!--結果一覧-->
+              <!--{def data}-->
+              <tr>
+                <th align="right" class="no_search" nowrap width="25%">入金額</th>
+                <td bgcolor="#ffffff">{rval data/PAID_MONEY}&nbsp;円</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>入金日</th>
+                <td bgcolor="#ffffff">{rval data/PAID_MONEY_DATE}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>入金区分</th>
+                <td bgcolor="#ffffff">{rval data/PAID_MONEY_DIV}　　　{rval button/btn_paid_update}{rval button/btn_paid_delete}</td>
+              </tr>
+
+              <tr >
+                <td colspan="2" bgcolor="#ffffff" height="10"></td>
+              </tr>
+
+              <tr class="no_search_line">
+                <th align="left" colspan="2" class="no_search">　　　　　　　&nbsp;返金：{rval data/REPAY_SEQ}</th>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>返金額</th>
+                <td bgcolor="#ffffff">{rval data/REPAY_MONEY}&nbsp;円</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>返金日</th>
+                <td bgcolor="#ffffff">{rval data/REPAY_MONEY_DATE}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>返金区分</th>
+                <td bgcolor="#ffffff">{rval data/REPAY_MONEY_DIV}　　　{rval button/btn_repay_update}{rval button/btn_repay_delete}</td>
+              </tr>
+
+              <!--{/def}-->
+
+            </table>
+            </td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

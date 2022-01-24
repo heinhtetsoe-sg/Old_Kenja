@@ -1,0 +1,100 @@
+{rval start} 
+<!--{def button}--> 
+<!--{def data}-->
+
+<br><br><br><br><br><br><br><br><br><br>
+
+<table width="650" border="0" cellpadding="0" cellspacing="0" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" height="30">
+                      <td align="center">
+                        <b>{rval data/YEAR}年度</b>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="40">
+                      <td>
+                        <table>
+
+                          <tr bgcolor="#ffffff">
+                            <td><br>
+                              　　　　　<b>学年 {rval data/GRADE}　学期 {rval data/SEMESTER}　テスト種別 {rval data/TEST_CD}</b><br><br>
+                            </td>
+                          </tr>
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              　　　　　　　　　　　　　　<b>出欠集計範囲</b>（{rval data/DATE_DIV1}<LABEL for="DATE_DIV1">累計</LABEL>　{rval data/DATE_DIV2}<LABEL for="DATE_DIV2">学期</LABEL>）<br>
+                              　　　　　　　　　　　　　　　　　　　　{rval data/SDATE} ～ {rval data/EDATE}<br><br>
+                            </td>
+                          </tr>
+                          
+                        </table>
+                      </td>
+                    </tr>
+
+                    <tr bgcolor="#ffffff" height="80">
+                      <td>
+                        <table>
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                                　　　　　　　<b>●成績優秀者</b><br>
+                                    　　　　　　　　　　{rval data/YURYO}人まで表示
+                            </td>
+                          </tr>
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                                　　　　　　　<b>●成績不良者</b><br>
+                                      　　　　　　　　　　　評価に2または1がある者、評価の平均が{rval data/HYOKA_HEIKIN}未満の者
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                                　　　　　　　<b>●出席不良者</b><br>
+                                  　　　　　　　　　　　欠席日数が{rval data/KESSEKI}日を超える者
+                            </td>
+                          </tr>
+
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              　　　　　　　<b>●順位の基準点</b><br>
+                              　　　　　　　　　　{rval data/OUTPUT_KIJUN1}<LABEL for="OUTPUT_KIJUN1">総合点</LABEL>　{rval data/OUTPUT_KIJUN2}<LABEL for="OUTPUT_KIJUN2">平均点</LABEL><br>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td align="left">
+                        {rval button/btn_print}{rval button/btn_end}<font size='2' color='red'>　※序列確定処理時の得点です。</font>
+                      </td>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

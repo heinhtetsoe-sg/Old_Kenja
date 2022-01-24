@@ -1,0 +1,112 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<br><br><br>
+
+<table width="50%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <td align="center" nowrap><b>
+                        {rval data/YEAR}年度　　学期：{rval data/SEMESTER}
+                      </b></td>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td>
+                        <table width="100%">
+                          <tr>
+                            <td width="20%" align="right" nowrap><b>学年：</b></td>
+                            <td width="80%" nowrap>{rval data/GRADE}</td>
+                          </tr>
+                          <tr>
+                            <td align="right" nowrap><b>IBコース：</b></td>
+                            <td nowrap>{rval data/IBPRG_COURSE}　<b>IB科目：</b>{rval data/IBSUBCLASSCD}</td>
+                          </tr>
+                          <!--{def subchr}-->
+                          <!--{each subchr}-->
+                          <tr>
+                            <td align="right" nowrap><b>科目：</b></td>
+                            <td nowrap>{rval subchr/SUBCLASSCD}　<b>講座：</b>{rval subchr/CHAIRCD}</td>
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象者一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr>
+                      <td align="left"  bgcolor="#ffffff">
+                        <table cellspacing="5">
+                          <tr>
+                            <td>　　　　●&nbsp;異動生徒（留学・休学・転入・編入・退学・転学）
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>　　　　　&nbsp;異動対象日付、及び出欠集計日付&nbsp;{rval data/DATE}</td>
+                          </tr>
+                          <tr>
+                            <td>　　　　●&nbsp;印刷面</td>
+                          </tr>
+                          <tr>
+                            <td>　　　　　&nbsp;&nbsp;&nbsp;&nbsp;{rval data/PRINT_SIDE31}<LABEL for="PRINT_SIDE31">評価の記録&#x2460;</LABEL>　　　&nbsp;&nbsp;&nbsp;&nbsp;{rval data/PRINT_SIDE32}<LABEL for="PRINT_SIDE32">評価の記録&#x2461;</LABEL>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  {rval button/btn_print}{rval button/btn_csv}{rval button/btn_end}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

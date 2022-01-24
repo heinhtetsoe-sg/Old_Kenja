@@ -1,0 +1,241 @@
+{rval start} 
+{rval IFRAME}
+<style type="text/css">
+#tyousei {
+    height : 70px;
+}
+</style>
+
+<!--[if IE 6]>
+<style type="text/css">
+#tyousei {
+    height : 69px;
+}
+</style>
+<![endif]-->
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search">
+                          <th width="*%" align="left" nowrap>
+                                &nbsp;入試年度：{rval YEAR}年　　入試制度：{rval APPLICANTDIV}&nbsp;&nbsp;入試区分：{rval TESTDIV}
+                          </th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+
+          <tr>
+
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" id="tyousei">
+                        <th width="50" height="70">入試区分</th>
+                        <th width="100" height="70">コース</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+
+            <td>
+            <div id="trow" style="overflow:hidden; width: 925px; height; 72;">
+                <div style="width: 925px; height:72;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+
+                    <tr class="no_search" align="center" height="70">
+                      <!--{def TITLE/TESTSUBCLASSCD1}-->
+                      <th width="70">{rval TITLE/TESTSUBCLASSCD1}</th>
+                      <!--{/def}-->
+                      <!--{def TITLE/TESTSUBCLASSCD2}-->
+                      <th width="70">{rval TITLE/TESTSUBCLASSCD2}</th>
+                      <!--{/def}-->
+                      <!--{def TITLE/TESTSUBCLASSCD3}-->
+                      <th width="70">{rval TITLE/TESTSUBCLASSCD3}</th>
+                      <!--{/def}-->
+                      <!--{def TITLE/TESTSUBCLASSCD4}-->
+                      <th width="70">{rval TITLE/TESTSUBCLASSCD4}</th>
+                      <!--{/def}-->
+                      <!--{def TITLE/TESTSUBCLASSCD5}-->
+                      <th width="70">{rval TITLE/TESTSUBCLASSCD5}</th>
+                      <!--{/def}-->
+                      <!--{def TITLE/TESTSUBCLASSCD6}-->
+                      <th width="70">{rval TITLE/TESTSUBCLASSCD6}</th>
+                      <!--{/def}-->
+                      <!--{def TITLE/TESTSUBCLASSCD7}-->
+                      <th width="70">{rval TITLE/TESTSUBCLASSCD7}</th>
+                      <!--{/def}-->
+                      <!--{def TITLE/TESTSUBCLASSCD8}-->
+                      <th width="70">{rval TITLE/TESTSUBCLASSCD8}</th>
+                      <!--{/def}-->
+                      <!--{def TITLE/TESTSUBCLASSCD9}-->
+                      <th width="70">{rval TITLE/TESTSUBCLASSCD9}</th>
+                      <!--{/def}-->
+                      <th width="70">合計</th>
+
+                    </tr>
+
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+          <tr valign="TOP">
+
+            <td>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr height="30" class="no_search">
+                          <!--{def data/ROWSPAN}-->
+                          <td width="50" align="center" rowspan={rval data/ROWSPAN}>{rval data/SH_NAME}</td>
+                          <!--{/def}-->
+                          <td width="100"  align="center">{rval data/COURSE_NAME}</td>
+
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+
+            <td>
+            <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 943px; height: 485px;">
+                <div style="width: 925px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr height="30">
+
+                          <!--{def data/SCORE1}-->
+                          <td bgcolor="#ffffff" width="70" align="center">{rval data/SCORE1}</td>
+                          <!--{/def}-->
+                          <!--{def data/SCORE2}-->
+                          <td bgcolor="#ffffff" width="70" align="center">{rval data/SCORE2}</td>
+                          <!--{/def}-->
+                          <!--{def data/SCORE3}-->
+                          <td bgcolor="#ffffff" width="70" align="center">{rval data/SCORE3}</td>
+                          <!--{/def}-->
+                          <!--{def data/SCORE4}-->
+                          <td bgcolor="#ffffff" width="70" align="center">{rval data/SCORE4}</td>
+                          <!--{/def}-->
+                          <!--{def data/SCORE5}-->
+                          <td bgcolor="#ffffff" width="70" align="center">{rval data/SCORE5}</td>
+                          <!--{/def}-->
+                          <!--{def data/SCORE6}-->
+                          <td bgcolor="#ffffff" width="70" align="center">{rval data/SCORE6}</td>
+                          <!--{/def}-->
+                          <!--{def data/SCORE7}-->
+                          <td bgcolor="#ffffff" width="70" align="center">{rval data/SCORE7}</td>
+                          <!--{/def}-->
+                          <!--{def data/SCORE8}-->
+                          <td bgcolor="#ffffff" width="70" align="center">{rval data/SCORE8}</td>
+                          <!--{/def}-->
+                          <!--{def data/SCORE9}-->
+                          <td bgcolor="#ffffff" width="70" align="center">{rval data/SCORE9}</td>
+                          <!--{/def}-->
+                          <td bgcolor="#ffffff" width="70" align="center">{rval data/SCOREA}</td>
+
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <td>
+                          <table cellpadding="0" cellspacing="0">
+                            <tr class="no_search">
+                              <td align="left">
+                              　　　　　　　　　　　　　　　　　　　{rval btn_recalc}　{rval btn_update}{rval btn_can}{rval btn_end}
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                  </table>
+                  </td>
+                </tr>
+            </table>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish} 
+<script language="JavaScript">{rval jscript}{rval Closing}</script>

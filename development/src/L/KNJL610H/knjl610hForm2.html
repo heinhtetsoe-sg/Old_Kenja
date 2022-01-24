@@ -1,0 +1,129 @@
+{rval start}
+
+<!--{def data}-->
+<!--{def button}-->
+
+<table width="80%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="20%" nowrap>項目</th>
+                      <th width="*" colspan="{rval data/COLSPAN}" nowrap>値</th>
+                    </tr>
+                    <tr>
+                      <th class="no_search" width="20%" align="right" nowrap>登録番号</th>
+                      <td bgcolor="#ffffff" colspan="{rval data/COLSPAN}">{rval data/EXAMNO}&nbsp;{rval button/btn_new}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>※ 受付年月日</th>
+                      <td bgcolor="#ffffff" colspan="{rval data/COLSPAN2}">{rval data/RECEPTDATE}</td>
+                      <td bgcolor="#ffffff" colspan="{rval data/COLSPAN3}">{rval data/DECLINE}<LABEL for="DECLINE">欠席する</LABEL></td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>※ 入試日程</th>
+                      <td bgcolor="#ffffff" colspan="{rval data/COLSPAN}">{rval data/TESTDIV}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>チャレンジ受験</th>
+                      <td bgcolor="#ffffff" colspan="{rval data/COLSPAN}">{rval data/SLIDE_FLG}<LABEL for="SLIDE_FLG">チャレンジ受験する</LABEL></td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>※ 類別</th>
+                      <td bgcolor="#ffffff" colspan="{rval data/COLSPAN}">{rval data/TESTDIV1}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>※ 氏名</th>
+                      <td bgcolor="#ffffff" colspan="{rval data/COLSPAN}">{rval data/NAME}<font color="red" style="font-size:10pt">{rval data/NAME_KETA}</font></td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>※ 氏名かな</th>
+                      <td bgcolor="#ffffff" colspan="{rval data/COLSPAN}">{rval data/NAME_KANA}<font color="red" style="font-size:10pt">{rval data/NAME_KANA_KETA}</font></td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>※ 生年月日</th>
+                      <td bgcolor="#ffffff" colspan="{rval data/COLSPAN}">{rval data/BIRTHDAY}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>※ 性別</th>
+                      <td bgcolor="#ffffff" colspan="{rval data/COLSPAN}">{rval data/SEX}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>※ 出身学校</th>
+                      <td bgcolor="#ffffff" colspan="{rval data/COLSPAN}">
+                        {rval button/btn_fin_kana_reference}
+                        {rval data/FINSCHOOLCD}
+                        <span id="FINSCHOOLNAME_ID">{rval data/FINSCHOOLNAME}</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>資格</th>
+                      <td bgcolor="#ffffff" colspan="{rval data/COLSPAN}">{rval data/REMARK8}<font color="red" style="font-size:10pt">{rval data/REMARK8_KETA}</font></td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>併願校</th>
+                      <td bgcolor="#ffffff" colspan="{rval data/COLSPAN}">{rval data/REMARK9}<font color="red" style="font-size:10pt">{rval data/REMARK9_KETA}</font></td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>備考</th>
+                      <td bgcolor="#ffffff" colspan="{rval data/COLSPAN}">{rval data/REMARK10}<font color="red" style="font-size:10pt">{rval data/REMARK10_KETA}</font></td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" rowspan = "2" nowrap>内申点</th>
+                      <td align="center" class="no_search" >{rval data/SUBCLASSNAME1}</td>
+                      <td align="center" class="no_search" >{rval data/SUBCLASSNAME2}</td>
+                      <td align="center" class="no_search" >{rval data/SUBCLASSNAME3}</td>
+                      <td align="center" class="no_search" >{rval data/SUBCLASSNAME4}</td>
+                      <td align="center" class="no_search" >{rval data/SUBCLASSNAME5}</td>
+                      <td align="center" class="no_search" >5教科</td>
+                      <td align="center" class="no_search" >3教科</td>
+                      <td align="center" class="no_search" >9教科合計</td>
+                    </tr>
+                    <tr>
+                      <td align="center" bgcolor="#ffffff">{rval data/CONFIDENTIAL_RPT01}</td>
+                      <td align="center" bgcolor="#ffffff">{rval data/CONFIDENTIAL_RPT02}</td>
+                      <td align="center" bgcolor="#ffffff">{rval data/CONFIDENTIAL_RPT03}</td>
+                      <td align="center" bgcolor="#ffffff">{rval data/CONFIDENTIAL_RPT04}</td>
+                      <td align="center" bgcolor="#ffffff">{rval data/CONFIDENTIAL_RPT05}</td>
+                      <td align="center" bgcolor="#ffffff">{rval data/TOTAL5}</td>
+                      <td align="center" bgcolor="#ffffff">{rval data/TOTAL3}</td>
+                      <td align="center" bgcolor="#ffffff">{rval data/TOTAL_ALL}</td>
+                    </tr>
+
+                    <tr>
+                      <th class="no_search" align="right" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff" colspan = "{rval data/COLSPAN}">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+                    </tr>
+
+                    <tr>
+                      <th class="no_search" align="left" nowrap>&nbsp;</th>
+                      <td align="left" colspan = "{rval data/COLSPAN}" bgcolor="#ffffff">
+                        {rval data/OUTPUT1}<LABEL for="OUTPUT1">ヘッダ出力(見本)</LABEL><br />
+                        {rval data/OUTPUT2}<LABEL for="OUTPUT2">データ取込</LABEL>&nbsp;(ファイル：<span id="type_file">{rval FILE}</span>)<br />
+                        {rval data/OUTPUT3}<LABEL for="OUTPUT3">データ出力</LABEL><br />
+                        {rval button/btn_exec}&nbsp;{rval data/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL>
+                      </td>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}{rval Jobtype}</script>

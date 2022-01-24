@@ -1,0 +1,53 @@
+{rval start} 
+<style>
+table, th, td { 
+    border:1px solid #A4A4A4;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+body { 
+    overflow-y: hidden;
+    margin-left: 5px;
+    margin-right: 5px;
+ }
+.tenpu { 
+         width: 100%;
+         margin-left: auto;
+         margin-right: auto;
+         border:1px solid #08088A;
+}
+</style>
+
+
+<BR>
+
+            <table class="tenpu">
+                  <tr>
+                    <th class="no_search">データ送受信　【{rval PRGNAME}】</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      ●アップロード<br>{rval up/FILE}&nbsp;&nbsp;{rval button/BTN_OK}
+                    </td>
+                  </tr>
+
+                  <tr height="100" >
+                     <td>●ファイル削除：<font color="red" size="2">チェックを付けたファイルを削除します。</font><br>
+                      <!--{each data}-->
+                            {rval data/CHKB}{rval data/DOWNLOAD_FILE_NAME}<br>
+                      <!--{/each}-->
+                        {rval button/BTN_DELETE}<BR>
+                    </td>
+                  </tr>
+
+                  <tr> 
+                    <td align="right">{rval button/btn_end}</td>
+                  </tr>
+            </table>
+            
+
+
+{rval finish} 

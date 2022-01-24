@@ -1,0 +1,14 @@
+-- $Id: 4050ed80dc4c0e520156c61f2951d84a61c01d8c $
+
+drop   table CLASS_ANOTHER_DAT
+create table CLASS_ANOTHER_DAT ( \
+    EDBOARD_SCHOOLCD VARCHAR(12) NOT NULL, \
+    CLASSCD          VARCHAR(2) NOT NULL, \
+    SCHOOL_KIND      VARCHAR(2) NOT NULL, \
+    EDBOARD_FLG      VARCHAR(1), \
+    REGISTERCD       VARCHAR(10), \
+    UPDATED          TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+) in usr1dms index in idx1dms
+
+alter table CLASS_ANOTHER_DAT add constraint PK_C_ANOTHER_DAT primary key (EDBOARD_SCHOOLCD, CLASSCD, SCHOOL_KIND)
+

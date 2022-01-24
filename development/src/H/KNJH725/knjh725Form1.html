@@ -1,0 +1,92 @@
+{rval start}
+<table width="80%;" align="center" style="margin-top: 50px;">
+  <tbody>
+
+    <!-- 処理条件start -->
+    <tr>
+      <td>
+        <table align="center" width="50%" border="0" cellspacing="1" cellpadding="0">
+          <tbody>
+            <tr class="no_search_line">
+              <td >
+                <table width="100%" border="0" cellspacing="1" cellpadding="2">
+                  <tbody>
+                    <tr height="35" class="no_search">
+                      <th colspan="2" align="left"><b>&nbsp;{rval data/YEAR}年度&nbsp;学力テスト序列処理</b></th>
+                    </tr>
+                    <tr height="35" bgcolor="#ffffff">
+                      <th class="no_search" align="right">学力テスト区分</th>
+                      <td>&nbsp;{rval data/TESTDIV}&nbsp;&nbsp;<label for="total">{rval data/TOTAL}合計</label></td>
+                    </tr>
+                    <tr height="35" bgcolor="#ffffff">
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td>&nbsp;{rval btn_exec}{rval btn_end}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <!-- 処理条件end -->
+
+    <!-- 実行中メッセージstart -->
+    <tr>
+      <td style="font-weight: 700; color:white">
+        <marquee><span id="marq_msg">集計しています...しばらくおまちください</span></marquee>
+      </td>
+    </tr>
+    <!-- 実行中メッセージend -->
+
+    <!-- 実行履歴start -->
+    <tr>
+      <td>
+        <!-- 実行履歴ヘッダ -->
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+            <td>
+              <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                <tr>
+                  <td colspan="4" bgcolor="#cccccc">&nbsp;&nbsp;●&nbsp;<b>実行履歴</b></td>
+                </tr>
+                <tr class="no_search" >
+                  <th width="200">処理日付</th>
+                  <th width="200">処理時間</th>
+                  <th width="300">学力テスト区分</th>
+                  <th width="*">実行者</th>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+
+        <!-- 実行履歴データ -->
+        <div style="width: 100%; height:200; overflow: auto">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                  <!--{each rireki}-->
+                  <tr bgcolor="#ffffff">
+                    <td width="200" nowrap align="center">{val rireki/CALC_DATE}</td>
+                    <td width="200" nowrap align="center">{val rireki/CALC_TIME}</td>
+                    <td width="300" nowrap align="left">{val rireki/LAVEL}</td>
+                    <td width="*"   nowrap align="left">{val rireki/STAFFNAME}</td>
+                  </tr>
+                  <!--{/each}-->
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+    <!-- 実行履歴end -->
+
+  </tbody>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

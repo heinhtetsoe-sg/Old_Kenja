@@ -1,0 +1,488 @@
+{rval start}
+
+<!--{def button}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <hr width="80%" align="left">
+                &nbsp;{rval SCHREGNO}&nbsp;&nbsp;{val NAME}&nbsp;&nbsp;{val CONDITION_NAME}&nbsp;&nbsp;{val GROUP_NAME}
+            <hr width="80%" align="left">
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            &nbsp;印刷学期：{rval PRINT_GAKKI} 　　　　　　　　{rval button/btn_copy}
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 100%; height: 130;">
+            <table width=100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" nowrap align="center">
+
+                    <!--{def PATTERN_B}-->
+                      <th width="150">教科・科目</th>
+                      <th width="200">単元</th>
+                      <th width="150">{rval setName/SET_ITEM_REMARK1}</th>
+                      <th width="150">{rval setName/SET_ITEM_REMARK2}</th>
+                      <th width="150">{rval setName/SET_ITEM_REMARK3}</th>
+                    <!--{/def}-->
+
+                    <!--{def NOT_PATTERN_B}-->
+                      <!--{def UNIT_ARI}-->
+                        <th width="150">教科・科目</th>
+                        <th width="200">単元</th>
+                      <!--{/def}-->
+
+                      <!--{def SET_YEAR_TARGET}-->
+                        <th width="300" align="center">{rval setName/SET_ITEM_REMARK7}</td>
+                      <!--{/def}-->
+
+                      <!--{def UNIT_ARI}-->
+                        <th width="300">{rval setName/SET_ITEM_REMARK2}</th>
+                        <!--{def UNIT_ARI_SET_VALUE}-->
+                          <th width="100">{rval setName/SET_ITEM_REMARK3}</th>
+                        <!--{/def}-->
+                        <!--{def PATTERN_A}-->
+                          <th width="150">{rval setName/SET_ITEM_REMARK4}</th>
+                        <!--{/def}-->
+                      <!--{/def}-->
+
+                      <!--{def UNIT_NASHI}-->
+                        <th width="150">教科・科目</th>
+                        <!--{def UNIT_NASHI_SET1}-->
+                          <th width="{rval setName/ITEM_REMARK_WIDTH}" >{rval setName/ITEM_REMARK1}</th>
+                          <!--{def UNIT_NASHI_SET_VALUE}-->
+                            <th width="{rval setName/ITEM_REMARK_VALUE_WIDTH}">{rval setName/ITEM_REMARK1_VALUENAME}</td>
+                          <!--{/def}-->
+                          <!--{def PATTERN_A}-->
+                            <th width="{rval setName/ITEM_REMARK_VALUE_WIDTH}">{rval setName/ITEM_REMARK1_2}</td>
+                          <!--{/def}-->
+                        <!--{/def}-->
+
+                        <!--{def UNIT_NASHI_SET2}-->
+                          <th width="{rval setName/ITEM_REMARK_WIDTH}" >{rval setName/ITEM_REMARK2}</th>
+                          <!--{def UNIT_NASHI_SET_VALUE}-->
+                            <th width="{rval setName/ITEM_REMARK_VALUE_WIDTH}" align="center">{rval setName/ITEM_REMARK2_VALUENAME}</td>
+                          <!--{/def}-->
+                          <!--{def PATTERN_A}-->
+                            <th width="{rval setName/ITEM_REMARK_VALUE_WIDTH}">{rval setName/ITEM_REMARK2_2}</td>
+                          <!--{/def}-->
+                        <!--{/def}-->
+
+                        <!--{def UNIT_NASHI_SET3}-->
+                          <th width="{rval setName/ITEM_REMARK_WIDTH}" >{rval setName/ITEM_REMARK3}</th>
+                          <!--{def UNIT_NASHI_SET_VALUE}-->
+                            <th width="{rval setName/ITEM_REMARK_VALUE_WIDTH}" align="center">{rval setName/ITEM_REMARK3_VALUENAME}</td>
+                          <!--{/def}-->
+                          <!--{def PATTERN_A}-->
+                            <th width="{rval setName/ITEM_REMARK_VALUE_WIDTH}">{rval setName/ITEM_REMARK3_2}</td>
+                          <!--{/def}-->
+                        <!--{/def}-->
+
+                        <!--{def UNIT_NASHI_SET4}-->
+                          <th width="{rval setName/ITEM_REMARK_WIDTH}" >{rval setName/ITEM_REMARK4}</th>
+                          <!--{def UNIT_NASHI_SET_VALUE}-->
+                            <th width="{rval setName/ITEM_REMARK_VALUE_WIDTH}" align="center">{rval setName/ITEM_REMARK4_VALUENAME}</td>
+                          <!--{/def}-->
+                          <!--{def PATTERN_A}-->
+                            <th width="{rval setName/ITEM_REMARK_VALUE_WIDTH}">{rval setName/ITEM_REMARK4_2}</td>
+                          <!--{/def}-->
+                        <!--{/def}-->
+
+                        <!--{def UNIT_NASHI_SET5}-->
+                          <th width="{rval setName/ITEM_REMARK_WIDTH}" >{rval setName/ITEM_REMARK5}</th>
+                          <!--{def UNIT_NASHI_SET_VALUE}-->
+                            <th width="{rval setName/ITEM_REMARK_VALUE_WIDTH}" align="center">{rval setName/ITEM_REMARK5_VALUENAME}</td>
+                          <!--{/def}-->
+                          <!--{def PATTERN_A}-->
+                            <th width="{rval setName/ITEM_REMARK_VALUE_WIDTH}">{rval setName/ITEM_REMARK5_2}</td>
+                          <!--{/def}-->
+                        <!--{/def}-->
+
+                        <!--{def UNIT_NASHI_SET6}-->
+                          <th width="{rval setName/ITEM_REMARK_WIDTH}" >{rval setName/ITEM_REMARK6}</th>
+                          <!--{def UNIT_NASHI_SET_VALUE}-->
+                            <th width="{rval setName/ITEM_REMARK_VALUE_WIDTH}" align="center">{rval setName/ITEM_REMARK6_VALUENAME}</td>
+                          <!--{/def}-->
+                          <!--{def PATTERN_A}-->
+                            <th width="{rval setName/ITEM_REMARK_VALUE_WIDTH}">{rval setName/ITEM_REMARK6_2}</td>
+                          <!--{/def}-->
+                        <!--{/def}-->
+
+                        <!--{def UNIT_NASHI_SET7}-->
+                          <th width="{rval setName/ITEM_REMARK_WIDTH}" >{rval setName/ITEM_REMARK7}</th>
+                          <!--{def UNIT_NASHI_SET_VALUE}-->
+                            <th width="{rval setName/ITEM_REMARK_VALUE_WIDTH}" align="center">{rval setName/ITEM_REMARK7_VALUENAME}</td>
+                          <!--{/def}-->
+                          <!--{def PATTERN_A}-->
+                            <th width="{rval setName/ITEM_REMARK_VALUE_WIDTH}">{rval setName/ITEM_REMARK7_2}</td>
+                          <!--{/def}-->
+                        <!--{/def}-->
+
+                        <!--{def UNIT_NASHI_SET8}-->
+                          <th width="{rval setName/ITEM_REMARK_WIDTH}" >{rval setName/ITEM_REMARK8}</th>
+                          <!--{def UNIT_NASHI_SET_VALUE}-->
+                            <th width="{rval setName/ITEM_REMARK_VALUE_WIDTH}" align="center">{rval setName/ITEM_REMARK8_VALUENAME}</td>
+                          <!--{/def}-->
+                          <!--{def PATTERN_A}-->
+                            <th width="{rval setName/ITEM_REMARK_VALUE_WIDTH}">{rval setName/ITEM_REMARK8_2}</td>
+                          <!--{/def}-->
+                        <!--{/def}-->
+
+                        <!--{def UNIT_NASHI_SET9}-->
+                          <th width="{rval setName/ITEM_REMARK_WIDTH}" >{rval setName/ITEM_REMARK9}</th>
+                          <!--{def UNIT_NASHI_SET_VALUE}-->
+                            <th width="{rval setName/ITEM_REMARK_VALUE_WIDTH}" align="center">{rval setName/ITEM_REMARK9_VALUENAME}</td>
+                          <!--{/def}-->
+                          <!--{def PATTERN_A}-->
+                            <th width="{rval setName/ITEM_REMARK_VALUE_WIDTH}">{rval setName/ITEM_REMARK9_2}</td>
+                          <!--{/def}-->
+                        <!--{/def}-->
+
+                        <!--{def UNIT_NASHI_SET10}-->
+                          <th width="{rval setName/ITEM_REMARK_WIDTH}" >{rval setName/ITEM_REMARK10}</th>
+                          <!--{def UNIT_NASHI_SET_VALUE}-->
+                            <th width="{rval setName/ITEM_REMARK_VALUE_WIDTH}" align="center">{rval setName/ITEM_REMARK10_VALUENAME}</td>
+                          <!--{/def}-->
+                          <!--{def PATTERN_A}-->
+                            <th width="{rval setName/ITEM_REMARK_VALUE_WIDTH}">{rval setName/ITEM_REMARK10_2}</td>
+                          <!--{/def}-->
+                        <!--{/def}-->
+                      <!--{/def}-->
+
+                      <!--{def SET_PROCEDURE}-->
+                        <th width="150" align="center">{rval setName/SET_ITEM_REMARK5}</td>
+                      <!--{/def}-->
+
+                      <!--{def SET_VALUE_TEXT}-->
+                        <th width="150" align="center">{rval setName/SET_ITEM_REMARK4}</td>
+                      <!--{/def}-->
+                      
+                      <!--{def SET_VALUE_TEXT2}-->
+                        <th width="150" align="center">{rval setName/SET_ITEM_REMARK8}</td>
+                      <!--{/def}-->
+                      
+                      <!--{def SET_VALUE}-->
+                        <th width="75" align="center">{rval setName/SET_ITEM_REMARK6}</td>
+                      <!--{/def}-->
+                    <!--{/def}--><!-- NOT_PATTERN_B -->
+
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <!--{def list}-->
+                  <!--{each list}-->
+                    <tr bgcolor="#ffffff">
+
+                    <!--{def PATTERN_B}-->
+                      <!--{def list/ROWSPAN}-->
+                        <td width="150" align="left" rowspan={rval list/ROWSPAN}>{rval list/PATTERN_B_SET_SUBCLASSNAME}</td>
+                      <!--{/def}-->
+                      <td width="200" align="left">{rval list/PATTERN_B_SET_UNITNAME}</td>
+                      <td width="150">{rval list/PATTERN_B_REMARK71}</td>
+                      <td width="150">{rval list/PATTERN_B_REMARK72}</td>
+                      <td width="150">{rval list/PATTERN_B_REMARK73}</td>
+                    <!--{/def}-->
+
+                    <!--{def NOT_PATTERN_B}-->
+                      <!--{def UNIT_ARI}-->
+                        <!--{def list/ROWSPAN}-->
+                          <td width="150" align="left" rowspan={rval list/ROWSPAN}>{rval list/SET_SUBCLASSNAME}</td>
+                        <!--{/def}-->
+                        <td width="200" align="left"><a href="knjd420index.php?cmd=list_set&SUBCLASSCD={val list/SET_SUBCLASSCD}&UNITCD={val list/UNITCD}">{rval list/SET_UNITNAME}</a></td>
+                      <!--{/def}-->
+
+                      <!--{def SET_YEAR_TARGET}-->
+                        <td width="300" align="left">{rval list/YEAR_TARGET}</td>
+                      <!--{/def}-->
+
+                      <!--{def UNIT_ARI}-->
+                        <td width="300" align="left">{rval list/UNIT_REMARK}</td>
+                        <!--{def UNIT_ARI_SET_VALUE}-->
+                          <td width="100" align="center">{rval list/UNIT_REMARK_VALUE}</td>
+                        <!--{/def}-->
+                        <!--{def PATTERN_A}-->
+                          <td width="150" align="left">{rval list/UNIT_REMARK2}</td>
+                        <!--{/def}-->
+                      <!--{/def}-->
+
+                      <!--{def UNIT_NASHI}-->
+                        <td width="150" align="left">
+                        <!--{def list/SUBCLASS_SHOW}-->
+                          <a href="knjd420index.php?cmd=list_set&SUBCLASSCD={val list/SET_SUBCLASSCD}">{rval list/SET_SUBCLASSNAME}</a>
+                        <!--{/def}-->
+                        </td>
+
+                        <!--{def UNIT_NASHI_SET1}-->
+                          <!--{def NOT_PATTERN_A}-->
+                            <td width="150" align="left">{rval list/REMARK1}</td>
+                          <!--{/def}-->
+                          <!--{def UNIT_NASHI_SET_VALUE}-->
+                            <td width="75" align="center">{rval list/REMARK_VALUE1}</td>
+                          <!--{/def}-->
+                          <!--{def PATTERN_A}-->
+                            <td width="150" align="left">{rval list/REMARK1}</td>
+                            <td width="150" align="left">{rval list/REMARK61}</td>
+                          <!--{/def}-->
+                        <!--{/def}-->
+
+                        <!--{def UNIT_NASHI_SET2}-->
+                          <!--{def NOT_PATTERN_A}-->
+                            <td width="150" align="left">{rval list/REMARK2}</td>
+                          <!--{/def}-->
+                          <!--{def UNIT_NASHI_SET_VALUE}-->
+                            <td width="75" align="center">{rval list/REMARK_VALUE2}</td>
+                          <!--{/def}-->
+                          <!--{def PATTERN_A}-->
+                            <td width="150" align="left">{rval list/REMARK2}</td>
+                            <td width="150" align="left">{rval list/REMARK62}</td>
+                          <!--{/def}-->
+                        <!--{/def}-->
+
+                        <!--{def UNIT_NASHI_SET3}-->
+                          <!--{def NOT_PATTERN_A}-->
+                            <td width="150" align="left">{rval list/REMARK3}</td>
+                          <!--{/def}-->
+                          <!--{def UNIT_NASHI_SET_VALUE}-->
+                            <td width="75" align="center">{rval list/REMARK_VALUE3}</td>
+                          <!--{/def}-->
+                          <!--{def PATTERN_A}-->
+                            <td width="150" align="left">{rval list/REMARK3}</td>
+                            <td width="150" align="left">{rval list/REMARK63}</td>
+                          <!--{/def}-->
+                        <!--{/def}-->
+
+                        <!--{def UNIT_NASHI_SET4}-->
+                          <!--{def NOT_PATTERN_A}-->
+                            <td width="150" align="left">{rval list/REMARK4}</td>
+                          <!--{/def}-->
+                          <!--{def UNIT_NASHI_SET_VALUE}-->
+                            <td width="75" align="center">{rval list/REMARK_VALUE4}</td>
+                          <!--{/def}-->
+                          <!--{def PATTERN_A}-->
+                            <td width="150" align="left">{rval list/REMARK4}</td>
+                            <td width="150" align="left">{rval list/REMARK64}</td>
+                          <!--{/def}-->
+                        <!--{/def}-->
+
+                        <!--{def UNIT_NASHI_SET5}-->
+                          <!--{def NOT_PATTERN_A}-->
+                            <td width="150" align="left">{rval list/REMARK5}</td>
+                          <!--{/def}-->
+                          <!--{def UNIT_NASHI_SET_VALUE}-->
+                            <td width="75" align="center">{rval list/REMARK_VALUE5}</td>
+                          <!--{/def}-->
+                          <!--{def PATTERN_A}-->
+                            <td width="150" align="left">{rval list/REMARK5}</td>
+                            <td width="150" align="left">{rval list/REMARK65}</td>
+                          <!--{/def}-->
+                        <!--{/def}-->
+
+                        <!--{def UNIT_NASHI_SET6}-->
+                          <!--{def NOT_PATTERN_A}-->
+                            <td width="150" align="left">{rval list/REMARK6}</td>
+                          <!--{/def}-->
+                          <!--{def UNIT_NASHI_SET_VALUE}-->
+                            <td width="75" align="center">{rval list/REMARK_VALUE6}</td>
+                          <!--{/def}-->
+                          <!--{def PATTERN_A}-->
+                            <td width="150" align="left">{rval list/REMARK6}</td>
+                            <td width="150" align="left">{rval list/REMARK66}</td>
+                          <!--{/def}-->
+                        <!--{/def}-->
+
+                        <!--{def UNIT_NASHI_SET7}-->
+                          <!--{def NOT_PATTERN_A}-->
+                            <td width="150" align="left">{rval list/REMARK7}</td>
+                          <!--{/def}-->
+                          <!--{def UNIT_NASHI_SET_VALUE}-->
+                            <td width="75" align="center">{rval list/REMARK_VALUE7}</td>
+                          <!--{/def}-->
+                          <!--{def PATTERN_A}-->
+                            <td width="150" align="left">{rval list/REMARK7}</td>
+                            <td width="150" align="left">{rval list/REMARK67}</td>
+                            <!--{/def}-->
+                        <!--{/def}-->
+
+                        <!--{def UNIT_NASHI_SET8}-->
+                          <!--{def NOT_PATTERN_A}-->
+                            <td width="150" align="left">{rval list/REMARK8}</td>
+                          <!--{/def}-->
+                          <!--{def UNIT_NASHI_SET_VALUE}-->
+                            <td width="75" align="center">{rval list/REMARK_VALUE8}</td>
+                          <!--{/def}-->
+                          <!--{def PATTERN_A}-->
+                            <td width="150" align="left">{rval list/REMARK8}</td>
+                            <td width="150" align="left">{rval list/REMARK68}</td>
+                          <!--{/def}-->
+                        <!--{/def}-->
+
+                        <!--{def UNIT_NASHI_SET9}-->
+                          <!--{def NOT_PATTERN_A}-->
+                            <td width="150" align="left">{rval list/REMARK9}</td>
+                          <!--{/def}-->
+                          <!--{def UNIT_NASHI_SET_VALUE}-->
+                            <td width="75" align="center">{rval list/REMARK_VALUE9}</td>
+                          <!--{/def}-->
+                          <!--{def PATTERN_A}-->
+                            <td width="150" align="left">{rval list/REMARK9}</td>
+                            <td width="150" align="left">{rval list/REMARK69}</td>
+                          <!--{/def}-->
+                        <!--{/def}-->
+
+                        <!--{def UNIT_NASHI_SET10}-->
+                          <!--{def NOT_PATTERN_A}-->
+                            <td width="150" align="left">{rval list/REMARK10}</td>
+                          <!--{/def}-->
+                          <!--{def UNIT_NASHI_SET_VALUE}-->
+                            <td width="75" align="center">{rval list/REMARK_VALUE10}</td>
+                          <!--{/def}-->
+                          <!--{def PATTERN_A}-->
+                            <td width="150" align="left">{rval list/REMARK10}</td>
+                            <td width="150" align="left">{rval list/REMARK70}</td>
+                          <!--{/def}-->
+                        <!--{/def}-->
+                      <!--{/def}-->
+
+                      <!--{def SET_PROCEDURE}-->
+                        <td width="150" align="left">{rval list/PROCEDURE}</td>
+                      <!--{/def}-->
+
+                      <!--{def SET_VALUE_TEXT}-->
+                        <td width="150" align="left">{rval list/VALUE_TEXT}</td>
+                      <!--{/def}-->
+
+                      <!--{def SET_VALUE_TEXT2}-->
+                        <td width="150" align="left">{rval list/VALUE_TEXT2}</td>
+                      <!--{/def}-->
+
+                      <!--{def SET_VALUE}-->
+                        <td width="75" align="left">{rval list/VALUE}</td>
+                      <!--{/def}-->
+                    <!--{/def}--> <!-- NOT_PATTERN_B -->
+
+                    </tr>
+                  <!--{/each}-->
+                  <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+
+        <tr><td height="10"></td></tr>
+
+        <tr>
+          <td>
+            <table width="80%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="35">
+                      <th class="no_search" width="30%">教科・科目</th>
+                      <td bgcolor="#ffffff" width="70%">{rval SUBCLASSCD}</td>
+                    </tr>
+                    <!--{def pattern7}-->
+                    <tr height="90">
+                      <th class="no_search">{rval REMARK_NAME}{rval ITEM_REMARK1}</th>
+                      <td bgcolor="#ffffff">&nbsp;{rval REMARK}<!--{def REMARK_SIZE}--><br><font size=1, color="red">&nbsp;{rval REMARK_SIZE}</font><!--{/def}--></td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{def pattern7Igai}-->
+                    <tr height="35">
+                      <th class="no_search">単元{rval ITEM_REMARK1}</th>
+                      <td bgcolor="#ffffff">{rval UNITCD}</td>
+                    </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--{def COLSPAN}-->
+
+                    <tr height="30" class="no_search">
+                      <!--{def pattern7}-->
+                      <th {rval WIDTH}>単元{rval ITEM_REMARK1}</th>
+                      <!--{/def}-->
+
+                      <!--{def data1}-->
+                      <!--{each data1}-->
+                      <th nowrap {rval WIDTH}>{rval data1/REMARK_NAME}</th>
+                      <!--{/each}-->
+                      <!--{/def}-->
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <!--{def pattern7}-->
+                      <td>{rval UNITCD}</td>
+                      <!--{/def}-->
+
+                      <!--{def data2}-->
+                      <!--{each data2}-->
+                      <td valign="top">{rval data2/REMARK}<!--{def data2/REMARK_SIZE}--><br><font size=1, color="red">&nbsp;{rval data2/REMARK_SIZE}</font><!--{/def}--></td>
+                      <!--{/each}-->
+                      <!--{/def}-->
+                    </tr>
+
+                    <!--{/def}-->
+
+                    <tr bgcolor="#ffffff">
+                      <td {rval COLSPAN}>
+                        <table width="100%">
+                          <tr>
+                            <!--{def BTN1}-->
+                            <td align="left" nowrap>{rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_delete}{rval button/btn_reset}{rval button/btn_end}&nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_print}</td>
+                            <!--{/def}-->
+
+                            <!--{def BTN2}-->
+                            <td width="50%" align="left" nowrap>{rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_delete}{rval button/btn_reset}{rval button/btn_end}&nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_print}</td>
+                            <td width="50%" align="right" nowrap>{rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_delete}{rval button/btn_reset}{rval button/btn_end}&nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_print}</td>
+                            <!--{/def}-->
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}--> 
+
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->

@@ -1,0 +1,75 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+        <td valign="top">
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr > 
+                  <td >
+                     <hr width="60%" align="left">
+                        &nbsp;&nbsp;{rval SCHREGNO}&nbsp;&nbsp;{val NAME}
+                     <hr width="60%" align="left">
+                     <br>
+
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                                <td> 
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search"> 
+                                          <th width="30%">項 目</th>
+                                          <th width="70%">値</th>
+                                        </tr>
+<!--結果一覧-->
+<!--{def data}-->
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap Valign="top">総合的な学習の時間</th>
+                                          <td bgcolor="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/TOTALSTUDYTIME}<br><font size=2, color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(全角で 21文字X2行)</font></td>
+                                        </tr>
+<!--{/def}-->
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                     <br>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                                <td> 
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search" height="35"> 
+                                          <th colspan="2">学期：{rval GAKKI}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                                        </tr>
+                                        <tr class="no_search"> 
+                                          <th width="30%">項 目</th>
+                                          <th width="70%">値</th>
+                                        </tr>
+<!--結果一覧-->
+<!--{def data}-->
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap Valign="top">{rval GAKKI_NAME}<br>特別活動</th>
+                                          <td bgcolor="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/SPECIALACTREMARK}<br><font size=2, color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(全角で 21文字X2行)</font></td>
+                                        </tr>
+
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap Valign="top">{rval GAKKI_NAME}・所見</th>
+                                          <td bgcolor="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/COMMUNICATION}<br><font size=2, color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(全角で 21文字X2行)</font></td>
+                                        </tr>
+<!--{/def}-->
+<!--{def button}-->
+                                        <tr> 
+                                          <th align="right" class="no_search" nowrap>&nbsp;</th>
+                                          <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_end}</td>
+                                        </tr>
+<!--{/def}--> 
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+</table>
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval reload}{rval next}</script>
+<!--{/def}-->

@@ -1,0 +1,185 @@
+{rval start}
+
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+              <tr class="no_search">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                    <tr class="no_search">
+                      <td width="100%">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                          <tr class="no_search">
+                            <td nowrap>学籍番号：{rval info/SCHREGNO}　　氏名：{rval info/NAME}　　処理年度：{rval info/YEAR}　　現在の年次：{rval info/ANNUAL}</td>
+                          </tr>
+                          <tr class="no_search">
+                            <td nowrap>高校入学年度：{rval info/CURRICULUM_YEAR}　　学科：{rval info/COURSENAME}　{rval info/MAJORNAME}　　担任：{rval info/STAFFNAME}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>&nbsp;対象年度：{rval YEAR_CMB}&nbsp;&nbsp;履修登録日：{rval data/RIREKI_CODE}</td>
+          </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                    <tr class="no_search">
+                      <th width="20">　</th>
+                      <th width="130">科目</th>
+                      <th width="90">教科書番号</th>
+                      <th width="130">教科書名等</th>
+                      <th width="130">発行者</th>
+                      <th width="20">数<br>量</th>
+                      <th width="45">単価<br>(円)</th>
+                      <th width="45">金額<br>(円)</th>
+                      <th width="20">購<br>入<br>済</th>
+                      <th width="*">備考</th>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width:100%;height:370;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                    <tbody>
+<!--{each meisai}-->
+                    <tr height="25" bgcolor="#ffffff">
+                      <td width="20"  bgcolor={rval meisai/BGCOLOR} align="center"><font color={rval meisai/COLOR}>{rval meisai/CHECKED}</font></td>
+                      <td width="130" bgcolor={rval meisai/BGCOLOR} align="left"  ><font color={rval meisai/COLOR}>{rval meisai/SUBCLASSNAME}</font></td>
+                      <td width="90"  bgcolor={rval meisai/BGCOLOR} align="center"><font color={rval meisai/COLOR}>{rval meisai/TEXTBOOKCD}</font></td>
+                      <td width="130" bgcolor={rval meisai/BGCOLOR} align="left"  ><font color={rval meisai/COLOR}>{rval meisai/TEXTBOOKNAME}</font></td>
+                      <td width="130" bgcolor={rval meisai/BGCOLOR} align="left"  ><font color={rval meisai/COLOR}>{rval meisai/ISSUECOMPANYNAME}</font></td>
+                      <td width="20"  bgcolor={rval meisai/BGCOLOR} align="right" ><font color={rval meisai/COLOR}>{rval meisai/SUURYOU}</font></td>
+                      <td width="45"  bgcolor={rval meisai/BGCOLOR} align="right" ><font color={rval meisai/COLOR}>{rval meisai/TEXTBOOKUNITPRICE}</font></td>
+                      <td width="45"  bgcolor={rval meisai/BGCOLOR} align="right" ><font color={rval meisai/COLOR}>{rval meisai/KINGAKU}</font></td>
+                      <td width="20"  bgcolor={rval meisai/BGCOLOR} align="center"><font color={rval meisai/COLOR}>{rval meisai/ZUMI}</font></td>
+                      <td width="*"   bgcolor={rval meisai/BGCOLOR}><font color={rval meisai/COLOR}>{rval meisai/REMARK}</font></td>
+                    </tr>
+<!--{/each}-->
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                    <tr class="no_search">
+                      <th width="528">教 科 書</th>
+                      <th width="20" align="right"><span id="DIV1_NUM_CNT">{rval DIV1_NUM_CNT}</span></th>
+                      <th width="45"></th>
+                      <th width="45" align="right"><span id="DIV1_PRICE_CNT">{rval DIV1_PRICE_CNT}</span></th>
+                      <th width="20"></th>
+                      <th width="*"></th>
+                    </tr>
+                    <tr class="no_search">
+                      <th width="528">学 習 書</th>
+                      <th width="20" align="right"><span id="DIV2_NUM_CNT">{rval DIV2_NUM_CNT}</span></th>
+                      <th width="45"></th>
+                      <th width="45" align="right"><span id="DIV2_PRICE_CNT">{rval DIV2_PRICE_CNT}</span></th>
+                      <th width="20"></th>
+                      <th width="*"></th>
+                    </tr>
+                    <tr class="no_search">
+                      <th width="528">補助教材</th>
+                      <th width="20" align="right"><span id="DIV3_NUM_CNT">{rval DIV3_NUM_CNT}</span></th>
+                      <th width="45"></th>
+                      <th width="45" align="right"><span id="DIV3_PRICE_CNT">{rval DIV3_PRICE_CNT}</span></th>
+                      <th width="20"></th>
+                      <th width="*"></th>
+                    </tr>
+                    <tr class="no_search">
+                      <th width="528">計</th>
+                      <th width="20" align="right"><span id="TOTAL_NUM_CNT">{rval TOTAL_NUM_CNT}</span></th>
+                      <th width="45"></th>
+                      <th width="45" align="right"><span id="TOTAL_PRICE_CNT">{rval TOTAL_PRICE_CNT}</span></th>
+                      <th width="20"></th>
+                      <th width="*"></th>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                    <tr class="no_search" height="30">
+                      <td align="left">
+                        　　　　{rval button/btn_update}　{val button/btn_end}　　　{rval button/btn_update_next} {rval button/btn_update_prev}　　　　{val button/btn_print}
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+{rval finish} 

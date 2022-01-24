@@ -1,0 +1,64 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td nowrap width="100%" align="left" colspan="4">&nbsp;&nbsp;対象年度：{rval YEAR}&nbsp;&nbsp;&nbsp;{rval btn_copy}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td nowrap width="15%" align="center"　colspan="3">テスト種別</td>
+                      <td nowrap width="40%" align="left">{rval TESTCD}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td nowrap width="15%" align="center">学　年</td>
+                      <td nowrap width="85%" align="left" colspan="3">{rval GRADE}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>   
+        <tr>
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th align="center" width="35%">コース名</th>
+                      <th align="center" width="65%">全体評</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}--> 
+                    <tr> 
+                      <td align="left" bgcolor="#ffffff">
+                        <a href="knjd106aindex.php?cmd=edit&TESTCD={rval data/TESTCD}&GRADE={rval data/GRADE}&COURSECODE={rval data/COURSECODE}&COURSECD={rval data/COURSECD}&MAJORCD={rval data/MAJORCD}&PROGRAMID={rval PROGRAMID}" target="right_frame">
+                            ({rval data/COURSECD}{rval data/MAJORCD}){rval data/COURSENAME}{rval data/MAJORNAME}
+                            <br>&nbsp;({rval data/COURSECODE}){rval data/COURSECODENAME}
+                        </a>
+                      </td>
+                      <td align="left" bgcolor="#ffffff">{rval data/FOOTNOTE}</td>
+                    </tr>
+                    <!--{/each}--> 
+                    <!--{/def}--> 
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<script language="JavaScript">{rval reload}</script>
+{rval finish}

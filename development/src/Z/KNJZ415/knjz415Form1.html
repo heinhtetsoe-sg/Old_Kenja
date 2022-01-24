@@ -1,0 +1,43 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="50%" nowrap>大分類グループコード</th>
+                      <th width="50%" nowrap>大分類コード</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/ROWSPAN}-->
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN}>
+                        <a href="knjz415index.php?cmd=sel&L_GROUPCD={val data/L_GROUPCD}" target="right_frame">{val data/L_GROUPCD}:{val data/L_GROUPNAME}</a>
+                      </td>
+                      <!--{/def}-->
+                      <td nowrap bgcolor="#ffffff">{val data/INDUSTRY_LCD}{val data/SEP}{val data/INDUSTRY_LNAME}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>  
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="javascript">{rval reload}{rval jscript}</script>

@@ -1,0 +1,142 @@
+{rval start}
+{rval IFRAME}
+<script language="JavaScript">
+//画面のリサイズ
+var timer = 0;
+window.onresize = function () {
+    if (timer > 0) {
+        clearTimeout(timer);
+    }
+
+    timer = setTimeout(function () {
+        bodyHeight = (window.innerHeight || document.body.clientHeight || 0);
+        document.getElementById("tbody").style.height = bodyHeight - 150;
+    }, 200);
+};
+
+</script>
+<br>
+<br>
+<table width="1000px" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="1000" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td align="center">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <td align="left" bgcolor="#ffffff">　　　　<b>入金月{rval PAID_LIMIT_MONTH}
+                                                         　（{rval SORT_DIV1}<LABEL for="SORT_DIV1">年組番号</LABEL>
+                                                             {rval SORT_DIV2}<LABEL for="SORT_DIV2">学籍番号</LABEL>）
+                                                         </td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr class="no_search" nowrap align="center">
+                                  <!--{def HR_CLASS_HYOUJI}-->
+                                  <th width="120">年組番号</th>
+                                  <!--{/def}-->
+                                  <!--{def NOT_HR_CLASS_HYOUJI}-->
+                                  <th width="120">学籍番号</th>
+                                  <!--{/def}-->
+                                  <th width="220">氏名</th>
+                                  <th width="220">入金グループ</th>
+                                  <th width="120">伝票番号</th>
+                                  <th width="100">入金日</th>
+                                  <th width="100">入金金額</th>
+                                  <th width="*"  ><LABEL for="ALL_CHECK">取消{rval ALL_CHECK}</LABEL></th>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td bgcolor="#ffffff">
+                              <div id="tbody" style="width: 100%; height:{rval valWindowHeight}px; overflow: auto">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr class="no_search_line">
+                                  <td>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="3"> 
+                                      <!--結果一覧-->
+                                      <!--{each data}--> 
+                                      <tr bgcolor="#ffffff" >
+                                      <!--{def data/ROWSPAN1}-->
+                                        <!--{def HR_CLASS_HYOUJI}-->
+                                        <th width="120" align="center" rowspan={rval data/ROWSPAN1}>{rval data/HR_ATTEND_NAME}</th>
+                                        <!--{/def}-->
+                                        <!--{def NOT_HR_CLASS_HYOUJI}-->
+                                        <td width="120"  align="center" rowspan={rval data/ROWSPAN1}>{rval data/SCHREGNO}</td>
+                                        <!--{/def}-->
+                                        <td width="220" align="left"   rowspan={rval data/ROWSPAN1}>{rval data/NAME}</td>
+                                      <!--{/def}-->
+                                      <!--{def data/ROWSPAN2}-->
+                                        <td width="220" align="center" rowspan={rval data/ROWSPAN2}>{rval data/COLLECT_GRP_NAME}</td>
+                                        <td width="120" align="center" rowspan={rval data/ROWSPAN2}>{rval data/SLIP_NO}</td>
+                                      <!--{/def}-->
+                                        <td width="100" align="center">{rval data/PLAN_PAID_MONEY_DATE}</td>
+                                        <td width="100" align="right" >{rval data/PAID_MONEY}</td>
+                                        <td width="*"   align="center" class="changeColor" data-name="{rval data/DEL_FLG_NAME}">{rval data/DEL_FLG}</td>
+                                      </tr> 
+                                      <!--{/each}-->
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                              </div>
+                            </td>
+                          </tr>
+
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="right" bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<input type='hidden' name='windowHeight' value=''>
+<script language="JavaScript">{rval reload}</script>
+{rval finish}
+<script language="JavaScript">
+    document.addEventListener('click', function(e) {tdChangeColor(e)});
+    document.addEventListener('mouseover', function(e) {tdChangeColor(e)});
+    document.addEventListener('mouseout', function(e) {tdChangeColor(e)});
+
+    function tdChangeColor(e) {
+        var t = e.target;
+        if (t.className == "changeColor") {
+            var objName = e.target.getAttribute('data-name');
+            targetCheckBox = document.getElementById(objName);
+            switch (e.type) {
+                case "mouseover":
+                    targetCheckBox.parentNode.style.backgroundColor = "pink";
+                    break;
+                case "mouseout":
+                    targetCheckBox.parentNode.style.backgroundColor = "white";
+                    break;
+                case "click":
+                    if (e.target.type != "checkbox") {
+                        targetCheckBox.checked = targetCheckBox.checked ? false: true;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+</script>

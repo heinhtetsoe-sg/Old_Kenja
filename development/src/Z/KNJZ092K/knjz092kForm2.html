@@ -1,0 +1,88 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr> 
+      <td > 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" height="28"> 
+              <th width="30%">項 目</th>
+              <th width="70%">値</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+
+            <tr class="no_search" height="28">
+              <th align="right" nowrap>※ 都道府県コード</th>
+              <td bgcolor="#ffffff">{rval data/PREFECTURESCD}</td>
+            </tr>
+
+            <tr class="no_search" height="28">
+              <th align="right" nowrap>※ 学年</th>
+              <td bgcolor="#ffffff">{rval data/GRADE}</td>
+            </tr>
+
+            <tr class="no_search" height="28">
+              <th align="right" nowrap>※ ランク</th>
+              <td bgcolor="#ffffff">{rval data/RANK_DIV}</td>
+            </tr>
+
+            <tr height="28">
+              <th align="right"  class="no_search"nowrap>※ 上限額1</th>
+              <td bgcolor="#ffffff">{rval data/REDUCTIONMONEY_1}円</td>
+            </tr>
+            <tr height="28">
+              <th align="right"  class="no_search"nowrap>※ 上限額2</th>
+              <td bgcolor="#ffffff">{rval data/REDUCTIONMONEY_2}円</td>
+            </tr>
+
+            <tr height="28">
+              <th align="right" class="no_search" nowrap>合計支援額</th>
+              <td bgcolor="#ffffff" id="MAX_MONEY">　{rval data/MAX_MONEY}</td>
+            </tr>
+
+            <tr height="28">
+              <th align="right"  class="no_search"nowrap>※ 下限額1</th>
+              <td bgcolor="#ffffff">{rval data/MIN_MONEY_1}円</td>
+            </tr>
+            <tr height="28">
+              <th align="right"  class="no_search"nowrap>※ 下限額2</th>
+              <td bgcolor="#ffffff">{rval data/MIN_MONEY_2}円</td>
+            </tr>
+
+            <tr height="28">
+              <th align="right"  class="no_search"nowrap>※ 保護者負担金1</th>
+              <td bgcolor="#ffffff">{rval data/PARENTS_MONEY_1}円</td>
+            </tr>
+            <tr height="28">
+              <th align="right"  class="no_search"nowrap>※ 保護者負担金2</th>
+              <td bgcolor="#ffffff">{rval data/PARENTS_MONEY_2}円</td>
+            </tr>
+
+            <tr height="28">
+              <th align="right" class="no_search" nowrap>合計下限額</th>
+              <td bgcolor="#ffffff" id="MIN_MONEY">　{rval data/MIN_MONEY}</td>
+            </tr>
+            <!--{/def}--> 
+            <!--{def button}--> 
+            <tr height="28"> 
+              <th align="right" class="no_search" nowrap>&nbsp;</th>
+              <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+            </tr>
+            <!--{/def}--> 
+            </table>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

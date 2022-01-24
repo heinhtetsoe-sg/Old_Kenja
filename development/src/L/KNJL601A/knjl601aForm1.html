@@ -1,0 +1,73 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" height="25">
+                      <th norwarp width="17%">入試年度</th>
+                      <td norwarp width="*" bgcolor="#ffffff">{val year}&nbsp;&nbsp;{val btn_year_add}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr height="5">
+                <td></td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="10%">入試制度</th>
+                      <th nowrap width="10%">入試区分</th>
+                      <th nowrap width="25%">受験コース</th>
+                      <th nowrap width="3%">受験コース<br>略称</th>
+                      <th nowrap width="3%">受験コース<br>記号</th>
+                      <th nowrap width="3%">定員</th>
+                      <th nowrap width="10%">入学課程学科</th>
+                      <th nowrap width="10%">入学コース</th>
+                      <th nowrap width="*%">優先度</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff">{val data/APPLICANTNAME}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/TESTDIVNAME}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/EXAMCOURSE}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/EXAMCOURSE_ABBV}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/EXAMCOURSE_MARK}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/CAPACITY}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/ENTER_TOTALCDNAME}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/ENTER_COURSECODENAME}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/PRIORITY}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+
+<script language="JavaScript">
+<!--{def reload}-->
+<!--{each reload}-->
+{rval reload}
+<!--{/each}-->
+<!--{/def}-->
+</script>

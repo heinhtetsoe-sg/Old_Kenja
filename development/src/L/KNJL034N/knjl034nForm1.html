@@ -1,0 +1,211 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr > 
+    <td > 
+      <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+        <tr>
+          <td>
+           <table width="100%" border="0" cellspacing="0" cellpadding="1">
+            <tr class="no_search_line">
+               <th>
+              <table width="100%" border="0" cellspacing="0" cellpadding="3">
+              <tr> 
+              <th height="30" align="left" class="no_search">　　　　<B>入試年度　{rval TOP/YEAR}</B>　{rval button/btn_year_add}</th>
+              </tr>
+              </table>
+              </th>
+            </tr>
+            </table>
+          </td>
+        </tr>
+      
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="40"><font size="1">合否詳細<BR>区分</font></th>
+              <th width="80"><font size="1">確約区分の名称</font></th>
+              <th width="40" ><font size="1">確約区分の略称</font></th>
+              <th width="40" ><font size="1">推薦入試(確約)</font></th>
+              <th width="40" ><font size="1">一般入試(確約)</font></th>
+              <th width="100"><font size="1">合否判定処理での<BR>合否区分の名称</font></th>
+              <th width="45" ><font size="1">合否区分の略称</font></th>
+              <th width="45" ><font size="1">推薦入試(正規)</font></th>
+              <th width="45" ><font size="1">一般入試(正規)</font></th>
+              <th width="50" ><font size="1">一般入試<BR>(まわし)</font></th>
+              <th width="100"><font size="1">正規<BR>合格コース</font></th>
+              <th width="100"><font size="1">まわし<BR>合格コース</font></th>
+              <th width="40"><font size="1">コース<BR>区分</font></th>
+              <th width="40"><font size="1">学/体<BR>区分</font></th>
+              <th width="*"><font size="1">特待生<BR>区分</font></th>
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <div style="width: 100%; height=308; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def data2}-->
+                <!--{each data2}-->
+                  <tr bgcolor="#ffffff">
+                    <td width="40" align="center"><a href="knjl034nindex.php?cmd=select&JUDGMENT_DIV={val data2/JUDGMENT_DIV}">{rval data2/JUDGMENT_DIV}</a></td>
+                    <td width="80" align=""><font size="1">{rval data2/PROMISE_COURSE_NAME}</font></td>
+                    <td width="40" align=""><font size="1">{rval data2/PROMISE_COURSE_ABBV}</font></td>
+                    <td width="40" align="center">{rval data2/PROMISE_RECOMMEND_TEST_FLG}</td>
+                    <td width="40" align="center">{rval data2/PROMISE_GENERAL_TEST_FLG}</td>
+                    <td width="100" align=""><font size="1">{rval data2/JUDGMENT_COURSE_NAME}</font></td>
+                    <td width="45" align=""><font size="1">{rval data2/JUDGMENT_COURSE_ABBV}</font></td>
+                    <td width="45" align="center">{rval data2/TAKE_RECOMMEND_TEST_FLG}</td>
+                    <td width="45" align="center">{rval data2/TAKE_GENERAL_TEST_FLG}</td>
+                    <td width="50" align="center">{rval data2/CHANGE_SINGLE_TEST_FLG}</td>
+                    <td width="100" align=""><font size="1">{rval data2/NORMAL_PASSCOURSECD_NAME}</font></td>
+                    <td width="100" align=""><font size="1">{rval data2/EARLY_PASSCOURSECD_NAME}</font></td>
+                    <td width="40" align=""><font size="1">{rval data2/PASSCOURSE_DIV}</font></td>
+                    <td width="40" align=""><font size="1">{rval data2/SCHOOLWORK_DIV}</font></td>
+                    <td width="*" align=""><font size="1">{rval data2/SPECIAL_DIV}</font></td>
+                  </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+        
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap>
+                <td height="8"></td>
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        
+      </table>
+    </td>
+  </tr>
+</table>
+
+<table width="85%" border="0" cellpadding="0" cellspacing="5" align="">
+  <tr > 
+    <td > 
+      <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+        
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                  <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+                      <!--{def DEF_UPDATABLE}-->
+                          <tr>
+                              <th width="160" align="right" class="no_search" nowrap>※確約・合否詳細区分</th>
+                              <td width="*" colspan="4" bgcolor="#ffffff">{rval data/JUDGMENT_DIV}</td>
+                          </tr>
+                      <!--{/def}-->
+                          <tr>
+                              <th width="160" align="right" class="no_search" nowrap>確約区分の名称</th>
+                              <td width="255" bgcolor="#ffffff">{rval data/PROMISE_COURSE_NAME}</td>
+                              <th width="160" align="right" class="no_search" nowrap>確約区分の略称</th>
+                              <td width="*"  bgcolor="#ffffff">{rval data/PROMISE_COURSE_ABBV}</td>
+                          </tr>
+                      <!--{def DEF_UPDATABLE}-->
+                          <tr>
+                              <th align="right" class="no_search" nowrap>確約</th>
+                              <td colspan="4" bgcolor="#ffffff">{rval data/PROMISE_RECOMMEND_TEST_FLG}推薦入試　　{rval data/PROMISE_GENERAL_TEST_FLG}一般入試</td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+          </table>
+        </td>
+        </tr>
+        
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                  <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+                      <!--{/def}-->
+                          <tr>
+                              <th width="160" align="right" class="no_search" nowrap>※合否区分の名称</th>
+                              <td width="255" bgcolor="#ffffff">{rval data/JUDGMENT_COURSE_NAME}</td>
+                              <th width="160" align="right" class="no_search" nowrap>※合否区分の略称</th>
+                              <td width="*" bgcolor="#ffffff">{rval data/JUDGMENT_COURSE_ABBV}</td>
+                          </tr>
+                      <!--{def DEF_UPDATABLE}-->
+                          <tr>
+                              <th align="right" class="no_search" nowrap>正規合格</th>
+                              <td bgcolor="#ffffff">{rval data/TAKE_RECOMMEND_TEST_FLG}推薦入試　　{rval data/TAKE_GENERAL_TEST_FLG}一般入試</td>
+                              <th align="right" class="no_search" nowrap>正規合格コース</th>
+                              <td bgcolor="#ffffff" >{rval data/NORMAL_PASSCOURSECD_NAME_SET}</td>
+                          </tr>
+                          <tr>
+                              <th align="right" class="no_search" nowrap>まわし合格</th>
+                              <td bgcolor="#ffffff">{rval data/CHANGE_SINGLE_TEST_FLG}一般入試(まわし)</td>
+                              <th align="right" class="no_search" nowrap>まわし合格コース</th>
+                              <td bgcolor="#ffffff">{rval data/EARLY_PASSCOURSECD_NAME_SET}</td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+          </table>
+        </td>
+        </tr>
+        
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                  <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+                          <tr>
+                              <th width="160" align="right" class="no_search" nowrap>区分</th>
+                              <td width="*" bgcolor="#ffffff">　コース区分 {rval data/PASSCOURSE_DIV}　　学/体区分 {rval data/SCHOOLWORK_DIV}　　特待生区分 {rval data/SPECIAL_DIV}</td>
+                          </tr>
+                      <!--{/def}-->
+                          <tr>
+                              <th align="left" class="no_search" nowrap colspan={rval BUTTON_COLSPAN}>　　{rval button/btn_udpate}{rval button/btn_reset}{rval button/btn_end}</td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+          </table>
+        </td>
+        </tr>
+        
+        
+        
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

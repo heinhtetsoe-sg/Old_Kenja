@@ -1,0 +1,84 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr >
+          <td >
+             <hr width="25%" align="left">{rval SCHREGNO}　{val NAME}
+         <hr width="25%" align="left">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="*%">項 目</th>
+                      <th width="30%">健康診断結果</th>
+                      <th width="50%">値（診断後の結果）</th>
+                    </tr>
+<!--結果一覧-->
+                    <tr>
+                      <th class="no_search" align="center">内　科</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/NUTRITIONCD}</td>
+                      <td align="center" bgcolor="#ffffff">&nbsp;{rval data/NUTRITION_RESULT}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="center">眼　科</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/EYEDISEASECD}</td>
+                      <td align="center" bgcolor="#ffffff">&nbsp;{rval data/EYEDISEASE_RESULT}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="center">皮膚科</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/SKINDISEASECD}</td>
+                      <td align="center" bgcolor="#ffffff">&nbsp;{rval data/SKINDISEASE_RESULT}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="center">胸郭・脊柱</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/SPINERIBCD}</td>
+                      <td align="center" bgcolor="#ffffff">&nbsp;{rval data/SPINERIB_RESULT}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="center">耳鼻科</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/NOSEDISEASECD}</td>
+                      <td align="center" bgcolor="#ffffff">&nbsp;{rval data/NOSEDISEASE_RESULT}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="center">心臓検診</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/HEARTDISEASECD}</td>
+                      <td align="center" bgcolor="#ffffff">&nbsp;{rval data/HEARTDISEASE_RESULT}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="center">その他</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/OTHERDISEASECD}</td>
+                      <td align="center" bgcolor="#ffffff">&nbsp;{rval data/OTHERDISEASE_RESULT}</td>
+                    </tr>
+                    <!--{def isKumamoto}-->
+                    <tr>
+                      <th class="no_search" align="center">視　力</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/VISION_MARK}</td>
+                      <td align="center" bgcolor="#ffffff">&nbsp;{rval data/D021_REMARK1}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="center">歯　科</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/TOOTH}</td>
+                      <td align="center" bgcolor="#ffffff">&nbsp;{rval data/D021_REMARK2}</td>
+                    </tr>
+                    <!--{/def}-->
+<!--{def button}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td align="right" bgcolor="#ffffff" colspan="3">{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}</td>
+                    </tr>
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

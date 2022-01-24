@@ -1,0 +1,74 @@
+<style type="text/css">
+body {
+    padding-top:30px;
+    text-align:center;
+}
+div#main_container {
+    text-align:left;
+    width:952px;
+    border:1px solid #255476;
+}
+div#sub_main {
+    margin:2px;
+    padding:10px 0 5px 0;
+    width:950px;
+    border:1px solid #255476;
+}
+div#inside_top {
+    margin-top:10px;
+    padding:0;
+    width:950px;
+    border:1px solid #255476;
+}
+div#inside_under {
+    margin:0 0 5px 0;
+    padding:0;
+    height:450px;
+    width:950px;
+    overflow:auto;
+    border-top:1px solid #255476;
+    border-bottom:1px solid #255476;
+}
+#button_container, #combo_container {
+    margin-left:10px;
+}
+
+#showline th {
+    border:1px solid #255476;
+}
+#showline td {
+    border:1px solid #255476;
+}
+</style>
+
+
+
+{rval start}
+{rval IFRAME}
+<div id="main_container">
+<div id="sub_main">
+    <div id="combo_container">
+        教育課程:{rval data/CURRICULUM_CD}
+        課程学科:{rval data/COURSE_MAJOR}<br>
+        教　　科:{rval data/CLASSCD}
+        <font size=1 color="red">
+        ※事前準備として、標準単位マスタを登録して下さい。</font>
+    </div>
+    <div id="inside_top">
+        <table id="showline" width="100%" border="0" cellspacing="0">
+            <tr class="no_search" nowrap align="left">
+                {rval titleGyou}
+            </tr>
+        </table>
+    </div>
+    <div id="inside_under">
+        <table id="showline" width="100%" border="0" cellspacing="0">
+            {rval listGyou}
+        </table>
+    </div>
+    <div id="button_container">
+        {rval button/btn_update}{rval button/btn_end}
+    </div>
+</div>
+</div>
+{rval finish}

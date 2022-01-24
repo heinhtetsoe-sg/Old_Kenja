@@ -1,0 +1,188 @@
+{rval start}
+
+<br><br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search">
+                      <th width="30%">項 目</th>
+                      <th width="70%">値</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>特待CD</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/HONORDIV}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>特待名称</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/HONORDIV_NAME}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>特待略称</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/HONORDIV_ABBV}<font color="red" style="font-size:10pt">(全角で10文字)</font></td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>特待区分</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval HONOR_TYPE}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>優先順位</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/PRIORITY}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>クラブ区分</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/CLUB_FLG}<LABEL for="CLUB_FLG">クラブ</LABEL></td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>通知書用区分1</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval NOTICE_CLASS}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>通知書用区分2</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval NOTICE_KIND}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>入学金</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">
+                        <div>
+                          {rval data/ENROLL_FEES}<span style="color:red;font-size:90%">{rval data/ENROLL_FEES_COMMENT}</span><span style="font-size:90%">　　{rval data/ENROLL_FEES_EXAMPLE}</span>
+                        </div>
+                        <!--{def showENROLL_FEES2}-->
+                        <div style="margin-top: 0.2em;" >
+                          {rval data/ENROLL_FEES2}<span style="color:red;font-size:90%"></span><span style="font-size:90%">　　{rval data/ENROLL_FEES2_EXAMPLE}</span>
+                        </div>
+                        <!--{/def}-->
+                      </td>
+                    </tr>
+                    <!--{def showSCHOOL_FEES}-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>授業料（年額）</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/SCHOOL_FEES} 円<span style="font-size:90%">　　例：0円</span></td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{def showSCHOLARSHIP}-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>奨学金（月額）</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">
+                        {rval data/SCHOLARSHIP1} 円<span style="color:red;font-size:90%">　(全角で5文字)</span><span style="font-size:90%">　　例：5万円</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>奨学金（年間）</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">
+                        {rval data/SCHOLARSHIP2} 円<span style="color:red;font-size:90%">　(全角で5文字)</span><span style="font-size:90%">　　例：60万円</span>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{/def}-->
+                    <!--{def button}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+                    </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

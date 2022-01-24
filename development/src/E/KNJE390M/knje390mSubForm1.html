@@ -1,0 +1,179 @@
+﻿{rval start}
+
+<!--{def data}-->
+<!--{def button}-->
+
+<br>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="180" nowrap bgcolor="#00FFFF" align="center">
+            <b><font size="3" color="#000080">基本情報</font></b>
+          </td>
+          <td>
+            <hr width="75%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="75%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            {rval button/btn_replace5}{rval button/btn_replace}{rval button/btn_replace2}{rval button/btn_replace6}{rval button/btn_replace3}{rval button/btn_replace7}{rval button/btn_replace4}　　{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr height="30">
+                <td>
+                  <font color="black">作成履歴：</font>{rval data/RECORD_HISTORY} {rval button/btn_copy}
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th align="center" class="no_search" nowrap colspan="2">※作成年月日</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/RECORD_DATE}</td>
+                    </tr>
+                    <tr>
+                      <th align="center" class="no_search" nowrap colspan="2">作成者</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/RECORD_STAFFNAME}
+                        <font size=2 color="red">&nbsp;{rval data/RECORD_STAFFNAME_COMMENT}</font>
+                      </td>
+                    </tr>
+
+
+                    <tr>
+                      <th align="center" class="no_search" nowrap colspan="2">障害名等</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/CHALLENGED_NAMES}　{rval button/btn_statusname}<BR>
+                        <font size=2 color="red">&nbsp;{rval data/CHALLENGED_NAMES_COMMENT}</font>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="center" class="no_search" nowrap colspan="2">実態概要･障害の特性</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/CHALLENGED_STATUS}<BR>
+                        <font size=2 color="red">&nbsp;{rval data/CHALLENGED_STATUS_COMMENT}</font>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="center" width="5%" class="no_search" nowrap rowspan="2">通学方法</th>
+                      <th align="center" width="5%" class="no_search" nowrap>登校</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/TSUUGAKU_DIV1}　{rval data/TSUUGAKU_DIV1_REMARK} <br>
+                        <font size=2 color="red">&nbsp;{rval data/TSUUGAKU_DIV1_REMARK_COMMENT}</font>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="center" class="no_search" nowrap>下校</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/TSUUGAKU_DIV2}　{rval data/TSUUGAKU_DIV2_REMARK} <br>
+                        <font size=2 color="red">&nbsp;{rval data/TSUUGAKU_DIV2_REMARK_COMMENT}</font>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="center" class="no_search" nowrap rowspan="3">障害者<BR>手帳</th>
+                      <th align="center" class="no_search" nowrap>療育手帳</th>
+                      <td align="left" bgcolor="#ffffff">
+                        &nbsp;{rval data/CHALLENGED_CARD_NAME}
+                        　　次回判定:&nbsp;{rval data/CHALLENGED_CARD_CHECK_YM}
+                      </td>
+                    <tr>
+                      <th align="center" class="no_search" nowrap>身体障害者<BR>手帳</th>
+                      <td align="left" bgcolor="#ffffff">
+                        &nbsp;{rval data/CHALLENGED_CARD_RANK}
+                        &nbsp;級　{rval data/CHALLENGED_CARD_CLASS}&nbsp;種<BR>
+                        &nbsp;{rval data/CHALLENGED_CARD_AREA_NAME}
+                        &nbsp;{rval data/CHALLENGED_CARD_AREA_NAME2}
+                        &nbsp;{rval data/CHALLENGED_CARD_AREA_NAME3}<BR>
+                        {rval data/CHALLENGED_CARD_GRANT_FLG}<label for="CHALLENGED_CARD_GRANT_FLG">次回認定なし</label>
+                        　　次回認定:&nbsp;{rval data/CHALLENGED_CARD_GRANT_YM}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="center" class="no_search" nowrap>精神障害者<BR>保健福祉手帳</th>
+                      <td align="left" bgcolor="#ffffff">
+                        &nbsp;{rval data/CHALLENGED_CARD_REMARK}&nbsp;級　有効期限:&nbsp;{rval data/CHALLENGED_CARD_BAST_YM}
+                      </td>
+                    </tr>
+                    
+                    <tr>
+                      <th align="center" class="no_search" nowrap colspan="2">受給者証</th>
+                      <td align="left" bgcolor="#ffffff">
+                        <table>
+                          <tr>
+                            <td>
+                              &nbsp;{rval data/WELFARE_MEDICAL_RECEIVE_FLG}<LABEL for="WELFARE_MEDICAL_RECEIVE_FLG">有</LABEL>
+                              　　種類:&nbsp;{rval data/WELFARE_MEDICAL_RECEIVE_DIV}
+                              {rval data/WELFARE_MEDICAL_RECEIVE_DIV2}
+                              {rval data/WELFARE_MEDICAL_RECEIVE_DIV3}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              　　　　　　　　　{rval data/WELFARE_MEDICAL_RECEIVE_DIV4}
+                              {rval data/WELFARE_MEDICAL_RECEIVE_DIV5}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="center" class="no_search" nowrap rowspan="2">校区</th>
+                      <th align="center" class="no_search" nowrap>小学校</th>
+                      <td align="left" bgcolor="#ffffff">
+                        &nbsp;{rval data/P_SCHOOL_CD}　<span id="P_SCHOOL_NAME">{rval data/P_SCHOOL_NAME}</span><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="center" class="no_search" nowrap>中学校</th>
+                      <td align="left" bgcolor="#ffffff">
+                        &nbsp;{rval data/J_SCHOOL_CD}　<span id="J_SCHOOL_NAME">{rval data/J_SCHOOL_NAME}</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="center" class="no_search" nowrap rowspan="2">災害時</th>
+                      <th align="center" class="no_search" nowrap>避難場所</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/EVACUATION_AREA}
+                        <font size=2 color="red">&nbsp;{rval data/EVACUATION_AREA_COMMENT}</font>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="center" class="no_search" nowrap>留意事項</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/IMPORTANT_NOTICE}<BR>
+                      <font size=2 color="red">&nbsp;{rval data/IMPORTANT_NOTICE_COMMENT}</font>
+                    </tr>
+                    <tr>
+                      <th align="center" class="no_search" nowrap colspan="2">備考</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/REMARK}<BR>
+                      <font size=2 color="red">&nbsp;{rval data/REMARK_COMMENT}</font>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            {rval button/btn_replace5}{rval button/btn_replace}{rval button/btn_replace2}{rval button/btn_replace6}{rval button/btn_replace3}{rval button/btn_replace7}{rval button/btn_replace4}
+            　　{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}<BR>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->

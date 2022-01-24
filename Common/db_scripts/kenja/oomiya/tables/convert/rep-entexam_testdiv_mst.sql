@@ -1,0 +1,57 @@
+-- kanji=漢字
+-- $Id: rep-entexam_testdiv_mst.sql 56577 2017-10-22 11:35:50Z maeshiro $
+
+DROP TABLE ENTEXAM_TESTDIV_MST_OLD
+CREATE TABLE ENTEXAM_TESTDIV_MST_OLD LIKE ENTEXAM_TESTDIV_MST
+INSERT INTO ENTEXAM_TESTDIV_MST_OLD SELECT * FROM ENTEXAM_TESTDIV_MST
+
+DROP TABLE ENTEXAM_TESTDIV_MST
+
+CREATE TABLE ENTEXAM_TESTDIV_MST \
+( \
+    ENTEXAMYEAR     VARCHAR(4)  NOT NULL, \
+    TESTDIV         VARCHAR(1)  NOT NULL, \
+    NAME            VARCHAR(60), \
+    ABBV            VARCHAR(30), \
+    CLASSDIV        VARCHAR(1),  \
+    SHOWDIV         VARCHAR(1),  \
+    CAPACITY        SMALLINT, \
+    TESTDAY         DATE, \
+    SHOWORDER       SMALLINT, \
+    KATENDIV        VARCHAR(1),  \
+    REGISTERCD      VARCHAR(8),  \
+    UPDATED         TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE ENTEXAM_TESTDIV_MST ADD CONSTRAINT \
+PK_ENTEXAM_TESTDIV PRIMARY KEY (ENTEXAMYEAR,TESTDIV)
+
+INSERT INTO ENTEXAM_TESTDIV_MST \
+( \
+    ENTEXAMYEAR     , \
+    TESTDIV         , \
+    NAME            , \
+    ABBV            , \
+    CLASSDIV        , \
+    SHOWDIV         , \
+    CAPACITY        , \
+    TESTDAY         , \
+    SHOWORDER       , \
+    KATENDIV        , \
+    REGISTERCD      , \
+    UPDATED           \
+) \
+SELECT \
+    ENTEXAMYEAR     , \
+    TESTDIV         , \
+    NAME            , \
+    ABBV            , \
+    CLASSDIV        , \
+    SHOWDIV         , \
+    CAPACITY        , \
+    TESTDAY         , \
+    SHOWORDER       , \
+    CAST(NULL AS VARCHAR(1)) AS KATENDIV        , \
+    REGISTERCD      , \
+    UPDATED           \
+FROM ENTEXAM_TESTDIV_MST_OLD

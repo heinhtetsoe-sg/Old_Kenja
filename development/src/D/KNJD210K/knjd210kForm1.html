@@ -1,0 +1,124 @@
+{rval start} 
+{rval IFRAME}
+<table height="500" width="50%" align="center" border="0" cellspacing="10" cellpadding="0">
+    <tr>
+      <td valign="middle">
+      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+            <td>
+
+              <table width="100%" border="0" cellspacing="1" cellpadding="5">
+              <tr class="no_search" >
+                <th width="30%" align="center" rowspan="2" nowrap>処理年度：{rval YEAR}年度</td>
+                <th align="left" nowrap>学年：{rval GRADE}&nbsp;&nbsp;&nbsp;&nbsp;学期：{rval SEMESTER}</td>
+              </tr>
+              <tr class="no_search" >
+                <th align="right" nowrap>基準日：{rval ctrl_date}</td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff" colspan="2" nowrap>
+                <br>
+                &nbsp;&nbsp;●指定された学年・学期を対象に、<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;類型グループの平均値の計算を行い、<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;各類型グループの類型評定パターンを判定します。
+                <br><br>
+                &nbsp;&nbsp;●補点・補充処理後は、科目読替処理、評定フラグ設定のみ行って下さい。<br>
+                &nbsp;&nbsp;&nbsp;（類型平均算出は行わないで下さい。）
+                <br><br>
+                </td>
+              </tr>
+
+              <tr class="no_search" >
+                <td align="left" colspan="2" nowrap>
+                  &nbsp;&nbsp;&nbsp;&nbsp;{val replace_sub}<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;{val btn_update}&nbsp;({rval KARI_DIV2}<LABEL for="KARI_DIV2">本評定</LABEL>&nbsp;{rval KARI_DIV1}<LABEL for="KARI_DIV1">仮評定</LABEL>)<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;{val supp_udpate}<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;{val kari_udpate}&nbsp;({rval KARI_NOMIDIV2}<LABEL for="KARI_NOMIDIV2">本評定</LABEL>&nbsp;{rval KARI_NOMIDIV1}<LABEL for="KARI_NOMIDIV1">仮評定</LABEL>)<BR>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  {val btn_end}
+                </td>
+              </tr>
+<!--
+              <tr class="no_search" >
+              <td width="20%" align="left" nowrap></th>
+              <td width="40%" align="left" bgcolor="#ffffff" nowrap>&nbsp;
+              {val btn_update}{val replace_sub}{val supp_udpate}{val btn_end}</th>
+              </tr>
+              <!--{val btn_update}&nbsp;{val replace_sub}&nbsp;{val supp_udpate}&nbsp;{val btn_end}</th>-->
+
+              </table>
+            </td>
+          </tr>
+      </table>
+
+      <br>
+
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+
+              <tr>
+                <td>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <tr>
+                              <th align="left" bgcolor="#cccccc" colspan="4">類型グループ平均値算出&nbsp;&nbsp;処理済みリスト</th>
+                            </tr>
+                            <tr class="no_search">
+                              <th width="50" >処理<br>年度</th>
+                              <th width="75" >学年</th>
+                              <th width="120" align="center" >学期</th>
+                              <th width="*" align="center" >処理日付</th>
+                            </tr>
+                        </table>
+                      </td>
+                    </tr>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div style="width:100%;height:170;overflow:auto">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tbody>
+                        <tr class="no_search_line">
+                          <td>
+                            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                              <tbody>
+    <!--{each data}-->
+                              <tr>
+                                <td width="50" align="center" bgcolor="#ffffff">{rval data/YEAR}</td>
+                                <td width="75" align="center" bgcolor="#ffffff">{rval data/GRADE}</td>
+                                <td width="120" align="left" bgcolor="#ffffff">{rval data/JUDGE_SEMESTER}</td>
+                                <td width="*" align="center" bgcolor="#ffffff">{rval data/UPDATED}</td>
+                              </tr>
+    <!--{/each}-->
+                            </table>
+                          </td>
+                        </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+
+      <br><br>
+
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+     <td style="font-weight: 700; color:white">
+        <marquee><span id="marq_msg">処理しています...しばらくおまちください</span></marquee>
+     </td>
+    </tr>
+          </table>
+
+      </td>
+    </tr>
+</table>
+{rval finish} 
+<script language="JavaScript">{rval close_win}</script>

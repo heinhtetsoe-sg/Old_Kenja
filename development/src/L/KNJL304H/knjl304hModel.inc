@@ -1,0 +1,39 @@
+<?php
+/**
+ * 定数定義
+*/
+
+class knjl304hModel extends Model {
+    var $field      = array();
+    var $cmd;
+    var $ObjYear;
+    var $control;   //コントロールマスタ
+    var $staffcd;   //職員コード
+        
+    /**
+     * メンバ変数の初期化
+     */
+    function knjl304hModel()
+    {
+        //コントロールマスタより情報を取得
+        common::GetControlMaster_Fnc($this->control);
+        $this->staffcd      = STAFFCD;                  //職員コード
+        $this->ObjYear      = CTRL_YEAR+1;
+    }
+    function init()
+    {               
+        $this->field = array("APDIV"		=>  VARS::post("APDIV"),     		//入試制度
+                             "EXAMNO_ST"	=>  VARS::post("EXAMNO_ST"),     	//受験番号開始
+							 "EXAMNO_ED"	=>  VARS::post("EXAMNO_ED")    		//受験番号終了
+                     );
+
+        $this->cmd         = VARS::request("cmd");
+    }
+    /**
+     * 変数をクリアします
+     */
+    function clean()
+    {
+    }
+}
+?>

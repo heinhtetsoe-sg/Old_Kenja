@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--PDF EncryptCalcApplication Setting file (beta)
+http://www.fit.co.jp/
+Copyright (c) 2005 FIT All rights reserved.
+-->
+<EncryptCalcApp title="PDF EncryptCalcApplication"
+								version="1.0.0"
+								copyright="Copyright (c) 2008 FIT Inc. All rights reserved."
+								comment="PDF Encrypt Values Calc Tool."
+								windowSize="400,250"
+								>
+	<App calcValueCaption="現在の権限値: ">
+		<!-- MenuBar -->
+		<MenuBar name="File(F)" mnemonic="46">
+			<MenuBarItem name="Exit(X)" methodID="0" mnemonic="58"/>
+		</MenuBar>
+		<MenuBar name="Help(H)" mnemonic="48">
+			<MenuBarItem name="About(A)..." methodID="1" mnemonic="41"/>
+		</MenuBar>
+	</App>	
+	<!-- PDF Encrypt Revision 2 -->
+	<Revision number="2" description="Revision 2(40bit Acrobat 2.x,3.x)" defaultValue="FFFFFFFC" operator="AND">
+		<RevisionItem description="印刷を許可しない" value="FFFFFFF8" objectType="CheckBox" objectId="1" objectPosition="0,1" objectSize="50,50"/>
+		<RevisionItem description="文書の変更を許可しない" value="FFFFFFF7" objectType="CheckBox" objectId="2" objectPosition="0,2" objectSize="50,50"/>
+		<RevisionItem description="内容のコピーを許可しない、アクセシビリティを無効にする" value="FFFFFFEF" objectType="CheckBox" objectId="3" objectPosition="0,3" objectSize="50,50"/>
+		<RevisionItem description="注釈とフォームフィールドの追加や変更を許可しない" value="FFFFFFDF" objectType="CheckBox" objectId="4" objectPosition="0,4" objectSize="50,50"/>
+	</Revision>
+	<!-- PDF Encrypt Revision 3 -->
+	<Revision number="3" description="Revision 3(128bit Acrobat 5.x)" defaultValue="FFFFF0C0" operator="OR">
+		<RevisionItem description="アクセシビリティを有効にする" value="200" objectType="CheckBox" objectId="5" objectPosition="1,1" objectSize="50,50"/>
+		<RevisionItem description="内容のコピーと抽出を許可" value="10" objectType="CheckBox" objectId="6" objectPosition="1,2" objectSize="50,50"/>
+		<RevisionItem description="変更を許可 :" objectType="ComboBox" objectId="7" objectPosition="1,3" objectSize="50,50" listPosition="1,3">
+			<RevisionListItem description="なし" value="FFFFF0C0" idx="1"/>
+			<RevisionListItem description="文書アセンブリのみ" value="4C0" idx="2"/>
+			<RevisionListItem description="フォームフィールドの入力または署名のみ" value="1C0" idx="3"/>
+			<RevisionListItem description="注釈作成、フォームフィールドの入力または署名" value="1E0" idx="4"/>
+			<RevisionListItem description="編集、注釈及びフォームフィールドの作成" value="1E8" idx="5"/>
+		</RevisionItem>
+		<RevisionItem description="印刷 :" objectType="ComboBox" objectId="8" objectPosition="1,4" objectSize="50,50" listPosition="1,4">
+			<RevisionListItem description="許可しない" value="FFFFF0C0" idx="1"/>
+			<RevisionListItem description="低解像度" value="4" idx="2"/>
+			<RevisionListItem description="すべて許可" value="804" idx="3"/>
+		</RevisionItem>
+	</Revision>
+</EncryptCalcApp>

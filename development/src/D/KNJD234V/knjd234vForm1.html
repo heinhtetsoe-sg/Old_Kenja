@@ -1,0 +1,185 @@
+{rval start} 
+<!--{def button}--> 
+<!--{def data}-->
+
+<br>
+
+<table width="850" border="0" cellpadding="0" cellspacing="0" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" height="30">
+                      <td align="center">
+                        <b>{rval data/YEAR}年度</b>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="40">
+                      <td>
+                        <table>
+
+                          <tr bgcolor="#ffffff">
+                            <td><br>
+                              　　　　　<b>学年 {rval data/GRADE}　学科 {rval data/MAJOR}　学期 {rval data/SEMESTER}　テスト種別 {rval data/TEST_CD}</b><br><br>
+                            </td>
+                          </tr>
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              　　　　　　　　　　　　　　<b>出欠集計範囲</b>（{rval data/DATE_DIV1}<LABEL for="DATE_DIV1">累計</LABEL>　{rval data/DATE_DIV2}<LABEL for="DATE_DIV2">学期</LABEL>）<br>
+                              　　　　　　　　　　　　　　　　　　　　{rval data/SDATE} ～ {rval data/EDATE}<br><br>
+                            </td>
+                          </tr>
+                          
+                        </table>
+                      </td>
+                    </tr>
+
+                    <tr bgcolor="#ffffff" height="80">
+                      <td>
+                        <table>
+                        <!--{def isReitaku}-->
+                                　　　　　　　<b>●成績不振者</b> {rval data/OUTPUT_SLUMP}<LABEL for="OUTPUT_SLUMP">出力する</LABEL><br>
+                              　　　　　　　　　　　欠点　{rval data/SLUMP_TENSU_INF2}以下<br>
+                        <!--{/def}-->
+                        <!--{def setKariHyotei}-->
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              　　　　　　　<b>●学年評定</b><br>
+                              　　　　　　　　　　　{rval data/KARI_HYOTEI}<LABEL for="KARI_HYOTEI">仮評定を出力する</LABEL><br>
+                            </td>
+                          </tr>
+                        <!--{/def}-->
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                                　　　　　　　<b>●要追指導</b> {rval data/OUTPUT_SHIDOU}<LABEL for="OUTPUT_SHIDOU">出力する</LABEL><br>
+                              　　　　　　　　　　　欠点　{rval data/SHIDOU_TENSU_INF2}点以下<br>
+                              <div id="div_shidou">　　　　　　　　かつ科目数　{rval data/SHIDOU_KAMOKUSU_INF2}以上<br>
+                              　　　　　　　　　　　追指導表示順位 {rval data/SHIDOU_HR_RANK} <label for="SHIDOU_HR_RANK">学級順位</label> {rval data/SHIDOU_COURSE_RANK}  <label for="SHIDOU_COURSE_RANK">コース順位</label> {rval data/SHIDOU_MAJOR_RANK}  <label for="SHIDOU_MAJOR_RANK">学科順位</label> {rval data/SHIDOU_GRADE_RANK}  <label for="SHIDOU_GRADE_RANK">学年順位 </label>
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              　　　　　　　<b>●出席状況</b> {rval data/OUTPUT_SHUKKETSU}<LABEL for="OUTPUT_SHUKKETSU">出力する</LABEL>
+                              <div id="div_shukketsu">　　　　　　　　　　　欠席　{rval data/KESSEKI}回以上<br>
+                              　　　　　　　　または遅刻　{rval data/CHIKOKU}回以上<br>
+                              　　　　　　　　または早退　{rval data/SOUTAI}回以上<br>
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                                　　　　　　　<b>●教科・科目</b> {rval data/OUTPUT_KYOKAKAMOKU}<LABEL for="OUTPUT_KYOKAKAMOKU">出力する</LABEL>
+                              <div id="div_kyokakamoku">　　　　　　　　　　　欠席日数が出席すべき日数の{rval data/NISSUU_BUNSHI}／{rval data/NISSUU_BUNBO}を超えた者<br>
+                              　　　　　　　　または欠課時数が出席すべき時数の{rval data/JISUU_BUNSHI}／{rval data/JISUU_BUNBO}を超えた者
+                              </div>
+                            </td>
+                          </tr>
+
+                        <!--{def setZenTeikiKousa}-->
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              　　　　　　　<b>●前定期考査順位出力</b>
+                              <div id="div_zenteikijuni"> 　　　　　　　　　　{rval data/TEST_CD_BEFORE}　　{rval data/OUTPUT_RANK_BEFORE1}<LABEL for="OUTPUT_RANK_BEFORE1">学級</LABEL>　{rval data/OUTPUT_RANK_BEFORE3}<LABEL for="OUTPUT_RANK_BEFORE3">コース</LABEL>　{rval data/OUTPUT_RANK_BEFORE4}<LABEL for="OUTPUT_RANK_BEFORE4">学科</LABEL>　{rval data/OUTPUT_RANK_BEFORE2}<LABEL for="OUTPUT_RANK_BEFORE2">学年</LABEL>
+                              </div>
+                            </td>
+                          </tr>
+                        <!--{/def}-->
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              　　　　　　　<b>●科目別度数分布表</b> {rval data/OUTPUT_DOSUBUPU}<LABEL for="OUTPUT_DOSUBUPU">出力する</LABEL>
+                              <div id="div_dosubupu"> 　　　　　　　　　　{rval data/DOSUBUPU_COURSE}<LABEL for="DOSUBUPU_COURSE">コース別に出力</LABEL>
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                                　　　　　　　<b>●成績上位者</b> {rval data/OUTPUT_YURYO}<LABEL for="OUTPUT_YURYO">出力する</LABEL>
+                                <div id="div_yuryo">　　　　　　　　　　{rval data/YURYO}位まで表示（{rval data/JOUI_COURSE}<LABEL for="JOUI_COURSE">コース別に出力</LABEL>）<br>
+                              　　　　　　　　　　　上位者表示順位 {rval data/YURYO_HR_RANK} <label for="YURYO_HR_RANK">学級順位</label> {rval data/YURYO_COURSE_RANK}  <label for="YURYO_COURSE_RANK">コース順位</label> {rval data/YURYO_MAJOR_RANK}  <label for="YURYO_MAJOR_RANK">学科順位</label> {rval data/YURYO_GRADE_RANK}  <label for="YURYO_GRADE_RANK">学年順位 </label>
+                                </div>
+                            </td>
+                          </tr>
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              　　　　　　　<b>●成績下位者</b> {rval data/OUTPUT_FUSHIN}<LABEL for="OUTPUT_FUSHIN">出力する</LABEL>
+                              <div id="div_fushin"> 　　　　　　　　　　{rval data/FUSHIN_DIV1}<LABEL for="FUSHIN_DIV1">{rval data/FUSHIN}位まで表示</LABEL> {rval data/FUSHIN_DIV2}<LABEL for="FUSHIN_DIV2">欠点科目数{rval data/KETTEN_COUNT}以上</LABEL><br>
+                                  　　　　　　　　　　　　（{rval data/KESSHI_NOZOKU}<LABEL for="KESSHI_NOZOKU">欠試者は除く</LABEL>　{rval data/KAI_COURSE}<LABEL for="KAI_COURSE">コース別に出力</LABEL>　{rval data/FUSHIN_ORDER_KETTEN_COUNT}<LABEL for="FUSHIN_ORDER_KETTEN_COUNT">欠点科目数順に表示</LABEL>）<br>
+                              　　　　　　　　　　　下位者表示順位 {rval data/FUSHIN_HR_RANK} <label for="FUSHIN_HR_RANK">学級順位</label> {rval data/FUSHIN_COURSE_RANK}  <label for="FUSHIN_COURSE_RANK">コース順位</label> {rval data/FUSHIN_MAJOR_RANK}  <label for="FUSHIN_MAJOR_RANK">学科順位</label> {rval data/FUSHIN_GRADE_RANK}  <label for="FUSHIN_GRADE_RANK">学年順位 </label>
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              　　　　　　　<b>●順位の基準点</b><br>
+                              　　　　　　　　　　{rval data/OUTPUT_KIJUN1}<LABEL for="OUTPUT_KIJUN1">総合点</LABEL>　{rval data/OUTPUT_KIJUN2}<LABEL for="OUTPUT_KIJUN2">平均点</LABEL><br>
+                            </td>
+                          </tr>
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              　　　　　　　<b>●備考欄</b><br>
+                              　　　　　　　　　　{rval data/OUTPUT_REMARK1}<LABEL for="OUTPUT_REMARK1">出身学校</LABEL>　{rval data/OUTPUT_REMARK2}<LABEL for="OUTPUT_REMARK2">部活動</LABEL>　{rval data/OUTPUT_REMARK3}<LABEL for="OUTPUT_REMARK3">進路希望</LABEL>　{rval data/OUTPUT_REMARK4}<LABEL for="OUTPUT_REMARK4">空白</LABEL><br>
+                            </td>
+                          </tr>
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              　　　　　　　<b>●休学者</b><br>
+                              　　　　　　　　　　{rval data/KYUGAKU}<LABEL for="KYUGAKU">対象外とする</LABEL><br>
+                            </td>
+                          </tr>
+                          
+                        </table>
+                      </td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td align="left">
+                        {rval button/btn_print}{rval button/btn_csv_main}{rval button/btn_end}<font size='2' color='red'>　※序列確定処理時の得点です。</font>
+                      </td>
+                    </tr>
+
+                    <tr class="no_search" bgcolor="#ffffff" height="50">
+                      <td>
+                        <table>
+
+                          <tr>
+                            <td>
+                              主な理由：{rval data/D056}&nbsp;{rval button/btn_csv}<br>
+                              　処理名：{rval data/SHORI_MEI}　{rval FILE}&nbsp;{rval data/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL>&nbsp;{rval button/btn_csvExe}&nbsp;{rval button/btn_errPut}
+                            </td>
+                          </tr>
+
+                        </table>
+                      </td>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

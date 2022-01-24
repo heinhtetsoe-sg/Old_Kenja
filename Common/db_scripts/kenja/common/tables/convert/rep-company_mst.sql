@@ -1,0 +1,56 @@
+-- kanji=漢字
+-- $Id: 563eb969333fe2509e66a1cde46787cdbef1e133 $
+
+-- 注意:このファイルは EUC/LFのみ でなければならない。
+-- 適用方法:
+--    1.データベース接続
+--    2.db2 +c -f <このファイル>
+--    3.コミットするなら、db2 +c commit。やり直すなら、db2 +c rollback
+
+DROP TABLE COMPANY_MST_OLD
+CREATE TABLE COMPANY_MST_OLD LIKE COMPANY_MST
+INSERT INTO COMPANY_MST_OLD SELECT * FROM COMPANY_MST
+DROP TABLE COMPANY_MST
+CREATE TABLE COMPANY_MST( \
+    COMPANY_CD    CHAR(8)       NOT NULL, \
+    COMPANY_NAME  VARCHAR(120), \
+    SHUSHOKU_ADDR VARCHAR(120), \
+    SHIHONKIN     VARCHAR(17), \
+    SONINZU       INTEGER, \
+    TONINZU       INTEGER, \
+    INDUSTRY_LCD  VARCHAR(1), \
+    INDUSTRY_MCD  VARCHAR(2), \
+    COMPANY_SORT  CHAR(2), \
+    TARGET_SEX    CHAR(1), \
+    ZIPCD         VARCHAR(8), \
+    ADDR1         VARCHAR(90), \
+    ADDR2         VARCHAR(90), \
+    TELNO         VARCHAR(16), \
+    REMARK        VARCHAR(120), \
+    REGISTERCD    VARCHAR(8), \
+    UPDATED       TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+) IN USR1DMS INDEX IN IDX1DMS
+
+
+INSERT INTO COMPANY_MST \
+    SELECT \
+        COMPANY_CD, \
+        COMPANY_NAME, \
+        SHUSHOKU_ADDR, \
+        SHIHONKIN, \
+        SONINZU, \
+        TONINZU, \
+        JOBTYPE_LCD AS INDUSTRY_LCD, \
+        JOBTYPE_MCD AS INDUSTRY_MCD, \
+        COMPANY_SORT, \
+        TARGET_SEX, \
+        ZIPCD, \
+        ADDR1, \
+        ADDR2, \
+        TELNO, \
+        REMARK, \
+        REGISTERCD, \
+        UPDATED \
+    FROM \
+        COMPANY_MST_OLD
+ALTER TABLE COMPANY_MST ADD CONSTRAINT PK_COMPANY_MST PRIMARY KEY (COMPANY_CD)

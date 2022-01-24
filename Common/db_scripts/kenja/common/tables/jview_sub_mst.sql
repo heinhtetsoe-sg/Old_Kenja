@@ -1,0 +1,27 @@
+-- $Id: 82a69fede1b5f18e74b254760c08b78e4d759964 $
+
+DROP TABLE JVIEW_SUB_MST
+
+CREATE TABLE JVIEW_SUB_MST( \
+    YEAR                VARCHAR(4) NOT NULL, \
+    GRADE               VARCHAR(2) NOT NULL, \
+    CLASSCD             VARCHAR(2) NOT NULL, \
+    SCHOOL_KIND         VARCHAR(2) NOT NULL, \
+    CURRICULUM_CD       VARCHAR(2) NOT NULL, \
+    SUBCLASSCD          VARCHAR(6) NOT NULL, \
+    SCORE               SMALLINT NOT NULL, \
+    JVIEW1              VARCHAR(1), \
+    JVIEW2              VARCHAR(1), \
+    JVIEW3              VARCHAR(1), \
+    JVIEW4              VARCHAR(1), \
+    JVIEW5              VARCHAR(1), \
+    JVIEW6              VARCHAR(1), \
+    JVIEW7              VARCHAR(1), \
+    JVIEW8              VARCHAR(1), \
+    JVIEW9              VARCHAR(1), \
+    JVIEW10             VARCHAR(1), \
+    REGISTERCD          VARCHAR(10), \
+    UPDATED             TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE JVIEW_SUB_MST ADD CONSTRAINT PK_JVIEW_SUB_MST PRIMARY KEY (YEAR, GRADE, CLASSCD, SCHOOL_KIND, CURRICULUM_CD, SUBCLASSCD, SCORE)

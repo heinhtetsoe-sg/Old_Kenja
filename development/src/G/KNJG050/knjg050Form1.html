@@ -1,0 +1,123 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR>
+
+<table width="45%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{rval data/YEAR}
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/SOTUGYO_MIKOMI}<LABEL for="SOTUGYO_MIKOMI">{rval sotsugyo}見込み出力</LABEL></b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD align="left" bgcolor="#ffffff">
+                        <TABLE>
+                          <TR>
+                            <TD>
+                                &nbsp;&nbsp;&nbsp;&nbsp;●印刷指定：{rval data/OUTPUT1}<LABEL for="OUTPUT1">クラス指定</LABEL><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;{rval data/OUTPUT2}<LABEL for="OUTPUT2">個人指定</LABEL>
+                            </TD>
+                          </TR>
+                        </TABLE>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td>&nbsp;&nbsp;&nbsp;<b>{rval data/CMBCLASS_LABEL}</b>　　　　　　　　　　　{rval data/CMBCLASS}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象{rval data/CLASS_LABEL}</b></th>
+                      <th class="no_search"></th>
+                      <th><b>{rval data/CLASS_LABEL}一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CLASS_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD align="left" bgcolor="#ffffff">
+                        <TABLE>
+                          <TR>
+                            <TD>
+                                &nbsp;&nbsp;&nbsp;&nbsp;{rval sotsugyo}証明書日本語印刷<br>
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>
+                                &nbsp;&nbsp;&nbsp;&nbsp;記載日付&nbsp;&nbsp;{rval el/NOTICEDAY}<br>
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>
+                                &nbsp;&nbsp;&nbsp;&nbsp;{rval data/ENT_GRD_DATE_FORMAT}<LABEL for="ENT_GRD_DATE_FORMAT">{rval sotsugyo}日付は年月で表示する</LABEL><br>
+                            </TD>
+                          </TR>
+                          <!--{def show_PRINT_STAMP}-->
+                          <TR>
+                            <TD>
+                                &nbsp;&nbsp;&nbsp;&nbsp;{rval data/PRINT_STAMP}<LABEL for="PRINT_STAMP">印影出力する</LABEL><br>
+                            </TD>
+                          </TR>
+                          <!--{/def}-->
+                        </TABLE>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 
+<script language="JavaScript">
+{rval printgo}
+</script>

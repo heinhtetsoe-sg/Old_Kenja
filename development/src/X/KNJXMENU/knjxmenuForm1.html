@@ -1,0 +1,32 @@
+    <!--メニュー部分-->
+<form name="left">
+<div class="leftMenu" id="left">
+    
+          <aside id="accordion2{rval csssize}">
+            <!--メニュー表示変更用ボタン-->
+            <div id="menuMode">{rval link/link_main}{rval link/link_sub}</div>
+            
+            <form>
+                <!--{def data}-->
+                <!--{each data}-->
+                <label>
+                <input type="radio" name="radio" value="{rval data/SUBMENUID}" id="r{rval data/ID}"  onclick="changeRadio('{rval data/ID}','{rval data/NEXTMENUID}')"; {rval data/check}>
+                    <div>                                
+                        <div id="{rval data/PID}" {rval data/choice}>{rval data/MENUNAME}</div>
+                        {rval data/li}
+                    </div>
+                </label>
+                <!--{/each}-->
+                <!--{/def}-->
+           </form>
+           
+         </aside>
+
+
+{rval hidden}
+
+</div>
+</form>
+<script language="JavaScript">{rval reload}</script>
+
+

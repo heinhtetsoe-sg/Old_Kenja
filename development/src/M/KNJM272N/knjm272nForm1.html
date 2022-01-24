@@ -1,0 +1,147 @@
+{rval start}
+
+<table style="width: 1400px" border="0" cellpadding="1" cellspacing="3" align="center">
+  <tr>
+    <td>
+      <table style="width: 1400px" border="0" cellspacing="5" cellpadding="1">
+        <tr>
+          <td>
+            <table style="width: 1400px" border="0" cellspacing="0" cellpadding="0">
+<!-- 選択データ -->
+              <tr class="no_search_line">
+                <td>
+                  <table style="width: 1400px" border="0" cellspacing="1" cellpadding="4">
+                    <tr class="no_search" height="35" nowrap>
+                      <td colspan="2" nowrap>　　　　　　<B>{rval YEAR}年度　　　　　　レポート評価登録</B></td>
+                    </tr>
+                    <tr  bgcolor="#ffffff" height="120">
+                      <td colspan="2" nowrap>
+                        <table>
+                          <tr>
+                            <td>　　　　　　学籍番号　　　　：</td>
+                            <td>　　{rval sel/SCHREGNO}</td>
+                          </tr>
+                          <tr>
+                            <td>　　　　　　氏名　　　　　　：</td>
+                            <td>　　{rval sel/NAME}</td>
+                          </tr>
+                          <tr>
+                            <td>　　　　　　添削者　　　　　：</td>
+                            <td>　　{rval sel/STAFF}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+<!-- 選択データ -->
+<!-- 生徒データ -->
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" nowrap align="center">
+                            <th width="200">科目</th>
+                            <th width="90">１</th>
+                            <th width="90">２</th>
+                            <th width="90">３</th>
+                            <th width="90">４</th>
+                            <th width="90">５</th>
+                            <th width="90">６</th>
+                            <th width="90">７</th>
+                            <th width="90">８</th>
+                            <th width="90">９</th>
+                            <th width="90">１０</th>
+                            <th width="90">１１</th>
+                            <th width="*">１２</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="width: 100%; height: 400; overflow: auto">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{def data2}-->
+<!--結果一覧-->
+<!--{each data2}-->
+                          <tr bgcolor="#ffffff">
+                            <td width="200" align="left" rowspan="2">{rval data2/SUBCLASSNAME}</td>
+                            <td width="90" align="center">{rval data2/GRAD_VALUESUB1}</td>
+                            <td width="90" align="center">{rval data2/GRAD_VALUESUB2}</td>
+                            <td width="90" align="center">{rval data2/GRAD_VALUESUB3}</td>
+                            <td width="90" align="center">{rval data2/GRAD_VALUESUB4}</td>
+                            <td width="90" align="center">{rval data2/GRAD_VALUESUB5}</td>
+                            <td width="90" align="center">{rval data2/GRAD_VALUESUB6}</td>
+                            <td width="90" align="center">{rval data2/GRAD_VALUESUB7}</td>
+                            <td width="90" align="center">{rval data2/GRAD_VALUESUB8}</td>
+                            <td width="90" align="center">{rval data2/GRAD_VALUESUB9}</td>
+                            <td width="90" align="center">{rval data2/GRAD_VALUESUB10}</td>
+                            <td width="90" align="center">{rval data2/GRAD_VALUESUB11}</td>
+                            <td width="*"  align="center">{rval data2/GRAD_VALUESUB12}</td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td width="90" align="center">{rval data2/GRAD_INPUT_DATE1}</td>
+                            <td width="90" align="center">{rval data2/GRAD_INPUT_DATE2}</td>
+                            <td width="90" align="center">{rval data2/GRAD_INPUT_DATE3}</td>
+                            <td width="90" align="center">{rval data2/GRAD_INPUT_DATE4}</td>
+                            <td width="90" align="center">{rval data2/GRAD_INPUT_DATE5}</td>
+                            <td width="90" align="center">{rval data2/GRAD_INPUT_DATE6}</td>
+                            <td width="90" align="center">{rval data2/GRAD_INPUT_DATE7}</td>
+                            <td width="90" align="center">{rval data2/GRAD_INPUT_DATE8}</td>
+                            <td width="90" align="center">{rval data2/GRAD_INPUT_DATE9}</td>
+                            <td width="90" align="center">{rval data2/GRAD_INPUT_DATE10}</td>
+                            <td width="90" align="center">{rval data2/GRAD_INPUT_DATE11}</td>
+                            <td width="*"  align="center">{rval data2/GRAD_INPUT_DATE12}</td>
+                          </tr>
+<!--{/each}-->
+<!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+              </tr>
+<!-- 生徒データ -->
+<!-- 更新ボタン -->
+              <tr>
+                <td>
+                  <div style="width: 100%; height=30; overflow: auto">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{def button}-->
+                          <tr>
+                            <td>&nbsp;&nbsp;{rval button/btn_ok}{rval button/btn_reset}{rval button/btn_end}</td>
+                          </tr>
+<!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+              </tr>
+<!-- 更新ボタン -->
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish} 
+<script language="JavaScript">
+{rval Closing}
+</script>

@@ -1,0 +1,87 @@
+{rval start}
+
+<br>
+<table width="700" border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr align="center" class="no_search" height="30">
+                      <th><b>対象者一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                          <tr class="no_search_line">
+                            <td width="100%">{rval data/LEFT_LIST}</td>
+                          </tr>
+                          <tr>
+                            <td align="right">
+                              人数：<span id="LEFT_LIST_NUM"></span>&nbsp;
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td width="*%"  class="no_search">
+                        {rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                          <tr class="no_search_line">
+                            <td width="100%">{rval data/RIGHT_LIST}</td>
+                          </tr>
+                          <tr>
+                            <td align="right">
+                              人数：<span id="RIGHT_LIST_NUM"></span>&nbsp;
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr><td>&nbsp;</td></tr>
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr height="50">
+                <td width="30%" class="no_search">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="25%" nowrap>※</th>
+                      <td width="75%" align="right" nowrap>科目グループ</th>
+                    </tr>
+                  </table>
+                </td>
+                <td width="70%" bgcolor="#ffffff">&nbsp;&nbsp;{rval data/CONDITION_GROUPCD}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap>{rval button/btn_update}{rval button/btn_end}</td>
+  </tr>
+</table>
+<script language="JavaScript">
+    document.getElementById("LEFT_LIST_NUM").innerHTML = document.forms[0].LEFT_LIST.options.length;
+    document.getElementById("RIGHT_LIST_NUM").innerHTML = document.forms[0].RIGHT_LIST.options.length;
+</script>
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

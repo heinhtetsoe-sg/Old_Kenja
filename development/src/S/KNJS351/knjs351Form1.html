@@ -1,0 +1,61 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<table><tr height="140"><td></td></tr></table>
+<table width="450" border="0" cellpadding="10" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                    <tr class="no_search" height="35" align="center">
+                      <td>
+                        <b>{rval data/YEAR}年度　　{rval data/SEMESTER}</b>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="150">
+                      <td>
+                        <table width="100%">
+                          <!--{def HR_CLASS_TYPE_SELECT}-->
+                          <tr style="line-height:200%;">
+                            <td colspan="2" align="center">
+                            {rval data/HR_CLASS_TYPE1}<LABEL for="HR_CLASS_TYPE1"><b>法定クラス</b></LABEL><!--{def data/GAKUNEN_KONGOU}-->（{rval data/GAKUNEN_KONGOU}<LABEL for="GAKUNEN_KONGOU"><b>学年混合</b></LABEL>）<!--{/def}-->
+                            　{rval data/HR_CLASS_TYPE2}<LABEL for="HR_CLASS_TYPE2"><b>{rval data/HR_CLASS_TYPE2_LABEL}</b></LABEL>
+                            </td>
+                          </tr>
+                          <!--{/def}-->
+                          <tr style="line-height:200%;">
+                            <td width="40%" align="right"><b>対象クラス</b></td>
+                            <td width="60%">　{rval data/GRADE_HR_CLASS}</td>
+                          </tr>
+                          <tr style="line-height:200%;">
+                            <td align="right"><b>帳票選択</b></td>
+                            <td>　{rval data/FORM_SELECT1}<LABEL for="FORM_SELECT1">15行</LABEL>　{rval data/FORM_SELECT2}<LABEL for="FORM_SELECT2">45行</LABEL></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <td>{rval button/btn_print}{rval button/btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

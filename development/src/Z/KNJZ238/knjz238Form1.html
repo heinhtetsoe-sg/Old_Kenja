@@ -1,0 +1,65 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr >
+          <td >
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                    <tr class="no_search">
+                      <th align=left>　{rval year}　　{rval button/copy}</th>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+            </table>
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="15%">特活名称</th>
+                      <th nowrap width="*%">科目</th>
+                      <th nowrap width="25%">時間(分)</th>
+                    </tr>
+
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/ROWSPAN}-->
+                      <td nowrap align="center" width="15%" bgcolor="#ffffff" rowspan={rval data/ROWSPAN}>{val data/SPECIAL_GROUP_CD}:{val data/SPECIAL_GROUP_NAME}</td>
+                      <!--{/def}-->
+<!--{def CURRICULUM_CD}-->
+                      <td nowrap width="*%" bgcolor="#ffffff"><a href="knjz238index.php?cmd=edit&SEND_FLG=1&SPECIAL_GROUP_CD={val data/SPECIAL_GROUP_CD}&SUBCLASSCD={val data/SUBCLASSCD}&CLASSCD={val data/CLASSCD}&SCHOOL_KIND={val data/SCHOOL_KIND}&CURRICULUM_CD={val data/CURRICULUM_CD}" target="right_frame">{val data/CLASSCD}-{val data/SCHOOL_KIND}-{val data/CURRICULUM_CD}-{val data/SUBCLASSCD}:{val data/SUBCLASSNAME}</a></td>
+<!--{/def}-->
+<!--{def NO_CURRICULUM_CD}-->
+                      <td nowrap width="*%" bgcolor="#ffffff"><a href="knjz238index.php?cmd=edit&SEND_FLG=1&SPECIAL_GROUP_CD={val data/SPECIAL_GROUP_CD}&SUBCLASSCD={val data/SUBCLASSCD}" target="right_frame">{val data/SUBCLASSCD}:{val data/SUBCLASSNAME}</a></td>
+<!--{/def}-->
+                      <td nowrap width="25%" bgcolor="#ffffff">{val data/MINUTES}</td>
+                    </tr>
+                    <!--{/each}-->
+
+                  </table>
+
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

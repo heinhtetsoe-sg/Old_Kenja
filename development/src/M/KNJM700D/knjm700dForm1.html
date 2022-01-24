@@ -1,0 +1,95 @@
+{rval start}
+{rval IFRAME}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="70%">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <hr width="80%" align="left">
+                    &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+                  <hr width="80%" align="left">
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr><td>学期：{val SEMESTER}</td></tr>
+
+  <tr>
+    <td colspan="2">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="80%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="center" nowrap width="3%" height="25">{val CHECKALL}</th>
+                            <th align="center" nowrap width="27%" height="25">日付</th>
+                            <th align="center" nowrap width="*" height="25">特別活動内容</th>
+                            <th align="center" nowrap width="10%" height="25">活動時間数</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table id="list" width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--結果一覧--><!--{def data}--><!--{each data}-->
+                          <tr bgcolor="#ffffff">
+                            <td align="center" nowrap width="3%">{val data/CHECKED}</td>
+                            <td nowrap width="27%">{val data/SPECIAL_SDATE}{val data/SPECIAL_EDATE}</td>
+                            <td nowrap width="*">{val data/SPECIALACTIVITYNAME}</td>
+                            <td nowrap width="10%">{val data/SPECIALACTIVITYTIME}</td>
+                          </tr>
+                          <!--{/each}--><!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="center" nowrap width="3%" height="25">&nbsp</th>
+                            <th align="left" nowrap width="*" height="25" rowspan="3">　　{rval button/btn_update}{rval button/btn_end}</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

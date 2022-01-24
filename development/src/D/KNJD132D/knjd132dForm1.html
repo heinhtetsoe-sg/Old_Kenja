@@ -1,0 +1,186 @@
+{rval start}
+{rval IFRAME}
+
+<style type="text/css">
+<!--
+A.menuTitle:link    { color:#FF0000; text-decoration:none; }
+A.menuTitle:visited { color:#FF0000; text-decoration:none; }
+A.menuTitle:active  { color:#FF0000; text-decoration:none; }
+A.menuTitle:hover   { color:#ff99cc; text-decoration:none; }
+A.menuTitle { padding-left:10px}
+
+A.menu:link    { color:#008b8b; text-decoration:none; }
+A.menu:visited { color:#008b8b; text-decoration:none; }
+A.menu:active  { color:#008b8b; text-decoration:none; }
+A.menu:hover   { color:#ff99cc; background-color:#FFFFFF; text-decoration:none; }
+A.menu { padding-left:10px}
+.topman {vertical-align:top;}
+.id_css {font:bold;}
+-->
+</style>
+
+<!--{def button}-->
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                <hr width="50%" align="left">
+                    &nbsp;{rval NAME_SHOW}
+                <hr width="50%" align="left">
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            {rval SEMESTER}
+          </td>
+        </tr>
+        <!--{def setSougou}-->
+        <tr>
+          <td>
+            <table width="640" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr align="center" height="30">
+                      <th class="no_search" colspan="2">総　合　的　な　学　習　の　時　間</th>
+                    </tr>
+                    <tr align="center">
+                      <td class="no_search" align="center" nowrap width="100">&nbsp;&nbsp;内容&nbsp;&nbsp;<br>{val btn_teikei1}</td>
+                      <td bgcolor="#ffffff" align="left" valign="top">
+                        &nbsp;{rval TOTALSTUDYTIME}&nbsp;<br>
+                        &nbsp;<font size=2, color="red">{rval TOTALSTUDYTIME_COMMENT}</font>
+                      </td>
+                    </tr>
+                    <tr align="center">
+                      <td class="no_search" align="center" nowrap>&nbsp;&nbsp;取り組み&nbsp;&nbsp;<br>&nbsp;&nbsp;のようす&nbsp;&nbsp;<br>{val btn_teikei2}</td>
+                      <td bgcolor="#ffffff" align="left" valign="top">
+                        &nbsp;{rval REMARK1}&nbsp;<br>
+                        &nbsp;<font size=2, color="red">{rval REMARK1_COMMENT}</font>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!--{/def}-->
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" height="30">
+<!--{def notSemes}-->
+                      <th colspan="3">
+                        生　活　の　よ　う　す　　<font size=2>{rval TEXT_TITLE}</font>
+                      </th>
+<!--{/def}-->
+<!--{def semes2}-->
+                      <th colspan="2" width="76%">
+                        生　活　の　よ　う　す　　<font size=2>{rval TEXT_TITLE}</font>
+                      </th>
+                      <th colspan="1" width="12%">
+                        1学期
+                      </th>
+                      <th colspan="1" width="12%">
+                        2学期
+                      </th>
+<!--{/def}-->
+<!--{def semes3}-->
+                      <th colspan="2" width="64%">
+                        生　活　の　よ　う　す　　<font size=2>{rval TEXT_TITLE}</font>
+                      </th>
+                      <th colspan="1" width="12%">
+                        1学期
+                      </th>
+                      <th colspan="1" width="12%">
+                        2学期
+                      </th>
+                      <th colspan="1" width="12%">
+                        3学期
+                      </th>
+<!--{/def}-->
+                    </tr>
+
+                    {rval data/setData}
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="640" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr align="center" height="30">
+                      <th class="no_search" colspan="2">通　　信　　欄</th>
+                    </tr>
+                    <tr align="center">
+                      <td class="no_search" align="center" nowrap width="100">出席のようす備考</td>
+                      <td bgcolor="#ffffff" align="left" valign="top">
+                        &nbsp;{rval ATTENDREC_REMARK}<br>
+                        &nbsp;<font size=2, color="red">{rval ATTENDREC_REMARK_COMMENT}</font>
+                      </td>
+                    </tr>
+                    <tr align="center">
+                      <td class="no_search" align="center" nowrap width="100">学校から</td>
+                      <td bgcolor="#ffffff" align="left" valign="top">
+                        &nbsp;{rval COMMUNICATION}<br>
+                        &nbsp;<font size=2, color="red">{rval COMMUNICATION_COMMENT}</font>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="no_search" colspan="2" align="right" nowrap>
+                        {rval button/ikkatsu}{rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_back}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<div id="myID_Menu" style="position:absolute; visibility:hidden;">
+<table width=180 border="1" cellpadding="1" cellspacing="0" bgcolor="#C0C0C0">
+
+<tr class="no_search_line">
+  <td class="no_search" align="right">
+    <span style="float:left;"><font color="#FFFFFF"><strong>　入力項目　</span><a class="menuTitle" href={rval menuTitle/CLICK_VAL}>{rval menuTitle/CLICK_NAME}</a></strong><br></font>
+  </td>
+</tr>
+
+<tr class="no_search_line">
+  <td bgcolor="#FFFFFF">
+    <!--{each menu}-->
+    <a class="menu" href={rval menu/CLICK_VAL}>{rval menu/CLICK_NAME}</a><br>
+    <!--{/each}-->
+  </td>
+</tr>
+
+</table>
+</div>
+
+<!--{/def}-->
+{rval finish}
+{rval javascript}
+<script language="javascript">{rval reload}{rval next}</script>

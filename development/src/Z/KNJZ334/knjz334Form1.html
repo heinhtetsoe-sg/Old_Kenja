@@ -1,0 +1,43 @@
+{rval start}
+<style>
+body {
+    overflow-y: auto;
+}
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="10" align="center">
+    <tr class="no_search_line">
+      <td width="100%">
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr align="center" class="no_search">
+            <th style="padding:10px;">お知らせ一覧</th>
+        </tr>
+      </table>
+      </td>
+    </tr>
+
+    <tr class="no_search_line"> 
+        <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+                <tr class="no_search">
+                    <th nowrap width="30%">表示期間</th>
+                    <th width="40%">内容</th>
+                    <th nowrap width="10%">入力者</th>
+                    <th nowrap width="20%">対象グループ</th>
+                </tr>
+                <!--結果一覧-->
+                <!--{def naiyo}-->
+                <!--{each naiyo}--> 
+                <tr>
+                    <td align="center" bgcolor="#ffffff">{rval naiyo/START_END_DATE}</td>
+                    <td align="center" bgcolor="#ffffff">{rval naiyo/NAIYO}</td>
+                    <td align="center" bgcolor="#ffffff">{rval naiyo/STAFF}</td>
+                    <td align="center" bgcolor="#ffffff" style="word-wrap: break-word;">{rval naiyo/GROUP}</td>
+                </tr> 
+                <!--{/each}--> 
+                <!--{/def}--> 
+            </table>
+        </td>
+    </tr>
+</table>
+{rval finish}

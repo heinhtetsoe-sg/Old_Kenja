@@ -1,0 +1,27 @@
+<?php
+require_once('knjj143Model.inc');
+require_once('knjj143Query.inc');
+
+class knjj143Controller extends Controller {
+    var $ModelClassName = "knjj143Model";
+    var $ProgramID      = "KNJJ143";
+
+    function main() {
+        $sessionInstance =& Model::getModel();
+        while ( true ) {
+            switch (trim($sessionInstance->cmd)) {
+                case "":
+                case "knjj143":                             //メニュー画面もしくはSUBMITした場合
+                    $sessionInstance->knjj143Model();       //コントロールマスタの呼び出し
+                    $this->callView("knjj143Form1");
+                    exit;
+                default:
+                    $sessionInstance->setError(new PEAR_Error("未対応のアクション{$sessionInstance->cmd}です"));
+                    $this->callView("error");
+                    break 2;
+            }
+        }
+    }
+}
+$knjj143Ctl = new knjj143Controller;
+?>

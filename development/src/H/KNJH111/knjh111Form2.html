@@ -1,0 +1,94 @@
+{rval start}
+<br>
+&nbsp;&nbsp;「※」のある項目は必須入力
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+        <td valign="top"> 
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr > 
+                  <td > 
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line"> 
+                                <td> 
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search"> 
+                                          <th width="20%">項 目</th>
+                                          <th width="80%">値</th>
+                                        </tr>
+<!--結果一覧-->
+<!--{def data}-->
+                                        <tr>
+                                          <td class="no_search">
+                                             <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                               <tr class="no_search">
+                                                 <th align="left" nowrap>※</th>
+                                                 <th align="right" nowrap>取得日付</th>
+                                               </tr>
+                                             </table>
+                                          </td>
+                                          <td bgcolor="#ffffff">{rval data/REGDDATE}</td>
+                                        </tr>
+
+                                        <!-- NO001 -->
+                                        <tr>
+                                          <td class="no_search">
+                                             <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                               <tr class="no_search">
+                                                 <th align="left" nowrap>※</th>
+                                                 <th align="right" nowrap>設定区分</th>
+                                               </tr>
+                                             </table>
+                                          </td>
+                                          <td bgcolor="#ffffff">{rval data/CONDITION1}<LABEL for="CONDITION1">資格</LABEL><span style="padding-left:100px;">{rval data/CONDITION2}<LABEL for="CONDITION2">その他</LABEL></span></td>
+                                        </tr>
+                                        <!-- NO001 -->
+
+                                        <tr>
+                                          <td class="no_search">
+                                             <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                               <tr class="no_search">
+                                                 <th align="left" nowrap><div id="CONTENTS1_ON" {rval CONTENTS1_ON}>※</div></th>
+                                                 <th align="right" class="no_search" nowrap>資格内容</th>
+                                               </tr>
+                                             </table>
+                                          </td>
+                                          <td bgcolor="#ffffff">{rval data/CONTENTSTEXT}　　{rval data/CONTENTS1}</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="no_search">
+                                             <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                               <tr class="no_search">
+                                                 <th align="left" nowrap><div id="CONTENTS2_ON" {rval CONTENTS2_ON}>※</div></th>
+                                                 <th align="right" class="no_search" nowrap>その他内容</th>
+                                               </tr>
+                                             </table>
+                                          </td>
+                                          <td bgcolor="#ffffff">{rval data/CONTENTS2}</td>
+                                        </tr>
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap>備考</th>
+                                          <td bgcolor="#ffffff">{rval data/REMARK}</td>
+                                        </tr>
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap>単位数</th>
+                                          <td bgcolor="#ffffff">{rval data/CREDITS}</td>
+                                        </tr>
+<!--{/def}--> 
+<!--{def button}--> 
+                                        <tr> 
+                                          <th align="right" class="no_search" nowrap>&nbsp;</th>
+                                          <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}</td>
+                                        </tr>
+<!--{/def}--> 
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

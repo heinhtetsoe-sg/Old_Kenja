@@ -1,0 +1,71 @@
+{rval start} 
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR>
+<table width="60%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="5">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="center" class="no_search">
+                <td colspan="3">
+                  <b align="center">入試年度 : {rval data/YEAR}</b>
+                </td>
+              </tr>
+              <tr bgcolor="#ffffff" height="100"> 
+                <td nowrap colspan="3">
+                  <b>　　　　　　　入試制度</b>　 {rval data/APPLICANTDIV}<br><br>
+                  <b>　　　　　　　入試区分</b>　 {rval data/TESTDIV}<br><br>
+                  <b>　　　　　　　通知日付</b>　 {rval data/NOTICEDATE}
+                </td>
+              </tr>
+
+              <tr align="center" class="no_search">
+                <td><b align="center">＜帳票種類＞</b></td>
+                <td colspan="2"><b align="center">＜出力範囲＞</b></td>
+              </tr>
+              <tr bgcolor="#ffffff" height="120"> 
+                <td>
+                  　　{rval data/FORM1} <b><LABEL for="FORM1">通知</LABEL></b>
+                </td>
+                <td>
+                  　　{rval data/OUTPUT11} <b><LABEL for="OUTPUT11">全て</LABEL></b><br><br>
+                  　　{rval data/OUTPUT12} <b><LABEL for="OUTPUT12">合格通知書</LABEL></b><br><br>
+                  　　{rval data/OUTPUT13} <b><LABEL for="OUTPUT13">不合格通知書</LABEL></b>
+                </td>
+                <td>
+                  　　{rval data/OUTPUT21} <b><LABEL for="OUTPUT21">全員</LABEL></b><br><br>
+                  　　{rval data/OUTPUT22} <b><LABEL for="OUTPUT22">指定</LABEL></b><br><br>
+                  　　　　　受験番号：{rval data/RECEPTNO1}
+                </td>
+              </tr>
+
+              <tr bgcolor="#ffffff" height="120"> 
+                <td>
+                  　　{rval data/FORM2} <b><LABEL for="FORM2">特待生決定通知書</LABEL></b>
+                </td>
+                <td colspan="2">
+                  　　{rval data/OUTPUT31} <b><LABEL for="OUTPUT31">全員</LABEL></b><br><br>
+                  　　{rval data/OUTPUT32} <b><LABEL for="OUTPUT32">指定</LABEL></b><br><br>
+                  　　　　　受験番号：{rval data/RECEPTNO2}
+                </td>
+              </tr>
+
+              <tr align="left" class="no_search" height="20"> 
+                <td nowrap colspan="3"> &nbsp{rval button/btn_print}{rval button/btn_end}</td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish} 

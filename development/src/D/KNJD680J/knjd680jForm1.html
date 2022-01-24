@@ -1,0 +1,63 @@
+{rval start}
+
+<!--{def button}-->
+
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <hr width="40%" align="left">
+                &nbsp;{rval SCHREGNO}　{val NAME}
+            <hr width="40%" align="left">
+            <br>
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr align="center" class="no_search">
+                      <td>行　動　の　記　録</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+                    <!--{each data2}-->
+                    <tr align="center" height="30">
+                      <th width="200" align="center" class="no_search" nowrap><LABEL for={rval data2/RECORD_LABEL}>{rval data2/RECORD_NAME}</LABEL></th>
+                      <td width="*" bgcolor="#ffffff">{rval data2/RECORD_VAL}</td>
+                    </tr>
+                    <!--{/each}-->
+
+                    <tr>
+                      <th align="right" class="no_search" nowrap Valign="top">　</th>
+                      <td bgcolor="#ffffff" Valign="top">
+                      {rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval reload}{rval next}</script>
+<!--{/def}-->

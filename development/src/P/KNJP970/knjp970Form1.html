@@ -1,0 +1,104 @@
+{rval start}
+<!--{def data}-->
+<!--{def button}-->
+
+<table width="480px" border="0" cellpadding="0" cellspacing="5" align="center" style='margin-top:50px;'>
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <td align="center"><b>
+                        {rval data/YEAR}年度　　{rval data/SEMESTER}　　　　{rval data/OUTPUT1}<LABEL for="OUTPUT1"> 学年</LABEL>　{rval data/OUTPUT2}<LABEL for="OUTPUT2"> クラス</LABEL>
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff" height="{rval height}">
+                      <td>
+                        <table width="100%">
+                          <tr height="25">
+                            <td width="25%" nowrap align="right"><B>学年</B></td>
+                            <td width="75%" nowrap colspan="2">　　&nbsp;{rval data/GRADE}</td>
+                          </tr>
+<!--{def hr_class}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象クラス</b></th>
+                      <th class="no_search"></th>
+                      <th><b>クラス一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="40%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%" class="no_search">
+                        {rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="40%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff" height="130">
+                      <td>
+                        <table width="100%">
+<!--{/def}-->
+                          <tr height="25">
+                            <td width="25%" nowrap align="right"><B>出力順</B></td>
+                            <td width="35%" nowrap>　　{rval data/SORT1}<LABEL for="SORT1"> 学籍番号</LABEL></td>
+                            <td width="40%" nowrap>　　{rval data/SORT2}<LABEL for="SORT2"> 年 組 番</LABEL></td>
+                          </tr>
+                          <tr height="25">
+                            <td nowrap align="right"><B>印刷対象</B></td>
+                            <td nowrap colspan="2">　　{rval data/SCHNAME}<LABEL for="SCHNAME"> 保護者（生徒名出力）</LABEL></td>
+                          </tr>
+                          <tr height="25">
+                            <td nowrap align="right"><B>開始位置</B></td>
+                            <td nowrap>　　&nbsp;行 {rval data/POROW}</td>
+                            <td nowrap>　　&nbsp;列 {rval data/POCOL}</td>
+                          </tr>
+                          <tr height="25">
+                            <td nowrap align="right"><B>納入期限</B></td>
+                            <td nowrap colspan="2">　　{rval data/LIMIT_DATE}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap>{rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}

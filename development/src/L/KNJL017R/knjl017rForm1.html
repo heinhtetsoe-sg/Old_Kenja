@@ -1,0 +1,115 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td width="100" align="center">入試年度</td>
+                      <td width="150" bgcolor="#ffffff" style="color:black; text-align:center">{rval TOP/YEAR}</td>
+                      <td width="100" align="center">※ 入試制度</td>
+                      <td width="150" bgcolor="#ffffff">{rval TOP/APPLICANTDIV}</td>
+                      <td width="100" align="center">※ 入試区分</td>
+                      <td width="200" bgcolor="#ffffff">{rval TOP/TESTDIV}</td>
+                      <td width="100" align="center">専/併</td>
+                      <td width="*" bgcolor="#ffffff">{rval TOP/SHDIV}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="center">表示順</td>
+                      <td bgcolor="#ffffff" style="color:black" colspan="7">{rval TOP/SORT1}<LABEL for="SORT1">受験番号順</LABEL>　　{rval TOP/SORT2}<LABEL for="SORT2">あいうえお順</LABEL></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top"><B>　更新　【　内諾区分：{rval TOP/NAIDAKU}　】</B>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr bgcolor="#006633">
+          <td align="right">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" align="center"> 
+                            <th width="50" height="30" align="center">{rval TOP/CHK_DATA_ALL}</th>
+                            <th width="100" align="center">管理番号</th>
+                            <th width="100" align="center">受験番号</th>
+                            <td width="260" align="center">氏名</th>
+                            <th width="50" align="center">内諾<br>区分</th>
+                            <th width="*" align="center">備考</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                <div style="width: 100%; height: 450; overflow: auto">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{def data}-->
+<!--{each data}-->
+                          <tr bgcolor="#ffffff" bgcolor="no_search" id="ROWID{rval data/EXAMNO}">
+                            <td width="50" align="center">{rval data/CHK_DATA}</td>
+                            <td width="100" align="center">{rval data/EXAMNO}</td>
+                            <td width="100" align="center">{rval data/RECEPTNO}</td>
+                            <td width="260" align="left">{rval data/NAME}</td>
+                            <td width="50" align="center">{rval data/THIS_NAIDAKU}</td>
+                            <td width="*" align="left">{rval data/OTHER_REMARK}</td>
+                          </tr>
+<!--{/each}-->
+<!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="right"></th>
+                            <th width="30%" align="left" bgcolor="#ffffff">{rval btn_update}{rval btn_reset}{rval btn_end}</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">
+change_flg = false;
+</script>
+{rval finish}

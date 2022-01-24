@@ -1,0 +1,22 @@
+<?php
+class knjj143Model extends Model {
+    var $cmd;
+    var $control;
+
+    function knjj143Model() {
+        //コントロールマスタより情報を取得
+        common::GetControlMaster_Fnc($this->control);
+    }
+
+    function init() {
+
+        $this->cmd = VARS::request("cmd");
+
+        $this->getPropertiesAll();
+        if ($this->Properties["use_prg_schoolkind"] == "1") {
+            $this->getSelectSchoolKind();
+        }
+
+    }
+}
+?>

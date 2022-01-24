@@ -1,0 +1,88 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr></tr><tr></tr><tr></tr><tr></tr>
+    <td valign="top">
+        
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tbody>
+                    <tr class="no_search" height="50">
+                      <td width="100%" align="left" nowrap>
+                        {rval YEAR}年度　&nbsp;{rval SEMESTER}<BR>
+                        {rval RUISEKI_DIV1}<LABEL for="RUISEKI_DIV1">考査別</LABEL>
+                        <!--{def useRuiseki2}-->
+                        　{rval RUISEKI_DIV2}<LABEL for="RUISEKI_DIV2">累積別</LABEL>
+                        <!--{/def}-->
+                        <!--{def useRuiseki3}-->
+                        　{rval RUISEKI_DIV3}<LABEL for="RUISEKI_DIV3">累積別</LABEL>
+                        <!--{/def}-->
+                        <BR>
+                        <!--{def CourseGroup}-->{rval SET_DIV1}<LABEL for="SET_DIV1">{rval SET_DIV_NAME}</LABEL><!--{/def}--><!--{def CourseMajor}-->{rval SET_DIV1}<LABEL for="SET_DIV1">{rval SET_DIV_NAME}</LABEL><!--{/def}--><BR>
+                        　　　学年&nbsp;{rval GRADE}　&nbsp;{rval SET_DIV_NAME}&nbsp;<!--{def CourseGroup}-->{rval GROUP_CD}<!--{/def}--><!--{def CourseMajor}-->{rval COURSE_MAJOR_CODE}<!--{/def}--><BR>
+                        テスト種別&nbsp;{rval TESTKIND_ITEMCD}
+                      </td>
+                    </tr>
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr></tr><tr></tr><tr></tr><tr></tr>
+  <tr>
+    <td>
+        
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+            <tr>
+              <td >
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                  <tr class="no_search_line">
+                    <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tr class="no_search">
+                          <th width="180">科目名</th>
+        <!--{each KOUMOKU}-->
+                          <th width="50">{rval KOUMOKU/ASSESSLEVEL_NAME}</th>
+        <!--{/each}-->
+                        </tr>
+  <!--結果一覧-->
+  <!--{def data}-->
+  <!--{each data}-->
+                        <tr>
+                          <td nowrap bgcolor="#ffffff"><a href="knjd219tindex.php?cmd=edit&SUBCLASS_LINK=1&SEND_SUBCLASSCD={val data/SET_SUBCLASSCD}&SEND_SEMESTER={val data/SEMESTER}&SEND_TESTKIND_ITEMCD={val data/TESTKIND_ITEMCD}&SEND_RUISEKI_DIV={val data/RUISEKI_DIV}&SEND_DIV={val data/DIV}&SEND_GRADE={val data/GRADE}&SEND_HR_CLASS={val data/HR_CLASS}&SEND_COURSECD={val data/COURSECD}&SEND_MAJORCD={val data/MAJORCD}&SEND_COURSECODE={val data/COURSECODE}" target="right_frame">{val data/SET_SUBCLASSNAME}</a></td>
+                          <td nowrap bgcolor="#ffffff">{val data/SET_ASSESSLEVEL_5}</td>
+                          <td nowrap bgcolor="#ffffff">{val data/SET_ASSESSLEVEL_4}</td>
+                          <td nowrap bgcolor="#ffffff">{val data/SET_ASSESSLEVEL_3}</td>
+                          <td nowrap bgcolor="#ffffff">{val data/SET_ASSESSLEVEL_2}</td>
+                          <td nowrap bgcolor="#ffffff">{val data/SET_ASSESSLEVEL_1}</td>
+                        </tr>
+  <!--{/each}-->
+  <!--{/def}-->
+                      </table>
+                    </td>
+                  </tr>
+                  
+                </table>
+              </td>
+            </tr>
+          </table>
+          
+        </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval close_win}</script>
+

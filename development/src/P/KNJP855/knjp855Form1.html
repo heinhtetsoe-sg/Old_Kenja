@@ -1,0 +1,154 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<br />
+
+<table width="500px" border="0" cellpadding="0" cellspacing="5" align="center">
+    <tr class="no_search_line">
+        <td nowrap>
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                <tr bgcolor="#ffffff">
+                    <td>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="5">
+                            <tr class="no_search_line">
+                                <td width="100%">
+                                    <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                                        <tr class="no_search" align="center">
+                                            <td colspan="2">
+                                                <b> {rval data/YEAR}年度&nbsp;&nbsp;&nbsp;&nbsp;課外費CSV</b>
+                                            </td>
+                                        </tr>
+                                        <tr align="center" bgcolor="#ffffff" height="40">
+                                            <td>
+                                                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                                                    <tr>
+                                                        <th>{rval data/OUTPUT1}</th>
+                                                        <td><LABEL for="OUTPUT1"></LABEL><b>課外費登録用データ出力</b></LABEL></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th></th>
+                                                        <td>学年：{rval data/GRADE}&nbsp;&nbsp;クラス：{rval data/HR_CLASS}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th></th>
+                                                        <td>出力項目：課外費項目一覧より選択（最大{rval data/OUTPUT_MAX_CNT}項目）</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr class="no_search_line">
+                                <td width="100%">
+                                    <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                                        <tr align="center" class="no_search">
+                                            <th><b>出力項目</b></th>
+                                            <th class="no_search"></th>
+                                            <th><b>課外費項目一覧</b></th>
+                                        </tr>
+                                        <tr align="center" bgcolor="#ffffff">
+                                            <td width="45%">
+                                                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td>{rval data/CATEGORY_SELECTED}</td>
+                                                    </tr>
+                                                    <tr align="right">
+                                                        <td>項目数：<span id="left_cnt">{rval data/LEFT_CNT}</span></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td width="*%" class="no_search">
+                                                {rval button/btn_lefts}<br />
+                                                {rval button/btn_left1}<br />
+                                                {rval button/btn_right1}<br />
+                                                {rval button/btn_rights}
+                                            </td>
+                                            <td width="45%">
+                                                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td>{rval data/CATEGORY_NAME}</td>
+                                                    </tr>
+                                                    <tr align="right">
+                                                        <td>項目数：<span id="right_cnt">{rval data/RIGHT_CNT}</span></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr class="no_search_line">
+                                <td>
+                                    <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                                        <tr align="left" bgcolor="#ffffff">
+                                            <td>
+                                                <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                                                    <tr>
+                                                        <th>{rval data/OUTPUT2}</th>
+                                                        <td><LABEL for="OUTPUT2"><b>データ取込</b></LABEL></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th></th>
+                                                        <td>ファイルから取り込み&nbsp;{rval FILE}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th></th>
+                                                        <td>徴収月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/COLLECT_MONTH}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th></th>
+                                                        <td>入金パターン&nbsp;&nbsp;{rval data/COLLECT_PATTERN_CD}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th></th>
+                                                        <td>伝票日付&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/SLIP_DATE}</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr class="no_search_line">
+                                <td>
+                                    <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                                        <tr align="left" bgcolor="#ffffff">
+                                            <td>
+                                                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                                                    <tr>
+                                                        <th>{rval data/OUTPUT3}</th>
+                                                        <td><LABEL for="OUTPUT3"><b>エラー出力</b></LABEL>（データ取込後のエラー確認：必須）</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="no_search_line">
+        <td width="100%">
+            <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                <tr class="no_search" align="right" height="30">
+                    <td nowrap>{rval data/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL>&nbsp;{rval button/btn_csv}{rval button/btn_end}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+<script language="JavaScript">
+    updateListCnt();
+</script>
+{rval finish}

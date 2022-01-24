@@ -1,0 +1,12 @@
+-- $Id: 17cf2814398667d643a7368438053813241630f0 $
+drop table STAFF_CLASS_YDAT
+-- create table STAFF_CLASS_YDAT( \
+--     YEAR        varchar(4) not null, \
+--     STAFFCD     varchar(8) not null, \
+--     CLASSCD     varchar(2) not null, \
+--     SUBCLASSCD  varchar(6) not null, \
+--     REGISTERCD  varchar(8), \
+--     UPDATED     timestamp default current timestamp \
+-- ) in usr1dms index in idx1dms
+-- 
+-- alter table STAFF_CLASS_YDAT add constraint PK_STAFF_CLASS_Y primary key(YEAR, STAFFCD, CLASSCD, SUBCLASSCD)

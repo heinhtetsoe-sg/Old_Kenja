@@ -1,0 +1,137 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR>
+
+<table width="45%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td colspan="2"><b>　　{rval data/YEAR}年度　　　{rval data/CTRL_SEMESTERNAME}</b></td>
+                      <th><b>学年：{rval data/GRADE}</b></th>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="45">
+                      <td colspan="3">
+                        <b>　　総合的な学習の時間等評価しない科目の履修・修得の単位数を一括で設定する</b>
+                      </td>
+                    </tr>
+                    <tr align="center" class="no_search"> 
+                      <th><b>処理対象科目</b></th>
+                      <th class="no_search"></th>
+                      <th><b>科目一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CLASS_NAME}</td>
+                    </tr>
+                    <tr>
+                      <td align="left"  bgcolor="#ffffff" colspan="3">
+                        <table>
+                          <tr height="70">
+                            <td>
+                              　&nbsp;{rval data/SHORI1}&nbsp;<b><LABEL for="SHORI1">欠課時数から判断して、履修・修得をセットする</LABEL></b><br>
+                              　　　&nbsp;　　出欠対象日付：{rval data/ATTEND_DATE}<br>
+                              　&nbsp;{rval data/SHORI2}&nbsp;<b><LABEL for="SHORI2">全員を修得とする</LABEL></b>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="left"  bgcolor="#ffffff" colspan="3">
+                        <table>
+                          <tr height="45">
+                            <td><font color="red" size="2">
+                              　　※&nbsp;評定が入力されている科目は処理できません。<br>
+                              　　※&nbsp;転学・退学・留学中・休学中の生徒は設定されません。<br>
+                              　　※&nbsp;自動算出でセットした履修・修得の単位は成績入力画面で確認・修正ができます。
+                            </font></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right" colspan="3">{rval button/btn_exe}{rval button/btn_end}&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+        <td>
+            <table style="width: 100%" border="0" cellpadding="0" cellspacing="0">
+            <tr class="no_search_line">
+            <td>
+                <table style="width: 100%" border="0" cellpadding="4" cellspacing="1">
+                    <tr>
+                        <td bgcolor="#cccccc">&nbsp;&nbsp;●&nbsp;<B>実行履歴</B></td>
+                    </tr>
+                </table>
+            </td>
+            </tr>
+            <tr class="no_search_line">
+            <td>
+                <table style="width: 100%" border="0" cellpadding="4" cellspacing="1">
+                    <tr class="no_search" >
+                        <td align="center" width="80">処理日付</td>
+                        <td align="center" width="65">処理時間</td>
+                        <td align="center" width="70">学年</td>
+                        <td align="center" width="170">科目名</td>
+                        <td align="center" width="65">処理方法</td>
+                        <td align="center" width="*"><font size="2">出欠対象日付</font></td>
+                    </tr>
+                </table>
+            </td>
+            </tr>
+            </table>
+            <div style="width: 100%; height=140; overflow: auto">
+            <table style="width: 100%" border="0" cellpadding="0" cellspacing="0">
+            <tr class="no_search_line">
+            <td>
+                <table style="width: 100%" border="0" cellpadding="4" cellspacing="1">
+                <!--{def data2}-->
+                <!--結果一覧-->
+                <!--{each data2}-->
+                    <tr class="no_search_line" >
+                        <td bgcolor='#ffffff' align="center" width="80">{val data2/CALC_DATE}</td>
+                        <td bgcolor='#ffffff' align="center" width="65">{val data2/CALC_TIME}</td>
+                        <td bgcolor='#ffffff' align="center" width="70">{val data2/GRADE_NAME1}</td>
+                        <td bgcolor='#ffffff' align="left" width="170">{val data2/SUBCLASSNAME}</td>
+                        <td bgcolor='#ffffff' align="center" width="65">{val data2/CREDIT_CALC_NAME}</td>
+                        <td bgcolor='#ffffff' align="center" width="*">{val data2/ATTEND_DATE}</td>
+                    </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+            </td>
+            </tr>
+            </table>
+            </div>
+        </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

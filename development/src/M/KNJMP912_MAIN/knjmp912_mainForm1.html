@@ -1,0 +1,104 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR>
+
+<table width="75%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr>
+  <td>
+    <table width="100%" border="0" cellspacing="0" cellpadding="1">
+    <tr>
+      <td>
+       <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr class="no_search_line">
+           <th>
+          <table width="100%" border="0" cellspacing="0" cellpadding="3">
+          <tr> 
+          <th height="30" align="left" class="no_search"><B>　　返金処理</B>　　　伝票番号:{rval data/REQUEST_NO}</th>
+          </tr>
+          </table>
+          </th>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    
+    <tr height="10"></tr>
+
+     <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tr>
+                      <th width="15%" align="right" class="no_search" nowrap>支出細目</th>
+                      <td width="*" bgcolor="#ffffff" colspan="6">{rval data/HENKIN_L_M_S_CD}　{rval data/HR_CLASS_HYOUJI_FLG}<LABEL for="HR_CLASS_HYOUJI_FLG">年組表示</LABEL></td>
+                  </tr>
+                  <tr>
+                      <th width="15%" align="right" class="no_search" nowrap>入金細目</th>
+                      <td width="*" bgcolor="#ffffff" colspan="6">{rval data/COLLECT_L_M_S_CD}</td>
+                  </tr>
+                  <tr>
+                      <th width="15%" align="right" class="no_search" nowrap>返金額</th>
+                      <td width="18%" bgcolor="#ffffff">{rval data/HENKIN_GK}</td>
+                      <th width="15%" align="right" class="no_search" nowrap>人数</th>
+                      <td width="18%" bgcolor="#ffffff">{rval data/HENKIN_CNT}</td>
+                      <th width="15%" align="right" class="no_search" nowrap>返金総額</th>
+                      <td width="*%" bgcolor="#ffffff">{rval data/TOTAL_HENKIN_GK}</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+     </tr>
+    </table>
+  </td>
+  </tr>
+  <tr height="10"></tr>
+
+  <tr class="no_search_line"> 
+  <td nowrap> 
+    <table width="100%" border="0" cellpadding="5" cellspacing="1">
+    <tr bgcolor="#ffffff"> 
+      <td> 
+      <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+        <tr class="no_search_line"> 
+        <td width="100%"> 
+          <table width="100%" border="0" cellpadding="5" cellspacing="1">
+          <tr align="center" class="no_search"> 
+            <th><b>対象生徒</b></th>
+            <th class="no_search"></th>
+            <th><b>生徒一覧</b></th>
+          </tr>
+          <tr align="center" bgcolor="#ffffff">
+            <td width="40%">{rval data/CATEGORY_SELECTED}</td>
+            <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                                              {rval button/btn_left1}<BR>
+                                              {rval button/btn_right1}<BR>
+                                              {rval button/btn_rights}
+            <td width="40%">{rval data/CATEGORY_NAME}</td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+
+  <tr>
+    <td nowrap> {rval button/btn_update}{rval button/btn_delete}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 
+

@@ -1,0 +1,98 @@
+{rval start}
+
+<br><br><br><br>
+<table width="500" border="0" cellpadding="10" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4">
+              <tr class="no_search" height="35" align="center">
+                <td><b>新入生・転編入生ＣＳＶ取込み</b></td>
+              </tr>
+              <tr bgcolor="#ffffff" height="50">
+                <td>
+                   　　　<b>対象データ</b>　　{rval data/DATADIV1}<LABEL for="DATADIV1">入学者</LABEL>　　{rval data/DATADIV2}<LABEL for="DATADIV2">保護者</LABEL><BR>
+                </td>
+              </tr>
+              <tr bgcolor="#ffffff" height="300">
+                <td>
+                  <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td colspan="2">
+                        <b>　　{rval data/OUTPUT1}<LABEL for="OUTPUT1">ヘッダ出力</LABEL></b>（見本）<br><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">
+                        <b>　　{rval data/OUTPUT2}<LABEL for="OUTPUT2">データ取込</LABEL></b>：（処理名：更新）<BR><BR>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="40%" align="right">
+                        処理年度：<br><br>
+                      </td>
+                      <td width="60%">
+                        &nbsp;&nbsp;{rval data/EXE_YEAR}<br><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="right">
+                        <LABEL for="GUARD_ADDR_FLG">住所2出力&nbsp：</LABEL><br><br>
+                      </td>
+                      <td>
+                        &nbsp;&nbsp;{rval data/GUARD_ADDR_FLG}<br><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="right">
+                        住所開始日：<br><br>
+                      </td>
+                      <td>
+                        &nbsp;{rval data/GUARD_ISSUEDATE}<br><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="right">
+                        住所終了日：<br><br>
+                      </td>
+                      <td>
+                        &nbsp;&nbsp;{rval data/GUARD_EXPIREDATE}<br><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="right">
+                        ファイル名：<br><br>
+                      </td>
+                      <td>
+                        &nbsp;{rval data/FILE}<br><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">
+                      <b>　　{rval data/OUTPUT3}<LABEL for="OUTPUT3">エラー出力</LABEL></b>（データ取込後のエラー確認：必須）
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search">
+                <td colspan="2">&nbsp;&nbsp;前回実行&nbsp;&nbsp;&nbsp;&nbsp;{rval data/NOWDATE}
+                </td>
+              </tr>
+              <!--{def button}-->
+              <tr class="no_search" height="30">
+                <td align="center">{rval button/btn_exec}&nbsp{rval data/HEADERCHECK}<LABEL for="HEADERCHECK">ヘッダ有</LABEL>&nbsp{rval button/btn_end}</td>
+              </tr>
+              <!--{/def}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval check}{rval jscript}{rval error}{rval max_semes_cl}</script>
+{rval finish} 

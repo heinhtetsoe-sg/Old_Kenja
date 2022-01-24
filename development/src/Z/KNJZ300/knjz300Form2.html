@@ -1,0 +1,84 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="20%">項 目</th>
+                      <th width="80%">値</th>
+                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>職員コード</th>
+                      <td bgcolor="#ffffff">{rval data/USERSCD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>職員氏名</th>
+                      <td bgcolor="#ffffff">{rval data/STAFFNAME}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>職員氏名かな</th>
+                      <td bgcolor="#ffffff">{rval data/STAFFKANA}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>ユーザーID</th>
+                      <td bgcolor="#ffffff">{rval data/USERID}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>PASSWORD</th>
+                      <td bgcolor="#ffffff">{rval data/PASSWD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>無効フラグ</th>
+                      <td bgcolor="#ffffff">{rval data/INVALID_FLG}
+                      <span id="on1" style="{rval data/style}">アカウント無効</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>パスワード期限</th>
+                      <td bgcolor="#ffffff" nowrap>{rval data/PWDTERMCHK_FLG}
+                      <span id="on2" style="{rval data/style1}">期限あり</span>
+                      </td>
+                    </tr>
+                    <!--{def chgPwd}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>　次回パスワード強制変更</th>
+                      <td bgcolor="#ffffff" nowrap>{rval data/CHG_PWD_FLG}
+                      <span id="on3" style="{rval data/style2}">次回変更</span>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+<!--{/def}-->
+<!--{def button}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>ＣＳＶ出力<br>／ＣＳＶ取込</th>
+                      <td bgcolor="#ffffff">{rval data/OUTPUT4}<LABEL for="OUTPUT4">ヘッダ出力(見本)</LABEL><br>
+                                            {rval data/OUTPUT1}<LABEL for="OUTPUT1">取込</LABEL>{rval data/OUTPUT2}<LABEL for="OUTPUT2">書出</LABEL>
+                                            ファイル：<span id="type_file">{rval FILE}</span>{val btn_exec}　{rval data/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL><br>
+                                            {rval data/OUTPUT3}<LABEL for="OUTPUT3">エラー出力</LABEL>
+                                            </td>
+                    </tr>
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

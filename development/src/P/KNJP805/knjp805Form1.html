@@ -1,0 +1,120 @@
+{rval start}
+{rval IFRAME}
+<script language="JavaScript">
+//画面のリサイズ
+var timer = 0;
+window.onresize = function () {
+    if (timer > 0) {
+        clearTimeout(timer);
+    }
+
+    timer = setTimeout(function () {
+        bodyHeight = (window.innerHeight || document.body.clientHeight || 0);
+        document.getElementById("tbody").style.height = bodyHeight - 170;
+    }, 200);
+};
+
+</script>
+<br>
+<br>
+<table width="1000px" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="1000" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td align="center">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <td align="left" bgcolor="#ffffff">　　　　<b>納期限月{rval PAID_LIMIT_MONTH}　事務担当{rval REMINDER_STAFFCD}
+                                                         　学年：{rval GRADE}
+                                                         　クラス：{rval GRADE_HR_CLASS}</b></td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr class="no_search" nowrap align="center">
+                                  <th width="40" ><LABEL for="ALL_PRINT">印刷<br>{rval ALL_PRINT}</LABEL></th>
+                                  <th width="80"><LABEL for="ALL_COUNT">カウントUP<br>しない{rval ALL_COUNT}</LABEL></th>
+                                  <th width="40">回数</th>
+                                  <th width="*">出力文面<br>{rval DEFAULT_DOCUMENT}{rval button/btn_documentSet}</th>
+                                  <th width="130">伝票番号</th>
+                                  <th width="100">金額</th>
+                                  <th width="120">年組番号</th>
+                                  <th width="120"  >氏名</th>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td bgcolor="#ffffff">
+                              <div id="tbody" style="width: 100%; height={rval valWindowHeight}px; overflow: auto">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr class="no_search_line">
+                                  <td>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="3"> 
+                                      <!--結果一覧-->
+                                      <!--{each data}--> 
+                                      <tr bgcolor="#ffffff" >
+                                        <td width="40"  align="center">{rval data/GO_PRINT}</td>
+                                        <th width="80" align="center">{rval data/NO_COUNT_UP}</th>
+                                        <th width="40" align="center">{rval data/REMINDER_COUNT}</th>
+                                        <td class="setDocument" width="*" align="center"  >{rval data/DOCUMENTCD}</td>
+                                        <td width="130" align="center">{rval data/SLIP_NO}</td>
+                                        <td width="100" align="right" >{rval data/REMINDER_MONEY}</td>
+                                        <td width="120" align="right" >{rval data/HR_ATTEND_NAME}</td>
+                                        <td width="120"   align="center">{rval data/NAME}</td>
+                                      </tr> 
+                                      <!--{/each}-->
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                              </div>
+                            </td>
+                          </tr>
+
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="right" bgcolor="#ffffff">引き落とし日：{rval PAID_DATE1}　再引き落とし日：{rval PAID_DATE2}　{rval button/btn_testPrint}　　　　　{rval button/btn_print}{rval button/btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<input type='hidden' name='windowHeight' value=''>
+<script language="JavaScript">{rval reload}</script>
+
+<font color="#ffffff">{rval TOP/PRGID}</font>
+<font color="#ffffff">{rval TOP/DBNAME}</font>
+<font color="#ffffff">{rval TOP/CTRL_YEAR}</font>
+<font color="#ffffff">{rval TOP/CTRL_SEMESTER}</font>
+<font color="#ffffff">{rval TOP/CTRL_DATE}</font>
+<font color="#ffffff">{rval TOP/SCHOOLCD}</font>
+<font color="#ffffff">{rval TOP/PRINT_SLIP_NO}</font>
+<font color="#ffffff">{rval TOP/LIMIT_DATE}</font>
+<font color="#ffffff">{rval TOP/SENDCMD}</font>
+<font color="#ffffff">{rval TOP/useFormNameP805}</font>
+<font color="#ffffff">{rval TOP/documentMstSchregnoFlg}</font>
+<font color="#ffffff">{rval TOP/SEND_PAID_DATE1}</font>
+<font color="#ffffff">{rval TOP/SEND_PAID_DATE2}</font>
+
+<script language="JavaScript">
+{rval printgo}
+</script>
+
+{rval finish}

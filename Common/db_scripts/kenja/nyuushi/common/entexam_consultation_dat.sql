@@ -1,0 +1,25 @@
+-- KANJI=´Á»ú
+-- $ID: $
+
+DROP TABLE ENTEXAM_CONSULTATION_DAT
+
+CREATE TABLE ENTEXAM_CONSULTATION_DAT ( \
+    ENTEXAMYEAR             VARCHAR(4)  NOT NULL, \
+    TESTDIV                 VARCHAR(2)  NOT NULL, \
+    ACCEPTNO                VARCHAR(4)  NOT NULL, \
+    DATADIV                 VARCHAR(1)  NOT NULL, \
+    WISHNO                  VARCHAR(1)  NOT NULL, \
+    ORG_SHDIV               VARCHAR(1)  , \
+    ORG_MAJORCD             VARCHAR(1)  , \
+    ORG_JUDGEMENT           VARCHAR(1)  , \
+    SHDIV                   VARCHAR(1)  , \
+    COURSECD                VARCHAR(1)  , \
+    MAJORCD                 VARCHAR(3)  , \
+    EXAMCOURSECD            VARCHAR(4)  , \
+    JUDGEMENT               VARCHAR(1)  , \
+    REGISTERCD              VARCHAR(10) , \
+    UPDATED                 TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE ENTEXAM_CONSULTATION_DAT ADD CONSTRAINT PK_ENTEXAM_CONSD \
+      PRIMARY KEY (ENTEXAMYEAR, TESTDIV, ACCEPTNO, DATADIV, WISHNO)

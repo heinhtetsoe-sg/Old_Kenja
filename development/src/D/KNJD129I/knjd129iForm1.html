@@ -1,0 +1,130 @@
+{rval start}
+{rval IFRAME}
+<BR><BR>
+<table width="60%" border="0" cellspacing="10" cellpadding="0" align="center">
+<tbody>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tbody>
+              <tr class="no_search">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                  <tbody>
+                    <tr class="no_search" height="30">
+                      <td width="100%" align="center" nowrap>
+                        {rval YEAR}年度　　学期{rval SEMESTER}　　学年{rval GRADE}　　コース{rval GROUP_CD}　　科目{rval SUBCLASSCD}
+                      </td>
+                    </tr>
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td align="right"><font color="black">単位認定ライン：{rval LINE_SCORE}</font></td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tbody>
+                    <tr class="no_search">
+                      <th rowspan="2" width="180">クラス-出席番号</th>
+                      <th rowspan="2" width="260">氏名</th>
+                      <th colspan="3" width="*">単位認定ライン得点</th>
+                    </tr>
+                    <tr class="no_search">
+                      <th width="80">{rval SCORE_TITLE}</th>
+                      <th width="100">補充点</th>
+                      <th width="*">ライン得点</th>
+                    </tr>
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width:100%;height:425;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                  <tbody>
+  <!--{each data}-->
+                    <tr>
+                      <td width="180" align="center" bgcolor="{rval data/COLOR}">{rval data/HR_NAME}-{rval data/ATTENDNO}</td>
+                      <td width="260" align="left" bgcolor="{rval data/COLOR}">{rval data/SCHREGNO}　{rval data/NAME}</td>
+                      <td width="80" align="center" bgcolor="{rval data/COLOR}">{rval data/SCORE}</td>
+                      <td width="100" align="center" bgcolor="{rval data/COLOR}">{rval data/SCORE_PASS_FLG}</td>
+                      <td width="*" align="center" bgcolor="{rval data/COLOR}"><span id="{rval data/SCORE_PASS_ID}">{rval data/SCORE_PASS}<span></td>
+                    </tr>
+  <!--{/each}-->
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tbody>
+                    <tr class="no_search">
+                      <td>
+                        <table cellpadding="0" cellspacing="0">
+                          <tr class="no_search" height="30">
+                            <td width="10%" align="center">
+                                &nbsp;
+                            </td>
+                            <td width="*" align="right">
+                                {val btn_update}{val btn_reset}{val btn_end}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+      </table>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+{rval finish}

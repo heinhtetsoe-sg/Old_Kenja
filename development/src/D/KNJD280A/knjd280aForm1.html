@@ -1,0 +1,144 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR>
+
+<table width="45%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+
+                    <tr class="no_search">
+                      <td align="left">
+                          　　<b>{rval data/YEAR}年度　　{rval data/SEMESTER}</b>
+                      </td>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象クラス</b></th>
+                      <th class="no_search"></th>
+                      <th><b>クラス一覧</b></th>
+                    </tr>
+
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CLASS_NAME}</td>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+
+                    <tr bgcolor="#ffffff">
+                      <td width="100%">
+                          　　　　　　　　　　　　出席点、平常点、試験点を算出して学期評価を算出する<br>
+                          　　　　　　　　　　　　出欠集計日: {rval data/DATE}<br>
+                          　　　　　　　　　　{rval data/NINTEI}<label for="NINTEI">単位認定を行う　（{rval data/NINTEI_SEME1}<label for="NINTEI_SEME1">{rval data/SEMESTERNAME1}科目の単位認定</label> {rval data/NINTEI_SEME2}<label for="NINTEI_SEME2">{rval data/SEMESTERNAME2}、通年科目の単位認定）</label></label><br>
+                          　　　　　　　　　　{rval data/KARI}<label for="KARI">仮評定を設定する　（{rval data/KARI_SEME1}<label for="KARI_SEME1">{rval data/SEMESTERNAME1}科目の仮評定</label> {rval data/KARI_SEME2}<label for="KARI_SEME2">{rval data/SEMESTERNAME2}、通年科目の仮評定）</label></label><br>
+                      </td>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+
+              </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap>{rval button/btn_exec}{rval button/btn_end}</td>
+  </tr>
+  <tr>
+    <td nowrap></td>
+  </tr>
+  <tr>
+    <td nowrap></td>
+  </tr>
+</table>
+<table width="1300" border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse;" align="center">
+  <tr bgcolor="#ffffff">
+      <td bgcolor="#ffffff" style="padding: 5px;" >
+          　　　　実行履歴<br>
+      </td>
+  </tr>
+  <tr>
+    <td width="100%" bgcolor="#ffffff">
+      <table width="100%" border="1" cellpadding="0" cellspacing="0">
+        <tr align="center" bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="1" cellpadding="4" cellspacing="0">
+              <tr align="center" bgcolor="#ffffff">
+                  <td align="center" width="180">実行日付</td>
+                  <td align="center" width="180">更新者</td>
+                  <td align="center" width="110">対象クラス</td>
+                  <td align="center" width="110">出欠集計日</td>
+                  <td align="center" width="80">単位認定</td>
+                  <td align="center" width="120">{rval data/SEMESTERNAME1}科目の<br>単位認定</td>
+                  <td align="center" width="120">{rval data/SEMESTERNAME2}、通年科目の<br>単位認定</td>
+                  <td align="center" width="80">仮評定</td>
+                  <td align="center" width="120">{rval data/SEMESTERNAME1}科目の<br>仮評定</td>
+                  <td align="center" width="*">{rval data/SEMESTERNAME2}、通年科目の<br>仮評定</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr align="center" bgcolor="#ffffff">
+          <td>
+          <div style="height: 180; overflow: auto; top: 0;">
+            <table width="100%" border="1" cellpadding="4" cellspacing="0">
+            <!--{each data/hist}-->
+              <tr align="center" bgcolor="#ffffff">
+                <td align="center" width="180">{rval data/hist/CALC_DATE}&nbsp;{rval data/hist/CALC_TIME}</td>
+                <td align="center" width="180">{rval data/hist/REGISTER_STAFFNAME}</td>
+                <td align="center" width="110">{rval data/hist/HR_CLASS}</td>
+                <td align="center" width="110">{rval data/hist/ATTEND_CALC_DATE}</td>
+                <td align="center" width="80">{rval data/hist/CHECK_NINTEI}</td>
+                <td align="center" width="120">{rval data/hist/CHECK_NINTEI_SEMESTER1}</td>
+                <td align="center" width="120">{rval data/hist/CHECK_NINTEI_SEMESTER2}</td>
+                <td align="center" width="80">{rval data/hist/CHECK_KARI}</td>
+                <td align="center" width="120">{rval data/hist/CHECK_KARI_SEMESTER1}</td>
+                <td align="center" width="*">{rval data/hist/CHECK_KARI_SEMESTER2}</td>
+              </tr>
+            <!--{/each}-->
+            </table>
+          </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

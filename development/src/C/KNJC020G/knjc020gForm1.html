@@ -1,0 +1,119 @@
+{rval start}
+<style>
+.tannnin{
+    background-color:#CCCCCC;
+    text-align:center;
+}
+.syukketu{
+    text-align:center;
+}
+.setColor1{
+    background-color:#00FF00;
+}
+.setColor2{
+    background-color:#46FFFF;
+}
+.setColor3{
+    background-color:#FFFF99;
+}
+.setColor4{
+    background-color:#FFFFFF;
+}
+</style>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <th valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="6" bgcolor="#000066">
+              <tr class="no_search" nowrap>
+                <th>講座担当者&nbsp;&nbsp;欠課入力</th>
+              </tr>
+              <tr class="no_search" nowrap style="text-align:left">
+                <th>講座&nbsp;{rval CHAIRCD}</th>
+              </tr>
+              <tr class="no_search" nowrap style="text-align:left">
+                <th>
+                    日付：{rval TODAY}&nbsp;
+                    {rval START_DATE}&nbsp;～&nbsp;{rval END_DATE}&nbsp;{rval READ}&nbsp;&nbsp;&nbsp;
+                    {rval BEFORE_WEEK}&nbsp;{rval NEXT_WEEK}
+                </th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </th>
+  </tr>
+  <tr>
+    <td>
+      <div id="box3" style="overflow:auto;height:770px">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+      <td id="box1" style="vertical-align:top">
+      <table width="100%" border="0" cellspacing="1" cellpadding="2" bgcolor="#000066">
+        <tr bgcolor="#FFFFFF" style="height:63px">
+          <td>Seq.</td>
+          <td>クラス</td>
+          <td>出席番号</td>
+          <td>性別</td>
+          <td>氏名</td>
+          <td>ふりがな</td>
+        </tr>
+<!--{each data}-->
+        <tr bgcolor="#FFFFFF" style="height:46px">
+          <td>{rval data/SEQ}</td>
+          <td>{rval data/HR_CLASS}</td>
+          <td>{rval data/ATTENDNO}</td>
+          <td>{rval data/SEX}</td>
+          <td>{rval data/NAME_SHOW}</td>
+          <td>{rval data/NAME_KANA}</td>
+        </tr>
+<!--{/each}-->
+      </table>
+      </td>
+      <td style="vertical-align:top">
+      <div id="box2" style="overflow:auto">
+      <table width='{rval width}' border="0" cellspacing="1" cellpadding="2" bgcolor="#000066">
+        <tr bgcolor="#FFFFFF" style="height:37px">
+<!--{each TITLE}-->
+          <th colspan="2" width="100">{rval TITLE/DATE}<br>{rval TITLE/BUTTON}</th>
+<!--{/each}-->
+        <tr bgcolor="#FFFFFF" style="height:25px">
+<!--{each TITLE}-->
+          {rval TITLE/TITLE}
+<!--{/each}-->
+<!--{each data}-->
+        <tr bgcolor="#FFFFFF" style="height:25px">
+          {rval data/TEXT1}
+        </tr>
+        <tr bgcolor="#FFFFFF" style="height:20px">
+          {rval data/TEXT2}
+        </tr>
+<!--{/each}-->
+        </tr>
+      </table>
+      </div>
+      </td>
+      </table>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <table width="100%" border="0" cellspacing="0" cellpadding="3"  bgcolor="#000066"> 
+        <tr>
+          <th class="no_search">
+              {rval button/btn_update}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_reset}
+          </th>
+          <th class="no_search" style="text-align:right">
+              {rval button/btn_end}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </th>
+        </tr>
+      </table>
+    </th>
+  </tr>
+</table>
+<div id="lay"></div>
+{rval finish}

@@ -1,0 +1,104 @@
+{rval start}
+{rval IFRAME}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr >
+      <td >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search">
+            <th width="10%">項 目</th>
+            <th width="90%" colspan="7">値</th>
+          </tr>
+<!--結果一覧-->
+<!--{def data}-->
+          <tr>
+            <th align="right" class="no_search" nowrap>※推薦枠番号</th>
+            <td bgcolor="#ffffff">{rval data/RECOMMENDATION_CD}</td>
+            <th align="right" class="no_search" nowrap>専願学科番号</th>
+            <td bgcolor="#ffffff">{rval data/DEPARTMENT_S}</td>
+            <th align="right" class="no_search" nowrap>併願学科番号</th>
+            <td bgcolor="#ffffff">{rval data/DEPARTMENT_H}</td>
+            <th align="right" class="no_search" nowrap>表示順</th>
+            <td bgcolor="#ffffff">{rval data/DISP_ORDER}</td>
+          </tr>
+
+          <tr>
+            <th align="right" class="no_search" nowrap>学部</th>
+            <td bgcolor="#ffffff" colspan="7">{rval data/FACULTY_NAME}<font size=2, color="red">&nbsp;(※全角10文字)</font></td>
+          </tr>
+
+          <tr>
+            <th align="right" class="no_search" nowrap>学部略称</th>
+            <td bgcolor="#ffffff" colspan="7">{rval data/FACULTY_ABBV}<font size=2, color="red">&nbsp;(※全角10文字)</font></td>
+          </tr>
+
+          <tr>
+            <th align="right" class="no_search" nowrap>学科</th>
+            <td bgcolor="#ffffff" colspan="7">{rval data/DEPARTMENT_NAME}<font size=2, color="red">&nbsp;(※全角20文字)</font></td>
+          </tr>
+
+          <tr>
+            <th align="right" class="no_search" nowrap>学科略称</th>
+            <td bgcolor="#ffffff" colspan="7">{rval data/DEPARTMENT_ABBV}<font size=2, color="red">&nbsp;(※全角10文字)</font></td>
+          </tr>
+
+          <tr>
+            <th align="right" class="no_search" nowrap>学科略称2</th>
+            <td bgcolor="#ffffff" colspan="7">{rval data/DEPARTMENT_ABBV2}<font size=2, color="red">&nbsp;(※全角3文字)</font></td>
+          </tr>
+
+          <tr>
+            <th align="right" class="no_search" nowrap>枠数</th>
+            <td bgcolor="#ffffff" colspan="7">学科枠数&nbsp;{rval data/LIMIT_COUNT}&nbsp;&nbsp;&nbsp;専願枠数&nbsp;{rval data/LIMIT_COUNT_S}&nbsp;&nbsp;&nbsp;併願枠数&nbsp;{rval data/LIMIT_COUNT_H}</td>
+          </tr>
+
+          <tr>
+            <th align="right" class="no_search" nowrap>併願有無</th>
+            <td bgcolor="#ffffff" colspan="7">{rval data/WITHOUT_H_FLG}有り</td>
+          </tr>
+
+          <tr>
+            <th align="right" class="no_search" nowrap rowspan="2">推薦名簿<br><font size=1, color="red">CSVファイル兼用</font></th>
+            <th align="center" class="no_search" nowrap colspan="2">学科コース</td>
+            <th align="center" class="no_search" nowrap colspan="1">出力順</td>
+            <th align="center" class="no_search" nowrap colspan="2">学&nbsp;&nbsp;部</td>
+            <th align="center" class="no_search" nowrap colspan="2">学科（専攻）</td>
+          </tr>
+
+          <tr>
+            <td bgcolor="#ffffff" colspan="2">{rval data/DEPARTMENT_LIST_CD}<br><font size=2, color="red">&nbsp;(※全角3文字)</font></td>
+            <td bgcolor="#ffffff" colspan="1">{rval data/DEPARTMENT_LIST_ORDER}</td>
+            <td bgcolor="#ffffff" colspan="2">{rval data/FACULTY_LIST_NAME}</td>
+            <td bgcolor="#ffffff" colspan="2">{rval data/DEPARTMENT_LIST_NAME}</td>
+          </tr>
+
+          <tr>
+            <th align="right" class="no_search" nowrap>賢者学校コード</th>
+            <td bgcolor="#ffffff" colspan="7">{rval data/SCHOOL_CD}{rval data/FACULTYCD}{rval data/DEPARTMENTCD}&nbsp;&nbsp;{rval button/btn_kakutei}&nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_schsearch}</td>
+          </tr>
+
+<!--{/def}-->
+<!--{def button}-->
+          <tr>
+            <th align="right" class="no_search" nowrap>&nbsp;</th>
+            <td bgcolor="#ffffff" colspan="7">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}</td>
+          </tr>
+<!--{/def}-->
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

@@ -1,0 +1,229 @@
+{rval start}
+{rval IFRAME}
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="10">
+        <tr>
+          <td width="70" nowrap bgcolor="#ADFF2F" align="center"><b><font size="5" color="#006400">外科</font></b></th>
+          <td width="50%">
+            <hr width="100%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="100%" align="left">
+          </td>
+          <!--{def button}-->
+          <td align="center" valign="bottom">&nbsp;{rval button/btn_update}{rval button/btn_reset}{rval button/btn_print}{rval button/btn_end}</td>
+          <!--{/def}-->
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <div style="width:1000;height:550;overflow-x:scroll;overflow-y:scroll">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <tr height="30">
+                      <th width="90" class="no_search" rowspan="2" nowrap>※来室日時</th>
+                      <td bgcolor="#ffffff" colspan="2" nowrap>&nbsp;{rval data/VISIT_DATE}　<span id={rval data/VISIT_DATE_WEEKDAY_ID}>{rval data/VISIT_DATE_WEEKDAY}</span>　{rval data/VISIT_HOUR} 時 {rval data/VISIT_MINUTE} 分&nbsp;</td>
+                      <th width="160" class="no_search" nowrap>現在の教科<br><span style="font-size:70%;">（休み時間であれば次の教科）</span></th>
+                      <td width="#" bgcolor="#ffffff">&nbsp;{rval data/LESSON_CLASS}</td>
+                    </tr>
+                    <tr height="50">
+                      <td bgcolor="#ffffff" colspan="4">
+                        {rval data/SEQ11_REMARK1_01}&nbsp;
+                        {rval data/SEQ11_REMARK1_02}&nbsp;
+                        {rval data/SEQ11_REMARK1_03}&nbsp;
+                        {rval data/SEQ11_REMARK1_04}&nbsp;
+                        {rval data/SEQ11_REMARK1_05}&nbsp;
+                        {rval data/SEQ11_REMARK1_06}&nbsp;
+                        {rval data/SEQ11_REMARK1_07}&nbsp;
+                        {rval data/SEQ11_REMARK1_08}&nbsp;
+                        {rval data/SEQ11_REMARK1_09}<br>
+                        {rval data/SEQ11_REMARK1_10}&nbsp;
+                        {rval data/SEQ11_REMARK1_11}&nbsp;
+                        {rval data/SEQ11_REMARK1_12}&nbsp;
+                        {rval data/SEQ11_REMARK1_13}&nbsp;
+                        {rval data/SEQ11_REMARK1_14}&nbsp;
+                        {rval data/SEQ11_REMARK1_15}&nbsp;
+                        {rval data/SEQ11_REMARK1_BLANK}
+                      </td>
+                    </tr>
+                    <tr height="90">
+                      <th class="no_search" nowrap>来室理由</th>
+                      <td bgcolor="#ffffff" colspan="4">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td bgcolor="#ffffff" style="line-height:170%;">
+                              &nbsp;{rval data/VISIT_REASON1}&nbsp;{rval data/VISIT_REASON1_TEXT}<br>
+                              &nbsp;{rval data/VISIT_REASON2}&nbsp;{rval data/VISIT_REASON2_TEXT}<br>
+                              &nbsp;{rval data/VISIT_REASON3}&nbsp;{rval data/VISIT_REASON3_TEXT}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr height="90">
+                      <th class="no_search" nowrap>けがの部位</th>
+                      <td bgcolor="#ffffff" colspan="4">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td bgcolor="#ffffff" style="line-height:170%;">
+                              &nbsp;{rval data/INJURY_PART1}&nbsp;{rval data/INJURY_PART1_TEXT}<br>
+                              &nbsp;{rval data/INJURY_PART2}&nbsp;{rval data/INJURY_PART2_TEXT}<br>
+                              &nbsp;{rval data/INJURY_PART3}&nbsp;{rval data/INJURY_PART3_TEXT}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr height="30">
+                      <th class="no_search" nowrap rowspan="3">発生時の</th>
+                      <th width="70" class="no_search" nowrap rowspan="2">場合</th>
+                      <td colspan="3" bgcolor="#ffffff">&nbsp;{rval data/OCCUR_DATE}　<span id={rval data/OCCUR_DATE_WEEKDAY_ID}>{rval data/OCCUR_DATE_WEEKDAY}</span>　　{rval data/OCCUR_HOUR} 時 {rval data/OCCUR_MINUTE} 分頃&nbsp;</td>
+                    </tr>
+                    <tr height="50">
+                      <td colspan="3" bgcolor="#ffffff">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr height="100">
+                            <td>
+                              {rval data/OCCUR_ACT01}　
+                              {rval data/OCCUR_ACT02}　
+                              {rval data/OCCUR_ACT03}　<br>
+                              {rval data/OCCUR_ACT04}　
+                              {rval data/OCCUR_ACT05}　
+                              {rval data/OCCUR_ACT06}　<br>
+                              {rval data/OCCUR_ACT07}　
+                              {rval data/OCCUR_ACT08}　
+                              {rval data/OCCUR_ACTBLANK}　<br>
+                              &nbsp;{rval data/OCCUR_SITUATION}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr height="100">
+                      <th width="70" class="no_search" nowrap>場所</th>
+                      <td colspan="3" bgcolor="#ffffff">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td>
+                              {rval data/OCCUR_PLACE01}　
+                              {rval data/OCCUR_PLACE02}　
+                              {rval data/OCCUR_PLACE03}　<br>
+                              {rval data/OCCUR_PLACE04}　
+                              {rval data/OCCUR_PLACE05}　<br>
+                              {rval data/OCCUR_PLACE06}　
+                              {rval data/OCCUR_PLACE07}　
+                              {rval data/OCCUR_PLACE08}　
+                              {rval data/OCCUR_PLACEBLANK}　<br>
+                              &nbsp;{rval data/OCCUR_PLACE_TEXT}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr height="70">
+                      <th class="no_search" nowrap rowspan="3">処置</th>
+                      <td bgcolor="#ffffff" colspan="4">
+                        {rval data/TREATMENT101}&nbsp;
+                        {rval data/TREATMENT102}&nbsp;
+                        {rval data/TREATMENT103}&nbsp;
+                        {rval data/TREATMENT104}&nbsp;<br>
+                        {rval data/TREATMENT105}&nbsp;
+                        {rval data/TREATMENT106}&nbsp;
+                        {rval data/TREATMENT107}&nbsp;
+                        {rval data/TREATMENT108}&nbsp;
+                        {rval data/TREATMENT1BLANK}&nbsp;<br>
+                        &nbsp;{rval data/TREATMENT1_TEXT}
+                      </td>
+                    </tr>
+                    <tr height="70">
+                      <td bgcolor="#ffffff" colspan="4">
+                        {rval data/TREATMENT201}&nbsp;
+                        {rval data/TREATMENT202}&nbsp;
+                        {rval data/TREATMENT203}&nbsp;
+                        {rval data/TREATMENT204}&nbsp;<br>
+                        {rval data/TREATMENT205}&nbsp;
+                        {rval data/TREATMENT206}&nbsp;
+                        {rval data/TREATMENT207}&nbsp;
+                        {rval data/TREATMENT208}&nbsp;
+                        {rval data/TREATMENT2BLANK}&nbsp;<br>
+                        &nbsp;{rval data/TREATMENT2_TEXT}
+                      </td>
+                    </tr>
+                    <tr height="70">
+                      <td bgcolor="#ffffff" colspan="4">
+                        {rval data/TREATMENT301}&nbsp;
+                        {rval data/TREATMENT302}&nbsp;
+                        {rval data/TREATMENT303}&nbsp;
+                        {rval data/TREATMENT304}&nbsp;<br>
+                        {rval data/TREATMENT305}&nbsp;
+                        {rval data/TREATMENT306}&nbsp;
+                        {rval data/TREATMENT307}&nbsp;
+                        {rval data/TREATMENT308}&nbsp;
+                        {rval data/TREATMENT3BLANK}&nbsp;<br>
+                        &nbsp;{rval data/TREATMENT3_TEXT}
+                      </td>
+                    </tr>
+                    <tr height="30">
+                      <th class="no_search" nowrap>在室時間</th>
+                      <td bgcolor="#ffffff" colspan="4">
+                        {rval data/RESTTIME01}&nbsp;
+                        {rval data/RESTTIME02}&nbsp;
+                        {rval data/RESTTIME03}&nbsp;
+                        {rval data/RESTTIME04}&nbsp;
+                        {rval data/RESTTIME05}&nbsp;
+                        {rval data/RESTTIME06}&nbsp;
+                        {rval data/RESTTIME07}&nbsp;
+                        {rval data/RESTTIME08}&nbsp;
+                        {rval data/RESTTIME09}&nbsp;
+                        {rval data/RESTTIMEBLANK}&nbsp;
+                      </td>
+                    </tr>
+                    <tr height="50">
+                      <th class="no_search" nowrap>連絡</th>
+                      <td bgcolor="#ffffff" colspan="4">
+                        {rval data/SEQ15_REMARK1_01}&nbsp;
+                        {rval data/SEQ15_REMARK1_02}&nbsp;
+                        {rval data/SEQ15_REMARK1_03}&nbsp;
+                        {rval data/SEQ15_REMARK1_04}&nbsp;
+                        {rval data/SEQ15_REMARK1_05}&nbsp;
+                        {rval data/SEQ15_REMARK1_06}&nbsp;
+                        {rval data/SEQ15_REMARK1_07}&nbsp;
+                        {rval data/SEQ15_REMARK1_08}&nbsp;
+                        {rval data/SEQ15_REMARK1_09}&nbsp;
+                        {rval data/SEQ15_REMARK1_BLANK}<br>
+                        &nbsp;{rval data/CONTACT_TEXT}
+                      </td>
+                    </tr>
+                    <tr height="180">
+                      <th class="no_search" nowrap>特記事項</th>
+                      <td bgcolor="#ffffff" colspan="4" style="padding:10px 5px 3px 0px;">
+                        &nbsp;{rval data/SPECIAL_NOTE}<br>
+                        &nbsp;&nbsp;<span style="font-size:90%; color:red;">{rval data/SPECIAL_NOTE_COMMENT}</span>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

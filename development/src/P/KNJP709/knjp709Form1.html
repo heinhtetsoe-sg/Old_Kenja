@@ -1,0 +1,100 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="8">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th norwarp width="25%">対象年度&nbsp;{rval year}<!--{def schkind}-->&nbsp;{rval SCHOOL_KIND}<!--{/def}--></th>
+                      <td norwarp width="75%">&nbsp;{rval btn_pre_copy}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th nowrap width="8%"  rowspan="2">授業料区分</th>
+                      <th nowrap width="8%"  rowspan="2">学年</th>
+                      <th nowrap width="8%"  rowspan="2">基準額１</th>
+                      <th nowrap width="8%"  rowspan="2">加算額１</th>
+                      <!--{def useIncomeRank}-->
+                      <th nowrap width="24%" colspan="3">所得割額１</th>
+                      <!--{/def}-->
+                      <!--{def unUseIncomeRank}-->
+                      <th nowrap width="24%" colspan="2">所得割額１</th>
+                      <!--{/def}-->
+                      <th nowrap width="8%"  rowspan="2">基準額２</th>
+                      <th nowrap width="8%"  rowspan="2">加算額２</th>
+                      <!--{def useIncomeRank}-->
+                      <th nowrap width="24%" colspan="3">所得割額２</th>
+                      <!--{/def}-->
+                      <!--{def unUseIncomeRank}-->
+                      <th nowrap width="24%" colspan="2">所得割額２</th>
+                      <!--{/def}-->
+                      <th nowrap width="*"   rowspan="2">備考</th>
+                    </tr>
+                    <tr class="no_search" height="25">
+                      <!--{def useIncomeRank}-->
+                      <th nowrap width="8%">ランク１</th>
+                      <!--{/def}-->
+                      <th nowrap width="8%">下限額１</th>
+                      <th nowrap width="8%">上限額１</th>
+                      <!--{def useIncomeRank}-->
+                      <th nowrap width="8%">ランク２</th>
+                      <!--{/def}-->
+                      <th nowrap width="8%">下限額２</th>
+                      <th nowrap width="8%">上限額２</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff" align="right" >{val data/SCHOOLDIV_NAME}</td>
+                      <td nowrap bgcolor="#ffffff" align="right" >{val data/GRADE}</td>
+                      <td nowrap bgcolor="#ffffff" align="right" >{val data/REDUCTIONMONEY1}</td>
+                      <td nowrap bgcolor="#ffffff" align="right" >{val data/REDUCTION_ADD_MONEY1}</td>
+                      <!--{def useIncomeRank}-->
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/INCOME_RANK1}</td>
+                      <!--{/def}-->
+                      <td nowrap bgcolor="#ffffff" align="right" >{val data/INCOME_LOW1}</td>
+                      <td nowrap bgcolor="#ffffff" align="right" >{val data/INCOME_HIGH1}</td>
+                      <td nowrap bgcolor="#ffffff" align="right" >{val data/REDUCTIONMONEY2}</td>
+                      <td nowrap bgcolor="#ffffff" align="right" >{val data/REDUCTION_ADD_MONEY1}</td>
+                      <!--{def useIncomeRank}-->
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/INCOME_RANK2}</td>
+                      <!--{/def}-->
+                      <td nowrap bgcolor="#ffffff" align="right" >{val data/INCOME_LOW2}</td>
+                      <td nowrap bgcolor="#ffffff" align="right" >{val data/INCOME_HIGH2}</td>
+                      <td nowrap bgcolor="#ffffff" align="left"  >{val data/REDUCTIONREMARK}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

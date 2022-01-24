@@ -1,0 +1,50 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="10" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search" height="30">
+                  <td width="100%" nowrap>
+                        　　対象年度：{rval YEAR}　　　　{rval button/btn_copy}<BR>
+                        　　学年:{rval IBGRADE_COURSE}
+                  </td>
+                </tr>
+            </table>
+          </td>
+        </tr>
+        <tr><td height="10"></td></tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th nowrap width="170">IB教科・科目</th>
+                      <th nowrap width="40">必要時間</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td nowrap width="170"><a href="knjz200aindex.php?cmd=edit&IBCLASSCD={val data/IBCLASSCD}&IBPRG_COURSE={val data/IBPRG_COURSE}&IBCURRICULUM_CD={val data/IBCURRICULUM_CD}&IBSUBCLASSCD={val data/IBSUBCLASSCD}" target="right_frame">{val data/IBSUBCLASS_SHOW}</a></td>
+                      <td align="center" nowrap width="40">{val data/NEED_TIME}</td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}{rval reload}</script>

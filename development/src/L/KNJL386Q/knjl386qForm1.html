@@ -1,0 +1,60 @@
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr class="no_search_line">
+    <td>
+      <table border="0" cellpadding="2" cellspacing="1" width="100%">
+        <tr class="no_search_line">
+          <td class="no_search" style="width:50%;text-align:center;">データコピー</td>
+          <td bgcolor="ffffff">{rval COPY_YEAR}　{rval button/btn_copy}</td>
+        </tr>
+        <tr class="no_search_line">
+          <td bgcolor="ffffff" colspan="2" align="center">{rval button/btn_csv}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th nowrap width="10%">国内外</th>
+                      <th nowrap width="20%">受験番号範囲</th>
+                      <th nowrap width="*%">会場名</th>
+                      <th nowrap width="10%">個人/団体</th>
+                      <th nowrap width="15%">未徴収/徴収済</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}--> 
+                    <tr> 
+                      <td nowrap bgcolor="#ffffff">{val data/INOUT}</td>
+                      <td nowrap bgcolor="#ffffff" align="center"><a href="knjl386qindex.php?cmd=edit&RECNO={val data/RECNO}" target="right_frame">{rval data/JUKEN_NO_FROM}～{rval data/JUKEN_NO_TO}</a></td>
+                      <td nowrap align="left" bgcolor="#ffffff">{rval data/PLACE}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/IND}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/SEND}</td>
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}-->
+                    </table>
+                  </td>
+                </tr>
+              </td>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

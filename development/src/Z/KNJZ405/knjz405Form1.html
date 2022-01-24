@@ -1,0 +1,45 @@
+{rval start}
+
+<BR>
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="60">ねらい<br>コード</th>
+                      <th nowrap width="80">名称</th>
+                      <th nowrap width="60">内容<br>コード</th>
+                      <th nowrap width="*">内容</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <!--{def data/ROWSPAN}-->
+                      <td align="center" rowspan="{val data/ROWSPAN}">{val data/POINT_L_CD}</td>
+                      <td rowspan="{val data/ROWSPAN}">{val data/REMARK_L}</td>
+                      <!--{/def}-->
+                      <td align="center"><a href="knjz405index.php?cmd=edit&POINT_L_CD={val data/POINT_L_CD}&POINT_M_CD={val data/POINT_M_CD}" target="right_frame">{val data/POINT_M_CD}</a></td>
+                      <td>{val data/REMARK_M}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

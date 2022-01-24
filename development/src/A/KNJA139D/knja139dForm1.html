@@ -1,0 +1,168 @@
+{rval start}
+<!--{def button}-->
+
+<br><br><br>
+<table width="65%" border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="50%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="5">
+              <tr height="30">
+                <th width="30%" class="no_search" nowrap>処理年度</th>
+                <td width="700%" bgcolor="#ffffff" nowrap>{rval YEAR}年度　　　{rval button/btn_copy}</td>
+              </tr>
+              <tr height="30">
+                <th class="no_search" nowrap>学期</th>
+                <td bgcolor="#ffffff" nowrap>{rval SEMESTER}</td>
+              </tr>
+              <tr height="30">
+                <th class="no_search" nowrap>学年</th>
+                <td bgcolor="#ffffff" nowrap>{rval GRADE}</td>
+              </tr>
+              <tr height="30">
+                <th class="no_search" nowrap>種別</th>
+                <td bgcolor="#ffffff" nowrap>{rval DATA_DIV}</td>
+              </tr>
+              <tr height="30">
+                <th class="no_search" nowrap>項目数</th>
+                <td bgcolor="#ffffff" nowrap>{rval DATA_CNT}&nbsp;{rval button/btn_kakutei}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" height="30">
+                <td align="right">
+                  {rval button/btn_update}{rval button/btn_delete}{rval button/btn_reset}{rval button/btn_end}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search">
+                      <th width="10%" nowrap>&nbsp;項 目&nbsp;</th>
+                      <th width="90%" nowrap>値</th>
+                    </tr>
+<!--{def data}-->
+<!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td align="center">{rval data/PATTERN_CD_SHOW}</td>
+                      <td>{rval data/REMARK}<br><font size="2" color="red">(全角で 55文字X3行)</font></td>
+                    </tr>
+<!--{/each}-->
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr><td><br><br></td></tr>
+        <tr>
+          <td>
+            <table width="80%" align="center" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th width="45%">対象コース</th>
+                      <th></th>
+                      <th width="45%">コース一覧</th>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="center" bgcolor="#ffffff">{rval CATEGORY_COURSE_SELECTED}</td>
+                      <td align="center">
+                        {rval button/btn_course_lefts}<br>
+                        {rval button/btn_course_left}<br>
+                        {rval button/btn_course_right}<br>
+                        {rval button/btn_course_rights}<br>
+                      </td>
+                      <td align="center" bgcolor="#ffffff">{rval CATEGORY_COURSE_LIST}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr><td><br></td></tr>
+        <tr>
+          <td>
+            <table width="80%" align="center" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th width="45%">対象科目</th>
+                      <th></th>
+                      <th width="45%">科目一覧</th>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="center"bgcolor="#ffffff">{rval CATEGORY_SUBCLASS_SELECTED}</td>
+                      <td align="center">
+                        {rval button/btn_subclass_lefts}<br>
+                        {rval button/btn_subclass_left}<br>
+                        {rval button/btn_subclass_right}<br>
+                        {rval button/btn_subclass_rights}<br>
+                      </td>
+                      <td align="center" bgcolor="#ffffff">{rval CATEGORY_SUBCLASS_LIST}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr><td><br></td></tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <td align="right">
+                        {rval button/btn_update}{rval button/btn_delete}{rval button/btn_reset}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<script language="javascript">{rval jscript}</script>
+{rval finish}

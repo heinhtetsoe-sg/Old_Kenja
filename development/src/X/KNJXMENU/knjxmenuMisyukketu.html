@@ -1,0 +1,48 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+<tr>
+<td>
+  <table style="width: 100%" border="0" cellspacing="5" cellpadding="1">
+  <tr> 
+  <td>
+    <br>
+    <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+<!-- 選択データ -->
+    {rval button/btn_end}
+    <tr class="no_search_line">
+    <td><!-- first table for subclass -->
+      <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+      <tr class="no_search" height="35" nowrap>
+        <td align="center" nowrap colspan="3">
+          <B>出欠データ未入力一覧　{rval DATA_CNT}件</B>
+          <tr class="no_search" height="20" nowrap>
+            <td width="30%">日付</td>
+            <td width="20%">校時</td>
+            <td width="*%">講座</td>
+          </tr>
+          <!--{each data}-->
+          <tr bgcolor="#ffffff" nowrap>
+            <td width="40%">{rval data/EXECUTEDATE}</td>
+            <td width="20%">{rval data/PERIODNAME}</td>
+            <td width="*%">{rval data/CHAIRNAME}</td>
+          </tr>
+          <!--{/each}-->
+
+          <tr class="no_search" nowrap>
+          <td colspan="3">
+            {rval button/btn_end}
+          </td>
+          </tr>
+
+        </td>
+      </tr>
+    </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+  </table>
+</td>
+</tr>
+</table>
+{rval finish}

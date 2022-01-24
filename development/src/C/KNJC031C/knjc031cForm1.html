@@ -1,0 +1,214 @@
+{rval start}
+<br>
+<table width={rval DATA_WIDTH} border="0" cellspacing="0" cellpadding="0">
+<tr>
+    <th valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+        <tr class="no_search" nowrap>
+            <td>
+                &nbsp;&nbsp;処理年度：{rval year}年度
+                &nbsp;{rval semester}
+                &nbsp;&nbsp;学級：{rval hr_class}
+                &nbsp;&nbsp;対象月：{rval month}
+                &nbsp;&nbsp;締め日：{rval SET_APPOINTED_DAY}
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </th>
+</tr>
+<tr><td><br></td></tr>
+<tr>
+    <th valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <th align="right">
+        <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+        <tr class="no_search" nowrap>
+            <th colspan={rval DATA_COLSPAN} bgcolor="#FFFFFF"></th>
+            <th colspan={rval RUIKEI_COLSPAN}>累積</th>
+        </tr>
+        <tr class="no_search" align="center" nowrap>
+            <td rowspan="2" width="19">No.</td>
+            <td rowspan="2" width="100">氏&nbsp;&nbsp;名</td>
+            <td rowspan="2" width="30">締<br>め<br>日</td>
+            <td rowspan="2" width="30">授<br>業<br>日<br>数</td>
+            <td rowspan="2" width="30">休<br>学<br>日<br>数</td>
+            <td rowspan="2" width="30">留<br>学<br>日<br>数</td>
+            <td rowspan="2" width="30">公<br>欠<br>日<br>数</td>
+            <td colspan={rval SUSPECT_COLS} width={rval SUSPECT_WIDTH}>出席停止<br>・忌引</td>
+            <td rowspan="2" width="43"><font size="2">出席<br>すべき<br>日数</font></td>
+            <!--{def TITLE_4}-->
+            <td rowspan="2" width="30">{rval TITLE_4}</td>
+            <!--{/def}-->
+            <!--{def TITLE_5}-->
+            <td rowspan="2" width="30">{rval TITLE_5}</td>
+            <!--{/def}-->
+            <!--{def TITLE_6}-->
+            <td rowspan="2" width="30">{rval TITLE_6}</td>
+            <!--{/def}-->
+            <td rowspan="2" width="30">出<br>席<br>日<br>数</td>
+            <td rowspan="2" width="30">遅<br>刻</td>
+            <td rowspan="2" width="30">早<br>退</td>
+            <!--{def DETAIL_TITLE_001}-->
+            <td rowspan="2" width="30">{rval DETAIL_TITLE_001}</td>
+            <!--{/def}-->
+            <!--{def DETAIL_TITLE_002}-->
+            <td rowspan="2" width="30">{rval DETAIL_TITLE_002}</td>
+            <!--{/def}-->
+            <!--{def DETAIL_TITLE_003}-->
+            <td rowspan="2" width="30"> {rval DETAIL_TITLE_003}</td>
+            <!--{/def}-->
+            <!--{def DETAIL_TITLE_004}-->
+            <td rowspan="2" width="30"> {rval DETAIL_TITLE_004}</td>
+            <!--{/def}-->
+            <td rowspan="2" width="30">授<br>業<br>日<br>数</td>
+            <td colspan={rval SUSPECT_COLS} width={rval SUSPECT_WIDTH}>出席停止<br>・忌引</td>
+            <td rowspan="2" width="43"><font size="2">出席<br>すべき<br>日数</font></td>
+            <td rowspan="2" width="30">欠<br>席<br>日<br>数</td>
+            <td rowspan="2" width="30">出<br>席<br>日<br>数</td>
+            <td rowspan="2" width="24">遅<br>刻</td>
+            <td rowspan="2" width="24">早<br>退</td>
+            <!--{def DETAIL_TITLE_001}-->
+            <td rowspan="2" width="30">{rval DETAIL_TITLE_001}</td>
+            <!--{/def}-->
+            <!--{def DETAIL_TITLE_002}-->
+            <td rowspan="2" width="30">{rval DETAIL_TITLE_002}</td>
+            <!--{/def}-->
+            <!--{def DETAIL_TITLE_003}-->
+            <td rowspan="2" width="30"> {rval DETAIL_TITLE_003}</td>
+            <!--{/def}-->
+             <!--{def DETAIL_TITLE_004}-->
+            <td rowspan="2" width="#"> {rval DETAIL_TITLE_004}</td>
+            <!--{/def}-->
+       </tr>
+        <tr class="no_search" align="center" nowrap>
+            <td width="35">{rval TITLE_SUSPEND}</td>
+            <!--{def useKoudome}-->
+            <td width="35">交止</td>
+            <!--{/def}-->
+            <!--{def useVirus}-->
+            <td width="35">伝染</td>
+            <!--{/def}-->
+            <td width="35">忌引</td>
+            <td width="35">{rval TITLE_SUSPEND}</td>
+            <!--{def useKoudome}-->
+            <td width="35">交止</td>
+            <!--{/def}-->
+            <!--{def useVirus}-->
+            <td width="35">伝染</td>
+            <!--{/def}-->
+            <td width="35">忌引</td>
+        </tr>
+        </table>
+        </th>
+    </tr>
+    <tr>
+        <th align="right">
+        <div style="height:500;overflow:auto">
+        <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+        <!--{each attend_data}-->
+        <tr bgcolor="{rval attend_data/BGCOLOR_ROW}" align="center" nowrap>
+            <td width="19">{rval attend_data/ATTENDNO}</td>
+            <td width="100" align="left" {rval attend_data/BGCOLOR_NAME_SHOW}>{rval attend_data/NAME_SHOW}</td>
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/APPOINTED_DAY}</td>
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/LESSON}</td>
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/OFFDAYS}</td>
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/ABROAD}</td>
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/ABSENT}</td>
+            <td width="35" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/SUSPEND}</td>
+            <!--{def useKoudome}-->
+            <td width="35" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/KOUDOME}</td>
+            <!--{/def}-->
+            <!--{def useVirus}-->
+            <td width="35" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/VIRUS}</td>
+            <!--{/def}-->
+            <td width="35" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/MOURNING}</td>
+            <td width="43" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/CLASSDAYS2}</td>
+            <!--{def TITLE_4}-->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/SICK}</td>
+            <!--{/def}-->
+            <!--{def TITLE_5}-->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/NOTICE}</td>
+            <!--{/def}-->
+            <!--{def TITLE_6}-->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/NONOTICE}</td>
+            <!--{/def}-->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/CLASSDAYS3}</td>
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/LATE}</td>
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/EARLY}</td>
+            <!--{def DETAIL_TITLE_001}-->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/DETAIL_001}</td>
+            <!--{/def}-->
+            <!--{def DETAIL_TITLE_002}-->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/DETAIL_002}</td>
+            <!--{/def}-->
+            <!--{def DETAIL_TITLE_003}-->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/DETAIL_003}</td>
+            <!--{/def}-->
+            <!--{def DETAIL_TITLE_004}-->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/DETAIL_004}</td>
+            <!--{/def}-->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/SUM_CLASSDAYS}</td>
+            <td width="35" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/SUM_SUSPEND}</td>
+            <!--{def useKoudome}-->
+            <td width="35" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/SUM_KOUDOME}</td>
+            <!--{/def}-->
+            <!--{def useVirus}-->
+            <td width="35" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/SUM_VIRUS}</td>
+            <!--{/def}-->
+            <td width="35" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/SUM_MOURNING}</td>
+            <td width="43" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/SUM_CLASSDAYS2}</td>
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/SUM_SICK}</td>
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/SUM_CLASSDAYS3}</td>
+            <td width="24" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/SUM_LATE}</td>
+            <td width="24" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/SUM_EARLY}{rval attend_data/SCHREGNO}</td>
+            <!--{def DETAIL_TITLE_001}-->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/SUM_DETAIL_001}</td>
+            <!--{/def}-->
+            <!--{def DETAIL_TITLE_002}-->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/SUM_DETAIL_002}</td>
+            <!--{/def}-->
+            <!--{def DETAIL_TITLE_003}-->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/SUM_DETAIL_003}</td>
+            <!--{/def}-->
+            <!--{def DETAIL_TITLE_004}-->
+            <td width="#" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/SUM_DETAIL_004}</td>
+            <!--{/def}-->
+        </tr>
+        <!--{/each}-->
+        </table>
+        </div>
+        </th>
+    </tr>
+    <tr>
+        <th align="right">
+        <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+        <tr class="no_search" align="right" nowrap>
+            <td>
+            ※'0'データは、空白で表示します。
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp
+            {rval btn_update}
+            {rval btn_reset}
+            {rval btn_end}
+            {rval btn_csv}
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            </td>
+        </tr>
+        </table>
+        </th>
+    </tr>
+    </table>
+    </th>
+</tr>
+</table>
+{rval finish}
+

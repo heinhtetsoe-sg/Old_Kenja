@@ -1,0 +1,192 @@
+{rval start}
+
+<!--{def data}-->
+<!--{def button}-->
+
+<br>
+<!-- Edit by PP for start loading focus 2020-02-03 start -->
+<table width="100%" border="0" cellspacing="10" cellpadding="0" id="screen_id" aria-label="{rval TITLE}">
+<!-- Edit by PP for start loading focus 2020-02-20 end -->
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="180" nowrap bgcolor="#FFFF00" align="center">
+            <b><font size="3" color="#FF8C00">C&nbsp;支援内容･計画</font></b>
+          </td>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+<!--{def TokushiShienPlanPatern}-->
+        <tr>
+          <td>
+            {rval button/btn_seikatu_zyouhou}　{rval button/btn_kiso_zyouhou}　{rval button/btn_gouriteki_hairyo}　{rval button/btn_ziritu}　{rval button/btn_sien_kikan}
+          </td>
+        </tr>
+<!--{/def}-->
+        <tr>
+          <td>
+            {rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}
+          </td>
+        </tr>
+<!--{def NotTokushiShienPlanPatern}-->
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <font color="black"><B>{rval data/NENDO}</B>　作成年月日:</font>{rval data/SPACE}{rval data/WRITING_DATE}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {rval data/YOMIKOMI_YEAR}　{rval button/btn_yomikomi}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <!--{def useFormNameE390_B_1}-->
+                        <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                          <tr>
+                            <th width="100" class="no_search">学校生活<br>への期待<br>や願い</th>
+                            <td bgcolor="#ffffff">
+                              {rval data/ONES_HOPE_PRESENT}<BR>
+                              <font size=2 color="red">&nbsp;{rval data/ONES_HOPE_PRESENT_COMMENT}</font>
+                              <span id="statusarea_ONES_HOPE_PRESENT" style="color:blue">残り文字数</span>
+                            </td>
+                          </tr>
+                        </table>
+                        <!--{/def}-->
+                        <!--{def NotuseFormNameE390_B_1}-->
+                        <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                          <tr height="30">
+                            <th class="no_search" nowrap colspan="2">学校生活への期待や願い</th>
+                          </tr>
+                          <tr>
+                            <th width="100" class="no_search">本人</th>
+                            <td bgcolor="#ffffff">
+                              {rval data/ONES_HOPE_PRESENT}<BR>
+                              <font size=2 color="red">&nbsp;{rval data/ONES_HOPE_PRESENT_COMMENT}</font>
+                              <span id="statusarea_ONES_HOPE_PRESENT" style="color:blue">残り文字数</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th class="no_search">保護者</th>
+                            <td bgcolor="#ffffff">
+                              {rval data/GUARDIAN_HOPE_PRESENT}<BR>
+                              <font size=2 color="red">&nbsp;{rval data/GUARDIAN_HOPE_PRESENT_COMMENT}</font>
+                              <span id="statusarea_GUARDIAN_HOPE_PRESENT" style="color:blue">残り文字数</span>
+                            </td>
+                          </tr>
+                        </table>
+                        <!--{/def}-->
+                      </td>
+                    </tr>
+
+                    <tr height="20"><td></td></tr>
+
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                          <tr>
+                            <th width="100" class="no_search">支援目標</th>
+                            <td bgcolor="#ffffff" colspan="3">
+                              {rval data/SUPPORT_GOAL}<BR>
+                              <font size=2 color="red">&nbsp;{rval data/SUPPORT_GOAL_COMMENT}</font>
+                              <span id="statusarea_SUPPORT_GOAL" style="color:blue">残り文字数</span>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+
+                    <tr height="20"><td></td></tr>
+
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                          <tr class="no_search" height="30">
+                            <th width="20%" nowrap colspan="2"></th>
+                            <th width="35%">{rval data/STATUS_NAME}</th>
+                            <th width="20%">{rval data/STATUS2_NAME}</th>
+                            <th width="25%">{rval data/STATUS3_NAME}</th>
+                          </tr>
+                          <!--{def data2}--><!--{each data2}-->
+                          <tr>
+                            <!--{def data2/ROW_NAME}-->
+                            <th width="5%" class="no_search" {rval data2/ROWSPAN}>{rval data2/ROW_NAME}</th>
+                            <!--{/def}-->
+                            <th width="15%" class="no_search" nowrap>{rval data2/DATA_DIV_NAME}</th>
+                            <td width="35%" bgcolor="#ffffff">
+                              {rval data2/STATUS}<BR>
+                              <font size=2 color="red">&nbsp;{rval data2/STATUS_COMMENT}</font>
+                              <span id="statusarea_DIV{rval data2/CNT}_STATUS" style="color:blue">残り文字数</span>
+                            </td>
+                            <td width="20%" bgcolor="#ffffff">
+                              {rval data2/STATUS2}<BR>
+                              <font size=2 color="red">&nbsp;{rval data2/STATUS2_COMMENT}</font><BR>
+                              <span id="statusarea_DIV{rval data2/CNT}_STATUS2" style="color:blue">残り文字数</span>
+                            </td>
+                            <td width="25%" bgcolor="#ffffff">
+                              {rval data2/STATUS3}<BR>
+                              <font size=2 color="red">&nbsp;{rval data2/STATUS3_COMMENT}</font><BR>
+                              <span id="statusarea_DIV{rval data2/CNT}_STATUS3" style="color:blue">残り文字数</span>
+                          </tr>
+                          <!--{/each}--><!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+
+                    <tr height="20"><td></td></tr>
+
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                          <tr class="no_search">
+                            <th nowrap>{rval data/STATUS4_NAME}</th>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              {rval data/RECORD}<BR>
+                              <font size=2 color="red">&nbsp;{rval data/RECORD_COMMENT}</font>
+                              <span id="statusarea_RECORD" style="color:blue">残り文字数</span>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            {rval button/btn_replace}{rval button/btn_replace2}{rval button/btn_replace3}{rval button/btn_replace4}{rval button/btn_replace5}　　{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}<BR>{rval data/BACKUP_DATE}{rval button/btn_rireki}
+          </td>
+        </tr>
+<!--{/def}-->
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->

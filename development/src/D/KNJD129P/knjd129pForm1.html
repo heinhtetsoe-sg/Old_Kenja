@@ -1,0 +1,284 @@
+{rval start} 
+{rval IFRAME}
+<style type="text/css">
+#tyousei {
+    height : 76px;
+}
+#tyousei2 {
+    height : 25px;
+}
+#tyousei3 {
+    height : 50px;
+}
+#tyousei4 {
+    height : 40px;
+}
+</style>
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td>
+      <table width="1200" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search" height="40">
+                        <td width="*%" nowrap>
+                          &nbsp;処理科目(
+                          <!--{def SUBCLASS_DIV1_LABEL}-->
+                          {rval SUBCLASS_DIV1}<LABEL for="SUBCLASS_DIV1">{rval SUBCLASS_DIV1_LABEL}</LABEL>&nbsp;
+                          <!--{/def}-->
+                          <!--{def SUBCLASS_DIV2_LABEL}-->
+                          {rval SUBCLASS_DIV2}<LABEL for="SUBCLASS_DIV2">{rval SUBCLASS_DIV2_LABEL}</LABEL>&nbsp;
+                          <!--{/def}-->
+                          <!--{def SUBCLASS_DIV3_LABEL}-->
+                          {rval SUBCLASS_DIV3}<LABEL for="SUBCLASS_DIV3">{rval SUBCLASS_DIV3_LABEL}</LABEL>&nbsp;
+                          <!--{/def}-->
+                          {rval SUBCLASS_DIV4}<LABEL for="SUBCLASS_DIV4">{rval SUBCLASS_DIV4_LABEL}</LABEL>&nbsp;
+                          {rval SUBCLASS_DIV5}<LABEL for="SUBCLASS_DIV5">{rval SUBCLASS_DIV5_LABEL}</LABEL>&nbsp;
+                          {rval SUBCLASS_DIV6}<LABEL for="SUBCLASS_DIV6">{rval SUBCLASS_DIV6_LABEL}</LABEL>
+                          )<BR>
+                          &nbsp;処理年度：{rval YEAR}年度
+                          <!--{def use_school_detail_gcm_dat}-->
+                          &nbsp;　課程学科：{rval COURSE_MAJOR}
+                          <!--{/def}-->
+                          &nbsp;　科目：{rval SUBCLASSCD}
+                          &nbsp;　学級・講座：{rval CHAIRCD}&nbsp;&nbsp;移動方向({rval MOVE_ENTER1}<LABEL for="MOVE_ENTER1">縦</LABEL>　{rval MOVE_ENTER2}<LABEL for="MOVE_ENTER2">横</LABEL>)
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" id="tyousei">
+                        <th width="88" nowrap>クラス-<br>出席番号</th>
+                        <th width="180" nowrap>氏名</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+            <td>
+            <div id="trow" style="overflow:hidden; width: 878px;">
+            <div style="width: {rval WIDTH}; ">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" id="tyousei2">
+                        {rval HEAD2}
+                        <th colspan="3" nowrap>累積情報</th>
+                        <!--{each moto_subclass}-->
+                        <th colspan="3" nowrap>{rval moto_subclass/LABEL}</hd>
+                        <!--{/each}-->
+                      </tr>
+                      <tr class="no_search" id="tyousei3">
+                        <th width="57" nowrap>授業<br>時数</th>
+                        <th width="57" nowrap>出席<br>すべき<br>時数</th>
+                        <th width="57" nowrap>欠時数</th>
+                        <!--{each moto_subclass}-->
+                        <th width="57" nowrap>授業<br>時数</th>
+                        <th width="57" nowrap>出席<br>すべき<br>時数</th>
+                        <th width="57" nowrap>欠時数</th>
+                        <!--{/each}-->
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+            </div>
+            </td>
+          </tr>
+          <tr valign="TOP">
+            <td>
+              <div id="tcol" style="overflow: hidden; height: 343px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr id="tyousei4">
+                          <td width="88" align="center" bgcolor="{rval data/COLOR}">{rval data/ATTENDNO}</td>
+                          <td width="180"  align="left" bgcolor="{rval data/COLOR}">{rval data/SCHREGNO_SHOW}{rval data/NAME_SHOW}</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+            </td>
+            <td>
+              <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 895px; height: 360px;">
+              <div style="width: {rval WIDTH};">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr id="tyousei4">
+                          {rval data/MEISAI}
+                          {rval data/MOTO_ATTEND}
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </div>
+            </td>
+          </tr>
+<!--
+フッター
+-->
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" id="tyousei2">
+                        <th width="275">合計</th>
+                      </tr>
+                      <tr class="no_search" id="tyousei2">
+                        <th>平均</th>
+                      </tr>
+                      <tr class="no_search" id="tyousei2">
+                        <th>最高点</th>
+                      </tr>
+                      <tr class="no_search" id="tyousei2">
+                        <th>最低点</th>
+                      </tr>
+                      <tr class="no_search" id="tyousei2">
+                        <th>成績入力完了</th>
+                      </tr>
+                  </table>
+                  </td>
+                </tr>
+            </table>
+            </td>
+            <td>
+            <div id="trow2" style="overflow:hidden; width: 878px;">
+            <div style="width: {rval WIDTH}; ">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" id="tyousei2">
+                        {rval SCORE_SUM}
+                        <th width="186" rowspan="5">{rval CUR_DATE}</th>
+                        <!--{each moto_subclass}-->
+                        <th width="186" rowspan="5"></th>
+                        <!--{/each}-->
+                      </tr>
+                      <tr class="no_search" id="tyousei2">
+                        {rval SCORE_AVG}
+                      </tr>
+                      <tr class="no_search" id="tyousei2">
+                        {rval SCORE_MAX}
+                      </tr>
+                      <tr class="no_search" id="tyousei2">
+                        {rval SCORE_MIN}
+                      </tr>
+                      <tr class="no_search" id="tyousei2">
+                        {rval CHK_COMP}
+                      </tr>
+                  </table>
+                  </td>
+                </tr>
+            </table>
+            </div>
+            </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table width="1200" border="0" cellspacing="0" cellpadding="0" >
+          <tr class="no_search_line">
+            <th>
+              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr>
+                  <td class="no_search">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr class="no_search">
+                        <td width="*%" align="center" nowrap>
+<!--{def useCsv}-->
+                        {rval FILE}
+<!--{/def}-->
+                        </td>
+                        <td width="40%" align="center" nowrap>
+                        {val btn_update}{val btn_reset}{val btn_end}<!--{val btn_print}-->
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </th>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish} 
+<script language="JavaScript">
+ var a_mark = new Array();
+<!--{def data2}-->
+<!--{each data2}--> 
+ a_mark[{rval data2/ASSESSLEVEL}] = '{rval data2/ASSESSMARK}';
+<!--{/each}-->
+<!--{/def}-->
+{rval close_win}</script>

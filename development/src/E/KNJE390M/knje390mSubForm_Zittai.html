@@ -1,0 +1,114 @@
+﻿{rval start}
+{rval IFRAME}
+
+<!--{def data}-->
+<!--{def button}-->
+
+<br>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="180" nowrap bgcolor="#FF7F27" align="center">
+            <b><font size="3" color="#FFFFFF">実態表</font></b>
+          </td>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            {rval button/btn_jisshu}　　{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr height="30">
+                <td>
+                  <font color="black">作成履歴:</font>{rval data/SPACE}{rval data/RECORD_HISTORY}&nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_copy}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="5">
+
+                          <tr>
+                            <th align="center" width="10%" class="no_search" nowrap colspan="2">※ 作成年月日</th>
+                            <td align="left" bgcolor="#ffffff" colspan="2">&nbsp;{rval data/RECORD_DATE}<BR>
+                          </tr>
+                          <tr>
+                            <th align="center" width="10%" class="no_search" nowrap colspan="2">担任名</th>
+                            <td align="left" bgcolor="#ffffff" colspan="2">&nbsp;{rval data/RECORD_STAFFNAME}<BR>
+                            <font size=2 color="red">&nbsp;{rval data/RECORD_STAFFNAME_COMMENT}</font>
+                          </tr>
+                          <tr>
+                            <th align="center" width="90%" class="no_search" nowrap colspan="2">障害名等</th>
+                            <td align="left" bgcolor="#ffffff" colspan="2">&nbsp;{rval data/CHALLENGED_NAMES}<BR>
+                            <font size=2 color="red">&nbsp;{rval data/CHALLENGED_NAMES_COMMENT}</font>
+                             {rval button/btn_statusname}{rval button/btn_Btorikomi}{rval data/TORIKOMI_B_DATE}<br>
+                          </tr>
+
+                          <tr>
+                            <th align="center" width="10%" class="no_search" nowrap colspan="2"></th>
+                            <!--{def WIN_PATTERN1}-->
+                            <th align="center" class="no_search" colspan="2" nowrap>{rval data/STATUS_NAME}
+                            <!--{/def}-->
+                            <!--{def WIN_PATTERN2}-->
+                            <th align="center" class="no_search" nowrap>{rval data/STATUS_NAME}
+                            <th align="center" class="no_search" nowrap>{rval data/GROWUP_NAME}
+                            <!--{/def}-->
+                          </tr>
+                          <!--{each list}-->
+                          <tr>
+                            <th align="center" width="10%" class="no_search" colspan="2">{rval list/DATA_DIV_NAME}</th>
+                            <!--{def WIN_PATTERN1}-->
+                            <td align="left" bgcolor="#ffffff" colspan="2">{rval list/STATUS}<BR>
+                            <font size=2 color="red">&nbsp;{rval list/STATUS_COMMENT}</font> {rval list/btn_assess1}</td>
+                            <!--{/def}-->
+                            <!--{def WIN_PATTERN2}-->
+                            <td align="left" bgcolor="#ffffff">{rval list/STATUS}<BR>
+                            <font size=2 color="red">&nbsp;{rval list/STATUS_COMMENT}</font> {rval list/btn_assess1}</td>
+                            <td align="left" bgcolor="#ffffff">{rval list/GROWUP}<BR>
+                            <font size=2 color="red">&nbsp;{rval list/GROWUP_COMMENT}</font> {rval list/btn_assess2}</td>
+                            <!--{/def}-->
+                          </tr>
+                          <!--{/each}-->
+
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            {rval button/btn_jisshu}　　{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}<BR>{rval data/BACKUP_DATE}
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript"></script>
+<!--{/def}-->

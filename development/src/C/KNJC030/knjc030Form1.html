@@ -1,0 +1,145 @@
+{rval start}
+<style type="text/css">
+<!--
+    .tablespace {color:white; background-color:white; text-align:left }
+    .subtitle {color:white; background-color:#316F9B; font-size:13pt }
+    .stfn {color:black; background-color:white; text-align:left }
+    .rstfn {color:black; background-color:#FFFFCC; text-align:left; font-weight:bold}
+-->
+</style>
+<BR>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10" >
+      <tr> 
+      <td width="70%" > 
+        <table width="100%" border="0" cellspacing="1" cellpadding="6">
+          <tr class="no_search"> 
+            <th colspan = "2">
+            {rval TOP/CONFIRMATION}&nbsp;
+            {rval btn_before} &nbsp;
+            {rval control/executedate} &nbsp;
+            {rval btn_next} &nbsp; {rval btn_end}
+            </th>
+          </tr>
+        </table>
+      </td>
+      <td width="30%" >
+        <table width="100%" border="0" cellspacing="1" cellpadding="10" bgcolor="black">
+          <tr class="no_search">
+            <th width="*%" BGCOLOR="#ffffff"><font color="silver"> 授業無 </font></th>
+            <th width="*%" BGCOLOR="#3399ff"><font color="#ffffff"> 出欠済 </font></th>
+            <th width="*%" BGCOLOR="#ff0099"><font color="#ffffff"> 出欠未 </font></th>
+            <th width="*%" BGCOLOR="#ffff00"><font color="black"> 出欠中 </font></th>
+          </tr>
+        </table>
+      </td>
+      </tr>
+    </table>
+
+    <table width="100%">
+      <tr align="center">
+        <td>
+            <div style="margin-left:200px">表示データ：{rval CNTL_DT_KEY}</div>
+        </td>
+        <td>
+            <font color="red">&nbsp;○：欠課集計あり（授業以外）&nbsp;&nbsp;&nbsp;&nbsp;×：欠課集計なし&nbsp;<br>(無印)：欠課集計あり（授業の場合）&nbsp;&nbsp;△：一部欠課集計なし</font>
+        </td>
+      </tr>
+    </table>
+
+  </td>
+  </tr>
+  <tr> 
+  <td> 
+    <table align="center" width="100%" border="0" cellspacing="0" cellpadding="10">
+      <tr> 
+      <td >
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+          <td>
+<!-- ADD 2005/11/04 by ameku -->
+<!--{def DHEADER}-->
+        <div id="dheader" style="width:auto">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+            <td>
+               <table  id="tbl" width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="silver">
+                <tr class="tablespace" nowrap>
+                 {rval TITLE/Jumper}
+                 {rval TITLE/Jump_target}
+                 {rval TITLE/TARGETCLASS}
+                 {rval TITLE/PERIODCD0}
+                 {rval TITLE/PERIODCD1}
+                 {rval TITLE/PERIODCD2}
+                 {rval TITLE/PERIODCD3}
+                 {rval TITLE/PERIODCD4}
+                 {rval TITLE/PERIODCD5}
+                 {rval TITLE/PERIODCD6}
+                 {rval TITLE/PERIODCD7}
+                 {rval TITLE/PERIODCD8}
+                 {rval TITLE/PERIODCD9}
+                </tr>
+              </table>
+            </td>
+            </tr>
+          </table>
+        </div>
+<!--{/def}-->
+<!-- ADD 2005/11/04 by ameku -->
+            <div style="width:980px;height:590; overflow-y:scroll; overflow-x:auto">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td>
+                  <table  id="tbl" width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="silver">
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}--> 
+                    <tr class="tablespace" nowrap>
+                     {rval data/Jumper}
+                     {rval data/Jump_target}
+                     {rval data/TARGETCLASS}
+                     {rval data/PERIODCD0}
+                     {rval data/PERIODCD1}
+                     {rval data/PERIODCD2}
+                     {rval data/PERIODCD3}
+                     {rval data/PERIODCD4}
+                     {rval data/PERIODCD5}
+                     {rval data/PERIODCD6}
+                     {rval data/PERIODCD7}
+                     {rval data/PERIODCD8}
+                     {rval data/PERIODCD9}
+                     {rval data/TARGETCLASS2}
+                     {rval data/PERIODCD10}
+                     {rval data/PERIODCD11}
+                     {rval data/PERIODCD12}
+                     {rval data/PERIODCD13}
+                     {rval data/PERIODCD14}
+                     {rval data/PERIODCD15}
+                     {rval data/PERIODCD16}
+                     {rval data/PERIODCD17}
+                     {rval data/PERIODCD18}
+                     {rval data/PERIODCD29}
+                     {rval data/PERIODCD20}
+                     {rval data/PERIODCD21}
+                    </tr>
+                    <!--{/each}--> 
+                    <!--{/def}--> 
+                  </table>
+                </td>
+                </tr>  
+              </table>  
+            </div>
+          </td>
+          </tr>
+        </table>
+      </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval Closing}{rval jumping}{rval update_chk}</script>
+

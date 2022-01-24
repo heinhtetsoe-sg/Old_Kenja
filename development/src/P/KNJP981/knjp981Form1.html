@@ -1,0 +1,68 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+  <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr >
+      <td >
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" height="25">
+                <th norwarp width="25%" align="left">対象年度&nbsp;{rval year}　<!--{def schkind}-->{rval SCHOOL_KIND}<!--{/def}--></th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr height="10">
+          <td></td>
+        </tr>
+
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" height="25">
+              <th nowrap rowspan="2">預り金科目<BR>コード</th>
+              <th nowrap colspan="3">預り金項目</th>
+              <th nowrap rowspan="2">預り金細目<BR>有無</th>
+              <th nowrap rowspan="2">雑収入</th>
+              <th nowrap rowspan="2">繰越金</th>
+              <th nowrap rowspan="2">予備費</th>
+              <th nowrap rowspan="2">備考</th>
+            </tr>
+            <tr class="no_search" height="25">
+              <th nowrap>区分</th>
+              <th nowrap>コード</th>
+              <th nowrap>名称</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+            <!--{each data}-->
+            <tr>
+            <!--{def data/ROWSPAN}-->
+              <td nowrap bgcolor="#ffffff" align="center" rowspan={rval data/ROWSPAN}>{val data/LEVY_L_CD}</td>
+            <!--{/def}-->
+              <td nowrap bgcolor="#ffffff">{val data/LEVY_IN_OUT_DIV}</td>
+              <td nowrap bgcolor="#ffffff" align="center">{val data/LEVY_M_CD}</td>
+              <td nowrap bgcolor="#ffffff">{val data/LEVY_M_NAME}</td>
+              <td nowrap bgcolor="#ffffff" align="center">{val data/LEVY_S_EXIST_FLG}</td>
+              <td nowrap bgcolor="#ffffff" align="center">{val data/ZATU_FLG}</td>
+              <td nowrap bgcolor="#ffffff" align="center">{val data/KURIKOSI_FLG}</td>
+              <td nowrap bgcolor="#ffffff" align="center">{val data/YOBI_FLG}</td>
+              <td nowrap bgcolor="#ffffff">{val data/REMARK}</td>
+            </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

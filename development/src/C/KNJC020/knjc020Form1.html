@@ -1,0 +1,197 @@
+{rval start}
+<style type="text/css">
+<!--
+    .tablespace {color:white; background-color:white; text-align:center }
+    .subtitle {color:white; background-color:#316F9B; font-size:13pt }
+    .stfn {color:black; background-color:white; text-align:left }
+    .rstfn {color:black; background-color:#FFFFCC; text-align:left; font-weight:bold}
+-->
+</style>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+      <th valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+          <tr>
+            <td width="76%">
+              <table width="100%" border="0" cellspacing="1" cellpadding="6" bgcolor="#000066">
+                <tr class="no_search" nowrap>
+                  <th>{rval TOP/THIS_YEAR}</th>
+                  <th>
+                      {rval sub_combo}&nbsp;
+                      {rval btn_before}&nbsp;
+                      {rval control/executedate}&nbsp;
+                      {rval btn_next}&nbsp;
+                  </th>
+                </tr>
+              </table>
+            </td>
+            <th width="24%">
+                <table width="90%" height="90%" border="0" cellspacing="1" cellpadding="10" bgcolor="#000066">
+                  <tr nowrap>
+                    <th BGCOLOR="#ffffff"><font color="silver">授業無</font></th>
+                    <th BGCOLOR="#3399ff"><font color="#ffffff">出欠済</font></th>
+                    <th BGCOLOR="#ff0099"><font color="#ffffff">出欠未</font></th>
+                    <th BGCOLOR="#ffff00"><font color="black">出欠中</font></th>
+                  </tr>
+                </table>
+            </th>
+          </tr>
+        </table>
+        <table width="100%">
+          <tr align="center">
+            <td>
+                <div style="margin-left:200px">表示データ：{rval CNTL_DT_KEY}</div>
+            </td>
+            <td>
+                <font color="red">&nbsp;○：欠課集計あり（授業以外）&nbsp;&nbsp;&nbsp;&nbsp;×：欠課集計なし&nbsp;<br>(無印)：欠課集計あり（授業の場合）&nbsp;&nbsp;△：一部欠課集計なし</font>
+            </td>
+          </tr>
+        </table>
+      </th>
+  </tr>
+  <tr>
+  <td>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+      <tr>
+      <td>
+<!-- ADD 2005/11/04 by ameku -->
+<!--{def DHEADER}-->
+        <div id="dheader" style="width:auto">
+          <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+            <td>
+              <table id="theader" border="0" cellspacing="1" cellpadding="0" bgcolor="silver">
+                <tr class="tablespace" nowrap>
+                 {rval TITLE/SUBJECT}
+                 {rval TITLE/Jumper}
+                 {rval TITLE/Jump_target}
+                 {rval TITLE/NAME_SHOW}
+                 {rval TITLE/PERIODCD0}
+                 {rval TITLE/PERIODCD1}
+                 {rval TITLE/PERIODCD2}
+                 {rval TITLE/PERIODCD3}
+                 {rval TITLE/PERIODCD4}
+                 {rval TITLE/PERIODCD5}
+                 {rval TITLE/PERIODCD6}
+                 {rval TITLE/PERIODCD7}
+                 {rval TITLE/PERIODCD8}
+                 {rval TITLE/PERIODCD9}
+                </tr>
+              </table>
+            </td>
+            </tr>
+          </table>
+        </div>
+<!--{/def}-->
+<!-- ADD 2005/11/04 by ameku -->
+        <div id="dbody" style="width:950px;height:500; overflow-y:scroll; overflow-x:auto">
+          <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+            <td>
+              <table id="tbody" border="0" cellspacing="1" cellpadding="0" bgcolor="silver">
+                <!--{def data}-->
+                <!--結果一覧-->
+                <!--{each data}-->
+                <tr class="tablespace" nowrap>
+                 {rval data/SUBJECT}
+                 {rval data/Jumper}
+                 {rval data/Jump_target}
+                 {rval data/NAME_SHOW}
+                 {rval data/PERIODCD0}
+                 {rval data/PERIODCD1}
+                 {rval data/PERIODCD2}
+                 {rval data/PERIODCD3}
+                 {rval data/PERIODCD4}
+                 {rval data/PERIODCD5}
+                 {rval data/PERIODCD6}
+                 {rval data/PERIODCD7}
+                 {rval data/PERIODCD8}
+                 {rval data/PERIODCD9}
+                 {rval data/PERIODCD10}
+                 {rval data/SUBJECT2}
+                 {rval data/NAME_SHOW2}
+                 {rval data/PERIODCD11}
+                 {rval data/PERIODCD12}
+                 {rval data/PERIODCD13}
+                 {rval data/PERIODCD14}
+                 {rval data/PERIODCD15}
+                 {rval data/PERIODCD16}
+                 {rval data/PERIODCD17}
+                 {rval data/PERIODCD18}
+                 {rval data/PERIODCD29}
+                 {rval data/PERIODCD20}
+                 {rval data/PERIODCD21}
+                </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+              </table>
+            </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+  <tr>
+    <th>
+      <table width="100%" border="0" cellspacing="1" cellpadding="3"  bgcolor="#000066"> 
+        <tr>
+          <th class="no_search">
+              {rval btn_detail}&nbsp;{rval btn_confirm}&nbsp;{rval btn_update}&nbsp;{rval btn_jump}&nbsp;
+              {rval btn_end}
+          </th>
+        </tr>
+      </table>
+    </th>
+  </tr>
+
+<div id="dialogdemo1">
+<p><br>・全員出席ボタンが押されましたが、欠課情報が入力済みの生徒がいる場合<BR>でも全員出席になります。このまま実行してよろしいですか？</p>
+</div>
+
+<script type="text/javascript">
+$('#dialogdemo1').dialog({
+    autoOpen: false,
+    title: "タイトル",
+    dialogClass: 'noTitleDialog',
+    show: "slide",
+    modal: false,
+    width: 500,
+    height: 230,
+    open: function (event, ui) {
+        $('.ui-dialog-titlebar', ui.panel).hide();
+    },
+    buttons: {
+        "はい": function(){
+            btn_submit('update2');
+            $(this).dialog('close');
+        },
+        "いいえ": function() {
+            $(this).dialog("close");
+        },
+        "入力画面へ移行": function() {
+            jumpClick();
+            $(this).dialog("close");
+        }
+    }
+});
+</script>
+<style>
+.ui-button-text {
+    font-size: 0.8em;
+    padding: 0.1em !important;
+}
+.ui-dialog-content {
+    font-size: 0.9em;
+}
+</style>
+
+</table>
+{rval finish}
+<script language="JavaScript">
+var URLS = '{rval URLS}';
+{rval Closing}{rval jumping}{rval celcolchan}{rval update_chk}
+window.onunload=function(){if (newWin) newWin.close();}</script>
+

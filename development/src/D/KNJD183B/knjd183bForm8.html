@@ -1,0 +1,168 @@
+{rval start}
+<!--{def button}-->
+<!--{def data}-->
+
+<table width="850" border="0" cellpadding="0" cellspacing="10" align="center" style="margin-top:50px;">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="10">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr class="no_search">
+                <td>
+                  <div style="width:80%;float:left">　　　　対象年度：{rval data/YEAR}　　　　　　{rval button/btn_copy}
+                  </div>
+                  <div style="width:20%;float:left;text-align:right">Pattern:{rval pattern}</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr class="no_search">
+                <th width="25%">項目</th>
+                <th width="75%">値</th>
+              </tr>
+
+              <tr>
+                <td class="no_search" nowrap>&nbsp;校種</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="100%" nowrap>{rval data/SCHOOL_KIND}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="no_search" nowrap>&nbsp;帳票パターン</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="100%" nowrap>
+                        {rval data/TYOUHYOU_PATTERN1}<label for="TYOUHYOU_PATTERN1">知的用</label>
+                        &nbsp;{rval data/TYOUHYOU_PATTERN2}<label for="TYOUHYOU_PATTERN2">準ずる教育用</label>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="no_search" nowrap>&nbsp;主に使用する様式</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="100%" nowrap>
+                        <!--{each yousikiList}-->
+                        {rval yousikiList/SEP}{rval yousikiList/RADIO}<label for="{rval yousikiList/ID}">{rval yousikiList/LABEL}</label>
+                        <!--{/each}-->
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="no_search" nowrap>&nbsp;表題（表紙）</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="100%" nowrap>{rval data/SEQ001}<font color="red">(全角10文字まで)</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="no_search" nowrap>&nbsp;クラス表示（表紙）</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="100%" nowrap>
+                        {rval data/SEQ0041}<label for="SEQ0041">学年のみ表示する</label>
+                        &nbsp;{rval data/SEQ0042}<label for="SEQ0042">年組(法定)を表示する</label>
+                        &nbsp;{rval data/SEQ0043}<label for="SEQ0043">年組(実クラス)を表示する</label>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="no_search" nowrap>&nbsp;担任表示（表紙）</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="100%" nowrap>
+                        {rval data/SEQ0031}<label for="SEQ0031">法定クラスの担任を表示する</label>
+                        &nbsp;{rval data/SEQ0032}<label for="SEQ0032">実クラスの担任を表示する</label>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+<!--{def titeki}-->
+              <tr>
+                <td class="no_search" nowrap>&nbsp;年間目標</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="100%" nowrap>
+                        {rval data/SEQ0091}<label for="SEQ0091">表示する</label>
+                        &nbsp;{rval data/SEQ0092}<label for="SEQ0092">表示しない</label>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+<!--{/def}-->
+
+              <tr>
+                <td class="no_search" nowrap>&nbsp;行動の記録</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="100%" nowrap>
+                        {rval data/SEQ0081}<label for="SEQ0081">表示する</label>
+                        &nbsp;{rval data/SEQ0082}<label for="SEQ0082">表示しない</label>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="no_search" nowrap>&nbsp;家庭より</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="100%" nowrap>
+                        {rval data/SEQ0121}<label for="SEQ0121">表示する</label>
+                        &nbsp;{rval data/SEQ0122}<label for="SEQ0122">表示しない</label>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="no_search" nowrap colspan="2" align="right">
+                  &nbsp;{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}

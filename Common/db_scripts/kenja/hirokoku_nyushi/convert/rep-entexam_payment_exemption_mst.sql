@@ -1,0 +1,58 @@
+
+drop table ENTEXAM_PAYMENT_EXEMPTION_MST_OLD
+
+rename table ENTEXAM_PAYMENT_EXEMPTION_MST to ENTEXAM_PAYMENT_EXEMPTION_MST_OLD
+
+create table ENTEXAM_PAYMENT_EXEMPTION_MST( \
+    ENTEXAMYEAR      VARCHAR(4)   NOT NULL, \
+    APPLICANTDIV     VARCHAR(1)   NOT NULL, \
+    DIV              VARCHAR(1)   NOT NULL, \
+    ITEM_CD          VARCHAR(2)   NOT NULL, \
+    KIND_CD          VARCHAR(1)   NOT NULL, \
+    EXEMPTION_CD     VARCHAR(2)   NOT NULL, \
+    EXEMPTION_MONEY  INTEGER     , \
+    REGISTERCD       VARCHAR(10) , \
+    UPDATED          TIMESTAMP    DEFAULT CURRENT TIMESTAMP \
+ ) in usr1dms index in idx1dms
+
+alter table ENTEXAM_PAYMENT_EXEMPTION_MST add constraint PK_ENTEXAM_PA_E_M primary key (ENTEXAMYEAR,APPLICANTDIV,DIV,ITEM_CD,KIND_CD,EXEMPTION_CD)
+
+insert into ENTEXAM_PAYMENT_EXEMPTION_MST( \
+    ENTEXAMYEAR, \
+    APPLICANTDIV, \
+    DIV, \
+    ITEM_CD, \
+    KIND_CD, \
+    EXEMPTION_CD, \
+    EXEMPTION_MONEY, \
+    REGISTERCD, \
+    UPDATED \
+ ) select  \
+    ENTEXAMYEAR, \
+    APPLICANTDIV, \
+    DIV, \
+    ITEM_CD, \
+    '1', \
+    EXEMPTION_CD, \
+    EXEMPTION_MONEY, \
+    REGISTERCD, \
+    UPDATED \
+ from ENTEXAM_PAYMENT_EXEMPTION_MST_OLD \
+ where ITEM_CD = '01' \
+    union all \
+   select  \
+    ENTEXAMYEAR, \
+    APPLICANTDIV, \
+    DIV, \
+    ITEM_CD, \
+    '2', \
+    EXEMPTION_CD, \
+    EXEMPTION_MONEY, \
+    REGISTERCD, \
+    UPDATED \
+ from ENTEXAM_PAYMENT_EXEMPTION_MST_OLD \
+ where ITEM_CD <> '01' 
+
+
+
+

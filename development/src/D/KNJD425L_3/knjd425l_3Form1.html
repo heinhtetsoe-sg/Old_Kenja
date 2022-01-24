@@ -1,0 +1,69 @@
+{rval start}
+{rval IFRAME}
+
+<style>
+  span.vertical_text {
+    text-align:center;
+    writing-mode:tb-rl;
+  }
+</style>
+  
+<!--{def button}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id="rightscreen" aria-label="{rval TITLE}">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <hr width="80%" align="left">
+                &nbsp;{rval TITLE}&nbsp;&nbsp;&nbsp;&nbsp;{rval SCHREGNO}：{val NAME}
+            <hr width="80%" align="left">
+          </td>
+        </tr>
+
+        <tr>
+          <td>{rval btn_zittai}</td>
+        </tr>
+        <tr>
+          <td>
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25px">
+                      <th colspan="2">{rval TITLE}</th>
+                    </tr>
+<!--{def list}-->
+<!--{each list}-->
+                    <tr class="no_search">
+                      <th width="20px"><span class="vertical_text">{rval list/SUBCLASSNAME}</span></th>
+                      <td bgcolor="#ffffff">
+                        {rval list/REMARK} {rval list/btn_nenkan}
+                        <br>{rval list/REMARK_SIZE}
+                      </td>
+                    </tr>
+<!--{/each}-->
+<!--{/def}-->
+                    <tr class="no_search">
+                      <td colspan="2" align="right">
+                        {rval button/btn_update}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+
+{rval finish}
+

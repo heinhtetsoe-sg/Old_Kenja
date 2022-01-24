@@ -1,0 +1,164 @@
+<!--knjxexp_prischoolForm1.html -->
+{rval start}
+<table width="80%" border="0" cellspacing="3" cellpadding="1">
+
+  <tr>
+    <td nowrap>
+    <table width="100%" border="0" cellspacing="5" cellpadding="0">
+      <tr>
+        <td valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr >
+              <td >
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr class="no_search_line">
+                    <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tr class="no_search">
+                          <td nowrap>　　　<< 塾検索 >></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellspacing="5" cellpadding="1">
+        <tr bgcolor="#006633">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="0" width="100%">
+
+              <!--{def prischoolcd}-->
+              <tr class="no_search">
+                <td nowrap>塾コード</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval PRISCHOOLCD}</td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def prischool_name}-->
+              <tr class="no_search">
+                <td nowrap>塾名</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval PRISCHOOL_NAME}</td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def prischool_kana}-->
+              <tr class="no_search">
+                <td nowrap>塾名かな</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval PRISCHOOL_KANA}</td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def prischool_class_name}-->
+              <tr class="no_search">
+                <td nowrap>教室名</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval PRISCHOOL_CLASS_NAME}</td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def prischool_class_kana}-->
+              <tr class="no_search">
+                <td nowrap>教室名かな</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval PRISCHOOL_CLASS_KANA}</td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def rosen_name}-->
+              <tr class="no_search">
+                <td nowrap>最寄路線名</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval ROSEN_NAME}</td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def nearest_station_name}-->
+              <tr class="no_search">
+                <td nowrap>最寄駅名</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval NEAREST_STATION_NAME}</td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def districtcd}-->
+              <tr class="no_search">
+                <td nowrap>地区</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval DISTRICTCD}</td>
+              </tr>
+              <!--{/def}-->
+
+              <tr class="no_search">
+                <td nowrap>{rval btn_search}</td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!--{def search}-->
+  <tr>
+    <td nowrap>
+    <table width="100%" border="0" cellspacing="5" cellpadding="0">
+      <tr>
+        <td valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr >
+              <td >
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr class="no_search_line">
+                    <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tr class="no_search">
+                          <th nowrap width="130" align="center">塾名</th>
+                          <th nowrap width="150">教室名</th>
+                        </tr>
+                        <!--{def data}-->
+                        <!--結果一覧-->
+                        <!--{each data}-->
+                        <tr bgcolor="#ffffff">
+                          <td nowrap align="left">{rval data/SELECT_PRISCHOOL_NAME}</td>
+                          <td nowrap align="left">{rval data/PRISCHOOL_CLASS_NAME}</td>
+                        </tr>
+                        <!--{/each}-->
+                        <!--{/def}-->
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <!--{/def}-->
+</table>
+{rval finish}
+<script language="javascript">{rval reload}{rval jscript}</script>

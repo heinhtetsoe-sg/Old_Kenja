@@ -1,0 +1,132 @@
+{rval start}
+{rval IFRAME}
+<script language="javascript">
+window.fep = '{rval fep}';
+</script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <div style="text-align:right">
+              <div style="float:left;width:300px;text-align:left;">
+                 <hr width="100%" align="left">
+                    {rval SCHREGNO}&nbsp;&nbsp;{val NAME}
+                 <hr width="100%" align="left">
+                <br>
+              </div>
+<!--{def useUpdownPDF}-->
+              <div style="float:left;width:30px;text-align:left;">
+                  &nbsp;
+              </div>
+              <div style="float:left;width:300px;text-align:left;">
+                <hr>
+                  ●添付書類PDF<br><br>
+                  <!--{each down}-->
+                  <a href="{rval down/PDF_URL}" target="_blank">{rval down/PDF_FILE_NAME}</a><br><br>
+                  <!--{/each}-->
+                <hr>
+              </div>
+<!--{/def}-->
+            </div>
+                     <br><!--{def chousasho_yomikomi}-->{rval btn_chousasho}<br><br><!--{/def}-->
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                                <td> 
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search">
+                                          <th colspan="2" width="20%">項 目</th>
+                                          <th width="80%">値</th>
+                                        </tr>
+<!--結果一覧-->
+<!--{def data}-->
+                                        <tr>
+                                          <th rowspan="2" class="no_search" nowrap>総<br>合<br>的<br>な<br>学<br>習<br>の<br>時<br>間<br>の<br>記<br>録<br>{rval button/btn_reload}</th>
+                                          <th align="right" class="no_search" nowrap Valign="top">活動内容<br>※1</th>
+                                          <td bgcolor="#ffffff">{rval data/TOTALSTUDYACT}<br><font size=2, color="red">(全角44文字X4行まで)</font><span id="statusarea1" style="color:blue">残り文字数</span></td>
+                                        </tr>
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap Valign="top">評価<br>※1</th>
+                                          <td bgcolor="#ffffff">{rval data/TOTALSTUDYVAL}<br><font size=2, color="red">(全角44文字X6行まで)</font><span id="statusarea2" style="color:blue">残り文字数</span></td>
+<!--{def tokyoto}-->
+                                        <tr>
+                                          <th rowspan="2" class="no_search" nowrap>奉<br>仕<br>の<br>記<br>録</th>
+                                          <th align="right" class="no_search" nowrap Valign="top">活動内容<br>※1</th>
+                                          <td bgcolor="#ffffff">{rval data/TOTALSTUDYACT2}<br>{rval data/DAIGAE_CHECK}<LABEL for="DAIGAE_CHECK">総合的な学習の時間で代替</LABEL>　<font size=2, color="red">(全角44文字X4行まで)</font><span id="statusarea3" style="color:blue">残り文字数</span></td>
+                                        </tr>
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap Valign="top">評価<br>※1</th>
+                                          <td bgcolor="#ffffff">{rval data/TOTALSTUDYVAL2}<br><font size=2, color="red">(全角44文字X6行まで)</font><span id="statusarea4" style="color:blue">残り文字数</span></td>
+                                        </tr>
+<!--{/def}-->
+                                        </tr>
+                                        <tr>
+                                          <th colspan="2" align="right" class="no_search" nowrap Valign="top">特別活動所見<br>※2</th>
+                                          <td bgcolor="#ffffff">{rval data/SPECIALACTREMARK}<br><font size=2, color="red">{rval data/SPECIALACTREMARK_TYUI}</font><span id="statusarea5" style="color:blue">残り文字数</span>　　{rval button/btn_committee}<!--{def useclubselect}-->{rval button/btn_club_spe}<!--{/def}--></td>
+                                        </tr>
+<!--{def button}-->
+<!--{def UNDER_ENT2018}-->
+                                        <tr>
+                                          <th colspan="2" align="right" class="no_search" nowrap Valign="top">総合所見<br>※2</th>
+                                          <td bgcolor="#ffffff">{rval data/TOTALREMARK}<br><font size=2, color="red">{rval data/TOTALREMARK_TYUI}</font><span id="statusarea6" style="color:blue">残り文字数</span>  {rval button/btn_popup}　{rval button/btn_club_total}{rval button/btn_club_kirokubikou}{rval button/btn_qualified}{rval button/btn_hyosyo}</td>
+                                        </tr>
+<!--{/def}-->
+<!--{def OVER_ENT2018}-->
+                                        <tr>
+                                          <th colspan="2" align="right" class="no_search" nowrap Valign="top">総合所見</th>
+                                          <td bgcolor="#ffffff">{rval data/TOTALREMARK}<br><font size=2, color="red">{rval data/TOTALREMARK_TYUI}</font>　　{rval button/btn_KNJE015}</td>
+                                        </tr>
+<!--{/def}-->
+                                        <tr>
+                                          <th colspan="2" align="right" class="no_search" nowrap Valign="top">出欠の記録備考<br>※2</th>
+<!--{/def}-->
+                                          <td bgcolor="#ffffff">
+                                            <table>
+                                              <tr>
+                                                <td>
+                                                  {rval data/ATTENDREC_REMARK}<br>
+                                                  <font size=2, color="red">(全角20文字X2行まで)</font><span id="statusarea7" style="color:blue">残り文字数</span>
+                                                </td>
+                                                <td>
+                                                  <!--{def tyousasyoSyukketsuKirokuBtn}-->
+                                                  {rval btn_syukketsu_sansyo}<br>
+                                                  <!--{/def}-->
+                                                  {rval SANSYO}<br>
+                                                  {rval TYOSASYO_SANSYO}<br>
+                                                </td>
+                                              </tr>
+                                              
+                                            </table>
+                                          </td>
+                                        </tr>
+<!--{def tokyoto}-->
+                                        <tr>
+                                          <th colspan="2" align="right" class="no_search" nowrap Valign="top">備考<br>※1</th>
+                                          <td bgcolor="#ffffff">{rval data/CREDITREMARK}<br><font size=2, color="red">(全角44文字X5行まで)</font><span id="statusarea8" style="color:blue">残り文字数</span></td>
+                                        </tr>
+<!--{/def}-->
+<!--{/def}-->
+<!--{def button}-->
+                                        <tr>
+                                          <th colspan="2" align="right" class="no_search" nowrap>&nbsp;</th>
+                                          <td bgcolor="#ffffff">{rval SEISEKI_SANSYO} {rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_end}
+                                          <br>{rval button/btn_check2}{rval button/btn_check1}&nbsp;&nbsp;{rval button/btn_print}<!--{def useUpdownPDF}--><br>●添付書類PDF　{rval up/FILE}&nbsp;&nbsp;{rval button/BTN_OK}<br>　<font color="red">ファイル名は日本語不可(英数字のみ)</font><!--{/def}-->
+                                          </td>
+                                        </tr>
+<!--{/def}-->
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+</table>
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->
+<script language="javascript">{rval reload}</script>

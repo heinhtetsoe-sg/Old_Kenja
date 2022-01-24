@@ -1,0 +1,85 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr></tr><tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td nowrap width="50%" align="center">対象年度：{rval YEAR}</td>
+                      <td nowrap width="50%" align="center">{rval btn_copy}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td nowrap width="23%" align="center">コース名</td>
+                      <td nowrap width="*" align="left">{rval COURSENAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="50%">特活グループ名</th>
+<!--{def title/ABSENCE_HIGH}-->
+                      <th nowrap width="20%">特活上限値</th>
+<!--{/def}-->
+<!--{def title/ABSENCE_WARN}-->
+                      <th nowrap width="10%">{rval title/ABSENCE_WARN}<br>欠課数<br>オｰバｰ</th>
+<!--{/def}-->
+<!--{def title/ABSENCE_WARN2}-->
+                      <th nowrap width="10%">{rval title/ABSENCE_WARN2}<br>欠課数<br>オｰバｰ</th>
+<!--{/def}-->
+<!--{def title/ABSENCE_WARN3}-->
+                      <th nowrap width="10%">{rval title/ABSENCE_WARN3}<br>欠課数<br>オｰバｰ</th>
+<!--{/def}-->
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td bgcolor="#ffffff"><a href="knjz203index.php?cmd=edit&GRADE={rval data/GRADE}&COURSECODE={rval data/COURSECODE}&COURSECD={rval data/COURSECD}&MAJORCD={rval data/MAJORCD}&SPECIAL_GROUP_CD={rval data/SPECIAL_GROUP_CD}&PROGRAMID={rval PROGRAMID}" target="right_frame">{rval data/SPECIAL_GROUP_CD}&nbsp;&nbsp;&nbsp;&nbsp;{rval data/SPECIAL_GROUP_NAME}</a></td>
+<!--{def title/ABSENCE_HIGH}-->
+                      <td bgcolor="#ffffff" align ="center">{rval data/ABSENCE_HIGH}</td>
+<!--{/def}-->
+<!--{def title/ABSENCE_WARN}-->
+                      <td bgcolor="#ffffff" align ="center">{rval data/ABSENCE_WARN}</td>
+<!--{/def}-->
+<!--{def title/ABSENCE_WARN2}-->
+                      <td bgcolor="#ffffff" align ="center">{rval data/ABSENCE_WARN2}</td>
+<!--{/def}-->
+<!--{def title/ABSENCE_WARN3}-->
+                      <td bgcolor="#ffffff" align ="center">{rval data/ABSENCE_WARN3}</td>
+<!--{/def}-->
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}

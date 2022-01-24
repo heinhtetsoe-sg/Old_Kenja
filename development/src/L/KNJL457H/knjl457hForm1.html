@@ -1,0 +1,70 @@
+{rval start}
+<style>
+  .trCenter {
+    height: 30px;
+    text-align: center;
+  }
+
+  .trNormal {
+    height: 30px;
+  }
+
+  .tdTitle {
+    width: 130px;
+    text-align: right;
+  }
+
+  .tdVal {
+    width: 350px;
+    background-color: #ffffff;
+  }
+
+  .tdBtn {
+    padding-left: 130px;
+  }
+</style>
+<table>
+  <tr height="250"></tr>
+</table>
+<table width="450px" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="5">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr class="no_search trCenter">
+                <td colspan="2"><B>入試年度：{rval data/YEAR}　奨学生データ抽出</B></td>
+              </tr>
+              <tr height="30">
+                <td class="no_search tdTitle">入試制度</td>
+                <td class="tdVal">{rval data/APPLICANTDIV}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search tdTitle">回数</td>
+                <td class="tdVal">{rval data/TESTDIV}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search tdTitle">奨学区分</td>
+                <td class="tdVal">{rval data/SYOGAKUDIV}</td>
+              </tr>
+              <!--{def showNoticeDate}-->
+              <tr height="30">
+                <td class="no_search tdTitle">決定発行通知日</td>
+                <td class="tdVal">{rval data/NOTICE_DATE}</td>
+              </tr>
+              <!--{/def}-->
+              <tr class="no_search trNormal">
+                <td class="tdBtn" colspan="2">
+                  {val btn_exec}{val btn_end}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

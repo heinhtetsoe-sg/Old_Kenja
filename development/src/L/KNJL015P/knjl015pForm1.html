@@ -1,0 +1,121 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" nowrap>
+                      <td width="100" align="center">入試年度</td>
+                      <td width="150" bgcolor="#ffffff" style="color:black; text-align:center">{rval TOP/YEAR}</td>
+                      <td width="100" align="center">※ 入試制度</td>
+                      <td width="150" bgcolor="#ffffff">{rval TOP/APPLICANTDIV}</td>
+                      <td width="100" align="center">※ 入試区分</td>
+                      <td width="*" bgcolor="#ffffff" style="color:black">{rval TOP/TESTDIV}</td>
+                    </tr>
+                    <tr class="no_search" nowrap>
+                      <td width="100" align="center">突合せ条件</td>
+                      <td width="*" bgcolor="#ffffff" style="color:black" colspan="5">
+                      {rval TOP/WHERE_DIV1}<LABEL for="WHERE_DIV1">名前＋出身学校</LABEL>　{rval TOP/WHERE_DIV2}<LABEL for="WHERE_DIV2">名前</LABEL>
+                      　　{rval TOP/KAKUTEI_DISP}<LABEL for="KAKUTEI_DISP">確定済みを表示する。</LABEL>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr bgcolor="#006633">
+          <td align="right">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" nowrap align="center"> 
+                            <th width="50" height="30" align="center">確定</th>
+                            <th width="100" align="center" nowrap>受験番号</th>
+                            <th width="100" align="center" nowrap>確定番号</th>
+                            <td width="200" align="center" nowrap>氏名</th>
+                            <td width="200" align="center" nowrap>出身学校</th>
+                            <th width="100" align="center" nowrap>前期 受験番号</th>
+                            <td width="200" align="center" nowrap>前期 氏名</th>
+                            <td width="*" align="center" nowrap>前期 出身学校</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                <div style="width: 100%; height: 505; overflow: auto">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{def data}-->
+<!--結果一覧-->
+<!--{each data}--> 
+                          <tr bgcolor="#ffffff" bgcolor="no_search" id="ROWID{rval data/SETKEY}" nowrap>
+                            <td width="50" align="center">{rval data/CHK_DATA}</th>
+                            <td width="100" align="center" nowrap>{rval data/RECEPTNO}</th>
+                            <td width="100" align="center" nowrap>{rval data/ZENKI_EXAMNO}</th>
+                            <td width="200" align="left" nowrap>{rval data/NAME}</th>
+                            <td width="200" align="left" nowrap>{rval data/FINSCHOOL_NAME}</th>
+                            <td width="100" align="center" nowrap>{rval data/RECEPTNO2}</th>
+                            <td width="200" align="left" nowrap>{rval data/NAME2}</th>
+                            <td width="*" align="left" nowrap>{rval data/FINSCHOOL_NAME2}</th>
+                          </tr>
+<!--{/each}-->
+<!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" nowrap>
+                            <th align="right" nowrap></th>
+                            <th width="30%" align="left" bgcolor="#ffffff" nowrap>{rval btn_update}{rval btn_reset}{rval btn_end}　{rval button/btn_print}</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">
+change_flg = false;
+</script>
+{rval finish}

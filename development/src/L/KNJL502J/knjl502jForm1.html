@@ -1,0 +1,58 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="10" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" height="25">
+                      <th norwarp width="17%" nowrap>学校種別</th>
+                      <td norwarp width="*" bgcolor="#ffffff">{rval APPLICANTDIV}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="20%">コード</th>
+                      <th nowrap width="40%">名称</th>
+                      <th nowrap width="40%">入試科目</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/ROWSPAN2}-->
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN2} align="center">{rval data/EXAM_TYPE}</td>
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN2} align="left">{rval data/EXAMTYPE_NAME}</td>
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN2} align="left">{rval data/SUBCLASS}</td>
+                      <!--{/def}-->
+                    </tr> 
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+
+<script language="JavaScript">
+<!--{def reload}-->
+{rval reload}
+<!--{/def}-->
+</script>

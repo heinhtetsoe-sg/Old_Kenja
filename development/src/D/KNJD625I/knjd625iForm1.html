@@ -1,0 +1,43 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            &nbsp&nbsp年度&nbsp&nbsp{rval YEAR}&nbsp&nbsp{rval button/btn_copy}<br><br>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td> 
+                  <table width="100%" id="list" border="0" cellspacing="1" cellpadding="3" onclick="selectRow()">
+                    <tr class="no_search">
+                      <th nowrap align="left" bgcolor="#316f9b" width="*%">模試名</th>
+                      <th nowrap align="left" bgcolor="#316f9b" width="35%">コース名</th>
+                      <th nowrap align="left" bgcolor="#316f9b" width="20%">模試科目名</th>
+                      <input type="hidden" name="DATACD" value=''>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}--> 
+                    <tr style="background-color:#ffffff"> 
+                      <td nowrap width="*%">{val data/MOCKNAME}</td>
+                      <td nowrap width="35%">{val data/COURSECODENAME}</td>
+                      <td nowrap width="20%">{val data/SUBCLASS_NAME}</td>
+                      <input type="hidden" name="DATACD" value='{val data/MOCKCD},{val data/COURSECODE},{val data/MOCK_SUBCLASS_CD}'>
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}-->
+                    </table>
+                  </td>
+                </tr>
+              </td>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

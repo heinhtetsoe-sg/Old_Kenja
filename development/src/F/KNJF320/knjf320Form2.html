@@ -1,0 +1,91 @@
+{rval start}
+
+<br>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <tr>
+                      <th width="100" align="right" class="no_search">※執務日付</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/WORK_DATE}　{rval data/REMARK1_901}<LABEL for="REMARK1_901">午前</LABEL>　{rval data/REMARK2_901}<LABEL for="REMARK2_901">午後</LABEL>　{rval data/REMARK3_901}<LABEL for="REMARK3_901">全日</LABEL></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search">※執務者</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/STAFFCD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search">執務場所</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/REMARK1_000}<LABEL for="REMARK1_000">学校</LABEL>　{rval data/REMARK2_000}<LABEL for="REMARK2_000">診療所等(来訪電話等)</LABEL>　{rval data/REMARK3_000}<LABEL for="REMARK3_000">研修会</LABEL>　{rval data/REMARK4_000}<LABEL for="REMARK4_000">講習会</LABEL><BR>
+                                            {rval data/REMARK5_000}<LABEL for="REMARK5_000">その他</LABEL>　{rval data/REMARK6_000}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" rowspan="6">項目</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/REMARK1_001}<LABEL for="REMARK1_001">1.学校保健委員会等</LABEL><BR>
+                                            　　{rval data/REMARK2_001}<LABEL for="REMARK2_001">(1)学校保健計画立案</LABEL><BR>
+                                            　　{rval data/REMARK3_001}<LABEL for="REMARK3_001">(2)その他</LABEL>　{rval data/REMARK4_001}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/REMARK1_002}<LABEL for="REMARK1_002">2.定期健康診断</LABEL><BR>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/REMARK1_003}<LABEL for="REMARK1_003">3.臨時健康診断</LABEL><BR>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/REMARK1_004}<LABEL for="REMARK1_004">4.健康相談及び保健指導</LABEL><BR>
+                                            　　{rval data/REMARK2_004}<LABEL for="REMARK2_004">(1)健康相談</LABEL><BR>
+                                            　　{rval data/REMARK3_004}<LABEL for="REMARK3_004">(2)保健指導</LABEL><BR>
+                                            　　{rval data/REMARK4_004}<LABEL for="REMARK4_004">(3)保健講話</LABEL><BR>
+                                            　　{rval data/REMARK5_004}<LABEL for="REMARK5_004">(4)その他</LABEL>　{rval data/REMARK6_004}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/REMARK1_005}<LABEL for="REMARK1_005">5.学校保健に関する研修会、講習会等</LABEL><BR>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/REMARK1_006}<LABEL for="REMARK1_006">6.その他</LABEL><BR>
+                                            　　{rval data/REMARK2_006}<LABEL for="REMARK2_006">(1)救急時の処置</LABEL><BR>
+                                            　　{rval data/REMARK3_006}<LABEL for="REMARK3_006">(2)予防処置(フッ化物湿布)</LABEL><BR>
+                                            　　{rval data/REMARK4_006}<LABEL for="REMARK4_006">(3)その他</LABEL>　{rval data/REMARK5_006}
+                      </td>
+                    </tr>
+                    
+                    <tr>
+                      <th align="right" class="no_search">記事</th>
+                      <td bgcolor="#ffffff">{rval data/NEWS_STORY}<BR><font color="red" size="1">全角20文字×12行</font></td>
+                      <th align="right" class="no_search">特記事項</th>
+                      <td bgcolor="#ffffff">{rval data/SPECIAL_REPORT}<BR><font color="red" size="1">全角20文字×12行</font></td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{def button}-->
+                    <tr> 
+                      <th align="right" class="no_search">&nbsp;</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}
+                      　　<B>印影出力　{rval data/INEI_PRI}<LABEL for="INEI_PRI">校長</LABEL>　{rval data/INEI_STF}<LABEL for="INEI_STF">執務者</LABEL>　{rval button/btn_print}</B></td>
+                    </tr>
+                    <!--{/def}--> 
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

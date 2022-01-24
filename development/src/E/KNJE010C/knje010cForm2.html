@@ -1,0 +1,122 @@
+<!-- knje010cForm2.html -->
+{rval start}
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+    <tr>
+      <td nowrap>
+      <table width="100%" border="0" cellspacing="3" cellpadding="0">
+        <tbody>
+          <tr>
+           <td width="50%">
+            <hr>{rval NAME_SHOW}<hr>
+           </td>
+           <td align="right" width="50%">&nbsp;</td>
+          </tr>
+          <tr class="no_search_line">
+            <td {rval COLSPAN_CHANGE}>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr bgcolor="#ffffff">
+                <th class="no_search" width="15%">学年(年次)</th>
+                <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td align="left">{rval ANNUAL}</td>
+                      <td align="right">{rval btn_reload2}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr class="no_search_line">
+            <td {rval COLSPAN_CHANGE}>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <th>５．出欠の記録備考</th>
+                  <th width="380" {rval COLSPAN2}>６．特別活動の記録</th>
+                </tr>
+                <tr valign="top" bgcolor="#ffffff">
+                  <td >{rval ATTENDREC_REMARK}<br>
+                      <font color="red" size="-1">{rval ATTENDREC_REMARK_TYUI}</font><br>
+                      {rval SANSYO}<br>
+                      {rval YOROKU_SANSYO}</td>
+
+                  <td {rval COLSPAN2}>{rval SPECIALACTREC}<font color="red" size="-1">{rval SPECIALACTREC_TYUI}</font><br>{rval btn_committee}</td>
+                </tr>
+                <tr class="no_search">
+                  <th {rval COLSPAN_CHANGE}>７．指導上参考となる諸事項</th>
+                </tr>
+                <!--{def useSyojikou3}-->
+                <tr bgcolor="#ffffff" height="60">
+                  <td {rval COLSPAN_CHANGE}><font color="red" size="-1">指導要録データ</font><br>{rval TOTALREMARK}</td>
+                </tr>
+                <tr bgcolor="#ffffff" height="60">
+                  <td {rval COLSPAN_CHANGE}><font color="red" size="-1">調査書旧データ</font><br>{rval TRAIN_REF}</td>
+                </tr>
+                <tr class="no_search" align="left">
+                  <th>　1)学習における特徴等<br>　2)行動の特徴、特技等</th>
+                  <th>　3)部活動、ボランティア活動等<br>　4)取得資格、検定等</th>
+                  <th>　5)その他</th>
+                </tr>
+                <!--{/def}-->
+                <tr bgcolor="#ffffff">
+                  <!--{def no_useSyojikou3}-->
+                  <td {rval COLSPAN_TRAIN_REF}>{rval TRAIN_REF}<br><font color="red" size="-1">{rval TRAIN_REF_COMMENT}</font>  {rval button/SIKAKU_SANSYO}{rval btn_club}</td>
+                  <!--{/def}-->
+                  <!--{def useSyojikou3}-->
+                  <td>{rval TRAIN_REF1}<br><font color="red" size="-1">{rval TRAIN_REF1_COMMENT}</font>  {rval button/SIKAKU_SANSYO}{rval btn_club}</td>
+                  <td>{rval TRAIN_REF2}<br><font color="red" size="-1">{rval TRAIN_REF2_COMMENT}</font></td>
+                  <td>{rval TRAIN_REF3}<br><font color="red" size="-1">{rval TRAIN_REF3_COMMENT}</font></td>
+                  <!--{/def}-->
+                </tr>
+
+<!--{def tyousasyoSougouHyoukaNentani}-->
+                <tr class="no_search">
+                  <th {rval COLSPAN_CHANGE}>８．総合的な学習の時間</th>
+                </tr>
+                <tr bgcolor="#ffffff">
+                  <td {rval COLSPAN_CHANGE}>
+                    <table>
+                      <tr>
+                        <th class="no_search" width="20">活動内容</th>
+                        <td>
+                          {rval TOTALSTUDYACT}<br><font color="red" size="-1">{rval TOTALSTUDYACT_TYUI}</font>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr bgcolor="#ffffff">
+                  <td {rval COLSPAN_CHANGE}>
+                    <table>
+                      <tr>
+                        <th class="no_search" width="20">評価</th>
+                        <td>
+                          {rval TOTALSTUDYVAL}<br><font color="red" size="-1">{rval TOTALSTUDYVAL_TYUI}</font><!--  {rval btn_reload4} -->
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+<!--{/def}-->
+                <tr bgcolor="#ffffff">
+                  <td {rval COLSPAN_CHANGE}>{rval btn_update}{rval btn_reset}{rval btn_back}</td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}

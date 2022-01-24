@@ -1,0 +1,6 @@
+-- $Id: f513b5cc5d8f1567dd6f2aecaf20709ddce1937b $
+
+ALTER TABLE \
+    MOCK_RANK_RANGE_DAT \
+ADD COLUMN \
+    LEVEL varchar(30)

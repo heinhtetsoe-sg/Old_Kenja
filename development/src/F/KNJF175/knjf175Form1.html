@@ -1,0 +1,95 @@
+{rval start} 
+<!--{def button}--> 
+<!--{def data}-->
+
+<br><br><br><br><br><br>
+
+<table width="450" border="0" cellpadding="0" cellspacing="0" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr><td>{rval SCH_NAME2}</td></tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" height="30">
+                      <td align="center">
+                        <b>{rval data/YEAR}年度　　{rval data/SEMESTER}<!--{def schkind}-->　　校種：{rval data/SCHKIND}<!--{/def}--></b>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="140">
+                      <td>
+                        <table>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap>
+                              　　　　<b>出力範囲</b><br><br>
+                              　　　　　{rval data/SDATE}　～　{rval data/EDATE}<br><br><!--{def printOffDaysComment}-->　　　　　　　　　　　　　　　　　　　　休業日も出力する<br><!--{/def}-->
+                            </td>
+                          </tr>
+                          <!--{def printKessekisha}-->
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              　　　　　{rval data/PRINT}<LABEL for="PRINT">欠席者一覧も印刷する。</LABEL><br><br>
+                            </td>
+                          </tr>
+                          <!--{/def}-->
+                          <!--{def layoutForm5}-->
+                          <tr bgcolor="#ffffff">
+                            <td nowrap>
+                              　　　　<b>生徒識別</b><br><br>
+                              　　　　 {rval data/SIKIBETU_PTRN1}<LABEL for="SIKIBETU_PTRN1">年組番</LABEL>
+                                      {rval data/SIKIBETU_PTRN2}<LABEL for="SIKIBETU_PTRN2">学籍番号</LABEL><br><br>
+                            </td>
+                          </tr>
+                          <!--{/def}-->
+                          <!--{def ineiNotKuma}-->
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              　　　　<b>印影出力</b><br><br>
+                              　　　　　{rval data/PRINT_STAMP_KOUCHOU}<LABEL for="PRINT_STAMP_KOUCHOU">校長</LABEL><br>
+                                      <!--{def layoutForm5}-->
+                              　　　　　{rval data/PRINT_STAMP_KYOUTOU}<LABEL for="PRINT_STAMP_KYOUTOU">関係者</LABEL><br>
+                                      <!--{/def}-->
+                                      <!--{def layoutNotForm5}-->
+                              　　　　　{rval data/PRINT_STAMP_KYOUTOU}<LABEL for="PRINT_STAMP_KYOUTOU">教頭</LABEL><br>
+                                      <!--{/def}-->
+                              　　　　　{rval data/PRINT_STAMP_YOUGOKYOUYU}<LABEL for="PRINT_STAMP_YOUGOKYOUYU">養護教諭</LABEL><br>
+                            </td>
+                          </tr>
+                          <!--{/def}-->
+                          <!--{def ineiKuma}-->
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              　　　　<b>印影出力</b><br><br>
+                            <!--{each data2}-->
+                              　　　　　{rval data2/PRINT_STAMP_NAME}<LABEL for="PRINT_STAMP_{rval data2/SEQ}">{rval data2/TITLE}</LABEL><br>
+                            <!--{/each}-->
+                            </td>
+                          </tr>
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="left">
+                        {rval button/btn_print}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

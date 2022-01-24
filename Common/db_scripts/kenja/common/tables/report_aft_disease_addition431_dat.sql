@@ -1,0 +1,16 @@
+-- kanji=漢字
+-- $Id:
+
+DROP TABLE REPORT_AFT_DISEASE_ADDITION431_DAT
+
+CREATE TABLE REPORT_AFT_DISEASE_ADDITION431_DAT \
+      (EDBOARD_SCHOOLCD     VARCHAR(12) NOT NULL, \
+       YEAR                 VARCHAR(4) NOT NULL, \
+       COURSECD             VARCHAR(1) NOT NULL, \
+       MAJORCD              VARCHAR(3) NOT NULL, \
+       EXECUTE_DATE         DATE, \
+       REGISTERCD           VARCHAR(8), \
+       UPDATED      TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+      ) in usr1dms index in idx1dms
+
+alter table REPORT_AFT_DISEASE_ADDITION431_DAT add constraint PK_REP_AFT_D_431 primary key (EDBOARD_SCHOOLCD, YEAR, COURSECD, MAJORCD)

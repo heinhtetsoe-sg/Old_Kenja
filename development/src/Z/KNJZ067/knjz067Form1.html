@@ -1,0 +1,52 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="10" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr height="30">
+                <th class="no_search" nowrap width="20%">年度</th>
+                <td bgcolor="#ffffff" nowrap width="80%">{rval IBYEAR}　　　{rval button/btn_copy}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>　</td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th nowrap width="15%">学年</th>
+                      <th nowrap width="15%">IBコース</th>
+                      <th nowrap width="70%">IB科目一覧</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td nowrap>{val data/GRADE_SHOW}</td>
+                      <td align="center" nowrap>{val data/ABBV1}</td>
+                      <td nowrap><a href="knjz067index.php?cmd=edit&IBGRADE={val data/IBGRADE}&IBCLASSCD={val data/IBCLASSCD}&IBPRG_COURSE={val data/IBPRG_COURSE}&IBCURRICULUM_CD={val data/IBCURRICULUM_CD}&IBSUBCLASSCD={val data/IBSUBCLASSCD}" target="right_frame">{val data/IBSUBCLASS_SHOW}</a></td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}{rval reload}</script>

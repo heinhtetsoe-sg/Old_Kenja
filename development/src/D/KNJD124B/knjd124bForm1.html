@@ -1,0 +1,275 @@
+{rval start}
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search">
+                        <td width="10%">
+                            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                              <tr class="no_search">
+                                <th width="5%" bgcolor="#ff0099" nowrap><font color="#000000" size="2">累積<BR>警告</font></th>
+                                <th width="5%" bgcolor="#ffff00" nowrap><font color="#000000" size="2">累積<BR>注意</font></th>
+                              </tr>
+                            </table>
+                        </td>
+                        <th width="*%" nowrap>{rval YEAR}年度&nbsp;科目：{rval SUBCLASSCD}</th>
+                        <td width="*%" nowrap>学級・講座：{rval CHAIRCD}&nbsp;&nbsp;移動方向({rval MOVE_ENTER1}<LABEL for="MOVE_ENTER1">縦</LABEL>　{rval MOVE_ENTER2}<LABEL for="MOVE_ENTER2">横</LABEL>)</td>
+                        <td width="20%">
+                            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                              <tr class="no_search">
+                                <th width="5%" bgcolor="#3399ff" nowrap><font color="#000000" size="2">公欠</font></th>
+                                <th width="5%" bgcolor="#66cc33" nowrap><font color="#000000" size="2">特別<BR>欠席</font></th>
+                                <th width="5%" bgcolor="#ff0099" nowrap><font color="#000000" size="2">病欠<BR>欠課</font></th>
+                                <th width="5%" bgcolor="#ffff00" nowrap><font color="#000000" size="2">異動<BR>生徒</font></th>
+                              </tr>
+                            </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th rowspan="2" width="70">クラス-<br>出席番号</th>
+                        <th rowspan="2" width="155">氏名</th>
+                        <th colspan="3" >１学期</th>
+                        <th colspan="3" >２学期</th>
+                        <th colspan="3" >３学期</th>
+<!--{def not_useProvFlg}-->
+                        <th colspan="2" >学年</th>
+<!--{/def}-->
+<!--{def useProvFlg}-->
+                        <th colspan="3" >学年</th>
+<!--{/def}-->
+                        <th rowspan="2" width="35">履修<br>単位</th>
+                        <th rowspan="2" width="35">修得<br>単位</th>
+                        <th colspan="3" width="*">累積情報</th>
+                      </tr>
+                      <tr class="no_search">
+                        <th width="40">中間</th>
+                        <th width="40">期末</th>
+                        <th width="40">成績</th>
+                        <th width="40">中間</th>
+                        <th width="40">期末</th>
+                        <th width="40">成績</th>
+                        <th width="40">中間</th>
+                        <th width="40">学年末</th>
+                        <th width="40">成績</th>
+                        <th width="40">成績</th>
+<!--{def useProvFlg}-->
+                        <th rowspan="2" width="25"><font size="2">仮<br>評<br>定</font></th>
+<!--{/def}-->
+                        <th width="40">評定</th>
+                        <th width="35">遅刻数</th>
+                        <th width="35">早退数</th>
+                        <th width="*">欠課数</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <div style="width:100%;height:390;overflow:auto">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                       <tr height="25">
+                          <td width="70" align="center" bgcolor="{rval data/NAME_COLOR}">{rval data/ATTENDNO}</td>
+                          <td width="155" align="left" bgcolor="{rval data/NAME_COLOR}">{rval data/NAME_SHOW}</td>
+                          <td width="40" align="center" bgcolor="{rval data/SEM1_INTR_SCORE_COLOR}">{rval data/SEM1_INTR_SCORE}</td>
+                          <td width="40" align="center" bgcolor="{rval data/SEM1_TERM_SCORE_COLOR}">{rval data/SEM1_TERM_SCORE}</td>
+                          <td width="40" align="center" bgcolor="{rval data/SEM1_VALUE_COLOR}">{rval data/SEM1_VALUE}</td>
+                          <td width="40" align="center" bgcolor="{rval data/SEM2_INTR_SCORE_COLOR}">{rval data/SEM2_INTR_SCORE}</td>
+                          <td width="40" align="center" bgcolor="{rval data/SEM2_TERM_SCORE_COLOR}">{rval data/SEM2_TERM_SCORE}</td>
+                          <td width="40" align="center" bgcolor="{rval data/SEM2_VALUE_COLOR}">{rval data/SEM2_VALUE}</td>
+                          <td width="40" align="center" bgcolor="{rval data/SEM3_INTR_SCORE_COLOR}">{rval data/SEM3_INTR_SCORE}</td>
+                          <td width="40" align="center" bgcolor="{rval data/SEM3_TERM_SCORE_COLOR}">{rval data/SEM3_TERM_SCORE}</td>
+                          <td width="40" align="center" bgcolor="{rval data/SEM3_VALUE_COLOR}">{rval data/SEM3_VALUE}</td>
+                          <td width="40" align="center" bgcolor="{rval data/COLOR}">{rval data/GRAD_SCORE}</td>
+<!--{def useProvFlg}-->
+                          <td width="25" align="center" bgcolor="{rval data/COLOR}">{rval data/PROV_FLG}</td>
+<!--{/def}-->
+                          <td width="40" align="center" bgcolor="{rval data/COLOR}">{rval data/GRAD_VALUE}</td>
+                          <td width="35" align="center" bgcolor="{rval data/COLOR}">{rval data/COMP_CREDIT}</td>
+                          <td width="35" align="center" bgcolor="{rval data/COLOR}">{rval data/GET_CREDIT}</td>
+                          <td width="35" align="center" bgcolor="{rval data/COLOR}">{rval data/T_LATE}</td>
+                          <td width="35" align="center" bgcolor="{rval data/COLOR}">{rval data/T_EARLY}</td>
+                          <td width="*" align="center" bgcolor="{rval data/COLOR}">{rval data/NOTICE_LATE}</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="232">合計</th>
+                        <th width="40">{val SEM1_INTR_SCORE_SUM}</th>
+                        <th width="40">{val SEM1_TERM_SCORE_SUM}</th>
+                        <th width="40">{val SEM1_VALUE_SUM}</th>
+                        <th width="40">{val SEM2_INTR_SCORE_SUM}</th>
+                        <th width="40">{val SEM2_TERM_SCORE_SUM}</th>
+                        <th width="40">{val SEM2_VALUE_SUM}</th>
+                        <th width="40">{val SEM3_INTR_SCORE_SUM}</th>
+                        <th width="40">{val SEM3_TERM_SCORE_SUM}</th>
+                        <th width="40">{val SEM3_VALUE_SUM}</th>
+                        <th width="40">{val GRAD_SCORE_SUM}</th>
+<!--{def useProvFlg}-->
+                        <th width="25"></th>
+<!--{/def}-->
+                        <th width="40">{val GRAD_VALUE_SUM}</th>
+                        <th width="35"></th>
+                        <th width="35"></th>
+                        <th width="*" rowspan="4">{rval CUR_DATE}</th>
+                      </tr>
+                      <tr class="no_search">
+                        <th>人数</th>
+                        <th width="40">{val SEM1_INTR_SCORE_CNT}</th>
+                        <th width="40">{val SEM1_TERM_SCORE_CNT}</th>
+                        <th width="40">{val SEM1_VALUE_CNT}</th>
+                        <th width="40">{val SEM2_INTR_SCORE_CNT}</th>
+                        <th width="40">{val SEM2_TERM_SCORE_CNT}</th>
+                        <th width="40">{val SEM2_VALUE_CNT}</th>
+                        <th width="40">{val SEM3_INTR_SCORE_CNT}</th>
+                        <th width="40">{val SEM3_TERM_SCORE_CNT}</th>
+                        <th width="40">{val SEM3_VALUE_CNT}</th>
+                        <th width="40">{val GRAD_SCORE_CNT}</th>
+<!--{def useProvFlg}-->
+                        <th width="25"></th>
+<!--{/def}-->
+                        <th width="40">{val GRAD_VALUE_CNT}</th>
+                        <th width="35"></th>
+                        <th width="35"></th>
+                      </tr>
+                      <tr class="no_search">
+                        <th>平均</th>
+                        <th width="40">{val SEM1_INTR_SCORE_AVG}</th>
+                        <th width="40">{val SEM1_TERM_SCORE_AVG}</th>
+                        <th width="40">{val SEM1_VALUE_AVG}</th>
+                        <th width="40">{val SEM2_INTR_SCORE_AVG}</th>
+                        <th width="40">{val SEM2_TERM_SCORE_AVG}</th>
+                        <th width="40">{val SEM2_VALUE_AVG}</th>
+                        <th width="40">{val SEM3_INTR_SCORE_AVG}</th>
+                        <th width="40">{val SEM3_TERM_SCORE_AVG}</th>
+                        <th width="40">{val SEM3_VALUE_AVG}</th>
+                        <th width="40">{val GRAD_SCORE_AVG}</th>
+<!--{def useProvFlg}-->
+                        <th width="25"></th>
+<!--{/def}-->
+                        <th width="40">{val GRAD_VALUE_AVG}</th>
+                        <th width="35"></th>
+                        <th width="35"></th>
+                      </tr>
+                      <tr class="no_search">
+                        <th>成績入力完了</th>
+                        <th width="40">{val CHK_COMP1}</th>
+                        <th width="40">{val CHK_COMP2}</th>
+                        <th width="40">{val CHK_COMP_VALUE1}</th>
+                        <th width="40">{val CHK_COMP3}</th>
+                        <th width="40">{val CHK_COMP4}</th>
+                        <th width="40">{val CHK_COMP_VALUE2}</th>
+                        <th width="40">{val CHK_COMP5}</th>
+                        <th width="40">{val CHK_COMP6}</th>
+                        <th width="40">{val CHK_COMP_VALUE3}</th>
+                        <th width="40">{val CHK_COMP_VALUE4}</th>
+<!--{def useProvFlg}-->
+                        <th width="25"></th>
+<!--{/def}-->
+                        <th width="40"></th>
+                        <th width="35"></th>
+                        <th width="35"></th>
+                      </tr>
+                      <tr class="no_search">
+<!--{def not_useProvFlg}-->
+                        <td colspan="15">
+<!--{/def}-->
+<!--{def useProvFlg}-->
+                        <td colspan="16">
+<!--{/def}-->
+                          <table cellpadding="0" cellspacing="0">
+                            <tr class="no_search">
+                              <td width="90%" align="center">
+                              {rval FILE}
+                              </td>
+                              <td width="10%" align="right">
+                              {val btn_update}{val btn_reset}{val btn_end}{val btn_print}
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                  </table>
+                  </td>
+                </tr>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}
+<script language="JavaScript">
+
+ var a_mark = new Array();
+<!--{def data2}-->
+<!--{each data2}-->
+ a_mark[{rval data2/ASSESSLEVEL}] = '{rval data2/ASSESSMARK}';
+<!--{/each}-->
+<!--{/def}-->
+
+{rval close_win}</script>

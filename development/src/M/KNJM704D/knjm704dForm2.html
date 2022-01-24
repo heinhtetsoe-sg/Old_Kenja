@@ -1,0 +1,98 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr> 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="28"> 
+                      <th width="30%">項 目</th>
+                      <th width="70%">値</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <tr class="no_search" height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="right" nowrap>※年度</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/YEAR}</td>
+                    </tr>
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="right" nowrap>※管理番号</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/SPECIALCD}</td>
+                    </tr>
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="right" nowrap>日付</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">開始日付：{rval data/SPECIAL_SDATE}&nbsp;&nbsp;&nbsp;終了日付：{rval data/SPECIAL_EDATE}</td>
+                    </tr>
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="right" nowrap>特別活動内容</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/SPECIALACTIVITYNAME}</td>
+                    </tr>
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="right" nowrap>活動時間数</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/SPECIALACTIVITYTIME}</td>
+                    </tr>
+                    <!--{/def}-->
+
+                    <!--{def button}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">
+                        {rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}<br>
+                        {rval data/OUTPUT4}<LABEL for="OUTPUT4">ヘッダ出力(見本)</LABEL><br>
+                        {rval data/OUTPUT1}<LABEL for="OUTPUT1">取込</LABEL>{rval data/OUTPUT2}<LABEL for="OUTPUT2">書出</LABEL>
+                        ファイル：<span id="type_file">{rval FILE}</span>{val btn_exec}　{rval data/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL><br>
+                        {rval data/OUTPUT3}<LABEL for="OUTPUT3">エラー出力</LABEL>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

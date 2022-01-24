@@ -1,0 +1,61 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<br><br><br><br><br>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="1" cellpadding="1">
+        <tr>
+          <td>
+            <table width="50%" border="0" cellspacing="3" cellpadding="0" align="center">
+              <tr class="no_search_line">
+               <th>
+                 <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                   <tr class="no_search" height="30"> 
+                     <td align="center" colspan="2" nowrap><B>&nbsp;{rval YEAR}年度　５段階法評価設定</B></td>
+                   </tr>
+                   <tr class="no_search" height="30"> 
+                     <td width="25%" class="no_search" align="right" nowrap>評定段階数</td>
+                     <td width="75%" bgcolor="#ffffff" nowrap>&nbsp;{rval sepa/ASSESSLEVELCNT}&nbsp;{rval button/btn_level}</td>
+                   </tr>
+                 </table>
+               </th>
+              </tr>
+            </table>
+
+            <br><br>
+
+            <table width="50%" border="0" cellspacing="3" cellpadding="0" align="center">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" frame="box">
+                    <tr class="no_search" height="40">
+                     <th width="50%">評　定</th>
+                     <th width="50%">基準値</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}--> 
+                    <tr align="center" bgcolor="#ffffff" height="40"> 
+                      <td >{val data/ASSESSLEVEL}</td>
+                      <td >{val data/ASSESSRATE}％</td>
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}--> 
+                    <tr class="no_search">
+                      <td colspan="2" align="right" height="30" nowrap>
+                        {rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td> 
+        </tr>
+      </table>
+    </td> 
+  </tr>
+  <br><br><br>
+</table>
+{rval finish}
+<script language="JavaScript">{rval Closing}</script>

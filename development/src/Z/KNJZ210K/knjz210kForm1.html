@@ -1,0 +1,63 @@
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="1">
+  <tr> 
+    <td> 
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="2">
+              <tr class="no_search"> 
+                <td nowrap width="20%" align="center">{rval year}</td>
+                <td nowrap width="*%">{rval SUBCLASSCD}{rval copy_year}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="29%" nowrap>類型グループ名称</th>
+                      <th width="22%" nowrap>学年</th>
+                      <th width="22%" nowrap>科目</th>
+                      <th width="22%" nowrap>評価類型<br>評定コード</th>
+                      <th width="*" nowrap>クラス</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}--> 
+                    <tr> 
+                      <td width="29%" bgcolor="#ffffff" nowrap>{val data/TYPE_GROUP_CDNAME}</td>
+                      <td width="22%" bgcolor="#ffffff" nowrap>{val data/GRADE_NAME}</td>
+                      <td width="22%" bgcolor="#ffffff" nowrap>{val data/SUBCLASSNAME}</td>
+                      <td width="22%" bgcolor="#ffffff" nowrap>{val data/TYPE_ASSES_CD}</td>
+                      <td width="*" bgcolor="#ffffff" nowrap>{val data/HR_CLASS}</td>
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}-->
+                  </table>  
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="javascript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

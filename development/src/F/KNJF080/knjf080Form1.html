@@ -1,0 +1,54 @@
+{rval start}
+<table width="400" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr > 
+      <td >
+        <table width="100%" border="0" cellspacing="0" cellpadding="1" >
+        <tr class="no_search_line">
+           <th>
+          <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#cccccc">
+          <tr> 
+          <th width="40%" align="left">年度：{rval header/CTRL_CHAR1}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学期：{rval header/CTRL_CHAR2}&nbsp; 
+                                   <BR>年組：{rval GrCl}&nbsp;&nbsp;対象：{rval header/SUM_NUMBER}名</th>
+          </tr>
+        </table>
+          </th>
+        </tr>
+      </table>
+<br>担任名&nbsp;：&nbsp;{rval header/TEACHAR_NAME}
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+        <td> 
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search" nowrap> 
+            <th width="40">出席<BR>番号</th>
+            <th width="150">氏名</th>
+            <th width="150">氏名カナ</th>
+            <th width="50">学籍<BR>番号</th>
+          </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}--> 
+          <tr bgcolor="#ffffff" > 
+       <td width="40" align="center" nowrap>{val data/ATTENDNO}</td>
+       <td width="130" align="left" nowrap><img src="{val data/IMAGE}" width="16" height="16">{val data/NAME}</td>
+             <td width="150" nowrap>{val data/KANA_SHOW}</td>
+             <td width="50" nowrap>{val data/SCHREGNO}</td>
+          </tr> 
+<!--{/each}--> 
+<!--{/def}--> 
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+{rval finish}
+</script>
+<script language="JavaScript">{rval reload}{rval jscript}</script>

@@ -1,0 +1,286 @@
+{rval start} 
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="" align="left" nowrap>処理年度：{rval YEAR}年度</th>
+                        <th width="" align="left" nowrap>科目：{rval SUBCLASSCD}</th>
+                        <th width="" align="left" nowrap>学級・講座：{rval CHAIRCD}&nbsp;&nbsp;移動方向({rval MOVE_ENTER1}<LABEL for="MOVE_ENTER1">縦</LABEL>　{rval MOVE_ENTER2}<LABEL for="MOVE_ENTER2">横</LABEL>)</th>
+                        <td width="20%">
+                            <table width="100%" border="0" cellspacing="1" cellpadding="10" bgcolor="black">
+                              <tr class="no_search">
+                                <th width="*%" BGCOLOR="#3399ff"><font color="#ffffff"> 公欠(KK) </font></th>
+                                <th width="*%" BGCOLOR="#ff0099"><font color="#ffffff"> 欠席(KS) </font></th>
+                              </tr>
+                            </table>
+                        </td>                      
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="90" rowspan="2" >クラス-<br>出席番</th>
+                        <th width="180" rowspan="2">氏名</th>
+<!--{def SEMESTER}-->
+                        <th align="center" colspan="3" >{rval SEMESTER/0}</th>
+                        <th align="center" colspan="3" >{rval SEMESTER/1}</th>
+                        <th align="center" >{rval SEMESTER/2}</th>
+<!--{/def}-->
+
+                        <th width="52" rowspan="2">学年<br>平均</th>
+                        <th width="52" rowspan="2">文字<br>評定</th>
+<!--{def useProvFlg}-->
+                        <th rowspan="2" width="25"><font size="2">仮<br>評<br>定</font></th>
+<!--{/def}-->
+                        <th width="*%" colspan="3">類型別学年評定</th>
+                      </tr>
+                      <tr class="no_search">
+                        <th align="center" width="52">中間</th>
+                        <th align="center" width="52">期末</th>
+                        <th align="center" width="52">平均</th>
+
+                        <th align="center" width="52">中間</th>
+                        <th align="center" width="52">期末</th>
+                        <th align="center" width="52">平均</th>
+
+                        <th align="center" width="52">期末</th>
+<!--{def not_useProvFlg}-->
+                        <th width="45">A</th>
+                        <th width="45">B</th>
+                        <th width="*">C</th>
+<!--{/def}-->
+<!--{def useProvFlg}-->
+                        <th width="38">A</th>
+                        <th width="38">B</th>
+                        <th width="*">C</th>
+<!--{/def}-->
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <div style="width:100%;height:420;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                    <tbody>
+
+<!--{each data}-->
+                     <tr height="25">
+                        <td width="90" align="left" bgcolor="#ffffff">{rval data/ATTENDNO}</td>
+                        <td width="180" align="left" bgcolor="#ffffff">{rval data/NAME_SHOW}</td>
+                        <td width="52" align="center" bgcolor="{rval data/SEM1_INTER_REC_COLOR}">{rval data/SEM1_INTER_REC}</td>
+                        <td width="52" align="center" bgcolor="{rval data/SEM1_TERM_REC_COLOR}">{rval data/SEM1_TERM_REC}</td>
+                        <td width="52" align="center" bgcolor="{rval data/SEM1_REC_COLOR}">{rval data/SEM1_REC}</td>
+                        <td width="52" align="center" bgcolor="{rval data/SEM2_INTER_REC_COLOR}">{rval data/SEM2_INTER_REC}</td>
+                        <td width="52" align="center" bgcolor="{rval data/SEM2_TERM_REC_COLOR}">{rval data/SEM2_TERM_REC}</td>
+                        <td width="52" align="center" bgcolor="{rval data/SEM2_REC_COLOR}">{rval data/SEM2_REC}</td>
+                        <td width="52" align="center" bgcolor="{rval data/SEM3_TERM_REC_COLOR}">{rval data/SEM3_TERM_REC}</td>
+                        <td width="52" align="center" bgcolor="{rval data/GRADE_RECORD_COLOR}">{rval data/GRADE_RECORD}</td>
+                        <td width="52" align="center" bgcolor="#ffffff"><span id="{rval data/ASSESS_ID}">{rval data/CHARASSESS}</span></td>
+<!--{def useProvFlg}-->
+                          <td width="25" align="center" bgcolor="#ffffff">{rval data/PROV_FLG}</td>
+<!--{/def}-->
+<!--{def not_useProvFlg}-->
+                        <td width="45" align="center" bgcolor="{rval data/A_PATTERN_COLOR}">{rval data/A_PATTERN_ASSESS}</td>
+                        <td width="45" align="center" bgcolor="{rval data/B_PATTERN_COLOR}">{rval data/B_PATTERN_ASSESS}</td>
+                        <td width="*" align="center" bgcolor="{rval data/C_PATTERN_COLOR}">{rval data/C_PATTERN_ASSESS}</td>
+<!--{/def}-->
+<!--{def useProvFlg}-->
+                        <td width="38" align="center" bgcolor="{rval data/A_PATTERN_COLOR}">{rval data/A_PATTERN_ASSESS}</td>
+                        <td width="38" align="center" bgcolor="{rval data/B_PATTERN_COLOR}">{rval data/B_PATTERN_ASSESS}</td>
+                        <td width="*" align="center" bgcolor="{rval data/C_PATTERN_COLOR}">{rval data/C_PATTERN_ASSESS}</td>
+<!--{/def}-->
+                      </tr>
+<!--{/each}-->
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th align="center" width="277">合計</th>
+                        <th width="52">{val SEM1_INTER_REC_SUM}</th>
+                        <th width="52">{val SEM1_TERM_REC_SUM}</th>
+                        <th width="52">{val SEM1_REC_SUM}</th>
+                        <th width="52">{val SEM2_INTER_REC_SUM}</th>
+                        <th width="52">{val SEM2_TERM_REC_SUM}</th>
+                        <th width="52">{val SEM2_REC_SUM}</th>
+                        <th width="52">{val SEM3_TERM_REC_SUM}</th>
+                        <th width="52">{val GRADE_RECORD_SUM}</th>
+                        <th width="52"></th>
+<!--{def useProvFlg}-->
+                        <th width="25"></th>
+<!--{/def}-->
+<!--{def not_useProvFlg}-->
+                        <th width="45">{val A_PATTERN_ASSESS_SUM}</th>
+                        <th width="45">{val B_PATTERN_ASSESS_SUM}</th>
+                        <th width="*">{val C_PATTERN_ASSESS_SUM}</th>
+<!--{/def}-->
+<!--{def useProvFlg}-->
+                        <th width="38">{val A_PATTERN_ASSESS_SUM}</th>
+                        <th width="38">{val B_PATTERN_ASSESS_SUM}</th>
+                        <th width="*">{val C_PATTERN_ASSESS_SUM}</th>
+<!--{/def}-->
+                      </tr>
+                      <tr class="no_search">
+                        <th align="center">平均</th>
+                        <th>{val SEM1_INTER_REC_AVG}</th>
+                        <th>{val SEM1_TERM_REC_AVG}</th>
+                        <th>{val SEM1_REC_AVG}</th>
+                        <th>{val SEM2_INTER_REC_AVG}</th>
+                        <th>{val SEM2_TERM_REC_AVG}</th>
+                        <th>{val SEM2_REC_AVG}</th>
+                        <th>{val SEM3_TERM_REC_AVG}</th>
+                        <th>{val GRADE_RECORD_AVG}</th>
+                        <th></th>
+<!--{def useProvFlg}-->
+                        <th width="25"></th>
+<!--{/def}-->
+                        <th>{val A_PATTERN_ASSESS_AVG}</th>
+                        <th>{val B_PATTERN_ASSESS_AVG}</th>
+                        <th>{val C_PATTERN_ASSESS_AVG}</th>
+                      </tr>
+                      <tr class="no_search">
+                        <th align="center">最高点</th>
+                        <th>{val SEM1_INTER_REC_MAX}</th>
+                        <th>{val SEM1_TERM_REC_MAX}</th>
+                        <th>{val SEM1_REC_MAX}</th>
+                        <th>{val SEM2_INTER_REC_MAX}</th>
+                        <th>{val SEM2_TERM_REC_MAX}</th>
+                        <th>{val SEM2_REC_MAX}</th>
+                        <th>{val SEM3_TERM_REC_MAX}</th>
+                        <th>{val GRADE_RECORD_MAX}</th>
+                        <th></th>
+<!--{def useProvFlg}-->
+                        <th width="25"></th>
+<!--{/def}-->
+                        <th>{val A_PATTERN_ASSESS_MAX}</th>
+                        <th>{val B_PATTERN_ASSESS_MAX}</th>
+                        <th>{val C_PATTERN_ASSESS_MAX}</th>
+                      </tr>
+                      <tr class="no_search">
+                        <th align="center">最低点</th>
+                        <th>{val SEM1_INTER_REC_MIN}</th>
+                        <th>{val SEM1_TERM_REC_MIN}</th>
+                        <th>{val SEM1_REC_MIN}</th>
+                        <th>{val SEM2_INTER_REC_MIN}</th>
+                        <th>{val SEM2_TERM_REC_MIN}</th>
+                        <th>{val SEM2_REC_MIN}</th>
+                        <th>{val SEM3_TERM_REC_MIN}</th>
+                        <th>{val GRADE_RECORD_MIN}</th>
+                        <th></th>
+<!--{def useProvFlg}-->
+                        <th width="25"></th>
+<!--{/def}-->
+                        <th>{val A_PATTERN_ASSESS_MIN}</th>
+                        <th>{val B_PATTERN_ASSESS_MIN}</th>
+                        <th>{val C_PATTERN_ASSESS_MIN}</th>
+                      </tr>
+
+                      <tr class="no_search">
+                        <th align="center">成績入力完了</th>
+                        <th>{val CHK_COMP1}</th>
+                        <th>{val CHK_COMP2}</th>
+                        <th></th>
+                        <th>{val CHK_COMP3}</th>
+                        <th>{val CHK_COMP4}</th>
+                        <th></th>
+                        <th>{val CHK_COMP5}</th>
+                        <th></th>
+                        <th></th>
+<!--{def useProvFlg}-->
+                        <th width="25"></th>
+<!--{/def}-->
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+
+                  </table>
+                  </td>
+                </tr>
+                <tr>
+            <td valign="top" align="center">
+                  <table width="20%" border="0" cellspacing="1" cellpadding="0">
+                      <tr class="no_search_line">
+                        <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <tr>
+                              <td align="center" class="no_search">保存</td>
+                              <td rowspan="2" align="right" class="no_search">{val btn_end}</td>
+                              <td rowspan="2" align="right" class="no_search">{val btn_print}</td>
+                            </tr>
+                            <tr>
+                              <td align="right" class="no_search">{val btn_update}&nbsp;{val btn_can}</td>
+                            </tr>
+                        </table>
+                        </td>
+                      </tr>
+                  </table>
+            </td>
+          </tr>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish} 
+<script language="JavaScript">{rval close_win}</script>

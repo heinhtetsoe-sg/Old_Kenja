@@ -1,0 +1,166 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+        <td valign="top"> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr > 
+                    <td > 
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr class="no_search_line"> 
+                                <td> 
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search"> 
+                                            <th width="100%"colspan="8">転入生成績データ&nbsp;{rval data/SCHREGNO}</th>
+                                        </tr>
+                                        <tr> 
+                                            <th width="40%" align="right" class="no_search" nowrap>教科名</th>
+                                            <td bgcolor="#ffffff" colspan="7" nowrap>&nbsp;{rval data/CLASSCD}</td>
+                                        </tr>
+                                        <tr> 
+                                            <th align="right" class="no_search" nowrap>教科略称</th>
+                                            <td bgcolor="#ffffff" colspan="7">{rval data/CLASSABBV}</td>
+                                        </tr>
+                                        <tr> 
+                                            <th align="right" class="no_search" nowrap>教科名称英字</th>
+                                            <td bgcolor="#ffffff" colspan="7">{rval data/CLASSNAME_ENG}</td>
+                                        </tr>
+                                        <tr> 
+                                            <th align="right" class="no_search" nowrap>教科略称英字</th>
+                                            <td bgcolor="#ffffff" colspan="7">{rval data/CLASSABBV_ENG}</td>
+                                        </tr>                                     
+                                        <tr> 
+                                            <th align="right" class="no_search" nowrap>教育課程コード</th>
+                                            <td bgcolor="#ffffff" colspan="7">{rval data/CURRICULUM_CD}</td>
+                                        </tr>                                     
+                                        <tr> 
+                                            <td class="no_search">
+                                            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        </tr>
+                                        <tr class="no_search">
+                                            <th align="left" nowrap>※</th>
+                                            <th align="right" nowrap>科目コード</th>
+                                        </tr>
+                                    </table>
+                                </td>
+
+                                <td bgcolor="#ffffff" colspan="7" nowrap>{rval data/SUBCLASSCD}&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_sub}&nbsp;{rval data/SUBCLASS}
+                                </td>
+
+                                <tr class="no_search"> 
+                                    <th align="right" class="no_search" nowrap>科目名</th>
+                                    <td bgcolor="#ffffff" colspan="7">{rval data/SUBCLASSNAME}</td>
+                                </tr>
+                                <tr class="no_search"> 
+                                    <th align="right" class="no_search" nowrap>科目略称</th>
+                                    <td bgcolor="#ffffff" colspan="7">{rval data/SUBCLASSABBV}</td>
+                                </tr>
+                                <tr class="no_search"> 
+                                    <th align="right" class="no_search" nowrap>科目名称英字(半角英字)</th>
+                                    <td bgcolor="#ffffff" colspan="7">{rval data/SUBCLASSNAME_ENG}</td>
+                                </tr>
+                                <tr class="no_search"> 
+                                    <th align="right" class="no_search" nowrap>科目略称英字(半角英字)</th>
+                                    <td bgcolor="#ffffff" colspan="7">{rval data/SUBCLASSABBV_ENG}</td>
+                                </tr>
+                                <tr class="no_search">
+                                    <th width="40%" rowspan="{rval span}" nowrap>成　績</th>
+                                    <th width="20%" nowrap>学年(年次)</th>
+                                    <th width="20%" nowrap>評価</th>
+                                    <th width="20%" nowrap>修得単位</th>
+                                    <th width="20%" nowrap>増加単位</th>
+                                </tr> 
+                                <!--参照一覧-->
+                                <!--{def list_d}-->
+                                <!--{each list_d}--> 
+                                <tr>
+                                    <td bgcolor="#ffffff" align="center">{rval list_d/ANNUAL}</td>
+                                    <td bgcolor="#ffffff" align="center">{rval list_d/VALUATION}</td>
+                                    <td bgcolor="#ffffff" align="center">{rval list_d/GET_CREDIT}</td>
+                                    <td bgcolor="#ffffff" align="center">{rval list_d/ADD_CREDIT}</td>
+                                </tr>
+                                <!--{/each}--> 
+                                <!--{/def}--> 
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    <tr> 
+        <td >                           
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line"> 
+                    <td> 
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <!--{def button}--> 
+                            <tr>
+                                <th align="left" class="no_search" nowrap colspan="5">&nbsp;{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}
+                                </th>
+                            </tr>
+                            <!--{/def}--> 
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line"> 
+                    <td> 
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <tr class="no_search"> 
+                                <th width="100%"colspan="9">成績期末データ</th>
+                            </tr>
+                            <tr class="no_search"> 
+                                <th width="70" nowrap>科目コード</th>
+                                <th width="120" nowrap>&nbsp;科&nbsp;目&nbsp;名</th>
+                                <th width="30" nowrap>&nbsp;略&nbsp;称&nbsp;</th>
+                                <th width="42" nowrap>学年<br>(年次)</th>
+                                <th width="30" nowrap>評定</th>
+                                <th width="30" nowrap>修得単位</th>
+                                <th width="*" nowrap>増加単位</th>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <div style="width: 100%; height=160; overflow: auto">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                        <td>
+                            <table width="100%" border="0" cellspacing="1" cellpadding="3">  
+                                <!--参照一覧-->
+                                <!--{def list}-->
+                                <!--{each list}--> 
+                                <tr> 
+<!--{def useCurriculumcd}-->
+                                    <td width="70"  bgcolor="#ffffff">{val list/CLASSCD}-{val list/SCHOOL_KIND}-{val list/CURRICULUM_CD}-{val list/SUBCLASSCD}</td>
+<!--{/def}--> 
+<!--{def NoCurriculumcd}-->
+                                    <td width="70"  bgcolor="#ffffff">{val list/SUBCLASSCD}</td>
+<!--{/def}--> 
+                                    <td width="160" bgcolor="#ffffff">{val list/SUBCLASSNAME}</a></td>
+                                    <td width="68" bgcolor="#ffffff">{val list/SUBCLASSABBV}</a></td>
+                                    <td width="57" bgcolor="#ffffff" align="right">{val list/ANNUAL}</a></td>
+                                    <td width="40" bgcolor="#ffffff" align="right">{val list/VALUATION}</a></td>
+                                    <td width="40" bgcolor="#ffffff" align="right">{val list/GET_CREDIT}</a></td>
+                                    <td width="*" bgcolor="#ffffff" align="right">{val list/ADD_CREDIT}</a></td>
+                                </tr> 
+                                <!--{/each}--> 
+                                <!--{/def}--> 
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

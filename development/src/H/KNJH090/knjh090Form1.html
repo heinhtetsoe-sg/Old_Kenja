@@ -1,0 +1,55 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr >
+          <td >
+          <hr width="25%" align="left">
+          {rval SCHREGNO}&nbsp;&nbsp;{val NAME}
+          <hr width="25%" align="left">
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th align="center" nowrap width="90px" height="30">登録日</th>
+                      <th align="center" nowrap width="120px" height="30">詳細区分</th>
+                      <th align="center" nowrap width="120px" height="30">詳細種類</th>
+                      <th align="center" nowrap width="300px" height="30">詳細内容</th>
+                      <th align="center" nowrap width="350px" height="30">備考</th>
+                       <!--{def PDF}--> 
+                      <th align="center" nowrap width="30px" height="30">添付<br>書類</th>
+                       <!--{/def}--> 
+                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+                    <tr>
+                       <td align="center" nowrap bgcolor="#ffffff">
+                       <a href="knjh090index.php?cmd=edit&YEAR={val data/YEAR}&DETAIL_DIV={val data/DETAIL_DIV}&DETAIL_SDATE={val data/DETAIL_SDATE}&DETAIL_EDATE={val data/DETAIL_EDATE}&SCHREGNO={rval SCHREGNO}" target="edit_frame">{val data/DETAIL_SDATE}
+                       </a></td>
+                       <td align="left" nowrap bgcolor="#ffffff">{val data/DETAIL_DATA}</td>
+                       <td align="left" nowrap bgcolor="#ffffff">{val data/DETAILCD}</td>
+                       <td align="left" nowrap bgcolor="#ffffff"><!--{def data/DETAIL_DIV_SHOW}-->{val data/CONTENT}<!--{/def}--></td>
+                       <td align="left" nowrap bgcolor="#ffffff"><!--{def data/DETAIL_DIV_SHOW}-->{val data/REMARK}<!--{/def}--></td>
+                       <!--{def PDF}--> 
+                       <td align="center" nowrap bgcolor="#ffffff">{val data/TMP_PDF}</td>
+                       <!--{/def}-->
+                    </tr> 
+<!--{/each}-->
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval reload}{rval close}</script>
+{rval finish}

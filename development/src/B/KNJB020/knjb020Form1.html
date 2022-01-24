@@ -1,0 +1,63 @@
+{rval start}
+&nbsp;&nbsp;<table width="100%" border="0" cellspacing="10" cellpadding="0" >
+  <tr bgcolor="#006633">
+        <td>
+          <table border="0" cellpadding="3" cellspacing="1" width="100%">
+                <tr bgcolor="#CCCCCC">
+                  <td nowrap>
+                    <b>&nbsp;{rval HEADERS/YEAR}&nbsp;&nbsp;{rval HEADERS/SEMES}&nbsp;&nbsp;&nbsp;教科&nbsp;{rval HEADERS/CLASSCD}</b>
+                  </td>
+                </tr>
+          </table>
+        </td>
+    </tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+        <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr > 
+                  <td > 
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line"> 
+                                <td> 
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search">
+                                          <th nowrap>講座</th>
+                                          <th nowrap>科目</th>
+                                          <th nowrap>グループ</th>
+                                          <th nowrap>グループSEQ</th>
+                                        </tr>
+                                        <!--{def data}-->
+                                        <!--結果一覧-->
+                                        <!--{each data}--> 
+                                        <tr> 
+                                            <td nowrap bgcolor="#ffffff">
+                                                {val data/CHAIR}
+                                            </td>
+                                            <td nowrap bgcolor="#ffffff">
+                                                {val data/SUBCLASS}
+                                            </td>
+                                            <td nowrap bgcolor="#ffffff">
+                                                {val data/GROUP}
+                                            </td>
+                                            <td nowrap bgcolor="#ffffff">
+                                                {val data/GROUPSEQ}
+                                            </td>
+                                        </tr> 
+                                        <!--{/each}--> 
+                                        <!--{/def}-->
+                                    </table>    
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+{rval finish}
+<script language="javascript">{rval reload}{rval jscript}</script>
+<!--                        <div style="width:100%;height:550;overflow:auto";>-->

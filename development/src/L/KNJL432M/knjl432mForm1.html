@@ -1,0 +1,136 @@
+{rval start}
+
+<table width="1100px" border="0" cellspacing="0" cellpadding="5" align="center" style="margin-top:15px;">
+  <tr>
+    <td valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr > 
+            <td > 
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line"> 
+                  <td> 
+                    <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                      <tr height="25">
+                        <th nowrap class="no_search" width="15%">入試年度</th>
+                        <td nowrap bgcolor="#ffffff" width="15%" align="center">{rval TOP/YEAR}</td>
+                        <th nowrap class="no_search" width="15%">※ 校種</th>
+                        <td nowrap bgcolor="#ffffff" width="20%">{rval TOP/EXAM_SCHOOL_KIND}</td>
+                        <th nowrap class="no_search" width="15%">※ 試験ID</th>
+                        <td nowrap bgcolor="#ffffff" width="20%">{rval TOP/EXAM_ID}</td>
+                      </tr>
+                      <tr height="25">
+                        <th nowrap class="no_search" width="15%">ソート</th>
+                        <td nowrap bgcolor="#ffffff" width="30%">
+                          {rval TOP/SORT1}<label for="SORT1">成績順</label>
+                          &nbsp;&nbsp;{rval TOP/SORT2}<label for="SORT2">受験番号順</label>
+                        </td>
+                        <th nowrap class="no_search" width="15%">抽出</th>
+                        <td nowrap bgcolor="#ffffff" width="30%">
+                          {rval TOP/LOWER_EXAM_SCORE}点以上
+                          &nbsp;&nbsp;{rval TOP/UPPER_EXAM_SCORE}点以下
+                        </td>
+                        <td nowrap bgcolor="#ffffff" width="10%" colspan="2" align="center">
+                          {rval button/btn_search}
+                        </td>                        
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table style="border:none;" width="100%" border="0" cellspacing="1" cellpadding="5">
+                <tr height="25">
+                  <th align="left"  bgcolor="#ffffff" nowrap>合否：{rval TOP/JUDGEMENT}</th>
+                  <th align="right" bgcolor="#ffffff" nowrap>{rval button/btn_allpass}</th>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                          <tr class="no_search" align="center" height="30">
+                            <td width="5%"  align="center" nowrap>{rval HEAD/CHECKALL}</td>
+                            <td width="20%" nowrap>受験番号</td>
+                            <td width="25%" nowrap>氏名</td>
+                            <td width="15%" nowrap>合計点</td>
+                            <td width="15%" nowrap>合否</td>
+                            <td width="20%" nowrap>繰り上げ合格</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <div style="height: 65vh; overflow: auto;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table id="dataTable" width="100%" border="0" cellspacing="1" cellpadding="5">
+                          <!--結果一覧-->
+                          <!--{def data}-->
+                          <!--{each data}-->
+                          <tr bgcolor="#ffffff" id="ROWID{rval data/EXAMNO}" nowrap>
+                            <td width="5%"  align="center" nowrap>{rval data/CHECK}</td>
+                            <td width="20%" align="center" nowrap>{rval data/RECEPTNO}</td>
+                            <td width="25%" align="left"   nowrap>{rval data/NAME}</td>
+                            <td width="15%" align="center" nowrap>{rval data/EXAM_SCORE}</td>
+                            <td width="15%" align="center" nowrap>{rval data/JUDGEMENT}</td>
+                            <td width="20%" align="center" nowrap>{rval data/ADVANCE_CHECK}</td>
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                          <tr class="no_search">
+                            <th nowrap>&nbsp;</th>
+                            <td width="30%" bgcolor="#ffffff" nowrap>
+                              {rval button/btn_update}{rval button/btn_csv}{rval button/btn_end}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">
+</script>
+{rval finish}

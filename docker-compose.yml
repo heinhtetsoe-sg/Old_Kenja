@@ -1,0 +1,119 @@
+version: '3'
+
+services:
+  php-apache:
+    build:
+      context: .
+      dockerfile: ./docker/php-apache/Dockerfile
+    volumes:
+      - ./docker/htdocs:/usr/local/htdocs
+      - ./development:/usr/local/development
+      #----------------------------------------
+      # demo
+      #----------------------------------------
+      - ./demo:/usr/local/demo
+      - ./development/lib:/usr/local/demo/lib
+      - ./development/template:/usr/local/demo/template
+      - ./development/svf:/usr/local/demo/svf
+      - ./development/src/A:/usr/local/demo/src/A
+      - ./development/src/B:/usr/local/demo/src/B
+      - ./development/src/C:/usr/local/demo/src/C
+      - ./development/src/D:/usr/local/demo/src/D
+      - ./development/src/E:/usr/local/demo/src/E
+      - ./development/src/F:/usr/local/demo/src/F
+      - ./development/src/G:/usr/local/demo/src/G
+      - ./development/src/H:/usr/local/demo/src/H
+      - ./development/src/I:/usr/local/demo/src/I
+      - ./development/src/image:/usr/local/demo/src/image
+      - ./development/src/J:/usr/local/demo/src/J
+      - ./development/src/kyotuManual:/usr/local/demo/src/kyotuManual
+      - ./development/src/L:/usr/local/demo/src/L
+      - ./development/src/M:/usr/local/demo/src/M
+      - ./development/src/maintenance:/usr/local/demo/src/maintenance
+      - ./development/src/O:/usr/local/demo/src/O
+      - ./development/src/P:/usr/local/demo/src/P
+      - ./development/src/S:/usr/local/demo/src/S
+      - ./development/src/T:/usr/local/demo/src/T
+      - ./development/src/W:/usr/local/demo/src/W
+      - ./development/src/X:/usr/local/demo/src/X
+      - ./development/src/Z:/usr/local/demo/src/Z
+      - ./development/src/common/css:/usr/local/demo/src/common/css
+      - ./development/src/common/js:/usr/local/demo/src/common/js
+      - ./development/src/common/development-bundle:/usr/local/demo/src/common/development-bundle
+      - ./development/src/common/kenja-design-sample:/usr/local/demo/src/common/kenja-design-sample
+      #----------------------------------------
+      # demo-toku
+      #----------------------------------------
+      - ./demo-toku:/usr/local/demo-toku
+      - ./development/lib:/usr/local/demo-toku/lib
+      - ./development/template:/usr/local/demo-toku/template
+      - ./development/svf:/usr/local/demo-toku/svf
+      - ./development/src/A:/usr/local/demo-toku/src/A
+      - ./development/src/B:/usr/local/demo-toku/src/B
+      - ./development/src/C:/usr/local/demo-toku/src/C
+      - ./development/src/D:/usr/local/demo-toku/src/D
+      - ./development/src/E:/usr/local/demo-toku/src/E
+      - ./development/src/F:/usr/local/demo-toku/src/F
+      - ./development/src/G:/usr/local/demo-toku/src/G
+      - ./development/src/H:/usr/local/demo-toku/src/H
+      - ./development/src/I:/usr/local/demo-toku/src/I
+      - ./development/src/image:/usr/local/demo-toku/src/image
+      - ./development/src/J:/usr/local/demo-toku/src/J
+      - ./development/src/kyotuManual:/usr/local/demo-toku/src/kyotuManual
+      - ./development/src/L:/usr/local/demo-toku/src/L
+      - ./development/src/M:/usr/local/demo-toku/src/M
+      - ./development/src/maintenance:/usr/local/demo-toku/src/maintenance
+      - ./development/src/O:/usr/local/demo-toku/src/O
+      - ./development/src/P:/usr/local/demo-toku/src/P
+      - ./development/src/S:/usr/local/demo-toku/src/S
+      - ./development/src/T:/usr/local/demo-toku/src/T
+      - ./development/src/W:/usr/local/demo-toku/src/W
+      - ./development/src/X:/usr/local/demo-toku/src/X
+      - ./development/src/Z:/usr/local/demo-toku/src/Z
+      - ./development/src/common/css:/usr/local/demo-toku/src/common/css
+      - ./development/src/common/js:/usr/local/demo-toku/src/common/js
+      - ./development/src/common/development-bundle:/usr/local/demo-toku/src/common/development-bundle
+      - ./development/src/common/kenja-design-sample:/usr/local/demo-toku/src/common/kenja-design-sample
+      #----------------------------------------
+      # demo-tsushin
+      #----------------------------------------
+      - ./demo-tsushin:/usr/local/demo-tsushin
+      - ./development/lib:/usr/local/demo-tsushin/lib
+      - ./development/template:/usr/local/demo-tsushin/template
+      - ./development/svf:/usr/local/demo-tsushin/svf
+      - ./development/src/A:/usr/local/demo-tsushin/src/A
+      - ./development/src/B:/usr/local/demo-tsushin/src/B
+      - ./development/src/C:/usr/local/demo-tsushin/src/C
+      - ./development/src/D:/usr/local/demo-tsushin/src/D
+      - ./development/src/E:/usr/local/demo-tsushin/src/E
+      - ./development/src/F:/usr/local/demo-tsushin/src/F
+      - ./development/src/G:/usr/local/demo-tsushin/src/G
+      - ./development/src/H:/usr/local/demo-tsushin/src/H
+      - ./development/src/I:/usr/local/demo-tsushin/src/I
+      - ./development/src/image:/usr/local/demo-tsushin/src/image
+      - ./development/src/J:/usr/local/demo-tsushin/src/J
+      - ./development/src/kyotuManual:/usr/local/demo-tsushin/src/kyotuManual
+      - ./development/src/L:/usr/local/demo-tsushin/src/L
+      - ./development/src/M:/usr/local/demo-tsushin/src/M
+      - ./development/src/maintenance:/usr/local/demo-tsushin/src/maintenance
+      - ./development/src/O:/usr/local/demo-tsushin/src/O
+      - ./development/src/P:/usr/local/demo-tsushin/src/P
+      - ./development/src/S:/usr/local/demo-tsushin/src/S
+      - ./development/src/T:/usr/local/demo-tsushin/src/T
+      - ./development/src/W:/usr/local/demo-tsushin/src/W
+      - ./development/src/X:/usr/local/demo-tsushin/src/X
+      - ./development/src/Z:/usr/local/demo-tsushin/src/Z
+      - ./development/src/common/css:/usr/local/demo-tsushin/src/common/css
+      - ./development/src/common/js:/usr/local/demo-tsushin/src/common/js
+      - ./development/src/common/development-bundle:/usr/local/demo-tsushin/src/common/development-bundle
+      - ./development/src/common/kenja-design-sample:/usr/local/demo-tsushin/src/common/kenja-design-sample
+      # - ./php/:/usr/local/lib/php/
+      #----------------------------------------
+      # config setting
+      #----------------------------------------
+      - ./docker/php-apache/conf/apache2.conf:/etc/apache2/apache2.conf
+      - ./docker/php-apache/conf/000-default.conf:/etc/apache2/sites-enabled/000-default.conf
+      - ./docker/php-apache/conf/alias.conf:/etc/apache2/mods-enabled/alias.conf
+    restart: always
+    ports:
+      - "80:80"

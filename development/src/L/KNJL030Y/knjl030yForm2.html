@@ -1,0 +1,108 @@
+{rval start}
+{rval IFRAME}
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tbody>
+    <tr>
+      <td valign="top"><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr bgcolor="#006633">
+            <td align="right">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <tbody>
+                        <tr class="no_search" nowrap align="center">
+                          <th width="40%">項目</th>
+                          <th width="60%">値</th>
+                        </tr>
+                        <tr class="no_search">
+                          <th>会場名</th>
+                          <td bgcolor="#ffffff">{rval EXAMHALL_NAME}</td>
+                        </tr>
+<!--
+                        <tr class="no_search">
+                          <th>会場人数</th>
+                          <td bgcolor="#ffffff">{rval CAPA_CNT}</td>
+                        </tr>
+-->
+                        <tr class="no_search">
+                          <th>分割数</th>
+                          <td bgcolor="#ffffff">{rval DETAIL_CNT}&nbsp;{rval btn_detail}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td nowrap>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr><BR>
+                          <td align="left">{rval btn_update}{rval btn_back}</td>
+<!--
+                          <td align="right"><span style="color:#000000">会場人数：{rval CAPA_CNT}</span></td>
+-->
+                        </tr>
+      </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td nowrap>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" nowrap align="center">
+                            <th width="30" align="center" nowrap>No</th>
+                            <th width="70" align="center" nowrap>人数</th>
+                            <th width="*"  align="center" nowrap>座席番号&nbsp;(受験番号)</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--{def data2}-->
+                          <!--結果一覧-->
+                          <!--{each data2}-->
+                          <tr bgcolor="#ffffff" bgcolor="no_search" nowrap>
+                            <td width="30" align="center">{rval data2/DETAIL_NO}</th>
+                            <td width="70" align="center">{rval data2/DETAIL_CAPA_CNT}</th>
+                            <td width="*"  align="center" nowrap>{rval data2/DETAIL_S_RECEPTNO}～{rval data2/DETAIL_E_RECEPTNO}&nbsp;({rval data2/DETAIL_S_EXAMNO}～{rval data2/DETAIL_E_EXAMNO})</th>
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}

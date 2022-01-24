@@ -1,0 +1,26 @@
+<script language="javascript">
+with(top.main_frame){
+<!--{def OLD_OPTION}-->
+    document.forms[0].OLD_CLASS_STU.length = 0;
+    var i = 0;
+<!--{each OLD_OPTION}-->
+    document.forms[0].OLD_CLASS_STU.options[i] = new Option();
+    document.forms[0].OLD_CLASS_STU.options[i].text = '{rval OLD_OPTION/TEXT}';
+    document.forms[0].OLD_CLASS_STU.options[i].value = '{rval OLD_OPTION/VALUE}';
+    i++;
+<!--{/each}-->
+<!--{/def}-->
+<!--{def NEW_OPTION}-->
+    document.forms[0].NEW_CLASS_STU.length = 0;
+    var i = 0;
+<!--{each NEW_OPTION}-->
+    document.forms[0].NEW_CLASS_STU.options[i] = new Option();
+    document.forms[0].NEW_CLASS_STU.options[i].text = '{rval NEW_OPTION/TEXT}';
+    document.forms[0].NEW_CLASS_STU.options[i].value = '{rval NEW_OPTION/VALUE}';
+    i++;
+<!--{/each}-->
+<!--{/def}-->
+    document.getElementById("OLDNUM").innerHTML = document.forms[0].OLD_CLASS_STU.options.length;
+    document.getElementById("NEWNUM").innerHTML = document.forms[0].NEW_CLASS_STU.options.length;
+}
+</script>

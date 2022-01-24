@@ -1,0 +1,69 @@
+{rval start}
+<table width="870px" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr> 
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search"> 
+                <th align="center" nowrap height="30">
+                  学籍番号：{rval TOP/DISP_SCHREGNO}　　氏　名：{rval TOP/DISP_NAME}
+                </th>
+              </tr>
+              <tr> 
+                <th align="left" nowrap height="30">
+                  &nbsp;カテゴリ選択：{rval TOP/OPT_CONTACT_DIV}&nbsp;&nbsp;&nbsp;
+                  表示順（
+                  {rval TOP/OPT_SORT1}<LABEL for="OPT_SORT1">最新順</LABEL>
+                  {rval TOP/OPT_SORT2}<LABEL for="OPT_SORT2">古い順</LABEL>
+                  {rval TOP/OPT_SORT3}<LABEL for="OPT_SORT3">カテゴリ順</LABEL>
+                  {rval TOP/OPT_SORT4}<LABEL for="OPT_SORT4">記録者順</LABEL>
+                  ）
+                </th>
+              </tr>
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th align="center" width="150" nowrap>対応日 - 通番<br>カテゴリ<br>記録者</th>
+                      <th align="center" width="575"   nowrap>記録内容</th>
+                      <th align="center" width="*"  nowrap>完了日</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <div id="mainDiv" style="width: 100%; height: 300px; overflow-y: auto">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr class="no_search_line">
+                        <td>
+                          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <!--結果一覧-->
+                            <!--{def data}-->
+                            <!--{each data}--> 
+                            <tr height="50px">
+                              <td align="center" valign="top" width="150" bgcolor="#ffffff" nowrap>{rval data/DISP_NAME}</td>
+                              <td align="left"   valign="top" width="575" bgcolor="#ffffff" nowrap>{val data/CONTACT_REMARK}</td>
+                              <td align="center"              width="*"   bgcolor="#ffffff" nowrap>{val data/DISP_EDATE}</td>
+                            </tr>
+                            <!--{/each}--> 
+                            <!--{/def}--> 
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval reload}</script>
+{rval finish}

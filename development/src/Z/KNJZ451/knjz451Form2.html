@@ -1,0 +1,73 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr>
+      <td >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+          <table width="100%" border="0" cellspacing="1" cellpadding="5">
+          <tr>
+            <th width="25%" height="*" align="right" class="no_search" nowrap>項目</th>
+            <th class="no_search" height="25">値</th>
+          </tr>
+<!--結果一覧-->
+<!--{def data}-->
+          <tr>
+            <th width="25%" height="*" align="right" class="no_search" nowrap>※取得可能検定</th>
+            <td height="*" bgcolor="#ffffff">{rval data/QUALIFIED_CD}</td>
+          </tr>
+          <tr>
+            <th width="25%" height="*" align="right" class="no_search" nowrap>※取得期限</th>
+            <td height="*" bgcolor="#ffffff">{rval data/LIMIT_MONTH}ヶ月以内</td>
+          </tr>
+          <tr>
+            <th width="25%" height="*" align="right" class="no_search" nowrap>※取得検定数</th>
+            <td height="*" bgcolor="#ffffff">{rval data/SETUP_CNT}</td>
+          </tr>
+<!--{/def}-->
+          </table>
+        </td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:10px;">
+        <tr class="no_search_line">
+        <td>
+          <table width="100%" border="0" cellspacing="1" cellpadding="5">
+<!--結果一覧-->
+<!--{def data}-->
+          <tr align="center" class="no_search">
+            <th><b>級取得必要検定</b></th>
+            <th class="no_search"></th>
+            <th><b>級取得必要検定一覧</b></th>
+          </tr>
+          <tr align="center" bgcolor="#ffffff">
+            <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+            <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+              {rval button/btn_left1}<BR>
+              {rval button/btn_right1}<BR>
+              {rval button/btn_rights}
+            <td width="45%">{rval data/CATEGORY_NAME}</td>
+          </tr>
+<!--{/def}-->
+          </table>
+        </td>
+        </tr>
+<!--{def button}-->
+        <tr>
+          <td height="*" bgcolor="#ffffff" style="padding:10px 0 0 10px;">
+            {rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}&nbsp;&nbsp;{rval button/btn_clear}
+          </td>
+        </tr>
+<!--{/def}-->
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

@@ -1,0 +1,81 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR><BR><BR><BR><BR>
+
+<table width="50%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td align="center" nowrap><b>
+                        対象年度&nbsp;{rval data/YEAR}　&nbsp;{rval data/SEMESTER}　　{rval data/CHOICE1}<LABEL for="CHOICE1">クラス指定</LABEL>　{rval data/CHOICE2}<LABEL for="CHOICE2">個人指定</LABEL>　{rval data/RISHUUCHECK}<LABEL for="RISHUUCHECK">履修登録者を出力</LABEL>
+<!--{def gr_class}-->
+                        　{rval data/GRADE_HR_CLASS}
+<!--{/def}-->
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象{rval CHANGENAME}</b></th>
+                      <th class="no_search"></th>
+                      <th><b>{rval CHANGENAME}一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr>
+                      <td align="left" bgcolor="#ffffff">
+                        <table>
+                          <tr height="50">
+                            <td>
+                              <b>　　　　　　出力住所</b><br>
+                              　　　　　　　　　{rval data/TAISHOUSHA1}<LABEL for="TAISHOUSHA1">保護者</LABEL>　{rval data/TAISHOUSHA2}<LABEL for="TAISHOUSHA2">負担者</LABEL>　{rval data/TAISHOUSHA3}<LABEL for="TAISHOUSHA3">その他１</LABEL>　{rval data/TAISHOUSHA4}<LABEL for="TAISHOUSHA4">その他２</LABEL><br><br>
+                              　　　　　　{rval data/KAIPAGE_OFF}<LABEL for="KAIPAGE_OFF">学籍番号順</LABEL>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

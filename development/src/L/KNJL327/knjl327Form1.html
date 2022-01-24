@@ -1,0 +1,110 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR>
+
+<table width="55%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr > 
+	<td > 
+	  <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+        <tr class="no_search_line"> 
+          <td width="100%"> 
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+			  <tr align="center" class="no_search"> 
+			    <td colspan=2 nowrap>
+	        	  <b>年度:{rval TOP/YEAR}</b>&nbsp;&nbsp;入試制度:{rval data/APDIV}&nbsp;&nbsp;入試区分:{rval data/TESTDV}
+				</td>
+			  </tr>
+			  <tr align="left" bgcolor="#ffffff" height="40"> 
+			  	<td colspan=2>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通知日付：{rval el/NOTICEDAY}<br>
+			    </td>
+			  </tr>
+			  <tr class="no_search" align="center" bgcolor="#ffffff" height="30"> 
+				  <th><b>＜帳票種類＞</b></th>
+				  <th><b>＜出力範囲＞</b></th>
+			  </tr>
+			  <tr bgcolor="#ffffff" height="80">
+				  <td width="45%" height="80">
+					&nbsp;&nbsp;{rval data/OUTPUT1}合格通知書<br>
+					&nbsp;&nbsp;{rval data/OUTPUT5}入学金振込み用紙
+				  </td>
+				  <td width="45%">
+<!-- NO003 -->
+					&nbsp;{rval data/OUTPUTA3}合格者全員<br>
+					&nbsp;{rval data/OUTPUTA1}受験者全員<br>
+					&nbsp;{rval data/OUTPUTA2}受験者指定（{rval data/CHKBOXA}合格者のみ）<br><!-- NO002 -->
+					&nbsp;&nbsp;&nbsp;&nbsp;受験番号：{rval data/EXAMNOA}
+				  </td>
+			  </tr>
+			  <tr bgcolor="#ffffff" height="100">
+				  <td width="45%" height="100">
+					&nbsp;&nbsp;{rval data/OUTPUT6}入学手続き延期願い<br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;提出期限<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日付：{rval el/DEADLINE}<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;時間：{rval data/TIMEUPH}&nbsp;時&nbsp;{rval data/TIMEUPM}&nbsp;分
+				  </td>
+				  <td width="45%">
+<!-- NO003 -->
+					&nbsp;{rval data/OUTPUTB3}合格者全員<br>
+					&nbsp;{rval data/OUTPUTB1}受験者全員<br>
+					&nbsp;{rval data/OUTPUTB2}受験者指定（{rval data/CHKBOXB}合格者のみ）<br><!-- NO002 -->
+					&nbsp;&nbsp;&nbsp;&nbsp;受験番号：{rval data/EXAMNOB}<br>
+				  </td>
+			  </tr>
+
+			  <tr bgcolor="#ffffff" height="80">
+				  <td width="45%" height="80">
+					&nbsp;&nbsp;{rval data/OUTPUT7}アップ合格通知書<br>
+					&nbsp;&nbsp;{rval data/OUTPUT8}スライド合格通知書<br>
+				  </td>
+				  <td width="45%">
+					&nbsp;{rval data/OUTPUTE1}合格者全員<br>
+					&nbsp;{rval data/OUTPUTE2}受験者指定<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;受験番号：{rval data/EXAMNOE}
+				  </td>
+			  </tr>
+
+			  <tr bgcolor="#ffffff" height="80">
+				  <td width="45%" height="80">
+<!--
+					&nbsp;&nbsp;{rval data/OUTPUT2}特待生合格通知書<br>
+-->
+					&nbsp;&nbsp;{rval data/OUTPUT3}特待生合格証明書<br>
+				  </td>
+				  <td width="45%">
+					&nbsp;{rval data/OUTPUTC1}特待生合格者全員<br>
+					&nbsp;{rval data/OUTPUTC2}受験者指定<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;受験番号：{rval data/EXAMNOC}
+				  </td>
+			  </tr>
+<!--
+			  <tr bgcolor="#ffffff" height="80">
+				  <td width="45%" height="80">
+					&nbsp;&nbsp;{rval data/OUTPUT4}不合格通知書<br>
+				  </td>
+				  <td width="45%">
+					&nbsp;{rval data/OUTPUTD3}受験者全員<br>
+					&nbsp;{rval data/OUTPUTD1}不合格者全員<br>
+					&nbsp;{rval data/OUTPUTD2}受験者指定<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;受験番号：{rval data/EXAMNOD}
+				  </td>
+			  </tr>
+-->
+			  <tr align="left" class="no_search" height="20"> 
+				<td colspan=2 nowrap> &nbsp{rval button/btn_print}{rval button/btn_end}</td>
+			  </tr>
+			</table>
+		  </td>
+		</tr>
+	  </table>
+	</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

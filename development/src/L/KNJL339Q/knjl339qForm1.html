@@ -1,0 +1,58 @@
+{rval start} 
+<!--{def button}-->
+<!--{def data}-->
+<br><br><br><br><br><br><br><br>
+<table width="450" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="5">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr class="no_search" height="30">
+                <td colspan="2" align="center"><B>入試年度：{rval data/YEAR}</B></td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" width="25%" align="right">入試制度&nbsp;</td>
+                <td bgcolor="#ffffff" width="75%">{rval data/APPLICANTDIV}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" align="right">入試区分&nbsp;</td>
+                <td bgcolor="#ffffff">{rval data/TESTDIV}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" align="right">帳票種類&nbsp;</td>
+                <td bgcolor="#ffffff">
+                <!--{def suisen}-->
+                　　　{rval data/KOCHO}<LABEL for="KOCHO">校長推薦（コース別）</LABEL><br>
+                　　　{rval data/JIKO}<LABEL for="JIKO">自己推薦（コース別）</LABEL><br>
+                <!--{/def}-->
+                <!--{def ippan}-->
+                　　　{rval data/IPPAN}<LABEL for="IPPAN">一般</LABEL><br>
+                　　　{rval data/NORMAL}<LABEL for="NORMAL">基準（普通クラス）</LABEL><br>
+                　　　{rval data/SPORT}<LABEL for="SPORT">基準（スポーツクラス）</LABEL><br>
+                　　　{rval data/SUNCHU}<LABEL for="SUNCHU">基準（駿中生）</LABEL><br>
+                　　　{rval data/SGSPORT}<LABEL for="SGSPORT">基準・一般（スポーツ）</LABEL><br>
+                　　　{rval data/SGNORMAL}<LABEL for="SGNORMAL">基準・一般（普通）</LABEL><br>
+                <!--{/def}-->
+                </td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" align="right">出力順&nbsp;</td>
+                <td nowrap bgcolor="#ffffff">&nbsp;{rval data/ORDER1}<LABEL for="ORDER1">高得点順</LABEL>　{rval data/ORDER2}<LABEL for="ORDER2">受験番号順</LABEL></td>
+              </tr>
+              <tr height="30">
+                <td class="no_search"></td>
+                <td bgcolor="#ffffff">{rval button/btn_print}{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}

@@ -1,0 +1,111 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+<tr>
+<td>
+
+  <table style="width: 100%" border="0" cellspacing="1" cellpadding="1">
+  <tr> 
+  <td>
+
+    <br>
+
+    <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+    <tr class="no_search_line">
+      <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search">
+            <td width="120" align="center">対象年度</td>
+            <td width="230" bgcolor="#ffffff" style="color: black">
+             <div align="left">{rval YEAR/VAL}&nbsp;{rval YEAR/BUTTON}</div>
+            </td>
+            <td width="120" align="center">学校校種</td>
+            <td width="150" bgcolor="#ffffff" style="color: black">
+             <div>&nbsp;{rval info/SCHOOL_KIND}</div>
+            </td>
+            <td width="120" align="center">行事マスタ区分</td>
+            <td width="*" bgcolor="#ffffff" style="color: black">
+             <div>&nbsp;{rval info/DATA_DIV}</div>
+            </td>
+          </tr>
+          <tr class="no_search" >
+            <td align="center"> 指定月</td>
+            <td bgcolor="#ffffff" style="color: black">
+             <div align="left">{rval info/MONTH}</div>
+            </td>
+            <td align="center">学年</td>
+            <td bgcolor="#ffffff" style="color: black">
+             <div>&nbsp;{rval info/GRADE}</div>
+            </td>
+            <td align="center">{rval info/TITLE}</td>
+            <td bgcolor="#ffffff" style="color: black" nowrap>
+            <div>
+                <!--{def hr_class_div}-->{rval info/HR_CLASS_DIV1}<LABEL for="HR_CLASS_DIV1">法定</LABEL>　{rval info/HR_CLASS_DIV2}<LABEL for="HR_CLASS_DIV2">複式</LABEL>　<!--{/def}-->
+                &nbsp;{rval info/COURSE_MAJOR}{rval info/HR_CLASS}
+            </div>
+            </td>
+          </tr>
+
+    <!--{def copy}-->
+          <tr class="no_search" >
+            <td align="center">コピー先</td>
+            <td bgcolor="#ffffff" style="color: black" colspan="5">
+                　　学年：{rval copy/COPY_GRADE}　　　{rval copy/COPY_TITLE}{rval copy/COPY_MAJOR}{rval copy/COPY_HR_CLASS}　　　{rval button/btn_copy_year}{rval button/btn_copy_month}
+            </td>
+          </tr>
+    <!--{/def}-->
+
+        </table>
+      </td>
+    </tr>
+    </table>
+
+    <table style="width: 100%" border="0" cellspacing="1" cellpadding="0">
+    <tr class="no_search_line">
+      <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="0">
+          <tr class="no_search" height="23">
+            <td width="150" align="center">日付</td>
+            <td width="40"  align="center">休日</td>
+            <td width="385" align="center">マスタ行事名</td>
+            <td width="*" align="center">マスタ備考</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+    
+    <div style="width:100%;height:500;overflow:auto">
+    <table style="width: 100%" border="0" cellspacing="1" cellpadding="0">
+    <tr class="no_search_line">
+      <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="0">
+          <!--{each data}-->
+          <tr class="no_search" height="23">
+            <td width="150" bgcolor="#ffffff" style="color: black"><div align="center">{rval data/EXECUTEDATE}</div></td>
+            <td width="40" bgcolor="#ffffff"><div align="center">{rval data/HOLIDAY_FLG}</div></td>
+            <td width="385" bgcolor="#ffffff"><div align="center">{rval data/REMARK1}</div></td>
+            <td width="*"    bgcolor="#ffffff"><div align="center">{rval data/REMARK2}</div></td>
+          </tr>
+          <!--{/each}-->
+        </table>
+      </td>
+    </tr>
+
+    </table>
+    </div>
+    
+    <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+        <tr class="no_search" height="35" nowrap>
+          <td align="right">
+          {rval button/btn_update}　{rval button/btn_shokitiyear}　{rval button/btn_shokitimonth}　{rval button/btn_reset}　{rval button/btn_end}
+          </td>
+        </tr>
+    </table>
+
+  </td>
+  </tr>
+  </table>
+</td>
+</tr>
+</table>
+{rval finish}

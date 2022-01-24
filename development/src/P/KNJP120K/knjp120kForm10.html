@@ -1,0 +1,86 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line"> 
+                      <td> 
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search"> 
+                            <th align="center" width="50" nowrap>分納<br>コード</th>
+                            <th align="center" width="200" nowrap>費目中分類名称</th>
+                            <th align="center" width="100" nowrap>納入必要<BR>金額合計</th>
+                            <th align="center" width="100" nowrap>入金<BR>金額合計</th>
+                            <th align="center" width="100" nowrap>返金<BR>金額合計</th>
+                            <th align="center" width="*" nowrap>分納完了日</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                <div style="width:100%;height:200;overflow:auto">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <!--結果一覧-->
+                      <!--{def data}-->
+                      <!--{each data}--> 
+                                <tr height="25"> 
+                                   <td align="center" width="50" bgcolor="#ffffff">{rval data/INST_CD}</td>
+                                   <td width="200" bgcolor="#ffffff">{rval data/EXPENSE_M_NAME}</td>
+                                   <td align="right" width="100" bgcolor="#ffffff">{rval data/MONEY_DUE}</td>
+                                   <td align="right" width="100" bgcolor="#ffffff">{rval data/PAID_MONEY}</td>
+                                   <td align="right" width="100" bgcolor="#ffffff">{rval data/REPAY_MONEY}</td>
+                                   <td width="*" bgcolor="#ffffff">{rval data/PAID_MONEY_DATE}</td>
+                                </tr> 
+                      <!--{/each}--> 
+                      <!--{/def}-->
+                      </table>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tbody>
+                          <tr class="no_search">
+                            <th align="center" nowrap width="257" height="20">合計</th>
+                            <th align="right" nowrap width="100">{val SUM}</th>
+                            <th align="right" nowrap width="100">{val SUM2}</th>
+                            <th align="right" nowrap width="100">{val SUM3}</th>
+                            <th align="center" nowrap width="*"></th>
+                          </tr>
+                        </tbody>
+                      </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table><script language="JavaScript">{rval reload}</script>
+{rval finish}

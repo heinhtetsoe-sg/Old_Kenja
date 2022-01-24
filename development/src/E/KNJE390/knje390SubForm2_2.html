@@ -1,0 +1,111 @@
+﻿{rval start}
+{rval IFRAME}
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="150" nowrap bgcolor="#ADFF2F" align="center">
+            <b><font size="3" color="#006400">A&nbsp;アセスメント表</font><font size="2" color="#006400"><BR>(発達検査)</font></b>
+          </td>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="80">項目</th>
+              <th width="150">検査機関</th>
+              <th width="*">内容</th>
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <div style="width: 100%; height=120; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def data2}-->
+                <!--{each data2}-->
+                  <tr bgcolor="#ffffff">
+                      <!-- Add by PP for start current focus 2020-02-03 start -->
+                    <th width="80" align="left"><a href="knje390index.php?cmd=subform2_check_set&YEAR={val data2/YEAR}&SCHREGNO={val data2/SCHREGNO}&RECORD_SEQ={val data2/RECORD_SEQ}" onclick="current_cursor('CHECK_DATE');">{rval data2/RECORD_DIV_NAME}</a></th>
+                    <!-- Add by PP for start current focus 2020-02-20 end -->
+                    <td width="150" align="left">{rval data2/CENTER_NAME}</td>
+                    <td width="*" align="left">検査日:{rval data2/CHECK_DATE}　検査名:{rval data2/CHECK_NAME}</td>
+                  </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+        
+        <tr><td height="20"></td></tr>
+
+<!--{def data}-->
+<!--{def button}-->
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <!-- Edit by PP for start PC-Talker 2020-02-03 start -->
+                <th width="90" align="right" class="no_search" aria-label="検査日の" nowrap>検査日</th>
+                <!-- Edit by PP for start PC-Talker 2020-02-20 end -->
+                <td bgcolor="#ffffff">{rval data/CHECK_DATE}</td>
+              </tr>
+              <tr>
+                <!-- Edit by PP for start PC-Talker 2020-02-03 start -->
+                <th width="90" align="right" class="no_search" aria-label="" nowrap>検査機関</th>
+                <!-- Edit by PP for start PC-Talker 2020-02-20 end -->
+                <td bgcolor="#ffffff">{rval data/CENTER_TEXT}
+                {rval data/CHECK_CENTER_TEXT}<BR>
+                {rval data/CHECK_CENTER_TEXT_SIZE} 　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　　 
+                {rval button/btn_check_center_search}
+                </td>
+              </tr>
+              <tr>
+                <!-- Edit by PP for start PC-Talker 2020-02-03 start -->
+                <th width="90" align="right" class="no_search" aria-label="" nowrap>検査名</th>
+                <!-- Edit by PP for start PC-Talker 2020-02-20 end -->
+                <td bgcolor="#ffffff">{rval data/CHECK_NAME}　{rval button/btn_checkname}<BR>{rval data/CHECK_NAME_SIZE}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td align="left" bgcolor="#ffffff">{rval button/btn_insert}{rval button/btn_update}{rval button/btn_delete}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+<!--{/def}-->
+<!--{/def}-->
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish} 

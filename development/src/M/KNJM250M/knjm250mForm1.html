@@ -1,0 +1,109 @@
+{rval start}
+
+<style type="text/css">
+</style>
+<BR><BR><BR><BR><BR><BR>
+<table width="92%" border="0" cellspacing="0" cellpadding="5" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" nowrap>
+                      <td><b>　　年度：{rval TOP/YEAR}&nbsp;&nbsp;&nbsp;&nbsp;科目：{rval TOP/SELSUB}</b>　　　　　　　　{rval btn_copy}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr bgcolor="#006633">
+          <td align="right">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" nowrap align="center">
+                            <th width="7%" align="center" nowrap>回 数</th>
+                            <th width="10%" align="center" nowrap>レポート区分</th>
+                            <th width="17%" align="center" nowrap>提出基準日</th>
+                            <th width="17%" align="center" nowrap>最終提出日</th>
+                            <th width="*%" align="center" colspan="2" nowrap>備考</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <div style="width: 100%; height=400; overflow: auto">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--{def data}-->
+                          <!--結果一覧-->
+                          <!--{each data}-->
+                          <tr style="height:25"; bgcolor="#ffffff" id="ROWID{rval data/SUBCD}" nowrap>
+                            <td width="7%"  align="center" nowrap>{rval data/SUBCDNAME}</td>
+                            <td width="10%" align="center" nowrap>{rval data/REPDIV}</td>
+                            <td width="17%" align="center" nowrap>{rval data/BASEDAY}</td>
+                            <td width="17%" align="center" nowrap>{rval data/ENDDAY}</td>
+                            <td width="*%"  align="center" nowrap>{rval data/REMARK}</td>
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" nowrap>
+                            <th width="30%" align="left" nowrap>{rval btn_update}{rval btn_reset}{rval btn_end}</th>
+                            <td>
+                              {rval csv/OUTPUT4}<LABEL for="OUTPUT4">ヘッダ出力(見本)</LABEL><br>
+                              {rval csv/OUTPUT1}<LABEL for="OUTPUT1">取込</LABEL>{rval csv/OUTPUT2}<LABEL for="OUTPUT2">書出</LABEL>
+                              ファイル：<span id="type_file">{rval FILE}</span>{val btn_exec}　{rval csv/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL><br>
+                              {rval csv/OUTPUT3}<LABEL for="OUTPUT3">エラー出力</LABEL>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval Closing}</script>

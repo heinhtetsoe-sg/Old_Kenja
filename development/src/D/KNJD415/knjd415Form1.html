@@ -1,0 +1,61 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th width="100%" align="left" class="no_search" nowrap><b>処理年度：</b>&nbsp;{rval YEAR}　　{rval button/btn_copy}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="10"></td>
+        </tr>
+        <tr>
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="10%" nowrap><b>状態区分</b></th>
+                      <th width="40%" nowrap><b>教科グループ</b></th>
+                      <th width="*%" nowrap><b>教科</b></th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/ROWSPAN}-->
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN}>{val data/CONDITION_NAME}</td>
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN} align="left"><a href="knjd415index.php?cmd=edit2&YEAR={val data/YEAR}&CLASSGROUP_CD={val data/CLASSGROUP_CD}&CONDITION={val data/CONDITION}&CONDITION_NAME={val data/CONDITION_NAME}" target="right_frame">{val data/CLASSGROUP_CD}：{val data/CLASSGROUP_NAME}</a></td>
+                      <!--{/def}-->
+                      <td nowrap bgcolor="#ffffff">{val data/SUBCLASS}</td>
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+   </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

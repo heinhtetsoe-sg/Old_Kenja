@@ -1,0 +1,257 @@
+<!-- kanji=漢字 -->
+<!-- <?php # $Id: knjm350Form1.html 56590 2017-10-22 13:01:54Z maeshiro $ ?> -->
+{rval start}
+
+<style type="text/css">
+
+</style>
+<BR><BR><BR><BR><BR><BR>
+<table width="100%" border="0" cellspacing="0" cellpadding="5" align="center">
+
+<tr> 
+
+<td valign="top" > 
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+    <tr> 
+
+    <td > 
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+      <tr class="no_search_line"> 
+
+      <td> 
+
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+        <tr class="no_search" nowrap> 
+
+          <td ><b>　　提出期限：{rval TOP/DATE}</b></td>
+
+        </tr>
+
+        </table>
+
+       </td>
+
+      </tr>
+
+      </table>
+
+    </td>
+
+    </tr>
+
+    </table>
+
+</td>
+
+</tr>
+
+<tr> 
+
+<td valign="top" > 
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+    <tr> 
+
+    <td > 
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+      <tr class="no_search_line"> 
+
+      <td> 
+
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+        <tr class="no_search" nowrap> 
+
+          <td ><b>　　年度：{rval TOP/YEAR}&nbsp&nbsp&nbsp&nbsp科目：{rval TOP/SELSUB}</b></td>
+
+        </tr>
+
+        </table>
+
+       </td>
+
+      </tr>
+
+      </table>
+
+    </td>
+
+    </tr>
+
+    </table>
+
+</td>
+
+</tr>
+
+<tr > 
+
+<td valign="top" > 
+
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+  <tr bgcolor="#006633"> 
+
+  <td align="right">
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+    <tr> 
+
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+      <tr class="no_search_line">
+
+
+      <td>    
+
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+        <tr class="no_search" nowrap align="center"> 
+
+        <th width="5%" align="center" nowrap>{rval TOP/ALLCHECK}</th>
+
+        <th width="7%" align="center" nowrap>印 刷</th>
+
+        <th width="10%" align="center" nowrap>学籍番号</th>
+
+        <th width="17%" align="center" nowrap>生徒氏名</th>
+
+        <th width="7%" align="center" nowrap>回 数</th>
+
+        <th width="7%" align="center" nowrap>再提出</th>
+
+        <th width="*%" align="center" colspan="2" nowrap>備考</th>
+
+        </tr>
+
+        </table>
+
+      </td>
+
+      </tr>
+
+      </table>
+
+    </td>
+
+    </tr>
+
+    <tr>
+
+    <td bgcolor="#ffffff">
+
+      <div style="width: 100%; height=400; overflow: auto">
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+      <tr class="no_search_line" >
+
+      <td>
+
+      <table width="100%" border="0" cellspacing="1" cellpadding="3">  
+
+      <!--{def data}-->
+
+      <!--結果一覧-->
+
+      <!--{each data}--> 
+
+      <tr style="height:25"; bgcolor="#ffffff" id="ROWID{rval data/SUBCD}" nowrap>
+
+        <td width="5%"  align="center" nowrap>{rval data/DELCHK}</td>
+
+        <td width="7%" align="center" nowrap>{rval data/PURINTDIV}</td>
+
+        <td width="10%" align="center" nowrap>{rval data/SCHREGNO}</td>
+
+        <td width="17%"  align="left" nowrap>{rval data/SCHREGNAME}</td>
+
+        <td width="7%" align="center" nowrap>{rval data/KAI}</td>
+
+        <td width="7%"  align="center" nowrap>{rval data/SAI}</td>
+
+        <td width="*%"  align="left" nowrap>{rval data/REMARK}</td>
+
+      </tr>
+
+      <!--{/each}--> 
+
+      <!--{/def}-->
+
+      </table>
+
+      </td>
+
+      </tr>
+
+      </table>
+
+      </div>
+
+    </td>
+
+    </tr>
+
+    <tr> 
+
+    <td>
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+      <tr class="no_search_line">
+
+      <td>    
+
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+        <tr class="no_search" nowrap> 
+
+          <th width="30%" align="left" nowrap>{rval btn_update}{rval btn_end}</th>
+
+        </tr>
+
+        </table>
+
+      </td>
+
+      </tr>
+
+      </table>
+
+    </td>
+
+    </tr>
+
+    </table>
+
+  </td>
+
+  </tr>
+
+
+  </table>
+<font color="#ffffff">{rval TOP/CNT}</font>
+<font color="#ffffff">{rval TOP/PRGID}</font>
+<font color="#ffffff">{rval TOP/DBNAME}</font>
+<font color="#ffffff">{rval TOP/useCurriculumcd}</font>
+</td>
+
+</tr>
+
+</table>
+
+<script language="JavaScript">
+{rval printgo}
+</script>
+
+{rval finish}

@@ -1,0 +1,61 @@
+{rval start}
+<!--{def button}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                <hr width="55%" align="left">
+                    &nbsp;{rval NAME_SHOW}
+                <hr width="55%" align="left">
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th width="12%" align="center">学期</th>
+                      <td width="11%" align="center">授業日数</td>
+                      <td width="11%" align="center"><LABEL for="CHECK_SUSPEND">出席停止</LABEL><br>{rval CHECK_SUSPEND}</td>
+                      <td width="11%" align="center"><LABEL for="CHECK_MOURNING">忌引</LABEL><br>{rval CHECK_MOURNING}</td>
+                      <td width="11%" align="center">要出席日数</td>
+                      <td width="11%" align="center"><LABEL for="CHECK_SICK">欠席日数</LABEL><br>{rval CHECK_SICK}</td>
+                      <td width="11%" align="center">出席日数</td>
+                      <td width="11%" align="center"><LABEL for="CHECK_LATE">遅刻</LABEL><br>{rval CHECK_LATE}</td>
+                      <td width="11%" align="center"><LABEL for="CHECK_EARLY">早退</LABEL><br>{rval CHECK_EARLY}</td>
+                    </tr>
+                    <!--{each data}-->
+                    <tr align="center" height="30">
+                      <th align="center" class="no_search" nowrap>{rval data/SEMESTERNAME}</th>
+                      <td bgcolor="#ffffff">{rval data/LESSON}</td>
+                      <td bgcolor="#ffffff">{rval data/SUSPEND}</td>
+                      <td bgcolor="#ffffff">{rval data/MOURNING}</td>
+                      <td bgcolor="#ffffff">{rval data/ATTEND1}</td>
+                      <td bgcolor="#ffffff">{rval data/SICK}</td>
+                      <td bgcolor="#ffffff">{rval data/ATTEND2}</td>
+                      <td bgcolor="#ffffff">{rval data/LATE}</td>
+                      <td bgcolor="#ffffff">{rval data/EARLY}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <tr>
+                      <td class="no_search" colspan="9" align="right" nowrap>{rval button/btn_torikomi}　{rval button/btn_back}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+{rval finish}
+{rval javascript}

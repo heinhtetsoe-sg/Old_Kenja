@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- kanji=漢字 -->
+<!-- $Id: build.xml 56594 2017-10-22 14:18:33Z maeshiro $ -->
+<project name="nao_package" default="compile" basedir=".">
+
+    <property environment="env"/>
+
+    <property file="${user.home}/my.build.properties" />
+
+    <property name="pkg.title"          value="ナオ・パッケージ"/>
+    <property name="pkg.version"        value="Ver 6.0"/>
+    <property name="pkg.copyright"      value="Copyright(C) 2004. by アルプ沖縄(株)"/>
+
+    <property name="basename"			value="nao_package"/>
+
+    <property name="src"				location="src"/>
+    <property name="build"				location="build"/>
+    <property name="dist"				location="dist"/>
+    <property name="dir.docs"			location="docs"/>
+
+    <path id="project.classpath">
+        <pathelement location="${build}"/>
+        <pathelement location="D:/0-ALP/backlog/PHP7KENJA/Servlet/fit_products/SVFJP/svfjpd/lib/svf.jar"/>
+        <pathelement location="${jar.junit}"/>
+        <pathelement location="${dir.xalan}/bin/xalan.jar"/>
+        <pathelement location="${dir.xerces}/xmlParserAPIs.jar"/>
+        <pathelement location="${dir.xerces}/xercesImpl.jar"/>
+        <pathelement location="${jar.commons-beanutils}"/>
+        <pathelement location="${jar.commons-collections}"/>
+        <pathelement location="${jar.commons-dbcp}"/>
+        <pathelement location="${jar.commons-dbutils}"/>
+        <pathelement location="${jar.commons-lang}"/>
+        <pathelement location="${jar.commons-logging}"/>
+        <pathelement location="${jar.commons-pool}"/>
+        <pathelement location="${jar.jakarta-log4j}"/>
+        <pathelement location="${jar.jakarta-oro}"/>
+    </path>
+
+    <!-- **** INFO -->
+    <target name="info">
+        <echo level="info">user.home=${user.home}</echo>
+        <echo level="info">basedir=${basedir}</echo>
+        <echo level="info">ant.file=${ant.file}</echo>
+        <echo level="info">ant.version=${ant.version}</echo>
+        <echo level="info">ant.project.name=${ant.project.name}</echo>
+        <echo level="info">ant.java.version=${ant.java.version}</echo>
+        <echo level="info">env.JAVA_HOME=${env.JAVA_HOME}</echo>
+        <echo level="info">env.ANT_HOME=${env.ANT_HOME}</echo>
+        <echo level="info">env.CLASSPATH=${env.CLASSPATH}</echo>
+    </target>
+
+    <!-- **** 初期化 -->
+    <target name="init">
+        <tstamp/>
+        <mkdir dir="${build}"/>
+    </target>
+
+    <!-- **** コンパイル -->
+    <target name="compile" description="compile java" depends="init">
+        <javac
+                encoding="UTF-8"
+                target="1.6"
+                source="1.6"
+                deprecation="true"
+                srcdir="${src}"
+                destdir="${build}"
+                classpathref="project.classpath"
+                bootclasspath="${dir.jre13_home}/lib/rt.jar"
+                extdirs="${dir.jre13_home}/lib/ext"
+                includeantruntime="false"
+                debug="on">
+            <include name="**/*.java"/>
+            <exclude name="**/test/*.java"/>
+        </javac>
+    </target>
+
+    <!-- **** Javadoc ドキュメント生成 -->
+    <target name="javadoc">
+        <delete dir="${dir.docs}/api"/>
+        <mkdir dir="${dir.docs}/api"/>
+
+        <javadoc
+                source="1.6"
+                overview="${src}/overview.html"
+                sourcepath="${src}"
+                encoding="UTF-8"
+                classpathref="project.classpath"
+                destdir="${dir.docs}/api"
+                private="false"
+                author="true"
+                version="true"
+                use="true"
+                Verbose="false"
+                windowtitle="${pkg.title}">
+
+            <packageset dir="${src}" defaultexcludes="true">
+                <include name="**" />
+                <exclude name="**/test*" />
+            </packageset>
+
+            <link href="http://java.sun.com/j2se/1.4/ja/docs/ja/api/"/>
+
+            <!--link href="http://jakarta.apache.org/commons/pool/apidocs/"/-->
+            <!--link href="http://jakarta.apache.org/commons/lang/api/"/-->
+            <!--link href="http://jakarta.apache.org/commons/logging/commons-logging-1.0.3/docs/api/"/-->
+            <!--link href="http://jakarta.apache.org/commons/beanutils/api/"/-->
+            <!--link href="http://jakarta.apache.org/commons/dbcp/apidocs/"/-->
+            <!--link href="http://jakarta.apache.org/commons/collections/apidocs-COLLECTIONS_3_0/"/-->
+            <!--link href="http://jakarta.apache.org/commons/dbutils/apidocs/"/-->
+            <!--link href="http://logging.apache.org/log4j/docs/api/"/-->
+            <!--link href="http://jakarta.apache.org/oro/api/"/-->
+
+            <doctitle><![CDATA[<h1>${pkg.title}</h1>]]></doctitle>
+            <header><![CDATA[<b>${pkg.title}</b><br><font size=-1>${pkg.version}</font>]]></header>
+            <bottom><![CDATA[<i>${pkg.copyright}</i>]]></bottom>
+            <group title="ＤＢアクセス" 			packages="nao_package.db*"/>
+            <group title="翼"						packages="nao_package.svf*"/>
+            <group title="${pkg.title}・コア" 	packages="nao_package*"/>
+        </javadoc>
+    </target>
+
+    <!-- **** JARファイル作成 -->
+    <target name="dist" description="generate the distribution" depends="compile">
+        <buildnumber />
+        <mkdir dir="${dist}"/>
+
+        <move overwrite="true" failonerror="false" file="${dist}/${basename}.jar" tofile="${dist}/${basename}.jar.bak" />
+
+        <jar index="true" destfile="${dist}/${basename}.jar" filesonly="false">
+            <fileset dir="${build}">
+                <include name="**/*.class"/>
+                <exclude name="**/test/*.class"/>
+            </fileset>
+            <manifest>
+                <attribute name="Implementation-Version" value="${pkg.version}.${build.number}" />
+            </manifest>
+        </jar>
+    </target>
+
+    <!-- **** src.zipファイル作成 -->
+    <target name="srczip" description="generate the src-zip">
+        <mkdir dir="${dist}"/>
+
+        <zip destfile="${dist}/${basename}-src.zip" filesonly="true">
+            <fileset dir="${src}">
+                <include name="**/*.java"/>
+            </fileset>
+        </zip>
+    </target>
+
+    <!-- **** リビルド -->
+    <target name="rebuild" description="re-build">
+        <antcall target="clean"/>
+        <antcall target="dist"/>
+        <antcall target="srczip"/>
+    </target>
+
+    <!-- **** フル・リビルド -->
+    <target name="full" description="full-re-build">
+        <antcall target="distclean"/>
+        <antcall target="dist"/>
+        <antcall target="srczip"/>
+    </target>
+
+    <!-- **** .classファイルを削除 -->
+    <target name="clean" description="clean up" >
+        <delete dir="${build}"/>
+    </target>
+
+    <!-- **** 作成したディレクトリ配下を削除 -->
+    <target name="distclean" description="clean up dist" >
+        <delete dir="${build}"/>
+        <delete dir="${dist}"/>
+        <delete dir="${dir.docs}"/>
+    </target>
+
+    <!-- **** JARファイルなどを配備（サーバーにコピー） -->
+    <target name="deploy" description="deployment">
+        <copy
+                preservelastmodified="true"
+                file="${dist}/${basename}.jar"
+                toDir="${dir.base.deployment}/common/java"
+        />
+    </target>
+</project>

@@ -1,0 +1,234 @@
+{rval start}
+<table style="width: 800px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+  <table style="width: 800px" border="0" cellspacing="5" cellpadding="1">
+  <tr> 
+  <td>
+    <table style="width: 800px" border="0" cellspacing="0" cellpadding="0">
+<!-- 選択データ -->
+    <tr class="no_search_line">
+    <td><!-- first table for subclass -->
+      <table style="width: 800px" border="0" cellspacing="1" cellpadding="4">
+      <tr class="no_search" height="35" nowrap>
+        <td align="left" nowrap colspan="2">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>{rval GrYEAR}年度
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;レポート返送登録（再提出）</B>
+        </td>
+      </tr>
+      <tr  bgcolor="#ffffff" height="120">
+        <td colspan="2" nowrap>
+          <table>
+            <tr>
+              <td colspan="2">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval sel/INPUT_RADIO1}<LABEL for="INPUT_RADIO1">バーコード入力</LABEL>　{rval sel/INPUT_RADIO2}<LABEL for="INPUT_RADIO2">手入力</LABEL>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;評価送信日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：
+              </td>
+              <td>
+                &nbsp;{rval sel/DATE}
+              </td>
+            </tr>
+            <!--{def INPUT1}-->
+            <tr>
+              <td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;レポート番号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：
+              </td>
+              <td>
+                &nbsp;&nbsp;{rval sel/REPNO}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学籍番号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：
+              </td>
+              <td>
+                &nbsp;&nbsp;{rval sel/SCHREGNO}
+              </td>
+            </tr>
+            <!--{/def}-->
+            <!--{def INPUT2}-->
+            <tr>
+              <td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;科目&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：
+              </td>
+              <td>
+                &nbsp;&nbsp;{rval sel/SUBCLASSCD}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;回数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：
+              </td>
+              <td>
+                &nbsp;&nbsp;{rval sel/STANDARD_SEQ}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学籍番号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：
+              </td>
+              <td>
+                &nbsp;&nbsp;{rval sel/SCHREGNO}
+              </td>
+            </tr>
+            <!--{/def}-->
+            <!--{def button}-->
+            <tr>
+              <td>
+                &nbsp;
+              </td>
+              <td>
+                &nbsp;&nbsp;{rval button/btn_ok}{rval button/btn_end}
+              </td>
+            </tr>
+            <!--{/def}-->
+          </table>
+          </table>
+          </tr>
+      </td></tr>
+      </table>
+    </td>
+    </tr>
+<!-- 選択データ -->
+<!-- 生徒データ -->
+    <tr>
+      <td><BR>
+       <table width="100%" border="0" cellspacing="0" cellpadding="1" >
+        <tr class="no_search_line">
+           <th>
+          <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#cccccc">
+          <tr> 
+          <th align="center"><B>登録生徒一覧　トータル件数&nbsp&nbsp{rval TOTALCNT}</B></th>
+          </tr>
+          </table>
+          </th>
+        </tr>
+        </table>
+      </td>
+    </tr>
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="30">取消</th>
+              <th width="90">レポートNo.</th>
+              <th width="70">学籍番号</th>
+              <th width="130">氏名</th>
+              <th width="130">科目名</th>
+              <th width="50">回数</th>
+              <th width="50">評価</th>
+              <th width="60">再提出</th>
+              <th width="*">返送日</th>
+             </tr>
+            </table>
+          </td>
+          </tr>
+         </table>
+        </td>
+        </tr>
+    </tr>
+    <tr>
+    <td>
+      <div style="width: 100%; height=230; overflow: auto">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3"> 
+            <!--{def data2}-->
+            <!--結果一覧-->
+            <!--{each data2}--> 
+              <tr bgcolor="#ffffff" >
+                <td width="30" align="center" id={val data2/DELID}>{rval data2/DELCHK}</td>
+                <td width="90" align="center" id={val data2/REPID}>{rval data2/REPORTNO}</td>
+                <td width="70" align="center" id={val data2/SCHID}>{rval data2/SCHREGNO}</td>
+                <td width="130" align="left" id={val data2/NAMEID}>{rval data2/NAME}</td>
+                <td width="130" align="left" id={val data2/SCLID}>{rval data2/SUBCLASSNAME}</td>
+                <td width="50" align="center" id={val data2/STQID}>{rval data2/STANDARD_SEQ}</td>
+                <td width="50" align="center" id={val data2/GRDVID}>{rval data2/GRAD_VALUESUB}</td>
+                <td width="60" align="center" id={val data2/RSQID}>{rval data2/REPRESENT_SEQ}</td>
+                <td width="*" align="center" id={val data2/TIMEID}>{rval data2/GRAD_D}</td>
+              </tr> 
+            <!--{/each}--> 
+            <!--{/def}-->
+            </table>
+          </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+      <div style="width: 100%; height=25; overflow: auto">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search">
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="4"> 
+              <tr bgcolor="#ffffff" align="center">
+                <td colspan=5><b>トータル件数&nbsp&nbsp{rval TOTALCNT}</b></td>
+              </tr>
+            </table>
+          </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+    </tr>
+<!-- 生徒データ -->
+<!-- 削除ボタン -->
+    <tr>
+    <td>
+      <div style="width: 100%; height=30; overflow: auto">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3"> 
+            <!--{def button}-->
+              <tr >            
+                <td>
+                  &nbsp;&nbsp;{rval button/btn_del}
+                </td>
+              </tr> 
+            <!--{/def}-->
+            </table>
+          </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+    </tr>
+<!-- 削除ボタン -->
+    </table>
+  </td>
+  </tr>
+  </table>
+</td>
+</tr>
+</table>
+{rval finish} 
+<script language="JavaScript">
+    var sem = 0;
+//  document.forms[0].DATE.focus();
+    if (document.forms[0].SCHREGNO) {
+        document.forms[0].SCHREGNO.focus();
+        setInterval('callfunc()',500);
+    }
+    if (document.forms[0].REPNO) {
+        document.forms[0].REPNO.focus();
+        setInterval('callfunc()',500);
+    }
+
+function callfunc()
+{
+    if (sem == 0){
+        datecheck(document.forms[0].DATE.value);
+    }
+}
+{rval Closing}</script>

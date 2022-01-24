@@ -1,0 +1,52 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+  <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr >
+      <td >
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" height="25">
+                <th norwarp width="25%">対象年度&nbsp;{rval year}</th>
+                <td norwarp width="75%">&nbsp;{rval pre_copy}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr height="10">
+          <td></td>
+        </tr>
+
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" height="25">
+              <th nowrap width="15%">申込<br>コード</th>
+              <th nowrap width="65%">申込名称</th>
+              <th nowrap width="20%">金額</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+            <!--{each data}-->
+            <tr>
+              <td nowrap bgcolor="#ffffff" align="center">{val data/APPLICATIONCD}</td>
+              <td nowrap bgcolor="#ffffff">{val data/APPLICATIONNAME}</td>
+              <td nowrap bgcolor="#ffffff" align="right">{val data/APPLICATIONMONEY}</td>
+            </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<script language="JavaScript">{rval reload}</script>
+{rval finish}

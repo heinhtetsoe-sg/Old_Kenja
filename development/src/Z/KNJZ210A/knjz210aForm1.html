@@ -1,0 +1,97 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <br><br><br><br><br>
+        <tr>
+        <td valign="top">
+                <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                <tr >
+                  <th>
+                        <table width="50%" border="0" cellspacing="3" cellpadding="0" align="center">
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr class="no_search">
+                                  <td nowrap rowspan = "2" align="center">対象年度：{rval YEAR}　　{rval button/btn_copy}</td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                        <table width="50%" border="0" cellspacing="3" cellpadding="0" align="center">
+                          <tr class="no_search_line">
+                           <th>
+                             <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                              <tr class="no_search"> 
+                                <th width="40%" nowrap>項　目</th>
+                                <th width="50%" nowrap>値</th>
+                              </tr>
+                              <tr class="no_search">
+                                <td nowrap width="25%" align="right" nowrap>コース名</td>
+                                <td nowrap width="*" bgcolor="#ffffff" nowrap>&nbsp;{rval COURSENAME_SET}</td>
+                              </tr>
+                              <tr class="no_search" height="30"> 
+                                <td class="no_search" align="right" nowrap>教科</td>
+                                <td bgcolor="#ffffff"  nowrap><font color="black">&nbsp;{rval CLASSCD}</font></td>
+                              </tr>
+                              <tr class="no_search" height="30"> 
+                                <td class="no_search" align="right" nowrap>科目</td>
+                                <td bgcolor="#ffffff"  nowrap><font color="black">&nbsp;{rval SUBCLASSCD}</font></td>
+                              </tr>
+                             </table>
+                           </th>
+                          </tr>
+                        </table>
+                        <br><br>
+                        <table width="50%" border="0" cellspacing="3" cellpadding="0" align="center">
+                          <tr class="no_search_line">
+                            <td>
+                                <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" frame="box">
+                                <tr class="no_search">
+                                
+                                        <th width="25%">評定段階</th>
+                                        <th width="25%">評定記号</th>
+                                        <th width="25%">下 限</th>
+                                        <th width="25%">上 限</th>
+                                        </th>
+                                        </tr>
+                                
+                                        <!--結果一覧-->
+                                        <!--{def data}-->
+                                        <!--{each data}--> 
+                                        <tr align="center" bgcolor="#ffffff"> 
+                                                <td >{val data/ASSESSLEVEL}</td>
+                                                <td >{val data/ASSESSMARKTEXT}</td>
+                                                <td >{val data/ASSESSLOWTEXT}</td>
+                                                <td >{val data/ASSESSHIGHTEXT}</td>
+                                        </tr> 
+                                        <!--{/each}--> 
+                                        <!--{/def}--> 
+                                       <tr>
+                                            <td colspan="4" bgcolor="#ffffff" align="center">
+                                                {rval button/btn_update}&nbsp;
+                                                {rval button/btn_reset} &nbsp;
+                                                {rval button/btn_end}   &nbsp;
+                                            </td>
+                                        </tr>
+                                </table>
+                            </td>
+                          </tr>
+                        </table>
+                  </th> 
+                </tr>
+                </table>
+                        <br><br>
+<!--                       <table width="75%" border="0" cellspacing="1" cellpadding="2" align="center">
+                        <tr class="no_search"> 
+                                <th width="*%" bgcolor="#ffffff">{rval button/btn_def}</th>
+                                <th width="*%" bgcolor="#ffffff">{rval button/btn_update}&nbsp;{rval button/btn_reset}&nbsp;{rval button/btn_end}</th>
+                        </tr>
+                        </table>
+-->
+       </td> 
+        </tr>
+        <br><br><br>
+        
+</table>
+{rval finish}
+<script language="JavaScript">{rval Closing}</script>

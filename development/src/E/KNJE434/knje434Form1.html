@@ -1,0 +1,54 @@
+{rval start} 
+<!--{def button}-->
+<!--{def data}-->
+
+<table><tr height="140"><td></td></tr></table>
+<table width="450" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr bgcolor="#ffffff">
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="5">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr class="no_search">
+                <td align="center" height="25">
+                    <b>{rval data/YEAR}年度　就職状況集計表</b>
+                </td>
+              </tr>
+<!--{def Z010ABBV1}-->
+              <tr class="no_search">
+                <td>
+                  <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                    <tr class="no_search" width="100%">
+                      <td width="100%">
+                        報告データ：&nbsp;{rval data/FIXED_DATA}&nbsp;&nbsp;<br>
+                        報告日　　：{rval data/EXECUTE_DATE}&nbsp;{rval button/btn_houkoku}
+                        <!--{def data/EXE_DATES}--><br>{rval data/EXE_DATES}<!--{/def}-->
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+<!--{/def}-->
+              <tr bgcolor="#ffffff" height="100">
+                <td align="center">
+                  異動対象日付　{rval data/IDOU_DATE}
+                </td>
+              </tr>
+              <tr class="no_search">
+                <td align="right" nowrap>
+                    {rval button/btn_update}{rval button/btn_end}　　{rval button/btn_csv}&nbsp;
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

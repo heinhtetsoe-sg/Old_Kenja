@@ -1,0 +1,22 @@
+-- kanji=漢字
+-- $Id: 369cb73d36ea91e4979407a2739059a81f28d7e4 $
+
+DROP TABLE SCHREG_REGD_FI_DAT
+CREATE TABLE SCHREG_REGD_FI_DAT \
+      (SCHREGNO          VARCHAR(8)      NOT NULL, \
+       YEAR              VARCHAR(4)      NOT NULL, \
+       SEMESTER          VARCHAR(1)      NOT NULL, \
+       GRADE             VARCHAR(2), \
+       HR_CLASS          VARCHAR(3), \
+       ATTENDNO       VARCHAR(3), \
+       ANNUAL            VARCHAR(2), \
+       SEAT_ROW          VARCHAR(2), \
+       SEAT_COL          VARCHAR(2), \
+       COURSECD          VARCHAR(1), \
+       MAJORCD           VARCHAR(3), \
+       COURSECODE        VARCHAR(4), \
+       REGISTERCD        VARCHAR(8), \
+       UPDATED           TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+      ) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE SCHREG_REGD_FI_DAT ADD CONSTRAINT PK_SCH_R_FI_DAT PRIMARY KEY (SCHREGNO, YEAR, SEMESTER)

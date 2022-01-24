@@ -1,0 +1,28 @@
+<?php
+
+require_once('for_php7.php');
+
+class knjd171gModel extends Model {
+    var $field = array();
+    var $cmd;
+    var $control;
+    var $selectdata;
+
+    function knjd171gModel() {
+        common::GetControlMaster_Fnc($this->control);
+    }
+
+    function init() {
+
+        $this->field = array("SEMESTER"         =>  VARS::post("SEMESTER"),
+                             "GRADE_HR_CLASS"   =>  VARS::post("GRADE_HR_CLASS"),
+                             "DATE"             =>  VARS::post("DATE"),
+                             "DBNAME"           =>  VARS::post("DBNAME")            //DB変更に備えて
+                            );
+
+        $this->selectdata = VARS::post("selectdata");
+        $this->cmd = VARS::request("cmd");
+        $this->getPropertiesAll(); //プロパティファイルの読込み
+    }
+}
+?>

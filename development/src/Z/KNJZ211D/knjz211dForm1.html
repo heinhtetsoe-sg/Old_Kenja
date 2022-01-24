@@ -1,0 +1,101 @@
+{rval start}
+
+<br>
+<table width="1000" border="0" cellspacing="0" cellpadding="10" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" height="30">
+                <th class="no_search">
+                    {rval YEAR}年度　　校種：{rval SCHOOL_KIND}　　{rval button/btn_copy}
+                </th>
+              </tr>
+              <tr class="no_search" height="30">
+                <th class="no_search">
+                    　　学年：{rval GRADE}　　科目：{rval SUBCLASS}
+                </th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" align="center" height="25">
+                            <td width="300" nowrap rowspan="2"></td>
+                            <td width="350" nowrap rowspan="2">パターン選択<br>{rval btn_KNJZ211C}<br>{rval PATTERN_CD}{rval btn_reflect}</td>
+                            <td width="*" nowrap {rval COLSPAN}>学期評価する</td>
+                          </tr>
+                          <tr class="no_search" align="center" height="45">
+                            {rval TITLE}
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <div style="height: 500px; overflow: auto;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--結果一覧-->
+                          <!--{def data}-->
+                          <!--{each data}-->
+                          <tr bgcolor="#ffffff" nowrap height="25">
+                            <td width="300" nowrap>{rval data/VIEWNAME}</td>
+                            <td width="350" nowrap align="center">{rval data/PATTERN_CD}</td>
+                            {rval data/SETDATA}
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr>
+                            <td class="no_search" nowrap>&nbsp;</td>
+                            <td width="14%" bgcolor="#ffffff" nowrap>{rval btn_update}{rval btn_reset}{rval btn_end}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

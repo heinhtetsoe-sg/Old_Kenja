@@ -1,0 +1,141 @@
+{rval start}
+{rval IFRAME}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <!--{def button}-->
+  <!--{def img}-->
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="70%">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <hr width="70%" align="left">
+                    &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+                  <hr width="70%" align="left">
+                </td>
+              </tr>
+              <tr>
+                <td><br>
+                  {rval button/btn_subform1}{rval button/btn_subform2}{rval button/btn_subform5}{rval button/btn_subform3}{rval button/btn_subform4}<br><br>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  　　{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}
+                </td>
+              </tr>
+            </table>
+          </td>
+          <!--{def dispPicture}-->
+          <td width="30%">
+            <img src="{rval img/FACE_IMG}" alt="{rval img/SCH_LABEL}顔写真&nbsp;{rval img/IMG_PATH}" width="120" height="160">
+          </td>
+          <!--{/def}-->
+          <!--{def unDispPicture}-->
+          <td width="30%" onmouseover="image1.style.display='';" onmouseout="image1.style.display='none';">
+            <img name="image1" src="{rval img/FACE_IMG}" alt="{rval img/SCH_LABEL}顔写真&nbsp;{rval img/IMG_PATH}" width="120" height="160"  style="display:none">
+          </td>
+          <!--{/def}-->
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <!--{/def}-->
+  <!--{/def}-->
+
+  <tr>
+    <td colspan="2">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <div style="width:850;height:460;overflow-x:scroll;overflow-y:scroll">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="center" nowrap width="20" height="25" rowspan="2">削<br>除<br>{val CHECKALL}</th>
+                            <th align="center" nowrap width="140" height="25" rowspan="2">来室日時</th>
+                            <th align="center" nowrap width="80" height="25" rowspan="2">種別</th>
+                            <th align="center" nowrap width="150" height="25" rowspan="2">理由１</th>
+                            <th align="center" nowrap width="150" height="25" rowspan="2">理由２</th>
+                            <th align="center" nowrap width="150" height="25" rowspan="2">理由３</th>
+                            {rval view_html}
+                            <th align="center" nowrap width="150" height="25" rowspan="2">処置１</th>
+                            <th align="center" nowrap width="150" height="25" rowspan="2">処置２</th>
+                            <th align="center" nowrap width="150" height="25" rowspan="2">処置３</th>
+                            <th align="center" nowrap width="110" height="25" rowspan="2">休養時間</th>
+                            <th align="center" nowrap width="100" height="25" rowspan="2">連絡</th>
+                            <th align="center" nowrap height="25" colspan="4">医療機関</th>
+                            <th align="center" nowrap width="400" height="25" rowspan="2">特記事項</th>
+                          </tr>
+                          <tr class="no_search">
+                            <th align="center" nowrap width="150" height="25">病院名</th>
+                            <th align="center" nowrap width="150" height="25">同伴者</th>
+                            <th align="center" nowrap width="150" height="25">同伴者区分</th>
+                            <th align="center" nowrap width="150" height="25">診療名</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table id="list" width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--結果一覧--><!--{def data}--><!--{each data}-->
+                          <tr bgcolor="#ffffff">
+                            <td align="center" nowrap width="20">{val data/CHECKED}</td>
+                            <td nowrap width="140">{val data/VISIT_TIME}</td>
+                            <td nowrap width="80">{val data/TYPE}:{val data/TYPE_NAME}</td>
+                            <td nowrap width="150">{val data/VISIT_REASON1}</td>
+                            <td nowrap width="150">{val data/VISIT_REASON2}</td>
+                            <td nowrap width="150">{val data/VISIT_REASON3}</td>
+                            <td nowrap width="150">{val data/CONDITION1}</td>
+                            <td nowrap width="150">{val data/CONDITION3}</td>
+                            <td nowrap width="150">{val data/CONDITION4}</td>
+                            <td nowrap width="150">{val data/CONDITION5}</td>
+                            <td nowrap width="150">{val data/CONDITION6}</td>
+                            <td nowrap width="150">{val data/TREATMENT1}</td>
+                            <td nowrap width="150">{val data/TREATMENT2}</td>
+                            <td nowrap width="150">{val data/TREATMENT3}</td>
+                            <td nowrap width="110">{val data/RESTTIME}</td>
+                            <td nowrap width="100">{val data/CONTACT}</td>
+                            <td nowrap width="150">{val data/HOSPITAL}</td>
+                            <td nowrap width="150">{val data/COMPANION}</td>
+                            <td nowrap width="150">{val data/COMPANION_DIV}</td>
+                            <td nowrap width="150">{val data/DIAGNOSIS}</td>
+                            <td><p class="turning">{val data/SPECIAL_NOTE}</p></td>
+                          </tr>
+                          <!--{/each}--><!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<div id="lay"></div>
+
+<style type="text/css">
+p.turning {width:395px; word-wrap: break-word;}
+</style>
+
+{rval finish}

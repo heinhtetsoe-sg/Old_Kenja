@@ -1,0 +1,93 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR>
+
+<table width="50%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <td align="center"><b>
+                        {rval data/YEAR}　　<!--{def data/SCHOOL_KIND}-->校種：{rval data/SCHOOL_KIND}　　<!--{/def}-->{rval data/MIKOMI}<LABEL for="MIKOMI">卒業見込み出力</LABEL>
+                      </b></td>
+                    </tr>
+                    <tr bgcolor="ffffff">
+                      <td align="center"><b>
+                        {rval data/CLASS_MAJOR1}<LABEL for="CLASS_MAJOR1">クラス</LABEL>
+                        <!--{def DIS_MAJOR}-->
+                        　　{rval data/CLASS_MAJOR2}<LABEL for="CLASS_MAJOR2">学科</LABEL>
+                        　　（{rval data/MAJOR_ORDER1}<LABEL for="MAJOR_ORDER1">五十音順</LABEL>
+                        　　{rval data/MAJOR_ORDER2}<LABEL for="MAJOR_ORDER2">クラス五十音順</LABEL>）
+                        <!--{/def}-->
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象{rval data/CLASS_MAJOR_NAME}</b></th>
+                      <th class="no_search"></th>
+                      <th><b>{rval data/CLASS_MAJOR_NAME}一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CLASS_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD align="center" bgcolor="#ffffff">
+                        <TABLE height="80">
+                          <TR>
+                            <TD>
+                                {rval data/WRITE_DIV1}<LABEL for="WRITE_DIV1">:縦書き</LABEL><br>
+                                　　<b>印刷種類</b>　　　{rval data/OUTPUT1}<LABEL for="OUTPUT1">表紙</LABEL>　　　{rval data/OUTPUT2}<LABEL for="OUTPUT2">名簿</LABEL>
+<!--{def check}-->
+                                <br>
+                                　　<b>印字選択</b>　　　{rval check/OUTPUT3}<LABEL for="OUTPUT3">性別</LABEL><br>
+<!--{/def}-->
+                                {rval data/WRITE_DIV2}<LABEL for="WRITE_DIV2">:横書き</LABEL>(入学年月日{rval data/ENT_DATE})<br>
+                                　　<b>帳票選択</b>　　　{rval data/PATTERN1}<LABEL for="PATTERN1">Ａパターン</LABEL>　　　{rval data/PATTERN2}<LABEL for="PATTERN2">Ｂパターン</LABEL>（{rval data/ENT_GRD_DATE_FORMAT}<LABEL for="ENT_GRD_DATE_FORMAT">卒業日付は年月で表示する</LABEL>）<br>
+                            </TD>
+                          </TR>
+                        </TABLE>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

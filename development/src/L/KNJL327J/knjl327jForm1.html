@@ -1,0 +1,60 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR><BR><BR>
+
+<table width="55%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr > 
+	<td > 
+	  <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+        <tr class="no_search_line"> 
+          <td width="100%"> 
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+			  <tr align="center" class="no_search"> 
+			    <td colspan=2 nowrap>
+	        	  <b>年度:{rval TOP/YEAR}　　入試区分：{rval data/TESTDIV}</b>
+				</td>
+			  </tr>
+
+			  <tr align="center" bgcolor="#ffffff" height="50"> 
+			    <td colspan=2 nowrap>
+	        	  通知日付： {rval data/DATE_YEAR} 年 {rval data/DATE_MONTH} 月
+				</td>
+			  </tr>
+
+			  <tr class="no_search" align="center" bgcolor="#ffffff" height="30"> 
+				  <th><b>＜帳票種類＞</b></th>
+				  <th><b>＜出力範囲＞</b></th>
+			  </tr>
+			  <tr bgcolor="#ffffff" height="200">
+				  <td width="45%" nowrap>
+					&nbsp;&nbsp;{rval data/PRINT_TYPE1}<LABEL for="PRINT_TYPE1">合格通知書</LABEL>&nbsp;&nbsp;<br><br>
+                    &nbsp;&nbsp;{rval data/PRINT_TYPE5}<LABEL for="PRINT_TYPE5">特待合格通知書</LABEL>&nbsp;&nbsp;<br><br>
+                    &nbsp;&nbsp;{rval data/PRINT_TYPE2}<LABEL for="PRINT_TYPE2">合格通知書台帳</LABEL>&nbsp;&nbsp;<br><br>
+                    &nbsp;&nbsp;{rval data/PRINT_TYPE3}<LABEL for="PRINT_TYPE3">入学許可証</LABEL>&nbsp;&nbsp;<br><br>
+                    &nbsp;&nbsp;{rval data/PRINT_TYPE4}<LABEL for="PRINT_TYPE4">入学許可証台帳</LABEL>&nbsp;&nbsp;<br>
+				  </td>
+				  <td width="45%" nowrap>
+					&nbsp;{rval data/PRINT_RANGE1}<LABEL for="PRINT_RANGE1">全　員</LABEL>&nbsp;&nbsp;<br><br>
+					&nbsp;{rval data/PRINT_RANGE2}<LABEL for="PRINT_RANGE2">受験者指定</LABEL>&nbsp;&nbsp;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;受験番号開始：{rval data/EXAMNO_FROM}&nbsp;&nbsp;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;受験番号終了：{rval data/EXAMNO_TO}&nbsp;&nbsp;<br><br>
+				  </td>
+			  </tr>
+			  <tr align="left" class="no_search" height="20"> 
+				<td colspan=2 nowrap> &nbsp{rval button/btn_print}{rval button/btn_end}</td>
+			  </tr>
+			</table>
+		  </td>
+		</tr>
+	  </table>
+	</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

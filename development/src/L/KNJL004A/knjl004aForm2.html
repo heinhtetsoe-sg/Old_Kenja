@@ -1,0 +1,143 @@
+{rval start}
+
+<br><br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search">
+                      <th width="30%">項 目</th>
+                      <th width="70%">値</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>取扱票種類</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/PATTERN_CD}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>取扱票種類名</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/PATTERN_NAME}<font color="red" style="font-size:10pt">(全角で10文字)</font></td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>特待生</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/TOKUTAI_SELECT1} <label for="TOKUTAI_SELECT1">特待生</label>　{rval data/TOKUTAI_SELECT2} <label for="TOKUTAI_SELECT2">特待生以外</label></td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>都道府県</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/PREF_NAME}<font color="red" style="font-size:10pt">(全角で4文字)</font></td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>口座番号</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/ACCOUNT_NUMBER1} - {rval data/ACCOUNT_NUMBER2} - {rval data/ACCOUNT_NUMBER3}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>加入者名</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/MEMBER}<font color="red" style="font-size:10pt">(全角で10文字)</font></td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>件名</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/SUBJECT}<font color="red" style="font-size:10pt">(全角で8文字)</font></td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>通信欄</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">
+                        {rval data/COMMUNICATION}<font color="red" style="font-size:10pt">(全角30文字X4行まで)</font></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>金額</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">
+                        {rval data/TRANSFER_MONEY}
+                      </td>
+                    </tr>
+                   
+                    <!--{/def}-->
+                    <!--{def button}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+                    </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

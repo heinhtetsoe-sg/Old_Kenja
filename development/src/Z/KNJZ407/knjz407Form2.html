@@ -1,0 +1,117 @@
+{rval start}
+<!--{def button}-->
+
+<br>
+<table width="400px" border="0" cellspacing="0" cellpadding="10" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr>
+                      <th class="no_search" width="80px" nowrap>項目1</th>
+                      <th class="no_search" width="*" nowrap>値</th>
+                    </tr>
+                    <tr>
+                      <th class="no_search" width="80px">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <td width="80px" align="left" nowrap>&nbsp;※コード<td>
+                          </tr>
+                        </table>
+                      </th>
+                      <td bgcolor="#ffffff" width="*">{rval CODE}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" width="80px">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <td width="80px" align="left" nowrap>&nbsp;※名称<td>
+                          </tr>
+                        </table>
+                      </th>
+                      <td bgcolor="#ffffff" width="*">{rval NAME1}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" width="80px">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <td width="80px" align="left" nowrap>&nbsp;項目数<td>
+                          </tr>
+                        </table>
+                      </th>
+                      <td bgcolor="#ffffff" width="*">{rval RECCNT}&nbsp;{rval button/btn_fix}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <BR>
+  </tr>
+  <!--{def dispcomptype_p2}-->
+  <tr>
+    <td>
+      <table width="600px" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+              <!--入力表-->
+              <!--{def data}-->
+              <!--{each data}--> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" align="left" frame="box">
+<!--
+              <tr class="no_search">
+                <th width="30%" class="no_search_line">項目名</th>
+                <th width="70%" class="no_search_line">値{rval button/btn_capture}</th>
+              </tr>
+-->
+              <tr align="center" bgcolor="#ffffff"> 
+                <td colspan=2 align="right">項目名2</td><td align="left">{rval data/NAME2}</td>
+              </tr>
+              <tr align="center"> 
+                <td rowspan=3 class="no_search">{rval data/SEQ}</td><td class="no_search">設問</td><td bgcolor="#ffffff" align="left">{rval data/QUESTION_CONTENTS}</td>
+              </tr>
+              <tr align="center" bgcolor="#ffffff"> 
+                <td class="no_search">回答入力形式</td><td align="left">{rval data/ANSWER_PATTERN}</td>
+              </tr>
+              <tr align="center" bgcolor="#ffffff"> 
+                <td class="no_search">回答の選択数</td><td align="left">{rval data/ANSWER_SELECT_COUNT}</td>
+              </tr>
+<!-- <tr class="no_search"><td height="20" colspan=3 bgcolor="#ffffff"></td></tr> -->
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr><td bgcolor="#ffffff">　</td></tr>
+            </table>
+              <!--{/each}-->
+              <!--{/def}-->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <!--{/def}-->
+  <tr>
+    <td>
+      <table border="0" cellspacing="0" cellpadding="1">
+        <tr>
+            <td bgcolor="#ffffff" colspan="2"><br>{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

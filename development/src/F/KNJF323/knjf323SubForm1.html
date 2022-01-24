@@ -1,0 +1,172 @@
+{rval start}
+<!--{def data}-->
+<!--{def button}-->
+
+<br>
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <hr width="400" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="400" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>対象年度：{rval data/YEAR}　　{rval button/btn_copy}</td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><B>気管支ぜん息</B></td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                          <tr class="no_search" height="25">
+                            <th nowrap colspan="2"><B>病型・治療</B></th>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap valign="top">
+                                <B>Ａ．重症度分類（発作型）</B><br>
+                                {rval data/CHECK01_01_01}<LABEL for="CHECK01_01_01">１．間欠型</LABEL><br>
+                                {rval data/CHECK01_01_02}<LABEL for="CHECK01_01_02">２．軽症持続型</LABEL><br>
+                                {rval data/CHECK01_01_03}<LABEL for="CHECK01_01_03">３．中等症持続型</LABEL><br>
+                                {rval data/CHECK01_01_04}<LABEL for="CHECK01_01_04">４．重症持続型</LABEL><br>
+                            </td>
+                            <td nowrap valign="top">
+                                <B>Ｃ．急性発作治療薬</B><br>
+                                {rval data/CHECK01_04_01}<LABEL for="CHECK01_04_01">１．ベータ刺激薬吸入</LABEL><br>
+                                {rval data/CHECK01_04_02}<LABEL for="CHECK01_04_02">２．ベータ刺激薬内服</LABEL><br>
+                            </td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap valign="top">
+                                <B>Ｂ－１．長期管理薬（吸入薬）</B><br>
+                                {rval data/CHECK01_02_01}<LABEL for="CHECK01_02_01">１．ステロイド吸入薬</LABEL><br>
+                                {rval data/CHECK01_02_02}<LABEL for="CHECK01_02_02">２．長時間作用性吸入ベータ刺激薬</LABEL><br>
+                                {rval data/CHECK01_02_03}<LABEL for="CHECK01_02_03">３．吸入抗アレルギー薬(｢インタールR｣)</LABEL><br>
+                                {rval data/CHECK01_02_04}<LABEL for="CHECK01_02_04">４．その他</LABEL><br>
+                                　　{rval data/TEXT01_02_04}<br>
+                            </td>
+                            <td nowrap rowspan="2" valign="top">
+                                <B>Ｄ．急性発作時の対応（自由記載）</B><br>
+                                {rval data/TEXT01_05_00}<br>
+                                <span style="color:red;font-size:small;">（全角20文字X15行まで）</span><br>
+                            </td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap valign="top">
+                                <B>Ｂ－２．長期管理薬（内服薬・貼付薬）</B><br>
+                                {rval data/CHECK01_03_01}<LABEL for="CHECK01_03_01">１．テオフィリン徐放製剤</LABEL><br>
+                                {rval data/CHECK01_03_02}<LABEL for="CHECK01_03_02">２．ロイコトリエン受容体拮抗薬</LABEL><br>
+                                {rval data/CHECK01_03_03}<LABEL for="CHECK01_03_03">３．ベータ刺激内服薬・貼付薬</LABEL><br>
+                                {rval data/CHECK01_03_04}<LABEL for="CHECK01_03_04">４．その他</LABEL><br>
+                                　　{rval data/TEXT01_03_04}<br>
+                            </td>
+                          </tr>
+                          <tr class="no_search" height="25">
+                            <th nowrap colspan="2"><B>学校生活上の留意点</B></th>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap colspan="2" valign="top">
+                                <B>Ａ．運動（体育・部活動等）</B><br>
+                                {rval data/CHECK02_01_01}<LABEL for="CHECK02_01_01">１．管理不要</LABEL><br>
+                                {rval data/CHECK02_01_02}<LABEL for="CHECK02_01_02">２．保護者と相談し決定</LABEL><br>
+                                {rval data/CHECK02_01_03}<LABEL for="CHECK02_01_03">３．強い運動は不可</LABEL><br>
+                            </td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap colspan="2" valign="top">
+                                <B>Ｂ．動物との接触やホコリ等の舞う環境での活動</B><br>
+                                {rval data/CHECK02_02_01}<LABEL for="CHECK02_02_01">１．配慮不要</LABEL><br>
+                                {rval data/CHECK02_02_02}<LABEL for="CHECK02_02_02">２．保護者と相談し決定</LABEL><br>
+                                {rval data/CHECK02_02_03}<LABEL for="CHECK02_02_03">３．動物へのアレルギーが強いため不可</LABEL><br>
+                                　　動物名　{rval data/TEXT02_02_03}<br>
+                            </td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap colspan="2" valign="top">
+                                <B>Ｃ．宿泊を伴う校外活動</B><br>
+                                {rval data/CHECK02_03_01}<LABEL for="CHECK02_03_01">１．配慮不要</LABEL><br>
+                                {rval data/CHECK02_03_02}<LABEL for="CHECK02_03_02">２．保護者と相談し決定</LABEL><br>
+                            </td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap colspan="2" valign="top">
+                                <B>Ｄ．その他の配慮・管理事項（自由記載）</B><br>
+                                {rval data/TEXT02_04_00}<br>
+                                <span style="color:red;font-size:small;">（全角40文字X7行まで）</span><br>
+                            </td>
+                          </tr>
+                          <tr class="no_search" height="25">
+                            <th nowrap colspan="2"><B>その他</B></th>
+                          </tr>
+                          <tr bgcolor="#ffff7f" height="25">
+                            <th nowrap colspan="2"><B>【緊急時連絡先】</B></th>
+                          </tr>
+                          <tr bgcolor="#ffff7f">
+                            <td nowrap colspan="2" valign="top">
+                                <B>★保護者</B><br>
+                                保護者氏名：{rval data/EMERGENCYNAME}<br>
+                                　　　電話：{rval data/EMERGENCYTELNO}<br>
+                            </td>
+                          </tr>
+                          <tr bgcolor="#ffff7f">
+                            <td nowrap colspan="2" valign="top">
+                                <B>★連絡医療機関</B><br>
+                                医療機関名：{rval data/EMERGENCYNAME2}<br>
+                                　　　電話：{rval data/EMERGENCYTELNO2}<br>
+                            </td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap colspan="2" valign="top">
+                                <B>記載日</B><br>
+                                {rval data/DATE}<br>
+                            </td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap colspan="2" valign="top">
+                                <B>医師名</B><br>
+                                {rval data/DOCTOR}<br>
+                            </td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td nowrap colspan="2" valign="top">
+                                <B>医療機関名</B><br>
+                                {rval data/HOSPITAL}<br>
+                            </td>
+                          </tr>
+                          <tr class="no_search" height="25">
+                            <td nowrap colspan="2">{rval button/btn_update}{rval button/btn_reset}{rval button/btn_back}　　　{rval button/btn_end}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}

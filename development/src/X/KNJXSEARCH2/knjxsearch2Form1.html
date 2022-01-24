@@ -1,0 +1,58 @@
+{rval start}
+<table width="400" border="0" cellspacing="5" cellpadding="1">
+  <tr bgcolor="#006633">
+    <td>
+      <table border="0" cellpadding="3" cellspacing="0" width="100%">
+        <tr bgcolor="#cccccc">
+          <td>{rval SEARCH_BTN}　　　{rval RESULT}　　　<font size="1">(1.1)</font></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table width="400" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="90">年組番</th>
+                      <th width="120">氏名</th>
+                      <th width="70">入学年度</th>
+                      <th width="150">氏名かな</th>
+                      <th width="40">性別</th>
+                      <th width="80">生年月日</th>
+                      <th width="50">学籍<BR>番号</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap align="center" width="90" bgcolor="#ffffff">{val data/GRADUATE_CLASS}</td>
+                      <td nowrap width="120" bgcolor="#ffffff"><img src="{val data/IMAGE}" width="16" height="16">&nbsp;
+                      <A href="javascript:GoWin('{val data/SCHREGNO}')">{val data/NAME}</A></td>
+                      <td nowrap align="center" width="70" bgcolor="#ffffff">{val data/GRADUATEYEAR}</td>
+                      <td nowrap width="150" bgcolor="#ffffff">{val data/KANA}</td>
+                      <td nowrap align="center" width="40" bgcolor="#ffffff">{val data/SEX}</td>
+                      <td nowrap align="center" width="80" bgcolor="#ffffff">{val data/BIRTHDAY}</td>
+                      <td nowrap align="center" width="50" bgcolor="#ffffff">{val data/SCHREGNO}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="javascript">{rval reload}{rval jscript}{rval search_result}</script>

@@ -1,0 +1,283 @@
+<!--kanji=漢字-->
+<!-- <?php # $Id: knjd125cForm1.html 56581 2017-10-22 12:37:16Z maeshiro $ ?> -->
+
+{rval start}
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="7%" nowrap>処理年度：{rval YEAR}年度</th>
+                        <th width="33%" nowrap>科目：{rval SUBCLASSCD}</th>
+                        <td width="36%" nowrap>学級・講座：{rval CHAIRCD}</td>
+                        <td width="24%">
+                            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                              <tr class="no_search">
+                                <th width="6%" bgcolor="#3399ff" nowrap><font color="#000000" size="2">公欠</font></th>
+                                <th width="6%" bgcolor="#66cc33" nowrap><font color="#000000" size="2">出停<BR>忌引</font></th>
+                                <th width="6%" bgcolor="#ff0099" nowrap><font color="#000000" size="2">病欠<BR>欠課</font></th>
+                                <th width="6%" bgcolor="#ffff00" nowrap><font color="#000000" size="2">異動<BR>生徒</font></th>
+                              </tr>
+                            </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th rowspan="3" width="65">クラス-<br>出席番号</th>
+                        <th rowspan="3" width="89">氏名</th>
+                        <th colspan="8" >前期</th>
+                        <th colspan="8" >後期</th>
+                        <th rowspan="3" width="29">学年<br>評定</th>
+                        <th rowspan="3" width="29">履修単位</th>
+                        <th rowspan="3" width="29">修得単位</th>
+                        <th colspan="3" width="*">累積情報</th>
+                      </tr>
+                      <tr class="no_search">
+                        <th colspan="3" >１学期期末</th>
+                        <th colspan="3" >２学期期末</th>
+                        <th rowspan="2" width="29">前期<br>総合</th>
+                        <th rowspan="2" width="29">前期<br>評点</th>
+                        <th colspan="3" >３学期期末</th>
+                        <th colspan="3" >４学期期末</th>
+                        <th rowspan="2" width="29">後期<br>総合</th>
+                        <th rowspan="2" width="29">後期<br>評点</th>
+                        <th rowspan="2" width="28"><font size="2">欠時<br>数</font></th>
+                        <th rowspan="2" width="28"><font size="2">遅刻<br>早退</font></th>
+                        <th rowspan="2" width="*"><font size="2">欠課<br>数</font></th>
+                      </tr>
+                      <tr class="no_search">
+                        <th width="30">共通</th>
+                        <th width="30">ﾚｯｽﾝ</th>
+                        <th width="30">平常</th>
+                        <th width="30">共通</th>
+                        <th width="30">ﾚｯｽﾝ</th>
+                        <th width="30">平常</th>
+                        <th width="30">共通</th>
+                        <th width="30">ﾚｯｽﾝ</th>
+                        <th width="30">平常</th>
+                        <th width="30">共通</th>
+                        <th width="30">ﾚｯｽﾝ</th>
+                        <th width="30">平常</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <div style="width:100%;height:390;overflow:auto">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                       <tr height="30">
+                          <td width="65" align="center" bgcolor="{rval data/COLOR}"><font size="2">{rval data/ATTENDNO}</font></td>
+                          <td width="89" align="left" bgcolor="{rval data/COLOR}"><font size="2">{rval data/NAME_SHOW}</font></td>
+                          <td width="30" align="center" bgcolor="{rval data/SEM1_INTR_SCORE1_COLOR}">{rval data/SEM1_INTR_SCORE1}</td>
+                          <td width="30" align="center" bgcolor="{rval data/SEM1_INTR_SCORE2_COLOR}">{rval data/SEM1_INTR_SCORE2}</td>
+                          <td width="30" align="center" bgcolor="{rval data/SEM1_INTR_SCORE3_COLOR}">{rval data/SEM1_INTR_SCORE3}</td>
+                          <td width="30" align="center" bgcolor="{rval data/SEM1_TERM_SCORE1_COLOR}">{rval data/SEM1_TERM_SCORE1}</td>
+                          <td width="30" align="center" bgcolor="{rval data/SEM1_TERM_SCORE2_COLOR}">{rval data/SEM1_TERM_SCORE2}</td>
+                          <td width="30" align="center" bgcolor="{rval data/SEM1_TERM_SCORE3_COLOR}">{rval data/SEM1_TERM_SCORE3}</td>
+                          <td width="29" align="center" bgcolor="{rval data/SEM1_SCORE_COLOR}">{rval data/SEM1_SCORE}</td>
+                          <td width="29" align="center" bgcolor="{rval data/SEM1_VALUE_COLOR}">{rval data/SEM1_VALUE}</td>
+                          <td width="30" align="center" bgcolor="{rval data/SEM2_INTR_SCORE1_COLOR}">{rval data/SEM2_INTR_SCORE1}</td>
+                          <td width="30" align="center" bgcolor="{rval data/SEM2_INTR_SCORE2_COLOR}">{rval data/SEM2_INTR_SCORE2}</td>
+                          <td width="30" align="center" bgcolor="{rval data/SEM2_INTR_SCORE3_COLOR}">{rval data/SEM2_INTR_SCORE3}</td>
+                          <td width="30" align="center" bgcolor="{rval data/SEM2_TERM_SCORE1_COLOR}">{rval data/SEM2_TERM_SCORE1}</td>
+                          <td width="30" align="center" bgcolor="{rval data/SEM2_TERM_SCORE2_COLOR}">{rval data/SEM2_TERM_SCORE2}</td>
+                          <td width="30" align="center" bgcolor="{rval data/SEM2_TERM_SCORE3_COLOR}">{rval data/SEM2_TERM_SCORE3}</td>
+                          <td width="29" align="center" bgcolor="{rval data/SEM2_SCORE_COLOR}">{rval data/SEM2_SCORE}</td>
+                          <td width="29" align="center" bgcolor="{rval data/SEM2_VALUE_COLOR}">{rval data/SEM2_VALUE}</td>
+                          <td width="29" align="center" bgcolor="{rval data/COLOR}">{rval data/GRAD_VALUE}</td>
+                          <td width="29" align="center" bgcolor="{rval data/COLOR}">{rval data/COMP_CREDIT}</td>
+                          <td width="29" align="center" bgcolor="{rval data/COLOR}">{rval data/GET_CREDIT}</td>
+                          <td width="28" align="center" bgcolor="{rval data/COLOR}">{rval data/T_NOTICE}</td>
+                          <td width="28" align="center" bgcolor="{rval data/COLOR}">{rval data/T_LATEEARLY}</td>
+                          <td width="*" align="center" bgcolor="{rval data/COLOR}">{rval data/NOTICE_LATE}</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="161">合計点</th>
+                        <th width="30">{val SEM1_INTR_SCORE1_SUM}</th>
+                        <th width="30">{val SEM1_INTR_SCORE2_SUM}</th>
+                        <th width="30">{val SEM1_INTR_SCORE3_SUM}</th>
+                        <th width="30">{val SEM1_TERM_SCORE1_SUM}</th>
+                        <th width="30">{val SEM1_TERM_SCORE2_SUM}</th>
+                        <th width="30">{val SEM1_TERM_SCORE3_SUM}</th>
+                        <th width="29">{val SEM1_SCORE_SUM}</th>
+                        <th width="29">{val SEM1_VALUE_SUM}</th>
+                        <th width="30">{val SEM2_INTR_SCORE1_SUM}</th>
+                        <th width="30">{val SEM2_INTR_SCORE2_SUM}</th>
+                        <th width="30">{val SEM2_INTR_SCORE3_SUM}</th>
+                        <th width="30">{val SEM2_TERM_SCORE1_SUM}</th>
+                        <th width="30">{val SEM2_TERM_SCORE2_SUM}</th>
+                        <th width="30">{val SEM2_TERM_SCORE3_SUM}</th>
+                        <th width="29">{val SEM2_SCORE_SUM}</th>
+                        <th width="29">{val SEM2_VALUE_SUM}</th>
+                        <th width="29">{val GRAD_VALUE_SUM}</th>
+                        <th width="29"></th>
+                        <th width="29"></th>
+                        <th width="*" rowspan="4">{rval CUR_DATE}</th>
+                      </tr>
+                      <tr class="no_search">
+                        <th>最高点</th>
+                        <th width="30">{val SEM1_INTR_SCORE1_MAX}</th>
+                        <th width="30">{val SEM1_INTR_SCORE2_MAX}</th>
+                        <th width="30">{val SEM1_INTR_SCORE3_MAX}</th>
+                        <th width="30">{val SEM1_TERM_SCORE1_MAX}</th>
+                        <th width="30">{val SEM1_TERM_SCORE2_MAX}</th>
+                        <th width="30">{val SEM1_TERM_SCORE3_MAX}</th>
+                        <th width="29">{val SEM1_SCORE_MAX}</th>
+                        <th width="29">{val SEM1_VALUE_MAX}</th>
+                        <th width="30">{val SEM2_INTR_SCORE1_MAX}</th>
+                        <th width="30">{val SEM2_INTR_SCORE2_MAX}</th>
+                        <th width="30">{val SEM2_INTR_SCORE3_MAX}</th>
+                        <th width="30">{val SEM2_TERM_SCORE1_MAX}</th>
+                        <th width="30">{val SEM2_TERM_SCORE2_MAX}</th>
+                        <th width="30">{val SEM2_TERM_SCORE3_MAX}</th>
+                        <th width="29">{val SEM2_SCORE_MAX}</th>
+                        <th width="29">{val SEM2_VALUE_MAX}</th>
+                        <th width="29">{val GRAD_VALUE_MAX}</th>
+                        <th width="29"></th>
+                        <th width="29"></th>
+                      </tr>
+                      <tr class="no_search">
+                        <th>最低点</th>
+                        <th width="30">{val SEM1_INTR_SCORE1_MIN}</th>
+                        <th width="30">{val SEM1_INTR_SCORE2_MIN}</th>
+                        <th width="30">{val SEM1_INTR_SCORE3_MIN}</th>
+                        <th width="30">{val SEM1_TERM_SCORE1_MIN}</th>
+                        <th width="30">{val SEM1_TERM_SCORE2_MIN}</th>
+                        <th width="30">{val SEM1_TERM_SCORE3_MIN}</th>
+                        <th width="29">{val SEM1_SCORE_MIN}</th>
+                        <th width="29">{val SEM1_VALUE_MIN}</th>
+                        <th width="30">{val SEM2_INTR_SCORE1_MIN}</th>
+                        <th width="30">{val SEM2_INTR_SCORE2_MIN}</th>
+                        <th width="30">{val SEM2_INTR_SCORE3_MIN}</th>
+                        <th width="30">{val SEM2_TERM_SCORE1_MIN}</th>
+                        <th width="30">{val SEM2_TERM_SCORE2_MIN}</th>
+                        <th width="30">{val SEM2_TERM_SCORE3_MIN}</th>
+                        <th width="29">{val SEM2_SCORE_MIN}</th>
+                        <th width="29">{val SEM2_VALUE_MIN}</th>
+                        <th width="29">{val GRAD_VALUE_MIN}</th>
+                        <th width="29"></th>
+                        <th width="29"></th>
+                      </tr>
+                      <tr class="no_search">
+                        <th>成績入力完了</th>
+                        <th width="30">{val CHK_COMP1}</th>
+                        <th width="30"></th>
+                        <th width="30"></th>
+                        <th width="30">{val CHK_COMP2}</th>
+                        <th width="30"></th>
+                        <th width="30"></th>
+                        <th width="29"></th>
+                        <th width="29"></th>
+                        <th width="30">{val CHK_COMP3}</th>
+                        <th width="30"></th>
+                        <th width="30"></th>
+                        <th width="30">{val CHK_COMP4}</th>
+                        <th width="30"></th>
+                        <th width="30"></th>
+                        <th width="29"></th>
+                        <th width="29"></th>
+                        <th width="29"></th>
+                        <th width="29"></th>
+                        <th width="29"></th>
+                      </tr>
+                      <tr class="no_search">
+                        <td colspan="21">
+                          <table cellpadding="0" cellspacing="0">
+                            <tr class="no_search">
+                              <td width="90%" align="center">
+                              {rval FILE}
+                              </td>
+                              <td width="10%" align="right">
+                              {val btn_update}{val btn_reset}{val btn_end}{val btn_print}
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                  </table>
+                  </td>
+                </tr>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}
+<script language="JavaScript">
+
+ var a_mark = new Array();
+<!--{def data2}-->
+<!--{each data2}-->
+ a_mark[{rval data2/ASSESSLEVEL}] = '{rval data2/ASSESSMARK}';
+<!--{/each}-->
+<!--{/def}-->
+
+{rval close_win}</script>

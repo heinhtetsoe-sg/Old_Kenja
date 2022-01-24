@@ -1,0 +1,1188 @@
+{rval start}
+{rval IFRAME}
+<style>
+#tyousei {
+    height : 80px;
+}
+#tyousei2,#tyousei4 {
+    height : 50px;
+}
+#tyousei3 {
+    height : 30px;
+}
+#TRASH_BOX {
+    margin-top:10px;
+    width:1300px;
+    height:50px;
+    background-color:#003366;
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#MAIN_DATA {
+    float:left;
+    margin-left:10px;
+    height:120px;
+    font-size:1em;
+}
+
+.week_getu{
+    color:#000000;
+    background-color:#98FB98;
+}
+.week_ka{
+    color:#000000;
+    background-color:#EE82EE;
+}
+.week_sui{
+    color:#000000;
+    background-color:#7FFFD4;
+}
+.week_moku{
+    color:#000000;
+    background-color:#FFB6C1;
+}
+.week_kin{
+    color:#000000;
+    background-color:#F0E68C;
+}
+.week_do{
+    color:#FFFFFF;
+    background-color:#0000FF;
+}
+.week_niti{
+    color:#FFFFFF;
+    background-color:#FF0000;
+}
+
+/*メインテーブル*/
+#REC td {
+    width:150px;
+    text-align:center;
+}
+#REC2 td {
+    width:100px;
+    text-align:center;
+}
+
+#CHAIR_DATA {
+    float:left;
+    margin-left:1340px;
+    width:300px;
+    height:500px;
+}
+.syukketu{
+    color:#0000FF;
+}
+.no_syukketu{
+    color:#FF0000;
+}
+.itibu_syukketu{
+    color:#008000;
+}
+.delete_box{
+    color:#FFC0CB
+}
+.hanneigo{
+    color:#999999;
+}
+td.zyukou_box{
+    /*color:#FFA500;*/
+    background-color:#CCFFE3;
+}
+.test_box{
+    background-color:#00FF00;
+}
+.hukusuu_box{
+    background-color:#000000;
+    color:#FFFFFF;
+}
+
+.active_box{
+    display:block;
+    position:absolute;
+    width:100px;
+    border-bottom:1px solid #0000FF;
+}
+.non_active_box{
+    display:none;
+}
+.inner_box{
+    width:100%;
+    float:left;
+    background-color:#FFCCCC;
+    border:1px solid #0000FF;
+    border-bottom:none;
+    text-align:center;
+}
+#dialogBox{
+    position:absolute;
+    background-color:transparent;
+    z-index:1000;
+    display:none;
+}
+#dialogTitleBar{
+    cursor:pointer;
+}
+#hidukeKouziBox{
+    min-width:900px;
+    min-height:600px;
+    padding:10px;
+}
+#hidukeKouziBox p,#hidukeKouziBox div{
+    margin:10px 0;
+}
+#hidukekouzi_noTargetList{
+    width:100%;
+}
+#hidukekouzi_noTargetList th,#hidukekouzi_noTargetList td{
+    border:1px solid #000000;
+}
+#deleteSelectBox{
+    min-width:500px;
+    min-height:300px;
+    padding:10px;
+}
+#deleteSelectTable{
+    width:100%;
+}
+#deleteSelectTable th,#deleteSelectTable td{
+    border:1px solid #000000;
+}
+#deleteSelect_targetName{
+    text-align:center;
+}
+#facilityBox{
+    min-width:1100px;
+    min-height:300px;
+    padding:10px;
+}
+#facilityBox td,#facilityBox th{
+    border:1px solid #000000;
+}
+#testFacilityBox{
+    min-width:1100px;
+    min-height:300px;
+    padding:10px;
+}
+#testFacilityBox td,#testFacilityBox th{
+    border:1px solid #000000;
+}
+#countLessonBox{
+    min-width:500px;
+    min-height:300px;
+    padding:1px;
+}
+#countLessonBox td,#countLessonBox th{
+    border:1px solid #000000;
+    text-align:center;
+}
+#testSelectBox{
+    min-width:350px;
+    min-height:80px;
+    padding:10px;
+}
+#testSelectBox div{
+    margin-top:20px;
+}
+#layoutStaffChairBox, layoutHrSubclassBox{
+    min-width:1100px;
+    min-height:500px;
+    padding:10px;
+}
+#ptrnUpdateBox{
+    min-width:500px;
+    min-height:150px;
+    padding:10px;
+}
+#ptrnUpdateBox div{
+    margin:5px;
+}
+.titleSpan {
+    height:25px;
+    border:1px solid #000000;
+    display:block;
+    float:left;
+    padding:3px;
+    margin-right:2px;
+}
+.btnSpan {
+    height:25px;
+    margin-left:10px;
+}
+#showDummy {
+    border:2px solid #000066;
+    width:1500px;
+    height:700px;
+    text-align:center;
+    font-size:3em;
+    display:table-cell;
+    vertical-align:middle;
+}
+#lockScreen {
+    z-index:999;
+    position:absolute;
+    top:0px;
+    left:0px;
+    background-color:#CECECE;
+    display:none;
+}
+#lockScreen #lockScreenInner{
+    display: table-cell;
+    text-align:center;
+    vertical-align: middle;
+    color:red;
+    font-size:3em;
+}
+#lockScreenPopUp {
+    z-index:500;
+    position:absolute;
+    top:0px;
+    left:0px;
+    background-color:transparent;
+    display:none;
+}
+#operationHistoryBox{
+    min-width:900px;
+    min-height:600px;
+    padding:10px;
+}
+#backColorChangeBox{
+    min-width:400px;
+    min-height:300px;
+    padding:10px;
+}
+#helpBoxTable{
+    min-width:500px;
+    min-height:500px;
+    border-collapse: collapse;
+}
+#helpBoxTable th{
+    height:30px;
+    border: solid 1px #000000;
+    cursor: default;
+}
+#helpBoxTable td{
+    border: solid 1px #000000;
+    vertical-align:top;
+    padding:3px;
+}
+#copyMoveBox {
+    min-width:400px;
+    min-height:200px;
+    padding:10px;
+}
+#copyMoveBox table{
+    width:100%;
+}
+</style>
+
+<div id="MAIN_DATA">
+
+    <table width="1500px" border="0" cellspacing="10" cellpadding="0">
+      <tbody>
+
+        <tr>
+          <td style="vertical-align:middle;">
+            <span class="titleSpan">年度学期：{rval YEAR_SEME}</span>
+            <span class="titleSpan">時間割種別：{rval SCH_DIV1}<label for="SCH_DIV1">基本</label>&nbsp;{rval SCH_DIV2}<label for="SCH_DIV2">通常</label>&nbsp;{rval SCH_DIV3}<label for="SCH_DIV3">考査</label></span>
+<!--{def schChair}-->
+            <span class="titleSpan">日付：{rval START_DATE}～{rval END_DATE}{rval button/btn_read}</span>
+<!--{/def}-->
+<!--{def schPtrn}-->
+            <span class="titleSpan">テンプレート：{rval BSCSEQ}{rval button/btn_read}{rval button/btn_bscseq_delete}</span>
+<!--{/def}-->
+
+            <span class="btnSpan">
+              <!--{def showMain}-->
+              {rval button/btn_update}{rval button/btn_kakunin}{rval button/btn_reset}
+              <!--{/def}-->
+              {rval button/btn_back}
+              <!--{def showMain}-->
+              　　{rval button/btn_backColor}
+              　{rval button/btn_help}
+              <!--{/def}-->
+            </span>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="vertical-align:top;">
+<!--{def showMain}-->
+<table width="100%">
+  <tr>
+    <td width="10%" style="vertical-align:top;">
+        {rval LEFT_MENU}
+    </td>
+    <td width="*">
+        <table width="100%">
+          <tr>
+            <td width="30%">講座人数オーバー<span id="colorBoxCapaOverText"></span>：<span id="colorBoxCapaOver" bkcolor-value="">初期値</span></td>
+            <td width="*">指定科目・講座<span id="colorBoxSelectClassText"></span>：<span id="colorBoxSelectClass" bkcolor-value="">初期値</span></td>
+          </tr>
+          <tr>
+            <td width="30%">同一名簿<span id="colorBoxSameMeiboText"></span>：<span id="colorBoxSameMeibo" bkcolor-value="">初期値</span></td>
+            <td width="*">指定生徒の受講講座<span id="colorBoxStdChairText"></span>：<span id="colorBoxStdChair" bkcolor-value="">初期値</span></td>
+          </tr>
+        </table>
+    </td>
+<!--{def schChair}-->
+    <td width="30%" style="vertical-align:top;">
+      <input type="checkbox" id="opeHistory"><label for="opeHistory">変更通知保存</label>
+      　{rval button/btn_delOpeHistory}
+      　{rval button/btn_opeHistory}
+    </td>
+<!--{/def}-->
+
+  </tr>
+</table>
+
+
+            {rval TRASH_BOX}
+
+          </td>
+
+<!--{/def}-->
+        </tr>
+
+      </tbody>
+    </table>
+<!--{def showDummy}-->
+    <div id="showDummy">
+        読込ボタンを押してください。
+    </div>
+<!--{/def}-->
+
+<!--{def showMain}-->
+    <table width="1500px" border="0" cellspacing="10" cellpadding="0">
+      <tbody>
+        <tr>
+          <td>
+
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+
+                <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tbody>
+                          <tr class="no_search" id="tyousei">
+
+                              <!--{def isSection}-->
+                              <th style="width:50px;">所属</th>
+                              <!--{/def}-->
+
+                            <th width="100px">{rval LEFT_TITLE}</th>
+                          </tr>
+                        </tbody>
+                      </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                </td>
+
+                <td>
+                <div id="trow" style="overflow:hidden; width: 1115px; ">
+                    <div style="width: {rval setWidth}px; ">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tbody>
+                          <tr class="no_search" height="49px">
+      <!--{each TITLE}-->
+                              <th colspan="{rval TITLE/COL_SPAN}" class="{rval TITLE/CSS}">{rval TITLE/WEEK_NAME}</th>
+      <!--{/each}-->
+                          </tr>
+                          <tr class="no_search" id="tyousei3">
+      <!--{each TITLE2}-->
+                              <th id="{rval TITLE2/PERIID}" width="100px" class="{rval TITLE2/CSS}">{rval TITLE2/PERIOD}</th>
+      <!--{/each}-->
+                          </tr>
+                        </tbody>
+                      </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                    </div>
+                </div>
+                </td>
+              </tr>
+
+              <tr valign="TOP">
+
+                <td>
+                <div id="tcol" style="overflow: hidden; height: 483px;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                      <tr class="no_search_line">
+                        <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                          <tbody>
+      <!--{each data}-->
+                            <tr bgcolor="#ffffff" id="tyousei2">
+                              <!--{def isSection}-->
+                              <td style="width:50px;" align="center">{rval data/SECTION}</td>
+                              <!--{/def}-->
+                              <td class="redips-mark" <!--{def isSection}-->style="width:100px;"<!--{/def}--> align="center" data-linecnt="{rval data/LINE_CNT}" data-keyname="{rval data/KEY_NAME}">{rval data/TITLE_NAME}</td>
+                            </tr>
+      <!--{/each}-->
+                          </tbody>
+                        </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                </td>
+
+                <td>
+                <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 1130px; height: 500px;">
+                    <div style="width: {rval setWidth}px;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" id="tablebox">
+                    <tbody>
+                      <tr class="no_search_line">
+                        <td>
+
+                        <div id="main_container">
+                            <!-- tables inside this DIV could have draggable content -->
+                            <div id="redips-drag">
+
+                            <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC2">
+                              <tbody>
+                                  <!--{each data2}-->
+                                    <tr  bgcolor="#ffffff" id="tyousei4">
+                                        {rval data2/LISTDATA}
+                                    </tr>
+                                  <!--{/each}-->
+                              </tbody>
+                            </table>
+
+                            </div><!-- drag container -->
+                        </div><!-- main container -->
+
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                    </div>
+                </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+              <tr class="no_search_line">
+                <th>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td bgcolor="#ffffff">
+                      {rval OPERATION_NAME}({rval OPERATION_RADIO1}<label for="OPERATION_RADIO1">移動</label>
+                      &nbsp;&nbsp;{rval OPERATION_RADIO2}<label for="OPERATION_RADIO2">コピー</label>)
+                      <!--{def showShokuin}-->
+                      &nbsp;&nbsp;職員({rval OPERATION_RADIO3}<label for="OPERATION_RADIO3">移動</label>&nbsp;
+                      {rval OPERATION_RADIO4}<label for="OPERATION_RADIO4">コピー</label>)
+                      <!--{/def}-->
+                      &nbsp;{rval OPERATION_RADIO5}<label for="OPERATION_RADIO5">入れ替え</label>
+                      &nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_moveCopy}　　{rval button/btn_layout}
+                      　　{rval button/btn_chairStd}
+                      　　{rval button/btn_update}{rval button/btn_kakunin}{rval button/btn_reset}{rval button/btn_back}
+                      </td>
+                    </tr>
+                  </table>
+                </th>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+<!--{/def}-->
+</div>
+
+<!--{def showMain}-->
+<div id="CHAIR_DATA">
+    <table width="300px" border="0" cellspacing="10" cellpadding="0">
+      <tbody>
+
+      <tr class="no_search_line">
+        <td width="100%">
+          <table width="100%" border="0" cellpadding="5" cellspacing="1">
+
+            <tr align="center" class="no_search">
+              <th>
+                  <b>設定講座一覧</b><BR>
+                  <table b>
+                  <tr><td style="color:white;white-space: nowrap">年組：</td><td>{rval GRAND_HR_CLASSCD}</td></tr>
+                  <tr><td style="color:white;white-space: nowrap">科目：</td><td>{rval SUBCLASSCD}</td></tr>
+                  <tr><td style="color:white;white-space: nowrap">群：</td><td>{rval GUNCD}</td></tr>
+                  <tr><td style="color:white;white-space: nowrap">職員：</td><td>{rval STAFFCD}</td></tr>
+                  <tr><td style="color:white;white-space: nowrap">コース名：</td><td>{rval COUSECD}</td></tr>
+                  </table>
+              </th>
+            </tr>
+
+            <tr align="center" bgcolor="#ffffff">
+              <td width="100%">
+                  <div id="divChair">
+                    {rval list/CATEGORY_SELECTED}
+                  <div>
+              </td>
+            </tr>
+
+<!--{def schChair}-->
+          <tr>
+            <td bgcolor="#ffffff">
+              {rval TEST_RADIO1}<LABEL for="TEST_RADIO1">通常時間割</LABEL>
+              &nbsp;&nbsp;{rval TEST_RADIO2}<LABEL for="TEST_RADIO2">定期考査</LABEL>
+            </td>
+          </tr>
+          <tr id="testCdBox" style="display:none">
+            <td bgcolor="#ffffff">
+              考査種別:{rval TESTCD}
+            </td>
+          </tr>
+<!--{/def}-->
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="100%">
+          <table width="100%" border="0" cellpadding="5" cellspacing="1">
+            <tr bgcolor="#ffffff">
+              <td>{rval button/btn_set}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+</div>
+<!--{/def}-->
+
+<div id="lay"></div>
+
+<div id="box" class="non_active_box"></div>
+
+
+<!--基本部品：日付校時で移動/コピーや曜日リンクのダイアログ用-->
+<div id="dialogBox">
+<table border="1" cellpadding="1" cellspacing="0" bgcolor="#C0C0C0" id="dialogBoxTable">
+
+<tr class="no_search_line" id="dialogTitleBar">
+  <td class="no_search" align="right">
+    <!--hrefでjavascriptを使用する時は、void(0)を付けないと挙動がおかしくなる。ダイアログのタイトルと×ボタン-->
+    <span style="float:left;margin:4px 0 0 3px;"><font color="#FFFFFF"><strong id="dialogBoxTitle">タイトル</span><a class="menuTitle" href="javascript:$('#dialogBox').hide();void(0);"><input type="button" value="×"></a></strong><br></font>
+  </td>
+</tr>
+
+<tr class="no_search_line">
+  <td bgcolor="#FFFFFF" id="dialogBoxContents">
+  </td>
+</tr>
+
+</table>
+</div>
+
+<!--ダブルクリックからの曜日と校時-->
+<div id="hidukeKouziBox" style="display:none">
+    <p>【<span id="hidukekouzi_targetName"></span>の割当済の日時】</p>
+    <p>※これらの日時には移動およびコピーできません。</p>
+    <table id="hidukekouzi_noTargetList" cellspacing="0" cellpadding="5">
+    <tr><th>日付</th><th>群</th><th>科目</th><th>講座</th><th>割当済校時</th></tr>
+    </table>
+    <div>
+    日付：
+    <select name="hidukekouzi_hiduke" id="hidukekouzi_hiduke" onchange="hidukekouzi_change()">
+    </select>
+    校時：
+    <select name="hidukekouzi_kouzi" id="hidukekouzi_kouzi" onchange="hidukekouzi_change()">
+    </select>
+    </div>
+    <div><button id="hidukekouzi_move" onclick="hidukekouzi_moveButton();return false;" disabled='disabled'>移動</button><button id="hidukekouzi_copy" onclick="hidukekouzi_copyButton();return false;" disabled='disabled'>コピー</button><button onclick="$('#dialogBox').hide();return false;">取消</button></div>
+</div>
+
+
+<!--{def schPtrn}-->
+<!--基本時間割更新-->
+<div id="ptrnUpdateBox" style="display:none">
+    <div>
+    <table border="0" cellspacing="5" cellpadding="5">
+    <tr>
+    <td style="width:50%;border:1px solid #000000">
+    <p><input name="PTRN_UPDATE_RADIO" id="PTRN_UPDATE_RADIO1" type="radio" value="1"><label for="PTRN_UPDATE_RADIO1">現在のSEQで上書き保存</label></p>
+    <p><input name="PTRN_UPDATE_RADIO" id="PTRN_UPDATE_RADIO2" type="radio" value="2"><label for="PTRN_UPDATE_RADIO2">SEQを追加して新規に保存</label></p>
+    </td>
+    <td style="width:50%;border:1px solid #000000">
+      タイトル：<input type="text" id="ptrnUpdate_TITLE" name="ptrnUpdate_TITLE" value="" style="width:300px" />
+    </td>
+    <tr>
+    </table>
+    </div>
+    <div><button id="btn_ptrnUpdate" onclick="btn_submitPtn('update');return false;">更新</button><button onclick="$('#dialogBox').hide();return false;">取消</button></div>
+</div>
+<!--{/def}-->
+
+
+<!--削除ダイアログ-->
+<div id="deleteSelectBox" style="display:none">
+    <p id="deleteSelect_targetName"></p>
+    <table id="deleteSelectTable" cellspacing="0" cellpadding="5">
+    <tr><th>講座</th><th>群</th><th>削除</th></tr>
+    </table>
+    <div><button onclick="deleteSelect_deleteButton();return false;">削除</button><button onclick="$('#dialogBox').hide();return false;">取消</button></div>
+</div>
+
+
+<!--時間割種別ダイアログ-->
+<div id="testSelectBox" style="display:none">
+    <table id="testSelectTable" cellspacing="0" cellpadding="5">
+    <tr><td><input name="TEST_SELECT_RADIO" id="TEST_SELECT_RADIO1" type="radio" value="1" onchange="testSelectChange()"><label for="TEST_SELECT_RADIO1">通常時間割</label></td></tr>
+    <tr><td><input name="TEST_SELECT_RADIO" id="TEST_SELECT_RADIO2" type="radio" value="1" onchange="testSelectChange()"><label for="TEST_SELECT_RADIO2">定期考査</label>
+    　　考査種別：{rval DLOG_TESTCD}</td></tr>
+    </table>
+    <div><button onclick="dialogTestOkButton();return false;">ＯＫ</button><button onclick="$('#dialogBox').hide();return false;">取消</button></div>
+</div>
+
+<!--ダブルクリックからの施設-->
+<div id="facilityBox" style="display:none">
+    <table style="width:100%">
+        <tr>
+            <td style="vertical-align:top; width:60%">
+                <p>講座</p>
+                <table id="facility_targetList" style="width:100%">
+                    <tr><th>群</th><th>科目</th><th>講座</th></tr>
+                </table>
+            </td>
+
+            <td style="vertical-align:top; width:40%">
+                <table style="width:100%">
+                    <tr>
+                        <th>この日時に講座で<br>使用する施設</th>
+                        <th></th>
+                        <th>施設マスタ</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select style="width:190px;height:180px" name="facility_selected" id="facility_selected" ondblclick="facility_del_button();saveFacility();return false;" size="10" multiple="multiple">
+                            </select>
+                        </td>
+                        <td style="text-align:center">
+                            <button style="width:45px" id="facility_insAll" onclick="facility_insAll_button();saveFacility();return false;">＜＜</button><br>
+                            <button style="width:45px" id="facility_ins" onclick="facility_ins_button();saveFacility();return false;">＜</button><br>
+                            <button style="width:45px" id="facility_del" onclick="facility_del_button();saveFacility();return false;">＞</button><br>
+                            <button style="width:45px" id="facility_delAll" onclick="facility_delAll_button();saveFacility();return false;">＞＞</button>
+                        </td>
+                        <td>
+                            <select style="width:190px;height:180px" name="facility_collect" id="facility_collect" ondblclick="facility_ins_button();saveFacility();return false;" size="10" multiple="multiple">
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <div style="margin-top: 5px;"><button id="facility_ok" onclick="facility_ok_button();return false;" style="float:left">OK</button><button onclick="$('#dialogBox').hide();return false;">取消</button></div>
+</div>
+
+<!--ダブルクリックからの試験会場-->
+<div id="testFacilityBox" style="display:none">
+    <table style="width:100%">
+        <tr>
+            <td style="vertical-align:top; width:60%">
+                <p>講座</p>
+                <table id="test_facility_targetList" style="width:100%">
+                    <tr><th>群</th><th>科目</th><th>講座</th></tr>
+                </table>
+            </td>
+
+            <td style="vertical-align:top; width:40%">
+                <table style="width:100%">
+                    <tr>
+                        <th>この日時に講座で<br>使用する試験会場</th>
+                        <th></th>
+                        <th>試験会場マスタ</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select style="width:190px;height:180px" name="test_facility_selected" id="test_facility_selected" ondblclick="test_facility_del_button();saveTestFacility();return false;" size="10" multiple="multiple">
+                            </select>
+                        </td>
+                        <td style="text-align:center">
+                            <button style="width:45px" id="test_facility_insAll" onclick="test_facility_insAll_button();saveTestFacility();return false;">＜＜</button><br>
+                            <button style="width:45px" id="test_facility_ins" onclick="test_facility_ins_button();saveTestFacility();return false;">＜</button><br>
+                            <button style="width:45px" id="test_facility_del" onclick="test_facility_del_button();saveTestFacility();return false;">＞</button><br>
+                            <button style="width:45px" id="test_facility_delAll" onclick="test_facility_delAll_button();saveTestFacility();return false;">＞＞</button>
+                        </td>
+                        <td>
+                            <select style="width:190px;height:180px" name="test_facility_collect" id="test_facility_collect" ondblclick="test_facility_ins_button();saveTestFacility();return false;" size="10" multiple="multiple">
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <div style="margin-top: 5px;"><button id="test_facility_ok" onclick="test_facility_ok_button();return false;" style="float:left">OK</button><button onclick="$('#dialogBox').hide();return false;">取消</button></div>
+</div>
+
+<!--ダブルクリックからの集計フラグ/授業形態-->
+<div id="countLessonBox" style="display:none">
+    <table style="width:100%">
+        <tr>
+            <td style="vertical-align:top; width:60%">
+                <table id="countLesson_targetList" style="width:100%">
+<!--{def schChair}-->
+                    <tr><th>年組</th><th>集計フラグ</th><th>授業形態</th></tr>
+<!--{/def}-->
+<!--{def schPtrn}-->
+                    <tr><th>年組</th><th>集計フラグ</th></tr>
+<!--{/def}-->
+                </table>
+            </td>
+        </tr>
+    </table>
+    <div><button id="countLesson_ok" onclick="countLesson_ok_button();return false;">OK</button><button onclick="$('#dialogBox').hide();return false;">取消</button></div>
+</div>
+
+
+<!--日付校時で移動/コピー/入替/削除-->
+<div id="copyMoveBox" style="display:none">
+    <div>
+      <label><input type="checkbox" id="copyMoveBox_showListToList" onclick="if ($('#copyMoveBox_showListToList').is(':checked')) { $('#copyMoveBox_listToList').show(); } else { $('#copyMoveBox_listToList').hide(); };" />操作対象を指定</label>
+      <div id="copyMoveBox_listToList" style="display:none">
+        <table>
+          <tr align="center" class="no_search">
+            <th><b>対象一覧</b></th>
+            <th class="no_search"></th>
+            <th><b>{rval LEFT_TITLE}</b></th>
+          </tr>
+          <tr align="center" bgcolor="#ffffff">
+            <td id="layoutCopyMoveBoxLeft" width="45%">
+              <select multiple id="category_copymovebox_selected" name="category_copymovebox_selected" ondblclick="layoutMove('left', 'CopyMoveBox'); copyMoveBox_change();" style="width:200px;height:250px;" size="20"></select>
+            </td>
+            <td width="*%"  class="no_search">
+              <button id="btn_left2" style="width:40px;" onclick="layoutMove('rightall', 'CopyMoveBox'); copyMoveBox_change();return false;">≪</button><BR>
+              <button id="btn_left1" style="width:40px;" onclick="layoutMove('right', 'CopyMoveBox'); copyMoveBox_change();return false;">＜</button><BR>
+              <button id="btn_right1" style="width:40px;" onclick="layoutMove('left', 'CopyMoveBox'); copyMoveBox_change();return false;">＞</button><BR>
+              <button id="btn_right2" style="width:40px;" onclick="layoutMove('leftall', 'CopyMoveBox'); copyMoveBox_change();return false;">≫</button>
+            </td>
+            <td id="layoutCopyMoveBoxRight" width="45%">
+              <select multiple id="category_copymovebox_name" name="category_copymovebox_name" ondblclick="layoutMove('right', 'CopyMoveBox'); copyMoveBox_change();" style="width:200px;height:250px;" size="20"></select>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+<br>
+    <table>
+      <tr>
+        <th colspan="2">From:範囲選択</th><th></th><th colspan="2">To:開始校時</th>
+      </tr>
+      <tr>
+        <td id="copyMoveBox_fromDay"></td>
+        <td id="copyMoveBox_fromKouzi"></td>
+        <td>
+          <button id="copyMoveBox_moveButton" onclick="copyMoveBox_move();return false;" disabled="disabled">列移動</button><br><br>
+          <button id="copyMoveBox_copyButton" onclick="copyMoveBox_copy();return false;" disabled="disabled">列コピー</button><br><br>
+          <button id="copyMoveBox_irekaeButton" onclick="copyMoveBox_irekae();return false;" disabled="disabled">列入替</button><br><br>
+          <button id="copyMoveBox_deleteButton" onclick="copyMoveBox_delete();return false;" disabled="disabled">列削除</button>
+        </td>
+        <td id="copyMoveBox_toDay"></td>
+        <td id="copyMoveBox_toKouzi"></td>
+      </tr>
+    </table>
+    <div style="text-align:center"><label id="copyMoveBox_moveType_label">
+      <input type="checkbox" id="copyMoveBox_moveType" onclick="if ($('#copyMoveBox_moveType').is(':checked')) { $('#copyMoveBox_testCd').show(); } else { $('#copyMoveBox_testCd').hide(); };" />考査として移動またはコピー</label>
+      <div id="copyMoveBox_testCd" style="display:none">考査種別:{rval MOVECOPY_TESTCD}</div>
+    </div>
+    <div style="text-align:left;margin:5px">※Fromは範囲選択(連続選択可)、Toは開始校時選択</div>
+    <div style="text-align:left;margin:5px;color:#FF0000" id="copyMoveBox_errorMsg"></div>
+    <div style="text-align:center"><button onclick="$('#dialogBox').hide();return false;">閉じる</button></div>
+</div>
+
+
+<!--レイアウト変更-->
+<div id="layoutStaffChairBox" style="display:none">
+    <table id="layout_StaffChairList" width="100%" cellspacing="10" cellpadding="0">
+
+    <tr class="no_search_line">
+      <td width="100%"> 
+        <table width="100%" border="0" cellpadding="5" cellspacing="1">
+          <tr class="no_search"> 
+            <td id="layoutStaffChairCmbId" align="left">{rval schoolKind_STAFF}
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr class="no_search_line">
+      <td width="100%">
+        <table width="100%" border="0" cellpadding="5" cellspacing="1">
+
+          <tr align="center" class="no_search">
+            <th><b>表示対象一覧</b>　<button id="btn_dispStaffChairLoad" onclick="dispLoad('StaffChair');return false;">表示中職員読込</button></th>
+            <th class="no_search"></th>
+            <th><b>非表示</b>　リスト検索：<input type="text" onkeyup="searchStaffChairName(this)" name="STAFF_CHAIR_SEARCH"></th>
+          </tr>
+
+          <tr align="center" bgcolor="#ffffff">
+            <td id="layoutStaffChairLeft" width="45%">
+                <select multiple id="category_staffchair_selected" name="category_staffchair_selected" ondblclick="layoutMove('left', 'StaffChair')" style="width:300px;height:350px;" size="20"></select>
+            </td>
+            <td width="*%"  class="no_search">
+              <button id="btn_left2" style="width:40px;" onclick="layoutMove('rightall', 'StaffChair');return false;">≪</button><BR>
+              <button id="btn_left1" style="width:40px;" onclick="layoutMove('right', 'StaffChair');return false;">＜</button><BR>
+              <button id="btn_right1" style="width:40px;" onclick="layoutMove('left', 'StaffChair');return false;">＞</button><BR>
+              <button id="btn_right2" style="width:40px;" onclick="layoutMove('leftall', 'StaffChair');return false;">≫</button>
+            </td>
+            <td id="layoutStaffChairRight" width="45%">
+                <select multiple id="category_staffchair_name" name="category_staffchair_name" ondblclick="layoutMove('right', 'StaffChair')" style="width:300px;height:350px;" size="20"></select>
+            </td>
+          </tr>
+
+          <tr align="center" class="no_search">
+            <th colspan="3"><button onclick="dispChange('StaffChair');return false;">反 映</button>　<button onclick="$('#dialogBox').hide();return false;">閉じる</button></th>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+
+    </table>
+
+</div>
+
+
+<!--レイアウト変更-->
+<div id="layoutHrSubclassBox" style="display:none">
+    <table id="layout_HrSubclassList" width="100%" cellspacing="10" cellpadding="0">
+
+    <tr class="no_search_line">
+      <td width="100%"> 
+        <table width="100%" border="0" cellpadding="5" cellspacing="1">
+          <tr class="no_search"> 
+            <td id="layoutHrSubclassCmbId" align="left">{rval schoolKind_HrSubClass}
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr class="no_search_line">
+      <td width="100%">
+        <table width="100%" border="0" cellpadding="5" cellspacing="1">
+
+          <tr align="center" class="no_search">
+            <th><b>表示対象一覧</b>　<button id="btn_dispHrSuclassLoad" onclick="dispLoad('HrSubclass');return false;">表示中クラス読込</button></th>
+            <th class="no_search"></th>
+            <th><b>非表示</b></th>
+          </tr>
+
+          <tr align="center" bgcolor="#ffffff">
+            <td id="layoutHrSubclassLeft" width="45%">
+                <select multiple id="category_hrsubclass_selected" name="category_hrsubclass_selected" ondblclick="layoutMove('left', 'HrSubclass')" style="width:300px;height:350px;" size="20"></select>
+            </td>
+            <td width="*%"  class="no_search">
+              <button id="btn_left2" style="width:40px;" onclick="layoutMove('rightall', 'HrSubclass');return false;">≪</button><BR>
+              <button id="btn_left1" style="width:40px;" onclick="layoutMove('right', 'HrSubclass');return false;">＜</button><BR>
+              <button id="btn_right1" style="width:40px;" onclick="layoutMove('left', 'HrSubclass');return false;">＞</button><BR>
+              <button id="btn_right2" style="width:40px;" onclick="layoutMove('leftall', 'HrSubclass');return false;">≫</button>
+            </td>
+            <td id="layoutHrSubclassRight" width="45%">
+                <select multiple id="category_hrsubclass_name" name="category_hrsubclass_name" ondblclick="layoutMove('right', 'HrSubclass')" style="width:300px;height:350px;" size="20"></select>
+            </td>
+          </tr>
+
+          <tr align="center" class="no_search">
+            <th colspan="3"><button onclick="dispChange('HrSubclass');return false;">反 映</button>　<button onclick="$('#dialogBox').hide();return false;">閉じる</button></th>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+
+    </table>
+
+</div>
+
+<!--変更通知履歴-->
+<div id="operationHistoryBox" style="display:none">
+  <table width="100%" cellspacing="0" cellpadding="0">
+
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="no_search_line">
+          <tr class="no_search" style="height:30px;">
+            <td width="100%" align="center">
+              <input id="opelogCancelShowFlg" name="opelogCancelShowFlg" type="checkbox" value="1" onChange="operationHistoryBoxInitFunc();">
+              <label for="opelogCancelShowFlg">キャンセル表示</label>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr align="center" border="0" bgcolor="#FFFFFF" style="height:10px;">
+      <td></td>
+    </tr>
+
+    <tr class="no_search_line">
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>
+              <table width="100%" cellspacing="1" cellpadding="4">
+                <tr class="no_search" style="height:30px;">
+                  <th width="20">選<br>択</th>
+                  <th width="90">登録日付</th>
+                  <th width="90">キャンセル<br>フラグ</th>
+                  <th width="150">通知職員</th>
+                  <th width="*">通知メッセージ</th>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div style="height:500px;overflow-y:scroll">
+                <table id="operationHistoryBoxTable" width="100%" cellspacing="1" cellpadding="4">
+  <!--{each OpeLog}-->
+                  <tr name="operationHistoryLine" style="height:30px;" bgcolor="#FFFFFF">
+                    <td width="20" align="center">{rval OpeLog/CHK}</td>
+                    <td width="90" align="center" name="registDate">{rval OpeLog/REGIST_DATE}</td>
+                    <td width="90" align="center">{rval OpeLog/CANCEL_FLG}</td>
+                    <td width="150" align="center">{rval OpeLog/STAFFNAME}</td>
+                    <td width="*" >{rval OpeLog/NOTICE_MESSAGE}</td>
+                  </tr>
+  <!--{/each}-->
+                  </table>
+              </div>
+
+            </td>
+          </tr>
+          <tr align="center" border="0" bgcolor="#FFFFFF" style="height:10px;">
+            <td></td>
+          </tr>
+          <tr align="center" class="no_search" style="height:30px;">
+            <td>
+              {rval button/btn_updOpeHistory}　　
+              <!-- <button onclick="$('#dialogBox').hide();return false;">閉じる</button> -->
+              <input type='button' value='閉じる' onclick="$('#dialogBox').hide();">
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div id="backColorChangeBox" style="display:none">
+  <table id="backColorChangeBoxTable" width="100%" cellspacing="10" cellpadding="0">
+
+    <tr >
+      <td>
+        <table width="100%">
+          <tr>
+            <th colspan="2" width="*" align="center"><span id="backColorProcessed" style="color:red;display: none">処理中です。しばらくお待ちください。</span></th>
+            <th width="*" align="right"><input type="button" value="背景色初期化" onclick="executeBackColorInit();"></th>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr class="no_search_line">
+      <td>
+        <table width="100%">
+          <tr class="no_search">
+            <th width="50%">講座人数オーバー</th>
+            <th width="30%"><select name="backColorCapaOverColor" onchange="backColorSelectChange(this);"></select></th>
+            <th width="*"><input type="button" value="反映" onclick="executeBackColorCapaOver();"></th>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr class="no_search_line">
+      <td>
+        <table width="100%">
+          <tr class="no_search">
+            <th width="50%">指定科目・講座</th>
+            <th width="30%"><select name="backColorClassColor" onchange="backColorSelectChange(this);"></select></th>
+            <th width="*"><input type="button" value="反映" onclick="executeBackColorClass();"></th>
+          </tr>
+          <tr bgcolor="#ffffff">
+            <td colspan="3">
+              　科目：<select name="backColorClassSelect" onchange="backColorSelectSubclass();"></select>
+            </td>
+          </tr>
+          <tr bgcolor="#ffffff">
+            <td colspan="3">
+              　講座：<select name="backColorSubClassSelect" ></select>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+    <tr class="no_search_line">
+      <td>
+        <table width="100%">
+          <tr class="no_search">
+            <th width="50%">同一名簿</th>
+            <th width="30%"><select name="backColorSameMeiboColor" onchange="backColorSelectChange(this);"></select></th>
+            <th width="*"><input type="button" value="反映" onclick="executeBackColorSameMeibo();"></th>
+          </tr>
+          <tr bgcolor="#ffffff">
+            <td colspan="3">
+              　講座：<select name="backColorSubSameMeiboSelect" ></select>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr class="no_search_line">
+      <td>
+        <table width="100%">
+          <tr class="no_search">
+            <th width="50%">指定生徒の受講講座</th>
+            <th width="30%"><select name="backColorStdChairColor" onchange="backColorSelectChange(this);"></select></th>
+            <th width="*"><input type="button" value="反映" onclick="executeBackColorStdChair();"></th>
+          </tr>
+          <tr bgcolor="#ffffff">
+            <td colspan="3">
+              　年組：<select name="backColorHrClassSelect" onchange="backColorSelectHrclass();"></select>
+            </td>
+          </tr>
+          <tr bgcolor="#ffffff">
+            <td colspan="3">
+              　名前：<select name="backColorStdSelect" ></select>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+
+    <tr align="center" class="no_search">
+      <th colspan="3"><button onclick="$('#dialogBox').hide();return false;">閉じる</button></th>
+    </tr>
+
+  </table>
+</div>
+
+<!--ヘルプ-->
+<div id="helpBox" style="display:none">
+<table id="helpBoxTable">
+<tr>
+<th onclick="helpBoxTab(this,1)">文字色について</th>
+<th onclick="helpBoxTab(this,2)">ヘルプ予備</th>
+</tr>
+<tr>
+<td colspan="2">
+<div id="helpBoxContents1">
+<h3>セルの色について</h3>
+<table>
+<tr><td class="hukusuu_box">複数の時間割</td></tr>
+<tr><td class="no_syukketu">出欠未</td></tr>
+<tr><td class="syukketu">出欠済</td></tr>
+<tr><td class="itibu_syukketu">出欠未(一部済み)</td></tr>
+<tr><td style="background-color:#F5F599">編集中</td></tr>
+<tr><td style="background-color:#F58899">移動先</td></tr>
+<tr><td class="test_box">定期考査</td></tr>
+</table>
+</div>
+<div id="helpBoxContents2">
+ヘルプ予備<br>
+※タブは簡単に増やせます。
+</div>
+</td>
+</tr>
+</table>
+<p style="text-align:center"><button onclick="$('#dialogBox').hide();return false;">閉じる</button></p>
+</div>
+
+
+<!--描画中に画面を触れないようにする-->
+<div id="lockScreen">
+    <div id="lockScreenInner">処理中です。しばらくお待ちください。
+    <br><br><progress max="100"></progress>
+    </div>
+</div>
+
+
+<!--描画中に画面を触れないようにする-->
+<div id="lockScreenPopUp">
+</div>
+
+
+<script language="JavaScript">
+function loadScript(url) {
+  var script = document.createElement('script');
+  var dateObj = new Date();
+  url = window.location.pathname.replace(new RegExp("(?:\\\/+[^\\\/]*){0,1}$"), "/") + url;
+  script.setAttribute('src', url+'?'+dateObj.getTime());
+  script.setAttribute('charset', 'utf-8');
+  document.body.appendChild(script);
+};
+
+loadScript('knjb3042Form1_2.js');
+
+var elements = document.getElementsByClassName('targetbox');
+for( var i = 0; i < elements.length; i++ ) {
+    elements[i].onclick = f_click;
+    elements[i].ondblclick = f_dblclick;
+    elements[i].ondragover = f_dragover;
+    elements[i].ondragleave = f_dragleave;
+    elements[i].ondrop = f_drop;
+    elements[i].ondragenter = f_dragevent;
+    elements[i].ondragstart = f_dragstart;
+    elements[i].oncontextmenu = f_contextmenu;
+}
+
+elements = document.getElementById('box');
+elements.ondragleave = dodragleave;
+
+document.onkeydown = documentKyeDown;
+
+<!--テキストが一つの場合にEnterでサブミットしない為の処理-->
+$(document).on("keypress", "input:not(.allow_submit)", function(event) {
+    return event.which !== 13;
+});
+
+$(window).on('load',function(){
+    dispLineIni();
+    dispInit();
+})
+
+var startDateElements = document.getElementsByName('START_DATE');
+for( var i = 0; i < startDateElements.length; i++ ) {
+    startDateElements[i].addEventListener('change', function() {
+        dateChange(this.value);
+    }, false);
+}
+</script>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

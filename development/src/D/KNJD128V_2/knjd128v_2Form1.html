@@ -1,0 +1,218 @@
+{rval start} 
+{rval IFRAME}
+<style type="text/css">
+<!--
+a{
+color:#ffffff;
+font-size: 3.3mm;
+}
+a:hover{
+color:#ffffff;
+font-weight:bold;
+font-size: 3.3mm;
+}
+-->
+</style>
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search">
+                        <!-- Edit by Kaung for PC-Talker 2020-02-10 start -->
+                        <th width="7%" nowrap aria-label="">処理年度：{rval YEAR}年度</th>
+                        <!-- Edit by Kaung for PC-Talker 2020-02-20 end -->
+                        <th width="33%" nowrap>
+<!--{def use_school_detail_gcm_dat}-->
+&nbsp;　課程学科：{rval COURSE_MAJOR}&nbsp;　
+<!--{/def}-->
+科目：{rval SUBCLASSCD}
+                        </th>
+                        <td width="36%" nowrap>学級・講座：{rval CHAIRCD}<!--{def useSlumpSeq}-->　{rval SLUMP_SEQ}<!--{/def}--></td>
+                        <td width="24%">
+                            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                              <tr class="no_search">
+                                <th width="6%" bgcolor="#3399ff" nowrap><font color="#000000" size="2">公欠</font></th>
+                                <th width="6%" bgcolor="#66cc33" nowrap><font color="#000000" size="2">特別<BR>欠席</font></th>
+                                <th width="6%" bgcolor="#ff0099" nowrap><font color="#000000" size="2">病欠<BR>欠課</font></th>
+                                <th width="6%" bgcolor="#ffff00" nowrap><font color="#000000" size="2">異動<BR>生徒</font></th>
+                              </tr>
+                            </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <!-- Edit by Kaung for PC-Talker 2020-02-10 start -->
+                        <th rowspan="2" width="88" aria-label=""><font size="2">クラス-<br>出席番号</font></th>
+                        <th rowspan="2" width="180" aria-label=""><font size="2">氏名</font></th>
+                        <!-- Edit by Kaung for PC-Talker 2020-02-20 end -->
+                        {rval HEAD1}
+<!--{def useSlumpSeq}-->
+<!--{def IS_SCORE_SHOW}-->
+                        <th rowspan="2" width="120"><font size="2">{rval SELECT_SEQ_PRE}</font></th>
+<!--{/def}-->
+<!--{/def}-->
+                        <th rowspan="2" width="120"><font size="2">{rval SELECT_SEQ}</font></th>
+<!--{def useSlumpSeq2}-->
+                        <th rowspan="2" width="120"><font size="2">合格</font></th>
+<!--{/def}-->
+                        <th rowspan="2" width="*"><font size="2">{rval SELECT_SEQ_REMARK}(追指導理由等)<BR>(全角20文字)</font></th>
+                      </tr>
+                      <tr class="no_search">
+                        {rval HEAD2}
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <div style="width:100%;height:350;overflow:auto">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr height="28">
+                          <td width="88" align="center" bgcolor="{rval data/COLOR}">{rval data/ATTENDNO}</td>
+                          <td width="180" align="left" bgcolor="{rval data/COLOR}">{rval data/SCHREGNO_SHOW}{rval data/NAME_SHOW}</td>
+                          {rval data/MEISAI}
+<!--{def useSlumpSeq}-->
+<!--{def IS_SCORE_SHOW}-->
+                          <td width="120" align="center" bgcolor="{rval data/COLOR}">{rval data/SCORE_SHOW}</td>
+<!--{/def}-->
+<!--{/def}-->
+                          <td width="120" align="center" bgcolor="{rval data/COLOR}">{rval data/SCORE_MARK}</td>
+<!--{def useSlumpSeq2}-->
+                          <td width="120" align="center" bgcolor="{rval data/COLOR}">{rval data/PASS_FLG}</td>
+<!--{/def}-->
+                          <td width="*" align="center" bgcolor="{rval data/COLOR}">{rval data/REMARK}</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="275">合計</th>
+                        {rval SCORE_SUM}
+                        <th width="120"></th>
+                        <th width="*" rowspan="5">{rval CUR_DATE}</th>
+                      </tr>
+                      <tr class="no_search">
+                        <th>平均</th>
+                        {rval SCORE_AVG}
+                        <th width="120"></th>
+                      </tr>
+                      <tr class="no_search">
+                        <th>最高点</th>
+                        {rval SCORE_MAX}
+                        <th width="120"></th>
+                      </tr>
+                      <tr class="no_search">
+                        <th>最低点</th>
+                        {rval SCORE_MIN}
+                        <th width="120"></th>
+                      </tr>
+                      <tr class="no_search">
+                        <!-- Edit by Kaung for PC-Talker 2020-02-10 start -->
+                        <th aria-label="">成績入力完了</th>
+                        <!-- Edit by Kaung for PC-Talker 2020-02-20 end -->
+                        {rval CHK_COMP}
+                        <th width="120"></th>
+                      </tr>
+                      <tr class="no_search">
+                        <td colspan="13" align="right">
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                            <tr class="no_search">
+                              <td width="*%" align="right">
+                              {val btn_update}{val btn_reset}{val btn_end}
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+<!--{def useCsv}-->
+                      <tr class="no_search">
+                        <td colspan="13" align="right">
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                            <tr class="no_search">
+                              <td width="*%" align="center">{rval FILE}</td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+<!--{/def}-->
+                  </table>
+                  </td>
+                </tr>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish} 
+<script language="JavaScript">
+ var a_mark = new Array();
+<!--{def data2}-->
+<!--{each data2}--> 
+ a_mark[{rval data2/ASSESSLEVEL}] = '{rval data2/ASSESSMARK}';
+<!--{/each}-->
+<!--{/def}-->
+{rval close_win}</script>

@@ -1,0 +1,76 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr></tr><tr> 
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td nowrap width="50%" align="center">対象年度：{rval YEAR}</td>
+                      <td nowrap width="50%" align="center">{rval btn_copy}</td>
+                    </tr>
+                  </table>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td nowrap width="20%" align="center">対象学期</td>
+                      <td nowrap width="30%" align="left">{rval SEMESTER}</td>
+                      <td nowrap width="50%" align="left">{rval TESTNAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td nowrap width="20%" align="center">コース名</td>
+                      <td nowrap width="*" align="left">{rval COURSENAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>   
+        <tr>
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th align="center" width="44%">科目名</th>
+                      <th align="center" width="56%">総評</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}--> 
+                    <tr>
+<!--{def useCurriculumcd}-->
+                      <td align="left" bgcolor="#ffffff"><a href="knjd104bindex.php?cmd=edit&SEMESTER={rval data/SEMESTER}&GRADE={rval data/GRADE}&COURSECODE={rval data/COURSECODE}&COURSECD={rval data/COURSECD}&MAJORCD={rval data/MAJORCD}&CLASSCD={rval data/CLASSCD}&SCHOOL_KIND={rval data/SCHOOL_KIND}&CURRICULUM_CD={rval data/CURRICULUM_CD}&SUBCLASSCD={rval data/SUBCLASSCD}&TESTKINDCD={rval data/TESTKINDCD}&TESTITEMCD={rval data/TESTITEMCD}&PROGRAMID={rval PROGRAMID}" target="right_frame">{rval data/CLASSCD}-{rval data/SCHOOL_KIND}-{rval data/CURRICULUM_CD}-{rval data/SUBCLASSCD}&nbsp;&nbsp;&nbsp;&nbsp;{rval data/SUBCLASSNAME}</a></td>
+<!--{/def}-->
+<!--{def NoCurriculumcd}-->
+                      <td align="left" bgcolor="#ffffff"><a href="knjd104bindex.php?cmd=edit&SEMESTER={rval data/SEMESTER}&GRADE={rval data/GRADE}&COURSECODE={rval data/COURSECODE}&COURSECD={rval data/COURSECD}&MAJORCD={rval data/MAJORCD}&SUBCLASSCD={rval data/SUBCLASSCD}&TESTKINDCD={rval data/TESTKINDCD}&TESTITEMCD={rval data/TESTITEMCD}&PROGRAMID={rval PROGRAMID}" target="right_frame">{rval data/SUBCLASSCD}&nbsp;&nbsp;&nbsp;&nbsp;{rval data/SUBCLASSNAME}</a></td>
+<!--{/def}-->
+                      <td align="left" bgcolor="#ffffff">{rval data/FOOTNOTE}</td>
+                    </tr>
+                    <!--{/each}--> 
+                    <!--{/def}--> 
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<script language="JavaScript">{rval reload}</script>
+{rval finish}

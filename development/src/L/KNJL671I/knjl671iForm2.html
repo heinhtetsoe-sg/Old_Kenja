@@ -1,0 +1,215 @@
+{rval IFRAME} 
+{rval start}
+
+<!--{def data}-->
+<!--{def button}-->
+
+<table width="80%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th class="no_search" width="20%" align="right" nowrap>※ 番号</th>
+                      <td bgcolor="#ffffff" width="30%" nowrap>{rval data/EXAMNO}</td>
+                      <th class="no_search" width="20%" align="right" nowrap>担当者</th>
+                      <td bgcolor="#ffffff" width="30%" nowrap>{rval data/STAFFNAME}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" width="20%" align="right" nowrap>出身学校</th>
+                      <td bgcolor="#ffffff" width="30%">
+                        <!--{def UPD_FINSCHOOLCD}-->
+                        {rval button/btn_fin_kana_reference}
+                        {rval data/FINSCHOOLCD}
+                        <!--{/def}-->
+                        <span id="FINSCHOOLNAME_ID">{rval data/FINSCHOOLNAME}</span>
+                      </td>
+                      <th class="no_search" width="20%" align="right" nowrap>地区</th>
+                      <td bgcolor="#ffffff" width="30%" nowrap>{rval data/FINSCHOOL_DISTCD_NAME}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" width="20%" align="right" nowrap>※ 氏名</th>
+                      <td bgcolor="#ffffff" width="80%" colspan="3">
+                        {rval data/NAME}
+                        <font color="red" style="font-size:10pt">{rval data/NAME_KETA}</font>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th class="no_search" align="right" nowrap>試験区分</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/SEQ001_REMARK1}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>相談コース</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/SEQ002_REMARK1}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>共通テスト</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/SEQ003_REMARK1}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>特待記号</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/SEQ004_REMARK2}</td>
+                    </tr>
+                    <tr>
+                        <th class="no_search" align="right" nowrap>特待理由</th>
+                        <td bgcolor="#ffffff" colspan="3">{rval data/SEQ004_REMARK1}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>部活動</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/SEQ005_REMARK1}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>欠席日数</th>
+                      <td bgcolor="#ffffff" colspan="3">
+                        {rval data/SEQ008_REMARK1}
+                        <font color="red" style="font-size:10pt">{rval data/SEQ008_REMARK1_KETA}</font>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>理由書No.</th>
+                      <td bgcolor="#ffffff" colspan="3">
+                        {rval data/SEQ008_REMARK2}
+                        <font color="red" style="font-size:10pt">{rval data/SEQ008_REMARK2_KETA}</font>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>塾</th>
+                      <td bgcolor="#ffffff" width="30%" colspan="3">
+                        <!--{def UPD_PRISCHOOLCD}-->
+                        {rval button/btn_pri_kana_reference}
+                        {rval data/PRISCHOOLCD}&nbsp;
+                        <!--{/def}-->
+                        <font color="black" style="font-size:10pt">
+                          <span id="label_priName">{rval data/PRISCHOOL_NAME}</span>
+                        </font>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>備考</th>
+                      <td bgcolor="#ffffff" style="word-break:break-all;" colspan="3">
+                        {rval data/SEQ006_REMARK1}
+                        <font color="red" style="font-size:10pt">{rval data/SEQ006_REMARK1_KETA}</font>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>除外フラグ</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/EXCLUSION}</td>
+                    </tr>
+
+                    
+                    <!--{def histRecord}-->
+                    <tr>
+                      <th class="no_search" align="right" nowrap>変更履歴</th>
+                      <td bgcolor="#ffffff" colspan="3">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr>
+                            <td bgcolor="#ffffff">
+                              {rval data/NAME_FLG}<LABEL for="NAME_FLG">氏名</LABEL>&nbsp;
+                              {rval data/TESTDIV_FLG}<LABEL for="TESTDIV_FLG">試験区分</LABEL>&nbsp;
+                              {rval data/COURSE_FLG}<LABEL for="COURSE_FLG">相談コース</LABEL>&nbsp;
+                              {rval data/STANDARD_EXAM_FLG}<LABEL for="STANDARD_EXAM_FLG">共通テスト</LABEL>&nbsp;
+                              {rval data/HONOR_FLG}<LABEL for="HONOR_FLG">特待</LABEL>&nbsp;
+                              {rval data/OTHER_FLG}<LABEL for="OTHER_FLG">その他</LABEL>&nbsp;
+                            </td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff">
+                              備考&nbsp;{rval data/CHANGE_TEXT}
+                              <font color="red" style="font-size:10pt">{rval data/CHANGE_TEXT_KETA}</font>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff">
+                              依頼者&nbsp;{rval data/CLIENT_STAFFCD}&nbsp;&nbsp;
+                              編集者&nbsp;{rval data/EDIT_STAFFCD}&nbsp;&nbsp;
+                            </td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff">
+                              変更日時&nbsp;{rval data/CHANGE_DATE}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+
+                    <!--変更履歴一覧-->
+                    <!--{def histList}-->
+                    <tr class="no_search" nowrap>
+                      <th class="no_search" align="right" nowrap>変更履歴</th>
+                      <td bgcolor="#ffffff" colspan="3" valign="top">
+                        <div style="overflow-y:scroll;height:100%;height:120px;">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr>
+                            <td width="18%">変更日時</td>
+                            <td width="46%">変更内容</td>
+                            <td width="18%">依頼者</td>
+                            <td width="18%">編集者</td>
+                          </tr>
+                          <!--{each histData}-->
+                          <tr>
+                            <td style="word-wrap: break-word;">{rval histData/CHANGE_DATE}</td>
+                            <td style="word-wrap: break-word;">{rval histData/CHANGE_CHKFLG}</td>
+                            <td style="word-wrap: break-word;">{rval histData/CLIENT_STAFFNAME}</td>
+                            <td style="word-wrap: break-word;">{rval histData/EDIT_STAFFNAME}</td>
+                          </tr>
+                          <tr>
+                            <td>&nbsp;</td>
+                            <td style="word-break:break-all;" colspan="3">{rval histData/CHANGE_TEXT}</td>
+                          </tr>
+                          <!--{/each}-->
+                        </table>
+                        </div>
+                      </td>
+                    </tr>
+                    
+                    <!--{/def}-->
+
+                    <tr>
+                      <th class="no_search" align="right" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff" colspan="3">
+                        <!--{def isNotSearch}-->
+                        {rval button/btn_update}
+                        {rval button/btn_del}
+                        {rval button/btn_reset}
+                        <!--{/def}-->
+                        {rval button/btn_back}
+                      </td>
+                    </tr>
+
+                    <!--{def contentsCsv}-->
+                    <tr>
+                        <th class="no_search" align="left" nowrap>&nbsp;</th>
+                        <td align="left" colspan = "3" bgcolor="#ffffff">
+                            {rval data/OUTPUT1}<LABEL for="OUTPUT1">ヘッダ出力(見本)</LABEL></br>
+                            {rval data/OUTPUT2}<LABEL for="OUTPUT2">データ取込</LABEL>&nbsp;(ファイル：<span id="type_file">{rval FILE}</span>)</br>
+                            {rval data/OUTPUT3}<LABEL for="OUTPUT3">データ出力</LABEL>
+                            {rval data/OUTPUT3}<LABEL for="OUTPUT4">エラー出力</LABEL></br>
+                            {rval button/btn_exec}&nbsp;&nbsp;{rval data/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL>
+                        </td>
+                    </tr>
+                    <!--{/def}-->
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

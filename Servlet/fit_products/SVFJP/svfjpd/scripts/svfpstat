@@ -1,0 +1,15 @@
+#!/bin/sh
+##############################################################################
+# SVF JPD's Print Spooler control script  Copyright(C) by FIT.
+##############################################################################
+
+SCRIPT_NAME="svfpstat"
+
+if [ "$FIT_PRODUCTS_BASE" = "" ]; then
+    echo "FIT_PRODUCTS_BASE not found!"
+    echo "please set 'FIT_PRODUCTS_BASE' environment variable and try again."
+    exit 1
+fi
+
+java -jar $FIT_PRODUCTS_BASE/svfjpd/lib/svfpstat.jar
+exit 0

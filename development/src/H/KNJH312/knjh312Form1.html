@@ -1,0 +1,71 @@
+{rval start}
+<table width="90%" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+
+    <tr >
+      <td >
+        <hr width="40%" align="left">
+          {val NAME}
+        <hr width="40%" align="left">
+      </td>
+    </tr>
+
+    <tr >
+      <td>
+        {rval TEST_ALL_CHECK}&nbsp全テスト選択&nbsp{rval RADAR}&nbsp{rval LINE}&nbsp{rval BTN_END}<br>
+      </td>
+    </tr>
+
+    <tr>
+      <table width={rval WIDTH} align="left" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+        <td>
+<!--{def over}-->
+        <div id="dbody" style="width:950px;height:{rval OVERWITH}; overflow-y:auto; overflow-x:scroll">
+<!--{/def}-->
+          <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="black">
+
+          <tr class="no_search">
+            {rval HEAD}
+          </tr>
+
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+            {rval data/MEISAI}
+<!--{/each}-->
+<!--{/def}-->
+
+          <tr class="no_search" style="height:25;">
+            <th align="left">&nbsp;{rval HEADER_LINKLAST}<font color="#ffffff"><<前へ</font>{rval FOOTER_LINKLAST}</th>
+            <th colspan={rval COL} align="right">{rval HEADER_LINKNEXT}<font color="#ffffff">次へ>></font>{rval FOOTER_LINKNEXT}&nbsp;</th>
+          </tr>
+
+          </table>
+<!--{def over}-->
+        </div>
+<!--{/def}-->
+        </td>
+        </tr>
+      </table>
+    </tr>
+
+    </table>
+  </td>
+  </tr>
+</table>
+
+<BR>
+
+<script language="JavaScript">{rval reload}{rval close}</script>
+{rval finish}
+<!-- actionは、Scriptで変更する。日本語データを送信する為、POST用formを作成 -->
+<form name=graph_applet method=post action="/~m-yama/m-yama.php" target=aa>
+<input type=hidden name=adpara value="">
+<input type=hidden name=cmbIndex value="">
+<input type=hidden name=year value="">
+<input type=hidden name=semester value="">
+<input type=hidden name=schregno value="">
+</form>

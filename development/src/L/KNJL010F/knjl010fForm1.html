@@ -1,0 +1,616 @@
+{rval IFRAME}
+{rval start}
+<table align="center" width="110%" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line">
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="150">※ 入試年度</th>
+                      <td width="150" bgcolor="#ffffff" style="color:black;" align="center">{rval TOP/YEAR}</td>
+                      <th width="100">※ 入試制度</th>
+                      <td width="235" bgcolor="#ffffff">{rval data/APPLICANTDIV}&nbsp;{rval data/TEST_L_DIV}</td>
+                      <th width="100">※ 管理番号</th>
+                      <td width="*%" bgcolor="#ffffff">{rval data/EXAMNO}&nbsp;{rval button/btn_addnew}<!--{rval button/btn_reference}-->{rval button/btn_kana_reference}&nbsp;{rval button/btn_back_next}&nbsp;{rval button/btn_clear}</td>
+                    </tr>
+                    </table>
+                  </td>
+                </tr>
+                </table>
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line">
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="150">※ 受付日付</th>
+                      <td width="150" bgcolor="#ffffff">{rval data/RECEPTDATE}</td>
+                      <th width="100">※ 志望区分</th>
+                      <td width="235" bgcolor="#ffffff">{rval data/EXAMCOURSE}</td>
+                      <th width="100">受験料</th>
+                      <td width="*" bgcolor="#ffffff" style="color:black;">{rval data/EXAM_PAY_DIV1}<label for="EXAM_PAY_DIV1">振込</label>&nbsp;{rval data/EXAM_PAY_DIV2}<label for="EXAM_PAY_DIV2">窓口</label>　　入金日：{rval data/EXAM_PAY_DATE}　　着金日：{rval data/EXAM_PAY_CHAK_DATE}</td>
+                    </tr>
+                    </table>
+                  </td>
+                </tr>
+                </table>
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td valign="top">
+            <table border="0" cellspacing="0" cellpadding="5">
+            <tr>
+<!-- 一般入試 -->
+<!--{def KIKOKU_FLG2}-->
+              <td valign="top">【一般入試】
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line" >
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="150">※ 入試区分</th>
+                      <th width="100">試験日</th>
+                      <th width="275">※ 受験科目</th>
+                      <th width="100">※ 受験番号</th>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV1}<label for="{rval data/TESTDIV1_ID}">{rval data/TESTDIV1_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV1_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE11}<label for="{rval data/EXAM_TYPE11_ID}">{rval data/EXAM_TYPE11_LABEL}</label>
+                        {rval data/EXAM_TYPE12}<label for="{rval data/EXAM_TYPE12_ID}">{rval data/EXAM_TYPE12_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO1}</td>
+                    </tr>
+
+                    <tr class="no_search"><!-- 得意型文京方式 -->
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV16}<label for="{rval data/TESTDIV16_ID}">{rval data/TESTDIV16_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV16_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE161}<label for="{rval data/EXAM_TYPE161_ID}">{rval data/EXAM_TYPE161_LABEL}</label>
+                        {rval data/EXAM_TYPE162}<label for="{rval data/EXAM_TYPE162_ID}">{rval data/EXAM_TYPE162_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO16}</td>
+                    </tr>
+
+                    <tr class="no_search"><!-- 適性検査型入試 -->
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV18}<label for="{rval data/TESTDIV18_ID}">{rval data/TESTDIV18_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV18_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE1810}<label for="{rval data/EXAM_TYPE1810_ID}">{rval data/EXAM_TYPE1810_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO18}</td>
+                    </tr>
+
+                    <tr class="no_search"><!-- 思考力A -->
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV9}<label for="{rval data/TESTDIV9_ID}">{rval data/TESTDIV9_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV9_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE97}<label for="{rval data/EXAM_TYPE97_ID}">{rval data/EXAM_TYPE97_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO9}</td>
+                    </tr>
+
+                    <tr class="no_search"><!-- IEE A -->
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV12}<label for="{rval data/TESTDIV12_ID}">{rval data/TESTDIV12_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV12_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE129}<label for="{rval data/EXAM_TYPE129_ID}">{rval data/EXAM_TYPE129_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO12}</td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV2}<label for="{rval data/TESTDIV2_ID}">{rval data/TESTDIV2_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV2_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE21}<label for="{rval data/EXAM_TYPE21_ID}">{rval data/EXAM_TYPE21_LABEL}</label>
+                        {rval data/EXAM_TYPE22}<label for="{rval data/EXAM_TYPE22_ID}">{rval data/EXAM_TYPE22_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO2}</td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV3}<label for="{rval data/TESTDIV3_ID}">{rval data/TESTDIV3_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV3_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE31}<label for="{rval data/EXAM_TYPE31_ID}">{rval data/EXAM_TYPE31_LABEL}</label>
+                        {rval data/EXAM_TYPE32}<label for="{rval data/EXAM_TYPE32_ID}">{rval data/EXAM_TYPE32_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO3}</td>
+                    </tr>
+
+                    </table>
+                  </td>
+                </tr>
+                </table>
+              </td>
+<!--{/def}-->
+<!-- 帰国生 -->
+<!--{def KIKOKU_FLG1}-->
+              <td valign="top">【帰国生入試】※Ｂ方式受験者は、算数または英語を選択して下さい。
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line" >
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="150">※ 入試区分</th>
+                      <th width="100">試験日</th>
+                      <th width="275">※ 受験科目</th>
+                      <th width="100">※ 受験番号</th>
+                    </tr>
+                    <tr class="no_search">
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV6}<label for="{rval data/TESTDIV6_ID}">{rval data/TESTDIV6_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV6_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE64}<label for="{rval data/EXAM_TYPE64_ID}">{rval data/EXAM_TYPE64_LABEL}</label>
+                        {rval data/EXAM_TYPE65}<label for="{rval data/EXAM_TYPE65_ID}">{rval data/EXAM_TYPE65_LABEL}</label>
+                        （
+                        {rval data/TESTSUBCLASSCD62}<label for="{rval data/TESTSUBCLASSCD62_ID}">{rval data/TESTSUBCLASSCD62_LABEL}</label>
+                        {rval data/TESTSUBCLASSCD65}<label for="{rval data/TESTSUBCLASSCD65_ID}">{rval data/TESTSUBCLASSCD65_LABEL}</label>
+                        ）
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO6}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV7}<label for="{rval data/TESTDIV7_ID}">{rval data/TESTDIV7_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV7_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE74}<label for="{rval data/EXAM_TYPE74_ID}">{rval data/EXAM_TYPE74_LABEL}</label>
+                        {rval data/EXAM_TYPE75}<label for="{rval data/EXAM_TYPE75_ID}">{rval data/EXAM_TYPE75_LABEL}</label>
+                        （
+                        {rval data/TESTSUBCLASSCD72}<label for="{rval data/TESTSUBCLASSCD72_ID}">{rval data/TESTSUBCLASSCD72_LABEL}</label>
+                        {rval data/TESTSUBCLASSCD75}<label for="{rval data/TESTSUBCLASSCD75_ID}">{rval data/TESTSUBCLASSCD75_LABEL}</label>
+                        ）
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO7}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV15}<label for="{rval data/TESTDIV15_ID}">{rval data/TESTDIV15_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV15_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE154}<label for="{rval data/EXAM_TYPE154_ID}">{rval data/EXAM_TYPE154_LABEL}</label>
+                        {rval data/EXAM_TYPE155}<label for="{rval data/EXAM_TYPE155_ID}">{rval data/EXAM_TYPE155_LABEL}</label>
+                        （
+                        {rval data/TESTSUBCLASSCD152}<label for="{rval data/TESTSUBCLASSCD152_ID}">{rval data/TESTSUBCLASSCD152_LABEL}</label>
+                        {rval data/TESTSUBCLASSCD155}<label for="{rval data/TESTSUBCLASSCD155_ID}">{rval data/TESTSUBCLASSCD155_LABEL}</label>
+                        ）
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO15}</td>
+                    </tr>
+                    </table>
+                  </td>
+                </tr>
+                </table>
+              </td>
+<!--{/def}-->
+<!-- 一般入試（再募集） -->
+<!--{def KIKOKU_FLG2}-->
+              <td valign="top"><BR><!-- 【再募集入試】※第６回と第７回は、定員割れの際、再募集して試験をする。 -->
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line" >
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="150">※ 入試区分</th>
+                      <th width="100">試験日</th>
+                      <th width="275">※ 受験科目</th>
+                      <th width="100">※ 受験番号</th>
+                    </tr>
+
+                    <tr class="no_search"><!-- 思考力B -->
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV10}<label for="{rval data/TESTDIV10_ID}">{rval data/TESTDIV10_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV10_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE107}<label for="{rval data/EXAM_TYPE107_ID}">{rval data/EXAM_TYPE107_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO10}</td>
+                    </tr>
+
+                    <tr class="no_search"><!-- IEE B -->
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV13}<label for="{rval data/TESTDIV13_ID}">{rval data/TESTDIV13_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV13_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE139}<label for="{rval data/EXAM_TYPE139_ID}">{rval data/EXAM_TYPE139_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO13}</td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV5}<label for="{rval data/TESTDIV5_ID}">{rval data/TESTDIV5_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV5_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE53}<label for="{rval data/EXAM_TYPE53_ID}">{rval data/EXAM_TYPE53_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO5}</td>
+                    </tr>
+
+                    <tr class="no_search"><!-- 得意型2科 -->
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV17}<label for="{rval data/TESTDIV17_ID}">{rval data/TESTDIV17_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV17_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE171}<label for="{rval data/EXAM_TYPE171_ID}">{rval data/EXAM_TYPE171_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO17}</td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV8}<label for="{rval data/TESTDIV8_ID}">{rval data/TESTDIV8_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV8_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE81}<label for="{rval data/EXAM_TYPE81_ID}">{rval data/EXAM_TYPE81_LABEL}</label>
+                        {rval data/EXAM_TYPE82}<label for="{rval data/EXAM_TYPE82_ID}">{rval data/EXAM_TYPE82_LABEL}</label>
+                        <BR>
+                        {rval data/EXAM_TYPE87}<label for="{rval data/EXAM_TYPE87_ID}">{rval data/EXAM_TYPE87_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO8}</td>
+                    </tr>
+<!--{def data/TESTDIV90}-->
+                    <tr class="no_search">
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV90}<label for="{rval data/TESTDIV90_ID}">{rval data/TESTDIV90_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV90_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE901}<label for="{rval data/EXAM_TYPE901_ID}">{rval data/EXAM_TYPE901_LABEL}</label>
+                        {rval data/EXAM_TYPE902}<label for="{rval data/EXAM_TYPE902_ID}">{rval data/EXAM_TYPE902_LABEL}</label>
+                        <BR>
+                        {rval data/EXAM_TYPE907}<label for="{rval data/EXAM_TYPE907_ID}">{rval data/EXAM_TYPE907_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO90}</td>
+                    </tr>
+<!--{/def}-->
+<!--{def data/TESTDIV91}-->
+                    <tr class="no_search">
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV91}<label for="{rval data/TESTDIV91_ID}">{rval data/TESTDIV91_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV91_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE911}<label for="{rval data/EXAM_TYPE911_ID}">{rval data/EXAM_TYPE911_LABEL}</label>
+                        {rval data/EXAM_TYPE912}<label for="{rval data/EXAM_TYPE912_ID}">{rval data/EXAM_TYPE912_LABEL}</label>
+                        <BR>
+                        {rval data/EXAM_TYPE917}<label for="{rval data/EXAM_TYPE917_ID}">{rval data/EXAM_TYPE917_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO91}</td>
+                    </tr>
+<!--{/def}-->
+<!--{def data/TESTDIV92}-->
+                    <tr class="no_search">
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV92}<label for="{rval data/TESTDIV92_ID}">{rval data/TESTDIV92_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV92_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE921}<label for="{rval data/EXAM_TYPE921_ID}">{rval data/EXAM_TYPE921_LABEL}</label>
+                        {rval data/EXAM_TYPE922}<label for="{rval data/EXAM_TYPE922_ID}">{rval data/EXAM_TYPE922_LABEL}</label>
+                        <BR>
+                        {rval data/EXAM_TYPE927}<label for="{rval data/EXAM_TYPE927_ID}">{rval data/EXAM_TYPE927_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO92}</td>
+                    </tr>
+<!--{/def}-->
+<!--{def data/TESTDIV93}-->
+                    <tr class="no_search">
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV93}<label for="{rval data/TESTDIV93_ID}">{rval data/TESTDIV93_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV93_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE931}<label for="{rval data/EXAM_TYPE931_ID}">{rval data/EXAM_TYPE931_LABEL}</label>
+                        {rval data/EXAM_TYPE932}<label for="{rval data/EXAM_TYPE932_ID}">{rval data/EXAM_TYPE932_LABEL}</label>
+                        <BR>
+                        {rval data/EXAM_TYPE937}<label for="{rval data/EXAM_TYPE937_ID}">{rval data/EXAM_TYPE937_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO93}</td>
+                    </tr>
+<!--{/def}-->
+<!--{def data/TESTDIV94}-->
+                    <tr class="no_search">
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV94}<label for="{rval data/TESTDIV94_ID}">{rval data/TESTDIV94_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV94_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE941}<label for="{rval data/EXAM_TYPE941_ID}">{rval data/EXAM_TYPE941_LABEL}</label>
+                        {rval data/EXAM_TYPE942}<label for="{rval data/EXAM_TYPE942_ID}">{rval data/EXAM_TYPE942_LABEL}</label>
+                        <BR>
+                        {rval data/EXAM_TYPE947}<label for="{rval data/EXAM_TYPE947_ID}">{rval data/EXAM_TYPE947_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO94}</td>
+                    </tr>
+<!--{/def}-->
+<!--{def data/TESTDIV95}-->
+                    <tr class="no_search">
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV95}<label for="{rval data/TESTDIV95_ID}">{rval data/TESTDIV95_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV95_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE951}<label for="{rval data/EXAM_TYPE951_ID}">{rval data/EXAM_TYPE951_LABEL}</label>
+                        {rval data/EXAM_TYPE952}<label for="{rval data/EXAM_TYPE952_ID}">{rval data/EXAM_TYPE952_LABEL}</label>
+                        <BR>
+                        {rval data/EXAM_TYPE957}<label for="{rval data/EXAM_TYPE957_ID}">{rval data/EXAM_TYPE957_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO95}</td>
+                    </tr>
+<!--{/def}-->
+<!--{def data/TESTDIV96}-->
+                    <tr class="no_search">
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV96}<label for="{rval data/TESTDIV96_ID}">{rval data/TESTDIV96_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV96_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE961}<label for="{rval data/EXAM_TYPE961_ID}">{rval data/EXAM_TYPE961_LABEL}</label>
+                        {rval data/EXAM_TYPE962}<label for="{rval data/EXAM_TYPE962_ID}">{rval data/EXAM_TYPE962_LABEL}</label>
+                        <BR>
+                        {rval data/EXAM_TYPE967}<label for="{rval data/EXAM_TYPE967_ID}">{rval data/EXAM_TYPE967_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO96}</td>
+                    </tr>
+<!--{/def}-->
+<!--{def data/TESTDIV97}-->
+                    <tr class="no_search">
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV97}<label for="{rval data/TESTDIV97_ID}">{rval data/TESTDIV97_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV97_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE971}<label for="{rval data/EXAM_TYPE971_ID}">{rval data/EXAM_TYPE971_LABEL}</label>
+                        {rval data/EXAM_TYPE972}<label for="{rval data/EXAM_TYPE972_ID}">{rval data/EXAM_TYPE972_LABEL}</label>
+                        <BR>
+                        {rval data/EXAM_TYPE977}<label for="{rval data/EXAM_TYPE977_ID}">{rval data/EXAM_TYPE977_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO97}</td>
+                    </tr>
+<!--{/def}-->
+<!--{def data/TESTDIV98}-->
+                    <tr class="no_search">
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV98}<label for="{rval data/TESTDIV98_ID}">{rval data/TESTDIV98_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV98_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE981}<label for="{rval data/EXAM_TYPE981_ID}">{rval data/EXAM_TYPE981_LABEL}</label>
+                        {rval data/EXAM_TYPE982}<label for="{rval data/EXAM_TYPE982_ID}">{rval data/EXAM_TYPE982_LABEL}</label>
+                        <BR>
+                        {rval data/EXAM_TYPE987}<label for="{rval data/EXAM_TYPE987_ID}">{rval data/EXAM_TYPE987_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO98}</td>
+                    </tr>
+<!--{/def}-->
+<!--{def data/TESTDIV99}-->
+                    <tr class="no_search">
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV99}<label for="{rval data/TESTDIV99_ID}">{rval data/TESTDIV99_NAME}</label></td>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/TESTDIV99_DATE}</td>
+                      <td bgcolor="#ffffff" style="color:black">
+                        {rval data/EXAM_TYPE991}<label for="{rval data/EXAM_TYPE991_ID}">{rval data/EXAM_TYPE991_LABEL}</label>
+                        {rval data/EXAM_TYPE992}<label for="{rval data/EXAM_TYPE992_ID}">{rval data/EXAM_TYPE992_LABEL}</label>
+                        <BR>
+                        {rval data/EXAM_TYPE997}<label for="{rval data/EXAM_TYPE997_ID}">{rval data/EXAM_TYPE997_LABEL}</label>
+                      </td>
+                      <td bgcolor="#ffffff" style="color:black" align="center">{rval data/RECEPTNO99}</td>
+                    </tr>
+<!--{/def}-->
+                    </table>
+                  </td>
+                </tr>
+
+                </table>
+              </td>
+<!--{/def}-->
+
+            </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line" >
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="30" rowspan="6">志<br><br>願<br><br>者<br><br>情<br><br>報</th>
+                      <th width="115" align="right">※ ふりがな</th>
+                      <td width="*%" bgcolor="#ffffff" colspan="2">{rval data/NAME_KANA}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(全角で40文字)</font></td>
+                      <td width="300" bgcolor="#ffffff" style="color:black;">{rval data/SPECIAL_REASON_DIV}<label for="SPECIAL_REASON_DIV">特別措置者</label>　　　{rval data/GANSHO_YUUSOU}<label for="GANSHO_YUUSOU">願書郵送</label></td>
+                      <th width="100">事前番号</th>
+                      <td width="*%" bgcolor="#ffffff">{rval data/RECRUIT_NO}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <th align="right">※ 氏名</th>
+                      <td width="500" bgcolor="#ffffff">{rval data/NAME}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                      <th width="100">生年月日</th>
+                      <td bgcolor="#ffffff">{rval data/BIRTHDAY}</td>
+                      <td bgcolor="#ffffff" colspan="2" style="color:blue;"><span id="TOKU_TEST_ID">{rval data/TOKU_TEST}</span></td>
+                    </tr>
+                    <tr class="no_search">
+                      <th align="right">郵便番号</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/ZIPCD}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <th align="right">住所</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/ADDRESS1}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(住所,方書 共に全角で30文字)</font></td>
+                    </tr>
+                    <tr class="no_search">
+                      <th align="right">方書</th>
+                      <td width="500" bgcolor="#ffffff">{rval data/ADDRESS2}</td>
+                      <th width="100">※ 電話番号</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/TELNO}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <th align="right">出身学校</th>
+                      <td width="500" bgcolor="#ffffff" style="color:black;">
+                        {rval button/btn_fin_kana_reference}
+                        {rval data/FINSCHOOLCD}
+                        <span id="label_name">{rval data/FINSCHOOLNAME}</span>
+                      </td>
+                      <th width="100">卒業年月</th>
+                      <td bgcolor="#ffffff" colspan="3">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td nowrap width="40" bgcolor="#ffffff">&nbsp;{rval data/FS_ERACD}</td>
+                          <td nowrap width="50" bgcolor="#ffffff" id="FS_WNAME_ID">&nbsp;{rval data/FS_WNAME}&nbsp;</td>
+                          <td nowrap width="100" bgcolor="#ffffff" align="left">{rval data/FS_Y}年&nbsp;{rval data/FS_M}月&nbsp;</td>
+                          <td nowrap width="40"  bgcolor="#ffffff" id="FS_Y_M_INNER_ID">{rval data/FS_Y_M_INNER}</td>
+                          <td nowrap width="*%"  bgcolor="#ffffff" align="left">&nbsp;{rval data/FS_GRDDIV}</td>
+                        </tr>
+                        </table>
+                      </td>
+                    </tr>
+<!--
+                    <tr class="no_search">
+                      <th align="right">出身塾</th>
+                      <td bgcolor="#ffffff" colspan="3" style="color:black;">
+                        {rval button/btn_pri_kana_reference}
+                        {rval data/PRISCHOOLCD}{rval data/PRISCHOOL_CLASS_CD}
+                        <span id="label_priName">{rval data/PRISCHOOL_NAME}</span>　<span id="label_priClassName">{rval data/PRISCHOOL_CLASS_NAME}</span>
+                      </td>
+                    </tr>
+-->
+                    </table>
+                  </td>
+                </tr>
+                </table>
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line" >
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="30" rowspan="5">保<br>護<br>者<br>情<br>報</th>
+                      <th width="115" align="right">※ ふりがな</th>
+                      <td width="*%" bgcolor="#ffffff" colspan="3">{rval data/GKANA}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(全角で40文字)</font></td>
+                    </tr>
+                    <tr class="no_search">
+                      <th align="right">※ 氏名</th>
+                      <td width="500" bgcolor="#ffffff">{rval data/GNAME}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                      <th width="100">※ 続柄</th>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/RELATIONSHIP}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <th align="right">郵便番号</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/GZIPCD}&nbsp;&nbsp;&nbsp;{rval button/btn_copy}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <th align="right">住所</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/GADDRESS1}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(住所,方書 共に全角で30文字)</font></td>
+                    </tr>
+                    <tr class="no_search">
+                      <th align="right">方書</th>
+                      <td width="500" bgcolor="#ffffff">{rval data/GADDRESS2};</td>
+                      <th width="100">電話番号</th>
+                      <td bgcolor="#ffffff">{rval data/GTELNO}</td>
+                    </tr>
+                    </table>
+                  </td>
+                </tr>
+                </table>
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line" >
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+                    <tr class="no_search">
+                      <th width="152">減免対象者</th>
+                      <td width="*%" bgcolor="#ffffff" style="color:black">
+氏名：{rval data/MOTHER_NAME}&nbsp;続柄：{rval data/KOUYUU_DIV}<BR>
+生年月日：{rval data/MOTHER_BIRTHDAY}&nbsp;卒業年度：{rval data/MOTHER_NENDO}<BR>
+在学・卒業クラス：{rval data/KOUYUU_SCHOOL_KIND}　{rval data/MOTHER_HR_CLASS}<BR>
+在学・卒業大学・学部：{rval data/KOUYUU_COLLEGE}）
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <th>英検取得級</th>
+                      <td bgcolor="#ffffff" style="color:black">{rval data/EIKEN_SHUTOKU_KYUU}</td>
+                    </tr>
+
+                    </table>
+                  </td>
+                </tr>
+                </table>
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line" >
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td width="152"></td>
+                      <td bgcolor="#ffffff">
+                      &nbsp;&nbsp;{rval button/btn_add}{rval button/btn_udpate}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}
+                      </td>
+                    </tr>
+                    </table>
+                  </td>
+                </tr>
+                </table>
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<script language="JavaScript">
+var vflg;
+var year_name = new Array();
+var blank_name;
+var blank_name2;
+<!--{def data2}-->
+<!--{each data2}-->
+year_name[{rval data2/eracd}] = '&nbsp;' + '{rval data2/wname}' + '&nbsp;';
+<!--{/each}-->
+<!--{/def}-->
+blank_name = '&nbsp;' + '　　' + '&nbsp;'
+blank_name2 = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+</script>
+<script language="JavaScript">{rval Closing}</script>
+{rval finish}

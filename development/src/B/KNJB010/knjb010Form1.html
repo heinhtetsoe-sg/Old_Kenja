@@ -1,0 +1,60 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+       <table width="400" border="0" cellspacing="0" cellpadding="1" >
+        <tr class="no_search_line">
+           <th>
+          <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#cccccc">
+          <tr> 
+          <th align="left"><B>{rval YEAR}&nbsp;{rval SEMESTER}</B></th>
+          <th align="right">{rval copy_btn}</th>
+          </tr>
+          </table>
+          </th>
+        </tr>
+        </table>
+     </td>
+  </tr>
+    <tr> 
+  <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr >
+        <td > 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line"> 
+        <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search"> 
+              <th nowrap >群コード</th>
+              <th nowrap >群名称</th>
+              <th nowrap >週授業<BR>回数</th>
+              <th nowrap >連続<BR>枠数</th>
+              <th nowrap >選択群講座</th>
+              <th nowrap >受講クラス</th>
+          </tr>
+          <!--{def data}-->
+          <!--結果一覧-->
+          <!--{each data}--> 
+          <tr> 
+              <td nowrap align="center"bgcolor="#ffffff">{val data/GROUPCD}</td>
+              <td nowrap bgcolor="#ffffff">{val data/GROUPNAME}</td>
+              <td nowrap align="right" bgcolor="#ffffff">{val data/LESSONCNT}</td>
+              <td nowrap align="right" bgcolor="#ffffff">{val data/FRAMECNT}</td>
+              <td nowrap bgcolor="#ffffff">{val data/CHAIRCD}</td>
+              <td nowrap bgcolor="#ffffff">{val data/HR_NAME}</td>
+          </tr> 
+          <!--{/each}--> 
+          <!--{/def}-->
+            </table>
+        </td>
+          </tr>
+      </table>
+        </td>
+    </tr>
+      </table>
+  </td>
+   </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

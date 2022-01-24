@@ -1,0 +1,238 @@
+{rval start} 
+{rval IFRAME}
+<style type="text/css">
+#tyousei {
+    height : 66px;
+}
+</style>
+
+<!--[if IE 6]>
+<style type="text/css">
+#tyousei {
+    height : 69px;
+}
+</style>
+<![endif]-->
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search">
+                          <th width="*%" align="left" nowrap>
+                                &nbsp;&nbsp;処理年度：{rval YEAR}年度　　<B>{rval TITLE}</B>　　文書番号：{rval DOC_NUMBER}&nbsp;&nbsp;作成日：{rval EXECUTE_DATE}　{rval btn_houkoku}　{rval REPORT}
+                          </th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+
+          <tr>
+
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" id="tyousei">
+                        <th width="110" height="100" rowspan="2">学科名</th>
+                        <th width="30"  height="100" rowspan="2">学科番号</th>
+                        <th width="30"  height="100" rowspan="2">課程別</th>
+                        <th width="30"  height="100" rowspan="2">性別</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+
+            <td>
+            <div id="trow" style="overflow:hidden; width: 733px; height: 102;">
+                <div style="width: 2400px; height:102;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+
+                    <tr class="no_search" align="center">
+  <!--{each industryData}-->
+                      <th width="100" height="79" colspan="2">{rval industryData/INDUSTRY_LCD}<BR>{rval industryData/INDUSTRY_LNAME}</th>
+  <!--{/each}-->
+                    </tr>
+                    <tr class="no_search" align="center">
+  <!--{each industryData}-->
+                      <th width="45" align="center" height="20">県内</th>
+                      <th width="45" align="center" height="20">県外</th>
+  <!--{/each}-->
+                    </tr>
+
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+          <tr valign="TOP">
+
+            <td>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr height="30" class="no_search">
+                          <!--{def data/ROWSPAN}-->
+                          <td width="110" align="center" rowspan="2">{rval data/MAJORNAME}</td>
+                          <!--{/def}-->
+                          <td width="30" align="center">{rval data/MAJORCD}</td>
+                          <td width="30" align="center">{rval data/COURSECD}</td>
+                          <td width="30" align="center">{rval data/SEX_NAME}</td>
+
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+
+            <td>
+            <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 750px; height: 266px;">
+                <div style="width: 2400px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr height="30">
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT1}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT2}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT3}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT4}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT5}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT6}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT7}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT8}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT9}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT10}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT11}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT12}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT13}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT14}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT15}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT16}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT17}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT18}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT19}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT20}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT21}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT22}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT23}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT24}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT25}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT26}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT27}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT28}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT29}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT30}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT31}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT32}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT33}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT34}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT35}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT36}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT37}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT38}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT39}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT40}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT98}</td>
+                            <td bgcolor="#ffffff" width="45" align="center">{rval data/COUNT99}</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <td>
+                          <table cellpadding="0" cellspacing="0">
+                            <tr class="no_search">
+                              <td align="left">
+                              　　　　　　　　　　　　　　　　　　　{rval btn_recalc}　{rval btn_update}{rval btn_can}{rval btn_end}　{rval btn_print}<BR>
+                              {rval OUTPUT3}<LABEL for="OUTPUT3">エラー出力</LABEL>{rval OUTPUT1}<LABEL for="OUTPUT1">取込</LABEL>{rval OUTPUT2}<LABEL for="OUTPUT2">書出</LABEL>ファイル：<span id="type_file">{rval FILE}</span>&nbsp;{rval HEADER}<LABEL for="HEADER">ヘッダ有</LABEL>&nbsp;{val btn_exec}
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                  </table>
+                  </td>
+                </tr>
+            </table>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish} 
+<script language="JavaScript">{rval jscript}{rval Closing}</script>

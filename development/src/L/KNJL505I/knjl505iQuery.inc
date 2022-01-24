@@ -1,0 +1,222 @@
+<?php
+
+require_once('for_php7.php');
+
+class knjl505iQuery extends Query
+{
+    //入試年度一覧取得
+    public function selectYearQuery($model)
+    {
+        $query  = "  WITH TMP(LABEL, VALUE) AS (  ";
+        $query .= "  SELECT DISTINCT ";
+        $query .= "      ENTEXAMYEAR AS LABEL,";
+        $query .= "      ENTEXAMYEAR AS VALUE";
+        $query .= "  FROM ";
+        $query .= "      ENTEXAM_GENERAL_MST ";
+        $query .= "  WHERE ";
+        $query .= "     GENERAL_DIV  = '{$model->generalDiv}' ";
+        $query .= "  UNION ";
+        $query .= "      VALUES('{$model->examyear}', '{$model->examyear}')";
+        $query .= "  ) ";
+        $query .= "  SELECT ";
+        $query .= "      LABEL,";
+        $query .= "      VALUE";
+        $query .= "  FROM ";
+        $query .= "      TMP ";
+        $query .= "  ORDER BY ";
+        $query .= "      VALUE DESC";
+
+        return $query;
+    }
+
+    public function getTotalcd($year, $examMajorcd)
+    {
+        $query  = " SELECT ";
+        $query .= "     COURSECD || MAJORCD AS VALUE, ";
+        $query .= "     COURSECD || MAJORCD || ':' || COURSENAME || ' ' ||  MAJORNAME AS LABEL ";
+        $query .= " FROM ";
+        $query .= "     V_COURSE_MAJOR_MST  ";
+        $query .= " WHERE ";
+        $query .= "     YEAR = '{$year}' ";
+        $query .= "     AND COURSECD = '1' "; //固定 1:全日制
+        if ($examMajorcd == "1") {
+            //普通科
+            $query .= "     AND MAJORCD = '100' ";
+        } elseif ($examMajorcd == "2") {
+            //工業科(電気科、電子情報化)
+            $query .= "     AND MAJORCD  LIKE '30%' ";
+        }
+        $query .= " ORDER BY ";
+        $query .= "     VALUE ";
+        return $query;
+    }
+
+    //データ取得
+    public function selectQuery($model)
+    {
+        $query  = " SELECT ";
+        $query .= "     * ";
+        $query .= " FROM ";
+        $query .= "     ENTEXAM_GENERAL_MST ";
+        $query .= " WHERE ";
+        $query .= "     ENTEXAMYEAR  = '{$model->year}' AND ";
+        $query .= "     APPLICANTDIV = '{$model->applicantdiv}' AND ";
+        $query .= "     TESTDIV      = '{$model->testdiv}' AND ";
+        $query .= "     GENERAL_DIV  = '{$model->generalDiv}' ";
+        $query .= " ORDER BY ";
+        $query .= "     VALUE(GENERAL_CD, 0) ";
+
+        return $query;
+    }
+
+    //１レコード取得
+    public function getRow($model, $generalCd)
+    {
+        $query  = " SELECT ";
+        $query .= "     *, ";
+        $query .= "     REMARK2 AS ENTER_TOTALCD ";
+        $query .= " FROM ";
+        $query .= "     ENTEXAM_GENERAL_MST ";
+        $query .= " WHERE ENTEXAMYEAR   = '{$model->year}' ";
+        $query .= "   AND APPLICANTDIV  = '{$model->applicantdiv}' ";
+        $query .= "   AND TESTDIV       = '{$model->testdiv}' ";
+        $query .= "   AND GENERAL_DIV   = '{$model->generalDiv}' ";
+        $query .= "   AND GENERAL_CD    = '{$generalCd}' ";
+
+        return $query;
+    }
+
+    //コースコードにデータが存在するのかチェック
+    public function getExistCourceQuery($model)
+    {
+        $query  = " SELECT ";
+        $query .= "     COUNT(*) AS CNT ";
+        $query .= " FROM ";
+        $query .= "     ENTEXAM_GENERAL_MST ";
+        $query .= " WHERE ENTEXAMYEAR   = '{$model->year}' ";
+        $query .= "   AND APPLICANTDIV  = '{$model->applicantdiv}' ";
+        $query .= "   AND TESTDIV       = '{$model->testdiv}' ";
+        $query .= "   AND GENERAL_DIV   = '02' ";
+        $query .= "   AND REMARK1       = '{$model->field["GENERAL_CD"]}' ";
+
+        return $query;
+    }
+
+    //INSERT
+    public function &getInsertQuery($model)
+    {
+        $db = Query::dbCheckOut();
+
+        $data = array();
+        $data["ENTEXAMYEAR"][TEXT]   = $model->year;
+        $data["APPLICANTDIV"][TEXT]  = $model->applicantdiv;
+        $data["TESTDIV"][TEXT]       = $model->testdiv;
+        $data["GENERAL_DIV"][TEXT]   = $model->generalDiv;
+        $data["GENERAL_CD"][TEXT]    = $model->field["GENERAL_CD"];
+        $data["GENERAL_NAME"][TEXT]  = $model->field["GENERAL_NAME"];
+        $data["GENERAL_ABBV"][TEXT]  = $model->field["GENERAL_ABBV"];
+        $data["REMARK1"][TEXT]       = $model->field["REMARK1"];
+        $data["REMARK2"][TEXT]       = $model->field["ENTER_TOTALCD"];
+        $data["REGISTERCD"][TEXT]    = STAFFCD;
+        $data["UPDATED"][FUNC]       = "sysdate()";
+
+        $query = Query::insertSQL($data, "ENTEXAM_GENERAL_MST");
+
+        $db->query($query);
+        Query::dbCheckIn($db);
+        return;
+    }
+
+    //UPDATE
+    public function &getUpdateQuery($model)
+    {
+        $db = Query::dbCheckOut();
+
+        $data = array();
+        $data["GENERAL_NAME"][TEXT]  = $model->field["GENERAL_NAME"];
+        $data["GENERAL_ABBV"][TEXT]  = $model->field["GENERAL_ABBV"];
+        $data["REMARK1"][TEXT]       = $model->field["REMARK1"];
+        $data["REMARK2"][TEXT]       = $model->field["ENTER_TOTALCD"];
+        $data["REGISTERCD"][TEXT]    = STAFFCD;
+        $data["UPDATED"][FUNC]       = "sysdate()";
+
+        $where  = " WHERE ENTEXAMYEAR   = '{$model->year}' ";
+        $where .= "   AND APPLICANTDIV  = '{$model->applicantdiv}' ";
+        $where .= "   AND TESTDIV       = '{$model->testdiv}' ";
+        $where .= "   AND GENERAL_DIV   = '{$model->generalDiv}' ";
+        $where .= "   AND GENERAL_CD    = '{$model->field["GENERAL_CD"]}' ";
+
+        $query = Query::updateSQL($data, "ENTEXAM_GENERAL_MST", $where);
+
+        $db->query($query);
+        Query::dbCheckIn($db);
+        return;
+    }
+
+    //DELETE
+    public function &getDeleteQuery($model)
+    {
+        $db = Query::dbCheckOut();
+
+        $query  = " DELETE FROM ENTEXAM_GENERAL_MST ";
+        $query .= " WHERE ENTEXAMYEAR   = '{$model->year}' ";
+        $query .= "   AND APPLICANTDIV  = '{$model->applicantdiv}' ";
+        $query .= "   AND TESTDIV       = '{$model->testdiv}' ";
+        $where .= "   AND GENERAL_DIV   = '{$model->generalDiv}' ";
+        $query .= "   AND GENERAL_CD    = '{$model->field["GENERAL_CD"]}' ";
+
+        $db->query($query);
+        Query::dbCheckIn($db);
+        
+        return $result;
+    }
+
+    //ある年度にデータが存在するのかチェック
+    public function getCheckGeneralMstSql($year, $generalDiv)
+    {
+        $query  = " SELECT ";
+        $query .= "     COUNT(*) ";
+        $query .= " FROM ";
+        $query .= "     ENTEXAM_GENERAL_MST ";
+        $query .= " WHERE ENTEXAMYEAR  = '{$year}' ";
+        $query .= "   AND GENERAL_DIV  = '{$generalDiv}' ";
+
+        return $query;
+    }
+
+    //COPY
+    public function getCopyQuery($model, $nextYear)
+    {
+        $query  = " INSERT INTO ";
+        $query .= "     ENTEXAM_GENERAL_MST ";
+        $query .= " SELECT ";
+        $query .= "     '{$nextYear}', ";
+        $query .= "     APPLICANTDIV, ";
+        $query .= "     TESTDIV, ";
+        $query .= "     GENERAL_DIV, ";
+        $query .= "     GENERAL_CD, ";
+        $query .= "     GENERAL_NAME, ";
+        $query .= "     GENERAL_ABBV, ";
+        $query .= "     GENERAL_MARK,";
+        $query .= "     REMARK1, ";
+        $query .= "     REMARK2, ";
+        $query .= "     REMARK3, ";
+        $query .= "     REMARK4, ";
+        $query .= "     REMARK5, ";
+        $query .= "     REMARK6, ";
+        $query .= "     REMARK7, ";
+        $query .= "     REMARK8, ";
+        $query .= "     REMARK9, ";
+        $query .= "     REMARK10, ";
+        $query .= "     '". STAFFCD ."', ";
+        $query .= "     sysdate() ";
+        $query .= " FROM";
+        $query .= "     ENTEXAM_GENERAL_MST ";
+        $query .= " WHERE ENTEXAMYEAR   = '{$model->year}' ";
+        $query .= "   AND APPLICANTDIV  = '{$model->applicantdiv}' ";
+        $query .= "   AND TESTDIV       = '{$model->testdiv}' ";
+        $query .= "   AND GENERAL_DIV   = '{$model->generalDiv}' ";
+
+        return $query;
+    }
+}

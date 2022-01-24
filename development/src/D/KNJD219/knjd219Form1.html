@@ -1,0 +1,106 @@
+{rval start}
+<br>
+<table style="width: 550px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+    <table style="width: 550px" border="0" cellspacing="5" cellpadding="1">
+    <tr>
+    <td>
+        <table style="width: 550px" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 550px" border="0" cellpadding="0" cellspacing="1">
+                <tr class="no_search" height="30">
+                    <td align="left">&nbsp;&nbsp;&nbsp;<B>処理年度：{rval YEAR}年度</B></td>
+                </tr>
+                <tr>
+                    <td bgcolor='#ffffff'>
+<br><br>&nbsp;&nbsp;&nbsp;●&nbsp;下記の方法で合併先科目の学年評定を自動計算します。
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（「単位加算」の科目合併の場合のみ&nbsp;）
+<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="red">※&nbsp;自動計算された評定は成績入力画面で修正することができます。</font>
+<br><br><br>
+                    </td>
+                </tr>
+            </table>
+            <table style="width: 550px" border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search" >
+                    <td align="center" width="10%">実行</td>
+                    <td align="center" width="45%">合併先科目名</td>
+                    <td align="center" width="*%">評定計算方法</td>
+                </tr>
+            <!--{def data}-->
+            <!--結果一覧-->
+            <!--{each data}-->
+                <tr class="no_search_line" >
+                    <td bgcolor='#ffffff' align="center">{val data/CHECK}</td>
+                    <td bgcolor='#ffffff' align="left">&nbsp;&nbsp;{val data/SUBCLASSNAME}</td>
+                    <td bgcolor='#ffffff' align="left">&nbsp;&nbsp;{val data/GVAL_CALC}</td>
+                    {val data/td}
+                </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+                <tr class="no_search">
+                    <td colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_updte}{rval button/btn_clear}{rval button/btn_end}</td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+    <tr>
+    <td>
+        <table style="width: 550px" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 550px" border="0" cellspacing="1" cellpadding="4">
+                <tr>
+                    <td bgcolor="#cccccc">&nbsp;&nbsp;●&nbsp;<B>自動計算履歴</B></td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 550px" border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search" >
+                    <td align="center" width="90">処理日付</td>
+                    <td align="center" width="80">処理時間</td>
+                    <td align="center" width="170">合併先科目名</td>
+                    <td align="center" width="*">評定計算方法</td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+        <div style="width: 100%; height=200; overflow: auto">
+        <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+            <!--{def data2}-->
+            <!--結果一覧-->
+            <!--{each data2}-->
+                <tr class="no_search_line" >
+                    <td bgcolor='#ffffff' align="center" width="90">{val data2/CALC_DATE}</td>
+                    <td bgcolor='#ffffff' align="center" width="80">{val data2/CALC_TIME}</td>
+                    <td bgcolor='#ffffff' align="left" width="170">&nbsp;{val data2/SUBCLASSNAME}</td>
+                    <td bgcolor='#ffffff' align="left" width="*">&nbsp;{val data2/GVAL_NAME}</td>
+                    {val data/td}
+                </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+        </td>
+        </tr>
+        </table>
+        </div>
+    </td>
+    </tr>
+
+    </table>
+</td>
+</tr>
+</table>
+<script language="JavaScript">{rval close}</script>
+{rval finish} 

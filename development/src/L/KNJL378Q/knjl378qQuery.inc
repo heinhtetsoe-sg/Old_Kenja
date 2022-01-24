@@ -1,0 +1,738 @@
+<?php
+
+require_once('for_php7.php');
+
+class knjl378qQuery extends Query {
+    
+    //試験データ取得
+    function getExam()
+    {
+        $query  = " SELECT ";
+        $query .= "    * ";
+        $query .= " FROM ";
+        $query .= "    SAT_INFO_MST ";
+        $query .= " WHERE ";
+        $query .= "    YEAR = '".CTRL_YEAR."' ";
+        
+        return $query;
+    }
+    
+    //平均とかのデータを更新してるかどうかカウント
+    function getCntData()
+    {
+        $query  = " SELECT ";
+        $query .= "    COUNT(*) ";
+        $query .= " FROM ";
+        $query .= "    SAT_AREA_RECORD_DAT ";
+        $query .= " WHERE ";
+        $query .= "    YEAR = '".CTRL_YEAR."' ";
+        
+        return $query;
+    }
+    
+    //平均データ取得
+    function getAverage()
+    {
+        $query  = " SELECT ";
+        $query .= "    t2.NAME1 as AREA_NAME, ";
+        $query .= "    t1.ENGLISH_AVG, ";
+        $query .= "    t1.MATH_AVG, ";
+        $query .= "    t1.JAPANESE_AVG, ";
+        $query .= "    t1.TOTAL_AVG ";
+        $query .= " FROM  ";
+        $query .= "    SAT_AREA_RECORD_DAT t1 ";
+        $query .= "    left join NAME_MST t2 on t1.AREA = t2.NAMECD2 and t2.NAMECD1 = 'L204' ";
+        $query .= " WHERE ";
+        $query .= "    t1.YEAR = '".CTRL_YEAR."' ";
+        
+        return $query;
+    }
+    
+    //平均データ取得
+    function getStudentsDev()
+    {
+        $query  = " SELECT ";
+        $query .= "    SAT_NO, ";
+        $query .= "    SCORE_TOTAL ";
+        $query .= " FROM  ";
+        $query .= "    SAT_EXAM_DAT ";
+        $query .= " WHERE ";
+        $query .= "    YEAR = '".CTRL_YEAR."' AND SCORE_ENGLISH IS NOT NULL AND SCORE_MATH IS NOT NULL AND SCORE_JAPANESE IS NOT NULL ";
+        
+        return $query;
+    }
+    
+//--------------------UPDATE---------------------------------------
+    
+    //個人の得点と平均を計算
+    function ScoreUpdate()
+    {
+        $query  = " UPDATE ";
+        $query .= "    SAT_EXAM_DAT U ";
+        $query .= " SET ";
+        $query .= "    SCORE_TOTAL = ( ";
+        $query .= "                   SELECT ";
+        $query .= "                       TOTAL ";
+        $query .= "                   FROM ";
+        $query .= "                       ( ";
+        $query .= "                       SELECT ";
+        $query .= "                           SAT_NO, ";
+        $query .= "                           YEAR, ";
+        $query .= "                           ENGLISH + MATH + JAPANESE as TOTAL ";
+        $query .= "                       FROM ";
+        $query .= "                           (SELECT ";
+        $query .= "                               SAT_NO, ";
+        $query .= "                               YEAR, ";
+        $query .= "                               SCORE_ENGLISH as ENGLISH, ";
+        $query .= "                               SCORE_MATH as MATH, ";
+        $query .= "                               SCORE_JAPANESE as JAPANESE ";
+        $query .= "                            FROM ";
+        $query .= "                               SAT_EXAM_DAT ";
+        $query .= "                            WHERE ";
+        $query .= "                               YEAR = '".CTRL_YEAR."' ";
+        $query .= "                            ) ";
+        $query .= "                       ) as Y ";
+        $query .= "                   WHERE ";
+        $query .= "                       U.SAT_NO = Y.SAT_NO and U.YEAR = Y.YEAR ";
+        $query .= "                   ) ";
+        $query .= " WHERE  ";
+        $query .= "    ABSENCE != 0 ";
+        $query .= " AND ";
+        $query .= "    YEAR = '".CTRL_YEAR."' ";
+        
+        return $query;
+    }
+    
+    //個人の得点取得
+    function getScoreAll()
+    {
+        $query  = " SELECT ";
+        $query .= "     SAT_NO, ";
+        $query .= "     SCORE_ENGLISH, ";
+        $query .= "     SCORE_MATH, ";
+        $query .= "     SCORE_JAPANESE ";
+        $query .= " FROM ";
+        $query .= "     SAT_EXAM_DAT ";
+        $query .= " WHERE ";
+        $query .= "     YEAR = '".CTRL_YEAR."' AND ";
+        $query .= "     ABSENCE != 0 ";
+        $query .= " ORDER BY ";
+        $query .= "     SAT_NO ";
+        
+        return $query;
+    }
+    
+    //個人の順位更新
+    function RankUpdate()
+    {
+        $query  = " UPDATE ";
+        $query .= "    SAT_EXAM_DAT U ";
+        $query .= " SET ";
+        $query .= "    (AREA_RANK_ENGLISH, ";
+        $query .= "     ALL_RANK_ENGLISH, ";
+        $query .= "     AREA_RANK_MATH, ";
+        $query .= "     ALL_RANK_MATH, ";
+        $query .= "     AREA_RANK_JAPANESE, ";
+        $query .= "     ALL_RANK_JAPANESE, ";
+        $query .= "     AREA_RANK_TOTAL, ";
+        $query .= "     ALL_RANK_TOTAL, ";
+        $query .= "     REGISTERCD, ";
+        $query .= "     UPDATED)        = (SELECT ";
+        $query .= "                             AREA_ENGLISH,  ";
+        $query .= "                             ENGLISH,  ";
+        $query .= "                             AREA_MATH,  ";
+        $query .= "                             MATH,  ";
+        $query .= "                             AREA_JAPANESE,  ";
+        $query .= "                             JAPANESE,  ";
+        $query .= "                             AREA_TOTAL,  ";
+        $query .= "                             TOTAL,  ";
+        $query .= "                             '".STAFFCD."',  ";
+        $query .= "                             CURRENT TIMESTAMP  ";
+        $query .= "                         FROM  ";
+        $query .= "                             (SELECT  ";
+        $query .= "                                 t5.YEAR,  ";
+        $query .= "                                 t5.SAT_NO,  ";
+        $query .= "                                 t5.AREA,  ";
+        $query .= "                                 t1.SCORE_ENGLISH,  ";
+        $query .= "                                 t1.AREA_ENGLISH,  ";
+        $query .= "                                 t1.ENGLISH,  ";
+        $query .= "                                 t2.SCORE_MATH,  ";
+        $query .= "                                 t2.AREA_MATH,  ";
+        $query .= "                                 t2.MATH,  ";
+        $query .= "                                 t3.SCORE_JAPANESE,  ";
+        $query .= "                                 t3.AREA_JAPANESE,  ";
+        $query .= "                                 t3.JAPANESE,  ";
+        $query .= "                                 t4.SCORE_TOTAL,  ";
+        $query .= "                                 t4.AREA_TOTAL,  ";
+        $query .= "                                 t4.TOTAL  ";
+        $query .= "                             FROM  ";
+        $query .= "                                 (SELECT  ";
+        $query .= "                                     a2.YEAR, ";
+        $query .= "                                     a2.SAT_NO, ";
+        $query .= "                                     a2.AREA ";
+        $query .= "                                  FROM ";
+        $query .= "                                     SAT_EXAM_DAT a2 ";
+        $query .= "                                     left join SAT_APP_FORM_MST a1 on a2.SAT_NO = a1.SAT_NO and a2.YEAR = a1.YEAR ";
+        $query .= "                                  WHERE ";
+        $query .= "                                     a1.YEAR = '".CTRL_YEAR."' ";
+        $query .= "                                  AND ";
+        $query .= "                                     a1.ABSENCE != 0 ";
+        $query .= "                                  AND ";
+        $query .= "                                     a2.SAT_NO IS NOT NULL ";
+        $query .= "                                  ) t5  ";
+        $query .= "                                  left join (SELECT  ";
+        $query .= "                                                 YEAR,  ";
+        $query .= "                                                 SAT_NO,  ";
+        $query .= "                                                 AREA,  ";
+        $query .= "                                                 SCORE_TOTAL,  ";
+        $query .= "                                                 RANK() OVER(PARTITION BY AREA ORDER BY SCORE_TOTAL DESC) AS AREA_TOTAL,  ";
+        $query .= "                                                 RANK() OVER(ORDER BY SCORE_TOTAL DESC) as TOTAL  ";
+        $query .= "                                             FROM  ";
+        $query .= "                                                 SAT_EXAM_DAT  ";
+        $query .= "                                             WHERE  ";
+        $query .= "                                                 SCORE_TOTAL IS NOT NULL  ";
+        $query .= "                                             AND  ";
+        $query .= "                                                 YEAR = '".CTRL_YEAR."'  ";
+        $query .= "                                             ORDER BY  ";
+        $query .= "                                                 AREA,  ";
+        $query .= "                                                 SCORE_TOTAL DESC  ";
+        $query .= "                                             ) t4 on t5.SAT_NO = t4.SAT_NO and t5.AREA = t4.AREA  ";
+        $query .= "                                  left join  (SELECT  ";
+        $query .= "                                                 SAT_NO,  ";
+        $query .= "                                                 AREA,  ";
+        $query .= "                                                 SCORE_ENGLISH,  ";
+        $query .= "                                                 RANK() OVER(PARTITION BY AREA ORDER BY SCORE_ENGLISH DESC) AS AREA_ENGLISH,  ";
+        $query .= "                                                 RANK() OVER(ORDER BY SCORE_ENGLISH DESC) as ENGLISH  ";
+        $query .= "                                             FROM  ";
+        $query .= "                                                 SAT_EXAM_DAT  ";
+        $query .= "                                             WHERE  ";
+        $query .= "                                                 SCORE_ENGLISH IS NOT NULL  ";
+        $query .= "                                             AND  ";
+        $query .= "                                                 YEAR = '".CTRL_YEAR."'  ";
+        $query .= "                                             ORDER BY  ";
+        $query .= "                                                 AREA,  ";
+        $query .= "                                                 SCORE_ENGLISH DESC  ";
+        $query .= "                                             ) t1 on t5.SAT_NO = t1.SAT_NO and t5.AREA = t1.AREA  ";
+        $query .= "                                   left join  (SELECT  ";
+        $query .= "                                                     SAT_NO,  ";
+        $query .= "                                                     AREA,  ";
+        $query .= "                                                     SCORE_MATH,  ";
+        $query .= "                                                     RANK() OVER(PARTITION BY AREA ORDER BY SCORE_MATH DESC) AS AREA_MATH,  ";
+        $query .= "                                                     RANK() OVER(ORDER BY SCORE_MATH DESC) as MATH  ";
+        $query .= "                                                 FROM  ";
+        $query .= "                                                     SAT_EXAM_DAT  ";
+        $query .= "                                                 WHERE  ";
+        $query .= "                                                     SCORE_MATH IS NOT NULL  ";
+        $query .= "                                                 AND  ";
+        $query .= "                                                     YEAR = '".CTRL_YEAR."'  ";
+        $query .= "                                                 ORDER BY  ";
+        $query .= "                                                     AREA,  ";
+        $query .= "                                                     SCORE_MATH DESC  ";
+        $query .= "                                                 ) t2 on t5.SAT_NO = t2.SAT_NO  and t5.AREA = t2.AREA  ";
+        $query .= "                                     left join  (SELECT  ";
+        $query .= "                                                     SAT_NO,  ";
+        $query .= "                                                     AREA,  ";
+        $query .= "                                                     SCORE_JAPANESE,  ";
+        $query .= "                                                     RANK() OVER(PARTITION BY AREA ORDER BY SCORE_JAPANESE DESC) AS AREA_JAPANESE,  ";
+        $query .= "                                                     RANK() OVER(ORDER BY SCORE_JAPANESE DESC) as JAPANESE ";
+        $query .= "                                                 FROM  ";
+        $query .= "                                                     SAT_EXAM_DAT  ";
+        $query .= "                                                 WHERE  ";
+        $query .= "                                                     SCORE_JAPANESE IS NOT NULL  ";
+        $query .= "                                                 AND  ";
+        $query .= "                                                     YEAR = '".CTRL_YEAR."'  ";
+        $query .= "                                                 ORDER BY  ";
+        $query .= "                                                     AREA,  ";
+        $query .= "                                                     SCORE_JAPANESE DESC  ";
+        $query .= "                                                 ) t3 on t5.SAT_NO = t3.SAT_NO and t5.AREA = t3.AREA  ";
+        $query .= "                             ORDER BY  ";
+        $query .= "                                  t5.SAT_NO  ";
+        $query .= "                             ) as Y ";
+        $query .= "                        WHERE U.SAT_NO = Y.SAT_NO and U.YEAR = Y.YEAR ";
+        $query .= "                        )";
+        $query .= " WHERE ";
+        $query .= "    ABSENCE != 0";
+        
+        return $query;
+    }
+    
+    //地区ごとデータがテーブルにあるかどうか
+    function CntAreaRecord()
+    {
+        $query  = " SELECT ";
+        $query .= "    COUNT(AREA) ";
+        $query .= " FROM ";
+        $query .= "    SAT_AREA_RECORD_DAT ";
+        $query .= " WHERE ";
+        $query .= "    YEAR = '".CTRL_YEAR."' ";
+       
+        return $query;
+    }
+    
+    //地区ごとのデータを削除
+    function DelAreaRecord()
+    {
+        $query  = " DELETE FROM ";
+        $query .= "    SAT_AREA_RECORD_DAT ";
+        $query .= " WHERE ";
+        $query .= "    YEAR = '".CTRL_YEAR."' ";
+        
+        return $query;
+    }
+    
+    //地区ごとのデータ挿入
+    function AreaInsert()
+    {
+        $query  = " INSERT INTO  ";
+        $query .= "    SAT_AREA_RECORD_DAT ";
+        $query .= " SELECT   ";
+        $query .= "    '".CTRL_YEAR."' as YEAR,   ";
+        $query .= "    t1.AREA,   ";
+        $query .= "    t2.AVG_ENGLISH,   ";
+        $query .= "    t2.SD_ENGLISH,   ";
+        $query .= "    t2.CNT_ENGLISH,   ";
+        $query .= "    t3.AVG_MATH,   ";
+        $query .= "    t3.SD_MATH,   ";
+        $query .= "    t3.CNT_MATH,   ";
+        $query .= "    t4.AVG_JAPANESE,   ";
+        $query .= "    t4.SD_JAPANESE,   ";
+        $query .= "    t4.CNT_JAPANESE,  ";
+        $query .= "    t1.AVG_TOTAL,   ";
+        $query .= "    t1.SD_TOTAL,   ";
+        $query .= "    t1.CNT_TOTAL,  ";
+        $query .= "    '".STAFFCD."' as REGISTERCD,  ";
+        $query .= "    CURRENT TIMESTAMP as UPDATED  ";
+        $query .= " FROM   ";
+        $query .= "    ( SELECT  ";
+        $query .= "          '9' as AREA,  ";
+        $query .= "          AVG(FLOAT(SCORE_TOTAL)) as AVG_TOTAL,  ";
+        $query .= "          STDDEV(SCORE_TOTAL) as SD_TOTAL,  ";
+        $query .= "          COUNT(SAT_NO) as CNT_TOTAL  ";
+        $query .= "      FROM  ";
+        $query .= "          (SELECT  ";
+        $query .= "              *  ";
+        $query .= "          FROM  ";
+        $query .= "              SAT_EXAM_DAT  ";
+        $query .= "          WHERE  ";
+        $query .= "              SCORE_TOTAL is not null  ";
+        $query .= "          AND  ";
+        $query .= "              YEAR = '".CTRL_YEAR."'  ";
+        $query .= "          )  ";
+        $query .= "      UNION  ";
+        $query .= "      SELECT  ";
+        $query .= "          AREA,  ";
+        $query .= "          AVG(FLOAT(SCORE_TOTAL)) as AVG_TOTAL,  ";
+        $query .= "          STDDEV(SCORE_TOTAL) as SD_TOTAL,  ";
+        $query .= "          COUNT(SAT_NO) as CNT_TOTAL  ";
+        $query .= "      FROM  ";
+        $query .= "          (SELECT  ";
+        $query .= "              *  ";
+        $query .= "          FROM  ";
+        $query .= "              SAT_EXAM_DAT  ";
+        $query .= "          WHERE  ";
+        $query .= "              SCORE_TOTAL is not null  ";
+        $query .= "          AND  ";
+        $query .= "              YEAR = '".CTRL_YEAR."'  ";
+        $query .= "          )  ";
+        $query .= "      GROUP BY  ";
+        $query .= "          AREA  ";
+        $query .= "      UNION ";
+        $query .= "      SELECT  ";
+        $query .= "          '4' as AREA,  ";
+        $query .= "          AVG(FLOAT(SCORE_TOTAL)) as AVG_TOTAL,  ";
+        $query .= "          STDDEV(SCORE_TOTAL) as SD_TOTAL,  ";
+        $query .= "          COUNT(SAT_NO) as CNT_TOTAL  ";
+        $query .= "      FROM  ";
+        $query .= "          (SELECT  ";
+        $query .= "              a1.*  ";
+        $query .= "          FROM  ";
+        $query .= "              SAT_EXAM_DAT a1 ";
+        $query .= "              left join SAT_APP_FORM_MST a2 on a1.SAT_NO = a2.SAT_NO and a1.YEAR = a2.YEAR ";
+        $query .= "          WHERE  ";
+        $query .= "              a1.SCORE_TOTAL is not null  ";
+        $query .= "          AND  ";
+        $query .= "              a1.YEAR = '".CTRL_YEAR."'  ";
+        $query .= "          AND ";
+        $query .= "              a2.INOUT_KUBUN = '4' ";
+        $query .= "         ) ";
+        $query .= "    ) t1   ";
+        $query .= "    left join ( SELECT  ";
+        $query .= "                    '9' as AREA,  ";
+        $query .= "                    AVG(FLOAT(SCORE_ENGLISH)) as AVG_ENGLISH,  ";
+        $query .= "                    STDDEV(SCORE_ENGLISH) as SD_ENGLISH,  ";
+        $query .= "                    COUNT(SAT_NO) as CNT_ENGLISH  ";
+        $query .= "                FROM  ";
+        $query .= "                    (SELECT  ";
+        $query .= "                        *  ";
+        $query .= "                    FROM  ";
+        $query .= "                        SAT_EXAM_DAT  ";
+        $query .= "                    WHERE  ";
+        $query .= "                        ABSENCE_ENGLISH != 0  ";
+        $query .= "                    AND  ";
+        $query .= "                        YEAR = '".CTRL_YEAR."'  ";
+        $query .= "                    )  ";
+        $query .= "                UNION  ";
+        $query .= "                SELECT  ";
+        $query .= "                    AREA,  ";
+        $query .= "                    AVG(FLOAT(SCORE_ENGLISH)) as AVG_ENGLISH,  ";
+        $query .= "                    STDDEV(SCORE_ENGLISH) as SD_ENGLISH,  ";
+        $query .= "                    COUNT(SAT_NO) as CNT_ENGLISH  ";
+        $query .= "                FROM  ";
+        $query .= "                    (SELECT  ";
+        $query .= "                        *  ";
+        $query .= "                    FROM  ";
+        $query .= "                        SAT_EXAM_DAT  ";
+        $query .= "                    WHERE  ";
+        $query .= "                        ABSENCE_ENGLISH != 0  ";
+        $query .= "                    AND  ";
+        $query .= "                        YEAR = '".CTRL_YEAR."'  ";
+        $query .= "                    )  ";
+        $query .= "                GROUP BY  ";
+        $query .= "                    AREA  ";
+        $query .= "                UNION ";
+        $query .= "                SELECT  ";
+        $query .= "                    '4' as AREA,  ";
+        $query .= "                    AVG(FLOAT(SCORE_ENGLISH)) as AVG_ENGLISH,  ";
+        $query .= "                    STDDEV(SCORE_ENGLISH) as SD_ENGLISH,  ";
+        $query .= "                    COUNT(SAT_NO) as CNT_ENGLISH  ";
+        $query .= "                FROM  ";
+        $query .= "                  (SELECT  ";
+        $query .= "                      a1.*  ";
+        $query .= "                  FROM  ";
+        $query .= "                      SAT_EXAM_DAT a1 ";
+        $query .= "                      left join SAT_APP_FORM_MST a2 on a1.SAT_NO = a2.SAT_NO and a1.YEAR = a2.YEAR ";
+        $query .= "                  WHERE  ";
+        $query .= "                      a1.ABSENCE_ENGLISH != 0  ";
+        $query .= "                  AND  ";
+        $query .= "                      a1.YEAR = '".CTRL_YEAR."'  ";
+        $query .= "                  AND ";
+        $query .= "                      a2.INOUT_KUBUN = '4' ";
+        $query .= "                  )  ";
+        $query .= "              ) t2 on t1.AREA = t2.AREA  ";
+        $query .= "    left join ( SELECT  ";
+        $query .= "                    '9' as AREA,  ";
+        $query .= "                    AVG(FLOAT(SCORE_MATH)) as AVG_MATH,  ";
+        $query .= "                    STDDEV(SCORE_MATH) as SD_MATH,  ";
+        $query .= "                    COUNT(SAT_NO) as CNT_MATH  ";
+        $query .= "                FROM  ";
+        $query .= "                    (SELECT  ";
+        $query .= "                        *  ";
+        $query .= "                    FROM  ";
+        $query .= "                        SAT_EXAM_DAT  ";
+        $query .= "                    WHERE  ";
+        $query .= "                        ABSENCE_MATH != 0  ";
+        $query .= "                    AND  ";
+        $query .= "                        YEAR = '".CTRL_YEAR."'  ";
+        $query .= "                    )  ";
+        $query .= "                UNION  ";
+        $query .= "                SELECT  ";
+        $query .= "                    AREA,  ";
+        $query .= "                    AVG(FLOAT(SCORE_MATH)) as AVG_MATH,  ";
+        $query .= "                    STDDEV(SCORE_MATH) as SD_MATH,  ";
+        $query .= "                    COUNT(SAT_NO) as CNT_MATH  ";
+        $query .= "                FROM  ";
+        $query .= "                    (SELECT  ";
+        $query .= "                        *  ";
+        $query .= "                    FROM  ";
+        $query .= "                        SAT_EXAM_DAT  ";
+        $query .= "                    WHERE  ";
+        $query .= "                        ABSENCE_MATH != 0  ";
+        $query .= "                    AND  ";
+        $query .= "                        YEAR = '".CTRL_YEAR."'  ";
+        $query .= "                    )  ";
+        $query .= "                GROUP BY  ";
+        $query .= "                    AREA ";
+        $query .= "                UNION ";
+        $query .= "                SELECT  ";
+        $query .= "                    '4' as AREA,  ";
+        $query .= "                    AVG(FLOAT(SCORE_MATH)) as AVG_MATH,  ";
+        $query .= "                    STDDEV(SCORE_MATH) as SD_MATH,  ";
+        $query .= "                    COUNT(SAT_NO) as CNT_MATH  ";
+        $query .= "                FROM  ";
+        $query .= "                  (SELECT  ";
+        $query .= "                      a1.*  ";
+        $query .= "                  FROM  ";
+        $query .= "                      SAT_EXAM_DAT a1 ";
+        $query .= "                      left join SAT_APP_FORM_MST a2 on a1.SAT_NO = a2.SAT_NO and a1.YEAR = a2.YEAR ";
+        $query .= "                  WHERE  ";
+        $query .= "                      a1.ABSENCE_MATH != 0  ";
+        $query .= "                  AND  ";
+        $query .= "                      a1.YEAR = '".CTRL_YEAR."'  ";
+        $query .= "                  AND ";
+        $query .= "                      a2.INOUT_KUBUN = '4' ";
+        $query .= "                  )  ";
+        $query .= "              ) t3 on t1.AREA = t3.AREA  ";
+        $query .= "    left join ( SELECT  ";
+        $query .= "                    '9' as AREA,  ";
+        $query .= "                    AVG(FLOAT(SCORE_JAPANESE)) as AVG_JAPANESE,  ";
+        $query .= "                    STDDEV(SCORE_JAPANESE) as SD_JAPANESE,  ";
+        $query .= "                    COUNT(SAT_NO) as CNT_JAPANESE  ";
+        $query .= "                FROM  ";
+        $query .= "                    (SELECT  ";
+        $query .= "                        *  ";
+        $query .= "                    FROM  ";
+        $query .= "                        SAT_EXAM_DAT  ";
+        $query .= "                    WHERE  ";
+        $query .= "                        ABSENCE_JAPANESE != 0  ";
+        $query .= "                    AND  ";
+        $query .= "                        YEAR = '".CTRL_YEAR."'  ";
+        $query .= "                    )  ";
+        $query .= "                UNION  ";
+        $query .= "                SELECT  ";
+        $query .= "                    AREA,  ";
+        $query .= "                    AVG(FLOAT(SCORE_JAPANESE)) as AVG_JAPANESE,  ";
+        $query .= "                    STDDEV(SCORE_JAPANESE) as SD_JAPANESE,  ";
+        $query .= "                    COUNT(SAT_NO) as CNT_JAPANESE  ";
+        $query .= "                FROM  ";
+        $query .= "                    (SELECT  ";
+        $query .= "                        *  ";
+        $query .= "                    FROM  ";
+        $query .= "                        SAT_EXAM_DAT  ";
+        $query .= "                    WHERE  ";
+        $query .= "                        ABSENCE_JAPANESE != 0  ";
+        $query .= "                    AND  ";
+        $query .= "                        YEAR = '".CTRL_YEAR."'  ";
+        $query .= "                    )  ";
+        $query .= "                GROUP BY  ";
+        $query .= "                    AREA  ";
+        $query .= "                UNION ";
+        $query .= "                SELECT  ";
+        $query .= "                    '4' as AREA,  ";
+        $query .= "                    AVG(FLOAT(SCORE_JAPANESE)) as AVG_JAPANESE,  ";
+        $query .= "                    STDDEV(SCORE_JAPANESE) as SD_JAPANESE,  ";
+        $query .= "                    COUNT(SAT_NO) as CNT_JAPANESE  ";
+        $query .= "                FROM  ";
+        $query .= "                  (SELECT  ";
+        $query .= "                      a1.*  ";
+        $query .= "                  FROM  ";
+        $query .= "                      SAT_EXAM_DAT a1 ";
+        $query .= "                      left join SAT_APP_FORM_MST a2 on a1.SAT_NO = a2.SAT_NO and a1.YEAR = a2.YEAR ";
+        $query .= "                  WHERE  ";
+        $query .= "                      a1.ABSENCE_JAPANESE != 0  ";
+        $query .= "                  AND  ";
+        $query .= "                      a1.YEAR = '".CTRL_YEAR."'  ";
+        $query .= "                  AND ";
+        $query .= "                      a2.INOUT_KUBUN = '4' ";
+        $query .= "                  )  ";
+        $query .= "              ) t4 on t1.AREA = t4.AREA  ";
+        $query .= " ORDER BY ";
+        $query .= "     AREA ";
+                
+        return $query;
+    }
+    
+    //SAT_AREA_DIST_DATのデータを削除する
+    function delAreaDist()
+    {
+        $query  = " DELETE FROM ";
+        $query .= "     SAT_AREA_DIST_DAT ";
+        $query .= " WHERE ";
+        $query .= "    YEAR = '".CTRL_YEAR."' ";
+        
+        return $query;
+    }
+
+    //地区ごとに得点を取得する
+    function getDistScore()
+    {
+        $query  = " SELECT ";
+        $query .= "     SEX, ";
+        $query .= "     case when INOUT_KUBUN = '4' then SCORE_TOTAL else NULL end as OUT_COUNTRY, ";
+        $query .= "     case when INOUT_KUBUN = '3' OR INOUT_KUBUN = '2' then SCORE_TOTAL else NULL end as OUT_PREF, ";
+        $query .= "     case when INOUT_KUBUN = '1' then SCORE_TOTAL else NULL end as IN_PREF ";
+        $query .= " FROM ";
+        $query .= "     (SELECT ";
+        $query .= "         t1.SEX, ";
+        $query .= "         t1.INOUT_KUBUN, ";
+        $query .= "         t2.SCORE_TOTAL, ";
+        $query .= "         t2.AREA ";
+        $query .= "     FROM ";
+        $query .= "         SAT_APP_FORM_MST t1 left join SAT_EXAM_DAT t2 on t1.SAT_NO = t2.SAT_NO and t1.YEAR = t2.YEAR ";
+        $query .= "     WHERE ";
+        $query .= "         t2.SCORE_TOTAL IS NOT NULL ";
+        $query .= "     AND ";
+        $query .= "         t1.YEAR = '".CTRL_YEAR."' ";
+        $query .= "     ORDER BY ";
+        $query .= "         t1.INOUT_KUBUN, ";
+        $query .= "         t1.SEX, ";
+        $query .= "         t2.AREA, ";
+        $query .= "         t2.SCORE_TOTAL DESC ";
+        $query .= "     ) ";
+        
+        return $query;
+    }
+    
+    //SAT_HOPE_RANK_DATの対象年度データを削除
+    function delSatHopeRank()
+    {
+        $query  = " DELETE FROM ";
+        $query .= "     SAT_HOPE_RANK_DAT ";
+        $query .= " WHERE ";
+        $query .= "     YEAR ='".CTRL_YEAR."' ";
+        
+        return $query;
+    }
+    
+    //SAT_HOPE_RANK_DATにINSERT
+    function updateToHopeRank()
+    {
+        $query  = " INSERT INTO  ";
+        $query .= "     SAT_HOPE_RANK_DAT  ";
+        $query .= "     ( ";
+        $query .= "         YEAR, ";
+        $query .= "         SAT_NO, ";
+        $query .= "         HOPECD, ";
+        $query .= "         SCORE ";
+        $query .= "     ) ";
+        $query .= "     SELECT DISTINCT ";  //個人内でのHOPECD1,2,3の重複を避けるため
+        $query .= "         '".CTRL_YEAR."', ";
+        $query .= "         t1.SAT_NO, ";
+        $query .= "         t1.HOPECD, ";
+        $query .= "         t2.SCORE_TOTAL ";
+        $query .= "     FROM ";
+        $query .= "         (SELECT ";
+        $query .= "             SAT_NO, ";
+        $query .= "             '1' as ORDER, ";
+        $query .= "             HOPECD1 as HOPECD ";
+        $query .= "         FROM ";
+        $query .= "             SAT_APP_FORM_MST ";
+        $query .= "         WHERE ";
+        $query .= "             YEAR = '".CTRL_YEAR."' ";
+        $query .= "         UNION  ";
+        $query .= "         SELECT ";
+        $query .= "             SAT_NO, ";
+        $query .= "             '2' as ORDER, ";
+        $query .= "             HOPECD2 as HOPECD ";
+        $query .= "         FROM ";
+        $query .= "             SAT_APP_FORM_MST ";
+        $query .= "         WHERE ";
+        $query .= "             YEAR = '".CTRL_YEAR."' ";
+        $query .= "         UNION  ";
+        $query .= "         SELECT ";
+        $query .= "             SAT_NO, ";
+        $query .= "             '3' as ORDER, ";
+        $query .= "             HOPECD3 as HOPECD ";
+        $query .= "         FROM ";
+        $query .= "             SAT_APP_FORM_MST ";
+        $query .= "         WHERE ";
+        $query .= "             YEAR = '".CTRL_YEAR."' ";
+        $query .= "         ORDER BY ";
+        $query .= "             SAT_NO, ";
+        $query .= "             ORDER ";
+        $query .= "             ) t1  ";
+        $query .= "         left join SAT_EXAM_DAT t2 on t1.SAT_NO = t2.SAT_NO and t2.YEAR = '".CTRL_YEAR."' ";
+        $query .= "     WHERE  ";
+        $query .= "         HOPECD IS NOT NULL ";
+        $query .= "     ORDER BY ";
+        $query .= "         SAT_NO, HOPECD ";
+        
+        return $query;
+    }
+    
+    //SAT_HOPE_RANK_DATにRANKとCNT更新
+    function updateHopeRank()
+    {
+        $query  = " UPDATE ";
+        $query .= "     SAT_HOPE_RANK_DAT U ";
+        $query .= " SET ";
+        $query .= "     (RANK, CNT, REGISTERCD, UPDATED) = (SELECT ";
+        $query .= "                                             RANK, ";
+        $query .= "                                             CNT, ";
+        $query .= "                                             '".STAFFCD."', ";
+        $query .= "                                             current timestamp ";
+        $query .= "                                         FROM ";
+        $query .= "                                             (SELECT ";
+        $query .= "                                                 t1.*, ";
+        $query .= "                                                 t2.CNT ";
+        $query .= "                                             FROM ";
+        $query .= "                                                 (SELECT ";
+        $query .= "                                                     SAT_NO, ";
+        $query .= "                                                     HOPECD, ";
+        $query .= "                                                     SCORE, ";
+        $query .= "                                                     RANK() OVER(PARTITION BY HOPECD ORDER BY SCORE DESC) as RANK ";
+        $query .= "                                                 FROM ";
+        $query .= "                                                     SAT_HOPE_RANK_DAT ";
+        $query .= "                                                 WHERE ";
+        $query .= "                                                     YEAR = '".CTRL_YEAR."' ";
+        $query .= "                                                 ) t1 ";
+        $query .= "                                                 left join  (SELECT ";
+        $query .= "                                                                 HOPECD, ";
+        $query .= "                                                                 COUNT(*) as CNT ";
+        $query .= "                                                             FROM ";
+        $query .= "                                                                 SAT_HOPE_RANK_DAT ";
+        $query .= "                                                             WHERE ";
+        $query .= "                                                                 YEAR = '".CTRL_YEAR."' ";
+        $query .= "                                                             GROUP BY ";
+        $query .= "                                                                 HOPECD ";
+        $query .= "                                                             ) t2 on t1.HOPECD = t2.HOPECD ";
+        $query .= "                                             ORDER BY ";
+        $query .= "                                                 HOPECD ";
+        $query .= "                                             ) as Y ";
+        $query .= "                                         WHERE ";
+        $query .= "                                             U.SAT_NO = Y.SAT_NO AND ";
+        $query .= "                                             U.HOPECD = Y.HOPECD AND ";
+        $query .= "                                             U.SCORE = Y.SCORE ";
+        $query .= "                                         ) ";
+        $query .= " WHERE ";
+        $query .= "     YEAR = '".CTRL_YEAR."' ";
+        
+        return $query;
+    }
+    
+    //SAT_HOPE_DIST_DAT削除
+    function delSatHopeDist()
+    {
+        $query  = " DELETE FROM ";
+        $query .= "     SAT_HOPE_DIST_DAT ";
+        $query .= " WHERE ";
+        $query .= "     YEAR = '".CTRL_YEAR."' ";
+
+        return $query;
+    }
+    
+    //SAT_AREA_DIST_DATからSAT_HOPE_DIST_DATにINSERT
+    function updateHopeDist()
+    {
+        $query  = " INSERT INTO  ";
+        $query .= "     SAT_HOPE_DIST_DAT  ";
+        $query .= "     ( ";
+        $query .= "         YEAR, ";
+        $query .= "         RANGE, ";
+        $query .= "         SCORE, ";
+        $query .= "         ALL_MALE, ";
+        $query .= "         ALL_FEMALE, ";
+        $query .= "         REGISTERCD, ";
+        $query .= "         UPDATED ";
+        $query .= "     ) ";
+        $query .= "     SELECT ";
+        $query .= "         YEAR, ";
+        $query .= "         RANGE, ";
+        $query .= "         SCORE, ";
+        $query .= "         IN_PREF_MALE + OUT_PREF_MALE + OUT_COUNTRY_MALE as ALL_MALE, ";
+        $query .= "         IN_PREF_FEMALE + OUT_PREF_FEMALE + OUT_COUNTRY_FEMALE as ALL_FEMALE, ";
+        $query .= "         '".STAFFCD."', ";
+        $query .= "         current timestamp ";
+        $query .= "     FROM ";
+        $query .= "         (SELECT ";
+        $query .= "             YEAR, ";
+        $query .= "             RANGE, ";
+        $query .= "             SCORE, ";
+        $query .= "             case when IN_PREF_MALE is NULL then '0' else IN_PREF_MALE end as IN_PREF_MALE, ";
+        $query .= "             case when IN_PREF_FEMALE is NULL then '0' else IN_PREF_FEMALE end as IN_PREF_FEMALE, ";
+        $query .= "             case when OUT_PREF_MALE is NULL then '0' else OUT_PREF_MALE end as OUT_PREF_MALE, ";
+        $query .= "             case when OUT_PREF_FEMALE is NULL then '0' else OUT_PREF_FEMALE end as OUT_PREF_FEMALE, ";
+        $query .= "             case when OUT_COUNTRY_MALE is NULL then '0' else OUT_COUNTRY_MALE end as OUT_COUNTRY_MALE, ";
+        $query .= "             case when OUT_COUNTRY_FEMALE is NULL then '0' else OUT_COUNTRY_FEMALE end as OUT_COUNTRY_FEMALE ";
+        $query .= "         FROM ";
+        $query .= "             SAT_AREA_DIST_DAT ";
+        $query .= "         WHERE ";
+        $query .= "             YEAR = '".CTRL_YEAR."' ";
+        $query .= "         ) ";
+        $query .= "     ORDER BY ";
+        $query .= "         RANGE ";
+        
+        return $query;
+    }
+    
+}
+?>

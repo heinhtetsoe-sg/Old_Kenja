@@ -1,0 +1,127 @@
+{rval start} 
+<style>
+.all {
+    height:80%;
+}
+.scrollbody {
+    height: 80%;
+    overflow-y: scroll;
+}
+@media all and (-ms-high-contrast:none){
+.scrollbody {
+    height: 600px;
+    overflow-y: scroll;
+}
+}
+</style>
+<BR><BR>
+<table style="width: 1050" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr class="no_search_line"> 
+    <td> 
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+        <tr class="no_search" height="30"> 
+          <th>得点チェック&nbsp;&nbsp;&nbsp;&nbsp;{val btn_end}</th>
+        </tr>
+        
+      </table>
+    </td>
+  </tr>
+</table>
+
+<BR>
+<table style="width: 500" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr class="no_search_line"> 
+    <td> 
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+        <tr bgcolor="#ffffff"> 
+          <th class="no_search">表示内容</th>
+          <td bgcolor="#ffffff">{rval Radio1}&nbsp;&nbsp;{rval Radio2}&nbsp;&nbsp;{rval Radio3}</th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<BR><BR>
+<div class="all">
+<table style="width: 1050;height:100%;" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+          <div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" align="center">
+                      <td width="60" nowrap rowspan="2">受験番号</td>
+                      <td width="*" rowspan="2">氏名</td>
+                      <td width="210" colspan="3">英語</td>
+                      <td width="210" colspan="3">数学</td>
+                      <td width="210" colspan="3">国語</td>
+                      <td width="50" rowspan="2">判定</td>
+                      <td width="6px" rowspan="2"></td>
+                    </tr>
+                    <tr class="no_search" align="center">
+                      <td width="70">1回目</td>
+                      <td width="70">2回目</td>
+                      <td width="70">欠席</td>
+                      <td width="70">1回目</td>
+                      <td width="70">2回目</td>
+                      <td width="70">欠席</td>
+                      <td width="70">1回目</td>
+                      <td width="70">2回目</td>
+                      <td width="70">欠席</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="scrollbody">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="{rval data/color}">
+                      <td width="60" nowrap>{rval data/SAT_NO}</td>
+                      <td width="*" align="left">{rval data/NAME}</td>
+                      <td width="70" align="left" nowrap>{rval data/ENG_FIRST}</td>
+                      <td width="70" align="left" nowrap>{rval data/ENG_SECOND}</td>
+                      <td width="70" align="center" nowrap>{rval data/ENG_ABS}</td>
+                      <td width="70" align="left" nowrap>{rval data/MATH_FIRST}</td>
+                      <td width="70" align="left" nowrap>{rval data/MATH_SECOND}</td>
+                      <td width="70" align="center" nowrap>{rval data/MATH_ABS}</td>
+                      <td width="70" align="left" nowrap>{rval data/JAP_FIRST}</td>
+                      <td width="70" align="left" nowrap>{rval data/JAP_SECOND}</td>
+                      <td width="70" align="center" nowrap>{rval data/JAP_ABS}</td>
+                      <td width="50" align="center" nowrap>{rval data/JUDGE}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" align="right">
+                      <td>{val btn_update}&nbsp;&nbsp;</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+        </div>
+  </td>
+</tr>
+</table>
+</div>
+<script language="JavaScript">{rval jscript}</script>
+
+{rval finish} 

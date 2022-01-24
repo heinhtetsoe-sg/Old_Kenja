@@ -1,0 +1,5 @@
+-- $Id$
+
+alter table FINSCHOOL_MST add column FINSCHOOL_STAFFCD VARCHAR(10)
+alter table FINSCHOOL_MST add column FINSCHOOL_CITY_CD VARCHAR(3)
+reorg table FINSCHOOL_MST

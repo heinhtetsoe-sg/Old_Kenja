@@ -1,0 +1,97 @@
+{rval start}
+<br><br><br><br>
+<table align="center" width="60%" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+    <tr>
+      <td nowrap>
+      <table width="100%" border="0" cellspacing="10" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td colspan="2">
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <th colspan="2">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                      <tr>
+                        <th align="left"><font color="#ffffff">処理年度＆学期　{rval SEMESTERNAME}</font></th>
+                        <th align="right"><font color="#ffffff">学年(年次)</font>{rval ANNUAL}</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </th>
+                </tr>
+                <tr bgcolor="#ffffff">
+                  <th class="no_search" width="15%">生成データ種別</th>
+                  <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                      <tr>
+                        <td align="left" width="50%"><input type="radio" name="KIND" value="1" id="KIND1" onclick="btn_disabled(this);" checked><label for="KIND1">勤怠データ</label></td>
+                        <td align="left" width="50%"><input type="radio" name="KIND" value="2" id="KIND2" onclick="btn_disabled(this);"><label for="KIND2">成績データ</label></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+                <tr bgcolor="#ffffff">
+                  <th class="no_search" width="15%">生成範囲</th>
+                  <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                      <tr>
+                        <td align="left" width="50%"><input type="radio" name="RANGE" value="1" id="RANGE1" checked><label for="RANGE1">処理年度のみ</label></td>
+                        <td align="left" width="50%"><input type="radio" name="RANGE" value="2" id="RANGE2"><label for="RANGE2">過年度を含めて生成</label></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+                <tr bgcolor="#ffffff">
+                  <th class="no_search" width="15%">生成方法</th>
+                  <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                      <tr>
+                        <td align="left"  width="50%"><input type="radio" name="METHOD" value="1" id="METHOD1" checked><label id="label1" for="METHOD1" style="color:#cccccc">自動生成</label></td>
+                        <td align="left"  width="50%">{rval REPLACE}<label id="label2" for="REPLACE" style="color:#cccccc">評価が１の場合２に置き換える</label></td>
+                      </tr>
+                      <tr>
+                        <td align="left"  width="50%"><input type="radio" name="METHOD" value="2" id="METHOD2"><label id="label3" for="METHOD2" style="color:#cccccc">ファイルからの取り込み</label></td>
+                        <td align="left"  width="50%">{rval FILE}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+                <tr bgcolor="#ffffff">
+                  <th class="no_search" width="15%">&nbsp;</th>
+                  <td>{rval btn_exec}{rval btn_end}</td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<script language="javascript">
+with(document.forms[0]){
+<!--{def RADIO/KIND}-->
+    KIND[{rval RADIO/KIND}-1].checked = true;
+<!--{/def}-->
+<!--{def RADIO/RANGE}-->
+    RANGE[{rval RADIO/RANGE}-1].checked = true;
+<!--{/def}-->
+<!--{def RADIO/METHOD}-->
+    METHOD[{rval RADIO/METHOD}-1].checked = true;
+<!--{/def}-->
+    btn_disabled((KIND[0].checked)? KIND[0]:KIND[1]);
+}
+</script>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

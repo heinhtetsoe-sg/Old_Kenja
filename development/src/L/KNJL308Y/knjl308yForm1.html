@@ -1,0 +1,80 @@
+{rval start}
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR><BR>
+
+<table width="40%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <td nowrap><b>
+                        年度:{rval data/YEAR}　　入試制度:{rval data/APPLICANTDIV}　　入試区分:{rval data/TESTDIV}
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <td nowrap><b>
+                        {rval data/HALL_DIV1} <LABEL for="HALL_DIV1">会場</LABEL>　　　{rval data/HALL_DIV2} <LABEL for="HALL_DIV2">会場分割</LABEL>
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>会場一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff" height="80"> 
+                      <td nowrap>
+                        　　　　<b>時間割パターンNo.</b>　{rval data/SCH_PTRN}<br><br>
+                        　　　　　　 <b>通し番号連番</b>　{rval data/RENBAN} ～
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish} 

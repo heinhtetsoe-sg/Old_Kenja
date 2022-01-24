@@ -1,0 +1,86 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="10" cellpadding="5">
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <hr align="left" width="400">
+            &nbsp;&nbsp;&nbsp;{rval YEAR_SEMESTER}&nbsp;&nbsp;&nbsp;{rval NAME_SHOW}
+            <hr align="left" width="400">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <td width="40" align="center"><LABEL for="CHECKALL">選択</LABEL><br>{rval CHECKALL}</td>
+                      <th width="80" align="center">学年</th>
+                      <td width="60" align="center">学期</td>
+                      <td width="150" align="center"><LABEL for="CHECK_COMMITTEE">委員会</LABEL><br>{rval CHECK_COMMITTEE}</td>
+                      <td width="150" align="center"><LABEL for="CHECK_CHARGE">係り</LABEL><br>{rval CHECK_CHARGE}</td>
+                      <td width="*" align="center"><LABEL for="CHECK_EXECUTIVE">役職</LABEL><br>{rval CHECK_EXECUTIVE}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="height:160;overflow-y:scroll">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr height="25" bgcolor="#ffffff">
+                      <td width="40" align="center">{rval data/CHECKED}</td>
+                      <td width="80" align="center">{rval data/GRADE_NAME1}</td>
+                      <td width="60" align="center">{rval data/SEMESTERNAME}</td>
+                      <td width="150">{rval data/COMMITTEE_SHOW}</td>
+                      <td width="150">{rval data/CHARGE_SHOW}</td>
+                      <td width="*">{rval data/EXECUTIVE_SHOW}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td align="right" nowrap>{rval btn_torikomi}{rval btn_back}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

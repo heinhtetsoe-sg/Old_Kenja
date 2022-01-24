@@ -1,0 +1,212 @@
+{rval start}
+
+<style type="text/css">
+
+</style>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" align="center">
+
+<tr> 
+
+<td valign="top" > 
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+    <tr> 
+
+    <td > 
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+      <tr class="no_search_line"> 
+
+      <td> 
+
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+        <tr class="no_search" nowrap> 
+
+            <td align="center">入学年度</td>
+            <td bgcolor="#ffffff" style="color:black; text-align:center">{rval TOP/YEAR}</td>
+            <td align="center">クラス</td>
+            <td bgcolor="#ffffff" style="color:black;">{rval TOP/PRE_HR_CLASS}　{rval TOP/CLASSDIV1}仮クラス　{rval TOP/CLASSDIV2}クラス</td>
+
+        </tr>
+
+        </table>
+
+       </td>
+
+      </tr>
+
+      </table>
+
+    </td>
+
+    </tr>
+
+    </table>
+
+</td>
+
+</tr>
+
+<tr > 
+
+<td valign="top" > 
+
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+  <tr bgcolor="#006633"> 
+
+  <td align="right">
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+    <tr> 
+
+    <td>
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+      <tr class="no_search_line">
+
+      <td>    
+
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+        <tr class="no_search" nowrap align="center"> 
+        <th width="35"  align="center" nowrap><font size="2">出席<BR>番号</font></th>
+        <th width="45"  align="center" nowrap><font size="2">受験<BR>番号</font></th>
+        <th width="110" align="center" nowrap><font size="2">氏名</font></th>
+        <th width="35"  align="center" nowrap><font size="2">性別</font></th>
+        <th width="45" align="center" nowrap><font size="2">第１回<BR>出欠</font></th>
+        <th width="45" align="center" nowrap><font size="2">第２回<BR>出欠</font></th>
+        <th width="45" align="center" nowrap><font size="2">国語</font></th>
+        <th width="45" align="center" nowrap><font size="2">算数</font></th>
+        <th width="45" align="center" nowrap><font size="2">平塚駅</font></th>
+        <th width="45" align="center" nowrap><font size="2">崇善</font></th>
+        <th width="45" align="center" nowrap><font size="2">丸栄<BR>工業</font></th>
+        <th width="45" align="center" nowrap><font size="2">ガード<BR>下</font></th>
+        <th width="45" align="center" nowrap><font size="2">預金<BR>口座<BR>依頼書</font></th>
+        <th width="45" align="center" nowrap><font size="2">誓約書</font></th>
+        <th width="65" align="center" nowrap><font size="2">氏名確認<BR>通学調査</font></th>
+        <th width="*"   align="center" nowrap><font size="2">備考<BR>（全角20文字）</font></th>
+        </tr>
+
+        </table>
+
+      </td>
+
+      </tr>
+
+      </table>
+
+    </td>
+
+    </tr>
+
+    <tr>
+
+    <td bgcolor="#ffffff">
+
+      <div style="width: 100%; height=535; overflow: auto">
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+      <tr class="no_search_line" >
+
+      <td>
+
+      <table width="100%" border="0" cellspacing="1" cellpadding="3">  
+
+      <!--{def data}-->
+
+      <!--結果一覧-->
+
+      <!--{each data}--> 
+
+      <tr bgcolor="#ffffff" bgcolor="no_search" id="ROWID{rval data/EXAMNO}" nowrap>
+        <td width="35"  align="center" nowrap>{rval data/PRE_ATTENDNO}</td>
+        <td width="45"  align="center" nowrap>{rval data/EXAMNO}</td>
+        <td width="110" align="left"   nowrap><font size="2">{rval data/NAME}</font></td>
+        <td width="35"  align="center" nowrap>{rval data/SEX}</td>
+        <td width="45"  align="center" nowrap>{rval data/ATTENDFLG1}</td>
+        <td width="45"  align="center" nowrap>{rval data/ATTENDFLG2}</td>
+        <td width="45"  align="center" nowrap>{rval data/SCORE1}</td>
+        <td width="45"  align="center" nowrap>{rval data/SCORE2}</td>
+        <td width="45"  align="center" nowrap>{rval data/STATIONCD1}</td>
+        <td width="45"  align="center" nowrap>{rval data/STATIONCD2}</td>
+        <td width="45"  align="center" nowrap>{rval data/STATIONCD3}</td>
+        <td width="45"  align="center" nowrap>{rval data/STATIONCD4}</td>
+        <td width="45"  align="center" nowrap>{rval data/PRE_INFO1}</td>
+        <td width="45"  align="center" nowrap>{rval data/PRE_INFO2}</td>
+        <td width="65"  align="center" nowrap>{rval data/PRE_INFO3}</td>
+        <td width="*"   align="center" nowrap>{rval data/REMARK}</td>
+      </tr>
+
+      <!--{/each}--> 
+
+      <!--{/def}-->
+
+      </table>
+
+      </td>
+
+      </tr>
+
+      </table>
+
+      </div>
+
+    </td>
+
+    </tr>
+
+    <tr> 
+
+    <td>
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+      <tr class="no_search_line">
+
+      <td>    
+
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+        <tr class="no_search" nowrap> 
+
+          <th nowrap>&nbsp;</th>
+
+          <th width="30%" align="left" bgcolor="#ffffff" nowrap>{rval btn_update}{rval btn_reset}{rval btn_end}</th>
+
+        </tr>
+
+        </table>
+
+      </td>
+
+      </tr>
+
+      </table>
+
+    </td>
+
+    </tr>
+
+    </table>
+
+  </td>
+
+  </tr>
+
+
+  </table>
+
+</td>
+
+</tr>
+
+</table>
+{rval finish}

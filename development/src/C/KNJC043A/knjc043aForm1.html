@@ -1,0 +1,84 @@
+{rval start} 
+<!--{def button}--> 
+<!--{def data}-->
+
+<INPUT type="hidden" name="selectdata" size="70"><br>
+
+<br><br><br>
+
+<table style="width:420px" border="0" cellpadding="10" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table style="width:420px" border="0" cellspacing="5" cellpadding="0">
+	    <tr>
+	      <td>
+		    <tablestyle="width:420px" border="0" cellspacing="0" cellpadding="0">
+		      <tr class="no_search_line">
+		        <td>
+			      <table style="width:420px"	 border="0" cellspacing="1" cellpadding="4">
+			        <tr class="no_search" height="30">
+			          <td align="center">
+		                <b>{rval data/YEAR}年度　　{rval data/SEMESTER}</b>
+			          </td>
+			        </tr>
+			        <tr bgcolor="#ffffff" height="150">
+			          <td>
+		                <table>
+			              <tr bgcolor="#ffffff">
+				            <td>　<br>
+                              　　　<b>印刷範囲</b><br>
+                              　　　　　{rval data/DATE1}　～　{rval data/DATE2}<br><br>
+                              　　　<b>校時範囲</b><br>
+                              　　　　　{rval data/PERIOD1}<LABEL for="PERIOD1">コアタイム出力</LABEL><br>
+                              　　　　　{rval data/PERIOD2}<LABEL for="PERIOD2">全て出力</LABEL><br>
+    			            </td>
+			              </tr>
+			            </table>
+			          </td>
+			        </tr>
+			        <tr bgcolor="#ffffff" height="70">
+			          <td>
+		                <table>
+			              <tr bgcolor="#ffffff">
+				            <td>　<br>
+                              　　　<b>対象クラス</b>　　　{rval data/GRADE_HR_CLASS}<br><br>
+                              　　　<b>出力帳票選択</b><br>
+                              　　　　　{rval data/OUTPUT1}<LABEL for="OUTPUT1">集計票</LABEL><br>
+                              　　　　　{rval data/OUTPUT2}<LABEL for="OUTPUT2">明細票</LABEL><br>　
+    			            </td>
+			              </tr>
+			            </table>
+			          </td>
+			        </tr>
+			        <tr bgcolor="#ffffff" height="70">
+			          <td>
+		                <table>
+			              <tr bgcolor="#ffffff">
+				            <td><br>
+				              　　　　　{rval data/OUTPUT4}<LABEL for="OUTPUT4">空行を詰めて印字</LABEL><br>
+				              　　　　　{rval data/OUTPUT5}<LABEL for="OUTPUT5">「未」を表示する</LABEL><br>　
+    			            </td>
+			              </tr>
+			            </table>
+			          </td>
+			        </tr>
+			        <tr class="no_search">
+			          <td align="left">
+			            {rval button/btn_print}{rval button/btn_end}
+			          </td>
+			        </tr>
+			      </table>
+		        </td>
+		      </tr>
+		    </table>
+	      </td>
+	    </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

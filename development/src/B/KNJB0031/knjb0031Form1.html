@@ -1,0 +1,207 @@
+{rval start}
+{rval IFRAME}
+<style type="text/css">
+#tyousei {
+    height : 50px;
+}
+#tyousei2 {
+    height : 70px;
+}
+</style>
+
+<table width="1350" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td>
+       <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr class="no_search_line">
+          <th>
+            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+            <tr>
+              <th width="250" align="left" class="no_search">対象年度：{rval term}</th>
+              <th width="500" align="left" class="no_search">
+                コース：{rval GRADE_COURSE}<BR><BR>
+                科　目：{rval SUBCLASSCD}
+              </th>
+              <th width="*" align="left" class="no_search">
+                {rval GROUP1}<LABEL for="GROUP1">教科</LABEL>　　{rval GROUP2}<LABEL for="GROUP2">群</LABEL><BR><BR>
+                追加件数：{rval KENSUU}　{rval button/btn_search}
+              </th>
+            </tr>
+            </table>
+          </th>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" id="tyousei">
+                        <th width="*"><LABEL for="DEL_ALL">削<BR>除</LABEL><BR>{rval DEL_ALL}</th>
+                        <th width="70">※ 講座<BR>コード</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+
+            <td>
+            <div id="trow" style="overflow:hidden; width: 1153px; ">
+            <div style="width: {rval divWidth}px; ">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" id="tyousei">
+                          <th width="300">講座名称</th>
+                          <th width="150">講座略称</th>
+<!--{def chairRetsuMeisho_Hyouji}--> 
+                          <th width="50">列名称</th>
+                          <th width="150">スモールクラス名称</th>
+                          <th width="150">習熟度クラス名称</th>
+<!--{/def}--> 
+                          <th width="100">履修期間区分</th>
+                          <th width="300">受講クラス　{rval button/btn_class}</th>
+                          <th width="300">科目担任[正][副]　{rval button/btn_staff}</th>
+                          <th width="200">群</th>
+                          <th width="300">使用施設　{rval button/btn_fac}</th>
+                          <th width="300">教科書</th>
+                          <th width="100">集計フラグ</th>
+                          <th width="100">受講人数</th>
+<!--{def KEIKOKUTEN_FLAG}--> 
+                          <th width="250">授業回数</th>
+                          <th width="100">警告点(素点)</th>
+                          <th width="100">警告点(評価)</th>
+                          <th width="*">警告点(評定)</th>
+<!--{/def}--> 
+<!--{def KEIKOKUTEN_NON_FLAG}--> 
+                          <th width="*">授業回数</th>
+<!--{/def}--> 
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+            </div>
+            </td>
+          </tr>
+
+          <tr valign="TOP">
+
+            <td>
+            <div id="tcol" style="overflow: hidden; height: 483px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr bgcolor="#ffffff" id="tyousei2">
+                            <td width="*" align="center" {rval data/bgDataColor}>{rval data/DEL_FLG}</td>
+                            <td width="70" align="center" {rval data/bgDataColor}>{rval data/CHAIRCD}</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
+            </div>
+            </td>
+
+            <td>
+            <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 1170px; height: 500px;">
+            <div style="width: {rval divWidth}px; ">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr  bgcolor="#ffffff" id="tyousei2">
+                            <td width="300" align="center" {rval data/bgDataColor}>{rval data/CHAIRNAME}</td>
+                            <td width="150" align="center" {rval data/bgDataColor}>{rval data/CHAIRABBV}</td>
+<!--{def chairRetsuMeisho_Hyouji}--> 
+                            <td width="50" align="center" {rval data/bgDataColor}>{rval data/SEQ004_REMARK1}</td>
+                            <td width="150" align="center" {rval data/bgDataColor}>{rval data/SEQ004_REMARK2}</td>
+                            <td width="150" align="center" {rval data/bgDataColor}>{rval data/SEQ004_REMARK3}</td>
+<!--{/def}--> 
+                            <td width="100" align="center" {rval data/bgDataColor}>{rval data/TAKESEMES}</td>
+                            <td width="300" align="left" {rval data/bgDataColor}>{rval data/btn_subform1}<BR>{rval data/HR_NAMEABBV}</td>
+                            <td width="300" align="left" {rval data/bgDataColor}>{rval data/btn_subform2}<BR>{rval data/STAFFNAME_SHOW1}<BR>{rval data/STAFFNAME_SHOW}</td>
+                            <td width="200" align="center" {rval data/bgDataColor}>{rval data/GROUPCD}</td>
+                            <td width="300" align="left" {rval data/bgDataColor}>{rval data/btn_subform3}<BR>{rval data/FACILITYABBV}</td>
+                            <td width="300" align="left" {rval data/bgDataColor}>{rval data/btn_subform4}<BR>{rval data/TEXTBOOKABBV}</td>
+                            <td width="100" align="center" {rval data/bgDataColor}>{rval data/COUNTFLG}</td>
+                            <td width="100" align="center" {rval data/bgDataColor}>{rval data/STD_CNT}</td>
+<!--{def KEIKOKUTEN_FLAG}--> 
+                            <td width="250" align="left" {rval data/bgDataColor}>{rval data/LESSONCNT}&nbsp;回／週<BR>うち連続授業&nbsp;{rval data/FRAMECNT}&nbsp;時間が１つ</td>
+                            <td width="100" align="center" {rval data/bgDataColor}>{rval data/KEIKOKUTEN_SOTEN}</td>
+                            <td width="100" align="center" {rval data/bgDataColor}>{rval data/KEIKOKUTEN_HYOUKA}</td>
+                            <td width="*" align="center" {rval data/bgDataColor}>{rval data/KEIKOKUTEN_HYOUTEI}</td>
+<!--{/def}--> 
+<!--{def KEIKOKUTEN_NON_FLAG}--> 
+                            <td width="*" align="left" {rval data/bgDataColor}>{rval data/LESSONCNT}&nbsp;回／週<BR>うち連続授業&nbsp;{rval data/FRAMECNT}&nbsp;時間が１つ</td>
+<!--{/def}--> 
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+          <tr class="no_search_line">
+            <th>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}&nbsp;&nbsp;{rval button/btn_csv2}</td>
+                </tr>
+              </table>
+            </th>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+<div id="lay"></div>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

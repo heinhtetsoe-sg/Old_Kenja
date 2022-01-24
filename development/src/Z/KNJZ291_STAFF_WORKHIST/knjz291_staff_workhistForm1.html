@@ -1,0 +1,159 @@
+{rval start}
+
+<br>
+<table style="width: 1140px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+    <table style="width: 100%" border="0" cellspacing="5" cellpadding="1">
+    <tr>
+    <td>
+        <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 100%" border="0" cellpadding="0" cellspacing="1">
+                <tr class="no_search" height="30">
+                    <td align="left" colspan="9">&nbsp;&nbsp;&nbsp;<B>赴任履歴　{rval TOP/STAFFCD}：{rval TOP/STAFFNAME}</B></td>
+                </tr>
+
+                <tr class="no_search" >
+                    <td align="center" width="86px">赴任(入)</td>
+                    <td align="center" width="88px">開始日付</td>
+                    <td align="center" width="252px">学校名</td>
+                    <td align="center" width="106px">課程名</td>
+                    <td align="center" width="85px">赴任(出)</td>
+                    <td align="center" width="88px">終了日付</td>
+                    <td align="center" width="252px">学校名</td>
+                    <td align="center" width="*px">課程名</td>
+                </tr>
+
+            </table>
+
+        </td>
+        </tr>
+        </table>
+
+        <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <div style="width: 100%; height=100; overflow: scroll">
+            <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+            <!--{def data}-->
+            <!--結果一覧-->
+            <!--{each data}-->
+                <tr class="no_search_line" >
+                    <td bgcolor='#ffffff' align="left" width="80px">{rval data/FROM_NAME}</td>
+                    <td bgcolor='#ffffff' align="left" width="80px">{rval data/FROM_DATE}</td>
+                    <td bgcolor='#ffffff' align="left" width="250px">{rval data/FROM_SCHOOLCD}</td>
+                    <td bgcolor='#ffffff' align="left" width="100px">{rval data/FROM_COURSENAME}</td>
+                    <td bgcolor='#ffffff' align="left" width="80px">{rval data/TO_NAME}</td>
+                    <td bgcolor='#ffffff' align="left" width="80px">{rval data/TO_DATE}</td>
+                    <td bgcolor='#ffffff' align="left" width="250px">{rval data/TO_SCHOOLCD}</td>
+                    <td bgcolor='#ffffff' align="left" width="100px">{rval data/TO_COURSENAME}</td>
+                </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+            </div>
+        </td>
+        </tr>
+        </table>
+
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+        <BR><BR><BR><BR>
+        <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search" >
+                    <td align="center" width="179">項目</td>
+                    <td align="center" width="*">値</td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+
+        <div style="width: 100%; ">
+        <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+
+                <tr class="no_search" >
+                    <td align="center" width="30" rowspan="4">赴<BR>任<BR>(入)</td>
+                    <td align="left" width="140">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;※日付</td>
+                    <td bgcolor='#ffffff' align="left" width="*">{rval data2/FROM_DATE}</td>
+                </tr>
+
+                <tr class="no_search" >
+                    <td align="left" width="140">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;※区分</td>
+                    <td bgcolor='#ffffff' align="left" width="*">{rval data2/FROM_DIV}</td>
+                </tr>
+
+                <tr class="no_search" >
+                    <td align="left" width="140">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学校コード</td>
+                    <td bgcolor='#ffffff' align="left" width="*">{rval data2/FROM_SCHOOLCD}</td>
+                </tr>
+
+                <tr class="no_search" >
+                    <td align="left" width="140">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;課程</td>
+                    <td bgcolor='#ffffff' align="left" width="*">{rval data2/FROM_COURSECD}</td>
+                </tr>
+
+                <tr class="no_search" >
+                    <td align="center" width="30" rowspan="4">赴<BR>任<BR>(出)</td>
+                    <td align="left" width="140">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日付</td>
+                    <td bgcolor='#ffffff' align="left" width="*">{rval data2/TO_DATE}</td>
+                </tr>
+
+                <tr class="no_search" >
+                    <td align="left" width="140">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区分</td>
+                    <td bgcolor='#ffffff' align="left" width="*">{rval data2/TO_DIV}</td>
+                </tr>
+
+                <tr class="no_search" >
+                    <td align="left" width="140">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学校コード</td>
+                    <td bgcolor='#ffffff' align="left" width="*">{rval data2/TO_SCHOOLCD}</td>
+                </tr>
+
+                <tr class="no_search" >
+                    <td align="left" width="140">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;課程</td>
+                    <td bgcolor='#ffffff' align="left" width="*">{rval data2/TO_COURSECD}</td>
+                </tr>
+
+            </table>
+        </td>
+        </tr>
+        </table>
+        </div>
+
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+        <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search" >
+                    <td>&nbsp;&nbsp;&nbsp;{rval button/btn_insert}{rval button/btn_updte}{rval button/btn_delete}{rval button/btn_end}</td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+
+    </table>
+</td>
+</tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

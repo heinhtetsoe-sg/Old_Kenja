@@ -1,0 +1,122 @@
+{rval start}
+{rval IFRAME}
+
+<br>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="300" nowrap bgcolor="#00FFFF" align="center">
+            <b><font size="3" color="#000080">入学前の病気・けがなどの入院歴</font></b>
+          </td>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr colspan="2">
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <div style="width:810;height:300;overflow-x:scroll;overflow-y:scroll">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="center" nowrap width="20" height="25">削<br>除<br>{val CHECKALL}</th>
+                            <th align="center" nowrap width="40" height="25">No.</th>
+                            <th align="center" nowrap width="150" height="25">病　名</th>
+                            <th align="center" nowrap width="210" height="25">期　間</th>
+                            <th align="center" nowrap width="360" height="25">経　過</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="780" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table id="list" width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--結果一覧--><!--{def data}--><!--{each data}-->
+                          <tr bgcolor="#ffffff">
+                            <td nowrap width="20" align="center">{val data/CHECKED}</td>
+                            <td nowrap width="40" align="center"><a href="knjf160index.php?cmd=subform1A&SEQ={val data/SEQ}" target="">{val data/SEQ}</a></td>
+                            <td nowrap width="150">{val data/DISEASE}</td>
+                            <td nowrap width="210">&nbsp;{val data/PERIOD}</td>
+                            <td nowrap width="360">{val data/SITUATION}</td>
+                          </tr>
+                          <!--{/each}--><!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="50%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                          <tr>
+                            <th align="center" class="no_search" nowrap width="100" height="25">No.</th>
+                            <td align="left" bgcolor="#ffffff" nowrap>{val data1/SEQ}</td>
+                          </tr>
+                          <tr>
+                            <th align="center" class="no_search" nowrap width="100" height="25">病名</th>
+                            <td align="left" bgcolor="#ffffff" nowrap>{val data1/DISEASE}</td>
+                          </tr>
+                          <tr>
+                            <th align="center"  class="no_search" nowrap width="100">期間</th>
+                            <td align="left" bgcolor="#ffffff" nowrap>{val data1/S_YEAR} 年 {val data1/S_MONTH} 月 ～ {val data1/E_YEAR} 年 {val data1/E_MONTH} 月</td>
+                          </tr>
+                          <tr>
+                            <th align="center" class="no_search" nowrap width="100" height="25">経過</th>
+                            <td align="left" bgcolor="#ffffff" nowrap>{val data1/SITUATION}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!--{def button}-->
+        <tr>
+          <td>
+            　　　　　{rval button/btn_insert}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}
+          </td>
+        </tr>
+        <!--{/def}-->
+
+      </table>
+    </td>
+  </tr>
+</table>
+<div id="lay"></div>
+{rval finish}

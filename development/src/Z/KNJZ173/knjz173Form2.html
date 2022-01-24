@@ -1,0 +1,118 @@
+{rval IFRAME}
+{rval start}
+<table width="500px" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="20%">項 目</th>
+                      <th width="80%">値</th>
+                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※皆勤コード</th>
+                      <td bgcolor="#ffffff">{rval data/KAIKIN_CD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※区分</th>
+                      <td bgcolor="#ffffff">{rval data/KAIKIN_DIV1}&nbsp;<span id="KAIKIN_DIV1">皆勤</span>{rval data/KAIKIN_DIV2}&nbsp;<span id="KAIKIN_DIV2">精勤</span></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※皆勤名称</th>
+                      <td bgcolor="#ffffff">{rval data/KAIKIN_NAME}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※参照年数</th>
+                      <td bgcolor="#ffffff">{rval data/REF_YEAR}ヵ年</td>
+                    </tr>
+                    <tr>
+                      <th rowspan="2" align="right" class="no_search" nowrap>※取得対象学年</th>
+                      <td bgcolor="#ffffff">{rval data/SET_PREFATTEND_GRADE1}&nbsp;<span id="SET_PREFATTEND_GRADE1">指定する</span>{rval data/SET_PREFATTEND_GRADE2}&nbsp;<span id="SET_PREFATTEND_GRADE2">指定しない</span></td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff" nowrap>
+                        <table>
+<!--{each checkboxes}-->
+                            <!--{def checkboxes/TR}-->
+                            <tr>
+                            <!--{/def}-->
+                            <td>
+                            {rval checkboxes/CHKBOX}<LABEL for={rval checkboxes/ID}>{rval checkboxes/NAME}</LABEL>
+                            {rval checkboxes/BR}
+                            </td>
+                            <!--{def checkboxes/TR_END}-->
+                            </tr>
+                            <!--{/def}-->
+<!--{/each}-->
+                        </table>
+                      </td>
+                    </tr>
+<!--{def KNJZ173_DISPPATTERN_UNUSED}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※欠席</th>
+                      <td bgcolor="#ffffff">{rval data/KESSEKI_CONDITION}日以下</td>
+                    </tr>
+                    <tr>
+                      <th rowspan="2" align="right" class="no_search" nowrap>※遅刻・早退</th>
+                      <td bgcolor="#ffffff">{rval data/LE_EXCHGTYPE}</td>
+                    </tr>
+                    <tr>
+<!--{def TYPE_EXC1}-->
+                      <td bgcolor="#ffffff">遅刻{rval data/KESSEKI_KANSAN}回で欠席1日に換算</td>
+<!--{/def}-->
+<!--{def TYPE_EXC2}-->
+                      <td bgcolor="#ffffff">遅刻{rval data/TIKOKU_CONDITION}回以下又は早退{rval data/SOUTAI_CONDITION}回以下で欠席1日に換算</td>
+<!--{/def}-->
+                    </tr>
+
+                    <tr>
+                      <th align="right" class="no_search" nowrap>欠課時数</th>
+                      <td bgcolor="#ffffff">{rval data/KEKKA_JISU_CONDITION}以下</td>
+                    </tr>
+<!--{/def}-->
+<!--{def KNJZ173_DISPPATTERN_1}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※勤怠</th>
+                      <td bgcolor="#ffffff">欠席・遅刻・早退・欠課の合計が{rval data/KESSEKI_CONDITION}以下</td>
+                    </tr>
+<!--{/def}-->
+<!--{def KNJZ173_DISPPATTERN_2}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※勤怠</th>
+                      <td bgcolor="#ffffff">各年度で集計した情報を元に、指定年で皆勤=皆勤、指定年で【皆勤/精勤 混合】=精勤 </td>
+                    </tr>
+<!--{/def}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※優先順位</th>
+                      <td bgcolor="#ffffff">{rval data/PRIORITY}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>今年度使用する</th>
+                      <td bgcolor="#ffffff">{rval data/KAIKIN_FLG}</td>
+                    </tr>
+<!--{/def}-->
+<!--{def button}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}</td>
+                    </tr>
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

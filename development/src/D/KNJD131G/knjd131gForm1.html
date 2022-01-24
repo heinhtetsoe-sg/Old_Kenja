@@ -1,0 +1,224 @@
+{rval start} 
+{rval IFRAME}
+<style type="text/css">
+#tyousei {
+    height : 66px;
+}
+</style>
+
+<!--[if IE 6]>
+<style type="text/css">
+#tyousei {
+    height : 69px;
+}
+</style>
+<![endif]-->
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search">
+<!--{def 3gakki}-->
+                          <th class="no_search" align="left">
+                            <b>　　　　　　　　　　　　　　　　　　　　　　　　　{rval YEAR}　　{rval SEMESTER}　　クラス&nbsp;{rval GRADE_HR_CLASS}</b>
+                          </th>
+<!--{/def}-->
+<!--{def 2gakki}-->
+                          <th class="no_search" align="center">
+                            <b>{rval YEAR}　　{rval SEMESTER}　　クラス&nbsp;{rval GRADE_HR_CLASS}</b>
+                          </th>
+<!--{/def}-->
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+
+          <tr>
+
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" id="tyousei">
+                        <th width="100">学籍番号</th>
+                        <th width="*">氏名</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+
+            <td>
+            <div id="trow" style="overflow:hidden; width: 737px; height; 1em;">
+        <!--{def 2gakki}-->
+                <div style="width: 1500px; height:1em;">
+        <!--{/def}-->
+        <!--{def 3gakki}-->
+                <div style="width: 2080px; height:1em;">
+        <!--{/def}-->
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+
+                    <tr class="no_search" align="center">
+                      <th width="180" height="66">特別活動の記録<BR><font size=2, color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(全角で 10文字X10行)</font></th>
+<!--{def setD}-->
+                      <th width="180">総合的な学習の時間<BR><font size=2, color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(全角で 10文字X10行)</font></th>
+        <!--{def 3gakki}-->
+                      <th width="560">通信欄（1学期）<BR><font size=2, color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(全角で 35文字X3行)</th>
+                      <th width="560">通信欄（2学期）<BR><font size=2, color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(全角で 35文字X3行)</th>
+                      <th width="*">通信欄（3学期）<BR><font size=2, color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(全角で 35文字X3行)</th>
+        <!--{/def}-->
+        <!--{def 2gakki}-->
+                      <th width="560">通信欄（前期）<BR><font size=2, color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(全角で 35文字X3行)</th>
+                      <th width="*">通信欄（後期）<BR><font size=2, color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(全角で 35文字X3行)</th>
+        <!--{/def}-->
+<!--{/def}-->
+                    </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+          <tr valign="TOP">
+
+            <td>
+            <div id="tcol" style="overflow: hidden; width: 240px; height: 432px;">
+                <div style="width: 240px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr height="153" class="no_search">
+                          <td width="100" align="center" bgcolor="#ffffff"><font color="#000000">{rval data/SCHREGNO}</font></td>
+                          <td width="*" bgcolor="#ffffff">&nbsp;<font color="#000000">{rval data/NAME_SHOW}</font></td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
+            </div>
+            </td>
+
+            <td>
+            <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 755px; height: 450px;">
+        <!--{def 2gakki}-->
+                <div style="width: 1500px;">
+        <!--{/def}-->
+        <!--{def 3gakki}-->
+                <div style="width: 2080px;">
+        <!--{/def}-->
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr height="*">
+                          <td width="180" bgcolor="#ffffff">{rval data/SPECIALACTREMARK}</td>
+    <!--{def setD}-->
+                          <td width="180" bgcolor="#ffffff">{rval data/TOTALSTUDYTIME}</td>
+            <!--{def 3gakki}-->
+                          <td width="560" bgcolor="#ffffff">{rval data/COMMUNICATION1}</td>
+                          <td width="560" bgcolor="#ffffff">{rval data/COMMUNICATION2}</td>
+                          <td width="*" bgcolor="#ffffff">{rval data/COMMUNICATION3}</td>
+            <!--{/def}-->
+            <!--{def 2gakki}-->
+                          <td width="560" bgcolor="#ffffff">{rval data/COMMUNICATION1}</td>
+                          <td width="*" bgcolor="#ffffff">{rval data/COMMUNICATION2}</td>
+            <!--{/def}-->
+    <!--{/def}-->
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{def 3gakki}-->
+                    <tr class="no_search" heignt="25">
+                      <th nowrap align="left">　　　　　　　　　　　　　　　　　　　　　　　　　{rval button/btn_update}　{rval button/btn_clear}　{rval button/btn_end}　　{rval button/btn_csv}</th>
+                    </tr>
+<!--{/def}-->
+<!--{def 2gakki}-->
+                    <tr class="no_search" heignt="25">
+                      <th nowrap align="center">{rval button/btn_update}　{rval button/btn_clear}　{rval button/btn_end}　　{rval button/btn_csv}</th>
+                    </tr>
+<!--{/def}-->
+
+                  </table>
+                  </td>
+                </tr>
+            </table>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish} 
+<script language="JavaScript">{rval jscript}{rval Closing}</script>

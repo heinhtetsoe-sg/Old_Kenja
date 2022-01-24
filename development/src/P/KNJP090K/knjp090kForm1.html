@@ -1,0 +1,74 @@
+{rval start} 
+<br><br><br><br>
+<table style="width: 530px" border="0" cellpadding="10" cellspacing="10" align="center">
+  <tr>
+    <td>
+    <table style="width: 530px" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line">
+        <td>
+        <table style="width: 530px" border="0" cellspacing="1" cellpadding="4">
+          <tr class="no_search" height="35">
+            <td colspan="2" nowrap style="width: 500px">&nbsp;&nbsp;処理年度&nbsp;&nbsp;{rval data/YEAR}年度</td>
+          </tr>
+          <tr bgcolor="#ffffff" height="50">
+            <td  nowrap style="width: 500px"><br>
+                                            &nbsp;&nbsp;&nbsp;銀行入金データ取込処理　{rval button/btn_p091k}<BR>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ファイル名：{rval data/FILE}
+            </td>
+            <td nowrap style="width: 30px" valign="bottom">{rval button/BTN_OK1}</td>
+          </tr>
+          <tr class="no_search" height="35">
+            <td colspan="2">&nbsp;&nbsp;&nbsp;前回実行：{rval data/PROCESS1_UPDATED}<br>
+                            &nbsp;&nbsp;&nbsp;処理件数：{rval data/PROCESS1_STS}
+                            &nbsp;&nbsp;&nbsp;&nbsp;エラー件数：{rval data/ERRCNT1}
+            </td>
+          </tr>
+          <tr bgcolor="#ffffff" height="50">
+            <td nowrap style="width: 500px" valign="middle"><br>
+                                            &nbsp;&nbsp;&nbsp;銀行入金データ消込更新処理<br><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;入金月：{rval data/PAID_MONTH}<br><br>
+<!-- NO003
+                                            &nbsp;&nbsp;入金日：{rval data/PAID_DAY}<br><br>
+-->
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            指定された入金月以前のデータを対象に処理を行ないます。<br>
+            </td>
+            <td nowrap style="width: 30px" valign="bottom">{rval button/BTN_OK2}</td>
+          </tr>
+          <tr class="no_search" height="35">
+            <td colspan="2">&nbsp;&nbsp;&nbsp;前回実行：{rval data/PROCESS2_UPDATED}<br>
+                            &nbsp;&nbsp;&nbsp;処理件数：{rval data/PROCESS2_STS}
+                            &nbsp;&nbsp;&nbsp;&nbsp;エラー件数：{rval data/ERRCNT2}
+            </td>
+          </tr>
+          <tr bgcolor="#ffffff" height="50">
+            <td nowrap style="width: 500px" valign="middle"><br>
+                                            &nbsp;&nbsp;&nbsp;登録銀行データ取込更新処理<br><br>
+                                            &nbsp;&nbsp;&nbsp;○銀行マスタ及び、生徒登録銀行データの追加・更新<br><br>
+<!-- NO004
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;銀行コード：{rval data/BANKCD}<br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;支店コード：{rval data/BRANCHCD}<br><br>
+-->
+            </td>
+            <td nowrap style="width: 30px" valign="bottom">{rval button/BTN_OK3}</td>
+          </tr>
+          <tr class="no_search" height="35" >
+            <td colspan="2">&nbsp;&nbsp;&nbsp;前回実行：{rval data/PROCESS3_UPDATED}<br>
+                            &nbsp;&nbsp;&nbsp;生徒登録銀行データ処理件数：{rval data/PROCESS3_STS}
+                            &nbsp;&nbsp;&nbsp;&nbsp;エラー件数：{rval data/ERRCNT3}
+            </td>
+          </tr>
+          <!--{def button}-->
+          <tr class="no_search" height="30">
+            <td colspan="2" bgcolor="#ffffff" align="right">{rval button/BTN_CLEAR}</td>
+          </tr>
+          <!--{/def}-->
+        </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+<script language="JavaScript">{rval check}{rval jscript}{rval error}{rval max_semes_cl}</script>
+{rval finish} 

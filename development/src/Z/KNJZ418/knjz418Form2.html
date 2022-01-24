@@ -1,0 +1,63 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:30px;">
+  <tr>
+  <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr>
+      <td >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+          <table width="100%" border="0" cellspacing="1" cellpadding="5">
+<!--結果一覧-->
+<!--{def data}-->
+          <tr height="*">
+            <th width="150" align="right" class="no_search" nowrap>中分類コード</th>
+            <td bgcolor="#ffffff" nowrap>{rval data/JOBTYPE_L_MCD}</td>
+          </tr>
+<!--{/def}-->
+          </table>
+        </td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:10px;">
+        <tr class="no_search_line">
+        <td>
+          <table width="100%" border="0" cellspacing="1" cellpadding="5">
+          <tr height="25" class="no_search">
+            <th width="150" nowrap>項目</th>
+            <th width="*">値</th>
+          </tr>
+<!--結果一覧-->
+<!--{def data}-->
+          <tr height="*">
+            <th align="right" class="no_search" nowrap>※小分類コード</th>
+            <td bgcolor="#ffffff">{rval data/JOBTYPE_SCD}<br><font size=2, color="red">(※半角3文字)</font></td>
+          </tr>
+          <tr height="*">
+            <th align="right" class="no_search" nowrap>小分類名称</th>
+            <td bgcolor="#ffffff">{rval data/JOBTYPE_SNAME}<br><font size=2, color="red">(※全角50文字)</font></td>
+          </tr>
+          <tr height="*">
+            <th align="right" class="no_search" nowrap>小分類名称かな</th>
+            <td bgcolor="#ffffff">{rval data/JOBTYPE_SNAME_KANA}<br><font size=2, color="red">(※全角100文字)</font></td>
+          </tr>
+<!--{/def}-->
+<!--{def button}-->
+          <tr height="*">
+            <th align="right" class="no_search" nowrap>　</th>
+            <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+          </tr>
+<!--{/def}-->
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

@@ -1,0 +1,132 @@
+{rval start} 
+
+<table height="2%">
+  <tr> 
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<table style="width: 700px" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+                    <tr class="no_search" height="25"> 
+                      <th>返却資料の印刷</th>
+                    </tr>
+                    
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3">
+
+                    <tr bgcolor="#ffffff" height="25"> 
+                      <th>{rval CTRL_YEAR}年度　　試験日：{rval EXAM_DATE}<hr width="60%"></hr></th>
+                    </tr>
+                    
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3">
+
+                    <tr bgcolor="#ffffff" height="25"> 
+                      <th align="left">表示対象：{rval KUBUN}</th>
+                    </tr>
+                    
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        
+
+      </table>
+    </td>
+  </tr>
+</table>
+
+<table style="width: 700px" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="2">
+
+                    <tr class="no_search" height="25"> 
+                      <th width="40px">{rval ALL_CHECK}</th>
+                      <th width="90px">受験番号</th>
+                      <th width="150px">氏名</th>
+                      <th width="270px">中学校名</th>
+                      <th width="50px">区分</th>
+                      <th>得点</th>
+                      <th width="12px"></th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td> 
+                 <div style="max-height: 500px; overflow-y:scroll;" >
+                  <table width="100%" border="0" cellspacing="1" cellpadding="2">
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td width="40px" align="center">{rval data/CHECK}</td>
+                      <td width="90px">{rval data/SAT_NO}</td>
+                      <td width="150px">{rval data/NAME1}</td>
+                      <td width="270px">{rval data/FINSCHOOL_NAME}</td>
+                      <td width="50px" align="center">{rval data/KUBUN_NAME}</td>
+                      <td align="right">{rval data/SCORE_TOTAL}</td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                 </div>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="2">
+                    <tr class="no_search" height="25" align="center"> 
+                      <th colspan="5">{rval btn_exec}　　{rval btn_end}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+    
+
+</table>
+<script language="JavaScript">{rval jscript}</script>
+
+{rval finish} 

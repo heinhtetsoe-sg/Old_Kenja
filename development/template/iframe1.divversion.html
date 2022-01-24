@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>{val TITLE}</title>
+<link rel="stylesheet" href="/development/common/split-pane.css" />
+<script src="/development/common/js/jquery-1.11.0.min.js"></script>
+<script src="/development/common/js/split-pane.js"></script>
+<style type="text/css">
+<--
+html,body{
+    margin:0;
+    padding:0;
+    min-height:100%;
+    height:100%;
+    marginheight:0;
+    marginwidth:0;
+}
+.split-pane-divider {
+	background: #aaa;
+}
+#left_component{
+    width:20em;
+}
+#my-divider{
+    left:20em;
+    width: 5px;
+}
+#right_component{
+    left:20em;
+    margin-left: 5px;
+    overflow-x:hidden;
+    overflow-y:hidden;
+}
+-->
+</style>
+<script>
+$(function() {
+   $("div.split-pane").splitPane();
+   $("#left_component").load("{val left_src}");
+});
+</script>
+</head>
+<body>
+  <div class="split-pane fixed-left">
+    <div class="split-pane-component"  id="left_component" >
+    </div>
+    <div class="split-pane-divider" id="my-divider"></div>
+    <div class="split-pane-component"  id="right_component" >
+    <iframe id="right_frame" name="right_frame" width="100%" height="100%"  marginheight="0" marginwidth="0" src="{val right_src}"></iframe>
+  	</div>
+  </div>
+</body>
+</html>

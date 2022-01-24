@@ -1,0 +1,61 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr >
+    <td >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search">
+                <th nowrap align="left" width="*%" height="30">
+                  　　対象年度：{rval YEAR}
+                  　　　　　　{rval YEAR_DISP}年度に{rval COPY_YEAR}年度の校種設定を{rval COPY_BTN}
+                </th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th nowrap width="100px" nowrap>部クラブ<br>コード</th>
+                      <th nowrap width="250px">部クラブ名</th>
+                      <!--{each kindData}--> 
+                      <th nowrap width="80px">{rval kindData/TITLE_KIND}</th>
+                      <!--{/each}--> 
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}--> 
+                    <tr bgcolor="#ffffff"> 
+                        <td nowrap align="center"><a href="knjj010_3index.php?cmd=edit&YEAR={rval data/YEAR}&CLUBCD={rval data/CLUBCD}&SCHKIND={rval data/SCHOOL_KIND}" target="right_frame">{rval data/CLUBCD}</a></td>
+                        <td nowrap>{rval data/CLUBNAME}</td>
+                        <!--{each data/kindData}--> 
+                        <td nowrap align="center">{rval data/kindData/KIND_MARK}</th>
+                        <!--{/each}--> 
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<script language="javascript">{rval reload}</script>
+{rval finish}

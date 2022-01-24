@@ -1,0 +1,22 @@
+-- kanji=漢字
+-- $Id: c114d7f2a7c927fdbd2f85bd628f60b1b0136274 $
+
+-- 注意:このファイルは EUC/LFのみ でなければならない。
+-- 適用方法:
+--    1.データベース接続
+--    2.db2 +c -f <このファイル>
+--    3.コミットするなら、db2 +c commit。やり直すなら、db2 +c rollback
+--
+
+DROP TABLE QUESTIONNAIRE_MST
+
+CREATE TABLE QUESTIONNAIRE_MST \
+(  \
+    QUESTIONNAIRECD   VARCHAR(2) NOT NULL, \
+    QUESTIONNAIRENAME VARCHAR(120), \
+    REGISTERCD        VARCHAR(8), \
+    UPDATED           TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE QUESTIONNAIRE_MST ADD CONSTRAINT PK_QUESTIONNAIRE_M \
+PRIMARY KEY (QUESTIONNAIRECD)

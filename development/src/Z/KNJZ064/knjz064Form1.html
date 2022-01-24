@@ -1,0 +1,64 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th width="30%" class="no_search" nowrap><b>年度</b></td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval YEAR}　　{rval button/btn_copy}</td>
+                    </tr>
+                    <tr>
+                      <th width="30%" class="no_search" nowrap><b>学部</b></td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval SCHOOL_KIND}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="10"></td>
+        </tr>
+        <tr>
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="30%" nowrap><b>状態区分</b></th>
+                      <th width="70%" nowrap><b>科目</b></th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/ROWSPAN}-->
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN}><a href="knjz064index.php?cmd=edit&CONDITION={val data/CONDITION}" target="right_frame">{val data/CONDITION_SHOW}</a></td>
+                      <!--{/def}-->
+                      <td nowrap bgcolor="#ffffff">{val data/SUBCLASS}</td>
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+   </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

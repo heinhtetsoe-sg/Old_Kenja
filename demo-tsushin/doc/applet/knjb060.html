@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 7.0.0.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+<STYLE type="text/css">
+<!--
+@import url(default.ja.css);
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1>時間割反映(KNJB060)</H1>
+<H2>基本時間割を選択し、日付（範囲）を指定して、通常時間割に適用する。</H2>
+<TABLE border="1">
+  <CAPTION>パラメータ</CAPTION>
+  <TBODY>
+    <TR>
+      <TD>職員コード</TD>
+      <TD>staffcd</TD>
+      <TD>999999</TD>
+    </TR>
+    <TR>
+      <TD>年度</TD>
+      <TD>year</TD>
+      <TD>2004</TD>
+    </TR>
+    <TR>
+      <TD>学期</TD>
+      <TD>semester</TD>
+      <TD>1</TD>
+    </TR>
+    <TR>
+      <TD>DB名</TD>
+      <TD>dbname</TD>
+      <TD><BR>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<H3>画面イメージ</H3>
+<BLOCKQUOTE>
+<TABLE border="1" width="825">
+  <TBODY>
+    <TR>
+      <TD>
+      <FORM>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD nowrap>対象年度／学期<BR>
+            <INPUT size="5" type="text" disabled readonly value="2004">年度 <INPUT size="2" type="text" disabled readonly value="3">学期</TD>
+            <TD>SEQ:タイトル<BR>
+            <SELECT name="asdf">
+              <OPTION>１：基本時間割１　　　　　　　　　　　　</OPTION>
+            </SELECT></TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      <BR>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD><B>反映区分</B> <SELECT size="1">
+              <OPTION>通常</OPTION>
+              <OPTION>１週間おき</OPTION>
+              <OPTION>2週間おき</OPTION>
+            </SELECT><BR>
+            <BR>
+            <B>適用期間</B>(xxxx年xx月xx日 ～ xxxx年xx月xx日)<BR>
+            <INPUT type="submit" value="2004/04/01">
+            ～ <INPUT type="submit" value="2004/07/31"><BR>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      <BR>
+      <INPUT type="submit" value="時間割反映"> <INPUT type="submit" value="キャンセル"> <INPUT type="submit" value="終了"><BR>
+      <BR>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TH nowrap>実施日時</TH>
+            <TH nowrap>反映区分</TH>
+            <TH nowrap>適用期間</TH>
+            <TH nowrap>適用パターン<BR>
+            (SEQ/タイトル)</TH>
+            <TD rowspan="7" width="16">ここは縦スクロールバー</TD>
+          </TR>
+          <TR>
+            <TD nowrap>2003/10/01 18:00:00</TD>
+            <TD>１週間おき</TD>
+            <TD nowrap>2003/10/06 ～ 2003/10/11</TD>
+            <TD>1:基本時間割１</TD>
+          </TR>
+          <TR>
+            <TD>2003/09/25 19:45:38</TD>
+            <TD>通常</TD>
+            <TD>2003/10/06 ～ 2003/10/11</TD>
+            <TD>3:あああ時間割a</TD>
+          </TR>
+          <TR>
+            <TD>2003/09/01 20:15:59</TD>
+            <TD>2週間おき</TD>
+            <TD>2003/10/06 ～ 2003/10/11</TD>
+            <TD>2:いいい</TD>
+          </TR>
+          <TR>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+          </TR>
+          <TR>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+          </TR>
+          <TR>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </FORM>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<P><BR>
+</P>
+<H3>主な関連テーブル</H3>
+<UL type="circle">
+  <LI>sch_ptrn_dat
+  <LI>sch_ptrn_hdat
+  <LI>sch_chr_dat
+  <LI>chair_dat
+</UL>
+<H4>メニューバー</H4>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD align="center"><B>ファイル(F)</B></TD>
+      <TD align="center"><B>情報(I)</B></TD>
+    </TR>
+    <TR>
+      <TD>反映(S)</TD>
+      <TD>時間割反映について．．．(About)</TD>
+    </TR>
+    <TR>
+      <TD>終了(X)</TD>
+      <TD><BR>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<H4>メインエリア</H4>
+<UL>
+  <LI>実施日時の時間は「時間割反映」ボタンを押下した瞬間の時刻である
+  <LI>実施日時が昇順でソートされている
+  <LI>初期表示時は最新のレコードが見えるようにする（最下行）
+  <LI>適用期間は学期の範囲となる為、その学期の範囲を表示し、その範囲を超えた場合はワーニングダイアログを表示。
+  <LI>反映区分は以下の通り
+  <UL>
+    <LI>通常
+    <LI>1週間おき
+    <LI>2週間おき
+  </UL>
+</UL>
+  <H4>「時間割反映」ボタン</H4>
+<UL>
+  <LI>押下により、時間割反映処理が走る<BR>
+  進捗状態を表すため、プログレスバーなどを表示する
+  <LI>時間割反映が完了したら、完了の旨のメッセージを表示する（ダイアログ）
+</UL>
+<H4>「キャンセル」ボタン</H4>
+<UL>
+  <LI>時間割反映中にのみ押下可能。<BR>
+  押下により、反映を中止し、rollback する。
+</UL>
+<H4>その他</H4>
+<UL>
+  <LI>祝祭日マスタの日は適用の対象外とする
+  <LI>出欠済みのマスは対象外とする（時間割講座データ．実施区分）
+  <LI>通常時間割で指定したマスは対象外とする（時間割講座データ．データ区分）
+  
+</UL>
+</BODY>
+</HTML>

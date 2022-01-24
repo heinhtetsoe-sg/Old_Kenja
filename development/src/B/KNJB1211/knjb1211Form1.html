@@ -1,0 +1,56 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr></tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td nowrap width="50%" align="center">対象年度：{rval YEAR} {rval btn_year_add}<!--{def school_kind}--> 校種：{rval SCHOOL_KIND}<!--{/def}--></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="30%">科目コード</th>
+                      <th nowrap width="55%">科目名</th>
+                      <th nowrap width="15%">件数</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td bgcolor="#ffffff" align ="center" nowrap>{rval data/CLASSCD}-{rval data/SCHOOL_KIND}-{rval data/CURRICULUM_CD}-{rval data/SUBCLASSCD}</td>
+                      <td bgcolor="#ffffff" nowrap>&nbsp;{rval data/SUBCLASSNAME}</td>
+                      <td bgcolor="#ffffff" align ="right" nowrap>{rval data/TEXT_CNT}件&nbsp;</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

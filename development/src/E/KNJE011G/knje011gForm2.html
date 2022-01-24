@@ -1,0 +1,212 @@
+<!-- knje011gForm2.html -->
+{rval start}
+{rval IFRAME}
+<style>
+.tref {
+    {rval SHOJIKOU_STYLE}
+    overflow-x:auto;
+    border: 1px solid gray;
+}
+.title {
+    font-size: 1.2em;
+    padding: 3px;
+}
+
+* {
+    border-spacing: 0px;
+}
+
+table.tab tr th {
+    border: 1px solid gray;
+    border-collapse: collapse;
+    padding: 1px;
+}
+
+table.tab tr td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+    padding: 1px;
+}
+
+.tab {
+    margin-top: 5px;
+}
+
+.red {
+    color: red;
+    font-size: 0.9em;
+}
+
+td {
+  vertical-align: top;
+}
+
+.btn_torikomi {
+    color: #1E90FF;
+    /* font-weight: bold; */
+}
+
+</style>
+<table width="1050" style="margin-left: 4px;">
+  <tbody>
+    <tr>
+      <td nowrap>
+      <table width="100%">
+        <tbody>
+          <tr>
+           <td width="50%">
+            <hr>{rval NAME_SHOW}<hr>
+           </td>
+           <td align="right" width="50%">&nbsp;</td>
+          </tr>
+          <tr class="no_search">
+            <td {rval COLSPAN_CHANGE}>
+              <table width="100%">
+                <tbody>
+                  <tr bgcolor="#ffffff">
+                    <th class="no_search" width="15%">学年(年次)</th>
+                    <td>
+                      <table width="100%">
+                        <tbody>
+                          <tr>
+                            <td align="left">{rval ANNUAL}
+                            <!--{def addYear}-->
+                            　{rval ADD_YEAR}　{rval ADD_YEAR_GRADE}　{rval btn_add_year}
+                            <!--{/def}-->
+                            </td>
+                            <td align="right">{rval btn_reload2}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td {rval COLSPAN_CHANGE}>
+            <table width="100%" style="border: 1px solid #eeeeee; background-color: #ffffff;" >
+              <tbody>
+
+                <tr bgcolor="#ffffff">
+                  <td>
+                    <table class="tab" width="100%">
+                      <tr class="no_search">
+                        <th class="title">６．特別活動の記録</th>
+                      </tr>
+                      <tr style="background-color: #ffffff;">
+                        <td><div>{rval SPECIALACTREC}</div>
+                            <div class="red">{rval SPECIALACTREC_TYUI}</div>
+                            {rval btn_committee}{rval btn_club_spe}{rval btn_hyosyo_spe}{rval button/btn_special_activity_sele}<!--{def isKoma}-->{rval btn_marathon}{rval btn_rouhatsu}<!--{/def}-->
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <tr bgcolor="#ffffff">
+                  <td>
+                    <table class="tab" width="100%" style="border: 1px solid; padding: 3px 0px; border-collapse: collapse;">
+                      <tr class="no_search">
+                        <th>
+                          <table width="100%" style=" padding: 3px 0px; border: none;">
+                            <tr class="no_search">
+                              <th width="33%" style="border: none;"></th>
+                              <th width="*" style="border:none;" class="title">７．指導上参考となる諸事項</th>
+                              <th width="33%" style="border:none; text-align: right;">{rval btn_formShojikouTori}</th>
+                            </tr>
+                          </table>
+                      </tr>
+                      <tr bgcolor="#ffffff" height="60">
+                        <td style="padding: 4px;">
+                            <div class="red">指導要録データ</div>
+                      <!--{def seitoSidoYorokuSogoShoken3Bunkatsu}-->
+                          <table>
+                              <tbody>
+                                  <tr class="no_search">
+                                      <th style="border: 1px solid black; text-align: left">(1)学習における特徴等<br/>(2)行動の特徴、特技等</th>
+                                      <th style="border: 1px solid black; text-align: left">(3)部活動、ボランティア活動等<br/>(4)取得資格、検定等</th>
+                                      <th style="border: 1px solid black; text-align: left">(5)その他</th>
+                                  </tr>
+                                  <tr>
+                                      <td>{rval YOROKU_TRAIN_REF1}</td>
+                                      <td>{rval YOROKU_TRAIN_REF2}</td>
+                                      <td>{rval YOROKU_TRAIN_REF3}</td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      <!--{/def}-->
+                      <!--{def not_seitoSidoYorokuSogoShoken3Bunkatsu}-->
+                          <div>{rval TOTALREMARK}</div>
+                      <!--{/def}-->
+                        </td>
+                      </tr>
+                      <tr bgcolor="#ffffff">
+                        <td>
+
+                          <table width="100%" style="border: 1px solid black; border-collapse: collapse;">
+                            <tr class="no_search" align="left">
+                              <th>　(1)学習における特徴等</th>
+                              <th>　(2)行動の特徴，特技等</th>
+                              <th>　(3)部活動，ボランティア活動，<br>留学・海外経験等</th>
+                            </tr>
+                            <tr bgcolor="#ffffff">
+                              <td><div class="tref">{rval TRAIN_REF1}</div><div class="red">{rval TRAIN_REF1_COMMENT}</div><div>{rval TRAIN_REF1_NO_COMM}<LABEL for="TRAIN_REF1_NO_COMM">{rval NO_COMMENTS_LABEL}</LABEL></div></td>
+                              <td><div class="tref">{rval TRAIN_REF2}</div><div class="red">{rval TRAIN_REF2_COMMENT}</div><div>{rval TRAIN_REF2_NO_COMM}<LABEL for="TRAIN_REF2_NO_COMM">{rval NO_COMMENTS_LABEL}</LABEL></div></td>
+                              <td><div class="tref">{rval TRAIN_REF3}</div><div class="red">{rval TRAIN_REF3_COMMENT}</div><div>{rval TRAIN_REF3_NO_COMM}<LABEL for="TRAIN_REF3_NO_COMM">{rval NO_COMMENTS_LABEL}</LABEL></div>{rval btn_club_tra3}{rval btn_club_kirokubikou_tra3}</td>
+                            </tr>
+                            <tr class="no_search" align="left">
+                              <th>　(4)取得資格，検定等</th>
+                              <th>　(5)表彰・顕彰等の記録</th>
+                              <th>　(6)その他</th>
+                            </tr>
+                            <tr bgcolor="#ffffff">
+                              <td><div class="tref">{rval TRAIN_REF4}</div><div class="red">{rval TRAIN_REF4_COMMENT}</div><div>{rval TRAIN_REF4_NO_COMM}<LABEL for="TRAIN_REF4_NO_COMM">{rval NO_COMMENTS_LABEL}</LABEL></div>{rval btn_qualified}</td>
+                              <td><div class="tref">{rval TRAIN_REF5}</div><div class="red">{rval TRAIN_REF5_COMMENT}</div><div>{rval TRAIN_REF5_NO_COMM}<LABEL for="TRAIN_REF5_NO_COMM">{rval NO_COMMENTS_LABEL}</LABEL></div>{rval btn_hyosyo_tra5}{rval btn_club_kirokubikou_tra5}</td>
+                              <td><div class="tref">{rval TRAIN_REF6}</div><div class="red">{rval TRAIN_REF6_COMMENT}</div><div>{rval TRAIN_REF6_NO_COMM}<LABEL for="TRAIN_REF6_NO_COMM">{rval NO_COMMENTS_LABEL}</LABEL></div></td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <tr bgcolor="#ffffff">
+                  <td>
+                    <table class="tab" width="100%">
+                      <tr class="no_search">
+                        <th class="title">９．{rval ATTEND_TITLE}備考</th>
+                      </tr>
+                      <tr bgcolor="#ffffff">
+                        <td><div>{rval ATTENDREC_REMARK}</div>
+                            <div class="red">{rval ATTENDREC_REMARK_TYUI}</div>
+                            <!--{def useAttendrecRemarkTokkiJikouNasi}--><div>{rval INS_COMMENTS}<LABEL for="INS_COMMENTS">{rval INS_COMMENTS_LABEL}</LABEL></div><!--{/def}-->
+                            <!--{def useAttendrecRemarkSlashFlg}--><div>{rval ATTENDREC_REMARK_SLASH_FLG}<LABEL for="ATTENDREC_REMARK_SLASH_FLG">斜線を入れる</LABEL></div><!--{/def}-->
+                            <!--{def tyousasyoSyukketsuKirokuBtn}--><div>{rval btn_syukketsu_sansyo}</div><!--{/def}-->
+                            <div>{rval SANSYO}</div>
+                            <div>{rval YOROKU_SANSYO}</div>
+                            <!--{def REASON_COLLECTION_SELECT}--><div>{rval btn_reason_collection_select}</div><!--{/def}-->
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <tr bgcolor="#ffffff">
+                  <td>{rval btn_update}{rval btn_reset}{rval btn_back}</td>
+                </tr>
+
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}

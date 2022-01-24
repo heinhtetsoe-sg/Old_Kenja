@@ -1,0 +1,25 @@
+-- $Id: reduction_authorize_dat.sql 56577 2017-10-22 11:35:50Z maeshiro $
+
+DROP TABLE REDUCTION_AUTHORIZE_DAT
+CREATE TABLE REDUCTION_AUTHORIZE_DAT( \
+    SCHREGNO                VARCHAR(8)    NOT NULL, \
+    DATA_DIV                VARCHAR(1)    NOT NULL, \
+    DATA_DIV_SUB            VARCHAR(1)    NOT NULL, \
+    RENBAN                  VARCHAR(4), \
+    PASSNO                  VARCHAR(16), \
+    STATUS                  VARCHAR(2), \
+    REASON                  VARCHAR(450), \
+    DIS_APPLY_MONTH         VARCHAR(2), \
+    RECEIVE_MONEY           INTEGER, \
+    SUP_LIMIT_MONTH         VARCHAR(2), \
+    LIMIT_CREDIT            VARCHAR(3), \
+    REMARK                  VARCHAR(450), \
+    APPLY_DATE              DATE, \
+    DECIDE_DATE             DATE, \
+    BEGIN_YEARMONTH         VARCHAR(6), \
+    REMAIN_SUP_LIMIT_MONTH  VARCHAR(2), \
+    REGISTERCD              VARCHAR(8), \
+    UPDATED                 TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE REDUCTION_AUTHORIZE_DAT ADD CONSTRAINT PK_REDUC_AUTH_DAT PRIMARY KEY (SCHREGNO, DATA_DIV, DATA_DIV_SUB)

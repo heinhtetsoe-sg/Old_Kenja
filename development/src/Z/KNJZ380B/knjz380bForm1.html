@@ -1,0 +1,69 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr class="no_search_line">
+           <th>
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search">
+          <th nowrap width="120" align="center">対象年度：{rval header}</th>
+          <th nowrap align = "right">{rval btn_copy}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+          </tr>
+        </table>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="10%">学期</th>
+                      <th width="15%">考査種別<BR>(大分類)</th>
+                      <th width="20%">考査種別<BR>名称</th>
+                      <th width="18%">考査種別<BR>略称１</th>
+                      <th width="10%">集計フラグ</th>
+<!--{def sem_detail}-->
+                      <th width="10%">出欠集計<BR>範囲</th>
+<!--{/def}-->
+                      <th width="10%">指導入力</th>
+                      <th width="*">序列対象</th>
+                    </tr>
+
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{val data/SEMESTERNAME}</td>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{val data/TESTKIND_SHOW}</td>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{val data/TESTITEM_SHOW}</td>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{val data/TESTITEMABBV1}</td>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{val data/COUNTFLG_SHOW}</td>
+<!--{def sem_detail}-->
+                      <td nowrap bgcolor="#ffffff">&nbsp;{val data/DETAIL_NAME}</td>
+<!--{/def}-->
+                      <td nowrap bgcolor="#ffffff">&nbsp;{val data/SIDOU_INPUT_SHOW}{val data/SIDOU_INPUT_INF_SHOW}</td>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{val data/JYORETSU_FLG_SHOW}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval Closing}</script>

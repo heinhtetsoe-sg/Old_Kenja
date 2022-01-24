@@ -1,0 +1,149 @@
+{rval start}
+<table width="700" border="0" cellspacing="10" cellpadding="10">
+    <tr>
+        <td valign="top">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+
+              <tr>
+              <td valign="top">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                  <tr class="no_search_line">
+                  <td valign="top">
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+                      <tr class="no_search" height="20">
+                        <th align="center" nowrap width="110" >氏名等の<br>有効期間開始</th>
+                        <th align="center" nowrap width="110" >氏名等の<br>有効期間終了</th>
+                        <th align="center" nowrap width="150" >保護者氏名</th>
+                        <th align="center" nowrap width="150">保護者氏名かな</th>
+                        <th align="center" nowrap width="150" >戸籍氏名</th>
+                        <th align="center" nowrap width="150">戸籍氏名かな</th>
+                        <th align="center" nowrap width="40">性別</th>
+                        <th align="center" nowrap width="90">生年月日</th>
+                        <th align="center" nowrap width="50">続柄</th>
+                      </tr>
+
+                    </table>
+                  </td>
+                  </tr>
+
+                  <tr>
+                  <td valign="top">
+                    <div style="width:100%;height:120px;overflow:auto">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                      <tr class="no_search_line">
+                      <td valign="top">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="0">
+
+                          <!--結果一覧-->
+                          <!--{def rireki}-->
+                          <!--{each rireki}-->
+                          <tr height="20">
+                             <td align="center" nowrap width="110" bgcolor="#ffffff">
+                             <a href="knjh020aindex.php?cmd=histEdit&HIST_ISSUEDATE={val rireki/ISSUEDATE}">{val rireki/ISSUEDATE}
+                             </a></td>
+                             <td align="center" nowrap width="110" bgcolor="#ffffff">{rval rireki/EXPIREDATE}</td>
+                             <td align="left" nowrap width="150"  bgcolor="#ffffff">{rval rireki/GUARD_NAME}</td>
+                             <td align="left" nowrap width="150" bgcolor="#ffffff">{rval rireki/GUARD_KANA}</td>
+                             <td align="left" nowrap width="150"  bgcolor="#ffffff">{rval rireki/GUARD_REAL_NAME}</td>
+                             <td align="left" nowrap width="150" bgcolor="#ffffff">{rval rireki/GUARD_REAL_KANA}</td>
+                             <td align="left" nowrap width="40" bgcolor="#ffffff">{rval rireki/GUARD_SEX_NAME}</td>
+                             <td align="left" nowrap width="90" bgcolor="#ffffff">{rval rireki/GUARD_BIRTHDAY}</td>
+                             <td align="left" nowrap width="48" bgcolor="#ffffff">{rval rireki/RELATION_NAME}</td>
+
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+
+                        </table>
+                      </td>
+                      </tr>
+
+                    </table>
+                    </div>
+                  </td>
+                  </tr>
+
+                  </table>
+                </td>
+              </tr>
+
+            </table>
+        </td>
+    </tr>
+
+    <tr>
+        <td valign="top">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+
+              <font color="red">　※変更履歴を残したい項目のチェックボックスに、チェックを入れてください。</font>
+
+              <tr class="no_search_line">
+                <td nowrap>
+                  <table width="100%" border="0" cellpadding="0" cellspacing="1">
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>※&nbsp;氏名等の有効期間</th>
+                      <th width="30"></th>
+                      <td bgcolor="#ffffff"><font color="black">&nbsp;開始日：{rval data/ISSUEDATE}&nbsp;～&nbsp;終了日：{rval data/EXPIREDATE}</font></td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>※&nbsp;保護者氏名</th>
+                      <th width="30">{rval data/GUARD_NAME_FLG}</th>
+                      <td {rval data/GUARD_NAME_BK}>&nbsp;{rval data/GUARD_NAME}<font color="red">&nbsp;&nbsp;(※ 全角40文字まで)</font></td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>※&nbsp;保護者氏名かな</th>
+                      <th width="30">{rval data/GUARD_KANA_FLG}</th>
+                      <td {rval data/GUARD_KANA_BK}>&nbsp;{rval data/GUARD_KANA}<font color="red">&nbsp;&nbsp;(※ 全角80文字まで)</font></td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>※&nbsp;戸籍氏名</th>
+                      <th width="30">{rval data/GUARD_REAL_NAME_FLG}</th>
+                      <td {rval data/GUARD_REAL_NAME_BK}>&nbsp;{rval data/GUARD_REAL_NAME}<font color="red">&nbsp;&nbsp;(※ 全角40文字まで)</font></td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>※&nbsp;戸籍氏名かな</th>
+                      <th width="30">{rval data/GUARD_REAL_KANA_FLG}</th>
+                      <td {rval data/GUARD_REAL_KANA_BK}>&nbsp;{rval data/GUARD_REAL_KANA}<font color="red">&nbsp;&nbsp;(※ 全角80文字まで)</font></td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>※&nbsp;性別</th>
+                      <th width="30">{rval data/GUARD_SEX_FLG}</th>
+                      <td {rval data/GUARD_SEX_BK}>&nbsp;{rval data/GUARD_SEX}</td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>※&nbsp;生年月日</th>
+                      <th width="30">{rval data/GUARD_BIRTHDAY_FLG}</th>
+                      <td {rval data/GUARD_BIRTHDAY_BK}>&nbsp;{rval data/GUARD_BIRTHDAY}</td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>※&nbsp;続柄</th>
+                      <th width="30">{rval data/RELATIONSHIP_FLG}</th>
+                      <td {rval data/RELATIONSHIP_BK}>&nbsp;{rval data/RELATIONSHIP}</td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" colspan=2></th>
+                      <td >{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_back}</td>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+
+            </table>
+        </td>
+    </tr>
+</table>
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+{rval finish}

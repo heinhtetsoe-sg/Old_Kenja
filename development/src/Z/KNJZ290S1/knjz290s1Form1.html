@@ -1,0 +1,45 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr> 
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th nowrap width="3%">校種</th>
+                <th nowrap width="8%">職員氏名</th>
+                <th nowrap width="6%">開始日付</th>
+                <th nowrap width="6%">終了日付</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+            <!--{each data}-->
+            <tr>
+                <td nowrap width="3%" bgcolor="#ffffff" align="center">{val data/SCHOOL_KIND}</td>
+                <!--{def data/Link}-->
+                <td nowrap align="center" width="8%" bgcolor="#ffffff"><a href="knjz290s1index.php?cmd=selectEdit&STAFFCD={val data/STAFFCD}&SCHOOL_KIND={val data/SCHOOL_KIND}&FROM_DATE={val data/FROM_DATE}" target="right_frame">{val data/STAFFNAME}</a></td>
+                <!--{/def}-->
+                <!--{def data/notLink}-->
+                <td nowrap align="center" width="8%" bgcolor="#ffffff">{val data/STAFFNAME}</td>
+                <!--{/def}-->
+                <td nowrap width="6%" bgcolor="#ffffff" align="center">{val data/FROM_DATE}</td>
+                <td nowrap width="6%" bgcolor="#ffffff" align="center">{val data/TO_DATE}</td>
+            </tr> 
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

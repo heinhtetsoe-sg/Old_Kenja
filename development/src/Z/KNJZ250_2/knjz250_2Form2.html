@@ -1,0 +1,104 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="30%">項 目</th>
+                      <th width="70%">値</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>証明書種類コード</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/CERTIF_KINDCD}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                         <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                           <tr class="no_search">
+                             <th align="left" nowrap>※</th>
+                             <th align="right" nowrap>証明書種類名称</th>
+                           </tr>
+                         </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/KINDNAME}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>事務発行区分</th>
+                      <td bgcolor="#ffffff">{rval data/ISSUECD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>在学生</th>
+                      <td bgcolor="#ffffff">{rval data/STUDENTCD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>卒業生</th>
+                      <td bgcolor="#ffffff">{rval data/GRADUATECD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>転学・退学者</th>
+                      <td bgcolor="#ffffff">{rval data/DROPOUTCD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>不発行証明書の<BR>卒業後の経過年数</th>
+                      <td bgcolor="#ffffff">{rval data/ELAPSED_YEARS}</td>
+                    </tr>
+                    <!--{def certif_no_8keta}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>証明書区分</th>
+                      <td bgcolor="#ffffff">{rval data/CERTIF_DIV}</td>
+                    </tr>
+                    <!--{/def}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>在学生発行手数料</th>
+                      <td bgcolor="#ffffff">{rval data/CURRENT_PRICE}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>卒業生発行手数料</th>
+                      <td bgcolor="#ffffff">{rval data/GRADUATED_PRICE}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>発行番号採番</th>
+                      <td bgcolor="#ffffff"><label for="ISSUENO_AUTOFLG">自動</label>　{rval data/ISSUENO_AUTOFLG}</td>
+                    </tr>
+                    <!--{def use_certif_kind_mst_school_kind}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>校種</th>
+                      <td bgcolor="#ffffff"><label for="CERTIF_SCHOOL_KIND"></label>{rval data/CERTIF_SCHOOL_KIND}</td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{/def}-->
+                    <!--{def button}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+                    </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

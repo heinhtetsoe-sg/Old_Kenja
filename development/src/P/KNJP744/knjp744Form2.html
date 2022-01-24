@@ -1,0 +1,201 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="2">
+                    <tr class="no_search" height="25">
+                      <th width="15%">項 目</th>
+                      <th width="85%">値</th>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <td nowrap>※</td>
+                            <th align="right" nowrap>ID</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/AUTO_NO}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <td nowrap>※</td>
+                            <th align="right" nowrap>名称</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/AUTO_NAME}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>入金項目</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/COLLECT_LM_CD}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <td nowrap>※</td>
+                            <th align="right" nowrap>預り金項目(収入)</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/INCOME_LM_CD}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <td nowrap></td>
+                            <th align="right" nowrap>件名</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/REQUEST_REASON}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <td nowrap></td>
+                            <th align="right" nowrap>備考</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/REMARK}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <td nowrap></td>
+                            <th align="right" nowrap>起案者</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/REQUEST_STAFF}</td>
+                    </tr>
+                    <!--{def dispCommodity}-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <td nowrap>※</td>
+                            <th align="right" nowrap>単価</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/COMMODITY_PRICE} 円</td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{def dispApproval}-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <td nowrap></td>
+                            <th align="right" nowrap>決裁状況</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/AUTO_INCOME_APPROVAL}<LABEL for="AUTO_INCOME_APPROVAL">決裁済み</LABEL></td>
+                    </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!--{def expmcd}-->
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                    <tr class="no_search">
+                      <td>
+                        <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                          <tr align="center" class="no_search" height="30">
+                            <th>{rval expmcd/LEFT_LIST}</th>
+                            <th>&nbsp;</th>
+                            <th>{rval expmcd/RIGHT_LIST}　{rval data/GRADE}</th>
+                          </tr>
+                          <tr align="center">
+                            <td width="45%"  bgcolor="#ffffff">
+                              <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                <tr class="no_search_line">
+                                  <td width="100%">{rval expmcd/LEFT_PART}</td>
+                                </tr>
+                                <tr>
+                                  <td align="right">
+                                    人数：<span id="LEFT_PART_NUM"></span>&nbsp;
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                            <td width="*%" class="no_search">
+                                {rval expmcd/SEL_ADD_ALL} <br>
+                                {rval expmcd/SEL_ADD} <br>
+                                {rval expmcd/SEL_DEL} <br>
+                                {rval expmcd/SEL_DEL_ALL}</td>
+                            <td width="45%"  bgcolor="#ffffff">
+                              <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                <tr class="no_search_line">
+                                  <td width="100%">{rval expmcd/RIGHT_PART}</td>
+                                </tr>
+                                <tr>
+                                  <td align="right">
+                                    人数：<span id="RIGHT_PART_NUM"></span>&nbsp;
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!--{/def}-->
+        <!--{def button}-->
+        <tr>
+          <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}</td>
+        </tr>
+        <!--{/def}-->
+      </table>
+    </td>
+  </tr>
+</table>
+<script language="JavaScript">
+  window.onload = function () {
+    if (document.forms[0].not_select_schregno_auto_income.value != "1") {
+      document.getElementById("LEFT_PART_NUM").innerHTML  = document.forms[0].left_expmcd.options.length;
+      document.getElementById("RIGHT_PART_NUM").innerHTML = document.forms[0].right_expmcd.options.length;
+    }
+  };
+</script>
+
+<script language="javascript">{rval jscript}</script>
+{rval finish}

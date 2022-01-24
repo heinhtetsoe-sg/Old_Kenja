@@ -1,0 +1,94 @@
+{rval start}
+{rval IFRAME}
+
+<BR><BR>
+<table width="650" border="0" cellspacing="0" cellpadding="5" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="30">
+                      <th width="120" class="no_search">入試年度</th>
+                      <th width="150" bgcolor="#ffffff">{rval TOP/YEAR}</th>
+                      <th width="120" class="no_search">※ 受験種別</th>
+                      <td width="*" bgcolor="#ffffff">&nbsp;{rval TOP/TESTDIV}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="30">{rval CHECKALL}</th>
+                      <th width="250" align="center" nowrap>会場</th>
+                      <th width="70" align="center" nowrap>人数</th>
+                      <th width="*" align="center" nowrap>受験番号</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="border-style:solid;border-width:0.15pt;border-color:#255476;width:100%;height:500;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff" nowrap>
+                      <td width="30" align="center">{rval data/CHECKED}</td>
+                      <td width="250" nowrap>&nbsp;{rval data/EXAMHALL_NAME}</td>
+                      <td width="70" align="right" nowrap>{rval data/CAPA_CNT}&nbsp;</td>
+                      <td width="*" align="center" nowrap>{rval data/S_RECEPTNO}　～　{rval data/E_RECEPTNO}</td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" nowrap>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td>&nbsp;{rval btn_delete}　{rval btn_add}{rval btn_end}</td>
+                      <td align="right">{rval btn_exec}&nbsp;&nbsp;</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

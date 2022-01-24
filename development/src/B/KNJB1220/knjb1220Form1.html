@@ -1,0 +1,164 @@
+{rval start} 
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search">
+                        <td width="100%">
+                            <table width="100%" border="0" cellspacing="1" cellpadding="1">
+
+                              <tr class="no_search">
+                                <td nowrap>学籍番号：{rval info/SCHREGNO}　氏名：{rval info/NAME}　入学年月：{rval info/ENT_DATE}　卒業予定月：{rval info/GRD_SCHEDULE_DATE}</td>
+                              </tr>
+
+                              <tr class="no_search">
+                                <td nowrap>現在の年次：{rval info/ANNUAL}年次　高校入学年度：{rval info/CURRICULUM_YEAR}　{rval info/MAJOR}&nbsp{rval info/COURSECODENAME}　担任：{rval info/STAFFNAME}　職業：{rval info/JOB}</td>
+                              </tr>
+
+                              <tr class="no_search">
+                                <td nowrap>地区：{rval info/AREA}　住所：{rval info/ADDR}</td>
+                              </tr>
+
+                            </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        履修登録年度：{rval data/EXE_YEAR}&nbsp;&nbsp;<font color=red>{rval data/REGD_COMMENT}</font>&nbsp;&nbsp;履修登録日：{rval data/RIREKI_CODE}<br>
+        履修パターン：{rval data/PATTERN_CD}　{rval button/btn_read}
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th rowspan="2" width="120">教科</th>
+                        <th rowspan="2" width="240">科目</th>
+                        <th rowspan="2" width="40" align="center">履<br>修<br>登<br>録<font size="1"><br><br></font>{rval data/EXE_NENDO}</th>
+                        <th rowspan="2" width="20">履<br>修<br>中</th>
+                        <th colspan="2" >修得<br>単位数</th>
+                        <th rowspan="2" width="40">小<br>計</th>
+                        <th rowspan="2" width="20">認<br>定<br>単<br>位<br>数</th>
+                        <th rowspan="2" width="20">必<br>履<br>修</th>
+                        <th rowspan="2" width="20">高<br>認<br>修<br>得</th>
+                        <th rowspan="2" width="30">増<br>単<br>修<br>得</th>
+                        <th rowspan="2" width="*">備考</th>
+                      </tr>
+                      <tr class="no_search">
+                        <th width="30">修<br>得<br>単<br>位</th>
+                        <th width="30">自<br>校<br>外</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <div style="width:100%;height:350;overflow:auto">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each testdata}-->
+                       <tr height="25">
+                          <td width="120" align="center" bgcolor={rval testdata/BGCOLOR}>{rval testdata/CLASSNAME}</td>
+                          <td width="240" align="left"   bgcolor={rval testdata/BGCOLOR}>{rval testdata/SUBCLASSNAME}</td>
+                          <td width="40" align="center"  bgcolor={rval testdata/BGCOLOR}>{rval testdata/ADDCHK}</td>
+                          <td width="20" align="center"  bgcolor={rval testdata/BGCOLOR}>{rval testdata/RISYUTYU_CREDIT}</td>
+                          <td width="30" align="center"  bgcolor={rval testdata/BGCOLOR}>{rval testdata/RECORD_CREDITS}</td>
+                          <td width="30" align="center"  bgcolor={rval testdata/BGCOLOR}>{rval testdata/ANOTHER_CREDITS}</td>
+                          <td width="40" align="center"  bgcolor={rval testdata/BGCOLOR}>{rval testdata/TOTAL_COMP}</td>
+                          <td width="20" align="center"  bgcolor={rval testdata/BGCOLOR}>{rval testdata/CREDITS}</td>
+                          <td width="20" align="center"  bgcolor={rval testdata/BGCOLOR}>{rval testdata/HITSURISYU}</td>
+                          <td width="20" align="center"  bgcolor={rval testdata/BGCOLOR}>{rval testdata/KOUNIN}</td>
+                          <td width="30" align="center"  bgcolor={rval testdata/BGCOLOR}>{rval testdata/ZOUTAN}</td>
+                          <td width="*" align="center"   bgcolor={rval testdata/BGCOLOR}><font color={rval testdata/RE_COLOR}>{rval testdata/REMARK}</font></td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" height="30">
+                              <td align="left" colspan="2">
+                                修得済単位＋履修中単位：<span id="COMP">{val total/COMP}</span>
+                                &nbsp;履修登録単位：<!--{def KONNENDO}-->(<!--{/def}--><span id="GET">{val total/GET}</span><!--{def KONNENDO}-->)<!--{/def}-->
+                                &nbsp;学外履：<span id="JIKOUGAI">{val total/JIKOUGAI}</span></b>
+                                &nbsp;総合計：<span id="COMP_GET">{val total/COMP_GET}</span></b>
+                                &nbsp;{rval data/DISP1}<LABEL for="DISP1">全表示</LABEL>&nbsp;{rval data/DISP2}<LABEL for="DISP2">選択</LABEL>
+                                &nbsp;{rval info/GRD_YOTEI}<LABEL for="GRD_YOTEI">卒業予定</LABEL><br>
+                                {rval info/TEXT_BUY}
+                              </td>
+                      </tr>
+                      <tr class="no_search" height="35">
+                              <td align="left">
+                                {rval button/btn_update}{rval button/btn_update_prev}{rval button/btn_update_next}{val button/btn_reset}{val button/btn_end}
+                              </td>
+                              <td width="30%" align="left">
+                                {val button/btn_print1}&nbsp;&nbsp;&nbsp;{val button/btn_chairStd}
+                              </td>
+                      </tr>
+                  </table>
+                  </td>
+                </tr>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish} 

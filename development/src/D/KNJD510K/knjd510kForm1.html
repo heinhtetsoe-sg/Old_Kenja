@@ -1,0 +1,137 @@
+<!-- kanji=漢字 -->
+<!-- <?php
+
+require_once('for_php7.php');
+ # $Id: knjd510kForm1.html 66284 2019-03-14 09:36:10Z yamashiro $ ?> -->
+{rval start}
+<style type="text/css">
+<!--
+    .tablespace {color:black; background-color:white; text-align:left }
+    .subtitle {color:white; background-color:#316F9B; font-size:13pt }
+    .stfn {color:black; background-color:white; text-align:left }
+    .rstfn {color:black; background-color:#FFFFCC; text-align:left; font-weight:bold}
+-->
+</style>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="10" >
+      <tr> 
+         <td width="100%" > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="6">
+              <tr class="no_search"> 
+                <td width="80%">&nbsp;&nbsp;
+                    処理年度：{rval TOP/CONFIRMATION}&nbsp;&nbsp;&nbsp;
+                    学年：{rval TOP/GK_CMB}&nbsp;&nbsp;&nbsp;
+                    学期：{rval TOP/SEM_CMB}
+                </td>
+                <td width="20%">
+                    <table width="100%" border="0" cellspacing="1" cellpadding="10" bgcolor="black">
+                      <tr class="no_search">
+                        <th width="*%" BGCOLOR="#3399ff"><font color="#ffffff"> 公欠 </font></th>
+                        <th width="*%" BGCOLOR="#ff0099"><font color="#ffffff"> 欠席 </font></th>
+                      </tr>
+                    </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+      </tr>
+    </table>
+
+  </td>
+  </tr>
+  <tr> 
+  <td valign="top"> 
+    <table align="center" width="1000" border="0" cellspacing="0" cellpadding="10">
+      <tr> 
+      <td >
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+          <td colspan="12" bgcolor="#000066"> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search" nowrap align="center">
+                <th width="60" rowspan="2" nowrap>保存<BR>指定</th>
+                <th width="102" rowspan="2" nowrap>クラス-<BR>出席番&nbsp;</th>
+                <th width="152" rowspan="2" nowrap>氏名</th>
+                <th width="152" rowspan="2" nowrap>対象<BR>科目</th>
+                <th width="180" colspan="3" nowrap>１学期</th>
+                <th width="180" colspan="3" nowrap>２学期</th>
+                <th width="60" nowrap>３学期</th>
+                <th width="*" rowspan="2" nowrap>学年平均</th>
+              </tr>
+              <tr class="no_search" nowrap align="center">
+                <th width="60" nowrap>中間</th>
+                <th width="60" nowrap>期末</th>
+                <th width="60" nowrap>平均</th>
+                <th width="60" nowrap>中間</th>
+                <th width="60" nowrap>期末</th>
+                <th width="60" nowrap>平均</th>
+                <th nowrap>期末</th>
+              </tr>
+            </table>
+          </td>
+          </tr>
+          <tr>
+          <td colspan="12">
+            <div style="width:100%; height:500; overflow-x:visible; overflow-y:scroll;">
+              <table id="tbl" width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="silver">
+              <!--{def data}-->
+              <!--結果一覧-->
+              <!--{each data}--> 
+                <tr class="tablespace" nowrap>
+                 {rval data/Jumper}
+                 {rval data/Jump_target}
+                <td nowrap width="54"  align="center" {rval data/CHK_BOX_BG}       >{rval data/CHK_BOX}</td>
+                <td nowrap width="96"  align="center" {rval data/HR_SHOW_BG}       >{rval data/HR_SHOW}</td>
+                <td nowrap width="146" align="center" {rval data/NAME_SHOW_BG}     >{rval data/NAME_SHOW}</td>
+                <td nowrap width="146" align="center" {rval data/SUBCLASSNAME_BG}  >{rval data/SUBCLASSNAME}</td>
+                <td nowrap width="54"  align="center" {rval data/SEM1_INTER_REC_BG}>{rval data/SEM1_INTER_REC}</td>
+                <td nowrap width="54"  align="center" {rval data/SEM1_TERM_REC_BG} >{rval data/SEM1_TERM_REC}</td>
+                <td nowrap width="54"  align="center" {rval data/SEM1_REC_BG}      >{rval data/SEM1_REC}</td>
+                <td nowrap width="54"  align="center" {rval data/SEM2_INTER_REC_BG}>{rval data/SEM2_INTER_REC}</td>
+                <td nowrap width="54"  align="center" {rval data/SEM2_TERM_REC_BG} >{rval data/SEM2_TERM_REC}</td>
+                <td nowrap width="54"  align="center" {rval data/SEM2_REC_BG}      >{rval data/SEM2_REC}</td>
+                <td nowrap width="54"  align="center" {rval data/SEM3_TERM_REC_BG} >{rval data/SEM3_TERM_REC}</td>
+                <td nowrap width="*"   align="center" {rval data/GRADE_RECORD_BG}  >{rval data/GRADE_RECORD}</td>
+                </tr>
+                <!--{/each}--> 
+                <!--{/def}--> 
+              </table>
+            </div>
+          </td>
+          </tr>
+        </table>
+      </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+  <tr> 
+  <td valign="top"> 
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="10" >
+      <tr> 
+         <td width="100%" > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="6">
+              <tr class="no_search"> 
+                <td width="40%">
+                    {rval BUTTON/BTN_PRSV}{rval BUTTON/BTN_CAN}{rval BUTTON/BTN_END}
+                </td>
+                <td width="60%">
+                    {rval BUTTON/BTN_CAL}{rval BUTTON/BTN_SHOWH}　　{rval BUTTON/BTN_KNJD210K}
+                </td>
+              </tr>
+            </table>
+          </td>
+      </tr>
+    </table>
+
+  </td>
+  </tr>
+
+</table>
+{rval finish}
+<script language="JavaScript">{rval Closing}{rval jumping}{rval update_chk}</script>
+

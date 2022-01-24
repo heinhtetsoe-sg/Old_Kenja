@@ -1,0 +1,109 @@
+﻿{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="150" nowrap bgcolor="#FFFF00" align="center">
+            <b><font size="3" color="#FF8C00">B&nbsp;支援計画</font><font size="2" color="#FF8C00"><BR>(労働)</font></b>
+          </td>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="100">項目</th>
+              <th width="180">事業所名</th>
+              <th width="*">内容</th>
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <div style="width: 100%; height=170; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def data2}-->
+                <!--{each data2}-->
+                  <tr bgcolor="#ffffff">
+                    <td width="100" align="left"><a href="knje390nindex.php?cmd=subform3_work_set&YEAR={val data2/YEAR}&SCHREGNO={val data2/SCHREGNO}&RECORD_DIV={val data2/RECORD_DIV}&RECORD_SEQ={val data2/RECORD_SEQ}">{rval data2/RECORD_DIV_NAME}</a></td>
+                    <td width="180" align="left">{rval data2/CENTER_NAME}</td>
+                    <td width="*" align="left">{rval data2/CONTENTS_NAIYOU}</td>
+                  </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+        
+        <tr><td height="20"></td></tr>
+
+<!--{def data}-->
+<!--{def button}-->
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>種別</th>
+                <td bgcolor="#ffffff">{rval data/RECORD_DIV1}<LABEL for="RECORD_DIV1">相談支援</LABEL>　{rval data/RECORD_DIV2}<LABEL for="RECORD_DIV2">アルバイト</LABEL></td>
+              </tr>
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>事業所</th>
+                <td bgcolor="#ffffff">{rval data/CENTERCD}</td>
+              </tr>
+<!--{def RECORD_DIV1}-->
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>担当者</th>
+                <td bgcolor="#ffffff">{rval data/STAFF_NAME}<BR>{rval data/STAFF_NAME_SIZE}</td>
+              </tr>
+<!--{/def}-->
+<!--{def RECORD_DIV2}-->
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>開始月</th>
+                <td bgcolor="#ffffff">{rval data/S_YEAR_MONTH}&nbsp;から</td>
+              </tr>
+<!--{/def}-->
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>{rval data/WORK_REMARK_NAME}</th>
+                <td bgcolor="#ffffff">{rval data/WORK_REMARK}<BR>{rval data/WORK_REMARK_SIZE}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td align="left" bgcolor="#ffffff">{rval button/btn_insert}{rval button/btn_update}{rval button/btn_delete}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+<!--{/def}-->
+<!--{/def}-->
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish} 

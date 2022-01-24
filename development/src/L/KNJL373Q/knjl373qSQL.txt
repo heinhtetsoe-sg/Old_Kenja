@@ -1,0 +1,46 @@
+//欠席者一覧
+SELECT
+    t1.YEAR,                //年度
+    t1.PLACECD,             //会場コード
+    t2.PLACEAREA,           //会場名
+    t1.SAT_NO,              //受験番号
+    t1.NAME1,               //氏名
+    t1.SCHOOLCD,            //出身学校コード
+    t3.FINSCHOOL_NAME_ABBV, //出身校名
+    t1.GROUPCD,             //団体コード
+    t4.GROUPNAME,           //団体名
+    t5.CNT                  //欠席者人数
+FROM
+    (
+    SELECT
+        YEAR,
+        SAT_NO,
+        NAME1,
+        PLACECD,
+        SCHOOLCD,
+        GROUPCD
+    FROM
+        SAT_APP_FORM_MST
+    WHERE
+        YEAR = '/*CTRL_YEAR*/' AND
+        ABSENCE = '0'
+    ) t1
+    left join SAT_EXAM_PLACE_DAT t2 on t1.PLACECD = t2.PLACECD and t2.YEAR = '/*CTRL_YEAR*/'
+    left join FINSCHOOL_MST t3 on t1.SCHOOLCD = t3.FINSCHOOLCD and t3.FINSCHOOL_TYPE = '3'
+    left join SAT_GROUP_DAT t4 on t1.GROUPCD = t4.GROUPCD and t4.YEAR = '/*CTRL_YEAR*/'
+    left join (SELECT
+                    YEAR,
+                    COUNT(*) as CNT
+                FROM
+                    SAT_APP_FORM_MST
+                WHERE
+                    YEAR = '/*CTRL_YEAR*/' AND
+                    ABSENCE = '0'
+                GROUP BY
+                    YEAR
+                ) t5 on t1.YEAR = t5.YEAR
+ORDER BY
+    t1.PLACECD,
+    t1.SAT_NO
+
+

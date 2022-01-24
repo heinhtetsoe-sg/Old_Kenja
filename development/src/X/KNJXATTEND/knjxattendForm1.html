@@ -1,0 +1,130 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  <td valign="top" >
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search">
+            <th width="100%"colspan="8">
+                {rval HEADERS/HR_NAME}&nbsp;&nbsp;{rval HEADERS/SCHREGNO}&nbsp;&nbsp;{rval HEADERS/NAME}
+            </th>
+          </tr>
+          <tr class="no_search">
+            <th width="40%" colspan="2" rowspan="2" >出欠の記録</th>
+            <th width="60%" colspan="2">
+                年度：{rval GRADEITEM/GRADE_COMBO} {rval GRADEITEM/GRADE_TXT} {rval GRADEITEM/GRADE_BTN}
+            </th>
+          </tr>
+          <tr class="no_search">
+            <th width="30%">1:前校</th>
+            <th width="30%">0:本校</th>
+          <tr align="center">
+            <th align="center" class="no_search" nowrap colspan="2" >※&nbsp;年次(学年)</th>
+            <td bgcolor="#ffffff" height="30">{rval ANNUAL1}</td>
+            <td bgcolor="#ffffff" height="30">{rval ANNUAL0}</td>
+           </tr>
+          <tr align="center">
+            <th align="center" class="no_search" nowrap colspan="2">授&nbsp;&nbsp;業&nbsp;&nbsp;日&nbsp;&nbsp;数</th>
+            <td bgcolor="#ffffff" height="30">{rval CLASSDAYS1}</td>
+            <td bgcolor="#ffffff" height="30">{rval CLASSDAYS0}</td>
+          </tr>
+          </tr>
+          <tr align="center">
+            <th align="center" class="no_search" nowrap colspan="2">休&nbsp;&nbsp;学&nbsp;&nbsp;日&nbsp;&nbsp;数</th>
+            <td bgcolor="#ffffff"  height="30">{rval OFFDAYS1}</td>
+            <td bgcolor="#ffffff"  height="30">{rval OFFDAYS0}</td>
+          </tr>
+          <tr align="center">
+            <th align="center" class="no_search" nowrap colspan="2">
+                出席停止の日数
+            </th>
+            <td bgcolor="#ffffff"  height="30">{rval SUSPEND1}</td>
+            <td bgcolor="#ffffff"  height="30">{rval SUSPEND0}</td>
+          </tr>
+          <tr align="center">
+            <th align="center" class="no_search" nowrap colspan="2">
+                忌&nbsp;&nbsp;引&nbsp;&nbsp;の&nbsp;&nbsp;日&nbsp;&nbsp;数
+            </th>
+            <td bgcolor="#ffffff"  height="30">{rval MOURNING1}</td>
+            <td bgcolor="#ffffff"  height="30">{rval MOURNING0}</td>
+          </tr>
+          <tr align="center">
+            <th align="center" class="no_search" nowrap colspan="2">
+                留学中の授業日数
+            </th>
+            <td bgcolor="#ffffff"  height="30">{rval ABROAD1}</td>
+            <td bgcolor="#ffffff"  height="30">{rval ABROAD0}</td>
+          </tr>
+          <tr align="center">
+            <th align="center" class="no_search" nowrap colspan="2">
+                出席しなければ<br>
+                ならない日数
+            </th>
+            <td bgcolor="#ffffff" height="35">
+                <span id="REQUIREPRESENT{rval ID1}">{rval REQUIREPRESENT1}</span>
+            </td>
+            <td bgcolor="#ffffff" height="35">
+                <span id="REQUIREPRESENT{rval ID0}">{rval REQUIREPRESENT0}</span>
+            </td>
+          </tr>
+          <tr align="center">
+            <th rowspan="3" class="no_search" >欠<br>
+            席<br>
+            日<br>
+            数</th>
+            <th align="center" class="no_search" nowrap>病&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欠</th>
+            <td bgcolor="#ffffff"  height="30">{rval SICK1}</td>
+            <td bgcolor="#ffffff"  height="30">{rval SICK0}</td>
+          </tr>
+          <tr align="center">
+            <th align="center" class="no_search" nowrap>事故欠(届)</th>
+            <td bgcolor="#ffffff"  height="30">{rval ACCIDENTNOTICE1}</td>
+            <td bgcolor="#ffffff"  height="30">{rval ACCIDENTNOTICE0}</td>
+          </tr>
+          <tr align="center">
+            <th align="center" class="no_search" nowrap>事故欠(無)</th>
+            <td bgcolor="#ffffff"  height="30">{rval NOACCIDENTNOTICE1}</td>
+            <td bgcolor="#ffffff"  height="30">{rval NOACCIDENTNOTICE0}</td>
+          </tr>
+          <tr align="center">
+            <th align="center" class="no_search" nowrap colspan="2">出&nbsp;&nbsp;席&nbsp;&nbsp;日&nbsp;&nbsp;数</th>
+            <td bgcolor="#ffffff" align="center" height="35">
+                <span id="PRESENT{rval ID1}">{rval PRESENT1}</span>
+            </td>
+            <td bgcolor="#ffffff" align="center" height="35">
+                <span id="PRESENT{rval ID0}">{rval PRESENT0}</span>
+            </td>
+          </tr>
+          <!--{def attendrec}-->
+          <tr align="center">
+            <th align="center" class="no_search" nowrap colspan="2">
+            備　考(調査書用)<br>
+            <!-- (全角4文字X3行まで)</th> -->
+            (全角5文字X3行まで)</th>
+            <td colspan="2" bgcolor="#ffffff" align="right"  height="30">{rval attendrec/remark}</td>
+          </tr>
+          <!--{/def}-->
+          <!--{def button}-->
+          <tr>
+            <td class="no_search" colspan="2"></td>
+            <td align="left" nowrap colspan="6" bgcolor="#ffffff">
+                {rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}
+            </td>
+          </tr>
+          <!--{/def}-->
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+{rval finish}{rval javascript}

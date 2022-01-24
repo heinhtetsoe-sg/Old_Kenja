@@ -1,0 +1,98 @@
+<?php
+
+require_once('for_php7.php');
+
+class knjp974aForm1 {
+    function main(&$model) {
+
+        //オブジェクト作成
+        $objForm = new form;
+
+        //フォーム作成
+        $arg["start"]   = $objForm->get_start("knjp974aForm1", "POST", "knjp974aindex.php", "", "knjp974aForm1");
+
+        //DB接続
+        $db = Query::dbCheckOut();
+
+        //年度
+        $arg["data"]["CTRL_YEAR"] = CTRL_YEAR;
+
+        //年度コンボボックス
+        $query = knjp974aQuery::getYear();
+        $extra = "onchange=\"btn_submit('knjp974a')\"";
+        makeCmb($objForm, $arg, $db, $query, "YEAR", $model->field["YEAR"], $extra, 1, "");
+
+        //学年コンボボックス
+        $query = knjp974aQuery::getGrade($model);
+        $extra = "";
+        makeCmb($objForm, $arg, $db, $query, "GRADE", $model->field["GRADE"], $extra, 1, "ALL");
+
+        //年度範囲取得
+        $semeMst = $db->getRow(knjp974aQuery::getSemesterMst($model), DB_FETCHMODE_ASSOC);
+        knjCreateHidden($objForm, "SDATE", $semeMst["SDATE"]);
+        knjCreateHidden($objForm, "EDATE", $semeMst["EDATE"]);
+
+        //対象日
+        $arg["data"]["FROM_DATE"] = View::popUpCalendar($objForm, "FROM_DATE", str_replace("-", "/", $semeMst["SDATE"]));
+        $arg["data"]["TO_DATE"]   = View::popUpCalendar($objForm, "TO_DATE", "");
+
+        //ボタン作成
+        //印刷ボタンを作成する
+        $extra = "onclick=\"return newwin('" . SERVLET_URL . "');\"";
+        $arg["button"]["btn_print"] = knjCreateBtn($objForm, "btn_print", "プレビュー／印刷", $extra);
+        //CSV出力ボタン
+        $extra = "onclick=\"return btn_submit('csv');\"";
+        $arg["button"]["btn_csv"] = knjCreateBtn($objForm, "btn_csv", "ＣＳＶ出力", $extra);
+        //終了ボタンを作成する
+        $extra = "onclick=\"closeWin();\"";
+        $arg["button"]["btn_end"] = knjCreateBtn($objForm, "btn_end", "終 了", $extra);
+
+        //hiddenを作成する(必須)
+        knjCreateHidden($objForm, "DBNAME", DB_DATABASE);
+        knjCreateHidden($objForm, "PRGID", "KNJP974A");
+        knjCreateHidden($objForm, "cmd");
+        knjCreateHidden($objForm, "CTRL_YEAR", CTRL_YEAR);
+        knjCreateHidden($objForm, "CTRL_SEMESTER", CTRL_SEMESTER);
+        knjCreateHidden($objForm, "CTRL_DATE", CTRL_DATE);
+        knjCreateHidden($objForm, "SCHOOL_KIND", SCHOOLKIND);
+        knjCreateHidden($objForm, "SCHOOLCD", $model->schoolCd);
+        knjCreateHidden($objForm, "useSchool_KindField", $model->Properties["useSchool_KindField"]);
+        knjCreateHidden($objForm, "use_prg_schoolkind", $model->Properties["use_prg_schoolkind"]);
+        knjCreateHidden($objForm, "selectSchoolKind", $model->selectSchoolKind);
+
+        //DB切断
+        Query::dbCheckIn($db);
+
+        //フォーム終わり
+        $arg["finish"]  = $objForm->get_finish();
+
+        //テンプレートのHTMLを読み込んでデータを$arg経由で渡す。 
+        View::toHTML($model, "knjp974aForm1.html", $arg); 
+    }
+}
+//コンボ作成
+function makeCmb(&$objForm, &$arg, $db, $query, $name, &$value, $extra, $size, $blank = "") {
+    $opt = array();
+    if ($blank == "ALL") {
+        $opt[] = array("label" => "全て", "value" => "00");
+    }
+    $value_flg = false;
+    $result = $db->query($query);
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+
+        $opt[] = array('label' => $row["LABEL"],
+                       'value' => $row["VALUE"]);
+
+        if ($value == $row["VALUE"]) $value_flg = true;
+    }
+    $result->free();
+
+    if ($name == "YEAR") {
+        $value = ($value && $value_flg) ? $value : CTRL_YEAR;
+    } else {
+        $value = ($value && $value_flg) ? $value : $opt[0]["value"];
+    }
+
+    $arg["data"][$name] = knjCreateCombo($objForm, $name, $value, $opt, $extra, $size);
+}
+?>

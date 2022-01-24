@@ -1,0 +1,66 @@
+{rval start}
+
+<BR><BR><BR>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+    <td valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr><br>
+        <th>
+          <table width="85%" border="0" cellspacing="0" cellpadding="0" align="center">
+            <tr class="no_search_line">
+              <th>
+                <table width="100%" border="0" cellspacing="1" cellpadding="4" align="center">
+                    <tr> 
+                        <th width="100%" class="no_search">
+                            <span style ="line-height:2em";>{rval YEAR}年度&nbsp;&nbsp;相対評定マスタ設定</span><br>
+                            教科：{rval class_cmb}&nbsp;　科目：{rval subclass_cmb}
+                        </th>
+                    </tr>
+                </table>
+              </th>
+            </tr>
+          </table>
+        <br><br>
+
+       <table width="85%" border="0" cellspacing="1" cellpadding="0" align="center" frame="box">
+
+         <tr class="no_search_line">
+           <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
+                    <tr height="40" class="no_search">
+                        <th width="50%">評&nbsp;定</th>
+                        <th width="50%">基準値</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr height="40" align="center">
+                      <td bgcolor="#ffffff">{val data/ASSESSLEVEL}</td>
+                      <td bgcolor="#ffffff">{val data/PERCENT}％</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                    <tr>
+                        <td colspan="4" bgcolor="#316F9B" align="right">
+                            {rval button/btn_add}   &nbsp;
+                            {rval button/btn_update}&nbsp;
+                            {rval button/btn_reset} &nbsp;
+                            {rval button/btn_end}   &nbsp;
+                        </td>
+                    </tr>
+                </table>
+             </td>
+          </tr>
+        </table>
+       </th>
+      </tr>
+    </table>
+
+    </td> 
+    </tr>
+    
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

@@ -1,0 +1,143 @@
+{rval start}
+<script language="JavaScript">
+//画面のリサイズ
+var timer = 0;
+window.onresize = function () {
+    if (timer > 0) {
+        clearTimeout(timer);
+    }
+
+    timer = setTimeout(function () {
+        bodyHeight = (window.innerHeight || document.body.clientHeight || 0);
+        document.getElementById("tbody").style.height = bodyHeight - 200;
+    }, 200);
+};
+
+</script>
+<br>
+<table width="920" border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" height="30">
+                <td nowrap align="center">
+                    {rval YEAR}年度<!--{def schkind}-->　　校種：{rval SCHOOL_KIND}<!--{/def}-->
+                                   <!--{def useClubCombo}-->　　部活動：{rval CLUB}<!--{/def}-->
+                                   　　対象クラス：{rval GRADE_HR_CLASS}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th width="50"  rowspan="2"><LABEL for="CHK_ALL">更新</LABEL><br>{rval CHK_ALL}</th>
+                      <th width="100" rowspan="2">年組</th>
+                      <th width="160" rowspan="2">氏名</th>
+                      <th width="*"  colspan="12">退　寮　月</th>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th width="40">4</th>
+                      <th width="40">5</th>
+                      <th width="40">6</th>
+                      <th width="40">7</th>
+                      <th width="40">8</th>
+                      <th width="40">9</th>
+                      <th width="40">10</th>
+                      <th width="40">11</th>
+                      <th width="40">12</th>
+                      <th width="40">1</th>
+                      <th width="40">2</th>
+                      <th width="*">3</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div id="tbody" style="height:{rval valWindowHeight}px; overflow: auto;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff" height="30">
+                      <td width="50" align="center" class="changeColor" data-name="{rval data/CHK_SCHREG_NAME}">{rval data/CHK_SCHREG}</td>
+                      <td width="100">&nbsp;{rval data/HR_NAME}</td>
+                      <td width="160"  align="left">{rval data/NAME}&nbsp;</td>
+                      <td width="40" align="center" class="changeColor" data-name="{rval data/FLG04_NAME}">{rval data/FLG04}</td>
+                      <td width="40" align="center" class="changeColor" data-name="{rval data/FLG05_NAME}">{rval data/FLG05}</td>
+                      <td width="40" align="center" class="changeColor" data-name="{rval data/FLG06_NAME}">{rval data/FLG06}</td>
+                      <td width="40" align="center" class="changeColor" data-name="{rval data/FLG07_NAME}">{rval data/FLG07}</td>
+                      <td width="40" align="center" class="changeColor" data-name="{rval data/FLG08_NAME}">{rval data/FLG08}</td>
+                      <td width="40" align="center" class="changeColor" data-name="{rval data/FLG09_NAME}">{rval data/FLG09}</td>
+                      <td width="40" align="center" class="changeColor" data-name="{rval data/FLG10_NAME}">{rval data/FLG10}</td>
+                      <td width="40" align="center" class="changeColor" data-name="{rval data/FLG11_NAME}">{rval data/FLG11}</td>
+                      <td width="40" align="center" class="changeColor" data-name="{rval data/FLG12_NAME}">{rval data/FLG12}</td>
+                      <td width="40" align="center" class="changeColor" data-name="{rval data/FLG01_NAME}">{rval data/FLG01}</td>
+                      <td width="40" align="center" class="changeColor" data-name="{rval data/FLG02_NAME}">{rval data/FLG02}</td>
+                      <td width="*"  align="center" class="changeColor" data-name="{rval data/FLG03_NAME}">{rval data/FLG03}</td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr class="no_search" height="30">
+          <td>&nbsp;{rval btn_update}{rval btn_reset}{rval btn_end}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<input type='hidden' name='windowHeight' value=''>
+<script language="JavaScript">{rval reload}</script>
+{rval finish}
+<script language="JavaScript">
+    document.addEventListener('click', function(e) {tdChangeColor(e)});
+    document.addEventListener('mouseover', function(e) {tdChangeColor(e)});
+    document.addEventListener('mouseout', function(e) {tdChangeColor(e)});
+
+    function tdChangeColor(e) {
+        var t = e.target;
+        if (t.className == "changeColor") {
+            var objName = e.target.getAttribute('data-name');
+            targetCheckBox = document.getElementById(objName);
+            switch (e.type) {
+                case "mouseover":
+                    targetCheckBox.parentNode.style.backgroundColor = "pink";
+                    break;
+                case "mouseout":
+                    targetCheckBox.parentNode.style.backgroundColor = "white";
+                    break;
+                case "click":
+                    if (e.target.type != "checkbox" && targetCheckBox.disabled == false) {
+                        targetCheckBox.checked = targetCheckBox.checked ? false: true;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+</script>

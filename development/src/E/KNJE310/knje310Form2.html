@@ -1,0 +1,218 @@
+<!--kanji=漢字-->
+<!-- <?php # $Id: knje310Form2.html 56587 2017-10-22 12:54:51Z maeshiro $ ?> -->
+
+<style type="text/css">
+<!--
+.unedit {
+    border: 1px solid gray;
+}
+.unedit_ope {
+    border: 1px solid gray;
+}
+.unedit_data {
+    border: 1px solid gray;
+}
+TH.necessary_mark {
+}
+TH.title {
+}
+.necessary {
+}
+.warn {
+  color: red;
+  font-size: 10pt;
+}
+-->
+</style>
+
+{rval start}
+<br>
+&nbsp;&nbsp;
+「※」のある項目は必須入力
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{rval button/btn_add}
+{rval button/btn_update}
+{rval button/btn_del}
+{rval button/btn_reset}
+{rval button/btn_end}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="130">項 目</th>
+                      <th width="*%">値</th>
+                    </tr>
+<!-- <?php # 結果一覧 ?> -->
+<!--{def data}-->
+                    <tr>
+                      <td class="no_search">
+                         <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                           <tr class="no_search">
+                             <th align="left" nowrap></th>
+                             <th align="right" nowrap>登録日</th>
+                           </tr>
+                         </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/TOROKU_DATE}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                         <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                           <tr class="no_search">
+                             <th align="left" nowrap></th>
+                             <th align="right" nowrap>分類</th>
+                           </tr>
+                         </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/SCHOOL_SORT}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap class="necessary_mark">※</th>
+                            <th align="right" nowrap>進路先</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr>
+                            <td align="left" nowrap>{rval data/STAT_CD}　{rval button/btn_input}　{rval button/btn_college}</td>
+                          </tr>
+                          <tr>
+                            <td align="left" nowrap>{rval data/STAT_NAME}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>学校情報</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr>
+                            <td align="left" nowrap>学　　部&nbsp;{rval data/BUNAME}</td>
+                          </tr>
+                          <tr>
+                            <td align="left" nowrap>受験方法&nbsp;{rval data/JUKEN_HOWTO}</td>
+                          </tr>
+                          <tr>
+                            <td align="left" nowrap>推薦基準&nbsp;{rval data/RECOMMEND}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                         <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                           <tr class="no_search">
+                             <th align="left" nowrap></th>
+                             <th align="right" nowrap>校内選考会</th>
+                           </tr>
+                         </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/SENKOU_KAI}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                         <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                           <tr class="no_search">
+                             <th align="left" nowrap></th>
+                             <th align="right" nowrap>校内選考結果</th>
+                           </tr>
+                         </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/NM_SENKOU_FIN}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                         <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                           <tr class="no_search">
+                             <th align="left" nowrap></th>
+                             <th align="right" nowrap>求人番号</th>
+                           </tr>
+                         </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/SENKOU_NO}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                         <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                           <tr class="no_search">
+                             <th align="left" nowrap></th>
+                             <th align="right" nowrap>備考</th>
+                           </tr>
+                         </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/REMARK}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                         <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                           <tr class="no_search">
+                             <th align="left" nowrap></th>
+                             <th align="right" nowrap>受験結果</th>
+                           </tr>
+                         </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/DECISION}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                         <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                           <tr class="no_search">
+                             <th align="left" nowrap></th>
+                             <th align="right" nowrap>進路状況</th>
+                           </tr>
+                         </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/PLANSTAT}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>成績情報</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr>
+                            <td align="left" nowrap>欠席点：{rval data/SW_ATTEND}　　評定平均値点：{rval data/SW_AVG}</td>
+                          </tr>
+                          <tr>
+                            <td align="left" nowrap>統一テスト：{rval data/TEST}　　{rval button/btn_sum}　総合点：{rval data/SW_SEISEKI}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

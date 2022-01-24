@@ -1,0 +1,71 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="8">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th norwarp width="35%">対象年度&nbsp;{rval YEAR}</th>
+                      <td norwarp width="65%">&nbsp;{rval btn_pre_copy}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th nowrap width="22%" colspan="2">都道府県</th>
+                      <th nowrap width="8%"  rowspan="2">学年</th>
+                      <th nowrap width="15%" rowspan="2">入学年度<BR>使用</th>
+                      <th nowrap width="15%" rowspan="2">今年度<BR>使用</th>
+                      <th nowrap width="15%" rowspan="2">ランク<BR>使用</th>
+                      <th nowrap width="15%" rowspan="2">前期開始<BR>年度</th>
+                      <th nowrap width="*"   rowspan="2">後期開始<BR>年度</th>
+                    </tr>
+                    <tr class="no_search" height="25">
+                      <th nowrap width="9%">コード</th>
+                      <th nowrap width="13%">名称</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/PREFECTURESCD}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/NAME1}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/GRADE}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/CURRICULUM_FLG}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/THIS_YEAR_FLG}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/USE_RANK}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/ZENKI_KAISI_YEAR}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/KOUKI_KAISI_YEAR}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

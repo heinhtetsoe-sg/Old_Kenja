@@ -1,0 +1,94 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR>
+
+<table width="45%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td align="center">
+                          {rval data/YEAR}年度　　{rval data/SEMESTER}　　{rval data/GRADE}　　{rval data/TESTCD}
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="45">
+                      <td>
+                              　　　出欠集計範囲　　　{rval data/SDATE} ～ {rval data/EDATE}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象クラス</b></th>
+                      <th class="no_search"></th>
+                      <th><b>クラス一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CLASS_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD align="left"  bgcolor="#ffffff">
+                        <TABLE>
+                          <TR>
+                            <TD>
+<!--{def KANSAN_FLG}-->
+                              　　●{rval data/KANSAN}100点に換算する<br><br>
+<!--{/def}-->
+                              　　●順位<br>
+                              　　　　　{rval data/RANK_DIV1}<LABEL for="RANK_DIV1">学年</LABEL>　　{rval data/RANK_DIV2}<LABEL for="RANK_DIV2">コース</LABEL><br><br>
+                              　　●順位の基準点<br>
+                              　　　　　{rval data/RANK_KIJUN1}<LABEL for="RANK_KIJUN1">総合点</LABEL>　{rval data/RANK_KIJUN2}<LABEL for="RANK_KIJUN2">平均点</LABEL><br><br>
+                              　　●成績上位者<br>
+                              　　　　　{rval data/RANK_NO}&nbsp;位まで<br><br>
+                              　　●成績欠点<br>
+                              　　　　　{rval data/BAD_SCORE}&nbsp;点未満　　{rval data/BAD_SUBCNT}&nbsp;科目以上<br><br>
+                            </TD>
+                          </TR>
+                        </TABLE>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}　<font color="red" size="2"> ※素点は序列確定処理時の得点です。</font></td>
+  </tr>
+  <tr>
+    <td nowrap></td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

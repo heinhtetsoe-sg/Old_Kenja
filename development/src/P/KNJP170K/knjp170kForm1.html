@@ -1,0 +1,184 @@
+{rval start}
+<style>
+td,th {
+    font-size:12px;
+}
+
+#button_td {
+    padding-right : 350px;
+}
+
+</style>
+<DIV id="TipLayer"  style="visibility:hidden;position:absolute;z-index:1000;top:-100"></DIV>
+<script language="JavaScript" src="<?php
+
+require_once('for_php7.php');
+ echo REQUESTROOT ?>/common/popMsg.js"></script>
+
+<script language="JavaScript">
+var Style =["white","black","#3399cc","#FFFFFF","","","","","","","left","","","",250,"",2,2,10,10,"","","","",""];
+var Style2=["white","black","#3399cc","#FFFFFF","","","","","","","left","","","",500,"",2,2,10,10,"","","","",""];
+var FiltersEnabled = 1;
+applyCssFilter();
+</script>
+<div id='debug'></div>
+<table cellspacing="0" cellpadding="10" width="1380px" border="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tbody>
+          <tr>
+            <td>
+            <table cellspacing="0" cellpadding="0" width="100%" border="0">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table cellspacing="1" cellpadding="3" width="100%" border="0">
+                    <tbody>
+                      <tr class="no_search">
+                        <td nowrap width="900" align="left">&nbsp;対象年度&nbsp;{rval CTRL_YEAR}
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {rval CHANG_PRG1}<LABEL for="CHANG_PRG1">就学支援金</LABEL>&nbsp;{rval CHANG_PRG2}<LABEL for="CHANG_PRG2">府県補助金</LABEL>&nbsp;{rval CHANG_PRG3}<LABEL for="CHANG_PRG3">全体表示</LABEL></td>
+                      </tr>
+                      <tr class="no_search">
+                        <td nowrap>&nbsp;学年 ：{rval GRADE}&nbsp;年-組 ：{rval HR_CLASS}&nbsp; 都道府県：{rval PREF}&nbsp;{rval btn_copy}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        検索対象： {rval RAD_PREF1}学資負担者都道府県{rval RAD_PREF2}補助対象都道府県</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table cellspacing="3" cellpadding="1" width="1380px" border="0">
+  <tbody>
+    <tr>
+      <td nowrap>
+      <table cellspacing="5" cellpadding="0" width="100%" border="0">
+        <tbody>
+          <tr>
+            <td valign="top">
+            <table cellspacing="0" cellpadding="0" width="100%" border="0">
+              <tbody>
+                <tr>
+                  <td>
+                  <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                    <tbody>
+                      <tr class="no_search_line">
+                        <td>
+                        <table cellspacing="1" cellpadding="3" width="100%" border="0">
+                          <tbody>
+                            <tr class="no_search">
+                              <th nowrap width="60">年-組-番</th>
+                              <th nowrap width="50">学籍番号</th>
+                              <th nowrap width="120">生徒氏名</th>
+                              <th nowrap width="50">補助対象<br>都道府県</th>
+                              <th nowrap width="55">特殊<br>フラグ</th>
+                              <th nowrap width="40">兄弟<br>姉妹</th>
+                              <th nowrap width="90">{rval HEISEI_2}<br>所得割額</th>
+                              <th nowrap width="55">ランク</th>
+                              <th nowrap width="90">府県補助額1{rval CHACKALL_1}</th>
+                              <th nowrap width="40">兄弟<br>姉妹</th>
+                              <th nowrap width="90">{rval HEISEI_1}<br>所得割額</th>
+                              <th nowrap width="55">ランク</th>
+                              <th nowrap width="90">府県補助額2{rval CHACKALL_2}</th>
+                              <th nowrap width="60">府県<BR>補助額合計</th>
+                              <th nowrap width="100">交付情報</th>
+                              <th nowrap width="*">備考</th>
+                            </tr>
+                          </tbody>
+                        </table>
+                        </td>
+                      </tr>
+                      <!--結果一覧-->
+                      <tr>
+                        <th align="right">
+                        <div style="height:465;overflow:auto">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+                          <tbody>
+<!--{each data}-->
+                            <tr bgcolor="#ffffff">
+                              <td nowrap align="center" width="60">{rval data/HR_NAMEABBV}</td>
+                              <td nowrap align="right" width="50">{rval data/SCHREGNO}</td>
+                              <td nowrap align="left" width="120">{rval data/NAME_SHOW}</td>
+                              <td bgcolor="#ffffff" align="center" width="50"><span id="PREFECTURESCD2_{rval data/SCHREGNO}">{rval data/PREF2}</span>{rval data/PREFECTURESCD}{rval data/REDUCTION_SEQ_1}{rval data/REDUCTION_SEQ_2}</td>
+                              <th nowrap align="center" width="55">{rval data/REDUC_RARE_CASE_CD}</th>
+
+                              <td bgcolor="#ffffff" align="center" width="40">{rval data/INCOME_SIBLINGS1}</td>
+                              <td bgcolor="{rval data/UNREGISTERED_COLOR1}" align="center" width="90">{rval data/REDUC_INCOME_1}</td>
+                              <td bgcolor="#ffffff" align="center" width="55">{rval data/REDUC_RANK_1}</td>
+                              <td nowrap align="right" width="90"><span id="REDUCTIONMONEY_12_{rval data/SCHREGNO}">{rval data/REDUCTIONMONEY_12}</span>{rval data/REDUCTIONMONEY_1}{rval data/REDUC_DEC_FLG_1}</td>
+
+                              <td bgcolor="#ffffff" align="center" width="40">{rval data/INCOME_SIBLINGS2}</td>
+                              <td bgcolor="{rval data/UNREGISTERED_COLOR2}" align="center" width="90">{rval data/REDUC_INCOME_2}</td>
+                              <td bgcolor="#ffffff" align="center" width="55">{rval data/REDUC_RANK_2}</td>
+                              <td nowrap align="right" width="90"><span id="REDUCTIONMONEY_22_{rval data/SCHREGNO}">{rval data/REDUCTIONMONEY_22}</span>{rval data/REDUCTIONMONEY_2}{rval data/REDUC_DEC_FLG_2}</td>
+
+                              <td nowrap align="middle" width="60"><span id="total_money_{rval data/SCHREGNO}">{rval data/TOTAL_MONEY}</span></td>
+                              <td nowrap align="center" width="100">{rval data/GRANT_TRANSFER_MARK}</td>
+                              <td nowrap align="middle" width="*">{rval data/REDUC_REMARK}</td>
+<!--{/each}-->
+                            </tr>
+                          </tbody>
+                        </table>
+                        </div>
+                        </th>
+                      </tr>
+                      <tr class="no_search_line">
+                        <td>
+                        <table cellspacing="1" cellpadding="3" width="100%" border="0">
+                          <tbody>
+                            <tr class="no_search"><th nowrap align="right" width="*" id='button_td'>{rval btn_update}{rval btn_cancel}{rval btn_close}</th>
+                            </tr>
+                          </tbody>
+                        </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div id="myID_Menu" style="position:absolute; visibility:hidden;">
+<table width=180 border="1" cellpadding="1" cellspacing="0" bgcolor="#C0C0C0">
+
+<tr class="no_search_line">
+  <td class="no_search" align="right">
+    <span style="float:left;"><font color="#FFFFFF"><strong>　入力項目　<a class="menuTitle" href="{rval menuTitle/CLICK_VAL}">{rval menuTitle/CLICK_NAME}</a></strong><br></font></span>
+  </td>
+</tr>
+
+<tr class="no_search_line">
+  <td bgcolor="#FFFFFF">
+    <!--{each menu}-->
+    <a class="menu" href={rval menu/CLICK_VAL}>{rval menu/CLICK_NAME}</a><br>
+    <!--{/each}-->
+  </td>
+</tr>
+
+</table>
+</div>
+
+{rval finish}

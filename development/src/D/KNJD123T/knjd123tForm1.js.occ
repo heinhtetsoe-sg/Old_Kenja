@@ -1,0 +1,117 @@
+function btn_submit(cmd) {
+
+    if (cmd == 'reset'){
+        if (!confirm('{rval MSG106}'))
+            return false;
+    } else if (cmd == 'update'){
+
+        for (var i = 0; i < document.forms[0].elements.length; i++ ) {
+            var e = document.forms[0].elements[i];
+            if (e.type == 'text' && e.value != '') {
+                var nam = e.name;
+                if (!isNaN(e.value) && (e.value > 100 || e.value < 0)) {
+                    alert('{rval MSG901}' + '\n0～100まで入力可能です');
+                    return false;
+                }
+//---2005.06.08Modify---↓---
+                if (nam.match(/.VALUE./) && nam.match(/^SEM/)) {
+                    var v = e.value;
+                    if (isNaN(e.value) && !v.match(/-|=/)) {
+                        alert(e.value+'{rval MSG901}' + '\n欠課時数情報（-、=)ではない項目があります');
+                        return false;
+                    } else if (!isNaN(e.value) && (e.value > 100 || e.value < 0)) {
+                        alert(e.value+'{rval MSG901}' + '\n0～100まで入力可能です');
+                        return false;
+                    }
+                } else if (isNaN(e.value)) {
+                    alert(e.value+'{rval MSG901}' + '\n値：'+e.value+'は 数値ではありません');
+                    return false;
+                }                
+//---2005.05.24Modify
+//                if (!nam.match(/.SCORE./) && isNaN(e.value)) {
+//                if (isNaN(e.value)) {
+//                    alert(e.value+'{rval MSG901}' + '\n値：'+e.value+'は 数値ではありません');
+//                    return false;
+//                }                
+//---2005.05.24Del
+//                if (nam.match(/.SCORE./)) {
+//                    var v = e.value;
+//                    if (isNaN(e.value) && !v.match(/kk|KK|Kk|kK|ks|KS|Ks|kS/)) {
+//                        alert(e.value+'{rval MSG901}' + '\n出欠情報（KK、KS)ではない項目があります');
+//                        return false;
+//                    } else if (!isNaN(e.value) && (e.value > 100 || e.value < 0)) {
+//                        alert(e.value+'{rval MSG901}' + '\n0～100まで入力可能です');
+//                        return false;
+//                    }
+//                }
+//---2005.06.08Modify---↑---
+            }
+        }
+
+    }
+    document.forms[0].cmd.value = cmd;
+    document.forms[0].submit();
+    return false;
+}
+function calc(obj){
+
+    var str = obj.value;
+    var nam = obj.name;
+    
+//---2005.05.24Del
+//    if (nam.match(/.SCORE./)) {
+//        if (str.toUpperCase() == 'KK' | str.toUpperCase() == 'KS') { 
+//            obj.value = str.toUpperCase();
+//            return;
+//        }
+//    }
+//---2005.06.08Add
+    if (nam.match(/.VALUE./) && nam.match(/^SEM/)) {
+        if (str == '-' | str == '=') { 
+            return;
+        }
+    }
+    //数字チェック
+    if (isNaN(obj.value)){
+        alert('{rval MSG907}');
+        obj.value = obj.defaultValue;
+        return;
+    }
+
+    var score = parseInt(obj.value);
+    if(score>100){
+    alert('{rval MSG914}'+'0点～100点以内で入力してください。');
+        obj.value = obj.defaultValue;
+        return;
+    }
+
+    var score = parseInt(obj.value);
+    if(score<0){
+    alert('{rval MSG914}'+'0点～100点以内で入力してください。');
+        obj.value = obj.defaultValue;
+        return;
+    }
+    if (document.forms[0].gen_ed.value != "" && nam.match(/GRAD_VALUE./)) {
+        var n = nam.split('-');
+        if (a_mark[obj.value] == undefined){
+            outputLAYER('mark'+n[1], '');
+        } else {
+            outputLAYER('mark'+n[1], a_mark[obj.value]);
+        }
+    }
+}
+
+function newwin(SERVLET_URL){
+
+    action = document.forms[0].action;
+    target = document.forms[0].target;
+
+//    document.forms[0].action = "/cgi-bin/printenv.pl";
+    document.forms[0].action = SERVLET_URL +"/KNJD";
+    document.forms[0].target = "_blank";
+    document.forms[0].submit();
+
+    document.forms[0].action = action;
+    document.forms[0].target = target;
+}
+

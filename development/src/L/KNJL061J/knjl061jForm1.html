@@ -1,0 +1,82 @@
+{rval start}
+<br><br><br>
+<table align="center" width="50%" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td >
+              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr height="30" class="no_search_line">
+                  <th align="left" class="no_search" colspan="3">
+                  <font color="#ffffff"><b>リンク判定偏差値算出処理</b></font>
+                  </th>
+                </tr>
+                <tr height="30" bgcolor="#ffffff">
+                  <th class="no_search" align="right" width="30%">入試年度</th>
+                  <td width="70%">&nbsp;{rval YEAR}</td>
+                </tr>
+                <tr height="30" bgcolor="#ffffff">
+                  <th class="no_search" align="right">※ 入試区分</th>
+                  <td>&nbsp;{rval TESTDIV}</td>
+                </tr>
+                <tr height="30" bgcolor="#ffffff">
+                  <th class="no_search" align="right">※ リンク判定科目</th>
+                  <td>
+{rval TESTSUBCLASSCD1}<label for="{rval TESTSUBCLASSCD1_ID}">{rval TESTSUBCLASSCD1_NAME}</label>
+&nbsp;{rval TESTSUBCLASSCD2}<label for="{rval TESTSUBCLASSCD2_ID}">{rval TESTSUBCLASSCD2_NAME}</label>
+&nbsp;{rval TESTSUBCLASSCD3}<label for="{rval TESTSUBCLASSCD3_ID}">{rval TESTSUBCLASSCD3_NAME}</label>
+&nbsp;{rval TESTSUBCLASSCD4}<label for="{rval TESTSUBCLASSCD4_ID}">{rval TESTSUBCLASSCD4_NAME}</label>
+&nbsp;{rval TESTSUBCLASSCD5}<label for="{rval TESTSUBCLASSCD5_ID}">{rval TESTSUBCLASSCD5_NAME}</label>
+                  </td>
+                </tr>
+               <tr height="30" bgcolor="#ffffff">
+                  <th class="no_search">&nbsp;</th>
+                  <td>&nbsp;{rval btn_exec}{rval btn_end}</td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td >
+              <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                <tr bgcolor="#ffffff">
+                  <th class="no_search" colspan="3" align="left"><b>確定済みリスト</b></th>
+                </tr>
+                <tr bgcolor="#ffffff">
+                  <th class="no_search" width="30%">入試区分</th>
+                  <th class="no_search" width="40%">リンク判定科目</th>
+                  <th class="no_search" width="*%">処理日付</th>
+                </tr>
+            <!--{def data2}-->
+            <!--{each data2}--> 
+                <tr bgcolor="#ffffff">
+                  <td nowrap>{rval data2/TESTDIV_NAME}</td>
+                  <td nowrap>{rval data2/TESTSUBCLASSCD_NAME}</td>
+                  <td align="center" nowrap>{rval data2/UPDATED}</td>
+                </tr>
+            <!--{/each}--> 
+            <!--{/def}-->
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

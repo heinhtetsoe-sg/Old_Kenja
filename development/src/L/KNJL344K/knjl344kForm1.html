@@ -1,0 +1,78 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR><BR>
+
+<table width="50%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr > 
+    <td > 
+      <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+        <tr class="no_search_line"> 
+          <td width="100%"> 
+            <table width="100%" border="0" cellpadding="3" cellspacing="1">
+              <tr align="left" class="no_search"> 
+                <td>&nbsp&nbsp&nbsp&nbsp<b>{rval data/YEAR}年度&nbsp&nbsp&nbsp&nbsp試験区分　　：{rval data/TESTDIV}
+                    <div style="margin-left:122px;">特別理由区分：{rval data/SPECIAL_REASON_DIV}<div></b></td>
+              </tr>
+              <tr align="left" bgcolor="#ffffff" height="230">
+                <td>
+                  &nbsp&nbsp&nbsp&nbsp各種帳票：{rval data/OUTPUT1}合格者名簿１（{rval data/CHECK1}備考欄出力する）<BR>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp：{rval data/OUTPUT8}合格者名簿２<BR>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp：{rval data/OUTPUT2}追加合格者名簿<BR>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp：{rval data/OUTPUT3}繰上合格者名簿<BR>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp：{rval data/OUTPUT4}手続者名簿（{rval data/CHECK4}備考欄出力する）<BR>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp：{rval data/OUTPUT6}手続辞退者名簿<BR>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp：{rval data/OUTPUT7}入学者名簿（{rval data/CHECK7}備考欄出力する）<BR>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp：{rval data/OUTPUT5}入学辞退者名簿<BR>
+<!--{def jhflg}-->
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp：{rval data/OUTPUT9}スカラシップ認定者名簿（{rval data/SCALASHIPDIV}）<BR>
+<!--{/def}-->
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp：{rval data/OUTPUT10}不合格者名簿（{rval data/CHECK10}備考欄出力する）<BR>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp：{rval data/OUTPUT11}欠席者名簿<BR>
+<BR>                  &nbsp&nbsp&nbsp&nbsp追加／繰上合格グループNo：&nbsp{rval data/PASSDIV}
+                </td>
+              </tr>
+<!--{def jhflg}-->
+              <tr bgcolor="#ffffff">
+                <td>
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+              <tr class="no_search">
+                <td nowrap colspan="3">&nbsp{rval data/SORT1}受験番号順&nbsp&nbsp{rval data/SORT2}かな氏名順</td>
+              </tr>
+              <tr class="no_search">
+                <th nowrap>選択ソート一覧</th>
+                <th>&nbsp;</th>
+                <th nowrap>ソート一覧</th>
+              </tr>
+              <tr align="center" bgcolor="#ffffff">
+                <td width="37%">{rval main_part/LEFT_PART}</td>
+                <td width="6%" class="no_search">{rval main_part/SEL_ADD_ALL}<br>
+                                                 {rval main_part/SEL_ADD}<br>
+                                                 {rval main_part/SEL_DEL}<br>
+                                                 {rval main_part/SEL_DEL_ALL}</td>
+                <td width="37%">{rval main_part/RIGHT_PART}</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                  <td nowrap colspan="3"><font size=2, color="red">注）選択した並び順で出力します。<BR>&nbsp&nbsp（合格者名簿１／手続者名簿／入学者名簿のみ）</font></td>
+              </tr>
+                  </table>
+                </td>
+              </tr>
+<!--{/def}-->
+              <tr align="left" class="no_search" height="20"> 
+                <td nowrap> &nbsp{rval button/btn_print}{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

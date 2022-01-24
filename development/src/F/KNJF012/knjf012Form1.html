@@ -1,0 +1,168 @@
+{rval start}
+
+<br>
+<table width="98%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" >
+                    <tr class="no_search">
+                      <th width="50%" height="30">定期健康診断情報（詳細）</th>
+                      <th width="50%">
+                        {rval header/SCHREGNO} ： {rval header/NAME_SHOW}　{rval header/BIRTHDAY}　生まれ
+                      </th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{def base}-->
+<br>
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:790px;">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="35">
+                      <th nowrap align="center" colspan="7">回数 : {rval data/NO}</th>
+                    </tr>
+                    <tr class="no_search" height="35">
+                      <th nowrap align="right" colspan="2">※ 健康診断実施日</th>
+                      <td bgcolor="#ffffff" colspan="5">&nbsp;{rval data/DATE}</td>
+                    </tr>
+                    <tr class="no_search" height="35">
+                      <th width="20%" nowrap align="right" colspan="2">身長(cm)</th>
+                      <td width="17%" bgcolor="#ffffff">&nbsp;&nbsp;{rval data/HEIGHT}</td>
+                      <th width="12%" nowrap align="right">体重(kg)</th>
+                      <td width="17%" bgcolor="#ffffff">&nbsp;&nbsp;{rval data/WEIGHT}</td>
+                      <th width="12%" nowrap align="right">座高(cm)</th>
+                      <td width="*"   bgcolor="#ffffff">&nbsp;&nbsp;{rval data/SITHEIGHT}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(小数第１位)</font></td>
+                    </tr>
+                    <tr class="no_search" align="left" height="35">
+                      <th nowrap align="right" rowspan="2">視力</th>
+                      <th width="15%" align="right" nowrap>数字<font style="font-size:0.8em">(半角4文字)</font></th>
+                      <td bgcolor="#ffffff" colspan="5">
+                        <font color="black">
+                        &nbsp;右　裸眼：&nbsp;{rval data/R_BAREVISION}　矯正：&nbsp;{rval data/R_VISION}　　　&nbsp;
+                        左　裸眼：&nbsp;{rval data/L_BAREVISION}　矯正：&nbsp;{rval data/L_VISION}
+                        <!-- (Ａ：1.0以上; Ｂ：1.0未満0.7以上; Ｃ：0.7未満0.3以上; Ｄ：0.3未満)-->
+                        </font>
+                      </td>
+                    </tr>
+                    <tr class="no_search" height="35">
+                      <th width="15%" align="right" nowrap>文字</th>
+                      <td bgcolor="#ffffff" colspan="5">
+                        <font color="black">
+                        &nbsp;右　裸眼：&nbsp;{rval data/R_BAREVISION_MARK}&nbsp;　　矯正：&nbsp;{rval data/R_VISION_MARK}　　　　　
+                        左　裸眼：&nbsp;{rval data/L_BAREVISION_MARK}&nbsp;　　矯正：&nbsp;{rval data/L_VISION_MARK}
+                        </font>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!--{/def}-->
+
+<!--{def new}-->
+<br>
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:790px;">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line" >
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="35">
+                      <th nowrap align="center" colspan="6">回数 : {rval data/NO}</th>
+                    </tr>
+                    <tr class="no_search" height="35">
+                      <th nowrap align="right">※ 健康診断実施日</th>
+                      <td bgcolor="#ffffff" colspan="5">&nbsp;{rval data/DATE}</td>
+                    </tr>
+                    <tr class="no_search" height="35">
+                      <th width="20%" nowrap align="right">身長(cm)</th>
+                      <td width="17%" bgcolor="#ffffff">&nbsp;&nbsp;{rval data/HEIGHT}</td>
+                      <th width="12%" nowrap align="right">体重(kg)</th>
+                      <td width="17%" bgcolor="#ffffff">&nbsp;&nbsp;{rval data/WEIGHT}</td>
+                      <th width="12%" nowrap align="right">座高(cm)</th>
+                      <td width="*"   bgcolor="#ffffff">&nbsp;&nbsp;{rval data/SITHEIGHT}&nbsp;<font color="red" style="font-size:10pt">(小数第１位)</font></td>
+                    </tr>
+                    <tr class="no_search" height="35">
+                      <th nowrap align="right">視力</th>
+                      <td bgcolor="#ffffff" colspan="5">
+                        <font color="black">
+                        &nbsp;右　裸眼：&nbsp;{rval data/R_BAREVISION_MARK}　　矯正：&nbsp;{rval data/R_VISION_MARK}　　　　　
+                        左　裸眼：&nbsp;{rval data/L_BAREVISION_MARK}&nbsp;　　矯正：&nbsp;{rval data/L_VISION_MARK}
+                        </font>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!--{/def}-->
+
+<br>
+<table width="98%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" >
+                    <tr class="no_search">
+                      <td align="center">
+                        {rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->

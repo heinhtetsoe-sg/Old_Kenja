@@ -1,0 +1,85 @@
+{rval start} 
+
+<!--{def button}--> 
+<!--{def data}-->
+
+<table><tr height="120"><td></td></tr></table>
+<table width="700" border="0" cellpadding="10" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                    <tr class="no_search" height="35" align="center">
+                      <td>
+                        <b>{rval YEAR}年度　　{rval SEMESTER}</b>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="120">
+                      <td>
+                        <!--{def useFi_HrclassSelect}-->
+                        　　　{rval data/HR_CLASS_TYPE1}<LABEL for="HR_CLASS_TYPE1"><b>法定クラス</b></LABEL>　
+                              {rval data/HR_CLASS_TYPE2}<LABEL for="HR_CLASS_TYPE2"><b>複式クラス</b></LABEL><br><br>
+                        <!--{/def}-->
+                        <!--{def useSpecial_Support_HrclassSelect}-->
+                        　　　{rval data/HR_CLASS_TYPE1}<LABEL for="HR_CLASS_TYPE1"><b>法定クラス</b></LABEL>（{rval data/GAKUNEN_KONGOU}<LABEL for="GAKUNEN_KONGOU"><b>学年混合</b></LABEL>）
+                              {rval data/HR_CLASS_TYPE2}<LABEL for="HR_CLASS_TYPE2"><b>実クラス</b></LABEL><br><br>
+                        <!--{/def}-->
+                        　　　　<b>対象クラス</b>　{rval data/GRADE_HR_CLASS}<br><br>
+                        　　　　<b>対象月　　</b>　{rval data/TARGET_MONTH}<br><br>
+                        　　　　<b>対象日　　</b>　{rval data/TARGET_DAY}<br><br>
+                        <!--{def showFORM_A}-->
+                        　　　　<b>帳票選択　</b>
+                        <!--{def form1}-->　{rval data/FORM_DIV1}<LABEL for="FORM_DIV1">A3横</LABEL><!--{/def}-->
+                        <!--{def form2}-->　{rval data/FORM_DIV2}<LABEL for="FORM_DIV2">A4縦</LABEL><!--{/def}-->
+                        <!--{def form3}-->　{rval data/FORM_DIV3}<LABEL for="FORM_DIV3">A3縦/A4横(出席統計有)</LABEL><!--{/def}-->{rval form_div_line1}
+                        <!--{def form4}-->{rval data/FORM_DIV4}<LABEL for="FORM_DIV4">A4横2(連続欠席調査)</LABEL>　<!--{/def}-->
+                        <!--{def form5}-->{rval data/FORM_DIV5}<LABEL for="FORM_DIV5">A4横3(連続欠席調査)</LABEL><!--{/def}--><br>
+                        <!--{def showFORM_SELECT}-->　　　　　　　　　　{rval data/FORM_SELECT}<LABEL for="FORM_SELECT">15行で印刷</LABEL><br><!--{/def}-->
+                        　　　　　　　　　　{rval data/PRINT_ZAISEKI_ONLY}<LABEL for="PRINT_ZAISEKI_ONLY">未在籍者は詰めて印字する</LABEL><br><br>
+                        <!--{/def}-->
+                        <!--{def showFORM_B}-->
+                        <table>
+                          <tr>
+                            <td>　　　　<b>帳票選択　</b></td><td>{rval data/FORM_DIV1}<LABEL for="FORM_DIV1">A4横(7日以上連・断続欠席者調査あり)</LABEL></td>
+                          </tr>
+                          <tr><td></td>
+                            <td>{rval data/FORM_DIV2}<LABEL for="FORM_DIV2">A4横(7日以上連・断続欠席者調査なし)</LABEL></td>
+                          </tr>
+                          <tr><td></td>
+                            <td>{rval data/FORM_DIV3}<LABEL for="FORM_DIV3">A4横(7日以上連・断続欠席者調査あり・訪問生用)</LABEL></td>
+                          </tr>
+                          <tr><td></td>
+                            <td>{rval data/FORM_DIV4}<LABEL for="FORM_DIV4">A4横(7日以上連・断続欠席者調査なし・訪問生用)</LABEL></td>
+                          </tr>
+                          <tr>
+                            <td>　　　　<b>条件設定　</b></td><td>{rval data/PRINT_ZAISEKI_ONLY}<LABEL for="PRINT_ZAISEKI_ONLY">未在籍者は詰めて印字する</LABEL></td>
+                          </tr>
+                        </table>
+                        <!--{/def}-->
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="left">
+                        {rval button/btn_print}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

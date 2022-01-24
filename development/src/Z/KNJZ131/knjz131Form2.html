@@ -1,0 +1,169 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr> 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="28"> 
+                      <th width="30%">項 目</th>
+                      <th width="70%">値</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>出欠コード</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/DI_CD}</td>
+                    </tr>
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>出欠名称１</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/DI_NAME1}</td>
+                    </tr>
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>出欠名称２</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/DI_NAME2}</td>
+                    </tr>
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>処理読替</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/ATSUB_REPL_DI_CD}<font size="2" color="red">(出欠コード29,30,31の時のみ有効)</font></td>
+                    </tr>
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>出欠記号</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/DI_MARK}</td>
+                    </tr>
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>カウント倍数</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/MULTIPLY}</td>
+                    </tr>
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>管理者以外表示可</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/RESTRICT_FLG}</td>
+                    </tr>
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>全校時の出欠コード</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/ONEDAY_DI_CD}</td>
+                    </tr>
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>出欠入力表示順</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/ORDER}</td>
+                    </tr>
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>出欠届け表示順</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/PETITION_ORDER}</td>
+                    </tr>
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>読替先処理コード</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/REP_DI_CD}</td>
+                    </tr>
+
+                    <!--{/def}--> 
+                    <!--{def button}--> 
+                    <tr height="28"> 
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+                    </tr>
+                    <!--{/def}--> 
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

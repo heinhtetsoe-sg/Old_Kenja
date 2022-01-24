@@ -1,0 +1,151 @@
+{rval start}
+<script src="lha080.js" language="JavaScript"></script>
+
+<!--{def button}--> 
+<!--{def data}-->
+
+<INPUT type="hidden" name="selectdata" size="70"><br>
+
+<br><br><br><br>
+<table style="width: 600px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+    <table style="width: 600px" border="0" cellspacing="5" cellpadding="0">
+	<tr>
+	<td>
+		<tablestyle="width: 600px" border="0" cellspacing="0" cellpadding="0">
+		<tr class="no_search_line">
+		<td>
+			<table style="width: 600px"	 border="0" cellspacing="1" cellpadding="4">
+			  <tr class="no_search" height="30">
+				<td>
+		            　　　　<b>{rval data/YEAR}年度</b>
+				</td>
+			  </tr>
+			  <tr bgcolor="#ffffff" height="100">
+				<td>
+			      <table>
+					<tr>
+					  <td>
+			        	<b>　時間割種別・指定日付</b>
+					  </td>
+					</tr>
+					<tr>
+				<td>
+			      <table>
+					<tr>
+					  <td>
+			    		　　{rval data/RADIO1}<LABEL for="RADIO1">基本時間割</LABEL>　　  {rval data/TITLE}
+					  </td>
+					</tr>
+					<tr>
+					  <td>
+	            		　　{rval data/RADIO2}<LABEL for="RADIO2">通常時間割</LABEL>　　{rval data/DATE}　～　{rval data/DATE2}
+					  </td>
+					</tr>
+				  </table>
+			  	</td>
+					</tr>
+				  </table>
+			  	</td>
+			  </tr>
+			  <tr bgcolor="#ffffff" height="140">
+				<td>
+			      <table>
+					<tr>
+					  <td>
+			          	<b>　出力区分</b><BR>
+					  </td>
+					</tr>
+					<tr>
+					  <td>
+				    	<table>
+						  <tr>
+							<td>
+				    			　　{rval data/KUBUN1}　<LABEL for="KUBUN1">職員</LABEL>　　　所属　{rval data/SECTION_CD_NAME1}　～　{rval data/SECTION_CD_NAME2}
+							</td>
+						  </tr>
+						  <tr>
+							<td>
+								　　{rval data/KUBUN2}　<LABEL for="KUBUN2">学級</LABEL>　学年／組　{rval data/GRADE_HR_CLASS1}　～　{rval data/GRADE_HR_CLASS2}
+							</td>
+                    	  </tr>
+                    	  <tr>
+		            		<td>
+								　　{rval data/KUBUN3}　<LABEL for="KUBUN3">生徒</LABEL>　学年／組　{rval data/GRADE_HR_CLASS3}　～　{rval data/GRADE_HR_CLASS4}
+							</td>
+						  </tr>
+						</table>
+					  </td>
+					</tr>
+				  </table>
+			  	</td>
+			  </tr>
+			  <tr bgcolor="#ffffff" height="190">
+				<td>
+			      <table>
+					<tr>
+					  <td>
+				    	<table>
+                          <tr>
+                            <td>
+                              <b>　出力項目</b>
+                            </td>
+                          </tr>
+						  <tr>
+							<td>
+				    			　　{rval data/SUBCLASS_CHAIR_DIV1}<LABEL for="SUBCLASS_CHAIR_DIV1">科目名</LABEL>　　{rval data/SUBCLASS_CHAIR_DIV2}<LABEL for="SUBCLASS_CHAIR_DIV2">講座名</LABEL>
+							</td>
+						  </tr>
+                          <tr>
+                            <td>
+                              <b>　出力条件</b>
+                            </td>
+                          </tr>
+						  <tr>
+							<td>
+				    			　　{rval data/CHECK}　<LABEL for="CHECK">授業がない「校時」を詰める（職員別のみ）</LABEL>
+							</td>
+						  </tr>
+						  <tr>
+							<td>
+				    			　　{rval data/TEST_CHECK}　<LABEL for="TEST_CHECK">テスト時間割のみ出力（通常時間割のみ）</LABEL>
+							</td>
+						  </tr>
+						  <tr>
+							<td>
+				    			　　{rval data/STAFF_CHECK}　<LABEL for="STAFF_CHECK">職員は正担任（MAX職員番号）のみ出力（生徒別のみ）</LABEL>
+							</td>
+						  </tr>
+						  <tr>
+							<td>
+				    			　　{rval data/NO_CLASS_CHECK}　<LABEL for="NO_CLASS_CHECK">クラス名は出力しない（職員別のみ）</LABEL>
+							</td>
+						  </tr>
+						</table>
+					  </td>
+					</tr>
+				  </table>
+			  	</td>
+			  </tr>
+			  <tr class="no_search">
+				<td align="left">
+			    	{rval button/btn_print}{rval button/btn_end}
+				</td>
+			  </tr>
+			</table>
+		</td>
+		</tr>
+		</table>
+	</td>
+	</tr>
+    </table>
+</td>
+</tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 
+<script language="JavaScript">{rval Dis_Date}</script>

@@ -1,0 +1,88 @@
+{rval start}
+<br>
+<hr style="width:96%" color="silver">
+<table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr>
+      <td >
+        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+            <tr align="left">
+                    <th width="35%">申請区分 &nbsp;{rval header/APPLY_DIV}</td>
+            </tr>
+            <tr><td></td></tr><tr><td></td></tr>
+            <tr align="left">
+                    <th width="55%">申請日付 &nbsp;{rval header/APPLY_CAL}　<font color="#336666">(※必須)&nbsp</font>
+                    <th width="35%">許可区分 &nbsp;{rval header/PERM}　<font color="#336666"></font>
+            </tr>
+            <tr><td></td></tr><tr><td></td></tr>
+            <tr align="left">
+                    <th width="35%">　　所属　&nbsp; {rval header/SECTIONNAME}</td>
+            </tr>
+            <tr align="left">
+                    <th width="35%">　　職名　&nbsp; {rval header/JOBNAME}</td>
+            </tr>
+            <tr align="left">
+                    <th width="35%">　　氏名　&nbsp; {rval header/STAFFNAME}</td>
+            </tr>
+        </table>
+      </td>
+    </tr>
+</table>
+
+<hr style="width:96%" color="silver">
+
+<BR>
+
+<table width="98%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="5" cellpadding="0">
+              <tr class="no_search_line" >
+                <td>
+                 <table width="100%" border="0" cellspacing="1" cellpadding="6">
+<!--結果一覧-->
+<!--{def data}-->
+                    <tr>
+                        <th class="no_search" width="15%" nowrap >項目</th>
+                      <td class="no_search" align="center" >値</td>
+                    </tr>
+                    <tr >
+                       <th class="no_search" width="15%" nowrap >※期　間<BR></th>
+                      <td bgcolor="white" >&nbsp;自{rval data/START}&nbsp;&nbsp;{rval data/WEEK1}曜日&nbsp;&nbsp;{rval data/HOUR1}時&nbsp;{rval data/MINUTE1}分&nbsp;
+                      <BR>&nbsp;至{rval data/FINISH}&nbsp;&nbsp;{rval data/WEEK2}曜日&nbsp;&nbsp;{rval data/HOUR2}時&nbsp;{rval data/MINUTE2}分 &nbsp; {rval data/TOTAL_HOURS}時間 &nbsp;{rval data/TOTAL_MINUTES}分</td>
+                    </tr>
+                    <tr>
+                        <th class="no_search" width="15%" nowrap >{rval data/LOC_CAP}</th>
+                      <td bgcolor="white" >{rval data/LOCATION}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" width="15%" nowrap >{rval data/REA_CAP}</th>
+                      <td bgcolor="white" >{rval data/REASON}</td>
+                    </tr>
+                    {rval data/OTHERS}
+<!--{/def}-->
+<!--{def button}--> 
+                    <tr>
+                      <th class="no_search"></th>
+                                          <td bgcolor="white">
+                       {rval button/btn_print}{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}
+                      </td>
+                    </tr>
+<!--{/def}-->
+
+                </table>
+                   </td>
+               </tr>
+              </table>
+           </td>
+          </tr>
+       </table>
+      </td>
+   </tr>
+</table>
+
+{rval finish}
+
+<script language="JavaScript">{rval reload}</script>

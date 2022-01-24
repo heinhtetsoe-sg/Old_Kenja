@@ -1,0 +1,33 @@
+-- $Id: kojin_rishi_koufu_shinsei_dat.sql 74435 2020-05-20 07:59:16Z yamashiro $
+
+DROP TABLE KOJIN_RISHI_KOUFU_SHINSEI_DAT
+CREATE TABLE KOJIN_RISHI_KOUFU_SHINSEI_DAT( \
+    SHUUGAKU_NO             VARCHAR(7)    NOT NULL, \
+    SHINSEI_YEAR            VARCHAR(4)    NOT NULL, \
+    KOUFU_SEQ               VARCHAR(2)    NOT NULL, \
+    SHIKIN_SHUBETSU         VARCHAR(1)    NOT NULL, \
+    KOJIN_NO                VARCHAR(7)    NOT NULL, \
+    SHUTARU_CD              VARCHAR(7), \
+    S_SHINSEI_YEAR          VARCHAR(4)    NOT NULL, \
+    UKE_YEAR                VARCHAR(4), \
+    UKE_NO                  VARCHAR(4), \
+    UKE_EDABAN              VARCHAR(3), \
+    SHINSEI_DATE            DATE, \
+    YUUSHI_COURSE_DIV       VARCHAR(1), \
+    KARIIRE_BANKCD          VARCHAR(4), \
+    KARIIRE_GK              INT, \
+    KARIIRE_RITSU           DECIMAL(6, 3), \
+    KARIIRE_DATE            DATE, \
+    S_RISHISHIHARAI_DATE    DATE, \
+    E_RISHISHIHARAI_DATE    DATE, \
+    REMARK                  VARCHAR(2400), \
+    S_KOUFU_SHINSEI_GK      INT, \
+    KOUFU_SHINSEI_GK        INT, \
+    KOUFU_SHORI_GK          INT, \
+    KOUFU_KETTEI_DATE       DATE, \
+    KOUFU_STATUS_FLG        VARCHAR(1), \
+    REGISTERCD              VARCHAR(8), \
+    UPDATED                 TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE KOJIN_RISHI_KOUFU_SHINSEI_DAT ADD CONSTRAINT PK_K_R_KOUFU_S_DAT PRIMARY KEY (SHUUGAKU_NO, SHINSEI_YEAR, KOUFU_SEQ)

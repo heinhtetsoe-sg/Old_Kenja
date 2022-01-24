@@ -1,0 +1,58 @@
+{rval start}
+
+<br><br>
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr >
+          <td >
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap>都道府県</th>
+                      <th nowrap>市区町村名称</th>
+                      <th nowrap>市区町村かな名</th>
+                      <th nowrap>フラグ1</th>
+                      <th nowrap>フラグ2</th>
+                      <th nowrap>フラグ3</th>
+                      <th nowrap>フラグ4</th>
+                      <th nowrap>フラグ5</th>
+                    </tr>
+
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/ROWSPAN}-->
+                      <td nowrap align="center" bgcolor="#ffffff" rowspan={rval data/ROWSPAN}>{val data/PREF_CD}:{val data/PREF_NAME}</td>
+                      <!--{/def}-->
+                      <td nowrap bgcolor="#ffffff"><a href="knjz110aindex.php?cmd=edit&SEND_FLG=1&PREF_CD={val data/PREF_CD}&CITY_CD={val data/CITY_CD}" target="right_frame">{val data/CITY_CD}:{val data/CITY_NAME}</a></td>
+                      <td nowrap bgcolor="#ffffff">{val data/CITY_KANA}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/CITY_FLG1}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/CITY_FLG2}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/CITY_FLG3}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/CITY_FLG4}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/CITY_FLG5}</td>
+                    </tr>
+                    <!--{/each}-->
+
+                  </table>
+
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

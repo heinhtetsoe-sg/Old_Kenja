@@ -1,0 +1,76 @@
+{rval start}
+<!--{def button}-->
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="10" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr>
+                      <th class="no_search" width="20%" nowrap>項目</th>
+                      <th class="no_search" width="80%" nowrap>値</th>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>IB教科・科目</th>
+                      <td bgcolor="#ffffff">{rval IBSUBCLASS}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>{rval LABEL}数</th>
+                      <td bgcolor="#ffffff">{rval IBSEQ_CNT}　{rval button/btn_cnt}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>　</td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search">
+                      <th width="10%" nowrap>　</th>
+                      <th width="10%" nowrap>年度</th>
+                      <th width="15%" nowrap>履修学期</th>
+                      <th width="15%" nowrap>学年</th>
+                      <th width="50%" nowrap>教科・科目</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--{each data}--> 
+                    <tr align="center" bgcolor="#ffffff">
+                      <td nowrap>{val data/IBSEQ_SHOW}</td>
+                      <td nowrap>{val data/YEAR_SHOW}</td>
+                      <td nowrap>{val data/SEMESTER}</td>
+                      <td nowrap>{val data/GRADE}</td>
+                      <td nowrap>{val data/SUBCLASS}</td>
+                    </tr> 
+                    <!--{/each}-->
+                    <!--{/def}-->
+                    <tr class="no_search">
+                      <th align="left" nowrap colspan="5">{rval button/btn_add}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}　{rval button/btn_csv}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

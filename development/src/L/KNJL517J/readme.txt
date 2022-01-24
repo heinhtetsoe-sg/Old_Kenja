@@ -1,0 +1,12 @@
+// kanji=漢字
+// $Id: readme.txt 70886 2019-11-26 08:05:42Z nakamoto $
+
+2019/03/29  1.KNJL580H/KNJL080Uを元に新規作成
+
+2019/04/09  1.一覧から辞退者(ENTDIV=2)は除く
+
+2019/11/25  1.入試種別ごとに手続終了を保持するため、更新テーブル変更
+            -- 変更前：ENTEXAM_APPLICANTBASE_DAT(PROCEDUREDIV、PROCEDUREDATE、ENTDIV)
+            -- 変更後：ENTEXAM_RECEPT_DAT(PROCEDUREDIV1、PROCEDUREDATE1、ADJOURNMENTDIV)
+
+2019/11/26  1.前回修正漏れ

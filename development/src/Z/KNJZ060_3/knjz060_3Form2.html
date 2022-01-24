@@ -1,0 +1,78 @@
+{rval start}
+<BR><BR><BR>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr > 
+      <td > 
+        <hr width="30%" align="left">
+          &nbsp;{rval data/CLASSCD_SET}&nbsp;&nbsp;{val data/CLASSNAME}
+        <hr width="30%" align="left">
+<BR>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+        <td> 
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search"> 
+            <th width="10%">SEQ</th>
+            <th width="15%">項 目</th>
+            <th width="75%">内 容</th>
+          </tr>
+<!--結果一覧-->
+<!--{def data}-->
+          <tr>
+            <th align="center" class="no_search" nowrap>{rval data/001}</th>
+            <th align="right" class="no_search" nowrap>序列確定処理（3教科指定）</th>
+            <td bgcolor="#ffffff">{rval data/SEQ_001}<LABEL for="SEQ_001">序列の対象に含める教科とする</LABEL></td>
+          </tr>
+          <tr>
+            <th align="center" class="no_search" nowrap>{rval data/002}</th>
+            <th align="right" class="no_search" nowrap>序列確定処理（5教科指定）</th>
+            <td bgcolor="#ffffff">{rval data/SEQ_002}<LABEL for="SEQ_002">序列の対象に含める教科とする</LABEL></td>
+          </tr>
+          <tr>
+            <th align="center" class="no_search" nowrap>{rval data/003}</th>
+            <th align="right" class="no_search" nowrap>評定の設定</th>
+            <td bgcolor="#ffffff">{rval data/SEQ_003}<LABEL for="SEQ_003">評定を指定しない教科とする</LABEL></td>
+          </tr>
+          <tr>
+            <th align="center" class="no_search" nowrap>{rval data/004}</th>
+            <th align="right" class="no_search" nowrap>教科間バランスの出力順</th>
+            <td bgcolor="#ffffff">{rval data/SEQ_004}<LABEL for="SEQ_004">出力の順番を設定する</LABEL>　順番：{rval data/REMARK1_004}</td>
+          </tr>
+          <tr>
+            <th align="center" class="no_search" nowrap>{rval data/005}</th>
+            <th align="right" class="no_search" nowrap>履修・修得簿の表示順</th>
+            <td bgcolor="#ffffff">{rval data/SEQ_005}<LABEL for="SEQ_005">表示の順番を設定する</LABEL>　順番：{rval data/REMARK1_005}</td>
+          </tr>
+          <tr>
+            <th align="center" class="no_search" nowrap>{rval data/006}</th>
+            <th align="right" class="no_search" nowrap>単位数の集計</th>
+            <td bgcolor="#ffffff">{rval data/SEQ_006}<LABEL for="SEQ_006">集計に含まない教科とする</LABEL></td>
+          </tr>
+          <tr>
+            <th align="center" class="no_search" nowrap>{rval data/007}</th>
+            <th align="right" class="no_search" nowrap>定期考査偏差値推移グラフ</th>
+            <td bgcolor="#ffffff">{rval data/SEQ_007}<LABEL for="SEQ_007">出力の順番を設定する</LABEL>　順番：{rval data/REMARK1_007}<BR>
+                                  出力する教科名：{rval data/REMARK2_007}</td>
+          </tr>
+<!--{/def}--> 
+<!--{def button}--> 
+          <tr> 
+            <th align="right" colspan = "2" class="no_search"nowrap>&nbsp;</th>
+            <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+          </tr>
+<!--{/def}--> 
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

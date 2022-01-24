@@ -1,0 +1,94 @@
+{rval start}
+<style>
+body {
+    overflow-y: auto;
+}
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="10" align="center">
+  <tbody>
+    <tr class="no_search_line">
+      <td width="100%">
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr align="center" class="no_search">
+            <th style="padding:10px;">お知らせ入力</th>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    
+    <tr class="no_search_line">
+      <td width="100%">
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tbody>
+          <tr align="center" bgcolor="#ffffff">
+            <th class="no_search" width="30%">内　容</th>
+            <td>{rval data/NAIYO}</td>
+          </tr>
+          <tr align="center" bgcolor="#ffffff">
+            <th class="no_search" width="30%">内　容(英語)</th>
+            <td>{rval data/NAIYO_ENG}</td>
+          </tr>
+          <tr align="center" bgcolor="#ffffff">
+            <th class="no_search" width="30%">対象<br><br>{rval button/btn_indgrp}</th>
+            <td align="left">{rval data/GROUP}</td>
+          </tr>
+          <tr align="center" bgcolor="#ffffff">
+            <th class="no_search" width="30%">表示期間</th>
+            <td align="left">{rval data/FROM} ～ {rval data/TO}</td>
+          </tr>
+          <tr align="center" bgcolor="#ffffff">
+            <th class="no_search" width="30%">添付ファイル</th>
+            <td align="left">
+              {rval data/FILE}&nbsp;&nbsp;{rval button/BTN_OK}　<font color="red" size="2">※PDFファイルのみ取込み可能</font><br>
+              <!--{each down}-->
+              <br>{rval down/PDF_FILE_DEL}　<a href="{rval down/PDF_URL}" target="_blank">{rval down/PDF_FILE_NAME}</a><br>
+              <!--{/each}-->
+            </td>
+          </tr>
+            <!--{def button}-->
+            <tr align="center" bgcolor="#ffffff">
+              <td colspan="2">{rval button/btn_edit}{rval button/btn_update}{rval button/btn_add}{rval button/btn_del}&nbsp;{rval button/btn_reset}&nbsp;{rval button/btn_end}</td>
+            </tr>
+            <!--{/def}-->
+        </tbody>
+      </table>
+      </td>
+    </tr>
+
+    <!--{def data2}-->
+    <tr class="no_search_line">
+      <td width="100%">
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tbody>
+          <tr align="center" class="no_search">
+            <th align="left">
+            </th>
+            <th class="no_search"></th>
+            <th align="left">
+              <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;【教員一覧】</b><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;教員グループ：{rval data2/SELECT_INDNAME}<br>
+            </th>
+          </tr>
+          <tr align="center" bgcolor="#ffffff">
+            <!--{def main_part}-->
+            <td width="45%">{rval main_part/LEFT_PART}</td>
+            <td width="*" class="no_search">{rval main_part/SEL_ADD_ALL}<br>
+            {rval main_part/SEL_ADD}<br>
+            {rval main_part/SEL_DEL}<br>
+            {rval main_part/SEL_DEL_ALL}</td>
+            <td width="45%">{rval main_part/RIGHT_PART}</td>
+            <!--{/def}-->
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <!--{/def}-->
+
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+<script language="JavaScript">{rval jscript}</script> 
+{rval finish}

@@ -1,0 +1,78 @@
+{rval start}
+
+<br>
+<table width="840" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="5" bgcolor="#000066">
+              <tr height="30">
+                <td class="no_search" align="center">
+                    {rval data/YEAR}年度　　学期：{rval data/SEMESTER}　　年組：{rval data/GRADE_HR_CLASS}　　種別：{rval data/TESTCD}　　欠点{rval data/KETTEN}点以下
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr><td><br></td></tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <tr class="no_search">
+                <th align="center" nowrap width="40">{rval data/CHECKALL}</th>
+                <th align="center" nowrap width="80">番号</th>
+                <th align="center" nowrap width="150">氏名</th>
+                <th align="center" nowrap width="250">科目</th>
+                <th align="center" nowrap width="80">成績</th>
+                <th align="center" nowrap width="80">単位数</th>
+                <th align="center" nowrap width="#">合計</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="height:80vh;overflow-y:scroll">
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <!--{def list}-->
+              <!--{each list}-->
+              <tr bgcolor="{rval list/BGCOLOR}">
+                <!--{def list/ROWSPAN}--><td align="center" nowrap width="40" rowspan="{rval list/ROWSPAN}">{rval list/CHECKED}</td><!--{/def}-->
+                <!--{def list/ROWSPAN}--><td align="center" nowrap width="80" rowspan="{rval list/ROWSPAN}">{rval list/ATTENDNO}</td><!--{/def}-->
+                <!--{def list/ROWSPAN}--><td nowrap width="150" rowspan="{rval list/ROWSPAN}">{rval list/NAME_SHOW}</td><!--{/def}-->
+                <td nowrap width="250">{rval list/SUBCLASSNAME}</td>
+                <td align="center" nowrap width="80">{rval list/SCORE}</td>
+                <td align="center" nowrap width="80">{rval list/CREDITS}</td>
+                <!--{def list/ROWSPAN}--><td align="center" nowrap width="#" rowspan="{rval list/ROWSPAN}">{rval list/TOTAL_CREDITS}</td><!--{/def}-->
+              </tr>
+              <!--{/each}-->
+              <!--{/def}-->
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <tr class="no_search" height="30">
+                <td>
+                    &nbsp;{rval button/btn_print1}　　出力日付 {rval data/DATE}　　　{rval button/btn_print2} {rval button/btn_csv}{rval button/btn_end}
+                </tb>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </th>
+  </tr>
+</table>
+
+{rval finish}

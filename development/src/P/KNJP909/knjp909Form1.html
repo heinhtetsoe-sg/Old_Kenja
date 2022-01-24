@@ -1,0 +1,48 @@
+{rval start}
+<style>
+</style>
+<table><tr height="200"></tr></table>
+<table width="700" border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="5">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="5" cellpadding="0">
+              <tr class="no_search_line">
+                <th>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr> 
+                      <th height="35" class="no_search" colspan="2"><B>{rval YEAR}年度</B>　学年：{rval data/GRADE}</th>
+                    </tr>
+                    <tr>
+                      <th width="150" height="80" class="no_search">年度末精算処理</th>
+                      <td bgcolor="#ffffff">&nbsp;&nbsp;&nbsp;返金端数項目:{rval data/HASUU_CD}<br>
+                                                      &nbsp;最終端数振替先:{rval data/HASUU_FURIKAE_CD}<br><br>
+                                            {rval button/btn_upd}</td>
+                    </tr>
+                    <tr>
+                      <th height="70" class="no_search">年度末個別通知</th>
+                      <td bgcolor="#ffffff">&nbsp;返金日:{rval data/HENKIN_DATE}<br><br>
+                                            {rval button/btn_print}</td>
+                    </tr>
+                    <tr> 
+                      <td height="35" class="no_search" align="right" colspan="2">{rval button/btn_end}</td>
+                    </tr>
+                  </table>
+                </th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-weight: 400; color:white">
+            <BR><marquee><span id="marq_msg">処理中です...しばらくおまちください</span></marquee>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<script language="JavaScript">{rval closeCheck}</script>
+{rval finish}

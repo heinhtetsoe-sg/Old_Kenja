@@ -1,0 +1,78 @@
+{rval start}
+<style>
+    ul {
+        margin-top:2px;
+        margin-bottom:15px;
+        list-style-type:none;
+    }
+</style>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="10">
+              <tr>
+                <td >
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <td>　{rval TITLE}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td >
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--結果一覧-->
+                        <tr class="no_search"> 
+                          <th nowrap>講座コード</th>
+                          <th nowrap>講座名称</th>
+                          <th nowrap>科目担任</th>
+                          <th nowrap>正</th>
+                          <th nowrap>クラス</th>
+                          <th nowrap>実施期間</th>
+                          <th nowrap>群コード</th>
+                        </tr>
+<!--{each data}--> 
+                        <tr style="background-color:white;"> 
+                           <td nowrap>{val data/CHAIRCD}</td>
+                           <td nowrap>{val data/CHAIRNAME}</td>
+                           <td nowrap>{val data/STAFFNAME_SHOW}</td>
+                           <td nowrap>{val data/CHARGEDIV}</td>
+                           <td nowrap>{val data/HR_NAME}</td>
+                           <td nowrap>{val data/KIKAN}</td>
+                           <td nowrap>{val data/GROUPCD}</td>
+                        </tr> 
+<!--{/each}--> 
+                      </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {val button/btn_exec}
+                  {val button/btn_subclass}
+                  {val button/btn_end}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}

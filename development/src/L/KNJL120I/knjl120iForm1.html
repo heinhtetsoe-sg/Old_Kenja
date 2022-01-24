@@ -1,0 +1,208 @@
+{rval start}
+
+<br>
+<table width="1400" border="0" cellspacing="0" cellpadding="5" align="center">
+    <tr>
+        <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr class="no_search_line">
+                                <td>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr height="30">
+                                            <td width="100" class="no_search" align="center">入試年度</td>
+                                            <td width="120" bgcolor="#ffffff" align="center">&nbsp;{rval TOP/YEAR}</td>
+                                            <td width="100" class="no_search" align="center">入試制度</td>
+                                            <td width="120" bgcolor="#ffffff" align="left">&nbsp;{rval TOP/APPLICANTDIV}</td>
+                                            <td width="100" class="no_search" align="center">入試区分</td>
+                                            <td width="120" bgcolor="#ffffff" align="left">&nbsp;{rval TOP/TESTDIV}</td>
+                                        </tr>
+                                        <tr height="30">
+                                            <td width="100" class="no_search" align="center">表示区分</td>
+                                            <td width="*" bgcolor="#ffffff" align="left" colspan="5">
+                                                {rval TOP/DISP_DIV1}<LABEL for="DISP_DIV1">調査書評定・出欠</LABEL>　
+                                                {rval TOP/DISP_DIV2}<LABEL for="DISP_DIV2">その他</LABEL>　
+                                            </td>
+                                        </tr>
+                                        <tr height="30">
+                                            <td width="100" class="no_search" align="center">表示</td>
+                                            <td width="*" bgcolor="#ffffff" align="left" colspan="5">
+                                                {rval TOP/S_EXAMNO}　～　{rval TOP/E_EXAMNO}
+                                                &nbsp;{rval btn_search}&nbsp;{rval btn_back}&nbsp;{rval btn_next}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td>
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr class="no_search_line">
+                                            <td>
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                    <tr class="no_search_line">
+                                                        <td>
+                                                            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                                                <tr class="no_search" align="center" height="35">
+
+                                                                    <!--{def DISP_DIV1}-->
+                                                                        <td width="60" nowrap>受験番号</td>
+                                                                        <td width="150" nowrap>氏名</td>
+                                                                        <td width="70" nowrap>国語</td>
+                                                                        <td width="70" nowrap>社会</td>
+                                                                        <td width="70" nowrap>数学</td>
+                                                                        <td width="70" nowrap>理科</td>
+                                                                        <td width="70" nowrap>音楽</td>
+                                                                        <td width="70" nowrap>美術</td>
+                                                                        <td width="70" nowrap>保体</td>
+                                                                        <td width="70" nowrap>技家</td>
+                                                                        <td width="70" nowrap>英語</td>
+                                                                        <td width="70" nowrap>9科合計</td>
+                                                                        <td width="70" nowrap>3科合計</td>
+                                                                        <td width="70" nowrap>1年欠席</td>
+                                                                        <td width="70" nowrap>2年欠席</td>
+                                                                        <td width="70" nowrap>3年欠席</td>
+                                                                        <td width="*" nowrap>欠席計</td>
+                                                                    <!--{/def}-->
+
+                                                                    <!--{def DISP_DIV2}-->
+                                                                        <td width="60" nowrap>受験番号</td>
+                                                                        <td width="150" nowrap>氏名</td>
+                                                                        <td width="{rval WIDTH}" nowrap>1・2年次<br>評定合計</td>
+                                                                        <!--{def TESTDIV2}-->
+                                                                        <td width="{rval WIDTH}" nowrap>業績</td>
+                                                                        <!--{/def}-->
+                                                                        <td width="{rval WIDTH}" nowrap>調査書(＋)</td>
+                                                                        <td width="{rval WIDTH}" nowrap>調査書(－)</td>
+                                                                        <!--{def TESTDIV2}-->
+                                                                        <td width="{rval WIDTH}" nowrap>自己推薦<br>(＋)</td>
+                                                                        <td width="{rval WIDTH}" nowrap>自己推薦<br>(－)</td>
+                                                                        <!--{/def}-->
+                                                                        <td width="{rval WIDTH}" nowrap>同窓</td>
+                                                                        <td width="{rval WIDTH}" nowrap>英検取得級</td>
+                                                                        <td width="{rval WIDTH}" nowrap>＋調整点</td>
+                                                                        <td width="{rval WIDTH}" nowrap>－調整点</td>
+                                                                        <td width="{rval WIDTH}" nowrap>＋合計</td>
+                                                                        <td width="*" nowrap>－合計</td>
+                                                                    <!--{/def}-->
+
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#ffffff">
+                                                <div style="height: 450px; overflow: auto;">
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                        <tr class="no_search_line">
+                                                            <td>
+                                                                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                                                    <!--結果一覧-->
+                                                                    <!--{def data}-->
+                                                                    <!--{each data}-->
+
+                                                                    <!--{def DISP_DIV1}-->
+                                                                    <tr bgcolor="#ffffff" align="center" id="ROWID{rval data/EXAMNO}" nowrap>
+                                                                        <td width="60">{rval data/EXAMNO}</td>
+                                                                        <td width="150">{rval data/NAME}</td>
+                                                                        <td width="70">{rval data/SCORE1}</td>
+                                                                        <td width="70">{rval data/SCORE2}</td>
+                                                                        <td width="70">{rval data/SCORE3}</td>
+                                                                        <td width="70">{rval data/SCORE4}</td>
+                                                                        <td width="70">{rval data/SCORE5}</td>
+                                                                        <td width="70">{rval data/SCORE6}</td>
+                                                                        <td width="70">{rval data/SCORE7}</td>
+                                                                        <td width="70">{rval data/SCORE8}</td>
+                                                                        <td width="70">{rval data/SCORE9}</td>
+                                                                        <td width="70"><div id="{rval data/TOTAL_ALL_ID}">{rval data/TOTAL_ALL}</div></td>
+                                                                        <td width="70"><div id="{rval data/TOTAL3_ID}">{rval data/TOTAL3}</div></td>
+                                                                        <td width="70">{rval data/ABSENCE_DAYS}</td>
+                                                                        <td width="70">{rval data/ABSENCE_DAYS2}</td>
+                                                                        <td width="70">{rval data/ABSENCE_DAYS3}</td>
+                                                                        <td width="*"><div id="{rval data/ABSENCE_TOTAL_ID}">{rval data/ABSENCE_TOTAL}</div></td>
+                                                                    </tr>
+                                                                    <!--{/def}-->
+
+                                                                    <!--{def DISP_DIV2}-->
+                                                                    <tr bgcolor="#ffffff" align="center" id="ROWID{rval data/EXAMNO}" nowrap>
+                                                                        <td width="60" nowrap>{rval data/EXAMNO}</td>
+                                                                        <td width="150" nowrap>{rval data/NAME}</td>
+                                                                        <td width="{rval WIDTH}" nowrap>{rval data/TOTAL_HYOUTEI}</td>
+                                                                        <!--{def TESTDIV2}-->
+                                                                        <td width="{rval WIDTH}" nowrap>{rval data/ACHIEVEMENT}</td>
+                                                                        <!--{/def}-->
+                                                                        <td width="{rval WIDTH}" nowrap>{rval data/REPORT_PLUS}</td>
+                                                                        <td width="{rval WIDTH}" nowrap>{rval data/REPORT_MINUS}</td>
+                                                                        <!--{def TESTDIV2}-->
+                                                                        <td width="{rval WIDTH}" nowrap>{rval data/SELF_REC_PLUS}</td>
+                                                                        <td width="{rval WIDTH}" nowrap>{rval data/SELF_REC_MINUS}</td>
+                                                                        <!--{/def}-->
+                                                                        <td width="{rval WIDTH}" nowrap>{rval data/DOUSOU_PLUS}</td>
+                                                                        <td width="{rval WIDTH}" nowrap>{rval data/QUALIFIED_ENG}</td>
+                                                                        <td width="{rval WIDTH}" nowrap>{rval data/TYOUSEI_PLUS}</td>
+                                                                        <td width="{rval WIDTH}" nowrap>{rval data/TYOUSEI_MINUS}</td>
+                                                                        <td width="{rval WIDTH}" nowrap><div id="{rval data/TOTAL_PLUS_ID}">{rval data/TOTAL_PLUS}</div></td>
+                                                                        <td width="*" nowrap><div id="{rval data/TOTAL_MINUS_ID}">{rval data/TOTAL_MINUS}</div></td>
+                                                                    </tr>
+                                                                    <!--{/def}-->
+
+                                                                    <!--{/each}-->
+                                                                    <!--{/def}-->
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                    <tr class="no_search_line">
+                                                        <td>
+                                                            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                                                <tr class="no_search">
+                                                                    <th nowrap>&nbsp;</th>
+                                                                    <td width="40%" bgcolor="#ffffff" nowrap>
+                                                                        {rval btn_calc}{rval btn_update}{rval btn_reset}{rval btn_end}
+                                                                        <!--{def TESTDIV2}-->
+                                                                        &nbsp;&nbsp;&nbsp;{rval btn_exec}
+                                                                        <!--{/def}-->
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<script language="JavaScript">
+</script>
+{rval finish}

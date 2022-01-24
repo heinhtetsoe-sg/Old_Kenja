@@ -1,0 +1,50 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+<tr>
+<td>
+    <table style="width: 100%" border="0" cellspacing="5" cellpadding="1">
+    <tr>
+    <td>
+        <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+<!-- 選択データ -->
+        <tr class="no_search_line">
+        <td><!-- first table for subclass -->
+            <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+            <tr class="no_search" height="35" nowrap>
+                <td align="center" nowrap colspan="2">
+                    <B>変更履歴の登録</B>
+
+                    <tr bgcolor="#ffffff" height="50" nowrap>
+                    <td>
+                        {rval dataCheck/GUARD_NAME_FLG}<B>氏名　　　　 </B>      {rval dataCheck/GUARD_SEX_FLG}<B>性別　　 </B><br>
+                        {rval dataCheck/GUARD_KANA_FLG}<B>氏名かな　　 </B>      {rval dataCheck/RELATIONSHIP_FLG}<B>続柄　 </B><br>
+                        {rval dataCheck/GUARD_REAL_NAME_FLG}<B>戸籍氏名　　 </B>      {rval dataCheck/GUARD_BIRTHDAY_FLG}<B>誕生日 </B><br>
+                        {rval dataCheck/GUARD_REAL_KANA_FLG}<B>戸籍氏名かな</B><br>
+                        <font size="1" color="red">※変更履歴を残したい項目をチェックして下さい。<br>　チェック項目が１つも無ければ、履歴は取られません。
+                    </td>
+                    </tr>
+
+                    <tr bgcolor="#ffffff" height="50" nowrap>
+                    <td>
+                        <B>※旧氏名等の有効終了日&nbsp：</B>{rval data/E_APPDATE}<br>
+                    </td>
+                    </tr>
+
+                    <tr class="no_search" height="35" nowrap>
+                    <td>
+                        &nbsp;&nbsp;{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}
+                    </td>
+                    </tr>
+                </td>
+            </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+    </table>
+</td>
+</tr>
+</table>
+{rval finish}

@@ -1,0 +1,120 @@
+{rval start} <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br />
+<!--{def data}-->
+<table style="width: 750px" align="center" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr class="no_search_line">
+                                <td>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search" height="30">
+                                            <th colspan="2"><b>入試年度：{rval data/YEAR}　　手続き後帳票出力</b></th>
+                                        </tr>
+                                        <tr class="no_search" height="30">
+                                            <th align="right" width="20%">学科</th>
+                                            <td bgcolor="#ffffff">{rval data/DEPT}</td>
+                                        </tr>
+                                        <tr class="no_search" height="30">
+                                            <th align="right">入試区分</th>
+                                            <td bgcolor="#ffffff">{rval data/TESTDIV}</td>
+                                        </tr>
+                                        <tr class="no_search" height="30">
+                                            <th align="right">出力順</th>
+                                            <td bgcolor="#ffffff">
+                                                <table border="0" cellspacing="0" cellpadding="0">
+                                                    <tr>
+                                                        <td>{rval data/ORDER_BY1}<label for="{rval data/ORDER_BY1_ID}">受験番号順</label></td>
+                                                        <td>{rval data/ORDER_BY2}<label for="{rval data/ORDER_BY2_ID}">氏名（50音順）</label></td>
+                                                    </tr>
+                                                </table>    
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="no_search" align="right">帳票種類&nbsp;</td>
+                                            <td bgcolor="#ffffff">
+                                              <table width="100%">
+                                                <tr>
+                                                    <td nowrap>{rval data/OUTPUT_TYP1}<LABEL for="{rval data/OUTPUT_TYP1_ID}">入学手続終了者リスト</LABEL></td>
+                                                    <td nowrap>
+                                                        <table border="0" cellspacing="0" cellpadding="0">
+                                                            <tr>
+                                                                <td nowrap>(</td>
+                                                                <td nowrap>
+                                                                    {rval data/OUTPUT_TYP1_SUB1}<LABEL for="{rval data/OUTPUT_TYP1_SUB1_ID}">施設設備費</LABEL>
+                                                                </td>
+                                                                <td nowrap>
+                                                                    {rval data/OUTPUT_TYP1_SUB2}<LABEL for="{rval data/OUTPUT_TYP1_SUB2_ID}">入学申込金</LABEL>
+                                                                </td>
+                                                                <td nowrap>)</td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td nowrap>{rval data/OUTPUT_TYP2}<LABEL for="{rval data/OUTPUT_TYP2_ID}">入学手続終了者数</LABEL></td>
+                                                    <td nowrap>
+                                                        <table border="0" cellspacing="0" cellpadding="0">
+                                                            <tr>
+                                                                <td nowrap>(</td>
+                                                                <td nowrap>
+                                                                    {rval data/OUTPUT_TYP2_SUB1}<LABEL for="{rval data/OUTPUT_TYP2_SUB1_ID}">施設設備費</LABEL>
+                                                                </td>
+                                                                <td nowrap>
+                                                                    {rval data/OUTPUT_TYP2_SUB2}<LABEL for="{rval data/OUTPUT_TYP2_SUB2_ID}">入学申込金</LABEL>
+                                                                </td>
+                                                                <td nowrap>)</td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td nowrap>{rval data/OUTPUT_TYP3}<LABEL for="{rval data/OUTPUT_TYP3_ID}">未入金者リスト</LABEL></td>
+                                                    <td nowrap>
+                                                        <table border="0" cellspacing="0" cellpadding="0">
+                                                            <tr>
+                                                                <td nowrap>(</td>
+                                                                <td nowrap>
+                                                                    {rval data/OUTPUT_TYP3_SUB1}<LABEL for="{rval data/OUTPUT_TYP3_SUB1_ID}">施設設備費</LABEL>
+                                                                </td>
+                                                                <td nowrap>
+                                                                    {rval data/OUTPUT_TYP3_SUB2}<LABEL for="{rval data/OUTPUT_TYP3_SUB2_ID}">入学申込金</LABEL>
+                                                                </td>
+                                                                <td nowrap>)</td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td nowrap>{rval data/OUTPUT_TYP4}<LABEL for="{rval data/OUTPUT_TYP4_ID}">入寮希望者リスト</LABEL></td>
+                                                    <td nowrap></td>
+                                                </tr>
+                                                <tr>
+                                                    <td nowrap>{rval data/OUTPUT_TYP5}<LABEL for="{rval data/OUTPUT_TYP5_ID}">入寮希望者案内用ラベル</LABEL></td>
+                                                    <td nowrap></td>
+                                                </tr>
+                                              </table>
+                                            </td>
+                                        </tr>
+                                        <tr class="no_search" height="30">
+                                            <th></th>
+                                            <td bgcolor="#ffffff">{rval button/btn_csv}{rval button/btn_print}{rval button/btn_end}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<!--{/def}--> 
+<script language="JavaScript">
+    {rval jscript}
+</script>
+{rval finish}

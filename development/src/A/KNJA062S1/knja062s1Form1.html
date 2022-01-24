@@ -1,0 +1,61 @@
+<script language="JavaScript">{rval jscript}</script>
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+    <tr>
+      <td width="70%"> 
+          <table border="0" cellspacing="0" cellpadding="1">
+          <tr bgcolor="#006633"> 
+          <td> 
+              <table border="0" cellpadding="1" cellspacing="0">
+                <tr bgcolor="#cccccc"> 
+                  <th align="left" nowrap>
+                    &nbsp;{rval EXE_YEAR}年度
+                    &nbsp;&nbsp;学期：{rval SEMESTER}
+                    &nbsp;&nbsp;名称：{rval GHR_NAME}
+                  </th>
+                </tr>
+              </table>
+          </td>
+
+          </tr>
+          </table>
+      <BR>
+      </td>
+    </tr>
+
+    <tr class="no_search_line">
+      <td> 
+        <table width="100%" border="0" cellspacing="1" cellpadding="5">
+          <tr class="no_search"> 
+            <th width="*%" nowrap>学期</th>
+            <th width="17%" nowrap>担任区分</th>
+            <th width="30%" nowrap>担当名</th>
+            <th width="20%" nowrap>開始日付</th>
+            <th width="20%" nowrap>終了日付</th>
+          </tr>
+          <!--{def data}-->
+          <!--結果一覧-->
+          <!--{each data}--> 
+          <tr bgcolor="#ffffff"> 
+            <td nowrap align="center">{rval data/SEMESTERNAME}</td>
+            <td nowrap align="center">{rval data/TR_NAME}</td>
+            <td nowrap>{rval data/STAFFNAME}</td>
+            <td nowrap>{rval data/FROM_DATE}</td>
+            <td nowrap>{rval data/TO_DATE}</td>
+          </tr> 
+          <!--{/each}--> 
+          <!--{/def}-->
+        </table>
+      </td>
+    </tr>
+
+    </table>
+  </td>
+  </tr>
+</table>
+<script language="JavaScript">{rval combo}{rval reload}</script>
+{rval finish}

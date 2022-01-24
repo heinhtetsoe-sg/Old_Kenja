@@ -1,0 +1,24 @@
+-- $Id: ac5b71b6583af324618adea068865c47cb21bb88 $
+
+CREATE VIEW V_MOCK_SUBCLASS_MST AS \
+SELECT \
+    T1.YEAR, \
+    T2.MOCK_SUBCLASS_CD, \
+    T2.SUBCLASS_NAME, \
+    T2.SUBCLASS_ABBV, \
+    T2.CLASSCD, \
+    T2.SCHOOL_KIND, \
+    T2.CURRICULUM_CD, \
+    T2.SUBCLASSCD, \
+    CURRENT TIMESTAMP AS UPDATED \
+FROM \
+    (SELECT \
+        YEAR \
+    FROM \
+        NAME_YDAT \
+    WHERE \
+        YEAR > '2010' \
+    GROUP BY \
+        YEAR \
+    ) T1, \
+    MOCK_SUBCLASS_MST T2

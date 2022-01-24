@@ -1,0 +1,58 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="10" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr height="25">
+                      <th nowrap class="no_search" width="17%">入試年度</th>
+                      <td nowrap bgcolor="#ffffff" width="*" colspan="3">{rval YEAR}&nbsp;&nbsp;{rval button/btn_copy}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th nowrap width="25%">会場ID</th>
+                      <th nowrap width="50%">会場名</th>
+                      <th nowrap width="*">収容人数</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td nowrap align="center">{rval data/PLACE_ID}</td>
+                      <td nowrap align="center">{rval data/PLACE_NAME}</td>
+                      <td nowrap align="center">{rval data/SEATS}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+
+<script language="JavaScript">
+<!--{def reload}-->
+<!--{each reload}-->
+{rval reload}
+<!--{/each}-->
+<!--{/def}-->
+</script>

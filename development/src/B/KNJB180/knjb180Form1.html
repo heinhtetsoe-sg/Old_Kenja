@@ -1,0 +1,53 @@
+{rval start} 
+<br><br><br><br>
+<table style="width: 570px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+        <table style="width: 570px" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+                <table style="width: 570px" border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search" height="35">
+                <th><B>授業料電算ファイル(ＣＳＶ)生成画面</B></th>
+                </tr>
+                <tr bgcolor="#ffffff">
+                <td style="text-align:center;" nowrap><BR><BR>
+                        <B>出力種別</B>：&nbsp;&nbsp;&nbsp;{rval data/RADIO1}&nbsp;定時制&nbsp;&nbsp;&nbsp;{rval data/RADIO2}&nbsp;通信制&nbsp;<BR><BR>
+                        年度&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/YEAR}<font size=2, color="red">&nbsp;&nbsp;(※半角4文字)</font><BR><BR>
+                        学校番号&nbsp;&nbsp;{rval data/SCHOOLCD}<font size=2, color="red">&nbsp;&nbsp;(※半角5文字)</font><BR><BR>
+                        課程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/MAJORCD}<font size=2, color="red">&nbsp;&nbsp;(※半角3文字)</font><BR><BR>
+                        債権種別&nbsp;&nbsp;{rval data/SAIKEN}<font size=2, color="red">&nbsp;&nbsp;(※半角3文字)</font><BR><BR><BR>
+                </td>
+                </tr>
+
+                <tr bgcolor="#ffffff">
+                <td style="padding:10px 10px;">
+                    ＣＳＶデータを生成する前に<br>
+                    <ul>
+                        <li>講座名簿</li>
+                        <li>単位マスタ</li>
+                    </ul>
+                    が正しく登録されているか確認してください。<br>
+                    (正しく登録されていない場合、不備のあるデータが生成される可能性があります)<br><br>
+
+                    ※「チェック情報出力」で、確認の為に必要な生徒1人1人のデータが出力できます。                </td>
+                </tr>
+                <!--{def button}-->
+                <tr class="no_search">
+                <td style="height:35; text-align:center;">
+                    {rval button/BTN_CHECK}
+                    {rval button/BTN_OUTPUT1}
+                    {rval button/BTN_OUTPUT2}
+                    {rval button/BTN_CLEAR}
+                </td>
+                </tr>
+                <!--{/def}-->
+                </table>
+        </td>
+        </tr>
+        </table>
+</td>
+</tr>
+</table>
+<script language="JavaScript">{rval check}{rval jscript}</script>
+{rval finish} 

@@ -1,0 +1,94 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr class="no_search_line">
+           <th>
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search">
+          <th nowrap width="150" align="center">対象年度：{rval header}</th>
+          <th nowrap align = "left">{rval btn_copy}</th>
+          </tr>
+        </table>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr class="no_search_line">
+           <th>
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search">
+          <th nowrap align = "left">&nbsp;&nbsp;課程学科：{rval COURSE_MAJOR}&nbsp;&nbsp;&nbsp;&nbsp;コピー元課程学科：{rval MOTO_COURSE_MAJOR}{rval btn_copy2}</th>
+          </tr>
+        </table>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="8%" nowrap>学期</th>
+                      <th width="14%" nowrap>考査種別<BR>(大分類)</th>
+                      <th width="17%" nowrap>考査種別<BR>名称</th>
+                      <th width="12%" nowrap>考査種別<BR>略称１</th>
+<!--{def Test_Period_Hyouji}-->
+                      <th width="10%" nowrap>テスト期間</th>
+<!--{/def}-->
+                      <th width="10%" nowrap>集計フラグ</th>
+<!--{def sem_detail}-->
+                      <th width="10%" nowrap>出欠集計<BR>範囲</th>
+<!--{/def}-->
+                      <th width="10%" nowrap>追指導入力</th>
+                      <th width="10%" nowrap>序列<br>対象</th>
+                      <th width="*" nowrap>CSV<br>取込</th>
+                    </tr>
+
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{rval data/SEMESTERNAME}&nbsp;</td>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{rval data/TESTKIND_SHOW}&nbsp;</td>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{rval data/TESTITEM_SHOW}&nbsp;</td>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{rval data/TESTITEMABBV1}&nbsp;</td>
+<!--{def Test_Period_Hyouji}-->
+                      <td nowrap bgcolor="#ffffff">&nbsp;{rval data/TEST_DATE}&nbsp;</td>
+<!--{/def}-->
+                      <td nowrap bgcolor="#ffffff">&nbsp;{rval data/COUNTFLG_SHOW}&nbsp;</td>
+<!--{def sem_detail}-->
+                      <td nowrap bgcolor="#ffffff">&nbsp;{rval data/DETAIL_NAME}&nbsp;</td>
+<!--{/def}-->
+                      <td nowrap bgcolor="#ffffff">&nbsp;{rval data/SIDOU_INPUT_SHOW}{rval data/SIDOU_INPUT_INF_SHOW}&nbsp;</td>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{rval data/JYORETSU_FLG_SHOW}&nbsp;</td>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{rval data/NOT_USE_CSV_FLG_SHOW}&nbsp;</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval Closing}</script>

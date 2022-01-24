@@ -1,0 +1,170 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <hr>
+              　{rval data/SEMESTER}　{rval data/TESTNAME}
+            <hr>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="128">項 目</th>
+                      <th width="*">値</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+
+                    <!--科目-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>科目</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/SUBCLASSCD}</td>
+                    </tr>
+
+                    <!--区分-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>区分</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff"><br>
+                        &nbsp;{rval data/DIV1}<LABEL for="DIV1">&nbsp;科目</LABEL><br><br>
+                        &nbsp;{rval data/DIV2}<LABEL for="DIV2">&nbsp;学年</LABEL><br><br>
+                        &nbsp;{rval data/DIV3}<LABEL for="DIV3">&nbsp;課程学科コース</LABEL><br><br>
+                        <!--{def usePerfectCourseGroup}-->
+                        &nbsp;{rval data/DIV4}<LABEL for="DIV4">&nbsp;コースグループ</LABEL><br><br>
+                        <!--{/def}-->
+                      </td>
+                    </tr>
+
+                    <!--{def view1}-->
+                    <!--学年-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>学年</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/GRADE}</td>
+                    </tr>
+
+                    <!--{def view2}-->
+                    <!--課程-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>課程</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/COURSECD}</td>
+                    </tr>
+
+                    <!--学科-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>学科</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/MAJORCD}</td>
+                    </tr>
+
+                    <!--コース-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>コース</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/COURSECODE}</td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{/def}-->
+
+                    <!--{def view3}-->
+                    <!--コースグループ-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>コースグループ</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/MAJORCD}</td>
+                    </tr>
+                    <!--{/def}-->
+
+                    <!--満点-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>満点</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/PERFECT}</td>
+                    </tr>
+
+                    <!--合格点-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>合格点</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/PASS_SCORE}</td>
+                    </tr>
+                    <!--{/def}-->
+
+                    <!--{def button}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff" >&nbsp;{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}</td>
+                    </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

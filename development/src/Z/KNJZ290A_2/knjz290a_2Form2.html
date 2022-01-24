@@ -1,0 +1,217 @@
+{rval start}
+<!--{def data}-->
+<!--{def button}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th width="20%">項 目</th>
+                      <th width="80%" colspan="7">値</th>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※職員コード</th>
+                      <td bgcolor="#ffffff" colspan="7">{rval data/STAFFCD} {rval button/btn_new}　　　　　{rval button/btn_workhist}
+                      <!--{def useJpgUpload}-->   
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <font size=2, color="black">写真：</font>{rval data/FILE_2}&nbsp;&nbsp;{rval button/BTN_IMPORT}
+                      <!--{/def}-->
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>{rval button/btn_namehist}</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/STAFFNAME}<font size=2, color="red">&nbsp;(※全角20文字)</font></td>
+                      <!--{def dispPicture}-->
+                        <td width="20%" bgcolor="#ffffff" rowspan="6" colspan="2"><img src="{rval data/FACE_IMG}" alt="生徒顔写真&nbsp;{rval data/IMG_PATH}" width="120" height="160"></td>
+                      <!--{/def}-->
+                      <!--{def unDispPicture}-->
+                        <td width="20%" bgcolor="#ffffff" rowspan="6" colspan="2" onmouseover="image1.style.display='';" onmouseout="image1.style.display='none';"><img name="image1" src="{rval data/FACE_IMG}" alt="生徒顔写真&nbsp;{rval data/IMG_PATH}" width="120" height="160"  style="display:none"></td>
+                      <!--{/def}-->
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※職員氏名表示用</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/STAFFNAME_SHOW}<font size=2, color="red">&nbsp;(※全角5文字)</font></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>職員氏名かな</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/STAFFNAME_KANA}<br><font size=2, color="red">&nbsp;(※全角40文字)</font></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>職員氏名(英字)</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/STAFFNAME_ENG}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>戸籍氏名</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/STAFFNAME_REAL}<br><font size=2, color="red">&nbsp;(※全角40文字)</font></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>戸籍氏名かな</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/STAFFNAME_KANA_REAL}<br><font size=2, color="red">&nbsp;(※全角80文字)</font></td>
+                    </tr>
+                    <!--{def rireki}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※氏名有効開始日</th>
+                      <td bgcolor="#ffffff" colspan="7">{rval data/NAME_SDATE}</td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{def school}-->
+                    <tr>
+                        <th align="right" width="20%" {rval data/SET_BGCOLOR} nowrap><font color="#ffffff">職名</font></th>
+                        <td {rval data/SET_BGCOLOR2} width="15%" >{rval data/JOBCD}</td>
+                        <th align="right" width="10%" {rval data/SET_BGCOLOR} nowrap><font color="#ffffff">肩書き1</font></th>
+                        <td {rval data/SET_BGCOLOR2} width="*" colspan="5" >{rval data/POSITIONCD1}<!--{def MANAGER1_SET}-->　{rval BTN_POSITION1}{rval setBR1}{rval data/POSITIONCD1_MANAGER}<!--{/def}--></td>
+                    </tr>
+                    <tr>
+                        <th align="right" width="20%" {rval data/SET_BGCOLOR} nowrap><font color="#ffffff">所属</font></th>
+                        <td {rval data/SET_BGCOLOR2} width="15%" >{rval data/SECTIONCD}</td>
+                        <th align="right" width="10%" {rval data/SET_BGCOLOR} nowrap><font color="#ffffff">肩書き2</font></th>
+                        <td {rval data/SET_BGCOLOR2} width="*" colspan="5">{rval data/POSITIONCD2}<!--{def MANAGER2_SET}-->　{rval BTN_POSITION2}{rval setBR2}{rval data/POSITIONCD2_MANAGER}<!--{/def}--></td>
+                    </tr>
+                    <tr>
+                        <th align="right" {rval data/SET_BGCOLOR} nowrap><font color="#ffffff">校務分掌部</font></th>
+                        <td {rval data/SET_BGCOLOR2} width="15%" >{rval data/DUTYSHARECD}<br>{rval data/DUTYSHARECD2}</td>
+                        <th align="right" width="10%" {rval data/SET_BGCOLOR} nowrap><font color="#ffffff">肩書き3</font></th>
+                        <td {rval data/SET_BGCOLOR2} width="*" colspan="5">{rval data/POSITIONCD3}<!--{def MANAGER3_SET}-->　{rval BTN_POSITION3}{rval setBR3}{rval data/POSITIONCD3_MANAGER}<!--{/def}--></td>
+                    </tr>
+                    <tr>
+                        <th align="right" {rval data/SET_BGCOLOR} nowrap><font color="#ffffff">授業受持ち</font></th>
+                        <td {rval data/SET_BGCOLOR2} {rval data/SET_COLWITH}>{rval data/CHARGECLASSCD}</td>
+                        <!--{def useNurse}--> 
+                        <th align="right" width="10%" {rval data/SET_BGCOLOR} nowrap><font color="#ffffff">担当保健室</font></th>
+                        <td {rval data/SET_BGCOLOR2} width="*" colspan="5">{rval data/CHARGENURSEOFF}</td>
+                        <!--{/def}--> 
+                    </tr>
+                    <!--{/def}-->
+                    <tr>
+                        <th align="right" width="20%" {rval data/SET_BGCOLOR} nowrap><font color="#ffffff">担当校種</font></th>
+                        <td {rval data/SET_BGCOLOR2} width="*" colspan="7">
+                        <!--{each schKindList}-->
+                            {rval schKindList/CHK_SCHKIND}<LABEL for="{rval schKindList/SETNAME}">{rval schKindList/ABBV1}</LABEL>
+                        <!--{/each}-->
+                        </td>
+                    </tr>
+                    <!--{def aoyama}-->
+                    <tr>
+                      <th align="right" width="20%" {rval data/SET_BGCOLOR} nowrap><font color="#ffffff">学院就任年月日</font></th>
+                      <td {rval data/SET_BGCOLOR2} width="15%">{rval data/GAKUINSYUNIN_DATE}</td>
+                      <th align="right" width="10%" {rval data/SET_BGCOLOR} nowrap><font color="#ffffff">高等部就任年月日</font></th>
+                      <td {rval data/SET_BGCOLOR2} width="15%">{rval data/KOUTOUBUSYUNIN_DATE}</td>
+                      <th align="right" width="8%" {rval data/SET_BGCOLOR} nowrap><font color="#ffffff">学院勤続</font></th>
+                      <td {rval data/SET_BGCOLOR2} width="10%">&nbsp;<span id="GAKUINKINZOKU_STR">{rval data/GAKUINKINZOKU}</span></td>
+                      <th align="right" width="8%" {rval data/SET_BGCOLOR} nowrap><font color="#ffffff">高等部勤続</font></th>
+                      <td {rval data/SET_BGCOLOR2} width="*">&nbsp;<span id="KOUTOUBUKINZOKU_STR">{rval data/KOUTOUBUKINZOKU}</span></td>
+                    </tr>
+                    <!--{/def}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap width="20%">職員性別</th>
+                      <td bgcolor="#ffffff" width="15%">{rval data/STAFFSEX}</td>
+                      <th align="right" class="no_search" nowrap width="10%">職員生年月日</th>
+                      <td bgcolor="#ffffff" width="15%" {rval data/SET_COLSPAN_AOYAMA_STAFFBIRTHDAY}>{rval data/STAFFBIRTHDAY}</td>
+                      <!--{def aoyama}-->
+                      <th align="right" class="no_search" nowrap width="8%">年齢年月日</th>
+                      <td bgcolor="#ffffff" width="*" colspan="3">&nbsp;<span id="STAFFAGE_STR">{rval data/STAFFAGE}</span></td>
+                      <!--{/def}-->
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>郵便番号</th>
+                      <td bgcolor="#ffffff" colspan="7">{rval data/STAFFZIPCD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>{rval button/btn_address}</th>
+                      <td bgcolor="#ffffff" colspan="7">{rval data/STAFFADDR1}<font size=2, color="red">&nbsp;(※全角30文字)</font></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>住所2</th>
+                      <td bgcolor="#ffffff" colspan="7">{rval data/STAFFADDR2}<font size=2, color="red">&nbsp;(※全角30文字)</font></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap width="20%">電話番号</th>
+                      <td bgcolor="#ffffff" width="15%">{rval data/STAFFTELNO}</td>
+                      <th align="right" class="no_search" nowrap width="10%">FAX番号</th>
+                      <td bgcolor="#ffffff" width="*" colspan="5">{rval data/STAFFFAXNO}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>E-Mail</th>
+                      <td bgcolor="#ffffff" colspan="7">{rval data/STAFFE_MAIL}</td>
+                    </tr>
+                    <!--{def rireki}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※住所有効開始日</th>
+                      <td bgcolor="#ffffff" colspan="7">{rval data/ADDRESS_SDATE}</td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{def shikaku}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>{rval button/btn_subform1}</th>
+                      <td bgcolor="#ffffff" colspan="7">{rval data/STF_SUBCLASS}</td>
+                    </tr>
+                    <!--{/def}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>{rval button/btn_requestform}</th>
+                      <td bgcolor="#ffffff" colspan="7">{rval data/STF_REQFORM}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>{rval button/btn_qualified}</th>
+                      <td bgcolor="#ffffff" colspan="7">{rval data/STF_QUALIFIED}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>{rval data/CSV_XLS_NAME}</th>
+                      <td bgcolor="#ffffff" colspan="7">
+                        <!--{def insert}-->{rval button/btn_add}{rval button/btn_end}<!--{/def}-->
+                        <!--{def update}-->{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}<!--{/def}-->
+                        <!--{def koutyou}--><br>{rval button/btn_prihist}<!--{/def}-->
+                        <br>
+                        <!--{def show_csv}-->
+                          {rval data/OUTPUT4}<LABEL for="OUTPUT4">ヘッダ出力(見本)</LABEL><br>
+                          {rval data/OUTPUT1}<LABEL for="OUTPUT1">取込</LABEL>{rval data/OUTPUT2}<LABEL for="OUTPUT2">書出</LABEL>
+                          ファイル：<span id="type_file">{rval FILE}</span>{val btn_exec}　{rval data/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL><br>
+                          {rval data/OUTPUT3}<LABEL for="OUTPUT3">エラー出力</LABEL>
+                        <!--{/def}--> 
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}
+<script language="JavaScript">
+/*
+    document.addEventListener('focusin', function(e) {changeMultiple(e)});
+    document.addEventListener('focusout', function(e) {changeMultiple(e)});
+
+    function changeMultiple(e) {
+        var t = e.target;
+        var objNum = e.target.getAttribute('data-num');
+        targetBox = document.getElementById("POSITIONCD" + objNum + "_MANAGER");
+        if (t.className == "changeMultiple") {
+            switch (e.type) {
+                case "focusin":
+                    targetBox.size = 10;
+                    break;
+                case "focusout":
+                    targetBox.size = 1;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+*/
+</script>
+<script language="JavaScript">{rval reload}{rval jscript}</script>

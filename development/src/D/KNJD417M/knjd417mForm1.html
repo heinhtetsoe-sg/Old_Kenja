@@ -1,0 +1,151 @@
+{rval start}
+<!--{def button}-->
+
+<br><br><br><br><br>
+<table width="40%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="25">
+                      <td width="30%" class="no_search" align="right" nowrap>対象年度&nbsp;</td>
+                      <td width="70%" bgcolor="#FFFFFF" nowrap>&nbsp;{rval YEAR}年度　　{rval button/btn_copy}</td>
+                    </tr>
+                    <tr height="25">
+                      <td class="no_search" align="right" nowrap>ブロック&nbsp;</td>
+                      <td bgcolor="#FFFFFF" nowrap>&nbsp;{rval KIND_NO}</td>
+                    </tr>
+                    <tr height="25">
+                      <td class="no_search" align="right" nowrap>ブロック名&nbsp;</td>
+                      <td bgcolor="#FFFFFF" nowrap>
+                        &nbsp;{rval KIND_NAME}
+                        <font size=2 color="red">{rval KIND_NAME_COMMENT}</font>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td><br></td>
+              </tr>
+
+<!--{def dispcomptype_p0}-->
+              <tr height="25" bgcolor="#FFFFFF">
+                <td align="center" nowrap>変更可能な項目名はありません。</td>
+              </tr>
+              <tr height="25" bgcolor="#FFFFFF">
+                <td align="center" nowrap></td>
+              </tr>
+<!--{/def}-->
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" frame="box">
+
+                    <!--{def dispcomptype_p1}-->
+                    <tr class="no_search" height="25">
+                      <td width="30%" align="right" nowrap>※目標数&nbsp;</td>
+                      <td width="*" bgcolor="#FFFFFF" nowrap>&nbsp;{rval KIND_CNT}&nbsp;{rval button/btn_comp}<font size=2 color="red">{rval KIND_CNT_COMMENT}</font></td>
+                    </tr>
+                    <!--{/def}-->
+
+                    <!--{def dispcomptype_p2}-->
+                    <!--入力表-->
+                    <!--{def data}-->
+                    <!--{each data}--> 
+                    <tr class="no_search"> 
+                      <th align="right">{rval data/KIND_LABEL}&nbsp;</th>
+                      <td bgcolor="#FFFFFF">
+                        &nbsp;{rval data/KIND_REMARK}
+                        <font size=2 color="red">{rval KIND_REMARK_COMMENT}</font>
+                      </td>
+                    </tr> 
+                    <!--{/each}-->
+                    <!--{/def}-->
+                    <!--{/def}-->
+
+                    <!--{def namespare1_is_3}-->
+                    <tr class="no_search">
+                      <th colspan="2">各教科等の記録</th>
+                    </tr>
+                    <!--{def useGradeKindCompGroupSemester}-->
+                    <tr class="no_search">
+                      <th width="30%" align="right" nowrap>学期&nbsp;</th>
+                      <td width="70%" bgcolor="#FFFFFF">&nbsp;{rval SEMESTER}</td>
+                    </tr> 
+                    <!--{/def}-->
+                    <tr class="no_search">
+                      <th width="30%" align="right" nowrap>学部&nbsp;</th>
+                      <td width="70%" bgcolor="#FFFFFF">&nbsp;{rval GAKUBU_SCHOOL_KIND}</td>
+                    </tr> 
+                    <tr class="no_search">
+                      <th width="30%" align="right" nowrap>状態区分&nbsp;</th>
+                      <td width="70%" bgcolor="#FFFFFF">&nbsp;{rval CONDITION}</td>
+                    </tr>
+                    <!--{def data3}-->
+                    <!--{each data3}-->
+                    <tr class="no_search">
+                      <th align="right" nowrap>{val data3/ITEM_LABEL}</th>
+                      <td bgcolor="#FFFFFF">&nbsp;{val data3/ITEM_REMARK}
+                        <font size=2 color="red">{rval data3/ITEM_REMARK_COMMENT}</font>
+                      </td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td><br></td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" frame="box">
+                    <tr class="no_search" height="30">
+                      <th colspan="2">総合所見</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr class="no_search" height="30">
+                      <th width="30%" align="right">{rval data/KIND_LABEL}&nbsp;</th>
+                      <td width="*" bgcolor="#FFFFFF">
+                        &nbsp;{rval data/KIND_REMARK}
+                        <font size=2 color="red">{rval KIND_REMARK_COMMENT}</font>
+                      </td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                    <!--{/def}-->
+
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td><br></td>
+              </tr>
+              <tr class="no_search" height="30">
+                <td align="center">
+                    {rval button/btn_update}&nbsp;
+                    {rval button/btn_delete}&nbsp;
+                    {rval button/btn_reset}&nbsp;
+                    {rval button/btn_end}
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br><br>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+{rval finish}

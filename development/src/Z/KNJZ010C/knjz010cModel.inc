@@ -1,0 +1,246 @@
+<?php
+
+require_once('for_php7.php');
+
+//定数定義
+class knjz010cModel extends Model {
+    var $field      = array();
+    var $cmd;
+    var $applicantdiv;      //primary
+    var $testdiv;           //primary
+    var $coursecd;          //primary
+    var $majorcd;           //primary
+    var $examcoursecd;      //primary
+    var $year;              //入試年度
+    var $NextYear;
+
+    function init()
+    {
+        //起動時に初期化
+        if(VARS::get("PROGRAMID")) {
+            unset($this->year);
+            unset($this->applicantdiv);
+            unset($this->testdiv);
+            unset($this->coursecd);
+            unset($this->majorcd);
+            unset($this->examcoursecd);
+            unset($this->totalcd);
+        }
+
+        $temp = VARS::request("year");
+        if (isset($temp)) {
+            $this->year = VARS::request("year");
+        }
+
+        $this->field = array("ENTEXAMYEAR"     =>  $this->year,                            //入試年度
+                             "APPLICANTDIV"    =>  VARS::post("APPLICANTDIV"),             //入試制度
+                             "TESTDIV"         =>  VARS::post("TESTDIV"),                  //入試区分
+                             "COURSECD"        =>  substr(VARS::post("TOTALCD"), 0, 1),    //課程コード
+                             "MAJORCD"         =>  substr(VARS::post("TOTALCD"), 1, 3),    //学科コード
+                             "EXAMCOURSECD"    =>  VARS::post("EXAMCOURSECD"),             //コースコード
+                             "EXAMCOURSE_NAME" =>  VARS::post("EXAMCOURSE_NAME"),          //コース名
+                             "EXAMCOURSE_MARK" =>  VARS::post("EXAMCOURSE_MARK"),          //コース記号
+                             "CAPACITY"        =>  VARS::post("CAPACITY"),                 //コース記号
+                             "UPDATED"         =>  VARS::post("UPDATED")
+                             );
+
+        $this->cmd = VARS::request("cmd");
+
+
+        $temp = VARS::get("APPLICANTDIV");
+        if (isset($temp)){
+            $this->applicantdiv = VARS::get("APPLICANTDIV");
+        }
+        $temp = VARS::get("TESTDIV");
+        if (isset($temp)){
+            $this->testdiv = VARS::get("TESTDIV");
+        }
+        $temp = VARS::get("COURSECD");
+        if (isset($temp)){
+            $this->coursecd = VARS::get("COURSECD");
+        }
+        $temp = VARS::get("MAJORCD");
+        if (isset($temp)){
+            $this->majorcd = VARS::get("MAJORCD");
+        }
+        $temp = VARS::get("EXAMCOURSECD");
+        if (isset($temp)){
+            $this->examcoursecd = VARS::get("EXAMCOURSECD");
+        }
+
+        if(VARS::get("TOTALCD")){
+            $this->totalcd  = VARS::get("TOTALCD");
+            $this->coursecd = substr($this->totalcd,0,1);
+            $this->majorcd  = substr($this->totalcd,1,3);
+        }
+    }
+
+    //入力項目チェック
+    function validateInput($kind)
+    {
+        //空文字チェック
+        if (strlen($this->field["APPLICANTDIV"]) == 0){
+            $this->setWarning("MSG301","( 入試制度 )");
+            return false;
+        }
+        //空文字チェック
+        if (strlen($this->field["TESTDIV"]) == 0){
+            $this->setWarning("MSG301","( 入試区分 )");
+            return false;
+        }
+        //桁数チェック
+        if (strlen($this->field["TESTDIV"]) > 1){
+            $this->setWarning("MSG915","( 入試区分は1バイトまでです。)");
+            return false;
+        }
+        //空文字チェック
+        if (strlen($this->field["COURSECD"]) == 0){
+            $this->setWarning("MSG301","( 課程コード )");
+            return false;
+        }
+        //空文字チェック
+        if (strlen($this->field["MAJORCD"]) == 0){
+            $this->setWarning("MSG301","( 学科コード )");
+            return false;
+        }
+        //空文字チェック
+        if (strlen($this->field["EXAMCOURSECD"]) == 0){
+            $this->setWarning("MSG301","( コースコード )");
+            return false;
+        }
+        if (strlen($this->field["EXAMCOURSE_NAME"]) == 0){
+            $this->setWarning("MSG301","( コース名 )");
+            return false;
+        }
+
+        //キー値が変更されているかをチェック
+        if (($this->field["APPLICANTDIV"] != $this->applicantdiv ||
+             $this->field["TESTDIV"]      != $this->testdiv ||
+             $this->field["COURSECD"]     != $this->coursecd ||
+             $this->field["MAJORCD"]      != $this->majorcd  ||
+             $this->field["EXAMCOURSECD"] != $this->examcoursecd ) && 
+            ($kind=="update" || $kind=="delete")){
+            $this->setWarning("MSG308");
+            return false;
+        }
+        //コードのゼロ埋め
+        $this->field["EXAMCOURSECD"] = sprintf("%04d",$this->field["EXAMCOURSECD"]);
+        //１レコード取得
+        $query = knjz010cQuery::getRow($this->field["ENTEXAMYEAR"],$this->field["EXAMCOURSECD"],$this->field["APPLICANTDIV"],$this->field["TESTDIV"],$this->field["COURSECD"],$this->field["MAJORCD"]);
+        $db = Query::dbCheckOut();
+        $row = $db->getRow($query, DB_FETCHMODE_ASSOC);
+        Query::dbCheckIn($db);
+
+        //重複チェック
+        if ($this->cmd == "add" && is_array($row)){
+            $this->setWarning("MSG918","( コースコード )");
+            return false;
+        }
+        //存在チェック
+        if (($this->cmd == "update" || $this->cmd == "delete") && !is_array($row)) {
+            $this->setWarning("MSG303");
+            return false;
+        }
+        //更新日付チェック1
+        if ($this->cmd == "update" && $row["UPDATED"] == ""){
+            $this->setWarning("MSG303");
+            return false;
+        }
+        //更新日付チェック2
+        if ($this->cmd == "update" && $row["UPDATED"] != $this->field["UPDATED"]){
+            $this->setWarning("MSG307");
+            return false;
+        }
+        //文字数チェック
+        if (strlen($this->field["EXAMCOURSE_NAME"]) > 30){
+            $this->setWarning("MSG915","( コース名は30バイトまでです。)");
+            return false;
+        }
+        return true;
+    }
+
+    //編集完了用のモデルを返します
+    function &getUpdateModel()
+    {
+        //入力チェック
+        if ($this->validateInput("update")){
+            knjz010cQuery::getUpdateQuery($this->field);
+            $this->setMessage("MSG201");
+        }
+        return;
+    }
+    
+    function &getInsertModel()
+    {
+        //入力チェック
+        if ($this->validateInput("insert")){
+            knjz010cQuery::getInsertQuery($this->field);
+            $this->setMessage("MSG201");
+            $this->examcoursecd = $this->field["EXAMCOURSECD"];
+        }
+        return;
+    }
+
+    //削除用のモデルを返します
+    function &getDeleteModel()
+    {
+        //入力チェック
+        if ($this->validateInput("delete")){
+            knjz010cQuery::getDeleteQuery($this->field);
+            $this->setMessage("MSG201");
+            $this->examcoursecd = "";
+        }
+        return;
+    }  
+
+    //次年度のデータを作成
+    function &getCopyYearModel()
+    {
+        $db = Query::dbCheckOut();
+
+        $this->nextYear = $this->year + 1;
+        $message = '';
+        $flg = true;
+        if (!checkThisYear($db, $this->year)) {
+            $message = '作成するデータが存在しません。';
+            $flg = false;
+        }
+        if (!checkNextYear($db, $this->nextYear)) {
+            $message = $message . '既に次年度のデータが作成されています。';
+            $flg = false;
+        }
+        if ($flg) {
+            $query = knjz010cQuery::getCopyQuery($this->year, $this->nextYear);
+            $db->query($query);
+            $this->setMessage("MSG201");
+        } else {
+            $this->setMessage("MSG203", "\\n" . $message);
+        }
+        Query::dbCheckIn($db);
+    }
+
+
+    //変数をクリアします
+    function clean()
+    {
+    }
+}
+function checkThisYear($db, $year) {
+    $query = knjz010cQuery::getCheckCourseMstSql($year);
+    $result = $db->getOne($query);
+    if ($result > 0) {
+        return true;
+    }
+    return false;
+}
+
+function checkNextYear($db, $nextYear) {
+    $query = knjz010cQuery::getCheckCourseMstSql($nextYear);
+    $result = $db->getOne($query);
+    if ($result == 0) {
+        return true;
+    }
+    return false;
+}
+
+?>

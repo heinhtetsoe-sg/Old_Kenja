@@ -1,0 +1,94 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<br><br><br><br><br>
+
+<table width="45%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search" align="center">
+                      <td><b>
+                        {rval data/YEAR}年度　　{rval data/GAKKI}
+                        <!--{def useFi_HrclassSelect}-->
+                        　　　{rval data/HR_CLASS_TYPE1}<LABEL for="HR_CLASS_TYPE1"><b>法定クラス</b></LABEL>　
+                              {rval data/HR_CLASS_TYPE2}<LABEL for="HR_CLASS_TYPE2"><b>複式クラス</b></LABEL><br>
+                        <!--{/def}-->
+                        <!--{def is_doushisha_kokusai}-->
+                              対象日　<b>{rval el/DATE}</b>
+                        <!--{/def}-->
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象クラス</b></th>
+                      <th class="no_search"></th>
+                      <th><b>クラス一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CLASS_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr>
+                      <td align="left" bgcolor="#ffffff">
+                        <table>
+                          <tr>
+                            <td>
+                                　　　<b>出力件数</b>　　　{rval data/KENSUU}件
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              　　　  {rval title_FORM_SELECT}
+                              　　　{rval data/FORM_DIV1}{rval label_FORM_DIV1}
+                              　　　{rval data/FORM_DIV2}{rval label_FORM_DIV2}
+                              　　　　　{rval data/KANA}{rval label_KANA}
+                              　　　　　{rval data/RYOMEN}{rval label_RYOMEN}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}
+                　<font color="red" size="2"> ※PDF印字する場合は、ページの拡大／縮小は</font><br>
+                　　　　　　　　　　　　　　　　　　　　　　　　　　<font color="red" size="2">"なし"を選択してください。</font></td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

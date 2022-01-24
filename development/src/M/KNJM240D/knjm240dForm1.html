@@ -1,0 +1,62 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="1" >
+              <tr class="no_search_line">
+                <th>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#cccccc">
+                    <tr>
+                      <th width="40%" align="left"><b>　　年度：{rval GrYEAR}　　学期：{rval SEMESTER}</b></th>
+                    </tr>
+                  </table>
+                </th>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25" nowrap>
+                      <th width="20%" nowrap rowspan="2">講座コード</th>
+                      <th width="30%" nowrap rowspan="2">講座名</th>
+                      <th width="25%" nowrap colspan="2">レポート</th>
+                      <th width="*%"  nowrap colspan="2">スクーリング</th>
+                    </tr>
+                    <tr class="no_search" height="25" nowrap>
+                      <th width="10%" nowrap>回数</th>
+                      <th width="15%" nowrap>最低提出<br>回数</th>
+                      <th width="10%" nowrap>回数</th>
+                      <th width="*%"  nowrap>最低出席<br>回数</th>
+                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+                    <tr bgcolor="#ffffff" >
+                      <td width="20%" align="center" nowrap>{rval data/CHAIRCD}</td>
+                      <td width="30%" align="center" nowrap>{rval data/CHAIRNAME}</td>
+                      <td width="10%" align="center" nowrap>{rval data/REPO_MAX_CNT}</td>
+                      <td width="10%" align="center" nowrap>{rval data/REPO_LIMIT_CNT}</td>
+                      <td width="10%" align="center" nowrap>{rval data/SCHOOLING_MAX_CNT}</td>
+                      <td width="*%"  align="center" nowrap>{rval data/SCHOOLING_LIMIT_CNT}</td>
+                    </tr>
+<!--{/each}-->
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

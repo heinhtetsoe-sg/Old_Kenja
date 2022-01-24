@@ -1,0 +1,121 @@
+{rval start}
+<table style="width: 750px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+  <table style="width: 750px" border="0" cellspacing="5" cellpadding="1">
+  <tr> 
+  <td>
+    <table style="width: 750px" border="0" cellspacing="0" cellpadding="0">
+    <tr class="no_search_line">
+    <td><!-- first table for subclass -->
+      <table width="100%" border="0" cellspacing="1" cellpadding="4">
+      <tr class="no_search" height="50" nowrap>
+      <td  nowrap colspan="2">&nbsp&nbsp;処理年度：&nbsp;{rval data/YEAR}&nbsp;&nbsp;<!--{def data/SCHOOL_KIND}-->校種:{rval data/SCHOOL_KIND}　<!--{/def}-->処理月：&nbsp;{rval data/MONTH}&nbsp;&nbsp;日指定：{rval data/DAY}&nbsp;日</td>
+      </tr>
+      <tr  bgcolor="#ffffff" height="150">
+      <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;出欠入力制御日付：&nbsp;&nbsp;{rval data/LIMIT_DATE}
+      <br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;●この日付以前の出欠入力は出来なくなります。
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（ 更新権限のある職員は可能 ）<br>&nbsp;
+      </td></tr>
+      <!--{def button}-->
+      <tr class="no_search" ><td width="30%"></td>
+      <td bgcolor="#ffffff">{rval button/BTN_UPDATE}&nbsp;&nbsp;&nbsp;&nbsp;{rval button/BTN_OK}{rval button/BTN_CLEAR}</td>
+      </tr>
+      <!--{/def}-->
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+      <td><BR>
+       <table width="100%" border="0" cellspacing="0" cellpadding="1" >
+        <tr class="no_search_line">
+           <th>
+          <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#cccccc">
+          <tr> 
+          <th align="left"><B>科目別出欠累積データ生成済みリスト</B></th>
+          </tr>
+          </table>
+          </th>
+        </tr>
+        </table>
+      </td>
+    </tr>
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="40">削除</th>
+              <th width="40">処理年度</th>
+              <th width="70">処理学期</th>
+              <th width="50">処理月</th>
+              <th width="50">日指定</th>
+              <th width="220">処理日付</th>
+              <th width="*">登録者</th>
+             </tr>
+            </table>
+          </td>
+          </tr>
+         </table>
+        </td>
+        </tr>
+    <tr>
+    <td>
+      <div style="width: 100%; height=200; overflow: auto">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3"> 
+            <!--{def data2}-->
+            <!--結果一覧-->
+            <!--{each data2}--> 
+              <tr bgcolor="#ffffff" >            
+                <td width="40" align="center" nowrap>{rval data2/DEL_CHECK}</td>
+                <td width="40" align="center" nowrap>{rval data2/YEAR}</td>
+                <td width="70" align="center" nowrap>{rval data2/SEMESTER}</td>
+                <td width="50" align="center" nowrap>{rval data2/MONTH}</td>
+                <td width="50" align="center" nowrap>{rval data2/DAY}</td>
+                <td width="220" align="center" nowrap>{rval data2/UPDATED}</td>
+                <td width="*" align="left">　{rval data2/REGISTERCD}：{rval data2/STAFFNAME}</td>
+              </tr> 
+            <!--{/each}--> 
+            <!--{/def}-->
+            </table>
+          </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+    </tr>
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th align="left">&nbsp;{rval button/BTN_DEL}</th>
+             </tr>
+            </table>
+          </td>
+          </tr>
+         </table>
+        </td>
+        </tr>
+    <tr>
+     <td style="font-weight: 700; color:white">
+        <marquee><span id="marq_msg">集計しています...しばらくおまちください</span></marquee>
+     </td>
+    </tr>
+  </table>
+  </td>
+  </tr>
+  </table>
+</td>
+</tr>
+</table>
+{rval finish} 
+<script language="JavaScript">{rval reload}{rval jscript}{rval confirm_msg}</script>

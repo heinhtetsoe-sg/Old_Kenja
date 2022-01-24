@@ -1,0 +1,79 @@
+{rval start}
+<style>
+#kirokuKanten table{
+    margin-left: auto;
+    margin-right: auto;
+}
+.box{
+	width:40px;
+	text-align:center;
+	vertical-align:top;
+}
+.box div{
+	width:10px;
+	margin:auto;
+}
+</style>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <th valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="6" bgcolor="#000066">
+              <tr class="no_search" nowrap style="text-align:left">
+                <th>処理年度：{rval YEAR}年度&nbsp;&nbsp;&nbspクラス：{rval HR_CLASS}</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </th>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="2" bgcolor="#000066">
+              <tr class="no_search" nowrap>
+                <td style="text-align:center;width:200px">クラス-出席番号</td>
+                <td style="text-align:center">氏名</td>
+                <td style="text-align:center;width:100px">IQ</td>
+                <td style="width:11px">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+       </tr>
+      </table>
+      <div id="box3" style="overflow:scroll;max-height:360px">
+      <table width="100%" border="0" cellspacing="1" cellpadding="2" bgcolor="#000066">
+<!--{each data}-->
+        <tr bgcolor="#FFFFFF">
+          <td style="width:200px">{rval data/ATTEND}</td>
+          <td>{rval data/NAME}</td>
+          <td style="width:100px">{rval data/IQ}</td>
+        </tr>
+<!--{/each}-->
+        </tr>
+      </table>
+      </div>
+      </td>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <table width="100%" border="0" cellspacing="0" cellpadding="3"  bgcolor="#000066"> 
+        <tr>
+          <th class="no_search" style="text-align:right">
+              {rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}
+          </th>
+        </tr>
+      </table>
+    </th>
+  </tr>
+</table>
+{rval finish}
+
+

@@ -1,0 +1,49 @@
+{rval start}
+
+<br>
+<table width="500" border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" height="30">
+                <td nowrap>　　年度：{rval YEAR}　　校種：{rval SCHOOL_KIND}　　{rval button/btn_copy}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" height="25">
+                <th width="64%" nowrap>パターンコード</th>
+                <th width="18%" nowrap>満点</th>
+                <th width="18%" nowrap>段階数</th>
+              </tr>
+              <!--{def data}-->
+              <!--{each data}-->
+              <tr bgcolor="#ffffff">
+                <td nowrap>&nbsp;{rval data/PATTERN_SHOW}</td>
+                <td nowrap align="center">{rval data/PERFECT}</td>
+                <td nowrap align="center">{rval data/ASSESSLEVEL_CNT}</td>
+              </tr>
+              <!--{/each}-->
+              <!--{/def}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

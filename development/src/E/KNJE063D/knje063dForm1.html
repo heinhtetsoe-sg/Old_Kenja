@@ -1,0 +1,125 @@
+<!-- knje063dForm1.html -->
+{rval start}
+{rval IFRAME}
+<style>
+* {
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+
+table {
+    padding: 1px;
+}
+
+.tab {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.tab, .tab tr, .tab tr th, .tab tr td {
+  border: 1px solid black;
+}
+
+tr td {
+  vertical-align: top;
+}
+
+.title {
+  padding: 3px;
+}
+
+</style>
+<table style="width: 100%; margin-left: 4px;">
+  <tbody>
+    <tr>
+      <td nowrap>
+      <table style="width: 100%;">
+        <tbody>
+          <tr>
+           <td>
+             <table style="width: 50%;">
+               <tbody>
+                   <tr>
+                     <td>
+                       <hr>
+                       {rval NAME_SHOW}
+                       <hr>
+                     </td>
+                   </tr>
+               </tbody>
+             </table>
+           </td>
+          </tr>
+
+          <tr>
+            <td>
+            <table class="tab">
+              <tbody>
+
+                <tr class="no_search">
+                  <th width="20%">項目</th>
+                  <!-- Edit by HPA for current_cursor start 2020/02/03 -->
+                  <th width="80%">値</th>
+                </tr>
+                <tr>
+                  <th align="right" class="no_search" nowrap>※　　　　　年度</th>
+                  <td style="background-color: white;">{rval year/YEAR}&nbsp;&nbsp;{rval year/year_add}&nbsp;{rval year/btn_year_add}</td>
+                </tr>
+                <!--{each row}-->
+                <tr>
+                  <th align="right" class="no_search" nowrap>※　　　　　教科</th>
+                  <td style="background-color: white;" nowrap>{rval row/CLASSCD}</td>
+                </tr>
+                <tr class="no_search">
+                  <th align="right" class="no_search" nowrap>※　　科目コード</th>
+                  <td style="background-color: white;" nowrap>{rval row/SUBCLASSCD}</td>
+                   <!-- Edit by HPA for current_cursor end 2020/02/20 -->
+                </tr>
+                <tr>
+                  <th align="right" class="no_search" nowrap Valign="top">文言評価
+                  </th>
+                  <td style="background-color: white;">
+                      <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                        <tr>
+                          <td>
+                            {rval row/REMARK}
+                            <br>
+                            <div style= "font-size: 0.7em; color:red; ">{rval REMARK_SIZE}</div>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                </tr>
+                <!--{/each}-->
+
+              </tbody>
+            </table>
+            </td>
+          </tr> <!-- 特別活動の記録 -->
+
+          <tr>
+            <td>
+            <table style="width: 100%; border: 1px solid #dddddd;">
+              <tbody>
+                <tr class="no_search">
+                  <td style="background-color: white;">
+                    <div>{rval btn_update}{rval btn_up_pre}{rval btn_up_next}{rval btn_delete}{rval btn_reset}{rval btn_back}</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->
+<script language="javascript">{rval reload}</script>
+

@@ -1,0 +1,54 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+        <td valign="top">
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr>
+                  <td>
+                   <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                    <tr class="no_search_line">
+                       <th>
+                      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                      <tr> 
+                      <th height="30" align="left" class="no_search">処理年度：{rval top/LEFT_YEAR}&nbsp;&nbsp;{rval button/btn_copy}</th>
+                      </tr>
+                      </table>
+                      </th>
+                    </tr>
+                    </table>
+                  </td>
+                </tr>
+          
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                          <tr class="no_search_line">
+                                <td>
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                    <tr class="no_search">
+                                      <th width="60" nowrap>大分類CD</th>
+                                      <th width="350" nowrap>大分類名</th>
+                                      <th nowrap>大分類略称</th>
+                                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+                                    <tr>
+                                      <td align="right" nowrap bgcolor="#ffffff"><a href="knje355index.php?cmd=edit&YEAR={rval data/YEAR}&L_CD={rval data/L_CD}" target="right_frame">{rval data/L_CD}</a></td>
+                                      <td nowrap bgcolor="#ffffff">{rval data/L_NAME}</td>
+                                      <td nowrap bgcolor="#ffffff">{rval data/L_ABBV}</td>
+                                    </tr>
+<!--{/each}-->
+<!--{/def}-->
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+</table>
+{rval finish}

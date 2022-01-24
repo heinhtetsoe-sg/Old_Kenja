@@ -1,0 +1,117 @@
+{rval start}
+<script language="javascript">
+window.fep = '{rval fep}';
+</script>
+
+<br>
+<table width={rval useAllWidth} border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <th valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+              <!--{def upperline}-->
+              <tr class="no_search" nowrap>
+                <td>
+                    　　　　　　　　　　<!--{def COURSE_MAJOR}-->課程学科：{rval COURSE_MAJOR}<!--{/def}-->　　　　
+                    <!--{def class_type}-->{rval SELECT_CLASS_TYPE1}<LABEL for="SELECT_CLASS_TYPE1">HRクラス</LABEL>　　{rval SELECT_CLASS_TYPE2}<LABEL for="SELECT_CLASS_TYPE2">実クラス</LABEL><!--{/def}-->
+                </td>
+              </tr>
+              <!--{/def}-->
+              <tr class="no_search">
+                <td nowrap>
+                    &nbsp;&nbsp;処理年度：{rval year}年度
+                    &nbsp;{rval semester}
+                    &nbsp;&nbsp;学級：{rval hr_class}{rval GROUP_HR_CLASS}
+                    &nbsp;&nbsp;対象月：{rval month}
+                    &nbsp;&nbsp;締め日：{rval SET_APPOINTED_DAY}
+                    &nbsp;&nbsp;授業日数：{rval LESSON_SET} {rval btn_reflect}
+                    &nbsp;&nbsp;移動方向({rval MOVE_ENTER1}<LABEL for="MOVE_ENTER1">縦</LABEL>　{rval MOVE_ENTER2}<LABEL for="MOVE_ENTER2">横</LABEL>)
+                    <!--{def EXECUTED}-->&nbsp;&nbsp;{rval EXECUTED}{rval EXECUTED_LABEL}<!--{/def}-->
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </th>
+  </tr>
+
+  <tr><td><br></td></tr>
+
+  <tr>
+    <th valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <th align="right">
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <!--{def useRuikeiCol}-->
+              <tr class="no_search" nowrap>
+                <th colspan="{rval useOtherThanRuikeiCol}" bgcolor="#FFFFFF"></th>
+                <th colspan="{rval useRuikeiCol}">累積</th>
+                <!--{def UN_USE_HR_REMARK}-->
+                <th bgcolor="#FFFFFF"></th>
+                <!--{/def}-->
+                <!--{def USE_HR_REMARK}-->
+                <th>出欠の備考</th>
+                <!--{/def}-->
+              </tr>
+              <!--{/def}-->
+              <tr class="no_search" align="center" nowrap>
+                <td width="30">No.</td>
+                <td width="200">氏&nbsp;&nbsp;名</td>
+                <!-- Edit by HPA for PC-talker 読み start 2020/02/03 -->
+                <td width="30" aria-label="">締<br>め<br>日</td>
+                <!-- Edit by HPA for PC-talker 読み end 2020/02/20 -->
+                {rval TITLE}
+                {rval RUISEKI_TITLE}
+                <!--{def UN_USE_HR_REMARK}-->
+                {rval REMARK_TITLE}
+                <!--{/def}-->
+                <!--{def USE_HR_REMARK}-->
+                <!-- Edit by HPA for PC-talker 読み start 2020/02/03 -->
+                <td width="#" bgcolor="#FFFFFF"><font color="black">クラス出欠の備考</font><br>{rval HR_REMARK}<br><span id="statusarea1" style="color:blue"></span></td>
+                <!-- Edit by HPA for PC-talker 読み end 2020/02/20 -->
+                <!--{/def}-->
+              </tr>
+            </table>
+          </th>
+        </tr>
+        <tr>
+          <th align="right">
+            <div style="height:500;overflow:auto">
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <!--{each attend_data}-->
+              <tr bgcolor="{rval attend_data/BGCOLOR_ROW}" align="center" nowrap>
+                <td width="30">{rval attend_data/ATTENDNO}</td>
+                <td width="200" align="left" {rval attend_data/BGCOLOR_NAME_SHOW}>{rval attend_data/SCHREGNO_SHOW}{rval attend_data/NAME_SHOW}</td>
+                <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/APPOINTED_DAY}{rval attend_data/SCHREGNO}</td>
+                {rval attend_data/ATTEND_DATA}
+                {rval attend_data/RUISEKI_DATA}
+                {rval attend_data/REMARK_DATA}
+              </tr>
+              <!--{/each}-->
+            </table>
+            </div>
+          </th>
+        </tr>
+        <tr>
+          <th align="right">
+            <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+              <tr class="no_search" align="center" height="30">
+                <td nowrap>
+                    {rval ZERO_HYOJI_COMMENT}　　　　　　　　　　　　　　
+                    {rval btn_update} {rval btn_reset} {rval btn_end} {rval btn_csv}
+                </td>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </table>
+    </th>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

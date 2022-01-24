@@ -1,0 +1,67 @@
+{rval start}
+<table width="700" border="0" cellspacing="0" cellpadding="8" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th norwarp width="35%">対象年度&nbsp;{rval YEAR}&nbsp;{rval SCHOOL_KIND}</th>
+                      <td norwarp width="65%">&nbsp;{rval btn_pre_copy}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th nowrap width="25%" colspan="2">都道府県</th>
+                      <th nowrap width="10%" rowspan="2">学年</th>
+                      <th nowrap width="22%" rowspan="2">参照年度１</th>
+                      <th nowrap width="22%" rowspan="2">参照年度２</th>
+                      <th nowrap width="*"   rowspan="2">標準授業料</th>
+                    </tr>
+                    <tr class="no_search" height="25">
+                      <th nowrap width="10%">コード</th>
+                      <th nowrap width="15%">名称</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td nowrap align="center">{val data/PREFECTURESCD}</td>
+                      <td nowrap>{val data/PREF_NAME}</td>
+                      <td nowrap align="center">{val data/GRADE}</td>
+                      <td nowrap align="center">{val data/REFER_YEAR_DIV1}</td>
+                      <td nowrap align="center">{val data/REFER_YEAR_DIV2}</td>
+                      <td nowrap align="right">{val data/STANDARD_SCHOOL_FEE}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

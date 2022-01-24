@@ -1,0 +1,154 @@
+﻿{rval start}
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="150" nowrap bgcolor="#FFFF00" align="center">
+            <b><font size="3" color="#FF8C00">B&nbsp;支援計画</font><font size="2" color="#FF8C00"><BR>(学校)</font></b>
+          </td>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            {rval data/RECORD_DIV}　{rval button/btn_Dsanshou}
+          </td>
+        </tr>
+<!--{def RIREKI}-->
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="80">項目</th>
+<!--{def RECORD_DIV3}-->
+              <th width="130">クラブ名</th>
+<!--{/def}-->
+              <th width="*">内容</th>
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <div style="width: 100%; height=85; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def data2}-->
+                <!--{each data2}-->
+                  <tr bgcolor="#ffffff">
+                    <td width="80" align="left"><a href="knje390nindex.php?cmd=subform3_school_set&YEAR={val data2/YEAR}&SCHREGNO={val data2/SCHREGNO}&RECORD_DIV={val data2/RECORD_DIV}&RECORD_SEQ={val data2/RECORD_SEQ}">{rval data2/RECORD_DIV_NAME}</a></td>
+<!--{def RECORD_DIV3}-->
+                    <td width="130" align="left">{rval data2/CLUB_NAME}</th>
+<!--{/def}-->
+                    <td width="*" align="left">{rval data2/CONTENTS_NAIYOU}</td>
+                  </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+        
+        <tr><td height="20"></td></tr>
+
+<!--{def data}-->
+<!--{def button}-->
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{def RECORD_DIV2}-->
+              <tr>
+                <th width="100"  align="center" class="no_search" nowrap></th>
+                <th align="center" class="no_search" nowrap >目標</th>
+                <th align="center" class="no_search" nowrap >支援・手立て</td>
+                <th align="center" class="no_search" nowrap >評価</td>
+              </tr>
+              <tr>
+                <th width="100" align="right" class="no_search" nowrap >短期内容</th>
+                <td align="left" bgcolor="#ffffff">{rval data/SHORT_TERM_GOAL}<BR>{rval data/SHORT_TERM_GOAL_SIZE}</td>
+                <td align="left" bgcolor="#ffffff">{rval data/SHORT_TERM_MEANS}<BR>{rval data/SHORT_TERM_MEANS_SIZE}</td>
+                <td align="left" bgcolor="#ffffff">{rval data/SHORT_TERM_ASSESS}<BR>{rval data/SHORT_TERM_ASSESS_SIZE}</td>
+              </tr>
+<!--{/def}-->
+<!--{def RECORD_DIV3}-->
+              <tr>
+                <th width="100" align="right" class="no_search" nowrap>クラブ名</th>
+                <td bgcolor="#ffffff" colspan="3">{rval data/CLUB_NAME}<BR>{rval data/CLUB_NAME_SIZE}</td>
+              </tr>
+              <tr>
+                <th width="100" align="right" class="no_search" nowrap>開始月</th>
+                <td bgcolor="#ffffff" colspan="3">{rval data/CLUB_S_YEAR_MONTH}&nbsp;から</td>
+              </tr>
+<!--{/def}-->
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td align="left" bgcolor="#ffffff" colspan="3">{rval button/btn_insert}{rval button/btn_update}{rval button/btn_delete}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+<!--{/def}-->
+<!--{/def}-->
+
+<!--{/def}-->
+
+<!--{def RECORD_DIV1}-->
+        <tr><td height="17"></td></tr>
+<!--{def data}-->
+<!--{def button}-->
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th align="center" class="no_search" nowrap colspan="2">目指す将来像、長期目標(年間)と評価</th>
+              </tr>
+              <tr>
+                <th width="100" align="right" class="no_search" nowrap>目指す将来像</th>
+                <td bgcolor="#ffffff">{rval data/GOAL_FUTURE}<BR>{rval data/GOAL_FUTURE_SIZE}</td>
+              </tr>
+              <tr>
+                <th width="100" align="right" class="no_search" nowrap>長期目標(年間)</th>
+                <td bgcolor="#ffffff">{rval data/LONG_TERM_GOAL}<BR>{rval data/LONG_TERM_GOAL_SIZE}</td>
+              </tr>
+              <tr>
+                <th width="100" align="right" class="no_search" nowrap>評価</th>
+                <td bgcolor="#ffffff">{rval data/LONG_TERM_ASSESS}<BR>{rval data/LONG_TERM_ASSESS_SIZE}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td align="left" bgcolor="#ffffff">{rval button/btn_update2}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+<!--{/def}-->
+<!--{/def}-->
+<!--{/def}-->
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish} 

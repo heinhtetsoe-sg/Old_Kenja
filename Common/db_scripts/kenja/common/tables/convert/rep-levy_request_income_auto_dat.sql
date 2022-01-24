@@ -1,0 +1,4 @@
+-- $Id$
+
+alter table LEVY_REQUEST_INCOME_AUTO_DAT add column AUTO_INCOME_APPROVAL varchar(1)
+reorg table LEVY_REQUEST_INCOME_AUTO_DAT

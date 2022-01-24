@@ -1,0 +1,82 @@
+{rval start}
+
+<!--{def button}-->
+
+<table width="1350px" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="35">
+                      <th class="no_search">{rval YEAR}年度　校種：{rval SCHOOL_KIND}　　学期：{rval SEMESTER}　　科目：{rval SUBCLASSCD}　　講座：{rval CHAIRCD}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="30" class="no_search">
+                      <th nowrap width="150px">生徒名</th>
+                      <!--{each koumoku}-->
+                      <th nowrap width="400px">{rval koumoku/KIND_REMARK}</th>
+                      <!--{/each}-->
+                    </tr>
+                  </table>
+
+                  <div style="max-height:700px; overflow-y:scroll;">
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <!--{each list}-->
+                      <tr bgcolor="#ffffff">
+                        <td valign="center" width="150px">{rval list/NAME}</label></td>
+                        <!--{each list/remark}-->
+                        <td valign="top" {rval list/remark/WIDTH}>{rval list/remark/REMARK}{rval list/remark/EXTFMT}</td>
+                        <!--{/each}-->
+                      </tr>
+                      <!--{/each}-->
+                    </table>
+                  </div>
+
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr bgcolor="#ffffff">
+                      <td class="no_search" {rval COLSPAN}>
+                        <table width="100%">
+                          <tr>
+                            <th align="right" nowrap>{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}--> 
+
+{rval finish}
+<script language="JavaScript">
+    $('div').scrollTop();
+    $('div').animate({ scrollTop: 0 }, 500);
+</script>

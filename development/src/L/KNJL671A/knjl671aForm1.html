@@ -1,0 +1,131 @@
+{rval start} 
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="30">
+                      <th width="15%" class="no_search" align="center">入試年度</th>
+                      <td width="15%" bgcolor="#ffffff" align="center">{val top/YEAR}</td>
+                      <th width="15%" class="no_search" align="center">※入試制度</th>
+                      <td width="15%" bgcolor="#ffffff">{rval top/APPLICANTDIV}</td>
+                      <th width="15%" class="no_search" align="center">※入試区分</th>
+                      <td width="15%" bgcolor="#ffffff">{rval top/TESTDIV}</td>
+                      <th width="15%" class="no_search" align="center">※合格コース</th>
+                      <td width="*" bgcolor="#ffffff">{rval top/EXAMCOURSECD}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" align="center" height="30">
+                            <th width="150"><a href="javascript:btn_submit('sort');" style="color:white">受験番号{rval SORT}</a></th>
+                            <th width="250">氏名</th>
+                            <th width="200">合格回</th>
+
+<!--入試区分一覧-->
+<!--{def data2/TESTDIV}-->
+<!--{each data2/TESTDIV}-->
+                            <th width="150">{rval data2/TESTDIV/TESTDIV_NAME}</th>
+<!--{/each}-->
+<!--{/def}-->
+
+                            <th width="150">特別奨学生</th>
+                            <th width="*">特別奨学生<br>登録状況</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <div style="height: 500px; overflow-y: scroll;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+                          <tr bgcolor="#ffffff" id="ROWID_{rval data/EXAMNO}" nowrap>
+                            <td nowrap width="150" align="center">
+                              {rval data/EXAMNO}
+                              <input type="hidden" name="EXAMNO[]" value="{rval data/EXAMNO}" />
+                              <input type="hidden" name="RECEPTNO[]" value="{rval data/RECEPTNO}" />
+                            </td>
+                            <td nowrap width="250" >{rval data/NAME}</td>
+                            <td nowrap width="200" align="center">{rval data/TESTDIV_NAME}</td>
+
+<!--入試区分一覧-->
+<!--{def data/TESTDIV_LIST}-->
+<!--{each data/TESTDIV_LIST}-->
+                            <td nowrap width="150" align="center">{val data/TESTDIV_LIST/TOTAL4}</td>
+<!--{/each}-->
+<!--{/def}-->
+
+                            <td nowrap width="150" align="center">{val data/SP_SCHOLAR_CD_SEL}</td>
+                            <td nowrap width="*" align="center">
+                              {val data/SP_SCHOLAR_NAME}
+                              <input type="hidden" name="HID_SP_SCHOLAR_CD[]" value="{rval data/SP_SCHOLAR_CD}" />
+                            </td>
+                          </tr>
+<!--{/each}-->
+<!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th nowrap></th>
+                            <td width="30%" bgcolor="#ffffff" nowrap>{val button/btn_update} {val button/btn_clear} {val button/btn_end}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish} 

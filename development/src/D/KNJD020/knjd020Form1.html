@@ -1,0 +1,45 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="30%">{rval sort1}</th>
+                      <th width="25%">{rval sort2}</th>
+                      <th width="15%">実施日</th>
+                      <th width="10%">実施</th>
+                      <th width="10%">満点</th>
+                      <th width="10%">評価<BR>重み</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}--> 
+                    <tr bgcolor="white" style="height:27px;"> 
+                            
+                            <td nowrap align="left"   width="30%">{val data/CHAIRNAME}</td>
+                            <td nowrap align="left"   width="25%">{val data/TESTCD}　{val data/TESTITEMNAME}</td>
+                            <td nowrap align="center" width="15%">{val data/OPERATION_DATE}</td>
+                            <td nowrap align="center" width="10%">{val data/OPERATION_FLG}</td>
+                            <td nowrap align="right"  width="10%">{val data/PERFECT}</td>
+                            <td nowrap align="right"  width="10%">{val data/RATE}</td>
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}{rval reload}</script>

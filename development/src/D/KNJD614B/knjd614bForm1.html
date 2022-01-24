@@ -1,0 +1,92 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR>
+
+<table width="60%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td align="left">
+                        &nbsp&nbsp&nbsp&nbsp{rval data/YEAR}年度&nbsp&nbsp校種&nbsp;{rval data/SCHOOL_KIND}&nbsp&nbsp学期&nbsp;{rval data/SEMESTER}&nbsp;&nbsp;学年&nbsp;{rval data/GRADE}&nbsp;&nbsp;考査種別&nbsp;{rval data/TESTCD}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象</b></th>
+                      <th class="no_search"></th>
+                      <th><b>クラス一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">
+                        {rval hrClassButton/btn_lefts}<BR>
+                        {rval hrClassButton/btn_left1}<BR>
+                        {rval hrClassButton/btn_right1}<BR>
+                        {rval hrClassButton/btn_rights}
+                      </td>
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象</b></th>
+                      <th class="no_search"></th>
+                      <th><b>科目一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/SUBCLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">
+                        {rval subclassButton/btn_lefts}<BR>
+                        {rval subclassButton/btn_left1}<BR>
+                        {rval subclassButton/btn_right1}<BR>
+                        {rval subclassButton/btn_rights}
+                      </td>
+                      <td width="45%">{rval data/SUBCLASS_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr bgcolor="#ffffff" height="30">
+                <td>
+                  出欠対象日付&nbsp;{rval data/ATTEND_DATE}
+                </td>
+              </tr>
+              
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

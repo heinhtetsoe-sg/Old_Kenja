@@ -1,0 +1,57 @@
+{rval start} 
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR><BR><BR>
+<table width="50%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="5">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="center" class="no_search">
+                <td colspan="3">
+                  <b align="center">入試年度 : {rval data/YEAR}</b>
+                </td>
+              </tr>
+              <tr bgcolor="#ffffff" height="100"> 
+                <td nowrap colspan="3">
+                  <b>　　　　　　　入試制度</b>　 {rval data/APPLICANTDIV}<br><br>
+                  <b>　　　　　　　入試区分</b>　 {rval data/TESTDIV}<br><br>
+                  <b>　　　　　　　通知日付</b>　 {rval data/NOTICEDATE}
+                </td>
+              </tr>
+
+              <tr align="center" class="no_search">
+                <td><b align="center">＜帳票種類＞</b></td>
+                <td><b align="center">＜出力範囲＞</b></td>
+              </tr>
+              <tr bgcolor="#ffffff" height="120"> 
+                <td>
+                  　{rval data/FORM1} <b><LABEL for="FORM1">お礼状</LABEL></b><br><br>
+                  　{rval data/FORM2} <b><LABEL for="FORM2">合否結果通知書</LABEL></b><br><br>
+                  　{rval data/FORM3} <b><LABEL for="FORM3">封筒</LABEL></b><br><br>
+                </td>
+                <td>
+                  　{rval data/OUTPUT1} <b><LABEL for="OUTPUT1">全校</LABEL></b><br><br>
+                  　{rval data/OUTPUT2} <b><LABEL for="OUTPUT2">指定</LABEL></b><br><br>
+                  　　　出身学校コード：{rval data/SCHOOLCD}
+                </td>
+              </tr>
+
+              <tr align="left" class="no_search" height="20"> 
+                <td nowrap colspan="2"> &nbsp{rval button/btn_print}{rval button/btn_end}</td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish} 

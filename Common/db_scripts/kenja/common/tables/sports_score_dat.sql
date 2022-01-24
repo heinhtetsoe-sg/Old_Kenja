@@ -1,0 +1,17 @@
+-- $Id: f2a170cfc649a9f43ec303a92fe95c2e0fff06c0 $
+
+DROP TABLE SPORTS_SCORE_DAT
+CREATE TABLE SPORTS_SCORE_DAT ( \
+    YEAR                  VARCHAR(4)    NOT NULL, \
+    SCHREGNO              VARCHAR(8)    NOT NULL, \
+    ITEMCD                VARCHAR(3)    NOT NULL, \
+    DATE                  DATE, \
+    RECORD                DECIMAL(6,3), \
+    SCORE                 SMALLINT, \
+    VALUE                 VARCHAR(2), \
+    REGISTERCD            VARCHAR(10), \
+    UPDATED               TIMESTAMP DEFAULT CURRENT TIMESTAMP, \
+    TOTAL                 VARCHAR(2) \
+) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE SPORTS_SCORE_DAT ADD CONSTRAINT PK_SPORTS_SC_DAT PRIMARY KEY (YEAR, SCHREGNO, ITEMCD)

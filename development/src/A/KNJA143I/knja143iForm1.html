@@ -1,0 +1,106 @@
+<!--kanji=漢字-->
+
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR>
+
+<table width="40%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <th><b>{rval data/YEAR}　　{rval data/SEMESTER}</b></th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+<!--{def data/OUT}-->
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td>
+                        &nbsp;<b>{rval data/OUTPUT1}<LABEL for="OUTPUT1">&nbsp;新入生</LABEL>　{rval data/OUTPUT2}<LABEL for="OUTPUT2">&nbsp;在籍</LABEL></b>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+<!--{/def}-->
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td>
+                        &nbsp;<b>{rval data/DISP1}<LABEL for="DISP1">&nbsp;個人指定</LABEL>　{rval data/DISP2}<LABEL for="DISP2">&nbsp;クラス指定</LABEL></b>
+                        &nbsp;　　　　　　　　　{rval data/GRADE_HR_CLASS}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>{rval data/TITLE_LEFT}</b></th>
+                      <th class="no_search"></th>
+                      <th><b>{rval data/TITLE_RIGHT}</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="40%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="40%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD height="90" align="left"  bgcolor="#ffffff">
+                        <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                            <TR>
+                              <TD>
+<!--{def data/SORT}-->
+                                &nbsp;&nbsp;&nbsp;&nbsp;<b>　出力順</b>&nbsp;&nbsp;&nbsp;{rval data/SORT_DIV1}<LABEL for="SORT_DIV1">年組番</LABEL>
+                                                                                         {rval data/SORT_DIV2}<LABEL for="SORT_DIV2">学籍番号（受験番号）</LABEL><BR><BR>
+<!--{/def}-->
+                                &nbsp;&nbsp;&nbsp;&nbsp;<b>発行日付</b>&nbsp;&nbsp;&nbsp;{rval data/TERM_SDATE}<BR><BR>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<b>有効期限</b>&nbsp;&nbsp;&nbsp;&nbsp;{rval data/TERM_EDATE}
+                              </TD>
+                            </TR>
+                        </TABLE>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}　<font color="red" size="2"> ※PDF印字する場合は、ページの拡大／縮小は"なし"を選択してください。</font></td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

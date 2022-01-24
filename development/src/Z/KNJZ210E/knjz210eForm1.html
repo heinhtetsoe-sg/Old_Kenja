@@ -1,0 +1,128 @@
+{rval start}
+{rval IFRAME}
+
+<table width="95%" border="0" cellspacing="10" cellpadding="0" align="center">
+<tbody>
+  <tr></tr><tr></tr>
+    <td valign="top">
+    
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr>
+          <td>
+            <table width="50%" border="0" cellspacing="0" cellpadding="0" align="center">
+              <tr class="no_search_line">
+               <th>
+                 <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                  <tr class="no_search" height="30"> 
+                    <td class="no_search" align="center" colspan="2" nowrap><B>&nbsp;{rval YEAR}年度　観点評価</B></td>
+                  </tr>
+                  <tr class="no_search" height="30"> 
+                    <td width="25%" class="no_search" align="right" nowrap>観点評価区分</td>
+                    <td width="75%" bgcolor="#ffffff" nowrap>&nbsp;{rval DIV}</td>
+                  </tr>
+                  <tr class="no_search" height="30"> 
+                    <td class="no_search" align="right" nowrap>学年</td>
+                    <td bgcolor="#ffffff"  nowrap><font color="black">&nbsp;{rval GRADE}</font></td>
+                  </tr>
+                  <tr class="no_search" height="30"> 
+                    <td class="no_search" align="right" nowrap>教科</td>
+                    <td bgcolor="#ffffff"  nowrap><font color="black">&nbsp;{rval CLASSCD}</font></td>
+                  </tr>
+                  <tr class="no_search" height="30"> 
+                    <td class="no_search" align="right" nowrap>科目</td>
+                    <td bgcolor="#ffffff"  nowrap><font color="black">&nbsp;{rval SUBCLASSCD}</font></td>
+                  </tr>
+  <!--{def kanten}-->
+                  <tr class="no_search" height="30"> 
+                    <td class="no_search" align="right" nowrap>観点</td>
+                    <td bgcolor="#ffffff"  nowrap><font color="black">&nbsp;{rval VIEWCD}</font></td>
+                  </tr>
+  <!--{/def}-->
+                 </table>
+               </th>
+              </tr>
+              
+            </table>
+          </td>
+        </tr>
+      </tbody>
+      </table>
+      
+    </td>
+  </tr>
+  <tr></tr><tr></tr><tr></tr>
+  <tr>
+    <td>
+    
+      <table width="50%" align="center" border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr>
+        &nbsp;評定段階数&nbsp;{rval MAX_ASSESSLEVEL}　{rval btn_kakutei}
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tbody>
+                    <tr class="no_search" height="40">
+                      <th width="110" align="center">段階値</th>
+                      <th width="110" align="center">下限</th>
+                      <th width="110" align="center">上限</th>
+  <!--{def kanten}-->
+                      <th width="*" align="center">記号</th>
+  <!--{/def}-->
+                    </tr>
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width:100%;height:300;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                  <tbody>
+  <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td width="110" height="40" align="center" >{rval data/ASSESSLEVEL}</td>
+                      <td width="110" height="40" align="center">{rval data/ASSESSLOW}</td>
+                      <td width="110" height="40" align="center">{rval data/ASSESSHIGHTEXT}</td>
+  <!--{def kanten}-->
+                      <td width="*" height="40" align="center">{rval data/ASSESSMARK}</td>
+  <!--{/def}-->
+                    </tr>
+  <!--{/each}-->
+                    <tr class="no_search">
+                    <td colspan="4" align="center">
+                        {rval btn_update}&nbsp;
+                        {rval btn_reset} &nbsp;
+                        {rval btn_end}   &nbsp;
+                    </td>
+                    </tr>
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      </table>
+
+    </td>
+  </tr>
+</tbody>
+</table>
+
+{rval finish}

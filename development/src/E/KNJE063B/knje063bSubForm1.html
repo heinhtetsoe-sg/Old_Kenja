@@ -1,0 +1,76 @@
+{rval start}
+<!-- Edit by HPA for PC-talker 読み start 2020/02/03  -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5" id= 'screen-id1' aria-label="指導計画参照画面">
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" id= 'screen-id1_2' aria-label= "合わせた指導参照画面">
+        <!-- Edit by HPA for PC-talker 読み end 2020/02/20 -->
+        <tr>
+          <td>
+            <hr align="left" width="100%">
+                &nbsp;年度：{rval info/YEAR}&nbsp;&nbsp;&nbsp;科目：{rval info/SUBCLASS}
+            <hr align="left" width="100%">
+          </td>
+        </tr>
+        <!--{def HREPORT_GUIDANCE_SCHREG_SUBCLASS_DAT}-->
+        <tr class="no_search_line">
+          <td>
+            <table height="30" width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search">
+                <th width="61">単元</th>
+                <td width="*" bgcolor="#ffffff"><font color="black">{rval CMB/UNITCD}<font></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#ffffff">
+          <td>&nbsp;</td>
+        </tr>
+        <!--{/def}-->
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+              <!--{def HREPORT_GUIDANCE_SCHREG_DAT}-->
+              <!-- Edit by HPA for PC-talker 読み start 2020/02/03 -->
+              <tr class="no_search">
+                <th width="50" aria-label="">学期</th>
+                <th width="*" aria-label="">{rval label/VALUE_TEXT_LABEL}</th>
+              </tr>
+              <!--{each data}-->
+              <tr bgcolor="#ffffff">
+                <td align="center" nowrap aria-label="">{rval data/SEMESTERNAME}</td>
+                <td align="center" aria-label="">{rval data/VALUE_TEXT}</td>
+              </tr>
+              <!--{/each}-->
+              <!--{/def}-->
+
+              <!--{def HREPORT_GUIDANCE_SCHREG_SUBCLASS_DAT}-->
+              <tr class="no_search">
+                <th width="50" aria-label="">学期</th>
+                <th width="150" aria-label="">{rval koumoku/ITEM_REMARK}</th>
+              </tr>
+              <!--{each data2}-->
+              <tr bgcolor="#ffffff">
+                <td align="center" nowrap aria-label="">{rval data2/SEMESTERNAME}</td>
+                <!--{each data2/koumoku}-->
+                <td width="150" align="left" aria-label="">{rval data2/koumoku/REMARK}</td>
+                <!-- Edit by HPA for PC-talker 読み end 2020/02/20 -->
+                <!--{/def}-->
+              </tr>
+              <!--{/each}-->
+              <!--{/def}-->
+
+              <tr class="no_search">
+                <td></td>
+                <td align="right" colspan="{rval colspan}">{rval btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

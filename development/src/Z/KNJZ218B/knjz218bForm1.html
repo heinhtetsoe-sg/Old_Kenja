@@ -1,0 +1,63 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr >
+          <td >
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                    <tr class="no_search">
+                      <th align=left>{rval button/copy}</th>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+            </table>
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+                    <tr class="no_search">
+                      <th nowrap width="4%">グループCD</th>
+                      <th nowrap width="15%">グループ名</th>
+                      <th nowrap width="15%">グループ略称</th>
+                      <th nowrap width="*%">模試名称</th>
+                    </tr>
+
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/ROWSPAN}-->
+                      <td nowrap align="center" width="5%" bgcolor="#ffffff" rowspan={rval data/ROWSPAN}>
+                        <a href="knjz218bindex.php?cmd=edit&SEND_FLG=1&GROUPCD={val data/GROUPCD}" target="right_frame">{val data/GROUPCD}</a>
+                      </td>
+                      <td nowrap align="center" width="5%" bgcolor="#ffffff" rowspan={rval data/ROWSPAN}>{val data/GROUPNAME}</td>
+                      <td nowrap align="center" width="5%" bgcolor="#ffffff" rowspan={rval data/ROWSPAN}>{val data/GROUPABBV}</td>
+                      <!--{/def}-->
+                      <td nowrap width="*%" bgcolor="#ffffff">{val data/MOCKNAME1}</td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

@@ -1,0 +1,56 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr class="no_search_line">
+           <th>
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search">
+          <th nowrap width="120" align="center">処理年度：{rval YEAR}</th>
+          <th nowrap align = "left"></th>
+          </tr>
+        </table>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+    <tr> 
+  <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr >
+        <td > 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line"> 
+        <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search"> 
+              <th nowrap width="30%">会計グループ名称</th>
+              <th nowrap width="10%">クラス</th>
+              <th nowrap width="20%">会計項目</th>
+              <th nowrap width="40%">会計細目</th>
+          </tr>
+          <!--{def data}-->
+          <!--結果一覧-->
+          <!--{each data}--> 
+          <tr> 
+              <td nowrap bgcolor="#ffffff">{val data/COLLECT_GRP_CD}</td>
+              <td nowrap bgcolor="#ffffff">{val data/HR_NAME}</td>
+              <td nowrap align="left" bgcolor="#ffffff">{val data/COLLECT_M_CD}</td>
+              <td nowrap align="left" bgcolor="#ffffff">{val data/COLLECT_S_CD}</td>
+          </tr> 
+          <!--{/each}--> 
+          <!--{/def}-->
+            </table>
+        </td>
+          </tr>
+      </table>
+        </td>
+    </tr>
+      </table>
+  </td>
+   </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

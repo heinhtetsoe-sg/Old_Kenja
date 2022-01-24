@@ -1,0 +1,77 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<br><br><br><br><br><br><br><br><br><br>
+  <tr >
+        <td valign="top" >
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr>
+                <td align="center">
+                <div align="left">　　　　　　　　　　　　　　　　　　{rval data/DOCUMENT_DIV1}<LABEL for="DOCUMENT_DIV1">保健</LABEL><!--{def TYOUSYUKIN}-->　{rval data/DOCUMENT_DIV2}<LABEL for="DOCUMENT_DIV2">学校徴収金</LABEL><!--{/def}--><!--{def SONOTA}-->　{rval data/DOCUMENT_DIV3}<LABEL for="DOCUMENT_DIV3">その他</LABEL><!--{/def}--><!--{def NYUUSHI}-->　{rval data/DOCUMENT_DIV4}<LABEL for="DOCUMENT_DIV4">入試</LABEL><!--{/def}--></div>
+                    <table width="70%" border="0" cellspacing="0" cellpadding="0">
+                        <tr class="no_search_line">
+                            <td>
+                                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                    <tr >
+                                        <th class="no_search" width="10%" align="left" nowrap>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            文書種類：&nbsp;&nbsp;{rval data/DOCUMENTCD}
+                                            {rval data/pattern_title}{rval data/PATTERN}{rval button/btn_pattern}
+                                        </th>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                </tr>
+                <tr >
+                  <td align="center">
+                        <table width="70%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                                <td>
+
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search">
+                                          <th width="25%">項 目</th>
+                                          <th width="75%" >値</th>
+                                        </tr>
+                                        <tr>
+                                          <th class="no_search" align="right"nowrap>件名</th>
+                                          <td bgcolor="#ffffff" >{rval data/TITLE}</td>
+                                        </tr>
+                                        <!--{def sakae}-->
+                                        <tr>
+                                          <th class="no_search" align="right"nowrap>発行番号</th>
+                                          <td bgcolor="#ffffff" >{rval data/CERTIF_NO}<font color="red">（全角15文字）</font></td>
+                                        </tr>
+                                        <!--{/def}-->
+                                        <tr>
+                                          <th class="no_search" align="right" valign="top" nowrap><br>本文{rval data/TITLE_SEQ}</th>
+                                          <td bgcolor="#ffffff" >{rval data/TEXT}<br><font size=2, color="red">{rval data/SETMOJI}</font><span id="statusarea1" style="color:blue">残り文字数</span></td>
+                                        </tr>
+                                        <!--{def list}-->
+                                        <!--{each list}-->
+                                        <tr>
+                                          <th class="no_search" align="right" valign="top" nowrap><br>本文{rval list/TITLE_SEQ}</th>
+                                          <td bgcolor="#ffffff" >{rval list/TEXT}<br><font size=2, color="red">{rval list/SETMOJI}</font><span id="{rval list/MOJIKEY}" style="color:blue">残り文字数</span></td>
+                                        </tr>
+                                        <!--{/each}-->
+                                        <!--{/def}-->
+
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap>&nbsp;</th>
+                                          <td bgcolor="#ffffff" >{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}</td>
+                                        </tr>
+
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

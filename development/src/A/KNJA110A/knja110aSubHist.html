@@ -1,0 +1,225 @@
+<!--knja110aSubHist.html-->
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="10">
+    <tr>
+        <td valign="top">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+
+              <tr>
+              <td valign="top">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                  <tr class="no_search_line">
+                  <td valign="top">
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+                      <tr class="no_search" height="20">
+                        <th align="center" nowrap width="95" >氏名等の<br>有効期間開始</th>
+                        <th align="center" nowrap width="95" >氏名等の<br>有効期間終了</th>
+                        <th align="center" nowrap width="120" >年組番</th>
+                        <th align="center" nowrap width="100">課程学科</th>
+                        <th align="center" nowrap width="70">コース</th>
+                        <th align="center" nowrap width="120">氏名</th>
+                        <th align="center" nowrap width="140">氏名かな</th>
+                        <th align="center" nowrap width="120">戸籍氏名</th>
+                        <th align="center" nowrap width="120">戸籍氏名かな</th>
+                      </tr>
+
+                    </table>
+                  </td>
+                  </tr>
+
+                  <tr>
+                  <td valign="top">
+                    <div style="width:100%;height:120px;overflow:auto">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                      <tr class="no_search_line">
+                      <td valign="top">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="0">
+
+                          <!--結果一覧-->
+                          <!--{def rireki}-->
+                          <!--{each rireki}-->
+                          <tr height="20">
+                             <td align="center" nowrap width="96" bgcolor="#ffffff">{rval rireki/ISSUEDATE}</td>
+                             <td align="center" nowrap width="96" bgcolor="#ffffff">{rval rireki/EXPIREDATE}</td>
+                             <td align="left" nowrap width="120"  bgcolor="#ffffff">{rval rireki/GRADE_HR_ATTE}</td>
+                             <td align="left" nowrap width="101" bgcolor="#ffffff">{rval rireki/COURSE_SUBJECT}</td>
+                             <td align="left" nowrap width="72" bgcolor="#ffffff">{rval rireki/COURSECODENAME}</td>
+                             <td align="left" nowrap width="120" bgcolor="#ffffff">{rval rireki/NAME}</td>
+                             <td align="left" nowrap width="140" bgcolor="#ffffff">{rval rireki/NAME_KANA}</td>
+                             <td align="left" nowrap width="120" bgcolor="#ffffff">{rval rireki/REAL_NAME}</td>
+                             <td align="left" nowrap width="120" bgcolor="#ffffff">{rval rireki/REAL_NAME_KANA}</td>
+
+                          </tr>
+                          <!--{/def}-->
+                          <!--{/each}-->
+
+                        </table>
+                      </td>
+                      </tr>
+
+                    </table>
+                    </div>
+                  </td>
+                  </tr>
+
+                  </table>
+                </td>
+              </tr>
+
+            </table>
+        </td>
+    </tr>
+
+    <tr>
+        <td valign="top">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+
+              <font color="red">　※変更履歴を残したい項目のチェックボックスに、チェックを入れてください。</font>
+
+              <tr class="no_search_line">
+                <td nowrap>
+                  <table width="100%" border="0" cellpadding="0" cellspacing="1">
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>※&nbsp;氏名等の有効期間</th>
+                      <th width="30"></th>
+                      <td bgcolor="#ffffff"><font color="black">&nbsp;開始日：{rval data/ISSUEDATE}&nbsp;～&nbsp;終了日：{rval data/EXPIREDATE}</font></td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>年度学期</th>
+                      <th width="30"></th>
+                      <td bgcolor="#ffffff">&nbsp;<font color="black">{rval data/YEAR}{rval data/SEMESTER}</font></td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>※&nbsp;年-組-番</th>
+                      <th width="30">{rval data/GRADE_HR_ATTE_FLG}</th>
+                      <td {rval data/GRADE_CLASS_BK}><font color="black">&nbsp;{rval data/GRADE_CLASS}&nbsp;&nbsp;{rval data/ATTENDNO}&nbsp;番</font></td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>※&nbsp;年次</th>
+                      <th width="30">{rval data/ANNUAL_FLG}</th>
+                      <td {rval data/ANNUAL_BK}>&nbsp;{rval data/ANNUAL}</td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>※&nbsp;課程</th>
+                      <th width="30">{rval data/COURSECD_FLG}</th>
+                      <td rowspan="2" {rval data/COURSEMAJORCD_BK}>&nbsp;{rval data/COURSEMAJORCD}</td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>※&nbsp;学科</th>
+                      <th width="30">{rval data/MAJORCD_FLG}</th>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>※&nbsp;コース  </th>
+                      <th width="30">{rval data/COURSECODE_FLG}</th>
+                      <td {rval data/COURSECODE_BK}>&nbsp;{rval data/COURSECODE}</td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>※&nbsp;学籍番号</th>
+                      <th width="30"></th>
+                      <td bgcolor="#ffffff"><font color="black">&nbsp;{rval data/SCHREGNO}</font></td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>※&nbsp;氏 名</th>
+                      <th width="30">{rval data/NAME_FLG}</th>
+                      <td {rval data/NAME_BK}>&nbsp;{rval data/NAME}<font color="red">&nbsp;(※全角{rval data/NAMESLEN}文字)</font></td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>※&nbsp;氏名表示用</th>
+                      <th width="30">{rval data/NAME_SHOW_FLG}</th>
+                      <td {rval data/NAME_SHOW_BK}>&nbsp;{rval data/NAME_SHOW}<font color="red">&nbsp;(※全角10文字)</font></td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>&nbsp;氏名かな</th>
+                      <th width="30">{rval data/NAME_KANA_FLG}</th>
+                      <td {rval data/NAME_KANA_BK}>&nbsp;{rval data/NAME_KANA}<font color="red">&nbsp;(※全角80文字)</font></td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>&nbsp;英字氏名</th>
+                      <th width="30">{rval data/NAME_ENG_FLG}</th>
+                      <td {rval data/NAME_ENG_BK}>&nbsp;{rval data/NAME_ENG}<font color="red">&nbsp;&nbsp;(※半角40文字)</font></td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>&nbsp;戸籍氏名</th>
+                      <th width="30">{rval data/REAL_NAME_FLG}</th>
+                      <td {rval data/REAL_NAME_BK}>&nbsp;{rval data/REAL_NAME}<font color="red">&nbsp;&nbsp;(※全角{rval data/NAMESLEN}文字)</font></td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>&nbsp;戸籍氏名かな</th>
+                      <th width="30">{rval data/REAL_NAME_KANA_FLG}</th>
+                      <td {rval data/REAL_NAME_KANA_BK}>&nbsp;{rval data/REAL_NAME_KANA}<font color="red">&nbsp;&nbsp;(※全角80文字)</font></td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>&nbsp;{rval data/HANDICAP_TITLE}</th>
+                      <th width="30">{rval data/HANDICAP_FLG}</th>
+                      <td {rval data/HANDICAP_BK}>&nbsp;{rval data/HANDICAP}</td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>第二国籍</th>
+                      <th width="30">{rval data/NATIONALITY2_FLG}</th>
+                      <td {rval data/NATIONALITY2_BK}>&nbsp;{rval data/NATIONALITY2}</td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>第二国籍氏名</th>
+                      <th width="30">{rval data/NATIONALITY_NAME_FLG}</th>
+                      <td {rval data/NATIONALITY_NAME_BK}>&nbsp;{rval data/NATIONALITY_NAME}<font color="red">&nbsp;(※全角40文字)</font></td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>第二国籍氏名かな</th>
+                      <th width="30">{rval data/NATIONALITY_NAME_KANA_FLG}</th>
+                      <td {rval data/NATIONALITY_NAME_KANA_BK}>&nbsp;{rval data/NATIONALITY_NAME_KANA}<font color="red">&nbsp;(※全角80文字)</font></td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>第二国籍英字氏名</th>
+                      <th width="30">{rval data/NATIONALITY_NAME_ENG_FLG}</th>
+                      <td {rval data/NATIONALITY_NAME_ENG_BK}>&nbsp;{rval data/NATIONALITY_NAME_ENG}<font color="red">&nbsp;&nbsp;(※半角40文字)</font></td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>第二国籍戸籍氏名</th>
+                      <th width="30">{rval data/NATIONALITY_REAL_NAME_FLG}</th>
+                      <td {rval data/NATIONALITY_REAL_NAME_BK}>&nbsp;{rval data/NATIONALITY_REAL_NAME}<font color="red">&nbsp;&nbsp;(※全角40文字)</font></td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" style="text-align: right" nowrap>第二国籍戸籍氏名かな</th>
+                      <th width="30">{rval data/NATIONALITY_REAL_NAME_KANA_FLG}</th>
+                      <td {rval data/NATIONALITY_REAL_NAME_KANA_BK}>&nbsp;{rval data/NATIONALITY_REAL_NAME_KANA}<font color="red">&nbsp;&nbsp;(※全角80文字)</font></td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th width="150" colspan=2></th>
+                      <td >{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_back}</td>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+
+            </table>
+        </td>
+    </tr>
+</table>
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+{rval finish}

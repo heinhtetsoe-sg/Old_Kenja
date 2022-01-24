@@ -1,0 +1,25 @@
+
+create table PV_MBT_SCORE_COUNT_DAT( \
+    RECORD_KUBUN   VARCHAR(2)   NOT NULL, \
+    YEAR           VARCHAR(4)   NOT NULL, \
+    SCHOOL_CD      VARCHAR(30)  NOT NULL, \
+    STUDENT_ID     VARCHAR(30)  NOT NULL, \
+    TEACHING_CD    VARCHAR(5)   NOT NULL, \
+    TAKE_CNT       SMALLINT     NOT NULL, \
+    KIND_CD        VARCHAR(2)  , \
+    SITE_ID        VARCHAR(16) , \
+    CLASSCD        VARCHAR(5)  , \
+    CLASSNAME      VARCHAR(60) , \
+    SUBCLASSCD     VARCHAR(5)  , \
+    SUBCLASSNAME   VARCHAR(60) , \
+    TEACHING_NAME  VARCHAR(90) , \
+    START_DATE     TIMESTAMP   , \
+    END_DATE       TIMESTAMP   , \
+    ALL_CNT        SMALLINT    , \
+    RIGHT_CNT      SMALLINT    , \
+    REGISTERCD     VARCHAR(10) , \
+    UPDATED        TIMESTAMP    DEFAULT CURRENT TIMESTAMP \
+ ) in usr1dms index in idx1dms
+
+alter table PV_MBT_SCORE_COUNT_DAT add constraint PK_PV_MBT_SCORE_COUNT_DAT primary key (YEAR,SCHOOL_CD,STUDENT_ID,TEACHING_CD,TAKE_CNT)
+

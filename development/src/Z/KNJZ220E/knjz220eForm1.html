@@ -1,0 +1,53 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <td norwarp width="20%">&nbsp;&nbsp;{rval year}年度</td>
+                      <td norwarp width="*%">{rval button/pre_copy}</td>
+                    </tr>
+                    <tr class="no_search" height="25">
+                      <td colspan="2" norwarp width="20%">&nbsp;&nbsp;校種：{rval SCHOOL_KIND}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr height="10">
+                <td></td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th nowrap width="50%">学年</th>
+                      <th nowrap width="*">算出比率（％）</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff">{val data/GRADE_NAME1}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/MIKOMI_RATE}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<script language="JavaScript">{rval reload}</script>
+{rval finish}

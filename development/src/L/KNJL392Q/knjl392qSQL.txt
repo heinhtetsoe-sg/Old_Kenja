@@ -1,0 +1,122 @@
+//データ取得
+SELECT
+    t1.YEAR,                                    //年度
+    t5.EXAM_DATE,                               //実施日
+    t1.SAT_NO,                                  //受験番号
+    t1.NAME1,                                   //氏名
+    t2.AREA,                                    //
+    t8.NAME1 as AREA_NAME,                      //地域名称(名前のところと順位表の地域名称に使用)
+    t1.SCHOOLCD,                                //
+    t6.FINSCHOOL_NAME_ABBV,                     //中学校名
+    t1.GROUPCD,                                 //
+    t7.GROUPNAME,                               //団体名
+
+    t2.SCORE_ENGLISH,                           //英語得点
+    t2.SCORE_MATH,                              //数学得点
+    t2.SCORE_JAPANESE,                          //国語得点
+    t2.SCORE_TOTAL,                             //三教科得点
+    
+    t14.NAME1 as ALL_NAME,                      //'全体'
+    t4.ENGLISH_AVG as ALL_ENGLISH_AVG,          //全体英語平均点
+    t4.ENGLISH_SD as ALL_ENGLISH_SD,            //全体英語標準偏差
+    t2.ALL_RANK_ENGLISH,                        //全体英語順位
+    t4.ENGLISH_COUNT as ALL_ENGLISH_COUNT,      //全体英語人数
+
+    t4.MATH_AVG as ALL_MATH_AVG,                //全体数学平均点
+    t4.MATH_SD as ALL_MATH_SD,                  //全体数学標準偏差
+    t2.ALL_RANK_MATH,                           //全体数学順位
+    t4.MATH_COUNT as ALL_MATH_COUNT,            //全体数学人数
+
+    t4.JAPANESE_AVG as ALL_JAPANESE_AVG,        //全体国語平均点
+    t4.JAPANESE_SD as ALL_JAPANESE_SD,          //全体国語標準偏差
+    t2.ALL_RANK_JAPANESE,                       //全体国語順位
+    t4.JAPANESE_COUNT as ALL_JAPANESE_COUNT,    //全体国語人数
+
+    t4.TOTAL_AVG as ALL_TOTAL_AVG,              //全体三教科平均点
+    t4.TOTAL_SD as ALL_TOTAL_SD,                //全体三教科標準偏差
+    t2.ALL_RANK_TOTAL,                          //全体三教科順位
+    t4.TOTAL_COUNT as ALL_TOTAL_COUNT,          //全体三教科人数
+
+    t3.ENGLISH_AVG,                             //地域英語平均点
+    t3.ENGLISH_SD,                              //地域英語標準偏差
+    t2.AREA_RANK_ENGLISH,                       //地域英語順位
+    t3.ENGLISH_COUNT,                           //地域英語人数
+
+    t3.MATH_AVG,                                //地域数学平均点
+    t3.MATH_SD,                                 //地域数学標準偏差
+    t2.AREA_RANK_MATH,                          //地域数学順位
+    t3.MATH_COUNT,                              //地域数学人数
+
+    t3.JAPANESE_AVG,                            //地域国語平均点
+    t3.JAPANESE_SD,                             //地域国語標準偏差
+    t2.AREA_RANK_JAPANESE,                      //地域国語順位
+    t3.JAPANESE_COUNT,                          //地域国語人数
+
+    t3.TOTAL_AVG,                               //地域三教科平均点
+    t3.TOTAL_SD,                                //地域三教科標準偏差
+    t2.AREA_RANK_TOTAL,                         //地域三教科順位
+    t3.TOTAL_COUNT,                             //地域三教科人数
+
+    t2.COMMENT_ENGLISH,                         //
+    t10.COMMENT1 as ENG_COMMENT_1,              //学習指針英語1行目
+    t10.COMMENT2 as ENG_COMMENT_2,              //学習指針英語2行目
+    t2.COMMENT_MATH,                            //
+    t11.COMMENT1 as MATH_COMMENT_1,             //学習指針数学1行目
+    t11.COMMENT2 as MATH_COMMENT_2,             //学習指針数学2行目
+    t2.COMMENT_JAPANESE,                        //
+    t12.COMMENT1 as JAP_COMMENT_1,              //学習指針国語1行目
+    t12.COMMENT2 as JAP_COMMENT_2,              //学習指針国語2行目
+
+    t2.JUDGE_SAT,                               //
+    t9.NAME1 as JUDGE,                          //判定名称
+
+    t2.COMMENTNO,                               //
+    t13.COMMENT1 as JUDGE_COMMENT1,             //総合評価1行目
+    t13.COMMENT2 as JUDGE_COMMENT2,             //総合評価2行目
+    t13.COMMENT3 as JUDGE_COMMENT3,             //総合評価3行目
+    t13.COMMENT4 as JUDGE_COMMENT4              //総合評価4行目
+
+FROM
+    (SELECT
+        YEAR,
+        SAT_NO,
+        NAME1,
+        SCHOOLCD,
+        GROUPCD
+    FROM
+        SAT_APP_FORM_MST
+    WHERE
+        YEAR = '/*CTRL_YEAR*/' AND
+        ABSENCE != 0 
+    /*駿中生選択時($model->field["STUDENT"] == "1")*/
+    AND
+        PLACECD = '80'
+    /****************/
+    /*試験会場指定時*/
+    AND
+        PLACECD = '/*$model->field["PLACE_COMB"]*/'
+    /****************/
+    /*受験番号指定時*/
+    AND
+        SAT_NO BETWEEN '/*$model->field["EXAM_FROM"]*/' AND '/*$model->field["EXAM_TO"]*/'  //FROM・TO両方入力時
+        SAT_NO = '/*$model->field["EXAM_FROM"]*/'                    //FROMのみ入力時
+    /****************/
+    ) t1 
+    left join SAT_EXAM_DAT t2 on t1.SAT_NO = t2.SAT_NO and t1.YEAR = t2.YEAR
+    left join SAT_AREA_RECORD_DAT t3 on t1.YEAR = t3.YEAR and t2.AREA = t3.AREA
+    left join SAT_AREA_RECORD_DAT t4 on t1.YEAR = t4.YEAR and t4.AREA = '9'
+
+    left join SAT_INFO_MST t5 on t1.YEAR = t5.YEAR
+    left join FINSCHOOL_MST t6 on t1.SCHOOLCD = t6.FINSCHOOLCD and t6.FINSCHOOL_TYPE = '3'
+    left join SAT_GROUP_DAT t7 on t1.YEAR = t7.YEAR and t1.GROUPCD = t7.GROUPCD
+    left join NAME_MST t8 on t2.AREA = t8.NAMECD2 and t8.NAMECD1 = 'L204'
+    left join NAME_MST t9 on t2.JUDGE_SAT = t9.NAMECD2 and t9.NAMECD1 = 'L200'
+
+    left join SAT_COMMENT_ENGLISH_DAT t10 on t2.COMMENT_ENGLISH = t10.COMMENT_NO and t1.YEAR = t10.YEAR
+    left join SAT_COMMENT_MATH_DAT t11 on t2.COMMENT_MATH = t11.COMMENT_NO and t1.YEAR = t11.YEAR
+    left join SAT_COMMENT_JAPANESE_DAT t12 on t2.COMMENT_JAPANESE = t12.COMMENT_NO and t1.YEAR = t12.YEAR
+    left join SAT_COMMENT_JUDGE_DAT t13 on t2.COMMENTNO = t13.COMMENTNO and t1.YEAR = t13.YEAR
+
+    left join NAME_MST t14 on t4.AREA = t14.NAMECD2 and t14.NAMECD1 = 'L204'
+ORDER BY
+    SAT_NO

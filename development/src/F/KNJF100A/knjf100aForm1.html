@@ -1,0 +1,101 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<table width="40%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <td style="text-align:center;"><b>
+                        {rval data/YEAR}年度　　{rval data/SEMESTER}
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象クラス</b></th>
+                      <th class="no_search"></th>
+                      <th><b>クラス一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="40%">{rval data/CLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="40%">{rval data/CLASS_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>選択ソート一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>ソート一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="40%">{rval data/SORT_SELECTED}</td>
+                      <td width="*%"  class="no_search">
+                        {rval button/btn_left1_sort}<BR>
+                        {rval button/btn_right1_sort}<BR>
+                      <td width="40%">{rval data/SORT_NAME}</td>
+                    </tr>
+                  </table>
+                  
+                </td>
+              </tr>
+              <tr>
+                <td style="font-size:9pt;color:red;">
+                  注)選択した並び順で出力します。<br>
+                </td>
+              </tr>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD height="40"  bgcolor="#ffffff">
+                        　　出力する帳票(来室種別)<br>
+                        　　　　{rval data/NAIKA}　内科<br>
+                        　　　　{rval data/GEKA}　外科<br>
+                        　　　　{rval data/KENKO_SODAN}　健康相談活動<br>
+                        　　　　{rval data/SONOTA}　その他<br>
+                        　　　　{rval data/SEITO_IGAI}　生徒以外<br><br>
+                        　　来室日付範囲<br>
+                        　　{rval data/DATE1}　～　{rval data/DATE2}<br><br>
+                        　　　　{rval data/CHECK1}　来室種別ごとの改ページあり<br>
+                        　　　　{rval data/CHECK2}　クラスごとの改ページあり
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

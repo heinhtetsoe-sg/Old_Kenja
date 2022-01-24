@@ -1,0 +1,21 @@
+-- $Id: test_attend_detail_dat.sql 56577 2017-10-22 11:35:50Z maeshiro $
+
+DROP TABLE TEST_ATTEND_DETAIL_DAT
+CREATE TABLE TEST_ATTEND_DETAIL_DAT ( \
+     YEAR                   VARCHAR(4)  NOT NULL, \
+     SEMESTER               VARCHAR(1)  NOT NULL, \
+     CLASSCD                VARCHAR(2)  NOT NULL, \
+     SCHOOL_KIND            VARCHAR(2)  NOT NULL, \
+     CURRICULUM_CD          VARCHAR(2)  NOT NULL, \
+     SUBCLASSCD             VARCHAR(6)  NOT NULL, \
+     SCHREGNO               VARCHAR(8)  NOT NULL, \
+     SEQ                    VARCHAR(3) NOT NULL, \
+     REMARK1                VARCHAR(90),  \
+     REMARK2                VARCHAR(90),  \
+     REMARK3                VARCHAR(90),  \
+     REMARK4                VARCHAR(90),  \
+     REMARK5                VARCHAR(90),  \
+     REGISTERCD             VARCHAR(8), \
+     UPDATED                TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+    ) IN USR1DMS INDEX IN IDX1DMS
+ALTER TABLE TEST_ATTEND_DETAIL_DAT ADD CONSTRAINT PK_TEST_ATTEND_DET PRIMARY KEY(YEAR,SEMESTER,CLASSCD,SCHOOL_KIND,CURRICULUM_CD,SUBCLASSCD,SCHREGNO,SEQ)

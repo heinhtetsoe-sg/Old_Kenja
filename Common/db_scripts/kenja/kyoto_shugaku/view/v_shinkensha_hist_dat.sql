@@ -1,0 +1,49 @@
+-- kanji=漢字
+-- $Id: v_shinkensha_hist_dat.sql 74435 2020-05-20 07:59:16Z yamashiro $
+-- 不用テーブル
+
+DROP VIEW V_SHINKENSHA_HIST_DAT
+CREATE VIEW V_SHINKENSHA_HIST_DAT \
+    (SHINKEN_CD, \
+     ISSUEDATE, \
+     FAMILY_NAME, \
+     FIRST_NAME, \
+     FAMILY_NAME_KANA, \
+     FIRST_NAME_KANA, \
+     BIRTHDAY, \
+     SHINSEI_NENREI, \
+     TSUZUKIGARA_CD, \
+     TSUZUKIGARA_REMARK, \
+     ZIPCD, \
+     CITYCD, \
+     ADDR1, \
+     ADDR2, \
+     TELNO1, \
+     TELNO2, \
+     OLD_SHINKEN_NAME1, \
+     OLD_SHINKEN_NAME2, \
+     REMARK \
+    ) \
+AS \
+SELECT \
+    T1.SHINKEN_CD, \
+    T1.ISSUEDATE, \
+    T1.FAMILY_NAME, \
+    T1.FIRST_NAME, \
+    T1.FAMILY_NAME_KANA, \
+    T1.FIRST_NAME_KANA, \
+    T1.BIRTHDAY, \
+    T1.SHINSEI_NENREI, \
+    T1.TSUZUKIGARA_CD, \
+    T1.TSUZUKIGARA_REMARK, \
+    T1.ZIPCD, \
+    T1.CITYCD, \
+    T1.ADDR1, \
+    T1.ADDR2, \
+    T1.TELNO1, \
+    T1.TELNO2, \
+    T1.OLD_SHINKEN_NAME1, \
+    T1.OLD_SHINKEN_NAME2, \
+    T1.REMARK \
+FROM \
+    SHINKENSHA_HIST_DAT T1

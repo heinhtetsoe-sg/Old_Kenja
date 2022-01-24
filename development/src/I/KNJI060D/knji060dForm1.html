@@ -1,0 +1,204 @@
+{rval start}
+
+<style>
+.itemname {
+    text-align: right;
+    padding: 5px;
+}
+.itemval {
+    background-color: #ffffff;
+    padding: 5px;
+}
+</style>
+<!--{def data}-->
+<!--{def button}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+          <hr>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td align="center">
+                    調査書種類
+                    <!--{def hanki}-->
+                    　{rval data/OUTPUT1}<LABEL for="OUTPUT1">進学用（通年）</LABEL>
+                    　{rval data/OUTPUT1h}<LABEL for="OUTPUT1h">進学用（半期認定）</LABEL>
+                    　{rval data/OUTPUT2}<LABEL for="OUTPUT2">就職用（通年）</LABEL>
+                    　{rval data/OUTPUT2h}<LABEL for="OUTPUT2h">就職用（半期認定）</LABEL>
+                    <!--{/def}-->
+                    <!--{def notHanki}-->
+                    　　{rval data/OUTPUT1}<LABEL for="OUTPUT1">進学用</LABEL>
+                    　　　{rval data/OUTPUT2}<LABEL for="OUTPUT2">就職用</LABEL>
+                    <!--{/def}-->
+                </td>
+              </tr>
+            </table>
+          <hr>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="30%">項 目</th>
+                      <th width="70%">値</th>
+                    </tr>
+                    <tr>
+                      <th class="no_search itemname" >漢字氏名印字</th>
+                      <td class="itemval" >
+                        {rval data/KANJI1}<LABEL for="KANJI1">する</LABEL>　　　　{rval data/KANJI2}<LABEL for="KANJI2">しない</LABEL>
+                      </td>
+                    </tr>
+<!--{def hyoteiYomikae}-->
+                    <tr>
+                      <th class="no_search itemname" >{rval data/HYOTEI_TITLE}</th>
+                      <td class="itemval" >
+                        {rval data/HYOTEI}
+                      </td>
+                    </tr>
+<!--{/def}-->
+<!--{def showGvalCalcCheck}-->
+                    <tr>
+                      <th class="no_search itemname" >評定平均算出</th>
+                      <td class="itemval" >
+                        {rval data/GVAL_CALC_CHECK1}<LABEL for="GVAL_CALC_CHECK0">単純平均</LABEL>　　{rval data/GVAL_CALC_CHECK2}<LABEL for="GVAL_CALC_CHECK1">加重平均</LABEL>
+                      </td>
+                    </tr>
+<!--{/def}-->
+<!--{def showPrintAvgRank}-->
+                    <tr>
+                      <th class="no_search itemname" >評定平均席次出力</th>
+                      <td class="itemval" >
+                        {rval data/PRINT_AVG_RANK1}<LABEL for="PRINT_AVG_RANK1">する</LABEL>　　{rval data/PRINT_AVG_RANK2}<LABEL for="PRINT_AVG_RANK2">しない</LABEL>
+                      </td>
+                    </tr>
+<!--{/def}-->
+                    <tr>
+                      <th class="no_search itemname" >学習成績概評</th>
+                      <td class="itemval" >
+                        {rval data/COMMENT}<LABEL for="COMMENT">学年人数を印刷する。</LABEL>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="no_search itemname" >出欠日数</th>
+                      <td class="itemval" >
+                          {rval data/tyousasyoNotPrintAnotherAttendrec}<LABEL for="tyousasyoNotPrintAnotherAttendrec">前籍校を含まない。</LABEL>
+                      </td>
+                    </tr>
+<!--{def notKindai}-->
+                    <tr>
+                      <th class="no_search itemname" >未履修科目出力</th>
+                      <td class="itemval" >
+                          {rval data/MIRISYU1}<LABEL for="MIRISYU1">する</LABEL>　　　　{rval data/MIRISYU2}<LABEL for="MIRISYU2">しない</LABEL>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="no_search itemname" >履修のみ科目出力</th>
+                      <td class="itemval" >
+                          {rval data/RISYU1}<LABEL for="RISYU1">する</LABEL>　　　　{rval data/RISYU2}<LABEL for="RISYU2">しない</LABEL>
+                      </td>
+                    </tr>
+
+<!--{/def}-->
+                    <tr>
+                      <th class="no_search itemname" >総合的な学習の時間の単位を０表示</th>
+                      <td class="itemval" >
+                          {rval data/TANIPRINT_SOUGOU1}<LABEL for="TANIPRINT_SOUGOU1">する</LABEL>　　　　{rval data/TANIPRINT_SOUGOU2}<LABEL for="TANIPRINT_SOUGOU2">しない</LABEL>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="no_search itemname" >留学の単位を０表示</th>
+                      <td class="itemval" >
+                          {rval data/TANIPRINT_RYUGAKU1}<LABEL for="TANIPRINT_RYUGAKU1">する</LABEL>　　　　{rval data/TANIPRINT_RYUGAKU2}<LABEL for="TANIPRINT_RYUGAKU2">しない</LABEL>
+                      </td>
+                    </tr>
+<!--{def form_select}-->
+                    <tr>
+                      <th class="no_search itemname" >フォーム選択</th>
+                      <td class="itemval">
+<!--{def no_tyousasyoNoSelectNenYoForm}-->
+                        <div>{rval data/FORM6}<LABEL for="FORM6">{rval data/FORM6NAME}</LABEL></div>
+<!--{/def}-->
+<!--{def no_tyousasyoNoSelectUseSyojikou3}-->
+                        <div>{rval data/useSyojikou3}<LABEL for="useSyojikou3">指導上参考となる諸事欄、３分割フォーム</LABEL></div>
+<!--{/def}-->
+                      </td>
+                    </tr>
+<!--{/def}-->
+<!--{def show_pageselect}-->
+                    <tr>
+                      <th class="no_search itemname" >ページ選択</th>
+                      <td class="itemval">
+                          {rval data/tyousasyo2020shojikouExtends}
+                      </td>
+                    </tr>
+<!--{/def}-->
+
+<!--{def showtyousasho2020PrintHeaderNameRadioButton}-->
+                    <tr>
+                      <th class="no_search itemname" >偶数頁の氏名出力</th>
+                      <td class="itemval" >
+                        {rval data/KNJE070D_PRINTHEADERNAME1}<LABEL for="KNJE070D_PRINTHEADERNAME1">する</LABEL>　　　　{rval data/KNJE070D_PRINTHEADERNAME2}<LABEL for="KNJE070D_PRINTHEADERNAME2">しない</LABEL>
+                      </td>
+                    </tr>
+<!--{/def}-->
+                    <tr>
+                      <th class="no_search itemname" >校長印刷</th>
+                      <td class="itemval" >
+                        {rval data/OUTPUT_PRINCIPAL1}<LABEL for="OUTPUT_PRINCIPAL1">する</LABEL>　　　　{rval data/OUTPUT_PRINCIPAL2}<LABEL for="OUTPUT_PRINCIPAL2">しない</LABEL>
+                      </td>
+                    </tr>
+<!--{def stamp1}-->
+                    <tr>
+                      <th class="no_search itemname" >校長印出力</th>
+                      <td class="itemval" >
+                        {rval data/KNJE070_CHECK_PRINT_STAMP_PRINCIPAL1}<LABEL for="KNJE070_CHECK_PRINT_STAMP_PRINCIPAL1">する</LABEL>　　　　{rval data/KNJE070_CHECK_PRINT_STAMP_PRINCIPAL2}<LABEL for="KNJE070_CHECK_PRINT_STAMP_PRINCIPAL2">しない</LABEL>
+                      </td>
+                    </tr>
+<!--{/def}-->
+<!--{def stamp2}-->
+                    <tr>
+                      <th class="no_search itemname" >{rval data/KISAI_STAMP_TITLE}印出力</th>
+                      <td class="itemval" >
+                        {rval data/KNJE070_CHECK_PRINT_STAMP_HR_STAFF1}<LABEL for="KNJE070_CHECK_PRINT_STAMP_HR_STAFF1">する</LABEL>　　　　{rval data/KNJE070_CHECK_PRINT_STAMP_HR_STAFF2}<LABEL for="KNJE070_CHECK_PRINT_STAMP_HR_STAFF2">しない</LABEL>
+                      </td>
+                    </tr>
+<!--{/def}-->
+                    <tr>
+                      <th class="no_search itemname" >記載日付</th>
+                      <td class="itemval" >
+                          {rval el/DATE}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="no_search itemname" >記載責任者</th>
+                      <td class="itemval" >
+                          {rval data/SEKI}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">{rval button/btn_print}{rval button/btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

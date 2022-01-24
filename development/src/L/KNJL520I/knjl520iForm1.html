@@ -1,0 +1,157 @@
+{rval start}
+
+<table width="1025" border="0" cellspacing="0" cellpadding="10" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <td width="100" class="no_search" align="center" nowrap>入試年度</td>
+                      <td width="100" bgcolor="#ffffff" align="center" nowrap>{rval TOP/YEAR}</td>
+                      <td width="100" class="no_search" align="center" nowrap>学科</td>
+                      <td width="150" bgcolor="#ffffff" nowrap>{rval TOP/EXAM_TYPE}</td>
+                      <td width="100" class="no_search" align="center" nowrap>入試区分</td>
+                      <td width="150" bgcolor="#ffffff" nowrap>{rval TOP/TESTDIV}</td>
+                      <td width="100" class="no_search" align="center" nowrap>受験番号</td>
+                      <td width="*" bgcolor="#ffffff" nowrap>
+                        {rval TOP/S_EXAMNO}　～　{rval TOP/E_EXAMNO}
+                        &nbsp;{rval btn_search}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" align="center">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" align="center" height="30">
+                            <th width="50">受験<br>番号</th>
+                            <th width="100">氏名</th>
+                            <th width="100">中学</th>
+                            <th width="50">&nbsp;</th>
+                            <!--{def headerKyoka}-->
+                            <!--{each headerKyoka}-->
+                            <td width="50">{rval headerKyoka/TITLE}</td>
+                            <!--{/each}-->
+                            <!--{/def}-->
+                            <th width="50">合計</th>
+                            <th width="*">平均</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <div style="height: 500px; overflow: auto; ">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--{def data}-->
+                          <!--結果一覧-->
+                          <!--{each data}-->
+                          <tr bgcolor="#ffffff" height="25" id="ROWID{rval data/EXAMNO}">
+                            <td width="50"  align="center" rowspan="4">{rval data/EXAMNO}</td>
+                            <td width="100" align="left" rowspan="4">{rval data/NAME}</td>
+                            <td width="100" align="left" rowspan="4">{rval data/FINSCHOOL_NAME}</td>
+                            <td width="50" align="center">1年</td>
+                            <!--{def data/textboxKyoka1}-->
+                            <!--{each data/textboxKyoka1}-->
+                            <td width="50" align="center">{rval data/textboxKyoka1/FORM}</td>
+                            <!--{/each}-->
+                            <!--{/def}-->
+                            <td width="50" id="{rval data/TOTAL_ALL1_ID}">{rval data/TOTAL_ALL1}</td>
+                            <td width="*" id="{rval data/AVERAGE_ALL1_ID}">{rval data/AVERAGE_ALL1}</td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td width="50" align="center">2年</td>
+                            <!--{def data/textboxKyoka2}-->
+                            <!--{each data/textboxKyoka2}-->
+                            <td width="50" align="center">{rval data/textboxKyoka2/FORM}</td>
+                            <!--{/each}-->
+                            <!--{/def}-->
+                            <td width="50" id="{rval data/TOTAL_ALL2_ID}">{rval data/TOTAL_ALL2}</td>
+                            <td width="*" id="{rval data/AVERAGE_ALL2_ID}">{rval data/AVERAGE_ALL2}</td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td width="50" align="center">3年</td>
+                            <!--{def data/textboxKyoka3}-->
+                            <!--{each data/textboxKyoka3}-->
+                            <td width="50" align="center">{rval data/textboxKyoka3/FORM}</td>
+                            <!--{/each}-->
+                            <!--{/def}-->
+                            <td width="50" id="{rval data/TOTAL_ALL3_ID}">{rval data/TOTAL_ALL3}</td>
+                            <td width="*" id="{rval data/AVERAGE_ALL3_ID}">{rval data/AVERAGE_ALL3}</td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td width="50" align="center">欠席</td>
+                            <td width="50" align="center">1年</td>
+                            <td width="50" align="center">{rval data/KESSEKI1}</td>
+                            <td width="50" align="center">2年</td>
+                            <td width="50" align="center">{rval data/KESSEKI2}</td>
+                            <td width="50" align="center">3年</td>
+                            <td width="50" align="center">{rval data/KESSEKI3}</td>
+                            <td width="*" colspan="5"></td>
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>
+                              <b>{rval csv/OUTPUT1}<LABEL for="OUTPUT1">取込</LABEL></b>&nbsp;
+                              <b>{rval csv/OUTPUT2}<LABEL for="OUTPUT2">書出</LABEL></b>&nbsp;
+                              {rval csv/FILE}&nbsp;
+                              {rval csv/btn_exec}&nbsp;{rval csv/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL>
+                            </th>
+                            <td width="20%" align="left" bgcolor="#ffffff">{rval btn_update}{rval btn_reset}{rval btn_end}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="javascript">{rval jscript}</script>

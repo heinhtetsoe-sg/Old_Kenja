@@ -1,0 +1,211 @@
+{rval start}
+<!--{def button}-->
+<script language="javascript">
+window.fep = '{rval fep}';
+</script>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                <hr width="55%" align="left">
+                    &nbsp;{rval NAME_SHOW}
+                <hr width="55%" align="left">
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th colspan="2">行　動　の　記　録</th>
+                      <th colspan="2">特 別 活 動 の 記 録</th>
+                    </tr>
+                    <tr align="center" height="30">
+                      <th width="35%" align="center" class="no_search" nowrap><LABEL for="RECORD301">基本的な生活習慣</LABEL></th>
+                      <td width="15%" bgcolor="#ffffff">{rval RECORD301}</td>
+<!--{each data}-->
+                      <th width="35%" align="center" class="no_search" nowrap>{rval data/RECORD_NAME01}</th>
+<!--{/each}-->
+                      <td width="15%" bgcolor="#ffffff">{rval RECORD401}</td>
+                    </tr>
+                    <tr align="center" height="30">
+                      <th align="center" class="no_search" nowrap><LABEL for="RECORD302">健康・体力の向上</LABEL></th>
+                      <td bgcolor="#ffffff">{rval RECORD302}</td>
+<!--{each data}-->
+                      <th align="center" class="no_search" nowrap>{rval data/RECORD_NAME02}</th>
+<!--{/each}-->
+                      <td bgcolor="#ffffff">{rval RECORD402}</td>
+                    </tr>
+                    <tr align="center" height="30">
+                      <th align="center" class="no_search" nowrap><LABEL for="RECORD303">自主・自律</LABEL></th>
+                      <td bgcolor="#ffffff">{rval RECORD303}</td>
+<!--{each data}-->
+                      <th align="center" class="no_search" nowrap>{rval data/RECORD_NAME03}</th>
+<!--{/each}-->
+                      <td bgcolor="#ffffff">{rval RECORD403}</td>
+                    </tr>
+                    <tr align="center" height="30">
+                      <th align="center" class="no_search" nowrap><LABEL for="RECORD304">責任感</LABEL></th>
+                      <td bgcolor="#ffffff">{rval RECORD304}</td>
+<!--{each data}-->
+                      <th align="center" class="no_search" nowrap>{rval data/RECORD_NAME04}</th>
+<!--{/each}-->
+                      <td bgcolor="#ffffff">{rval RECORD404}</td>
+                    </tr>
+                    <tr align="center" height="30">
+                      <th align="center" class="no_search" nowrap><LABEL for="RECORD305">創意工夫</LABEL></th>
+                      <td bgcolor="#ffffff">{rval RECORD305}</td>
+<!--{each data}-->
+                      <th align="center" class="no_search" nowrap>{rval data/RECORD_NAME05}</th>
+<!--{/each}-->
+                      <td bgcolor="#ffffff">{rval RECORD405}</td>
+                    </tr>
+                    <tr align="center" height="30">
+                      <th align="center" class="no_search" nowrap><LABEL for="RECORD306">思いやり・協力</LABEL></th>
+                      <td bgcolor="#ffffff">{rval RECORD306}</td>
+                      <th class="no_search" colspan="2">特別活動の記録の観点</th>
+                    </tr>
+                    <tr align="center" height="30">
+                      <th align="center" class="no_search" nowrap><LABEL for="RECORD307">生命尊重・自然愛護</LABEL></th>
+                      <td bgcolor="#ffffff">{rval RECORD307}</td>
+                      <td width="45%" bgcolor="#ffffff" colspan="2" rowspan="4" align="center" valign="top"><br>{rval SPECIALACTREMARK}<br><font size=2, color="red">(全角17文字X10行まで)</font><span id="statusarea9" style="color:blue">残り文字数</span></td>
+                    </tr>
+                    <tr align="center" height="30">
+                      <th align="center" class="no_search" nowrap><LABEL for="RECORD308">勤労・奉仕</LABEL></th>
+                      <td bgcolor="#ffffff">{rval RECORD308}</td>
+                    </tr>
+                    <tr align="center" height="30">
+                      <th align="center" class="no_search" nowrap><LABEL for="RECORD309">公正・公平</LABEL></th>
+                      <td bgcolor="#ffffff">{rval RECORD309}</td>
+                    </tr>
+                    <tr align="center" height="30">
+                      <th align="center" class="no_search" nowrap><LABEL for="RECORD310">公共心・公徳心</LABEL></th>
+                      <td bgcolor="#ffffff">{rval RECORD310}</td>
+                    </tr>
+
+                    <tr>
+                      <td class="no_search" colspan="2" align="center" nowrap>
+                        {rval button/btn_behavior_semes}
+                      </td>
+                      <td class="no_search" colspan="2" align="right" nowrap>
+                        {rval button/btn_update}{rval button/btn_reset}{rval button/btn_back}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+<!--{def un_sanshouReport_P}-->
+              <tr>
+                <td><br>　
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th colspan="{rval setCol}">【 通 知 表 参 照 】　　{rval RECORD_TITLE}</th>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th width="15%" align="center" nowrap></th>
+                      <td width="10%" align="center" nowrap>{rval SEM_NAME1}</td>
+                      <td width="10%" align="center" nowrap>{rval SEM_NAME2}</td>
+<!--{def semester}-->
+                      <td width="10%" align="center" nowrap>{rval SEM_NAME3}</td>
+<!--{/def}-->
+                    </tr>
+                    <!--{each rdata}-->
+                    <tr align="center" height="30">
+                      <th align="center" class="no_search" nowrap>{rval rdata/REFER_ITEMNAME}</th>
+                      <td bgcolor="#ffffff">{rval rdata/RECORD_VAL1}</td>
+                      <td bgcolor="#ffffff">{rval rdata/RECORD_VAL2}</td>
+<!--{def semester}-->
+                      <td bgcolor="#ffffff">{rval rdata/RECORD_VAL3}</td>
+<!--{/def}-->
+                    </tr>
+                    <!--{/each}-->
+                    <tr>
+                      <td class="no_search" colspan="{rval setCol}" align="right" nowrap>{rval button/btn_back}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+<!--{def dis_remark}-->
+              <tr>
+                <td><br>　
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th colspan="2">【 通 知 表 参 照 】　　{rval REMARK_TITLE}</th>
+                    </tr>
+                    <!--{each remark}-->
+                    <tr align="center" height="30">
+                      <th align="center" class="no_search" nowrap>{rval remark/SEMESTERNAME}</th>
+                      <td align="left" bgcolor="#ffffff">{rval remark/HREPORTSPECIALACTREMARK}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <tr>
+                      <td class="no_search" colspan="2" align="right" nowrap>{rval button/btn_back}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+<!--{/def}-->
+<!--{def grade_cd56}-->
+              <tr>
+                <td><br>　
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th colspan="2">【 通 知 表 参 照 】　　{rval REMARK_TITLE}</th>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th colspan="2">部活動</th>
+                    </tr>
+                    <tr align="center" height="30">
+                      <th align="center" class="no_search" nowrap>前期</th>
+                      <td align="left" bgcolor="#ffffff">{rval detail_R/REMARK1_02_01}</td>
+                    </tr>
+                    <tr align="center" height="30">
+                      <th align="center" class="no_search" nowrap>後期</th>
+                      <td align="left" bgcolor="#ffffff">{rval detail_R/REMARK2_02_01}</td>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th colspan="2">クラブ活動</th>
+                    </tr>
+                    <tr align="center" height="30">
+                      <th align="center" class="no_search" nowrap></th>
+                      <td align="left" bgcolor="#ffffff">{rval detail_R/REMARK3_02_01}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search" colspan="2" align="right" nowrap>{rval button/btn_back}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+<!--{/def}-->
+
+<!--{/def}-->
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+{rval finish}
+{rval javascript}

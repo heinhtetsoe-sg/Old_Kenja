@@ -1,0 +1,123 @@
+{rval start}
+<!--{def button}-->
+
+<br><br><br><br><br>
+<table width="40%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="25">
+                      <td width="30%" class="no_search" align="right" nowrap>対象年度&nbsp;</td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval YEAR}年度　　{rval button/btn_copy}</td>
+                    </tr>
+                    <tr height="25">
+                      <td class="no_search" align="right" nowrap>構成種別&nbsp;</td>
+                      <td bgcolor="#ffffff" nowrap>&nbsp;{rval COMPOSITION_TYPE}</td>
+                    </tr>
+                    <tr height="25">
+                      <td class="no_search" align="right" nowrap>構成項目名&nbsp;</td>
+                      <td bgcolor="#ffffff" nowrap>&nbsp;{rval COMPOSITION_NAME}</td>
+                    </tr>
+                    <!--{def dispcomptype_p1}-->
+                      <tr height="25">
+                        <td class="no_search" align="right" nowrap>項目数&nbsp;</td>
+                        <td bgcolor="#ffffff" nowrap>&nbsp;{rval COMPCNT}&nbsp;{rval button/btn_comp}</td>
+                      </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td><br><br></td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" frame="box">
+                    <!--{def dispcomptype_p2}-->
+                    <tr class="no_search">
+                      <th width="50%">項目名</th>
+                      <th width="50%">値{rval button/btn_capture}</th>
+                    </tr>
+                    <!--入力表-->
+                    <!--{def data}-->
+                    <!--{each data}--> 
+                    <tr align="center" bgcolor="#ffffff"> 
+                      <td>{rval data/ASSESSLEVEL}</td>
+                      <td>{rval data/ASSESSMARK}</td>
+                    </tr> 
+                    <!--{/each}-->
+                    <!--{/def}-->
+                    <!--{/def}-->
+
+                    <!--{def namespare1_is_3}-->
+                    <!--{def useGradeKindCompGroupSemester}-->
+                    <tr class="no_search">
+                      <th width="30%" align="right" nowrap>学期</th>
+                      <td width="70%" bgcolor="#ffffff">{rval SEMESTER}</td>
+                    </tr> 
+                    <!--{/def}-->
+                    <tr class="no_search">
+                      <th width="30%" align="right" nowrap>学部</th>
+                      <td width="70%" bgcolor="#ffffff">{rval GAKUBU_SCHOOL_KIND}</td>
+                    </tr> 
+                    <tr class="no_search">
+                      <th width="30%" align="right" nowrap>状態区分</th>
+                      <td width="70%" bgcolor="#ffffff">{rval CONDITION}</td>
+                    </tr> 
+                    <tr class="no_search">
+                      <th width="30%" align="right" nowrap>各教科等の記録パターン</th>
+                      <td width="70%" bgcolor="#ffffff">{rval GUIDANCE_PATTERN}</td>
+                    </tr> 
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td><br></td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" frame="box">
+                    <tr class="no_search" height="30">
+                      <th width="20%">項目</th>
+                      <th width="40%">値</th>
+                      <th width="40%">初期値&nbsp;&nbsp;{rval button/btn_set}</th>
+                    </tr>
+                    <!--{def data3}-->
+                    <!--{each data3}-->
+                    <tr align="center" bgcolor="#ffffff" height="30">
+                      <td>{val data3/ITEM}</td>
+                      <td>{val data3/ITEM_REMARK}</td>
+                      <td>{val data3/DEFAULT_REMARK}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                    <!--{/def}-->
+
+                    <tr class="no_search">
+                      <td colspan="3" align="center">
+                          {rval button/btn_update}&nbsp;
+                          {rval button/btn_delete}&nbsp;
+                          {rval button/btn_reset}&nbsp;
+                          {rval button/btn_end}&nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_print}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br><br>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+{rval finish}

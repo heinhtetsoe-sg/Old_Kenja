@@ -1,0 +1,63 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:30px 0 0 0; padding:0;">
+<tr>
+    <td valign="top" align="center" >
+    <table width="80%" border="0" cellspacing="0" cellpadding="10">
+    <tr>
+        <td style="margin:0; padding:0;">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr class="no_search_line">
+              <td> 
+                <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                  <tr class="no_search">
+                    <td align="center" style="padding:5px 60px;">
+                        <b>{val YEAR}年度</b>　　事情{val SPECIAL_REASON_DIV}　　{val HR_CLASS}
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+    </tr>
+    <tr>
+        <td style="margin:0; padding:5px 0 0 0;">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+            <tr class="no_search">
+                <th nowrap width="5%"><br></th>
+                <th nowrap width="20%">出席番号</th>
+                <th nowrap width="20%">氏名</th>
+                <th nowrap width="55%">備考(全角40文字)</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+            <!--{each data}-->
+            <tr bgcolor="{val data/COLOR}">
+                <td nowrap align="center" width="5%">{val data/CHECK}</td>
+                <td nowrap width="20%">{val data/ATTENDNO}</td>
+                <td nowrap width="20%">{val data/NAME_SHOW}</td>
+                <td nowrap width="55%">{val data/REMARK}</td>
+            </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+            </td>
+        </tr>
+        <!--{def button}-->
+        <tr>
+            <td bgcolor="#ffffff" style="text-align:right; padding:5px 10px 0 0;">{rval button/btn_add}{rval button/btn_upate}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}</td>
+        </tr>
+        <!--{/def}-->
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

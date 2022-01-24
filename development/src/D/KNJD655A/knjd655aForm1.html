@@ -1,0 +1,63 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td nowrap width="100%" align="left" colspan="6">&nbsp;&nbsp;対象年度：{rval YEAR}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td nowrap width="15%" align="center">学　期</td>
+                      <td nowrap width="20%" align="left">{rval SEMESTER}</td>
+                      <td nowrap width="15%" align="center">年　組</td>
+                      <td nowrap width="*" align="left" colspan="3">{rval GRADE_HR_CLASS}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th align="center" width="30%">テスト種別</th>
+                      <th align="center">注釈</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td align="left" bgcolor="#ffffff">
+                        <a href="knjd655aindex.php?cmd=edit&SEMESTER={rval data/SEMESTER}&TESTCD={rval data/TESTCD}&GRADE_HR_CLASS={rval data/GRADE}{rval data/HR_CLASS}&PROGRAMID={rval PROGRAMID}" target="right_frame">
+                            {rval data/TESTCD}:{rval data/TESTITEMNAME}
+                        </a>
+                      </td>
+                      <td align="left" bgcolor="#ffffff">
+                        {rval data/FOOTNOTE}
+                      </td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<script language="JavaScript">{rval reload}</script>
+{rval finish}

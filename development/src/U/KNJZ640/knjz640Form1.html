@@ -1,0 +1,130 @@
+{rval start}
+<style>
+body {
+    overflow-y: auto;
+}
+div.holder {
+    display: block;
+    box-sizing: border-box;
+    float: left;
+    height: 500px;
+}
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="10" align="center">
+    <tr class="no_search_line">
+      <td nowrap>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr bgcolor="#ffffff">
+            <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+                <tr class="no_search_line">
+                  <td nowrap>
+                        <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                          <tr class="no_search">
+                            <th class="no_search">教科間分布</th>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+              </table>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+              
+<!--{def HYOUZI}-->
+    <tr class="no_search_line">
+      <td nowrap>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr bgcolor="#ffffff">
+            <td>
+            <table border="0" cellpadding="0" cellspacing="0" align="center">
+                <tr class="no_search_line">
+                  <td nowrap>
+                        <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                          <tr bgcolor="#ffffff">
+                            <th class="no_search" width="10%" nowrap>コース・教科</th>
+                            <!--{each data}-->
+                            <th class="no_search" colspan="2" nowrap>{rval data/kyouka}</th>
+                            <!--{/each}-->
+                          </tr>
+                          
+                          <!--{def data2}-->
+                          <!--{each data2}-->
+                          <tr bgcolor="#ffffff">
+                            <th class="no_search"  align="center"  nowrap>{rval data2/th}</th>
+                            {rval data2/td}
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                          
+                          <tr bgcolor="#ffffff">
+                            <th class="no_search" width="10%" nowrap>平均偏差値</th>
+                            <!--{each data3}-->
+                            <th bgcolor="#ffffff" colspan="2" nowrap>{rval data3/average}</th>
+                            <!--{/each}-->
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+              </table>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+      
+    <tr class="no_search_line">
+      <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tbody>
+          <tr bgcolor="#ffffff">
+            <th class="no_search" align="center">教科絞込み</th>
+          </tr>
+          <tr bgcolor="#ffffff">
+            <td align="center">{rval button/btn_reappear}　{rval button/btn_sanka}　{rval button/btn_all}</td>
+          </tr>
+          <tr bgcolor="#ffffff">
+            <td align="center">{rval CHECK}</td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    
+    <!--{def data}-->
+    <tr class="no_search_line">
+      <td nowrap>
+      <table width="100%" border="0" cellpadding="0" cellspacing="1">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+                <table class="sunko_field" width="100%" border="0" cellpadding="5" cellspacing="0">
+                    <tr bgcolor="#ffffff">
+                        <td style="width:25%;text-align:right;">人</td>
+                        <td style="width:50%;">
+                            <div class="holder">
+                                <canvas id="bar0" height="500" width="750"></canvas>
+                            </div>
+                        </td>
+                        <td style="width:25%;"></td>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                        <td colspan="3" style="text-align:center;padding:3px;">(教科･科目)</td>
+                    </tr>
+                </table>
+            </td>
+          </tr>
+    <!--{/def}-->
+        </tbody>
+      </table>
+      </td>
+    </tr>
+<!--{/def}-->
+</table>
+{rval finish}

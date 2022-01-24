@@ -1,0 +1,90 @@
+-- kanji=Š¿Žš
+-- $Id: v_kojin_taiyo_setai_dat.sql 74435 2020-05-20 07:59:16Z yamashiro $
+
+DROP VIEW V_KOJIN_TAIYO_SETAI_DAT
+
+CREATE VIEW V_KOJIN_TAIYO_SETAI_DAT \
+    (KOJIN_NO, \
+     SHINSEI_YEAR, \
+     SETAI_SEQ, \
+     SEQ, \
+     FAMILY_NAME, \
+     FIRST_NAME, \
+     FIRST_NAME_KANA, \
+     FAMILY_NAME_KANA, \
+     TSUZUKIGARA_CD, \
+     NENREI, \
+     KYOUDAI_KOJIN_NO, \
+     SHOTOKU_CD, \
+     SHOTOKU_GK, \
+     KOUJO_FUBO_IGAI, \
+     KOUJO_HOKEN, \
+     KOUJO_SHOTOKU, \
+     NINTEI_GK, \
+     SHUTARU_FLG, \
+     SETAINUSHI_FLG, \
+     REMARK, \
+     REASON, \
+     SHIKIN_DIV \
+    ) \
+AS \
+WITH MAX_KEY AS ( \
+SELECT \
+    KOJIN_NO, \
+    SHINSEI_YEAR AS KEY, \
+    SETAI_SEQ \
+FROM \
+    KOJIN_TAIYO_SETAI_DAT \
+GROUP BY \
+    KOJIN_NO, \
+    SHINSEI_YEAR, \
+    SETAI_SEQ \
+), MAX_KOJIN AS ( \
+SELECT \
+    T1.KOJIN_NO, \
+    T2.KEY, \
+    T1.SETAI_SEQ, \
+    MIN(SEQ) AS MIN_SEQ \
+FROM \
+    KOJIN_TAIYO_SETAI_DAT T1, \
+    MAX_KEY T2 \
+WHERE \
+    T1.KOJIN_NO = T2.KOJIN_NO \
+    AND T1.SHINSEI_YEAR = T2.KEY \
+    AND T1.SETAI_SEQ = T2.SETAI_SEQ \
+GROUP BY \
+    T1.KOJIN_NO, \
+    T2.KEY, \
+    T1.SETAI_SEQ \
+) \
+SELECT \
+     T1.KOJIN_NO, \
+     T1.SHINSEI_YEAR, \
+     T1.SETAI_SEQ, \
+     T1.SEQ, \
+     T1.FAMILY_NAME, \
+     T1.FIRST_NAME, \
+     T1.FIRST_NAME_KANA, \
+     T1.FAMILY_NAME_KANA, \
+     T1.TSUZUKIGARA_CD, \
+     T1.NENREI, \
+     T1.KYOUDAI_KOJIN_NO, \
+     T1.SHOTOKU_CD, \
+     T1.SHOTOKU_GK, \
+     T1.KOUJO_FUBO_IGAI, \
+     T1.KOUJO_HOKEN, \
+     T1.KOUJO_SHOTOKU, \
+     T1.NINTEI_GK, \
+     T1.SHUTARU_FLG, \
+     T1.SETAINUSHI_FLG, \
+     T1.REMARK, \
+     T1.REASON, \
+     T1.SHIKIN_DIV \
+FROM \
+    KOJIN_TAIYO_SETAI_DAT T1, \
+    MAX_KOJIN T2 \
+WHERE \
+    T1.KOJIN_NO = T2.KOJIN_NO \
+    AND T1.SHINSEI_YEAR = T2.KEY \
+    AND T1.SETAI_SEQ = T2.SETAI_SEQ \
+    AND T1.SEQ = T2.MIN_SEQ

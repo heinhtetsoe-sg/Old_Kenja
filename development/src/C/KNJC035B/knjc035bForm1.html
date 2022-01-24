@@ -1,0 +1,88 @@
+{rval start}
+
+<table width="950" border="0" cellpadding="0" cellspacing="10" align="center" style="margin-top:60px;">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30" align="center">
+                      <td><b>{rval data/YEAR}年度</b></td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="90">
+                      <td align="center">学年 : {rval data/GRADE}　　　削除月 : {rval data/SEM_MONTH}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="center">&nbsp;{rval button/btn_exec}{rval button/btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:30px;">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr bgcolor="#cccccc" height="25" align="left">
+                      <td><b>&nbsp;&nbsp;削除履歴</b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="all" onclick="selectRowAll()">
+                    <tr class="no_search" nowrap align="center" height="25">
+                      <th width="40">削除<br>{rval CHECKALL}</th>
+                      <th width="100" nowrap>学年</th>
+                      <th width="150" nowrap>削除月</th>
+                      <th width="250" nowrap>処理日時</th>
+                      <th width="*">処理者</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <div style="{rval HEIGHT}overflow-y:scroll;">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="list" onclick="selectRowList()">
+                    <!--結果一覧--><!--{def list}--><!--{each list}-->
+                    <tr bgcolor="#ffffff">
+                      <td width="40"  nowrap align="center">{rval list/CHECKED}</td>
+                      <td width="100" nowrap>&nbsp;&nbsp;<LABEL for={rval list/LABEL_ID}>{rval list/GRADE_NAME1}</LABEL></td>
+                      <td width="150" nowrap>&nbsp;&nbsp;<LABEL for={rval list/LABEL_ID}>{rval list/MONTHNAME}</LABEL></td>
+                      <td width="250" nowrap>&nbsp;&nbsp;<LABEL for={rval list/LABEL_ID}>{rval list/UPDATED}</LABEL></td>
+                      <td width="*"   nowrap>&nbsp;&nbsp;<LABEL for={rval list/LABEL_ID}>{rval list/REGISTERCD}：{rval list/STAFFNAME}</LABEL></td>
+                    </tr>
+                  <!--{/each}--><!--{/def}-->
+                  </table>
+                  </div>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td align="center">{rval button/btn_histdel}{rval button/btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

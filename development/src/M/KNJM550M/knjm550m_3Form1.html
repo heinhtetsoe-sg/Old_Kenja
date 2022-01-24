@@ -1,0 +1,206 @@
+{rval start} 
+
+<!--{def button}-->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr >
+    <td width="300" valign=top>
+
+    <table width="400" border="0" cellpadding="0" cellspacing="5" align="left">
+      <tr class="no_search_line">
+        <td nowrap>
+          <table width="100%" border="0" cellpadding="5" cellspacing="1">
+
+            <tr class="no_search">
+              <td>
+                帳票種別
+              </td>
+            </tr>
+
+            <tr bgcolor="#ffffff">
+              <td>
+                {rval data/TYPE_DIV1}<LABEL for="TYPE_DIV1">&nbsp学習状況通知票</LABEL><br>
+                {rval data/TYPE_DIV2}<LABEL for="TYPE_DIV2">&nbsp角２封筒</LABEL><br>
+                {rval data/TYPE_DIV3}<LABEL for="TYPE_DIV3">&nbsp生徒住所タックシール</LABEL><br>
+              </td>
+            </tr>
+
+            <tr class="no_search">
+              <td>
+                抽出条件　{rval data/MAIN_SEARCH1}<LABEL for="MAIN_SEARCH1">AND条件で検索</LABEL>　{rval data/MAIN_SEARCH2}<LABEL for="MAIN_SEARCH2">OR条件で検索</LABEL>
+              </td>
+            </tr>
+
+            <!--{each searchData}--> 
+            <tr bgcolor="#ffffff">
+              <td>
+                <b>{rval searchData/JOUKEN}</b><br>
+                ○受講科目{rval searchData/SUBCLASS}<br>
+                  {rval searchData/SEARCH_S1}<LABEL for={rval searchData/FOR_SEARCH1}>AND条件で検索</LABEL>　{rval searchData/SEARCH_S2}<LABEL for={rval searchData/FOR_SEARCH2}>OR条件で検索</LABEL><br>
+                ○ﾚﾎﾟｰﾄ提出{rval searchData/REPORT}　{rval searchData/REPORT_S1}<LABEL for={rval searchData/FOR_REP1}>回まで提出済み</LABEL>　{rval searchData/REPORT_S2}<LABEL for={rval searchData/FOR_REP2}>回まで合格</LABEL><br>
+                  　　　　　　　　　&nbsp;{rval searchData/REPORT_S3}<LABEL for={rval searchData/FOR_REP3}>回までに不合格・未提出あり</LABEL><br>
+                ○ｽｸｰﾘﾝｸﾞ出席{rval searchData/SCHOOLING}　{rval searchData/SCHOOLING_S1}<LABEL for={rval searchData/FOR_SCHOOLING1}>回に等しい</LABEL>　{rval searchData/SCHOOLING_S2}<LABEL for={rval searchData/FOR_SCHOOLING2}>回以上</LABEL>　{rval searchData/SCHOOLING_S3}<LABEL for={rval searchData/FOR_SCHOOLING3}>回以下</LABEL><br>
+                ○試験得点{rval searchData/SCORE}　　{rval searchData/SCORE_S1}<LABEL for={rval searchData/FOR_SCORE1}>点に等しい</LABEL>　{rval searchData/SCORE_S2}<LABEL for={rval searchData/FOR_SCORE2}>点以上</LABEL>　{rval searchData/SCORE_S3}<LABEL for={rval searchData/FOR_SCORE3}>点以下</LABEL><br>
+                ○学年成績{rval searchData/HYOUTEI}　{rval searchData/HYOUTEI_S1}<LABEL for={rval searchData/FOR_HYOUTEI1}>に等しい</LABEL>　　{rval searchData/HYOUTEI_S2}<LABEL for={rval searchData/FOR_HYOUTEI2}>以上</LABEL>　　{rval searchData/HYOUTEI_S3}<LABEL for={rval searchData/FOR_HYOUTEI3}>以下</LABEL><br>
+              </td>
+            </tr>
+            <!--{/each}--> 
+
+            <tr bgcolor="#ffffff">
+              <td>
+                  <div align="right">{rval button/btn_search}{rval button/btn_end}</div>
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+
+    </td>
+
+    <td valign=top>
+    <table width="100%" border="0" cellpadding="0" cellspacing="5" align="left">
+      <tr class="no_search_line"> 
+        <td nowrap> 
+          <table width="100%" border="0" cellpadding="5" cellspacing="1">
+            <tr bgcolor="#ffffff"> 
+              <td> 
+                <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+                  <tr class="no_search_line"> 
+                    <td width="100%"> 
+                      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                        <tr class="no_search"> 
+                          <td><b>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/YEAR}年度
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/GAKKI}学期
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/GRADE_HR_CLASS}
+                          </b></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="no_search_line"> 
+                    <td width="100%"> 
+                      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                        <tr align="center" class="no_search"> 
+                          <th><b>出力対象一覧</b></th>
+                          <th class="no_search"></th>
+                          <th><b>生徒一覧</b></th>
+                        </tr>
+                        <tr align="center" bgcolor="#ffffff">
+                          <td width="45%">{rval data/CATEGORY_NAME}</td>
+                          <td width="*%"  class="no_search">{rval button/btn_left2}<BR>
+                            {rval button/btn_left1}<BR>
+                            {rval button/btn_right1}<BR>
+                            {rval button/btn_right2}
+                          <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+
+                  <TR>
+                    <TD align="right">
+                    該当生徒：{rval data/CATEGORY_CNT}人&nbsp;&nbsp;&nbsp;
+                    </TD>
+                  </TR>
+
+                  <TR class="no_search_line">
+                    <TD>
+                      <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                        <TR>
+                          <TD height="70" align="left"  bgcolor="#ffffff">
+                              <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                              <TR>
+                                  <TD width="25%" align="center">
+                                    <b>出力順&nbsp&nbsp</b>
+                                  </TD>
+                                  <TD width="20%">
+                                    {rval data/OUTPUT21}<LABEL for="OUTPUT21">&nbsp;学籍番号</LABEL>
+                                  </TD>
+                                  <TD width="*%" colspan="3">
+                                    {rval data/OUTPUT22}<LABEL for="OUTPUT22">&nbsp;年 組 番</LABEL>
+                                  </TD>
+                                </TR>
+                              <TR>
+                                  <TD width="25%" align="center">
+                                    <b>印刷対象</b>
+                                  </TD>
+                                  <TD width="16%">
+                                      {rval data/OUTPUT1}<LABEL for="OUTPUT1">&nbsp;保護者</LABEL>
+                                  </TD>
+                                  <TD width="16%">
+                                      {rval data/OUTPUT2}<LABEL for="OUTPUT2">&nbsp;負担者</LABEL>
+                                  </TD>
+                                  <TD width="20%">
+                                      {rval data/OUTPUT3}<LABEL for="OUTPUT3">&nbsp;その他１</LABEL>
+                                  </TD>
+                                  <TD width="*">
+                                      {rval data/OUTPUT4}<LABEL for="OUTPUT4">&nbsp;その他２</LABEL>
+                                  </TD>
+                              </TR>
+
+                              <TR>
+                                <TD width="25%" align="center">
+                                </TD>
+                                <TD width="20%">
+                                </TD>
+                                <TD width="*" colspan="2">
+                                    {rval data/CHECK1}<LABEL for="CHECK1">&nbsp;生徒名出力</LABEL>
+                                </TD>
+                              </TR>
+                              <TR>
+                                <TD width="25%" align="center">
+                                </TD>
+                                <TD width="20%">
+                                    {rval data/OUTPUT5}<LABEL for="OUTPUT5">&nbsp;生徒</LABEL>
+                                </TD>
+                                <TD width="*" colspan="2">
+                                    {rval data/CHECK2}<LABEL for="CHECK2">&nbsp;学籍番号出力</LABEL>
+                                </TD>
+                              </TR>
+                              <TR>
+                                <TD width="25%" align="center">
+                                    <b>出力条件</b>
+                                </TD>
+                                <TD colspan="3">
+                                    {rval data/GRDDIV}&nbsp;<LABEL for="GRDDIV">退学者・転学者・卒業生は除く</LABEL>
+                                </TD>
+                              </TR>
+                              <TR>
+                                <TD width="25%" align="center">
+                                    <b>開始位置</b>
+                                </TD>
+                                <TD width="20%">
+                                    &nbsp;行 {rval data/POROW}
+                                </TD>
+                                <TD width="*" colspan="2">
+                                    &nbsp;列 {rval data/POCOL}
+                                </TD>
+                              </TR>
+
+                            </TABLE>
+                          </TD>
+                        </TR>
+                      </TABLE>
+                    </TD>
+                  </TR>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td nowrap> {rval button/btn_csv}{rval button/btn_meibo}{rval button/btn_print}{rval button/btn_end}<br><br><font color="red" size="2"> ※PDF印字する場合は、ページの拡大／縮小は"なし"を選択してください。</font></td>
+      </tr>
+    </table>
+
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+
+{rval finish} 

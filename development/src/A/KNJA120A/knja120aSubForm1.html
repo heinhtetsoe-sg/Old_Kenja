@@ -1,0 +1,44 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+    <tr>
+      <td nowrap>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+           <td>
+            <hr align="left" width="50%">&nbsp;<!--{def YEAR_CMB}-->年度：{rval YEAR_CMB}&nbsp;&nbsp;&nbsp;&nbsp;<!--{/def}-->{rval NAME_SHOW}<hr align="left" width="50%">
+           </td>
+          </tr>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <th width="50" nowrap>学期</th>
+  <!--{each LABELS}-->
+                  <th width="*">{rval LABELS/LABEL}</th>
+  <!--{/each}-->
+                </tr>
+  <!--{each data_array}-->
+                <tr bgcolor="#ffffff">
+      <!--{each data_array/datas}-->
+                  <td align="center">{rval data_array/datas/DATA}</td>
+      <!--{/each}-->
+                </tr>
+  <!--{/each}-->
+                <tr class="no_search">
+                  <td width="50"></td>
+                  <td align="right" colspan="{rval colspan}">{rval btn_back}</td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}

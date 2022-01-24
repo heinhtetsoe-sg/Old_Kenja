@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="Shift_JIS" ?>
+<!-- kanji=漢字 -->
+<!-- $Id: withus_build.xml 56574 2017-10-22 11:21:06Z maeshiro $ -->
+<project name="withus" default="deploy" basedir=".">
+	<property name="src"				location="withus_src"/>
+	<property name="build"				location="withus_build"/>
+	<property name="kenja_common_path"	location="http://tokio/development/common/java"/>
+
+	<path id="project.classpath">
+		<pathelement location="${build}"/>
+		<!--
+		<pathelement location="${kenja_common_path}/extlib/commons-lang-2.0.jar" />
+		<pathelement location="${kenja_common_path}/extlib/commons-logging.jar" />
+		<pathelement location="${kenja_common_path}/nao_package.jar" />
+		-->
+		<pathelement location="D:\0-ALP\CVS_EXTLIB_WORK\java_extlib\JAKARTA\commons-collections-3.0\commons-collections-3.0.jar" />
+		<pathelement location="D:\0-ALP\CVS_EXTLIB_WORK\java_extlib\JAKARTA\commons-lang-2.0\commons-lang-2.0.jar" />
+		<pathelement location="D:\0-ALP\CVS_EXTLIB_WORK\java_extlib\JAKARTA\commons-logging-1.0.3\commons-logging.jar" />
+		<pathelement location="D:\0-ALP\CVS_EXTLIB_WORK\java_extlib\JAKARTA\commons-dbutils-1.0\commons-dbutils-1.0.jar" />
+		<pathelement location="D:\0-ALP\CVS_EXTLIB_WORK\java_extlib\JAKARTA\jakarta-log4j-1.2.8\log4j-1.2.8.jar" />
+		<pathelement location="D:\0-ALP\CVS_WORK\nao_package\dist\nao_package.jar" />
+		<pathelement location="dist\kenja_batch.jar" />
+		<pathelement location="dist\kenja_common.jar" />
+	</path>
+
+	<!-- **** 初期化 -->
+	<target name="init">
+		<tstamp/>
+		<mkdir dir="${build}"/>
+	</target>
+
+	<!-- **** コンパイル -->
+	<target name="compile" description="compile java" depends="init">
+		<!-- MEMO:javacタスクのencodingは、"SJIS"または"EUCJIS"または"EUC-JP" -->
+		<javac
+				encoding="SJIS"
+				target="1.3"
+				source="1.3"
+				deprecation="true"
+				srcdir="${src}"
+				destdir="${build}"
+				classpathref="project.classpath"
+				debug="on">
+			<include name="**/withus/**/*.java"/>
+			<exclude name="**/test/*.java"/>
+		</javac>
+	</target>
+
+	<!-- **** .classファイルを削除 -->
+	<target name="clean" description="clean up" >
+		<delete dir="${build}"/>
+	</target>
+
+	<!-- **** 配布ファイル作成 -->
+	<target name="dist" description="generate the distribution" depends="compile">
+		<!-- ToDo: マークサーバとVQS用に build ファイルを分けたい。それをここでコールする -->
+		<!-- マークサーバ用jar -->
+		<jar index="true" destfile="${build}/withus_markserver_csv.jar" filesonly="false">
+			<fileset dir="${build}">
+				<include name="**/withus/**/*.class"/>
+				<exclude name="**/test/*.class"/>
+			</fileset>
+			<fileset dir="${src}">
+				<include name="**/ReadMe.txt"/>
+			</fileset>
+			<manifest>
+				<attribute name="Main-Class" value="jp.co.alp.kenja.batch.withus.markServer.Main"/>
+				<attribute name="Implementation-Version" value="1.7" />
+			</manifest>
+		</jar>
+
+		<!-- VQSサーバ用jar -->
+		<jar index="true" destfile="${build}/withus_vqsServer.jar" filesonly="false">
+			<fileset dir="${build}">
+				<include name="**/withus/**/*.class"/>
+				<exclude name="**/test/*.class"/>
+			</fileset>
+			<manifest>
+				<attribute name="Main-Class" value="jp.co.alp.kenja.batch.withus.vqsServer.Main"/>
+				<attribute name="Implementation-Version" value="1.12.1" />
+			</manifest>
+		</jar>
+	</target>
+
+	<!-- **** deploy -->
+	<target name="deploy" description="deployment" depends="dist">
+		<!-- ToDo: log4j.properties もマークサーバとVQSサーバとで分けたい -->
+		<copy overwrite="true" file="dist\kenja_batch.jar" tofile="${build}/kenja_batch.jar"/>
+
+		<copy overwrite="true" file="${src}/log4j.properties.markserver" tofile="${build}/log4j.properties.markserver"/>
+
+		<fixcrlf srcdir="${src}" includes="withus_csv_read.sh" eol="lf" destdir="${build}" eof="remove" encoding="utf8"/>
+		<chmod file="withus_csv_read.sh" perm="+x" />
+
+		<fixcrlf srcdir="${src}" includes="withus_csv_write.sh" eol="lf" destdir="${build}" eof="remove" encoding="utf8"/>
+		<chmod file="withus_csv_write.sh" perm="+x" />
+
+		<!-- VQSサーバ用 -->
+		<copy overwrite="true" file="${src}/log4j.properties.vqs" tofile="${build}/log4j.properties.vqs"/>
+
+		<fixcrlf srcdir="${src}" includes="withus_vqs.sh" eol="lf" destdir="${build}" eof="remove" encoding="utf8"/>
+		<chmod file="withus_vqs.sh" perm="+x" />
+	</target>
+</project>

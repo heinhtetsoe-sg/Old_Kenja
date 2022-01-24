@@ -1,0 +1,1501 @@
+<?php
+
+require_once('for_php7.php');
+
+class knjb3042Form1
+{
+    function main(&$model)
+    {
+        set_time_limit(600);
+        
+        $objForm        = new form;
+        $arg["start"]   = $objForm->get_start("edit", "POST", "knjb3042index.php", "", "edit");
+        //DB接続
+        $db = Query::dbCheckOut();
+$time_start = microtime();
+
+        if ($model->cmd == "getChair") {
+            //講座コンボ
+            $response = makeChairList($objForm, $arg, $db, $model, "returnGe");
+
+            echo $response;
+            die();
+        }
+        if ($model->cmd == "getChairData") {
+            $query = knjb3042Query::getChairDataAjax($model);
+            $result = $db->query($query);
+            $response = null;
+            while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+                $response['kamoku'] = array('SUBCLASSNAME'=>$row["SUBCLASSNAME"],'SUBCLASSCD'=>$row["SUBCLASSCD"]);
+                $response['gun'] = array('CHAIRNAME'=>$row["CHAIRNAME"],'GROUPCD'=>$row["GROUPCD"]);
+                break;
+            }
+
+            echo json_encode($response);
+            die();
+        }
+        if($model->cmd == "getMeiboParam"){
+            $meiboParam = json_decode($model->ajaxMeiboParam,true);
+            $response = getMeiboExec($db,$model,$meiboParam);
+            echo json_encode($response);
+            die();
+        }
+        if($model->cmd == 'getGunCode'){
+            $response = array();
+            $GunParam = json_decode($model->ajaxGunParam,true);
+            for($i=0;$i<get_count($GunParam);$i++){
+                $query = knjb3042Query::getGunCodeAjax($model,$GunParam[$i]);
+                $result = $db->query($query);
+                while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+                    $response[] = array('Kouza'=>$GunParam[$i],'GunCode'=>$row["GROUPCD"],'GunName'=>$row["CHAIRNAME"]);
+                    break;
+                }
+            }
+            echo json_encode($response);
+            die();
+        }
+
+        if($model->cmd == 'getFacilityKouzaList'){
+            $response = array();
+            $KouzaParam = json_decode($model->ajaxFacilityKouzaParam, true);
+            for ($i = 0; $i < get_count($KouzaParam); $i++) {
+                $query = knjb3042Query::getFacilityKouzaKamokuAjax($model, $KouzaParam[$i]);
+                $result = $db->query($query);
+                while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+                    $response[] = array('Kouza' => $KouzaParam[$i],
+                                        'KouzaName' => $row["CHAIRNAME"],
+                                        'GunCode' => $row["GROUPCD"],
+                                        'GunName' => $row["GROUPNAME"],
+                                        'Kamoku' => $row["SUBCLASSCD"],
+                                        'KamokuName' => $row["SUBCLASSNAME"]);
+                }
+            }
+            echo json_encode($response);
+            die();
+        }
+
+        if($model->cmd == 'getFacility'){
+            $response = "";
+            $query = knjb3042Query::getFacilityAjax($model);
+            $result = $db->query($query);
+            while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+//                $response[0] .= "<option value=\"{$row["FACCD"]}\">{$row["FACCD"]} : {$row["FACILITYNAME"]}</option>";
+                $response .= "<option value=\"{$row["FACCD"]}\">{$row["FACCD"]} : {$row["FACILITYNAME"]}</option>";
+            }
+/*
+            $query = knjb3042Query::getSchFacAjax($model);
+            $result = $db->query($query);
+            while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+                $response[1] .= "<option value=\"{$row["FACCD"]}\">{$row["FACCD"]} : {$row["FACILITYNAME"]}</option>";
+            }
+*/
+            echo $response;
+            die();
+        }
+
+        if ($model->cmd == 'getLayoutStaffChair' || $model->cmd == 'getLayoutHrSubclass') {
+            if ($model->cmd == 'getLayoutStaffChair') {
+                $query = knjb3042Query::getLayoutStaffChair($model);
+                $selectedName = "category_staffchair_selected";
+                $upperName = "StaffChair";
+            } else if ($model->cmd == 'getLayoutHrSubclass') {
+                $query = knjb3042Query::getLayoutHrSubclass($model);
+                $selectedName = "category_hrsubclass_selected";
+                $upperName = "HrSubclass";
+            }
+            $selectList = array();
+            $result = $db->query($query);
+            while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+                $selectList[] = array('label' => $row["LABEL"], 'value' => $row["VALUE"]);
+            }
+            $result->free();
+            if ($model->ajaxParam["LAYOUT_LIST_NAME"] == $selectedName) {
+                $side = "left";
+            } else {
+                $side = "right";
+            }
+            $extra = "id=\"{$model->ajaxParam["LAYOUT_LIST_NAME"]}\" multiple style=\"width:300px; height:350px\" ondblclick=\"layoutMove('{$side}', '{$upperName}');\"";
+            $response = knjCreateCombo($objForm, $model->ajaxParam["LAYOUT_LIST_NAME"], '', $selectList, $extra, 20);
+
+            echo $response;
+            die();
+        }
+
+        //年度
+        $arg["YEAR"] = CTRL_YEAR;
+
+        //年学期
+        $query = knjb3042Query::getYearSemester();
+        $extra = "onChange=\"btn_submit('edit')\"";
+        makeCmb($objForm, $arg, $db, $query, $model->yearSeme, "YEAR_SEME", $extra, 1, "");
+
+        //学期情報
+        $query = knjb3042Query::getSemesterInfo($model);
+        $model->semesterInfo = array();
+        $model->semesterInfo = $db->getRow($query, DB_FETCHMODE_ASSOC);
+
+        //開始日付
+        $model->startDate = $model->startDate ? $model->startDate : CTRL_DATE;
+        if (str_replace("/", "-", $model->startDate) < $model->semesterInfo["SDATE"] || str_replace("/", "-", $model->startDate) > $model->semesterInfo["EDATE"]) {
+            $model->startDate = $model->semesterInfo["SDATE"];
+        }
+        $arg["START_DATE"] = View::popUpCalendar($objForm, "START_DATE", str_replace("-", "/", $model->startDate));
+        //終了日付
+        $endTime = date('Y-m-d', strtotime($model->startDate.' +2 week')-24*60*60);
+        $model->endDate = empty($model->endDate)?$endTime:$model->endDate;
+        if (str_replace("/", "-", $model->endDate) < str_replace("/", "-", $model->startDate)) {
+            $model->endDate = $endTime;
+        }
+        if (str_replace("/", "-", $model->endDate) > $endTime) {
+            $model->endDate = $endTime;
+        }
+        if (str_replace("/", "-", $model->endDate) > $model->semesterInfo["EDATE"]) {
+            $model->endDate = $model->semesterInfo["EDATE"];
+        }
+        $arg["END_DATE"] = View::popUpCalendar($objForm, "END_DATE", str_replace("-", "/", $model->endDate));
+
+        //画面左側の切り替え(教員、年組)
+        $model->leftMenuArray = array("教員", "年組", "科目", "講座");
+
+        $opt = array();
+        foreach ($model->leftMenuArray as $lmKey => $lmVal) {
+            $opt[] = array('label' => $lmVal, 'value' => (int)$lmKey + 1);
+        }
+        $model->leftMenu = $model->leftMenu ? $model->leftMenu : "1";
+        $extra = "onchange=\"return btn_submit('editCmb');\"";
+        $arg["LEFT_MENU"] = knjCreateCombo($objForm, "LEFT_MENU", $model->leftMenu, $opt, $extra, 1);
+
+        //左のタイトル
+        $arg["LEFT_TITLE"] = $model->leftMenuArray[$model->leftMenu - 1];
+
+        //ゴミ箱
+        $arg["TRASH_BOX"] .= "<div id=\"TRASH_BOX\" ondragover=\"f_dragover(event,this)\" ondragleave=\"f_dragleave(event,this)\" ondrop=\"f_dropTrash(event, this)\">ゴミ箱：枠内にドロップして下さい</div>";
+
+        //校時
+        $query = knjb3042Query::getPeriod($model);
+        $result = $db->query($query);
+        /*
+        * periodArray
+        * LABEL:校時名称
+        * PERI_YOMIKAE:連番(校時コードにアルファベットがある為)
+        */
+        $model->periodArray = array();
+        $model->maxPeri = 0;
+        $model->periYomikae = array();
+        $periCnt = 1;
+        while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)){
+            $model->periodArray[$row["VALUE"]]["LABEL"] = $row["LABEL"];
+            $model->periodArray[$row["VALUE"]]["PERI_YOMIKAE"] = $periCnt;
+            $model->maxPeri = $periCnt;
+            $model->periYomikae[$periCnt] = $row["VALUE"];
+            $periCnt++;
+        }
+        $result->free();
+
+        //曜日
+        $model->week = array();
+        $model->week[] = array("CD" => "1", "WEEK_JP" => "日");
+        $model->week[] = array("CD" => "2", "WEEK_JP" => "月");
+        $model->week[] = array("CD" => "3", "WEEK_JP" => "火");
+        $model->week[] = array("CD" => "4", "WEEK_JP" => "水");
+        $model->week[] = array("CD" => "5", "WEEK_JP" => "木");
+        $model->week[] = array("CD" => "6", "WEEK_JP" => "金");
+        $model->week[] = array("CD" => "7", "WEEK_JP" => "土");
+        $model->dateArray = array();
+        //日付数
+        $model->dateCntMax = 0;
+        for ($dateCnt = 0; $dateCnt < 14; $dateCnt++) {
+            $setDate = date("Y-m-d", strtotime($model->startDate." +{$dateCnt} day"));
+            if ($setDate > str_replace("/", "-", $model->endDate)) {
+                break;
+            }
+            list($year, $month, $day) = preg_split("/-/", $setDate);
+            $timestamp = mktime(0, 0, 0, $month, $day, $year);
+            $setWeek = $model->week[date('w', $timestamp)];
+            $dispDate = str_replace("-", "/", $setDate)."(".$setWeek["WEEK_JP"].")";
+            $model->dateArray[] = array("RENBAN" => $dateCnt, "JPN" => $dispDate, "DATE" => $setDate, "CD" => $setWeek["CD"]);
+            $model->dateCntMax++;
+
+            //hidden
+            knjCreateHidden($objForm, "DATEDISP".$dateCnt, $dispDate);
+            knjCreateHidden($objForm, "UPDDATE".$dateCnt, $setDate);
+        }
+        //hidden
+        knjCreateHidden($objForm, "DATECNT_MAX", $model->dateCntMax);
+
+        $AllDate = array();
+        foreach ($model->dateArray as $key => $val) {
+            $setTitle = array();
+            $setTitle["COL_SPAN"] = get_count($model->periodArray);
+            $setTitle["WEEK_NAME"] = $val["JPN"];
+            $arg["TITLE"][] = $setTitle;
+            $AllDate[] = $val['DATE'];
+
+            foreach ($model->periodArray as $periKey => $periVal) {
+                $setTitle2 = array();
+                $setTitle2["PERIOD"] = $periVal["LABEL"];
+                $setTitle2["PERIID"] = $val["RENBAN"]."_".$periKey;
+                $arg["TITLE2"][] = $setTitle2;
+            }
+        }
+
+        //最大校時
+        knjCreateHidden($objForm, "MAX_PERIOD", $model->maxPeri);
+        knjCreateHidden($objForm, "ALL_DATE", implode(',',$AllDate));
+
+        if ($model->leftMenu == '1') {
+            setStaffDispData($objForm, $arg, $db, $model);
+        } else if ($model->leftMenu == '2') {
+            setHrClassDispData($objForm, $arg, $db, $model);
+        } else if ($model->leftMenu == '3') {
+            setSubclassDispData($objForm, $arg, $db, $model);
+        } else if ($model->leftMenu == '4') {
+            setChairDispData($objForm, $arg, $db, $model);
+        }
+
+$endTime = microtime();
+$calTime = diffmicrotime($endTime, $time_start);
+echo "{$calTime} 秒";
+// 1Day  ： 3.44424  秒 25.011545 秒 41.834615 秒 43.157709 秒 SQLの分離で1/10くらい
+// 1Day  ： 3.82898  秒 26.012721 秒 39.438676 秒 40.679743 秒 isset
+// 1Day  ： 3.155157 秒 24.881925 秒 38.312434 秒 39.522275 秒 文字連結を配列化してJOIN
+// 1Day  ： 3.383963 秒 27.555323 秒 29.565569 秒 31.09326  秒 SQLの取得を一回で
+
+// 1Week ：10.643922 秒 163.62494 秒 237.319444 秒 
+        $outputChairList = array();
+        foreach ($model->chairList2 as $key => $value) {
+            for ($i = 0; $i < get_count($value); $i++) {
+                if (!isset($outputChairList[$value[$i]])) {
+                    $outputChairList[$value[$i]] = array();
+                }
+                $outputChairList[$value[$i]][] = $key;
+            }
+        }
+        //講座CD:[1,5,10]この講座の割当られる行番号(教員だったら講座担当の行番号)
+        knjCreateHidden($objForm, "chairList", json_encode($outputChairList));
+
+        //年組
+        $query = knjb3042Query::getHrName($model);
+        $extra = "onChange=\"selectSubclass('getChair')\"";
+        makeCmb($objForm, $arg, $db, $query, $model->grandHrClassCd, "GRAND_HR_CLASSCD", $extra, 1, "BLANK");
+        
+        //科目
+        $query = knjb3042Query::getSubclass($model);
+        $extra = "onChange=\"selectSubclass('getChair')\"";
+        makeCmb($objForm, $arg, $db, $query, $model->subclassCd, "SUBCLASSCD", $extra, 1, "BLANK");
+        
+        //群
+        $query = knjb3042Query::getGun($model);
+        $extra = "onChange=\"selectSubclass('getChair')\"";
+        makeCmb($objForm, $arg, $db, $query, $model->gunCd, "GUNCD", $extra, 1, "BLANK");
+        
+        //職員
+        $query = knjb3042Query::getStaff2($model);
+        $extra = "onChange=\"selectSubclass('getChair')\"";
+        makeCmb($objForm, $arg, $db, $query, $model->staffCd, "STAFFCD", $extra, 1, "BLANK");
+        
+        //コース名
+        $query = knjb3042Query::getCouseName($model, (($db->getOne(knjb3042Query::getRegdDatCnt()) > 0) ? '' : 1), SCHOOLKIND);
+        $extra = "onChange=\"selectSubclass('getChair')\"";
+        makeCmb($objForm, $arg, $db, $query, $model->couseCd, "COUSECD", $extra, 1, "BLANK");
+        
+        //通常、テスト区別ラジオ
+        $opt = array(1, 2);
+        $model->testRadio = ($model->testRadio == "") ? "1" : $model->testRadio;
+        $extra = array(" id=\"TEST_RADIO1\" onclick=\"$('#testCdBox').hide()\" "," id=\"TEST_RADIO2\"  onclick=\"$('#testCdBox').show()\"");
+        foreach ($opt as $key => $val) {
+            array_push($extra, " id=\"TEST_RADIO{$val}\" ");
+        }
+        $radioArray = knjCreateRadio($objForm, "TEST_RADIO", $model->testRadio, $extra, $opt, get_count($opt));
+        foreach ($radioArray as $key => $val) $arg[$key] = $val;
+        
+        //テストコンボ
+        $query = knjb3042Query::getTestCombo($model);
+        $extra = " id=\"TESTCD\"";
+        makeCmb($objForm, $arg, $db, $query, $model->testCd, "TESTCD", $extra, 1, '');
+
+        //操作区分ラジオ
+        $opt = array(1, 2, 3, 4);
+        if ($model->leftMenu == '1') {
+            $arg["showShokuin"] = "1";
+        }
+        $model->operationRadio = ($model->operationRadio == "") ? "1" : $model->operationRadio;
+        $extra = array();
+        foreach ($opt as $key => $val) {
+            array_push($extra, " id=\"OPERATION_RADIO{$val}\" ");
+        }
+        $radioArray = knjCreateRadio($objForm, "OPERATION_RADIO", $model->operationRadio, $extra, $opt, get_count($opt));
+        foreach ($radioArray as $key => $val) $arg[$key] = $val;
+        
+        //講座リスト
+        makeChairList($objForm, $arg, $db, $model);
+
+        //ボタン作成
+        makeBtn($objForm, $arg, $model);
+
+        //ダイアログの閉じるボタン
+        $arg["menuTitle"]["CLICK_NAME"] = knjCreateBtn($objForm, "btn_end", "×", "onclick=\"return setClickValue('999');\"");
+
+        //hidden作成
+        makeHidden($objForm, $model);
+
+        //DB切断
+        Query::dbCheckIn($db);
+        //フォーム終わり
+        $arg["finish"]  = $objForm->get_finish();
+        //インラインフレーム用Javascriptタグ生成
+        $arg["IFRAME"] = View::setIframeJs();
+
+        View::toHTML5($model, "knjb3042Form1.html", $arg);
+/*
+$endTime = microtime();
+$calTime = diffmicrotime($endTime, $time_start);
+echo "{$calTime} 秒";
+*/
+    }
+}
+
+//ボタン作成
+function makeBtn(&$objForm, &$arg, $model) {
+    //読込
+    $extra = "onclick=\"return yomikomiTimeCheck();\"";
+    $arg["button"]["btn_read"] = knjCreateBtn($objForm, "btn_read", "読 込", $extra);
+    //更新
+    $extra = "onclick=\"return btn_submit('update');\"";
+    $arg["button"]["btn_update"] = knjCreateBtn($objForm, "btn_update", "更 新", $extra);
+    //確認
+    $extra = "onclick=\"return getContent('kakunin');\"";
+    $arg["button"]["btn_kakunin"] = knjCreateBtn($objForm, "btn_kakunin", "確 認", $extra);
+    //取消
+    $extra = "onclick=\"return btn_submit('reset');\"";
+    $arg["button"]["btn_reset"] = knjCreateBtn($objForm, "btn_reset", "取 消", $extra);
+    //終了
+    $extra = "onclick=\"closeWin();\"";
+    $arg["button"]["btn_back"] = knjCreateBtn($objForm, "btn_back", "終 了", $extra);
+    //反映
+    $extra = "onclick=\"setChair();\"";
+    $arg["button"]["btn_set"] = knjCreateBtn($objForm, "btn_set", "反 映", $extra);
+    //日付校時で移動/コピー
+    $extra = "onclick=\"showDialog('copyMoveBox','日付校時で移動/コピー',copyMoveBoxInitFunc);\"";
+    $arg["button"]["btn_moveCopy"] = knjCreateBtn($objForm, "btn_moveCopy", "日付校時で移動/コピー", $extra);
+    //レイアウト編集(縦)
+    if ($model->leftMenu == "1" || $model->leftMenu == "4") {
+        $callBoxName = "layoutStaffChairBox";
+        $callLayoutIni = "layoutStaffChairBoxInitFunc";
+    } else {
+        $callBoxName = "layoutHrSubclassBox";
+        $callLayoutIni = "layoutHrSubclassBoxInitFunc";
+    }
+    $extra = "onclick=\"showDialog('{$callBoxName}', 'レイアウト編集(縦)', {$callLayoutIni});\"";
+    $arg["button"]["btn_layout"] = knjCreateBtn($objForm, "btn_layout", "レイアウト編集(縦)", $extra);
+}
+//hidden作成
+function makeHidden(&$objForm, $model) {
+    knjCreateHidden($objForm, "cmd");
+    knjCreateHidden($objForm, "updateData");        //削除予定
+    knjCreateHidden($objForm, "updateAddData");
+    knjCreateHidden($objForm, "updateDelData");
+    knjCreateHidden($objForm, "updateDataExec");    //削除予定
+    knjCreateHidden($objForm, "lineStaffInfo");        //削除予定
+    knjCreateHidden($objForm, "startTD");
+    knjCreateHidden($objForm, "selectStartTD");
+    knjCreateHidden($objForm, "selectEndTD");
+    knjCreateHidden($objForm, "visibleLine", $model->visibleLine);
+}
+
+//講座一覧リストToリスト作成
+function makeChairList(&$objForm, &$arg, $db, $model, $div = "") {
+
+    $selectList = array();
+    $query = knjb3042Query::getChair($model);
+    $result = $db->query($query);
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+        $selectList[] = array('label' => $row["LABEL"], 'value' => $row["VALUE"]);
+    }
+    $result->free();
+
+    //出力対象作成
+    if ($div == "returnGe") {
+        $extra = "multiple style=\"width:300px\" ondblclick=\"setChair();\"";
+        return knjCreateCombo($objForm, "CATEGORY_SELECTED", '', $selectList, $extra, 20);
+    } else {
+        $extra = "multiple style=\"width:300px\" ondblclick=\"setChair();\"";
+        $arg["list"]["CATEGORY_SELECTED"] = knjCreateCombo($objForm, "CATEGORY_SELECTED", '', $selectList, $extra, 20);
+    }
+}
+//makeCmb
+function makeCmb(&$objForm, &$arg, $db, $query, &$value, $name, $extra, $size, $blank = "")
+{
+    $opt = array();
+    if ($blank == "BLANK") {
+        $opt[] = array("label" => "", "value" => "");
+    }
+    $result = $db->query($query);
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+        $opt[] = array('label' => $row["LABEL"],
+                       'value' => $row["VALUE"]);
+        if ($value === $row["VALUE"]) $value_flg = true;
+    }
+    if ($name == "YEAR_SEME") {
+        $value = ($value != "" && $value_flg) ? $value : CTRL_YEAR."-".CTRL_SEMESTER;
+    } else {
+        $value = ($value != "" && $value_flg) ? $value : $opt[0]["value"];
+    }
+    $arg[$name] = knjCreateCombo($objForm, $name, $value, $opt, $extra, $size);
+
+    $result->free();
+}
+function getMeiboExec(&$db,&$model,$meiboParam){
+    $response = array();
+    if(!isset($model->zyuuhukuArray)){
+        $model->zyuuhukuArray = array();
+    }
+    for($i=0;$i<get_count($meiboParam);$i++){
+        $responseParts = array();
+        $targetDayArray = preg_split("/-/",$meiboParam[$i]['targetDay']);
+        $targetDay = sprintf('%04d-%02d-%02d',$targetDayArray[0],$targetDayArray[1],$targetDayArray[2]);
+        if(!isset($model->zyuuhukuArray[$targetDay])){
+            $query = knjb3042Query::getMeiboZyuuhukuPHP($model,$targetDay);
+            $result = $db->query($query);
+            while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+                $model->zyuuhukuArray[$targetDay][$row['CHAIRCD']][$row['SCHREGNO']] = 1;
+            }
+        }
+            $checkZumiArray1 = $checkZumiArray2 = array();
+        for ($chairCnt1 = 0; $chairCnt1 < get_count($meiboParam[$i]['list']); $chairCnt1++) {
+            for ($chairCnt2 = 0; $chairCnt2 < get_count($meiboParam[$i]['list']); $chairCnt2++) {
+                //自分自身のチェックはしない
+                if ($chairCnt1 == $chairCnt2) {
+                    continue;
+                }
+                if ($checkZumiArray1[$chairCnt1][$chairCnt2] == 1) {
+                    continue;
+                }
+                if ($checkZumiArray1[$chairCnt2][$chairCnt1] == 1) {
+                    continue;
+                }
+                $checkZumiArray1[$chairCnt1][$chairCnt2] = 1;
+                $checkZumiArray2[$chairCnt2][$chairCnt1] = 1;
+                $flag=false;
+                if(isset($model->zyuuhukuArray[$targetDay][$meiboParam[$i]['list'][$chairCnt1]])){
+                    foreach ($model->zyuuhukuArray[$targetDay][$meiboParam[$i]['list'][$chairCnt1]] as $schregNo => $value3) {
+                        if (isset($model->zyuuhukuArray[$targetDay][$meiboParam[$i]['list'][$chairCnt2]][$schregNo])) {
+                            $flag = true;
+                            break;
+                        }
+                    }
+                }
+                if(isset($responseParts[$meiboParam[$i]['list'][$chairCnt1]])){
+                    if($responseParts[$meiboParam[$i]['list'][$chairCnt1]]==0){
+                        $responseParts[$meiboParam[$i]['list'][$chairCnt1]] = $flag?1:0;
+                    }
+                } else {
+                    $responseParts[$meiboParam[$i]['list'][$chairCnt1]] = $flag?1:0;
+                }
+                
+                if(isset($responseParts[$meiboParam[$i]['list'][$chairCnt2]])){
+                    if($responseParts[$meiboParam[$i]['list'][$chairCnt2]]==0){
+                        $responseParts[$meiboParam[$i]['list'][$chairCnt2]] = $flag?1:0;
+                    }
+                } else {
+                    $responseParts[$meiboParam[$i]['list'][$chairCnt2]] = $flag?1:0;
+                }
+            }
+        }
+        $response[]=array('targetDay'=>$meiboParam[$i]['targetDay'],'id'=>$meiboParam[$i]['id'],'kouzi'=>$meiboParam[$i]['kouzi'],'list'=>$responseParts);
+    }
+    return $response;
+}
+
+function diffmicrotime($a, $b)
+{
+    list($am, $at) = explode(' ', $a);
+    list($bm, $bt) = explode(' ', $b);
+    return ((float)$am-(float)$bm) + ((float)$at-(float)$bt);
+}
+
+function setStaffDispData(&$objForm, &$arg, $db, &$model)
+{
+    //教員
+    $query = knjb3042Query::getStaff($model);
+    $result = $db->query($query);
+    $model->staffArray = array();
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)){
+        $model->staffArray[] = $row;
+    }
+    $result->free();
+
+    //hidden
+    knjCreateHidden($objForm, "MAX_LINE", get_count($model->staffArray));
+
+    //登録データ
+    $query = knjb3042Query::getSchChair($model);
+    $result = $db->query($query);
+    $schChairArray = array();
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+        $setPeriCd = $model->periodArray[$row["PERIODCD"]]["PERI_YOMIKAE"];
+        $schChairArray[$row["EXECUTEDATE"]][$setPeriCd][$row["CHAIRCD"]] = $row;
+    }
+    $result->free();
+
+    //SCH_STAFFデータ
+    $query = knjb3042Query::getSchStaff($model);
+    $result = $db->query($query);
+    $schStaffArray = array();
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+        $setPeriCd = $model->periodArray[$row["PERIODCD"]]["PERI_YOMIKAE"];
+        $schStaffArray[$row["EXECUTEDATE"]][$setPeriCd][$row["CHAIRCD"]][$row["STAFFCD"]] = "1";
+    }
+    $result->free();
+
+    //教員講座
+    $query = knjb3042Query::getStaffChair($model);
+    $result = $db->query($query);
+    $chairStaffArray = array();
+    $chairList = array();
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+        //正担任、副担任のフラグ。1は正担任
+        if($row['CHARGEDIV'] == 1){
+            $chairStaffArray[$row["CHAIRCD"]][$row["STAFFCD"]] = "1";
+        
+            if(!isset($chairList[$row["STAFFCD"]])){
+                $chairList[$row["STAFFCD"]] = array();
+            }
+            $chairList[$row["STAFFCD"]][] = $row["CHAIRCD"];
+        }
+    }
+    $result->free();
+
+    $query = knjb3042Query::getChair2($model);
+    $result = $db->query($query);
+    $chairDataList = array();
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+        $chairDataList[$row["CHAIRCD"]]=array('FRAMECNT'=> $row['FRAMECNT'],'CHAIRNAME' =>$row['CHAIRNAME']);
+    }
+    $result->free();
+    
+    $linkingObj = array();
+    $dipliObj = array();
+
+    //教員ループ
+    $staffLoopCnt = get_count($model->staffArray);
+    for ($lineCnt = 1; $lineCnt <= $staffLoopCnt; $lineCnt++) {
+        $staffCd = $model->staffArray[$lineCnt - 1]["STAFFCD"];
+        //日付ループ
+        foreach ($model->dateArray as $dateKey => $dateVal) {
+            $syoriBi = $dateVal["DATE"];
+            //校時ループ
+            foreach ($model->periodArray as $periKey => $periVal) {
+                $syoriPeri = $periVal["PERI_YOMIKAE"];
+                //時間割に現在の日付校時があるか
+                if (isset($schChairArray[$syoriBi][$syoriPeri])) {
+                    //現在の日付校時に登録されている講座ループ
+                    foreach ($schChairArray[$syoriBi][$syoriPeri] as $chairCd => $schChairVal) {
+                        //SCH_STAFFに登録あり
+                        if (isset($schStaffArray[$syoriBi][$syoriPeri][$chairCd])) {
+                            if ($schStaffArray[$syoriBi][$syoriPeri][$chairCd][$staffCd] == "1") {
+                                $dipliObj[$dateVal["DATE"]][$syoriPeri][]=$chairCd;
+                                if ($chairDataList[$chairCd]['FRAMECNT'] > 1) {
+                                    $linkingTextParts = '';
+                                    //現在の講座の連続授業のデータを保持
+                                    for ($i = 0; $i < $chairDataList[$chairCd]['FRAMECNT']; $i++) {
+                                        $setIdNameLinking = 'KOMA_'.$dateVal["RENBAN"]."_".(intval($syoriPeri)+$i)."_".$lineCnt;
+                                        $linkingTextParts.=$setIdNameLinking.',';
+                                    }
+                                    $linkingTextParts = trim($linkingTextParts,',');
+                                    //連続授業のデータは、一度だけ作る・・・日本語難しい
+                                    for ($i = 0; $i < $chairDataList[$chairCd]['FRAMECNT']; $i++) {
+                                        $setIdNameLinking = 'Linking_'.$dateVal["RENBAN"]."_".(intval($syoriPeri)+$i)."_".$lineCnt;
+                                        if (isset($linkingObj[$setIdNameLinking][$chairCd])) {
+                                            break;
+                                        }
+                                        $linkingObj[$setIdNameLinking][$chairCd]=$chairCd.':'.$linkingTextParts;
+                                    }
+                                }
+                            }
+                        } else if ($chairStaffArray[$chairCd][$staffCd] == "1") {
+                            $dipliObj[$dateVal["DATE"]][$syoriPeri][]=$chairCd;
+                            if ($chairDataList[$chairCd]['FRAMECNT'] > 1) {
+                                $linkingTextParts = '';
+                                for ($i = 0; $i < $chairDataList[$chairCd]['FRAMECNT']; $i++) {
+                                    $setIdNameLinking = 'KOMA_'.$dateVal["RENBAN"]."_".(intval($syoriPeri)+$i)."_".$lineCnt;
+                                    $linkingTextParts.=$setIdNameLinking.',';
+                                }
+                                $linkingTextParts = trim($linkingTextParts,',');
+                                for ($i = 0; $i < $chairDataList[$chairCd]['FRAMECNT']; $i++) {
+                                    $setIdNameLinking = 'Linking_'.$dateVal["RENBAN"]."_".(intval($syoriPeri)+$i)."_".$lineCnt;
+                                    if (isset($linkingObj[$setIdNameLinking][$chairCd])) {
+                                        break;
+                                    }
+                                    $linkingObj[$setIdNameLinking][$chairCd]=$chairCd.':'.$linkingTextParts;
+                                }
+                            }
+                        }
+                    }
+                 }
+             }
+        }
+    }
+
+    $dipliObj2 = getDipliObj2($db, $model, $dipliObj);
+
+    $numMstArray = array();
+    $query = knjb3042Query::getZyukouNumMstAll($model);
+    $result = $db->query($query);
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+        $numMstArray[$row["CHAIRCD"]] = $row["REMARK1"];
+    }
+    $result->free();
+
+    //日付ループ
+    $numArray = array();
+    foreach ($model->dateArray as $dateKey => $dateVal) {
+        $syoriBi = $dateVal["DATE"];
+        $query = knjb3042Query::getZyukouNumAll($model, $syoriBi);
+        $result = $db->query($query);
+        while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+            $numArray[$syoriBi][$row["CHAIRCD"]] = false;
+            if (isset($numMstArray[$row["CHAIRCD"]])) {
+                if ($row["CNT"] > $numMstArray[$row["CHAIRCD"]]){
+                    $numArray[$syoriBi][$row["CHAIRCD"]] = true;
+                }
+            }
+        }
+        $result->free();
+    }
+
+    $model->chairList2 = array();
+    if (VARS::request("PROGRAMID") != "" || $model->cmd == "editCmb") {
+        $model->visibleLine = "";
+        $setSep = "";
+    }
+    //教員ループ
+    for ($lineCnt = 1; $lineCnt <= $staffLoopCnt; $lineCnt++) {
+        $setStaffData = array();
+        $staffCd = $model->staffArray[$lineCnt - 1]["STAFFCD"];
+        $setStaffData["TITLE_NAME"] = $staffCd."<BR>".$model->staffArray[$lineCnt - 1]["STAFFNAME"];
+        $arg["data"][] = $setStaffData;
+        $setData2 = array();
+        if (isset($chairList[$staffCd])) {
+            $model->chairList2[$lineCnt]=$chairList[$staffCd];
+        }
+        if (VARS::request("PROGRAMID") != "" || $model->cmd == "editCmb") {
+            $model->visibleLine .= $setSep.($lineCnt - 1);
+            $setSep = ",";
+        }
+        //日付ループ
+        foreach ($model->dateArray as $dateKey => $dateVal) {
+            $syoriBi = $dateVal["DATE"];
+            //校時ループ
+            foreach ($model->periodArray as $periKey => $periVal) {
+                $setChairVal = "";
+                $chairValSep = "";
+                $syoriPeri = $periVal["PERI_YOMIKAE"];
+                $setIdName = $dateVal["RENBAN"]."_".$syoriPeri."_".$lineCnt;
+                $lineDisp = "";
+                $dataTestSep = '';
+                //時間割に現在の日付校時があるか
+                if (isset($schChairArray[$syoriBi][$syoriPeri])) {
+                    $dispCnt = 0;
+                    $dataDef='';
+                    $dispChair = '';
+                    $dataText = '';
+                    $dataTest = '';
+                    $dataExec = '';
+                    $dataZyukou = '';
+                    $dataDepli = '';
+                    $testBoxClass = '';
+                    //現在の日付校時に登録されている講座ループ
+                    foreach ($schChairArray[$syoriBi][$syoriPeri] as $chairCd => $schChairVal) {
+                        //SCH_STAFFに登録あり
+                        if (isset($schStaffArray[$syoriBi][$syoriPeri][$chairCd])) {
+                            if ($schStaffArray[$syoriBi][$syoriPeri][$chairCd][$staffCd] == "1") {
+                                if ($dipliObj2[$dateVal["DATE"].'_'.$syoriPeri.'_'.$chairCd] == 1) {
+                                    $dataDepli='重';
+                                }
+                                $dispCnt++;
+                                if ($dispCnt > 1) {
+                                    $dispChair = $dispCnt."件のデータ".'<br>'.$dataDepli;
+                                } else {
+                                    $dispChair = $chairCd."<BR>".$schChairVal["CHAIRABBV"].'<br>'.$dataDepli;
+                                }
+                                $dataText .= $chairCd."<BR>".$schChairVal["CHAIRABBV"].',';
+                                $setChairVal .= $chairValSep.$chairCd;
+                                $chairValSep = ":";
+                                $dataTest .= $dataTestSep.(($schChairVal["DATADIV"]=='2')?$schChairVal["TESTKINDCD"].$schChairVal["TESTITEMCD"]:'0');
+                                $dataExec .= $dataTestSep.$schChairVal['EXECUTED'];
+                                $dataZyukou .= $dataTestSep.($numArray[$syoriBi][$chairCd] ? 'zyukou_box' : '0');
+                                $dataDef .= $dataTestSep.$syoriBi.'_'.$syoriPeri.'_'.$chairCd.'_'.(($schChairVal["DATADIV"]=='2')?$schChairVal["TESTKINDCD"].$schChairVal["TESTITEMCD"]:'0').'_'.$lineCnt;
+                                $dataTestSep = ',';
+                                if ($schChairVal["DATADIV"] == '2') {
+                                    $testBoxClass='test_box';
+                                }
+                            }
+                        } else if ($chairStaffArray[$chairCd][$staffCd] == "1") {
+                            if ($dipliObj2[$dateVal["DATE"].'_'.$syoriPeri.'_'.$chairCd] == 1) {
+                                $dataDepli='重';
+                            }
+                            $dispCnt++;
+                            if ($dispCnt > 1) {
+                                $dispChair = $dispCnt."件のデータ".'<br>'.$dataDepli;
+                            } else {
+                                $dispChair = $chairCd."<BR>".$schChairVal["CHAIRABBV"].'<br>'.$dataDepli;
+                            }
+                            $dataText .= $chairCd."<BR>".$schChairVal["CHAIRABBV"].',';
+                            $setChairVal .= $chairValSep.$chairCd;
+                            $chairValSep = ":";
+                            $dataTest .= $dataTestSep.(($schChairVal["DATADIV"] == '2') ? $schChairVal["TESTKINDCD"].$schChairVal["TESTITEMCD"] : '0');
+                            $dataExec .= $dataTestSep.$schChairVal['EXECUTED'];
+                            $dataZyukou .= $dataTestSep.($numArray[$syoriBi][$chairCd] ? 'zyukou_box' : '0');
+                            $dataDef .= $dataTestSep.$syoriBi.'_'.$syoriPeri.'_'.$chairCd.'_'.(($schChairVal["DATADIV"]=='2')?$schChairVal["TESTKINDCD"].$schChairVal["TESTITEMCD"]:'0').'_'.$lineCnt;
+                            $dataTestSep = ',';
+                            if ($schChairVal["DATADIV"] == '2') {
+                                $testBoxClass='test_box';
+                            }
+                        }
+                    }
+                    
+                    $linkingText = '';
+                    if (isset($linkingObj['Linking_'.$setIdName])) {
+                        foreach ($linkingObj['Linking_'.$setIdName] as $chairCd => $value2) {
+                            $linkingText .= $value2.'/';
+                        }
+                        $linkingText = trim($linkingText,'/');
+                    }
+
+                    $addClass = makeAddClass($dataExec, $dataZyukou, $dispChair);
+
+                    $dataText = rtrim($dataText,',');
+                    //$dispChair = $dataExec;
+                    $lineDisp = "<td id=\"KOMA_{$setIdName}\" style=\"cursor:move;\" draggable=\"true\" class=\"targetbox {$addClass}\" data-zyukou=\"{$dataZyukou}\" data-text=\"{$dataText}\" data-val=\"{$setChairVal}\" data-def=\"{$dataDef}\" data-test=\"{$dataTest}\" data-exec=\"{$dataExec}\" data-linking=\"{$linkingText}\">{$dispChair}</td>\n";
+                } else {
+                    $dispChair = "";
+                    $lineDisp = "<td id=\"KOMA_{$setIdName}\" style=\"cursor:move;\" draggable=\"true\" class=\"targetbox\" data-zyukou=\"\" data-text=\"\" data-val=\"\" data-def=\"\" data-test=\"\" data-exec=\"\" data-linking=\"\">{$dispChair}</td>\n";
+                }
+                $setData2[] = $lineDisp;
+            }
+        }
+        $arg["data2"][]["LISTDATA"] = join('', $setData2);
+    }
+    $arg["setWidth"] = get_count($model->dateArray) * get_count($model->periodArray) * 110;
+}
+
+function makeAddClass($dataExec, $dataZyukou, $dispChair) {
+    $dataExecList = explode(',', $dataExec);
+    $execClass = '';
+    if ($dataExec != '' && get_count($dataExecList) == 1) {
+        if ($dataExecList[0] == "SYUKKETSU") {
+            $execClass = 'syukketu';
+        } else if ($dataExecList[0] == "MI_SYUKKETSU") {
+            $execClass = 'no_syukketu';
+        } else if($dataExecList[0] == "ITIBU_SYUKKETSU"){
+            $execClass = 'itibu_syukketu';
+        }
+    }
+    
+    if (strpos($dispChair,'件のデータ') !== false) {
+        $addClass = 'hukusuu_box';
+    } else {
+        if (strpos($dataZyukou,'zyukou_box') !== false) {
+            $addClass = 'zyukou_box ' . $execClass;
+        } else {
+            $addClass = $testBoxClass. ' ' . $execClass;
+        }
+    }
+    return $addClass;
+}
+
+function setHrClassDispData(&$objForm, &$arg, $db, &$model)
+{
+    //年組
+    $query = knjb3042Query::getHrClassSql($model);
+    $result = $db->query($query);
+    $model->hrClassArray = array();
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)){
+        $model->hrClassArray[] = $row;
+    }
+    $result->free();
+
+    //hidden
+    knjCreateHidden($objForm, "MAX_LINE", get_count($model->hrClassArray));
+
+    //登録データ
+    $query = knjb3042Query::getSchChair($model);
+    $result = $db->query($query);
+    $schChairArray = array();
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+        $setPeriCd = $model->periodArray[$row["PERIODCD"]]["PERI_YOMIKAE"];
+        $schChairArray[$row["EXECUTEDATE"]][$setPeriCd][$row["CHAIRCD"]] = $row;
+    }
+    $result->free();
+
+    //年組講座
+    $query = knjb3042Query::getChairClassSql($model);
+    $result = $db->query($query);
+    $chairClassArray = array();
+    $hrClassList = array();
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+            $setGH = $row["TRGTGRADE"].$row["TRGTCLASS"];
+            $chairClassArray[$row["CHAIRCD"]][$setGH] = "1";
+            if(!isset($hrClassList[$setGH])){
+                $hrClassList[$setGH] = array();
+            }
+            $hrClassList[$setGH][] = $row["CHAIRCD"];
+    }
+    $result->free();
+
+    //連続授業
+    $query = knjb3042Query::getChair2($model);
+    $result = $db->query($query);
+    $chairDataList = array();
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+        $chairDataList[$row["CHAIRCD"]]=array('FRAMECNT'=> $row['FRAMECNT'],'CHAIRNAME' =>$row['CHAIRNAME']);
+    }
+    $result->free();
+
+    $linkingObj = array();
+    $dipliObj = array();
+
+    //年組ループ
+    $hrClassLoopCnt = get_count($model->hrClassArray);
+    for ($lineCnt = 1; $lineCnt <= $hrClassLoopCnt; $lineCnt++) {
+        $gradeHrCd = $model->hrClassArray[$lineCnt - 1]["GRADE"].$model->hrClassArray[$lineCnt - 1]["HR_CLASS"];
+        //日付ループ
+        foreach ($model->dateArray as $dateKey => $dateVal) {
+            $syoriBi = $dateVal["DATE"];
+            //校時ループ
+            foreach ($model->periodArray as $periKey => $periVal) {
+                $syoriPeri = $periVal["PERI_YOMIKAE"];
+                //時間割に現在の日付校時があるか
+                if (isset($schChairArray[$syoriBi][$syoriPeri])) {
+                    //現在の日付校時に登録されている講座ループ
+                    foreach ($schChairArray[$syoriBi][$syoriPeri] as $chairCd => $schChairVal) {
+                        //CHAIR_CLSに登録あり
+                        if ($chairClassArray[$chairCd][$gradeHrCd] == "1") {
+                            $dipliObj[$dateVal["DATE"]][$syoriPeri][]=$chairCd;
+                            if ($chairDataList[$chairCd]['FRAMECNT'] > 1) {
+                                $linkingTextParts = '';
+                                for ($i = 0; $i < $chairDataList[$chairCd]['FRAMECNT']; $i++) {
+                                    $setIdNameLinking = 'KOMA_'.$dateVal["RENBAN"]."_".(intval($syoriPeri)+$i)."_".$lineCnt;
+                                    $linkingTextParts.=$setIdNameLinking.',';
+                                }
+                                $linkingTextParts = trim($linkingTextParts,',');
+                                for ($i = 0; $i < $chairDataList[$chairCd]['FRAMECNT']; $i++) {
+                                    $setIdNameLinking = 'Linking_'.$dateVal["RENBAN"]."_".(intval($syoriPeri)+$i)."_".$lineCnt;
+                                    if (isset($linkingObj[$setIdNameLinking][$chairCd])) {
+                                        break;
+                                    }
+                                    $linkingObj[$setIdNameLinking][$chairCd]=$chairCd.':'.$linkingTextParts;
+                                }
+                            }
+                        }
+                    }
+                 }
+             }
+        }
+    }
+
+    $dipliObj2 = getDipliObj2($db, $model, $dipliObj);
+
+    $numMstArray = array();
+    $query = knjb3042Query::getZyukouNumMstAll($model);
+    $result = $db->query($query);
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+        $numMstArray[$row["CHAIRCD"]] = $row["REMARK1"];
+    }
+    $result->free();
+
+    //日付ループ
+    $numArray = array();
+    foreach ($model->dateArray as $dateKey => $dateVal) {
+        $syoriBi = $dateVal["DATE"];
+        $query = knjb3042Query::getZyukouNumAll($model, $syoriBi);
+        $result = $db->query($query);
+        while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+            $numArray[$syoriBi][$row["CHAIRCD"]] = false;
+            if (isset($numMstArray[$row["CHAIRCD"]])) {
+                if ($row["CNT"] > $numMstArray[$row["CHAIRCD"]]){
+                    $numArray[$syoriBi][$row["CHAIRCD"]] = true;
+                }
+            }
+        }
+        $result->free();
+    }
+
+    $model->chairList2 = array();
+    if (VARS::request("PROGRAMID") != "" || $model->cmd == "editCmb") {
+        $model->visibleLine = "";
+        $setSep = "";
+    }
+    //年組ループ
+    for ($lineCnt = 1; $lineCnt <= $hrClassLoopCnt; $lineCnt++) {
+        $setGHData = array();
+        $gradeHrCd = $model->hrClassArray[$lineCnt - 1]["GRADE"].$model->hrClassArray[$lineCnt - 1]["HR_CLASS"];
+        $setGHData["TITLE_NAME"] = $gradeHrCd."<BR>".$model->hrClassArray[$lineCnt - 1]["HR_NAME"];
+        $arg["data"][] = $setGHData;
+        $setData2 = array();
+        if (isset($hrClassList[$gradeHrCd])) {
+            $model->chairList2[$lineCnt] = $hrClassList[$gradeHrCd];
+        }
+        if (VARS::request("PROGRAMID") != "" || $model->cmd == "editCmb") {
+            $model->visibleLine .= $setSep.($lineCnt - 1);
+            $setSep = ",";
+        }
+        //日付ループ
+        foreach ($model->dateArray as $dateKey => $dateVal) {
+            $syoriBi = $dateVal["DATE"];
+            //校時ループ
+            foreach ($model->periodArray as $periKey => $periVal) {
+                $setChairVal = "";
+                $chairValSep = "";
+                $syoriPeri = $periVal["PERI_YOMIKAE"];
+                $setIdName = $dateVal["RENBAN"]."_".$syoriPeri."_".$lineCnt;
+                $lineDisp = "";
+                $dataTestSep = '';
+                //時間割に現在の日付校時があるか
+                if (isset($schChairArray[$syoriBi][$syoriPeri])) {
+                    $dispCnt = 0;
+                    $dataDef= '';
+                    $dispChair = '';
+                    $dataText = '';
+                    $dataTest = '';
+                    $dataExec = '';
+                    $dataZyukou = '';
+                    $dataDepli = '';
+                    $testBoxClass = '';
+                    //現在の日付校時に登録されている講座ループ
+                    foreach ($schChairArray[$syoriBi][$syoriPeri] as $chairCd => $schChairVal) {
+                        //CHAIR_CLSに登録あり
+                        if ($chairClassArray[$chairCd][$gradeHrCd] == "1") {
+                            if ($dipliObj2[$dateVal["DATE"].'_'.$syoriPeri.'_'.$chairCd] == 1) {
+                                $dataDepli='重';
+                            }
+                            $dispCnt++;
+                            if ($dispCnt > 1) {
+                                $dispChair = $dispCnt."件のデータ".'<br>'.$dataDepli;
+                            } else {
+                                $dispChair = $chairCd."<BR>".$schChairVal["CHAIRABBV"].'<br>'.$dataDepli;
+                            }
+                            $dataText .= $chairCd."<BR>".$schChairVal["CHAIRABBV"].',';
+                            $setChairVal .= $chairValSep.$chairCd;
+                            $chairValSep = ":";
+                            $dataTest .= $dataTestSep.(($schChairVal["DATADIV"] == '2') ? $schChairVal["TESTKINDCD"].$schChairVal["TESTITEMCD"] : '0');
+                            $dataExec .= $dataTestSep.$schChairVal['EXECUTED'];
+                            $dataZyukou .= $dataTestSep.($numArray[$syoriBi][$chairCd] ? 'zyukou_box' : '0');
+                            $dataDef .= $dataTestSep.$syoriBi.'_'.$syoriPeri.'_'.$chairCd.'_'.(($schChairVal["DATADIV"]=='2')?$schChairVal["TESTKINDCD"].$schChairVal["TESTITEMCD"]:'0').'_'.$lineCnt;
+                            $dataTestSep = ',';
+                            if ($schChairVal["DATADIV"] == '2') {
+                                $testBoxClass='test_box';
+                            }
+                        }
+                    }
+                    
+                    $linkingText = '';
+                    if (isset($linkingObj['Linking_'.$setIdName])) {
+                        foreach ($linkingObj['Linking_'.$setIdName] as $chairCd => $value2) {
+                            $linkingText .= $value2.'/';
+                        }
+                        $linkingText = trim($linkingText,'/');
+                    }
+
+                    $addClass = makeAddClass($dataExec, $dataZyukou, $dispChair);
+
+                    $dataText = rtrim($dataText,',');
+                    //$dispChair = $dataExec;
+                    $lineDisp = "<td id=\"KOMA_{$setIdName}\" style=\"cursor:move;\" draggable=\"true\" class=\"targetbox {$addClass}\" data-zyukou=\"{$dataZyukou}\" data-text=\"{$dataText}\" data-val=\"{$setChairVal}\" data-def=\"{$dataDef}\" data-test=\"{$dataTest}\" data-exec=\"{$dataExec}\" data-linking=\"{$linkingText}\">{$dispChair}</td>\n";
+                } else {
+                    $dispChair = "";
+                    $lineDisp = "<td id=\"KOMA_{$setIdName}\" style=\"cursor:move;\" draggable=\"true\" class=\"targetbox\" data-zyukou=\"\" data-text=\"\" data-val=\"\" data-def=\"\" data-test=\"\" data-exec=\"\" data-linking=\"\">{$dispChair}</td>\n";
+                }
+                $setData2[] = $lineDisp;
+            }
+        }
+        $arg["data2"][]["LISTDATA"] = join('', $setData2);
+    }
+    $arg["setWidth"] = get_count($model->dateArray) * get_count($model->periodArray) * 110;
+}
+
+
+function setSubclassDispData(&$objForm, &$arg, $db, &$model)
+{
+    //科目
+    $query = knjb3042Query::getSubclass($model);
+    $result = $db->query($query);
+    $model->subClassArray = array();
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)){
+        $model->subClassArray[] = $row;
+    }
+    $result->free();
+
+    //hidden
+    knjCreateHidden($objForm, "MAX_LINE", get_count($model->subClassArray));
+
+    //登録データ
+    $query = knjb3042Query::getSchChair($model);
+    $result = $db->query($query);
+    $schChairArray = array();
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+        $setPeriCd = $model->periodArray[$row["PERIODCD"]]["PERI_YOMIKAE"];
+        $schChairArray[$row["EXECUTEDATE"]][$setPeriCd][$row["CHAIRCD"]] = $row;
+    }
+    $result->free();
+
+    //科目-講座
+    $query = knjb3042Query::getChairSubclass($model);
+    $result = $db->query($query);
+    $subclassChairArray = array();
+    $subClassList = array();
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+            $setSubclass = $row["SUBCLASSCD"];
+            $subclassChairArray[$row["CHAIRCD"]][$setSubclass] = "1";
+            if (!isset($subClassList[$setSubclass])) {
+                $subClassList[$setSubclass] = array();
+            }
+            $subClassList[$setSubclass][] = $row["CHAIRCD"];
+    }
+    $result->free();
+
+    //連続授業
+    $query = knjb3042Query::getChair2($model);
+    $result = $db->query($query);
+    $chairDataList = array();
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+        $chairDataList[$row["CHAIRCD"]]=array('FRAMECNT'=> $row['FRAMECNT'],'CHAIRNAME' =>$row['CHAIRNAME']);
+    }
+    $result->free();
+
+    $linkingObj = array();
+    $dipliObj = array();
+
+    //科目ループ
+    $subClassLoopCnt = get_count($model->subClassArray);
+    for ($lineCnt = 1; $lineCnt <= $subClassLoopCnt; $lineCnt++) {
+        $roopSubclassCd = $model->subClassArray[$lineCnt - 1]["VALUE"];
+        //日付ループ
+        foreach ($model->dateArray as $dateKey => $dateVal) {
+            $syoriBi = $dateVal["DATE"];
+            //校時ループ
+            foreach ($model->periodArray as $periKey => $periVal) {
+                $syoriPeri = $periVal["PERI_YOMIKAE"];
+                //時間割に現在の日付校時があるか
+                if (isset($schChairArray[$syoriBi][$syoriPeri])) {
+                    //現在の日付校時に登録されている講座ループ
+                    foreach ($schChairArray[$syoriBi][$syoriPeri] as $chairCd => $schChairVal) {
+                        //CHAIR_CLSに登録あり
+                        if ($subclassChairArray[$chairCd][$roopSubclassCd] == "1") {
+                            $dipliObj[$dateVal["DATE"]][$syoriPeri][]=$chairCd;
+                            if ($chairDataList[$chairCd]['FRAMECNT'] > 1) {
+                                $linkingTextParts = '';
+                                for ($i = 0; $i < $chairDataList[$chairCd]['FRAMECNT']; $i++) {
+                                    $setIdNameLinking = 'KOMA_'.$dateVal["RENBAN"]."_".(intval($syoriPeri)+$i)."_".$lineCnt;
+                                    $linkingTextParts.=$setIdNameLinking.',';
+                                }
+                                $linkingTextParts = trim($linkingTextParts,',');
+                                for ($i = 0; $i < $chairDataList[$chairCd]['FRAMECNT']; $i++) {
+                                    $setIdNameLinking = 'Linking_'.$dateVal["RENBAN"]."_".(intval($syoriPeri)+$i)."_".$lineCnt;
+                                    if (isset($linkingObj[$setIdNameLinking][$chairCd])) {
+                                        break;
+                                    }
+                                    $linkingObj[$setIdNameLinking][$chairCd]=$chairCd.':'.$linkingTextParts;
+                                }
+                            }
+                        }
+                    }
+                 }
+             }
+        }
+    }
+
+    $dipliObj2 = getDipliObj2($db, $model, $dipliObj);
+
+    $numMstArray = array();
+    $query = knjb3042Query::getZyukouNumMstAll($model);
+    $result = $db->query($query);
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+        $numMstArray[$row["CHAIRCD"]] = $row["REMARK1"];
+    }
+    $result->free();
+
+    //日付ループ
+    $numArray = array();
+    foreach ($model->dateArray as $dateKey => $dateVal) {
+        $syoriBi = $dateVal["DATE"];
+        $query = knjb3042Query::getZyukouNumAll($model, $syoriBi);
+        $result = $db->query($query);
+        while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+            $numArray[$syoriBi][$row["CHAIRCD"]] = false;
+            if (isset($numMstArray[$row["CHAIRCD"]])) {
+                if ($row["CNT"] > $numMstArray[$row["CHAIRCD"]]){
+                    $numArray[$syoriBi][$row["CHAIRCD"]] = true;
+                }
+            }
+        }
+        $result->free();
+    }
+
+    $model->chairList2 = array();
+    if (VARS::request("PROGRAMID") != "" || $model->cmd == "editCmb") {
+        $model->visibleLine = "";
+        $setSep = "";
+    }
+    //科目ループ
+    for ($lineCnt = 1; $lineCnt <= $subClassLoopCnt; $lineCnt++) {
+        $setGHData = array();
+        $roopSubclassCd = $model->subClassArray[$lineCnt - 1]["VALUE"];
+        $setGHData["TITLE_NAME"] = $roopSubclassCd."<BR>".$model->subClassArray[$lineCnt - 1]["SUBCLASSNAME"];
+        $arg["data"][] = $setGHData;
+        $setData2 = array();
+        if (isset($subClassList[$roopSubclassCd])) {
+            $model->chairList2[$lineCnt] = $subClassList[$roopSubclassCd];
+        }
+        if (VARS::request("PROGRAMID") != "" || $model->cmd == "editCmb") {
+            $model->visibleLine .= $setSep.($lineCnt - 1);
+            $setSep = ",";
+        }
+        //日付ループ
+        foreach ($model->dateArray as $dateKey => $dateVal) {
+            $syoriBi = $dateVal["DATE"];
+            //校時ループ
+            foreach ($model->periodArray as $periKey => $periVal) {
+                $setChairVal = "";
+                $chairValSep = "";
+                $syoriPeri = $periVal["PERI_YOMIKAE"];
+                $setIdName = $dateVal["RENBAN"]."_".$syoriPeri."_".$lineCnt;
+                $lineDisp = "";
+                $dataTestSep = '';
+                //時間割に現在の日付校時があるか
+                if (isset($schChairArray[$syoriBi][$syoriPeri])) {
+                    $dispCnt = 0;
+                    $dataDef= '';
+                    $dispChair = '';
+                    $dataText = '';
+                    $dataTest = '';
+                    $dataExec = '';
+                    $dataZyukou = '';
+                    $dataDepli = '';
+                    $testBoxClass = '';
+                    //現在の日付校時に登録されている講座ループ
+                    foreach ($schChairArray[$syoriBi][$syoriPeri] as $chairCd => $schChairVal) {
+                        //CHAIR_CLSに登録あり
+                        if ($subclassChairArray[$chairCd][$roopSubclassCd] == "1") {
+                            if ($dipliObj2[$dateVal["DATE"].'_'.$syoriPeri.'_'.$chairCd] == 1) {
+                                $dataDepli='重';
+                            }
+                            $dispCnt++;
+                            if ($dispCnt > 1) {
+                                $dispChair = $dispCnt."件のデータ".'<br>'.$dataDepli;
+                            } else {
+                                $dispChair = $chairCd."<BR>".$schChairVal["CHAIRABBV"].'<br>'.$dataDepli;
+                            }
+                            $dataText .= $chairCd."<BR>".$schChairVal["CHAIRABBV"].',';
+                            $setChairVal .= $chairValSep.$chairCd;
+                            $chairValSep = ":";
+                            $dataTest .= $dataTestSep.(($schChairVal["DATADIV"] == '2') ? $schChairVal["TESTKINDCD"].$schChairVal["TESTITEMCD"] : '0');
+                            $dataExec .= $dataTestSep.$schChairVal['EXECUTED'];
+                            $dataZyukou .= $dataTestSep.($numArray[$syoriBi][$chairCd] ? 'zyukou_box' : '0');
+                            $dataDef .= $dataTestSep.$syoriBi.'_'.$syoriPeri.'_'.$chairCd.'_'.(($schChairVal["DATADIV"]=='2')?$schChairVal["TESTKINDCD"].$schChairVal["TESTITEMCD"]:'0').'_'.$lineCnt;
+                            $dataTestSep = ',';
+                            if ($schChairVal["DATADIV"] == '2') {
+                                $testBoxClass='test_box';
+                            }
+                        }
+                    }
+                    
+                    $linkingText = '';
+                    if (isset($linkingObj['Linking_'.$setIdName])) {
+                        foreach ($linkingObj['Linking_'.$setIdName] as $chairCd => $value2) {
+                            $linkingText .= $value2.'/';
+                        }
+                        $linkingText = trim($linkingText,'/');
+                    }
+
+                    $addClass = makeAddClass($dataExec, $dataZyukou, $dispChair);
+
+                    $dataText = rtrim($dataText,',');
+                    //$dispChair = $dataExec;
+                    $lineDisp = "<td id=\"KOMA_{$setIdName}\" style=\"cursor:move;\" draggable=\"true\" class=\"targetbox {$addClass}\" data-zyukou=\"{$dataZyukou}\" data-text=\"{$dataText}\" data-val=\"{$setChairVal}\" data-def=\"{$dataDef}\" data-test=\"{$dataTest}\" data-exec=\"{$dataExec}\" data-linking=\"{$linkingText}\">{$dispChair}</td>\n";
+                } else {
+                    $dispChair = "";
+                    $lineDisp = "<td id=\"KOMA_{$setIdName}\" style=\"cursor:move;\" draggable=\"true\" class=\"targetbox\" data-zyukou=\"\" data-text=\"\" data-val=\"\" data-def=\"\" data-test=\"\" data-exec=\"\" data-linking=\"\">{$dispChair}</td>\n";
+                }
+                $setData2[] = $lineDisp;
+            }
+        }
+        $arg["data2"][]["LISTDATA"] = join('', $setData2);
+    }
+    $arg["setWidth"] = get_count($model->dateArray) * get_count($model->periodArray) * 110;
+}
+
+
+function setChairDispData(&$objForm, &$arg, $db, &$model)
+{
+    //講座
+    $query = knjb3042Query::getChair2($model);
+    $result = $db->query($query);
+    $model->chairArray = array();
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)){
+        $model->chairArray[] = $row;
+    }
+    $result->free();
+
+    //hidden
+    knjCreateHidden($objForm, "MAX_LINE", get_count($model->chairArray));
+
+    //登録データ
+    $query = knjb3042Query::getSchChair($model);
+    $result = $db->query($query);
+    $schChairArray = array();
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+        $setPeriCd = $model->periodArray[$row["PERIODCD"]]["PERI_YOMIKAE"];
+        $schChairArray[$row["EXECUTEDATE"]][$setPeriCd][$row["CHAIRCD"]] = $row;
+    }
+    $result->free();
+
+    //講座
+    $query = knjb3042Query::getChair2($model);
+    $result = $db->query($query);
+    $chairChairArray = array();
+    $chairList = array();
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+            $setChair = $row["CHAIRCD"];
+            $chairChairArray[$row["CHAIRCD"]][$setChair] = "1";
+            if (!isset($chairList[$setChair])) {
+                $chairList[$setChair] = array();
+            }
+            $chairList[$setChair][] = $row["CHAIRCD"];
+    }
+    $result->free();
+
+    //連続授業
+    $query = knjb3042Query::getChair2($model);
+    $result = $db->query($query);
+    $chairDataList = array();
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+        $chairDataList[$row["CHAIRCD"]]=array('FRAMECNT'=> $row['FRAMECNT'],'CHAIRNAME' =>$row['CHAIRNAME']);
+    }
+    $result->free();
+
+    $linkingObj = array();
+    $dipliObj = array();
+
+    //講座ループ
+    $chairLoopCnt = get_count($model->chairArray);
+    for ($lineCnt = 1; $lineCnt <= $chairLoopCnt; $lineCnt++) {
+        $roopChairCd = $model->chairArray[$lineCnt - 1]["CHAIRCD"];
+        //日付ループ
+        foreach ($model->dateArray as $dateKey => $dateVal) {
+            $syoriBi = $dateVal["DATE"];
+            //校時ループ
+            foreach ($model->periodArray as $periKey => $periVal) {
+                $syoriPeri = $periVal["PERI_YOMIKAE"];
+                //時間割に現在の日付校時があるか
+                if (isset($schChairArray[$syoriBi][$syoriPeri])) {
+                    //現在の日付校時に登録されている講座ループ
+                    foreach ($schChairArray[$syoriBi][$syoriPeri] as $chairCd => $schChairVal) {
+                        //CHAIR_CLSに登録あり
+                        if ($chairChairArray[$chairCd][$roopChairCd] == "1") {
+                            $dipliObj[$dateVal["DATE"]][$syoriPeri][]=$chairCd;
+                            if ($chairDataList[$chairCd]['FRAMECNT'] > 1) {
+                                $linkingTextParts = '';
+                                for ($i = 0; $i < $chairDataList[$chairCd]['FRAMECNT']; $i++) {
+                                    $setIdNameLinking = 'KOMA_'.$dateVal["RENBAN"]."_".(intval($syoriPeri)+$i)."_".$lineCnt;
+                                    $linkingTextParts.=$setIdNameLinking.',';
+                                }
+                                $linkingTextParts = trim($linkingTextParts,',');
+                                for ($i = 0; $i < $chairDataList[$chairCd]['FRAMECNT']; $i++) {
+                                    $setIdNameLinking = 'Linking_'.$dateVal["RENBAN"]."_".(intval($syoriPeri)+$i)."_".$lineCnt;
+                                    if (isset($linkingObj[$setIdNameLinking][$chairCd])) {
+                                        break;
+                                    }
+                                    $linkingObj[$setIdNameLinking][$chairCd]=$chairCd.':'.$linkingTextParts;
+                                }
+                            }
+                        }
+                    }
+                 }
+             }
+        }
+    }
+
+    $dipliObj2 = getDipliObj2($db, $model, $dipliObj);
+
+    $numMstArray = array();
+    $query = knjb3042Query::getZyukouNumMstAll($model);
+    $result = $db->query($query);
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+        $numMstArray[$row["CHAIRCD"]] = $row["REMARK1"];
+    }
+    $result->free();
+
+    //日付ループ
+    $numArray = array();
+    foreach ($model->dateArray as $dateKey => $dateVal) {
+        $syoriBi = $dateVal["DATE"];
+        $query = knjb3042Query::getZyukouNumAll($model, $syoriBi);
+        $result = $db->query($query);
+        while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+            $numArray[$syoriBi][$row["CHAIRCD"]] = false;
+            if (isset($numMstArray[$row["CHAIRCD"]])) {
+                if ($row["CNT"] > $numMstArray[$row["CHAIRCD"]]){
+                    $numArray[$syoriBi][$row["CHAIRCD"]] = true;
+                }
+            }
+        }
+        $result->free();
+    }
+
+    $model->chairList2 = array();
+    if (VARS::request("PROGRAMID") != "" || $model->cmd == "editCmb") {
+        $model->visibleLine = "";
+        $setSep = "";
+    }
+    //講座ループ
+    for ($lineCnt = 1; $lineCnt <= $chairLoopCnt; $lineCnt++) {
+        $setGHData = array();
+        $roopChairCd = $model->chairArray[$lineCnt - 1]["CHAIRCD"];
+        $setGHData["TITLE_NAME"] = $roopChairCd."<BR>".$model->chairArray[$lineCnt - 1]["CHAIRNAME"];
+        $arg["data"][] = $setGHData;
+        $setData2 = array();
+        if (isset($chairList[$roopChairCd])) {
+            $model->chairList2[$lineCnt] = $chairList[$roopChairCd];
+        }
+        if (VARS::request("PROGRAMID") != "" || $model->cmd == "editCmb") {
+            $model->visibleLine .= $setSep.($lineCnt - 1);
+            $setSep = ",";
+        }
+        //日付ループ
+        foreach ($model->dateArray as $dateKey => $dateVal) {
+            $syoriBi = $dateVal["DATE"];
+            //校時ループ
+            foreach ($model->periodArray as $periKey => $periVal) {
+                $setChairVal = "";
+                $chairValSep = "";
+                $syoriPeri = $periVal["PERI_YOMIKAE"];
+                $setIdName = $dateVal["RENBAN"]."_".$syoriPeri."_".$lineCnt;
+                $lineDisp = "";
+                $dataTestSep = '';
+                //時間割に現在の日付校時があるか
+                if (isset($schChairArray[$syoriBi][$syoriPeri])) {
+                    $dispCnt = 0;
+                    $dataDef= '';
+                    $dispChair = '';
+                    $dataText = '';
+                    $dataTest = '';
+                    $dataExec = '';
+                    $dataZyukou = '';
+                    $dataDepli = '';
+                    $testBoxClass = '';
+                    //現在の日付校時に登録されている講座ループ
+                    foreach ($schChairArray[$syoriBi][$syoriPeri] as $chairCd => $schChairVal) {
+                        //CHAIR_CLSに登録あり
+                        if ($chairChairArray[$chairCd][$roopChairCd] == "1") {
+                            if ($dipliObj2[$dateVal["DATE"].'_'.$syoriPeri.'_'.$chairCd] == 1) {
+                                $dataDepli='重';
+                            }
+                            $dispCnt++;
+                            if ($dispCnt > 1) {
+                                $dispChair = $dispCnt."件のデータ".'<br>'.$dataDepli;
+                            } else {
+                                $dispChair = $chairCd."<BR>".$schChairVal["CHAIRABBV"].'<br>'.$dataDepli;
+                            }
+                            $dataText .= $chairCd."<BR>".$schChairVal["CHAIRABBV"].',';
+                            $setChairVal .= $chairValSep.$chairCd;
+                            $chairValSep = ":";
+                            $dataTest .= $dataTestSep.(($schChairVal["DATADIV"] == '2') ? $schChairVal["TESTKINDCD"].$schChairVal["TESTITEMCD"] : '0');
+                            $dataExec .= $dataTestSep.$schChairVal['EXECUTED'];
+                            $dataZyukou .= $dataTestSep.($numArray[$syoriBi][$chairCd] ? 'zyukou_box' : '0');
+                            $dataDef .= $dataTestSep.$syoriBi.'_'.$syoriPeri.'_'.$chairCd.'_'.(($schChairVal["DATADIV"]=='2')?$schChairVal["TESTKINDCD"].$schChairVal["TESTITEMCD"]:'0').'_'.$lineCnt;
+                            $dataTestSep = ',';
+                            if ($schChairVal["DATADIV"] == '2') {
+                                $testBoxClass='test_box';
+                            }
+                        }
+                    }
+                    
+                    $linkingText = '';
+                    if (isset($linkingObj['Linking_'.$setIdName])) {
+                        foreach ($linkingObj['Linking_'.$setIdName] as $chairCd => $value2) {
+                            $linkingText .= $value2.'/';
+                        }
+                        $linkingText = trim($linkingText,'/');
+                    }
+
+                    $addClass = makeAddClass($dataExec, $dataZyukou, $dispChair);
+
+                    $dataText = rtrim($dataText,',');
+                    //$dispChair = $dataExec;
+                    $lineDisp = "<td id=\"KOMA_{$setIdName}\" style=\"cursor:move;\" draggable=\"true\" class=\"targetbox {$addClass}\" data-zyukou=\"{$dataZyukou}\" data-text=\"{$dataText}\" data-val=\"{$setChairVal}\" data-def=\"{$dataDef}\" data-test=\"{$dataTest}\" data-exec=\"{$dataExec}\" data-linking=\"{$linkingText}\">{$dispChair}</td>\n";
+                } else {
+                    $dispChair = "";
+                    $lineDisp = "<td id=\"KOMA_{$setIdName}\" style=\"cursor:move;\" draggable=\"true\" class=\"targetbox\" data-zyukou=\"\" data-text=\"\" data-val=\"\" data-def=\"\" data-test=\"\" data-exec=\"\" data-linking=\"\">{$dispChair}</td>\n";
+                }
+                $setData2[] = $lineDisp;
+            }
+        }
+        $arg["data2"][]["LISTDATA"] = join('', $setData2);
+    }
+    $arg["setWidth"] = get_count($model->dateArray) * get_count($model->periodArray) * 110;
+}
+
+function getDipliObj2(&$db, &$model, $dipliObj) {
+
+//3秒
+$endTime = microtime();
+$calTime = diffmicrotime($endTime, $time_start);
+echo "{$calTime} 秒";
+
+    // 日付 → 校時 → 連番 ＝ 講座
+    foreach ($dipliObj as $targetDay => $value) {
+        if(!isset($model->zyuuhukuArray[$targetDay])){
+            $query = knjb3042Query::getMeiboZyuuhukuPHP($model,$targetDay);
+            $result = $db->query($query);
+            while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+                $model->zyuuhukuArray[$targetDay][$row['CHAIRCD']][$row['SCHREGNO']] = 1;
+            }
+        }
+        
+        $checkZumiArray1 = $checkZumiArray2 = array();
+        foreach ($value as $kouzi => $chairCdList) {
+        
+            for ($chairCnt1 = 0; $chairCnt1 < get_count($chairCdList); $chairCnt1++) {
+                for ($chairCnt2 = 0; $chairCnt2 < get_count($chairCdList); $chairCnt2++) {
+                    //自分自身のチェックはしない
+                    if ($chairCnt1 == $chairCnt2) {
+                        continue;
+                    }
+                    if ($checkZumiArray1[$chairCdList[$chairCnt1]][$chairCdList[$chairCnt2]] == 1) {
+                        continue;
+                    }
+                    if ($checkZumiArray1[$chairCdList[$chairCnt2]][$chairCdList[$chairCnt1]] == 1) {
+                        continue;
+                    }
+                    $checkZumiArray1[$chairCdList[$chairCnt1]][$chairCdList[$chairCnt2]] = 1;
+                    $checkZumiArray2[$chairCdList[$chairCnt2]][$chairCdList[$chairCnt1]] = 1;
+                    $flag=false;
+                    if(isset($model->zyuuhukuArray[$targetDay][$chairCdList[$chairCnt1]])){
+                        foreach ($model->zyuuhukuArray[$targetDay][$chairCdList[$chairCnt1]] as $schregNo => $value3) {
+                            if (isset($model->zyuuhukuArray[$targetDay][$chairCdList[$chairCnt2]][$schregNo])) {
+                                $flag = true;
+                                break;
+                            }
+                        }
+                    }
+                    if ($flag) {
+                        if (!isset($dipliObj2[$targetDay.'_'.$kouzi.'_'.$chairCdList[$chairCnt1]])) {
+                            $dipliObj2[$targetDay.'_'.$kouzi.'_'.$chairCdList[$chairCnt1]] = 1;
+                        }
+                        if (!isset($dipliObj2[$targetDay.'_'.$kouzi.'_'.$chairCdList[$chairCnt2]])) {
+                            $dipliObj2[$targetDay.'_'.$kouzi.'_'.$chairCdList[$chairCnt2]] = 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+$endTime = microtime();
+$calTime = diffmicrotime($endTime, $time_start);
+echo "{$calTime} 秒";
+
+    return $dipliObj2;
+}
+?>

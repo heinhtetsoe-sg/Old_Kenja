@@ -1,0 +1,416 @@
+{rval start}
+<style type="text/css">
+#GAIKOKUGO {
+    float:left;
+    margin-left:10px;
+    width:{rval GAIKOKUGO_WITH}px;
+    height:120px;
+    font-size:1em;
+}
+
+#KOKUGOZENNTAI {
+    float:left;
+    margin-left:50px;
+    width:145px;
+    height:120px;
+}
+
+#KOKUGO {
+    float:left;
+    margin-left:10px;
+    width:{rval KOKUGO_WITH}px;
+    height:120px;
+}
+
+#SUUGAKU {
+    float:left;
+    margin-left:10px;
+    width:{rval SUUGAKU_WITH}px;
+    height:120px;
+}
+
+#SYAKAI {
+    float:left;
+    margin-left:10px;
+    width:{rval SYAKAI_WITH}px;
+    height:190px;
+}
+
+#GOUKEI {
+    margin-left:{rval GOUKEI_MARGIN}px;
+    width:200px;
+    height:120px;
+}
+
+#RIKA1 {
+    float:left;
+    margin-left:10px;
+    width:{rval RIKA1_WITH}px;
+    height:120px;
+}
+
+#RIKA2 {
+    float:left;
+    margin-left:-2px;
+    width:{rval RIKA2_WITH}px;
+    height:170px;
+}
+
+td[rowspan] {
+    line-height:1em;
+    background-color:#006400;
+    color:white;
+}
+
+td[colspan] {
+    font-size: 0.9em;
+    line-height:0.5em;
+    text-align:center;
+}
+
+.kamokuTitle80 {
+    font-size: 0.9em;
+    line-height:1.1em;
+    width:80px;
+}
+
+.kamokuTitle60 {
+    font-size: 0.9em;
+    line-height:1.1em;
+    width:60px;
+}
+
+.tokuten {
+    color:black;
+    background-color:white;
+    text-align:center;
+    height:40px;
+}
+
+.goukeiTitle {
+    color:black;
+    background-color:white;
+    width:80px;
+}
+
+.sentakuTitle {
+    color:black;
+    background-color:white;
+    line-height:1em;
+    text-align:center;
+    font-size: 0.8em;
+}
+
+.sentaku {
+    color:black;
+    background-color:white;
+    text-align:center;
+}
+
+.clearfix {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.scoreText {
+    text-align: right;
+}
+</style>
+
+<table width="{rval ZENTAI_WITH}px" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+            <tr > 
+              <td >
+                 <hr width="80%" align="left">
+                    {rval HR_ATTEND}&nbsp;&nbsp;{rval NAME}　文理：{rval BUNRIDIV}　共通テスト欠席{rval CENTER_ABSENT}　採点欠席{rval MARK_ABSENT}
+                 <hr width="80%" align="left">
+              </td>
+            </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<div id="GAIKOKUGO">
+  <table width="100%" border="0" cellspacing="1" cellpadding="0" class="no_search_line">
+    <tr class="no_search_line">
+    <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="10">
+        <tr style="background-color:#ADFF2F">
+          <td rowspan="2">
+            外<BR>国<BR>語
+          </td>
+          <!--{each CLASS01}-->
+          <td class="kamokuTitle80">
+            {rval CLASS01/RENBAN}<BR>{rval CLASS01/SUBCLASS_NAME}<BR>({rval CLASS01/PERFECT}点満点)
+          </td>
+          <!--{/each}-->
+        </tr>
+        <tr class="no_search">
+          <!--{each CLASS01}-->
+          <td class="tokuten">
+            {rval CLASS01/SCORE}
+          </td>
+          <!--{/each}-->
+        </tr>
+      </table>
+    </td>
+    </tr>
+  </table>
+</div>
+
+<div id="KOKUGOZENNTAI">
+  <table width="100%" border="0" cellspacing="1" cellpadding="0" class="no_search_line">
+    <tr class="no_search_line">
+    <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="10">
+        <tr style="background-color:#ADFF2F">
+          <td rowspan="2">
+            国<BR>語<BR>全<BR>体
+          </td>
+          <td class="kamokuTitle80">
+            {rval KOKUGOZENNTAI/RENBAN}<BR>国語<BR>({rval KOKUGOZENNTAI/PERFECT}点満点)
+          </td>
+        </tr>
+        <tr class="no_search">
+          <td class="tokuten">
+            {rval KOKUGOZENNTAI/SCORE}
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+  </table>
+</div>
+
+<div id="KOKUGO">
+  <table width="100%" border="0" cellspacing="1" cellpadding="0" class="no_search_line">
+    <tr class="no_search_line">
+    <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="10">
+        <tr style="background-color:#ADFF2F">
+          <td rowspan="2" style="font-size:0.9em;">
+            国<BR>語<BR>の<BR>内<BR>訳
+          </td>
+          <!--{each CLASS02}-->
+          <td class="kamokuTitle80">
+            {rval CLASS02/RENBAN}<BR>{rval CLASS02/SUBCLASS_NAME}<BR>({rval CLASS02/PERFECT}点満点)
+          </td>
+          <!--{/each}-->
+        </tr>
+        <tr class="no_search">
+          <!--{each CLASS02}-->
+          <td class="tokuten">
+            {rval CLASS02/SCORE}
+          </td>
+          <!--{/each}-->
+        </tr>
+      </table>
+    </td>
+    </tr>
+  </table>
+</div>
+
+<div class="clearfix">
+</div>
+
+<div id="SUUGAKU">
+  <table width="100%" border="0" cellspacing="1" cellpadding="0" class="no_search_line">
+    <tr class="no_search_line">
+    <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="10">
+        <tr style="background-color:#ADFF2F">
+          <td rowspan="2">
+            数<BR>学
+          </td>
+          <!--{each CLASS03}-->
+          <td class="kamokuTitle80">
+            {rval CLASS03/RENBAN}<BR>{rval CLASS03/SUBCLASS_NAME}<BR>({rval CLASS03/PERFECT}点満点)
+          </td>
+          <!--{/each}-->
+        </tr>
+        <tr class="no_search">
+          <!--{each CLASS03}-->
+          <td class="tokuten">
+            {rval CLASS03/SCORE}
+          </td>
+          <!--{/each}-->
+        </tr>
+      </table>
+    </td>
+    </tr>
+  </table>
+</div>
+
+<div id="GOUKEI">
+  <table width="100%" border="0" cellspacing="1" cellpadding="0" class="no_search_line">
+    <tr class="no_search_line">
+    <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="10">
+        <!--{each GOUKEI}-->
+        <tr style="background-color:#ADFF2F">
+          <td class="goukeiTitle">
+            {rval GOUKEI/NAME}
+          </td>
+          <td class="tokuten">
+            {rval GOUKEI/SCORE}
+          </td>
+        </tr>
+        <!--{/each}-->
+      </table>
+    </td>
+    </tr>
+  </table>
+</div>
+
+<div class="clearfix">
+</div>
+
+<div id="SYAKAI">
+  <table width="100%" border="0" cellspacing="1" cellpadding="0" class="no_search_line">
+    <tr class="no_search_line">
+    <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="10">
+        <tr style="background-color:#ADFF2F">
+          <td rowspan="3">
+            社<BR>会
+          </td>
+          <td colspan={rval SYAKAI_COL}>
+            地歴・公民グループ(各100点満点)
+          </td>
+        </tr>
+
+        <tr style="background-color:#ADFF2F">
+          <!--{each CLASS04}-->
+          <td class="kamokuTitle60">
+            {rval CLASS04/RENBAN}<BR>{rval CLASS04/SUBCLASS_NAME}
+          </td>
+          <!--{/each}-->
+        </tr>
+
+        <tr class="no_search">
+          <!--{each CLASS04}-->
+          <td class="tokuten">
+            {rval CLASS04/SCORE}
+          </td>
+          <!--{/each}-->
+        </tr>
+        <tr class="no_search">
+          <td class="sentakuTitle">
+            第<BR>1
+          </td>
+          <!--{each CLASS04}-->
+          <td class="sentaku">
+            {rval CLASS04/CHECK}
+          </td>
+          <!--{/each}-->
+        </tr>
+      </table>
+    </td>
+    </tr>
+  </table>
+</div>
+
+<div class="clearfix">
+</div>
+
+<div id="RIKA1">
+  <table width="100%" border="0" cellspacing="1" cellpadding="0" class="no_search_line">
+    <tr class="no_search_line">
+    <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="10">
+        <tr style="background-color:#ADFF2F">
+          <td rowspan="3">
+            理<BR>科
+          </td>
+          <td colspan={rval RIKA1_COL}>
+            理科①グループ(各50点満点)
+          </td>
+        </tr>
+        <tr style="background-color:#ADFF2F">
+          <!--{each CLASS05}-->
+          <td class="kamokuTitle60">
+            {rval CLASS05/RENBAN}<BR>{rval CLASS05/SUBCLASS_NAME}
+          </td>
+          <!--{/each}-->
+        </tr>
+        <tr class="no_search">
+          <!--{each CLASS05}-->
+          <td class="tokuten">
+            {rval CLASS05/SCORE}
+          </td>
+          <!--{/each}-->
+        </tr>
+      </table>
+    </td>
+    </tr>
+  </table>
+</div>
+
+<div id="RIKA2">
+  <table width="100%" border="0" cellspacing="1" cellpadding="0" class="no_search_line">
+    <tr class="no_search_line">
+    <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="10">
+        <tr style="background-color:#ADFF2F">
+          <td rowspan="3">
+          
+          </td>
+          <td colspan={rval RIKA2_COL}>
+            理科②グループ(各100点満点)
+          </td>
+        </tr>
+        <tr style="background-color:#ADFF2F">
+          <!--{each CLASS06}-->
+          <td class="kamokuTitle60">
+            {rval CLASS06/RENBAN}<BR>{rval CLASS06/SUBCLASS_NAME}
+          </td>
+          <!--{/each}-->
+        </tr>
+        <tr class="no_search">
+          <!--{each CLASS06}-->
+          <td class="tokuten">
+            {rval CLASS06/SCORE}
+          </td>
+          <!--{/each}-->
+        </tr>
+        <tr class="no_search">
+          <td class="sentakuTitle">
+            第<BR>1
+          </td>
+          <!--{each CLASS06}-->
+          <td class="sentaku">
+            {rval CLASS06/CHECK}
+          </td>
+          <!--{/each}-->
+        </tr>
+      </table>
+    </td>
+    </tr>
+  </table>
+</div>
+
+<div class="clearfix">
+</div>
+
+<table width="{rval ZENTAI_WITH}px" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+            <tr > 
+              <td >
+                  {rval button/btn_update}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_end}
+              </td>
+            </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="javascript">{rval reload}{rval next}</script>

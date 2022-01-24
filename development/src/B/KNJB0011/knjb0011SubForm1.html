@@ -1,0 +1,82 @@
+{rval start}
+<style type="text/css">
+body {
+    padding:0 5px;
+}
+tr#haba td{
+    height:34px;
+}
+#tyousei {
+    height : 55px;
+}
+</style>
+
+<!--[if IE 6]>
+<style type="text/css">
+#tyousei {
+    height : 56px;
+}
+</style>
+<![endif]-->
+
+<table width="500px" border="0" cellspacing="0" cellpadding="0" style="margin-bottom:10px;">
+    <tr>
+        <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#255476">
+                <tr class="no_search" nowrap>
+                    <td>
+                        &nbsp;&nbsp;{rval HR_NAME}{rval ATTENDNO}：{rval NAME}&nbsp;&nbsp;講座適用開始日：{rval APPDATE}
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<table width="1090px" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <th align="LEFT">
+            <div id="trow" style="overflow:hidden; width:1090px;">
+                <table border="0" cellspacing="1" cellpadding="3" bgcolor="#255476" style="width:{rval TOTAL_WIDTH}px; margin-right:740px;">
+                    <tr class="no_search">
+                    <!--{each GROUP}-->
+                        <td {rval GROUP/COLOR} colspan="{rval GROUP/CNT}" style="width:{rval GROUP/SIZE}px; align="center">{rval GROUP/GROUPNAME}</td>
+                    <!--{/each}-->
+                    </tr>
+                    <tr class="no_search" id="haba">
+                    <!--{each CHAIRABBV}-->
+                        <td {rval CHAIRABBV/COLOR} style="width:50px; font-size: 11px;">{rval CHAIRABBV/CHAIRCD}<BR>{rval CHAIRABBV/CHAIRNAME}</td>
+                    <!--{/each}-->
+                    </td>
+                </table>
+            </div>
+        </th>
+    </tr>
+    <tr valign="TOP">
+        <th>
+            <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width:1108px;">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#255476" style="width: {rval TOTAL_WIDTH}px; " id="list_table">
+                    <!--{each attend_data}-->
+                    <tr align="center" nowrap height="30">
+                        {rval attend_data/TD}
+                    </tr>
+                    <!--{/each}-->
+                </table>
+            </div>
+        </th>
+    </tr>
+    <tr>
+        <th align="right" colspan="2">
+            <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#255476">
+                <tr class="no_search" align="right" nowrap>
+                    <td>
+                        {rval btn_update}
+                        {rval btn_end}
+                    </td>
+                </tr>
+            </table>
+        </th>
+    </tr>
+</table>
+{rval finish}
+

@@ -1,0 +1,170 @@
+{rval start}
+<style>
+.tatamu{
+    display: none;
+}
+.normalTitle{
+     width:430px;
+     text-align:right;
+}
+.normalTitleMeiseai{
+     width:430px;
+     text-align:right;
+     background-color:white;
+}
+.normalData{
+     width:120px;
+     text-align:right;
+     background-color:white;
+}
+</style>
+<table width="600px" border="0" cellspacing="0" cellpadding="10">
+
+  <tr>
+  <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line">
+        <td>
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search_line">
+            <td colspan="2" class="no_search" >　{rval YEAR}年{rval MONTH_CMB}　　{rval SCHREGNO}&nbsp;&nbsp;{rval NAME_SHOW}</td>
+          </tr>
+          </table>
+        </td>
+      </tr>
+      </table>
+  </td>
+  </tr>
+
+  <tr>
+  <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line">
+        <td>
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+              <tr>
+                <th class="no_search normalTitle">総合計&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                <td class="no_search"></td>
+              </tr>
+
+              <tr>
+                <th class="no_search normalTitle">入金額&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                <td class="normalData">{rval TOTAL_INCOME_MONEY}</td>
+              </tr>
+
+              <tr>
+                <th class="no_search normalTitle">支出額&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                <td class="normalData">{rval TOTAL_OUTGO_MONEY}</td>
+              </tr>
+
+              <tr>
+                <th class="no_search normalTitle">差額</th>
+                <td class="normalData">{rval TOTAL_DIFFERENCE_MONEY}</td>
+              </tr>
+
+
+          </table>
+        </td>
+      </tr>
+      </table>
+  </td>
+  </tr>
+
+  <tr class="accordion">
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+            <!--{each data}-->
+              <tr>
+                <th class="no_search normalTitle">{rval data/L_NAME}&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                <td align="left" class="no_search" width="120px"></td>
+              </tr>
+
+              <tr class="tojiru" data-lcd="paid{rval data/LCD}">
+                <th class="no_search normalTitle">入金額　▼</th>
+                <td class="normalData">{rval data/INCOME_MONEY}</td>
+              </tr>
+
+              <tbody class="tatamu" id="paid{rval data/LCD}">
+                  <!--{each data/dataPaid}-->
+                  <tr>
+                    <th class="normalTitleMeiseai">{rval data/dataPaid/INCOME_M_NAME}</th>
+                    <td class="normalData">{rval data/dataPaid/INCOME_M_MONEY}</td>
+                  </tr>
+                  <!--{/each}-->
+              </tbody>
+
+              <tr class="tojiru" data-lcd="levy{rval data/LCD}">
+                <th class="no_search normalTitle">支出額　▼</th>
+                <td class="normalData">{rval data/OUTGO_MONEY}</td>
+              </tr>
+
+              <tbody class="tatamu" id="levy{rval data/LCD}">
+                  <!--{each data/dataLevy}-->
+                  <tr>
+                    <th class="normalTitleMeiseai">{rval data/dataLevy/OUTGO_S_NAME}</th>
+                    <td class="normalData">{rval data/dataLevy/OUTGO_S_MONEY}</td>
+                  </tr>
+                  <!--{/each}-->
+              </tbody>
+
+              <tr>
+                <th class="no_search normalTitle">差額</th>
+                <td class="normalData">{rval data/DIFFERENCE_MONEY}</td>
+              </tr>
+
+              <!--{def data/nextAri}-->
+              <tr>
+                <td colspan="2" bgcolor="#ffffff"></td>
+              </tr>
+              <!--{/def}-->
+
+            <!--{/each}-->
+
+            </table>
+
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th class="no_search normalTitle">&nbsp;</th>
+                <td class="normalData">{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">
+$(function() {
+	$('.accordion .tojiru').click(function() {
+        var accordionName = $(this)[0].getAttribute('data-lcd');
+        $('#' + accordionName).toggle();
+
+        if ($(this).find('th')[0].innerHTML.indexOf('▼') !== -1) {
+            $(this).find('th')[0].innerHTML = $(this).find('th')[0].innerHTML.replace('▼', '▲');
+        } else {
+            $(this).find('th')[0].innerHTML = $(this).find('th')[0].innerHTML.replace('▲', '▼');
+        }
+	});
+});
+</script>

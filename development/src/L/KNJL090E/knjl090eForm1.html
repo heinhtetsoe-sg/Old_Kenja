@@ -1,0 +1,312 @@
+{rval IFRAME}
+{rval start}
+<style>
+.tdVal {
+    height: 25px;
+    background-color:#ffffff;
+    color:black;
+}
+</style>
+<table align="center" width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th nowrap width="152" align="right">※ 入試年度</th>
+                            <td nowrap width="100" bgcolor="#ffffff" style="color:black; text-align:center">{rval TOP/YEAR}</td>
+                            <th nowrap width="100">※ 入試制度</th>
+                            <td nowrap width="150" class="tdVal">{rval data/APPLICANTDIV}</td>
+                            <th nowrap width="100">※ 入試区分</th>
+                            <td nowrap width="120" class="tdVal">{rval data/TESTDIV}</td>
+                            <th nowrap width="100">※ 受験番号</th>
+                            <td nowrap width="*" class="tdVal">&nbsp;{rval data/EXAMNO}&nbsp;{rval button/btn_reference}{rval button/btn_kana_reference}&nbsp;{rval button/btn_back_next}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- 志願者情報 -->
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line" >
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th width="30" rowspan="3">志<br><br>願<br><br>者<br><br>情<br><br>報</th>
+                            <th width="115" align="right">氏名</th>
+                            <td width="500" class="tdVal">{rval data/NAME}</td>
+                            <th width="100" align="right">性別</th>
+                            <td class="tdVal">{rval data/SEX}</td>
+                          </tr>
+                          <tr class="no_search">
+                            <th align="right">氏名カナ</th>
+                            <td class="tdVal">{rval data/NAME_KANA}</td>
+                            <th align="right">生年月日</th>
+                            <td class="tdVal">{rval data/BIRTHDAY}</td>
+                          </tr>
+                          <tr class="no_search">
+                            <th align="right">出身学校</th>
+                            <td class="tdVal">{rval data/FINSCHOOLNAME}</td>
+                            <th align="right">卒業年月</th>
+                            <td class="tdVal">{rval data/FS_DAY}&nbsp;{rval data/FS_GRDDIV}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- 併願情報 -->
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th width="80" nowrap>併願状況</th>
+                            <th width="150" nowrap>入試区分</th>
+                            <th width="100" nowrap>受験番号</th>
+                            <th width="150" nowrap>受験区分</th>
+                            <th width="150" nowrap>受験コース</th>
+                            <th width="100" nowrap>合格区分</th>
+                            <th width="150" nowrap>合格コース</th>
+                            <th width="150" nowrap>出願専攻</th>
+                            <th width="150" nowrap>合否</th>
+                            <th width="*"   nowrap>入学コース</th>
+                          </tr>
+                          <tr class="no_search" height="25">
+                            <th align="right">併願１</th>
+                            <td class="tdVal">{rval data/H_TESTDIV_1}</td>
+                            <td class="tdVal">{rval data/H_EXAMNO_1}</td>
+                            <td class="tdVal">{rval data/H_TESTDIV1_1}</td>
+                            <td class="tdVal">{rval data/H_DESIREDIV_1}</td>
+                            <td class="tdVal">{rval data/H_PASS_DIV_1}</td>
+                            <td class="tdVal">{rval data/H_PASS_COURSE_1}</td>
+                            <td class="tdVal">{rval data/H_HOPE_1}</td>
+                            <td class="tdVal">{rval data/H_JUDGEMENT_1}</td>
+                            <td class="tdVal">{rval data/H_ENT_COURSE_1}</td>
+                          </tr>
+                          <tr class="no_search" height="25">
+                            <th align="right">併願２</th>
+                            <td class="tdVal">{rval data/H_TESTDIV_2}</td>
+                            <td class="tdVal">{rval data/H_EXAMNO_2}</td>
+                            <td class="tdVal">{rval data/H_TESTDIV1_2}</td>
+                            <td class="tdVal">{rval data/H_DESIREDIV_2}</td>
+                            <td class="tdVal">{rval data/H_PASS_DIV_2}</td>
+                            <td class="tdVal">{rval data/H_PASS_COURSE_2}</td>
+                            <td class="tdVal">{rval data/H_HOPE_2}</td>
+                            <td class="tdVal">{rval data/H_JUDGEMENT_2}</td>
+                            <td class="tdVal">{rval data/H_ENT_COURSE_2}</td>
+                          </tr>
+                          <tr class="no_search" height="25">
+                            <th align="right">併願３</th>
+                            <td class="tdVal">{rval data/H_TESTDIV_3}</td>
+                            <td class="tdVal">{rval data/H_EXAMNO_3}</td>
+                            <td class="tdVal">{rval data/H_TESTDIV1_3}</td>
+                            <td class="tdVal">{rval data/H_DESIREDIV_3}</td>
+                            <td class="tdVal">{rval data/H_PASS_DIV_3}</td>
+                            <td class="tdVal">{rval data/H_PASS_COURSE_3}</td>
+                            <td class="tdVal">{rval data/H_HOPE_3}</td>
+                            <td class="tdVal">{rval data/H_JUDGEMENT_3}</td>
+                            <td class="tdVal">{rval data/H_ENT_COURSE_3}</td>
+                          </tr>
+                          <tr class="no_search" height="25">
+                            <th align="right">併願４</th>
+                            <td class="tdVal">{rval data/H_TESTDIV_4}</td>
+                            <td class="tdVal">{rval data/H_EXAMNO_4}</td>
+                            <td class="tdVal">{rval data/H_TESTDIV1_4}</td>
+                            <td class="tdVal">{rval data/H_DESIREDIV_4}</td>
+                            <td class="tdVal">{rval data/H_PASS_DIV_4}</td>
+                            <td class="tdVal">{rval data/H_PASS_COURSE_4}</td>
+                            <td class="tdVal">{rval data/H_HOPE_4}</td>
+                            <td class="tdVal">{rval data/H_JUDGEMENT_4}</td>
+                            <td class="tdVal">{rval data/H_ENT_COURSE_4}</td>
+                          </tr>
+                          <tr class="no_search" height="25">
+                            <th align="right">併願５</th>
+                            <td class="tdVal">{rval data/H_TESTDIV_5}</td>
+                            <td class="tdVal">{rval data/H_EXAMNO_5}</td>
+                            <td class="tdVal">{rval data/H_TESTDIV1_5}</td>
+                            <td class="tdVal">{rval data/H_DESIREDIV_5}</td>
+                            <td class="tdVal">{rval data/H_PASS_DIV_5}</td>
+                            <td class="tdVal">{rval data/H_PASS_COURSE_5}</td>
+                            <td class="tdVal">{rval data/H_HOPE_5}</td>
+                            <td class="tdVal">{rval data/H_JUDGEMENT_5}</td>
+                            <td class="tdVal">{rval data/H_ENT_COURSE_5}</td>
+                          </tr>
+                          <tr class="no_search" height="25">
+                            <th align="right">併願６</th>
+                            <td class="tdVal">{rval data/H_TESTDIV_6}</td>
+                            <td class="tdVal">{rval data/H_EXAMNO_6}</td>
+                            <td class="tdVal">{rval data/H_TESTDIV1_6}</td>
+                            <td class="tdVal">{rval data/H_DESIREDIV_6}</td>
+                            <td class="tdVal">{rval data/H_PASS_DIV_6}</td>
+                            <td class="tdVal">{rval data/H_PASS_COURSE_6}</td>
+                            <td class="tdVal">{rval data/H_HOPE_6}</td>
+                            <td class="tdVal">{rval data/H_JUDGEMENT_6}</td>
+                            <td class="tdVal">{rval data/H_ENT_COURSE_6}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- 成績 -->
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line" >
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" height="25">
+                            <th width="150" nowrap>成績</th>
+                            <th width="100" nowrap>{rval data/TESTSUBCLASSCD1}</th>
+                            <th width="100" nowrap>{rval data/TESTSUBCLASSCD2}</th>
+                            <th width="100" nowrap>{rval data/TESTSUBCLASSCD3}</th>
+                            <th width="100" nowrap>２科合計</th>
+                            <th width="100" nowrap>合計</th>
+                            <th width="100" nowrap>順位</th>
+                            <th width="*"   nowrap></th>
+                          </tr>
+                          <tr class="no_search" height="25">
+                            <th nowrap>併願１</th>
+                            <th nowrap class="tdVal">{rval data/SCORE1_1}</th>
+                            <th nowrap class="tdVal">{rval data/SCORE2_1}</th>
+                            <th nowrap class="tdVal">{rval data/SCORE3_1}</th>
+                            <th nowrap class="tdVal">{rval data/TOTAL2_1}</th>
+                            <th nowrap class="tdVal">{rval data/TOTAL3_1}</th>
+                            <th nowrap class="tdVal">{rval data/TOTAL_RANK3_1}</th>
+                            <th nowrap class="tdVal"></th>
+                          </tr>
+                          <tr class="no_search" height="25">
+                            <th nowrap>併願２</th>
+                            <th nowrap class="tdVal">{rval data/SCORE1_2}</th>
+                            <th nowrap class="tdVal">{rval data/SCORE2_2}</th>
+                            <th nowrap class="tdVal">{rval data/SCORE3_2}</th>
+                            <th nowrap class="tdVal">{rval data/TOTAL2_2}</th>
+                            <th nowrap class="tdVal">{rval data/TOTAL3_2}</th>
+                            <th nowrap class="tdVal">{rval data/TOTAL_RANK3_2}</th>
+                            <th nowrap class="tdVal"></th>
+                          </tr>
+                          <tr class="no_search" height="25">
+                            <th nowrap>併願３</th>
+                            <th nowrap class="tdVal">{rval data/SCORE1_3}</th>
+                            <th nowrap class="tdVal">{rval data/SCORE2_3}</th>
+                            <th nowrap class="tdVal">{rval data/SCORE3_3}</th>
+                            <th nowrap class="tdVal">{rval data/TOTAL2_3}</th>
+                            <th nowrap class="tdVal">{rval data/TOTAL3_3}</th>
+                            <th nowrap class="tdVal">{rval data/TOTAL_RANK3_3}</th>
+                            <th nowrap class="tdVal"></th>
+                          </tr>
+                          <tr class="no_search" height="25">
+                            <th nowrap>併願４</th>
+                            <th nowrap class="tdVal">{rval data/SCORE1_4}</th>
+                            <th nowrap class="tdVal">{rval data/SCORE2_4}</th>
+                            <th nowrap class="tdVal">{rval data/SCORE3_4}</th>
+                            <th nowrap class="tdVal">{rval data/TOTAL2_4}</th>
+                            <th nowrap class="tdVal">{rval data/TOTAL3_4}</th>
+                            <th nowrap class="tdVal">{rval data/TOTAL_RANK3_4}</th>
+                            <th nowrap class="tdVal"></th>
+                          </tr>
+                          <tr class="no_search" height="25">
+                            <th nowrap>併願５</th>
+                            <th nowrap class="tdVal">{rval data/SCORE1_5}</th>
+                            <th nowrap class="tdVal">{rval data/SCORE2_5}</th>
+                            <th nowrap class="tdVal">{rval data/SCORE3_5}</th>
+                            <th nowrap class="tdVal">{rval data/TOTAL2_5}</th>
+                            <th nowrap class="tdVal">{rval data/TOTAL3_5}</th>
+                            <th nowrap class="tdVal">{rval data/TOTAL_RANK3_5}</th>
+                            <th nowrap class="tdVal"></th>
+                          </tr>
+                          <tr class="no_search" height="25">
+                            <th nowrap>併願６</th>
+                            <th nowrap class="tdVal">{rval data/SCORE1_6}</th>
+                            <th nowrap class="tdVal">{rval data/SCORE2_6}</th>
+                            <th nowrap class="tdVal">{rval data/SCORE3_6}</th>
+                            <th nowrap class="tdVal">{rval data/TOTAL2_6}</th>
+                            <th nowrap class="tdVal">{rval data/TOTAL3_6}</th>
+                            <th nowrap class="tdVal">{rval data/TOTAL_RANK3_6}</th>
+                            <th nowrap class="tdVal"></th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line" >
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th width="152"></th>
+                            <td class="tdVal">
+                            &nbsp;&nbsp;{rval button/btn_udpate}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_end}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<script language="JavaScript">
+var vflg;
+</script>
+<script language="JavaScript">{rval Closing}</script>
+{rval finish}

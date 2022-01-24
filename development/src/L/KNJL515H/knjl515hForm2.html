@@ -1,0 +1,96 @@
+{rval start}
+<!--{def button}-->
+<!--{def data}-->
+<br><br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <td align="center" nowrap>{rval TITLE}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff">
+                      <th norwarp width="17%" align="right" nowrap>学校種別：</th>
+                      <td norwarp width="*" bgcolor="#ffffff">{rval APPLICANTDIV}</td>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <th norwarp width="17%" align="right" nowrap>入試種別：</th>
+                      <td norwarp width="*" bgcolor="#ffffff">{rval TESTDIV}</td>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <th norwarp width="17%" align="right" nowrap>入試方式：</th>
+                      <td norwarp width="*" bgcolor="#ffffff">{rval EXAM_TYPE}</td>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <th norwarp width="17%" align="right" nowrap>試験日：</th>
+                      <td norwarp width="*" bgcolor="#ffffff">{rval TEST_DATE}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th>同一処理試験</th>
+                      <th class="no_search"></th>
+                      <th>試験名称一覧</th>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="1" cellspacing="1">
+                    <tr bgcolor="#ffffff">
+                      <td>※入試判別ID：{rval DISTINCT_ID}</td>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td>※　　　名称：{rval DISTINCT_NAME}</td>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td>{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td style="font-weight: 400; color:white">
+      <BR><marquee><span id="marq_msg">処理中です...しばらくおまちください</span></marquee>
+    </td>
+  </tr>
+</table>
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

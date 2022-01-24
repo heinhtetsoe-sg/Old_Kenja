@@ -1,0 +1,337 @@
+{rval start}
+{rval IFRAME}
+<script language="JavaScript">
+//画面のリサイズ
+var timer = 0;
+window.onresize = function () {
+    if (timer > 0) {
+        clearTimeout(timer);
+    }
+
+    timer = setTimeout(function () {
+        bodyWidth  = (window.innerWidth  || document.body.clientWidth  || 0);
+        bodyHeight = (window.innerHeight || document.body.clientHeight || 0);
+        document.getElementById("table1").style.width = bodyWidth  - 36;
+        document.getElementById("trow").style.width   = bodyWidth  - 237;
+        document.getElementById("tbody").style.width  = bodyWidth  - 220;
+        document.getElementById("tbody").style.height = bodyHeight - 210;
+        document.getElementById("tcol").style.height  = bodyHeight - 227;
+    }, 200);
+};
+</script>
+
+<table id="table1" width="{rval WindowWidth}px" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td>
+       <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr class="no_search_line">
+          <th>
+            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+            <tr>
+              <th width="*" height="50" align="left" class="no_search">
+　　　　定期健康診断情報　　　　年度：{rval YEAR}　　学期：{rval SEMESTERNAME}　　年組：{rval HR_CLASS}　　種類：{rval INPUT_FORM}
+              </th>
+            </tr>
+            </table>
+          </th>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" height="{rval heightHeader}px">
+                        <th width="*">No.</th>
+                        <th width="150">氏名</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+
+            <td>
+            <div id="trow" style="overflow:hidden; width: {rval titleWindowWidth}px; ">
+                <div style="width: {rval widthHeader}px;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" height="{rval heightHeader}px">
+                          <th width="150">健康診断実施日</th>
+<!--{def inputForm1}-->
+                          <th width="100">身長(cm)<BR><font style="font-size:10pt">(小数第1位)</font></th>
+                          <th width="100">体重(kg)<BR><font style="font-size:10pt">(小数第1位)</font></th>
+                          <!--{def is_sitheight}-->
+                          <th width="100">座高(cm)<BR><font style="font-size:10pt">(小数第1位)</font></th>
+                          <!--{/def}-->
+                          <th width="350">視力</th>
+                          <th width={rval EAR_WIDTH}>聴力<BR><font style="font-size:10pt">(半角で3文字)</font></th>
+<!--{/def}-->
+
+<!--{def inputForm2}-->
+                          <th width="200">栄養状態<BR><font style="font-size:10pt">(全角で20文字)</font></th>
+                          <th width="300">脊柱・胸郭・四肢<BR><font style="font-size:10pt">(全角で20文字)</font></th>
+                          <th width="300">目の疾病及び異常<BR><font style="font-size:10pt">(全角で20文字)</font></th>
+                          <th width="350">耳鼻咽頭疾患<BR><font style="font-size:10pt">(全角で20文字)</font></th>
+                          <th width="200">皮膚疾患<BR><font style="font-size:10pt">(全角で20文字)</font></th>
+            <!--{def tbFilmShow}-->
+                          <th width="300">結核・X線撮影<BR><font style="font-size:10pt">(半角で{rval TB_FILMNO_SIZE}文字)</font></th>
+                          <th width="300">結核・所見<BR><font style="font-size:10pt">(全角で20文字)</font></th>
+            <!--{/def}-->
+                          <th width="300">結核・その他検査<BR><font style="font-size:10pt">(全角で20文字)</font></th>
+                          <th width="600">心臓・臨床医学的検査（心電図）<BR><font style="font-size:10pt">(全角で40文字)</font></th>
+                          <th width="300">心臓・疾病及び異常<BR><font style="font-size:10pt">(全角で20文字)</font></th>
+<!--{/def}-->
+
+<!--{def inputForm3}-->
+                          <th width="200">尿・１次</th>
+                          <th width="200">尿・２次</th>
+                          <th width="400">尿・その他の検査<BR><font style="font-size:10pt">(全角で20文字)</font></th>
+            <!--{def para}-->
+                          <th width="150">寄生虫卵</th>
+            <!--{/def}-->
+                          <th width="{rval OTHER_REMARK_WIDTH}">その他疾病及び異常<BR><font style="font-size:10pt">(全角で{rval OTHER_REMARK2_MOJI})</font></th>
+                          <th width="150">学校医日付</th>
+                          <th width="350">事後措置<br><font style="font-size:10pt">(全角で20文字)</font></th>
+                          <th width="900">備考<BR><font style="font-size:10pt">(全角で{rval REMARK_MOJI}文字)</font></th>
+                          <th width="350">メッセージ<br><font style="font-size:10pt">(全角21文字X4行まで)</font></th>
+<!--{/def}-->
+
+<!--{def inputForm4}-->
+                          <th width="250">既往症</th>
+                          <th width="750">診断名<BR><font style="font-size:10pt">(全角で50文字)</font></th>
+                          <th width="250">運動・指導区分</th>
+                          <th width="250">運動・部活動</th>
+<!--{/def}-->
+                          <th width="*"></th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+          <tr valign="TOP">
+
+            <td>
+            <div id="tcol" style="overflow: hidden; height: {rval tcolWindowHeight}px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr bgcolor="#ffffff" height="{rval heightMeisai}px">
+                            <td width="*" align="center">{rval data/ATTENDNO}</td>
+                            <td width="150" align="left">{rval data/NAME_SHOW}</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
+            </div>
+            </td>
+
+            <td>
+            <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: {rval valWindowWidth}px; height: {rval valWindowHeight}px;">
+                <div style="width: {rval widthMeisai}px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr bgcolor="#ffffff" height="{rval heightMeisai}px">
+                            <td width="150" align="center">{rval data/DATE}</td>
+<!--{def inputForm1}-->
+                            <td width="100" align="center">{rval data/HEIGHT}</td>
+                            <td width="100" align="center">{rval data/WEIGHT}<br><!--{def sapporo}--><font color="red"><!--{/def}-->{rval data/STD_WEIGHT}<!--{def sapporo}--></font><!--{/def}--></td>
+                            <!--{def is_sitheight}-->
+                            <td width="100" align="center">{rval data/SITHEIGHT}</td>
+                            <!--{/def}-->
+                            <td width="350" align="left">
+                                右&nbsp;&nbsp;裸眼：&nbsp;{rval data/R_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;矯正：&nbsp;{rval data/R_VISION_MARK}&nbsp;&nbsp;{rval data/R_VISION_CANTMEASURE}<LABEL for="R_VISION_CANTMEASURE">測定困難</LABEL><br>
+                                左&nbsp;&nbsp;裸眼：&nbsp;{rval data/L_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;矯正：&nbsp;{rval data/L_VISION_MARK}&nbsp;&nbsp;{rval data/L_VISION_CANTMEASURE}<LABEL for="L_VISION_CANTMEASURE">測定困難</LABEL>
+                            </td>
+                            <td width={rval EAR_WIDTH} align="left">
+                              &nbsp;右　　平均dB：&nbsp;{rval data/R_EAR_DB}　{rval data/R_EAR_DB_4000}　状態：&nbsp;{rval data/R_EAR}&nbsp;{rval data/R_EAR_CANTMEASURE}<LABEL for="R_EAR_CANTMEASURE">測定困難</LABEL><br>
+                              <!--{def useSpecial_Support_School}-->
+                              装用時&nbsp;平均dB：&nbsp;{rval data/R_EAR_DB_IN}　{rval data/R_EAR_DB_4000_IN}　状態：&nbsp;{rval data/R_EAR_IN}&nbsp;<br>
+                              <!--{/def}-->
+                              &nbsp;左　　平均dB：&nbsp;{rval data/L_EAR_DB}　{rval data/L_EAR_DB_4000}　状態：&nbsp;{rval data/L_EAR}&nbsp;{rval data/L_EAR_CANTMEASURE}<LABEL for="L_EAR_CANTMEASURE">測定困難</LABEL>
+                              <!--{def useSpecial_Support_School}-->
+                              <br>装用時&nbsp;平均dB：&nbsp;{rval data/L_EAR_DB_IN}　{rval data/L_EAR_DB_4000_IN}　状態：&nbsp;{rval data/L_EAR_IN}&nbsp;
+                              <!--{/def}-->
+                              <BR>&nbsp;&nbsp;<font color="red" style="font-size:10pt">(半角で3文字)</font>
+                            </td>
+<!--{/def}-->
+
+<!--{def inputForm2}-->
+                            <td width="200" align="left">{rval data/NUTRITIONCD}</td>
+                            <td width="300" align="left">{rval data/SPINERIBCD}<BR>{rval data/SPINERIBCD_REMARK}</td>
+                            <td width="300" align="left">
+                              {rval data/EYEDISEASECD}&nbsp;{rval data/EYEDISEASECD2}&nbsp;{rval data/EYEDISEASECD3}&nbsp;{rval data/EYEDISEASECD4}<BR>
+                              &nbsp;&nbsp;1：{rval data/EYE_TEST_RESULT}<BR>
+                              &nbsp;&nbsp;2：{rval data/EYE_TEST_RESULT2}&nbsp;&nbsp;3：{rval data/EYE_TEST_RESULT3}
+                            </td>
+                            <td width="350" align="left">
+                              {rval data/NOSEDISEASECD}{rval data/NOSEDISEASECD2}{rval data/NOSEDISEASECD3}{rval data/NOSEDISEASECD4}<BR>
+                              &nbsp;&nbsp;1：{rval data/NOSEDISEASECD_REMARK}<BR>
+                              &nbsp;&nbsp;2：{rval data/NOSEDISEASECD_REMARK2}&nbsp;&nbsp;3：{rval data/NOSEDISEASECD_REMARK3}
+                            </td>
+                            <td width="200" align="left">{rval data/SKINDISEASECD}<BR>{rval data/SKINDISEASECD_REMARK}</td>
+            <!--{def tbFilmShow}-->
+                            <td width="300" align="left">
+                              撮影日付：{rval data/TB_FILMDATE}
+                              <BR>
+                              画像番号：{rval data/TB_FILMNO}
+                            </td>
+                            <td width="300" align="left">
+                              {rval data/TB_REMARKCD} {rval data/TB_X_RAY}
+                            </td>
+            <!--{/def}-->
+                            <td width="300" align="left">
+                              <!--{def tbFilmShow}-->その他検査：&nbsp;{rval data/TB_OTHERTESTCD}&nbsp;{rval data/TB_OTHERTEST_REMARK1}<BR><!--{/def}-->
+                              {rval data/TB_NAMECD_LABEL}：&nbsp;{rval data/TB_NAMECD}&nbsp;{rval data/TB_NAME_REMARK1}<BR>
+                              指導区分：&nbsp;{rval data/TB_ADVISECD}&nbsp;{rval data/TB_ADVISE_REMARK1}
+                            </td>
+                            <td width="600" align="left">
+                              {rval data/HEART_MEDEXAM}
+                              <BR>
+                              {rval data/HEART_MEDEXAM_REMARK}
+                            </td>
+                            <td width="300" align="left">
+                              {rval data/HEARTDISEASECD}
+                              <BR>
+                              {rval data/HEARTDISEASECD_REMARK}
+                            </td>
+<!--{/def}-->
+
+<!--{def inputForm3}-->
+                            <td width="200" align="left">
+                              蛋白：&nbsp;{rval data/ALBUMINURIA1CD}
+                              <BR>
+                              糖　：&nbsp;{rval data/URICSUGAR1CD}
+                              <BR>
+                              潜血：&nbsp;{rval data/URICBLEED1CD}
+                            </td>
+                            <td width="200" align="left">
+                              蛋白：&nbsp;{rval data/ALBUMINURIA2CD}
+                              <BR>
+                              糖　：&nbsp;{rval data/URICSUGAR2CD}
+                              <BR>
+                              潜血：&nbsp;{rval data/URICBLEED2CD}
+                            </td>
+                            <td width="400" align="left">
+                              {rval data/URICOTHERTESTCD}
+                            </td>
+            <!--{def para}-->
+                            <td width="150" align="left">{rval data/PARASITE}</td>
+            <!--{/def}-->
+                            <td width="{rval OTHER_REMARK_WIDTH}" align="left">
+                              {rval data/OTHERDISEASECD}
+                              <BR>
+                              1：{rval data/OTHER_REMARK}
+                              <BR>
+                              2：{rval data/OTHER_REMARK2}
+                              <BR>
+                              3：{rval data/OTHER_REMARK3}
+                            </td>
+                            <td width="150" align="center">{rval data/DOC_DATE}</td>
+                            <td width="350" align="left">
+                              {rval data/TREATCD}
+                              <BR>
+                              1：{rval data/TREAT_REMARK1}
+                              <BR>
+                              2：{rval data/TREAT_REMARK2}
+                              <BR>
+                              3：{rval data/TREAT_REMARK3}
+                            </td>
+                            <td width="900" align="left">{rval data/REMARK}</td>
+                            <td width="350" align="left">{rval data/MESSAGE}</td>
+<!--{/def}-->
+
+<!--{def inputForm4}-->
+                            <td width="250" align="left">
+                              {rval data/MEDICAL_HISTORY1}
+                              <BR>
+                              {rval data/MEDICAL_HISTORY2}
+                              <BR>
+                              {rval data/MEDICAL_HISTORY3}
+                            </td>
+                            <td width="750" align="left">{rval data/DIAGNOSIS_NAME}</td>
+                            <td width="250" align="left">{rval data/GUIDE_DIV}</td>
+                            <td width="250" align="left">{rval data/JOINING_SPORTS_CLUB}</td>
+<!--{/def}-->
+                            <td width="*" align="left"></td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+          <tr class="no_search_line">
+            <th>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_reset}{rval button/btn_back}</td>
+                </tr>
+              </table>
+            </th>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+<div id="lay"></div>
+<input type='hidden' name='windowWidth' value=''>
+<input type='hidden' name='windowHeight' value=''>
+<script language="JavaScript">{rval reload}</script>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>
+<script language="JavaScript">{rval setNotExamined}</script>

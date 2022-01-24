@@ -1,0 +1,165 @@
+{rval start} 
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                      <tr class="no_search">
+                        <th align="left">{rval btn_estimate}{rval btn_assess}</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="20" rowspan="2">{rval CHECKALL}</th>
+                        <th width="60" rowspan="2">学籍番号</th>
+                        <th width="75" rowspan="2">{rval ATTENDNO}</th>
+                        <th width="150" rowspan="2">氏名</th>
+                        <th width="20" rowspan="2">性<br>別</th>
+                        <th colspan="{rval COLSPAN}">学期評価</th>
+                        <th width="30" rowspan="2">評価<br>/100</th>
+                        <th width="30" rowspan="2">仮<br>評<br>価</th>
+                        <th width="35" rowspan="2">評価<br>/{rval ASSESSLEVEL}</th>
+                        <th colspan="2">単位数</th>
+                        <th width="30" rowspan="2">{rval RANK}</th>
+                        <th width="*"  rowspan="2">履修科目備考</th>
+                      </tr>
+                      <tr class="no_search">
+<!--{each SEMESTER}-->
+                        <th width="30">{rval SEMESTER}</th>
+<!--{/each}-->
+                        <th width="35">修得</th>
+                        <th width="35">増加</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <div style="width:100%;height:525;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+
+<!--{each data}-->
+
+                      <tr>
+                        <td width="20" align="center" bgcolor="#ffffff">{rval data/CHECKED}</td>
+                        <td width="60" align="center" bgcolor="#ffffff">{rval data/SCHREGNO}</td>
+                        <td width="75" align="center" bgcolor="#ffffff">{rval data/ATTENDNO}</td>
+                        <td width="150" align="left" bgcolor="#ffffff">{rval data/NAME_SHOW}</td>
+                        <td width="20" align="center" bgcolor="#ffffff">{rval data/SEX}</td>
+<!--{each data/VAL}-->
+                        <td width="30" align="right" bgcolor="#ffffff">{rval data/VAL}</td>
+<!--{/each}-->
+<!--                        <td width="30" align="right" bgcolor="#ffffff">{rval data/AVGVAL}</td> -->
+                        <td width="30" align="right" bgcolor="#ffffff">{rval data/AVGVAL}<TAG_AVGVAL id="AVGVAL" value={rval data/AVGVAL}></TAG_AVGVAL></td>
+                        <td width="30" align="right" bgcolor="#ffffff">{rval data/NEW_TMPVAL}</td>
+                        <td width="35" align="center" bgcolor="#ffffff">{rval data/VALUATION}</td>
+                        <td width="35" align="center" bgcolor="#ffffff">{rval data/GET_CREDIT}</td>
+                        <td width="35" align="center" bgcolor="#ffffff">{rval data/ADD_CREDIT}</td>
+                        <td width="30" align="center" bgcolor="#ffffff">{rval data/RANK}</td>
+                        <td width="*" align="right" bgcolor="#ffffff">{rval data/REMARK}</td>
+                      </tr>
+<!--{/each}-->
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="407">対象人数　{val AVG/SUBJECT}</th>
+                        <th width="50">平均</th>
+                        <th width="30"><span id="AVG_AVGVAL">{val AVG/AVGVAL}</span></th>
+                        <th width="30"><span id="AVG_AVGVAL">{val AVG/NEW_TMPVAL}</span></th>
+                        <th width="35"><span id="AVG_VALUATION">{val AVG/VALUATION}</span></th>
+                        <th width="35"><span id="AVG_GET_CREDIT">{val AVG/GET_CREDIT}</span></th>
+                        <th width="35"><span id="AVG_ADD_CREDIT">{val AVG/ADD_CREDIT}</span></th>
+                        <th width="*">&nbsp;</th>
+                      </tr>
+                  </table>
+                  </td>
+                </tr>
+                <tr>
+			      <td valign="top">
+			      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+			          <tr class="no_search_line">
+			            <td>
+			            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+			                <tr class="no_search">
+			                  <td>
+			                  <table width="100%" border="0" cellspacing="3" cellpadding="0">
+			                      <tr>
+			                        <td align="center" class="no_search">{rval FILE}</td>
+			                        <td align="right" class="no_search">{val btn_update}&nbsp;{rval btn_del}&nbsp;{val btn_can}&nbsp;{val btn_end}</td>
+			                      </tr>
+			                  </table>
+			                  </td>
+			                </tr>
+			            </table>
+			            </td>
+			          </tr>
+			      </table>
+			      </td>
+			    </tr>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish} 

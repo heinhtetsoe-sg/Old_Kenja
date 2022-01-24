@@ -1,0 +1,8 @@
+// kanji=漢字
+// $Id: readme.txt 77054 2020-09-24 00:51:21Z nakaza $
+
+2020/09/09  1.KNJL670Aを元に新規作成
+
+2020/09/15  1.合否は、ENTEXAM_RECEPT_DAT.JUDGEDIVを参照するよう修正
+
+2020/09/24  1.名称マスタの「L001」「L003」「L007」を除いたLXXXを移動(NAME_MST ⇒ ENTEXAM_SETTING_MST)

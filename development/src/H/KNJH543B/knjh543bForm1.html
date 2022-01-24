@@ -1,0 +1,184 @@
+{rval start}
+<br>
+<table width="60%" border="0" cellspacing="10" cellpadding="10" align="center">
+<tr>
+<td>
+    <table width="100%" border="0" cellspacing="5" cellpadding="1">
+    <tr>
+    <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                <tr class="no_search" height="30">
+                    <td align="left">&nbsp;&nbsp;&nbsp;<B>処理年度：{rval YEAR}年度</B></td>
+                </tr>
+                <tr>
+                    <td bgcolor='#ffffff'>
+<br>&nbsp;&nbsp;&nbsp;●&nbsp;下記の方法で合併先科目の素点を自動計算します。
+<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="red">※&nbsp;自動計算された素点は実力テスト入力画面で修正することができます。</font>
+<br><br>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+         <table width="100%" border="0" cellspacing="0" cellpadding="0">
+           <tr class="no_search_line">
+             <th>
+               <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                 <tr class="no_search">
+                   <th width="25%" nowrap>項　目</th>
+                   <th width="*" nowrap>値</th>
+                 </tr>
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap>学期</td>
+                   <td bgcolor="#ffffff" nowrap>&nbsp;{rval sepa/SEMESTER}</td>
+                 </tr>
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap>実力</td>
+                   <td bgcolor="#ffffff" nowrap>&nbsp;{rval sepa/PROFICIENCYDIV}&nbsp;{rval sepa/PROFICIENCYCD}</td>
+                 </tr>
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap>学年</td>
+                   <td bgcolor="#ffffff" nowrap>&nbsp;{rval sepa/GRADE}</td>
+                 </tr>
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap>区分</td>
+                   <td bgcolor="#ffffff" nowrap><font color="black">&nbsp;{rval sepa/DIV3}<LABEL for="DIV3">課程学科コース</LABEL>　&nbsp;{rval sepa/DIV4}<LABEL for="DIV4">コースグループ</LABEL></font></td>
+                 </tr>
+<!--{def show3}-->
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap>課程学科コース</td>
+                   <td bgcolor="#ffffff" nowrap>&nbsp;{rval sepa/COURSE}</td>
+                 </tr>
+<!--{/def}-->
+<!--{def show4}-->
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap>コースグループ</td>
+                   <td bgcolor="#ffffff" nowrap>&nbsp;{rval sepa/GROUP_CD}</td>
+                 </tr>
+<!--{/def}-->
+               </table>
+             </th>
+           </tr>
+         </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search" >
+                    <td align="center" width="10%">実行</td>
+                    <td align="center" width="60%">合併先科目名</td>
+                    <td align="center">計算方法</td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        <tr class="no_search_line">
+        <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <!--{def data}-->
+            <!--結果一覧-->
+            <!--{each data}-->
+                <tr class="no_search_line" >
+                    <td bgcolor='#ffffff' align="center" width="10%">{val data/CHECK}</td>
+                    <td bgcolor='#ffffff' align="left" width="60%">&nbsp;&nbsp;{val data/COMBINED_SUBCLASSCD}:{val data/SUBCLASS_NAME}</td>
+                    <td bgcolor='#ffffff' align="center">{val data/GVAL_CALC}</td>
+                </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+        </td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                    <td>&nbsp;&nbsp;{rval button/btn_updte}{rval button/btn_clear}{rval button/btn_end}</td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                <tr>
+                    <td bgcolor="#cccccc">&nbsp;&nbsp;●&nbsp;<B>自動計算履歴</B></td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        <tr class="no_search_line">
+        <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search" >
+                    <td align="center" width="90">処理日付</td>
+                    <td align="center" width="80">処理時間</td>
+                    <td align="center" width="220">合併先科目名</td>
+                    <td align="center" width="*">計算方法</td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+        <div style="width: 100%; height=100; overflow: auto">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4">
+            <!--{def data2}-->
+            <!--結果一覧-->
+            <!--{each data2}-->
+                <tr class="no_search_line" >
+                    <td bgcolor='#ffffff' align="center" width="90">{val data2/CALC_DATE}</td>
+                    <td bgcolor='#ffffff' align="center" width="80">{val data2/CALC_TIME}</td>
+<!--{def useCurriculumcd}--> 
+                    <td bgcolor='#ffffff' align="left" width="220">&nbsp;{val data2/COMBINED_CLASSCD}-{val data2/COMBINED_SCHOOL_KIND}-{val data2/COMBINED_CURRICULUM_CD}-{val data2/COMBINED_SUBCLASSCD}:{val data2/SUBCLASS_NAME}</td>
+<!--{/def}-->
+<!--{def No_useCurriculumcd}--> 
+                    <td bgcolor='#ffffff' align="left" width="220">&nbsp;{val data2/COMBINED_SUBCLASSCD}:{val data2/SUBCLASS_NAME}</td>
+<!--{/def}-->
+                    <td bgcolor='#ffffff' align="center" width="*">{val data2/GVAL_CALC}:{val data2/GVAL_NAME}</td>
+                </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+        </td>
+        </tr>
+        </table>
+        </div>
+    </td>
+    </tr>
+
+    </table>
+</td>
+</tr>
+</table>
+<script language="JavaScript">{rval close}</script>
+{rval finish} 

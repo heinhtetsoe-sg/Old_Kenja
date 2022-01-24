@@ -1,0 +1,66 @@
+{rval start}
+<!--{def button}-->
+
+<br>
+<table width="100%" border="0" cellspacing="15" cellpadding="0">
+  <tr class="no_search_line" align="center">
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="1" cellpadding="5">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellspacing="5" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr height="30">
+                      <th width="30%" class="no_search"><b>対象学部</b></th>
+                      <td bgcolor="#ffffff">&nbsp;{rval SCHOOL_KIND}</td>
+                    </tr>
+                    <tr height="30">
+                      <th width="30%" class="no_search"><b>状態区分</b></th>
+                      <td bgcolor="#ffffff">&nbsp;{rval CONDITION}</td>
+                    </tr>
+                    <tr height="30">
+                      <th width="30%" class="no_search"><b>グループコード</b></th>
+                      <td bgcolor="#ffffff">&nbsp;{rval GROUP_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                    <tr align="center" class="no_search" height="30"> 
+                      <th><b>対象者一覧</b></th>
+                      <th class="no_search">&nbsp;</th>
+                      <th><b>生徒一覧</b></th>
+                    </tr>
+                      <tr align="center" bgcolor="#ffffff">
+                        <!--{def main_part}-->
+                        <td width="45%">{rval main_part/LEFT_PART}<br>
+                        人数:　<b><span id="RIGHT_NUM">{rval RIGHT_NUM}</span></b></td>
+                        <td width="*%" class="no_search">{rval main_part/SEL_ADD_ALL} <br>
+                        {rval main_part/SEL_ADD} <br>
+                        {rval main_part/SEL_DEL} <br>
+                        {rval main_part/SEL_DEL_ALL}</td>
+                        <td width="45%">{rval main_part/RIGHT_PART}<br>
+                        人数:　<b><span id="LEFT_NUM">{rval LEFT_NUM}</span></b></td>
+                        <!--{/def}-->
+                      </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<script language="javascript">{rval jscript}</script>
+{rval finish}

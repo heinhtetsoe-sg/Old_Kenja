@@ -1,0 +1,28 @@
+//バッファプールサイズbuffpage)
+db2 "update db cfg for [DBNAME] using buffpage 10000"
+
+//バッファプールサイズ(-1にしないとbuffpageパラメータの値が有効にならない)
+db2 "connect to [DBNAME]"
+db2 "alter bufferpool bp8k1 size -1"
+db2 "terminate"
+
+//ログファイルのサイズ(logfilsiz)
+db2 "update db cfg for [DBNAME] using logfilsiz 5000"
+
+//アプリケーションあたりのロック・リストのパーセント(maxlocks)
+db2 "update db cfg for [DBNAME] using maxlocks 50"
+
+//ロックリスト用最大記憶域(locklist)
+db2 "update db cfg for [DBNAME] using locklist 2000"
+
+//統計ヒープ・サイズ(stat_heap_sz)
+db2 "update db cfg for [DBNAME] using stat_heap_sz 4391"
+
+//インスタンスの再起動
+db2 "force application all"
+db2stop
+db2start
+
+//パラメータの確認
+db2 "get db cfg for [DBNAME]" > log.log
+

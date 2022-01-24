@@ -1,0 +1,115 @@
+{rval start}
+{rval IFRAME}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr class="no_search_line"> 
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="2">
+              <tr class="no_search">
+                <th>{rval name}</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td width="50%">
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <td height="150"width="10%"class="no_search" align="center">特<br>別<br>活<br>動<br>の<br>記<br>録</td>
+                <td width="90% "bgcolor="#ffffff">
+                {rval data/JOBHUNT_REC}<br>
+                <font color="red" size=2>&nbsp;&nbsp;(全角20文字X8行まで)</font>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td width="50%">
+            <table height="152" width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <td width="30%"class="no_search" align="center">欠席の<br>主な理由</td>
+                <td width="60% "bgcolor="#ffffff">
+                {rval SANSYO}<br>
+                {rval YOROKU_SANSYO}<br>
+                {rval data/JOBHUNT_ABSENCE}<br>
+                <font color="red" size=2>&nbsp;&nbsp;(全角10文字X4行まで)</font></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line"> 
+          <td width="100%">
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search">
+                <td colspan="8">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th align="right" nowrap width="50%">身　体　状　況</th>
+                      <th align="right" nowrapwidth="50%">検査日：{rval data/DATE}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td width="8%" class="no_search" align="center">身長</td>
+                <td width="22%" colspan="2" bgcolor="#ffffff" align="center">{rval data/HEIGHT}</td>
+                <td width="8%" class="no_search" align="center">体重</td>
+                <td width="22%" colspan="2" bgcolor="#ffffff" align="center">{rval data/WEIGHT}</td>
+                <td width="6%" rowspan="3" class="no_search" align="center">備<br>考</td>
+                <td width="34%" rowspan="3" bgcolor="#ffffff">{rval data/JOBHUNT_HEALTHREMARK}<br>{rval data/CHECK}<font color="red" size=2>&nbsp;&nbsp;(全角14文字X3行まで)</font></td>
+              </tr>
+              <tr>
+                <td width="8%" rowspan="2" class="no_search" align="center">視力</td>
+                <td width="6%" bgcolor="#ffffff" align="center">右</td>
+                <td width="16%" bgcolor="#ffffff" align="center">{rval data/R_VISION_MARK}</td>
+                <td width="8%" rowspan="2" class="no_search" align="center">聴力</td>
+                <td width="6%" bgcolor="#ffffff" align="center">右</td>
+                <td width="16%" bgcolor="#ffffff" align="center">{rval data/R_EAR_NAME}</td>
+              </tr>
+              <tr>
+                <td width="6%" bgcolor="#ffffff" align="center">左</td>
+                <td width="16%" bgcolor="#ffffff" align="center">{rval data/L_VISION_MARK}</td>
+                <td width="6%" bgcolor="#ffffff" align="center">左</td>
+                <td width="16%" bgcolor="#ffffff" align="center">{rval data/L_EAR_NAME}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        </table>
+        
+        <table width="100%" border="0" cellspacing="5" cellpadding="0">
+          <tr class="no_search_line"> 
+            <td width="100%">
+              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr>
+                  <td class="no_search" width="5%" align="center">本<br>人<br>の<br>長<br>所<br>・<br>推<br>薦<br>事<br>由</td>
+                  <td bgcolor="#ffffff" width="95%">{rval data/JOBHUNT_RECOMMEND}<br>
+                  <font color="red" size=2>&nbsp;&nbsp;(全角38文字X10行まで)</font></td>
+                </tr>
+                <tr>
+                  <td width="5%" class="no_search">　</td>
+                  <td width="95%" bgcolor="#ffffff">{rval button/reference}　{rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_end}
+                  <br>{rval button/btn_csv1}</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+</table>
+
+{rval finish}
+
+<!-- <script language="JavaScript">{rval reload}</script> -->
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->

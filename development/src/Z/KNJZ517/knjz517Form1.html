@@ -1,0 +1,42 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="10" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>{val AREA_NAME}：{val AREACD}</td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th nowrap width="10%">コード</th>
+                      <th nowrap width="60%">事業所名</th>
+                      <th nowrap width="30%">略称名</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td align="center" nowrap><a href="knjz517index.php?cmd=edit&SERVICE_CENTERCD={val data/SERVICE_CENTERCD}&SERVICE_CENTERCD_EDABAN={val data/SERVICE_CENTERCD_EDABAN}" target="right_frame">{val data/SERVICE_CENTERCD}-{val data/SERVICE_CENTERCD_EDABAN}</a></td>
+                      <td nowrap>{val data/NAME}</td>
+                      <td nowrap>{val data/ABBV}</td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval authcheck}{rval jscript}</script>

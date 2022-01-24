@@ -1,0 +1,29 @@
+-- $Id: dbd59fce94cef2bd4df76451db394ff611639da6 $
+
+DROP TABLE RECORD_RANK_SDIV_SOUTEN_DAT
+CREATE TABLE RECORD_RANK_SDIV_SOUTEN_DAT( \
+    YEAR                  VARCHAR(4)    NOT NULL, \
+    SEMESTER              VARCHAR(1)    NOT NULL, \
+    TESTKINDCD            VARCHAR(2)    NOT NULL, \
+    TESTITEMCD            VARCHAR(2)    NOT NULL, \
+    SCORE_DIV             VARCHAR(2)    NOT NULL, \
+    CLASSCD               VARCHAR(2)    NOT NULL, \
+    SCHOOL_KIND           VARCHAR(2)    NOT NULL, \
+    CURRICULUM_CD         VARCHAR(2)    NOT NULL, \
+    SUBCLASSCD            VARCHAR(6)    NOT NULL, \
+    SCHREGNO              VARCHAR(8)    NOT NULL, \
+    TOTAL_CREDIT          SMALLINT              , \
+    TOTAL_POINT           SMALLINT              , \
+    GRADE_RANK            SMALLINT              , \
+    COURSE_RANK           SMALLINT              , \
+    SUMMARY_CREDIT        SMALLINT              , \
+    SUMMARY_POINT         SMALLINT              , \
+    SUMMARY_GRADE_RANK    SMALLINT              , \
+    SUMMARY_COURSE_RANK   SMALLINT              , \
+    TOTAL_POINT_IG_GS     SMALLINT              , \
+    TOTAL_POINT_HISSU     SMALLINT              , \
+    REGISTERCD            VARCHAR(10)           , \
+    UPDATED               TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE RECORD_RANK_SDIV_SOUTEN_DAT ADD CONSTRAINT PK_REC_RANK_SD_SOUTEN_DAT PRIMARY KEY (YEAR,SEMESTER,TESTKINDCD,TESTITEMCD,SCORE_DIV,CLASSCD,SCHOOL_KIND,CURRICULUM_CD,SUBCLASSCD,SCHREGNO)

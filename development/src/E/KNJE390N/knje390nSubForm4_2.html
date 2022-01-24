@@ -1,0 +1,92 @@
+﻿{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="150" nowrap bgcolor="#FFE4E1" align="center">
+            <b><font size="3" color="#FF0000">移行支援計画</font><font size="2" color="#FF0000"><BR>(発達検査)</font></b>
+          </td>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr><td height="5"></td></tr>
+
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="100">項目名</th>
+              <th width="*">内容</th>
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <div style="width: 100%; height=120; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def data2}-->
+                <!--{each data2}-->
+                  <tr bgcolor="#ffffff">
+                    <td width="100" align="left"><a href="knje390nindex.php?cmd=subform4_check_set&YEAR={val data2/YEAR}&SCHREGNO={val data2/SCHREGNO}&RECORD_SEQ={val data2/RECORD_SEQ}">{rval data2/CONTENTS_NAME}</a></td>
+                    <td width="*" align="left">検査日:{rval data2/CHECK_DATE}　　{rval data2/CHECK_CONTENTS}</td>
+                  </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+        
+        <tr><td height="20"></td></tr>
+
+<!--{def data}-->
+<!--{def button}-->
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>検査日</th>
+                <td bgcolor="#ffffff">{rval data/CHECK_DATE}</td>
+              </tr>
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>検査結果<BR>所見等</th>
+                <td bgcolor="#ffffff">{rval data/CHECK_REMARK}<BR>{rval data/CHECK_REMARK_SIZE}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td align="left" bgcolor="#ffffff">{rval button/btn_insert}{rval button/btn_update}{rval button/btn_delete}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+<!--{/def}-->
+<!--{/def}-->
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish} 

@@ -1,0 +1,111 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td style="width: 50%">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr>
+                                  <td nowrap>{val refstaff}&nbsp;&nbsp;{val btn_copy}</td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                      <td rowspan="2" style="width: 50%">
+                        (0):更新可能<BR>
+                        (1):更新可能・制限付<BR>
+                        (2):参照可能<BR>
+                        (3):参照可能・制限付<BR>
+                        (9):権限なし<BR>
+                        (*):未設定
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr class="no_search">
+                                  <td nowrap align="center">設定職員　　{val setstaff}</td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td style="color: red">&nbsp;&nbsp;{rval menuname}<br>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--結果一覧-->
+                          <tr>
+                            <th width="10%" class="no_search" rowspan="2">プログラムID</th>
+                            <th width="48%" class="no_search" rowspan="2">処理名</th>
+                            <td width="7%"  bgcolor="#ffffff" id="0,CHECK_ALL" onclick="check_all('0');" align="center"><input type="radio" name="CHECK_ALL" value="0"></td>
+                            <td width="7%"  bgcolor="#ffffff" id="1,CHECK_ALL" onclick="check_all('1');" align="center"><input type="radio" name="CHECK_ALL" value="1"></td>
+                            <td width="7%"  bgcolor="#ffffff" id="2,CHECK_ALL" onclick="check_all('2');" align="center"><input type="radio" name="CHECK_ALL" value="2"></td>
+                            <td width="7%"  bgcolor="#ffffff" id="3,CHECK_ALL" onclick="check_all('3');" align="center"><input type="radio" name="CHECK_ALL" value="3"></td>
+                            <td width="7%"  bgcolor="#ffffff" id="9,CHECK_ALL" onclick="check_all('9');" align="center"><input type="radio" name="CHECK_ALL" value="9"></td>
+                            <td width="7%"  bgcolor="#ccffcc" id="7,CHECK_ALL" onclick="check_all('7');" align="center"><input type="radio" name="CHECK_ALL" value="7" checked></td>
+                          </tr>
+                          <tr class="no_search">
+                            <th>(0)</th>
+                            <th>(1)</th>
+                            <th>(2)</th>
+                            <th>(3)</th>
+                            <th>(9)</th>
+                            <th>(*)</th>
+                          </tr>
+                          <!--{each data}-->
+                          <tr bgcolor="#ffffff">
+                            <td>{val data/PROGRAMID}</td>
+                            <td>{val data/MENUNAME}</td>
+                            <td id="{rval data/cellid0}" bgcolor="{rval data/bgcolor0}" onclick="celcolchan(this,'{val data/MENUID}');" align="center"><input type="radio" name="{val data/MENUID}" value="0" {val data/CHECK0}></td>
+                            <td id="{rval data/cellid1}" bgcolor="{rval data/bgcolor1}" onclick="celcolchan(this,'{val data/MENUID}');" align="center"><input type="radio" name="{val data/MENUID}" value="1" {val data/CHECK1}></td>
+                            <td id="{rval data/cellid2}" bgcolor="{rval data/bgcolor2}" onclick="celcolchan(this,'{val data/MENUID}');" align="center"><input type="radio" name="{val data/MENUID}" value="2" {val data/CHECK2}></td>
+                            <td id="{rval data/cellid3}" bgcolor="{rval data/bgcolor3}" onclick="celcolchan(this,'{val data/MENUID}');" align="center"><input type="radio" name="{val data/MENUID}" value="3" {val data/CHECK3}></td>
+                            <td id="{rval data/cellid9}" bgcolor="{rval data/bgcolor9}" onclick="celcolchan(this,'{val data/MENUID}');" align="center"><input type="radio" name="{val data/MENUID}" value="9" {val data/CHECK9}></td>
+                            <td id="{rval data/cellid7}" bgcolor="{rval data/bgcolor7}" onclick="celcolchan(this,'{val data/MENUID}');" align="center"><input type="radio" name="{val data/MENUID}" value="7" {val data/CHECK7}></td>
+                          </tr>
+                          <!--{/each}-->
+                          <tr class="no_search">
+                            <td colspan=2></td>
+                            <td colspan=6 nowrap bgcolor="#ffffff">{rval button/BTN_AUTHLIST}&nbsp{rval button/BTN_OK}&nbsp{rval button/BTN_CLEAR}&nbsp{rval button/BTN_END} </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval enablebutton}{rval jscript}</script>

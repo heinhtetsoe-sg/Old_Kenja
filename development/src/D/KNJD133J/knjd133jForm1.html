@@ -1,0 +1,105 @@
+{rval start}
+
+{rval IFRAME}
+<table width={rval ALLWIDTH} border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" height="30">
+                <td nowrap align="center">
+                    処理年度：{rval YEAR}年度　　
+                    <!--{def KNJD133J_semesCombo}-->
+                    学期：{rval SEMESTER}　　
+                    <!--{/def}-->
+                    科目：{rval SUBCLASSCD}　　学級・講座：{rval CHAIRCD}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="120">クラス-<br>出席番号</th>
+                      <th width="160">氏名</th>
+                      <!--{def useAct}-->
+                      <th width={rval TOTALSTUDYACT_WIDTH}>{rval TOTALSTUDYACT_LABEL}　　{rval btn_teikei}<br><span style="color:red;font-size:small;">{rval TOTALSTUDYACT_COMMENT}</span></th>
+                      <!--{/def}-->
+                      <!--{def useTime}-->
+                      <th width="*">評価　　{rval btn_teikei2}<br><span style="color:red;font-size:small;">{rval TOTALSTUDYTIME_COMMENT}</span></th>
+                      <!--{/def}-->
+                      <!--{def useRemark1}-->
+                      <th width="*">{rval REMARK1_LABEL}　　{rval btn_teikei3}<br><span style="color:red;font-size:small;">{rval REMARK1_COMMENT}</span></th>
+                      <!--{/def}-->
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width:100%;height:460;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+  <!--{each data}-->
+                    <tr>
+                      <td width="120" align="left" bgcolor="{rval data/COLOR}">&nbsp;{rval data/ATTENDNO}</td>
+                      <td width="160" align="left" bgcolor="{rval data/COLOR}">&nbsp;{rval data/NAME_SHOW}</td>
+                      <!--{def useAct}-->
+                      <td width={rval TOTALSTUDYACT_WIDTH} align="left" bgcolor="{rval data/COLOR}">{rval data/TOTALSTUDYACT}</td>
+                      <!--{/def}-->
+                      <!--{def useTime}-->
+                      <td width="*" align="left" bgcolor="{rval data/COLOR}">{rval data/TOTALSTUDYTIME}</td>
+                      <!--{/def}-->
+                      <!--{def useRemark1}-->
+                      <td width="*" align="left" bgcolor="{rval data/COLOR}">{rval data/REMARK1}</td>
+                      <!--{/def}-->
+                    </tr>
+  <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <td align="right">
+                        {rval FILE}{rval btn_input}&nbsp;{rval btn_output}　{rval btn_replace}　　{rval btn_update}{rval btn_reset}{rval btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

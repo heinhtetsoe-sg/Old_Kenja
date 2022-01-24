@@ -1,0 +1,67 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td>
+            <hr width="300" align="left">
+            &nbsp;{rval NO}&nbsp;&nbsp;{val NAME}
+            <hr width="300" align="left">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search">
+                <td nowrap height="20">　<font color="yellow">家族情報</font></td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="3%"  nowrap>連番</th>
+                      <th width="15%" nowrap>氏名</th>
+                      <th width="18%" nowrap>氏名(かな)</th>
+                      <th width="4%"  nowrap>性別</th>
+                      <th width="5%"  nowrap>生年月日</th>
+                      <th width="4%"  nowrap>続柄</th>
+                      <th width="15%" nowrap>職業又は学校</th>
+                      <th width="5%"  nowrap>兄弟姉妹<br>学籍番号</th>
+                      <th width="5%"  nowrap>在卒<br>区分</th>
+                      <th width="5%"  nowrap>学年</th>
+                      <th width="5%"  nowrap>同居<br>区分</th>
+                      <th width="25%" nowrap>備考</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td align="left"   nowrap bgcolor="#ffffff">&nbsp;
+                        <a href="knjj183_familyindex.php?cmd=edit&SCHREGNO={val NO}&RELA_NO={val data/RELA_NO}" target="bottom_frame">{val data/RELA_NO}</a>
+                      </td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/RELA_NAME}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/RELA_KANA}</td>
+                      <td align="center" nowrap bgcolor="#ffffff">{rval data/RELA_SEX}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/RELA_BIRTHDAY}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/RELA_RELATIONSHIP}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/RELA_OCCUPATION}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/RELA_SCHREGNO}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/REGD_GRD_FLG}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/RELA_GRADE}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/RELA_REGIDENTIALCD}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/RELA_REMARK}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}

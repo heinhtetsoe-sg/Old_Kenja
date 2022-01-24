@@ -1,0 +1,215 @@
+{rval start} 
+{rval IFRAME}
+<style type="text/css">
+<!--
+a{
+color:#ffffff;
+font-size: 3.3mm;
+}
+a:hover{
+color:#ffffff;
+font-weight:bold;
+font-size: 3.3mm;
+}
+-->
+</style>
+
+<table width="85%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search" height="40">
+<td width="*%" nowrap>
+<!--{def KNJM432K_SUBCLASS_RADIO}-->
+
+&nbsp;処理科目(
+<!--{def SUBCLASS_DIV1_LABEL}-->
+{rval SUBCLASS_DIV1}<LABEL for="SUBCLASS_DIV1">{rval SUBCLASS_DIV1_LABEL}</LABEL>&nbsp;
+<!--{/def}-->
+<!--{def SUBCLASS_DIV2_LABEL}-->
+{rval SUBCLASS_DIV2}<LABEL for="SUBCLASS_DIV2">{rval SUBCLASS_DIV2_LABEL}</LABEL>&nbsp;
+<!--{/def}-->
+<!--{def SUBCLASS_DIV3_LABEL}-->
+{rval SUBCLASS_DIV3}<LABEL for="SUBCLASS_DIV3">{rval SUBCLASS_DIV3_LABEL}</LABEL>&nbsp;
+<!--{/def}-->
+{rval SUBCLASS_DIV4}<LABEL for="SUBCLASS_DIV4">{rval SUBCLASS_DIV4_LABEL}</LABEL>&nbsp;
+{rval SUBCLASS_DIV5}<LABEL for="SUBCLASS_DIV5">{rval SUBCLASS_DIV5_LABEL}</LABEL>&nbsp;
+{rval SUBCLASS_DIV6}<LABEL for="SUBCLASS_DIV6">{rval SUBCLASS_DIV6_LABEL}</LABEL>
+)<BR>
+
+<!--{/def}-->
+&nbsp;処理年度：{rval YEAR}年度
+<!--{def use_school_detail_gcm_dat}-->
+&nbsp;　課程学科：{rval COURSE_MAJOR}
+<!--{/def}-->
+&nbsp;　科目：{rval SUBCLASSCD}
+&nbsp;　学級・講座：{rval CHAIRCD}&nbsp;&nbsp;移動方向({rval MOVE_ENTER1}<LABEL for="MOVE_ENTER1">縦</LABEL>　{rval MOVE_ENTER2}<LABEL for="MOVE_ENTER2">横</LABEL>)
+</td>
+<!--
+                        
+                        <th width="7%" nowrap>処理年度：{rval YEAR}年度</th>  
+                        <th width="33%" nowrap>科目：{rval SUBCLASSCD}</th>
+                        <td width="*%" nowrap>学級・講座：{rval CHAIRCD}&nbsp;&nbsp;移動方向({rval MOVE_ENTER1}<LABEL for="MOVE_ENTER1">縦</LABEL>　{rval MOVE_ENTER2}<LABEL for="MOVE_ENTER2">横</LABEL>)</td>
+                        <td width="24%">
+                            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                              <tr class="no_search">
+                                <th width="6%" bgcolor="#3399ff" nowrap><font color="#000000" size="2">公欠</font></th>
+                                <th width="6%" bgcolor="#66cc33" nowrap><font color="#000000" size="2">特別<BR>欠席</font></th>
+                                <th width="6%" bgcolor="#ff0099" nowrap><font color="#000000" size="2">病欠<BR>欠課</font></th>
+                                <th width="6%" bgcolor="#ffff00" nowrap><font color="#000000" size="2">異動<BR>生徒</font></th>
+                              </tr>
+                            </table>
+                        </td>
+-->
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th rowspan="2" width="88"><font size="2" aria-label="">クラス-<br>出席番号</font></th>
+                        <th rowspan="2" width="180"><font size="2" aria-label="">氏名</font></th>
+                        <th rowspan="2" width="25" ><font size="2" aria-label="">仮<br>評<br>定</font>{rval head/PROV_FLG_ALL}</th> 
+                        <th rowspan="2" width="60" ><font size="2">学年評定</font></th>
+                        <th rowspan="2" width="60" ><font size="2">履修単位</font></th>
+                        <th rowspan="2" width="60" ><font size="2">修得単位</font></th>
+                        <th colspan="5" width="*"><font size="2">累積情報</font></th>
+                      </tr>
+                      <tr class="no_search">
+                        <th width="57"><font size="2">授業<br>時数</font></th>
+                        <th width="57"><font size="2">出席<br>すべき<br>時数</font></th>
+                        <th width="57"><font size="2">欠<br>時</font></th>
+                        <th width="57"><font size="2">遅<br>早</font></th>
+                        <th width="*"><font size="2">欠<br>課</font></th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <div style="width:100%;height:350;overflow:auto">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr height="28">
+                          <td width="88" align="center" bgcolor="{rval data/COLOR}">{rval data/ATTENDNO}</td>
+                          <td width="180" align="left" bgcolor="{rval data/COLOR}">{rval data/SCHREGNO_SHOW}{rval data/NAME_SHOW}</td>
+                          <td width="25" align="center" bgcolor="{rval data/COLOR}">{rval data/PROV_FLG}</td>
+                          <td width="60" align="center" bgcolor="{rval data/COLOR}">{rval data/SCORE}</td>
+                          <td width="60" align="center" bgcolor="{rval data/COLOR}">{rval data/COMP_CREDIT}</td>
+                          <td width="60" align="center" bgcolor="{rval data/COLOR}">{rval data/GET_CREDIT}</td>
+                          <td width="57" align="center" bgcolor="{rval data/COLOR}">{rval data/LESSON}</td>
+                          <td width="57" align="center" bgcolor="{rval data/COLOR}">{rval data/MLESSON}</td>
+                          <td width="57" align="center" bgcolor="{rval data/COLOR}">{rval data/T_NOTICE}</td>
+                          <td width="57" align="center" bgcolor="{rval data/COLOR}">{rval data/T_LATEEARLY}</td>
+                          <td width="*" align="center" bgcolor="{rval data/COLOR}">{rval data/NOTICE_LATE}</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="275">合計</th>
+                        {rval SCORE_SUM}
+                        <th width="*" rowspan="5">{rval CUR_DATE}</th>
+                      </tr>
+                      <tr class="no_search">
+                        <th>平均</th>
+                        {rval SCORE_AVG}
+                      </tr>
+                      <tr class="no_search">
+                        <th>最高点</th>
+                        {rval SCORE_MAX}
+                      </tr>
+                      <tr class="no_search">
+                        <th>最低点</th>
+                        {rval SCORE_MIN}
+                      </tr>
+                      <tr class="no_search">
+                        <td colspan="13">
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                            <tr class="no_search">
+                              <td width="*%" align="center" nowrap>
+                              {rval FILE}
+                              </td>
+                              <td width="40%" align="center" nowrap>
+                              {val btn_update}{val btn_reset}{val btn_end}<!--{val btn_print}-->
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                  </table>
+                  </td>
+                </tr>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish} 
+<script language="JavaScript">
+ var a_mark = new Array();
+<!--{def data2}-->
+<!--{each data2}--> 
+ a_mark[{rval data2/ASSESSLEVEL}] = '{rval data2/ASSESSMARK}';
+<!--{/each}-->
+<!--{/def}-->
+{rval close_win}</script>

@@ -1,0 +1,52 @@
+{rval start}
+<table width="540" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr > 
+      <td >
+        <table width="100%" border="0" cellspacing="0" cellpadding="1" >
+        <tr class="no_search_line">
+           <th>
+          <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#cccccc">
+          <tr> 
+          <th width="40%" align="left"><b>&nbsp&nbsp&nbsp&nbsp年度 ： {rval GrYEAR}</b></th>
+          </tr>
+        </table>
+          </th>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+        <td> 
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search" height="20" nowrap> 
+            <th width="20%">科目コード</th>
+            <th width="40%">科目名</th>
+            <th width="12%">回数</th>
+            <th width="*%">提出日延長限度回数</th>
+          </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}--> 
+          <tr bgcolor="#ffffff" > 
+       <td width="10%" align="center" nowrap>{val data/SUBCLASSCD}</td>
+       <td width="40%" align="center" nowrap>{val data/SUBCLASS_SHOW}</td>
+       <td width="12%" align="center" nowrap>{val data/SUBCNT}</td>
+       <td width="*%" align="center" nowrap>{val data/SUBCHECK}</td>
+          </tr> 
+<!--{/each}--> 
+<!--{/def}--> 
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+{rval finish}
+</script>
+<script language="JavaScript">{rval reload}{rval jscript}</script>

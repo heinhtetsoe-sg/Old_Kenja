@@ -1,0 +1,153 @@
+{rval start}
+<table align="center" width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+        <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line">
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="20%" nowrap>項目</th>
+                      <th width="*" nowrap>値</th>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap align="right">※&nbsp;前籍高校</th>
+                      <td nowrap bgcolor="#ffffff">
+                        {rval button/btn_searchfs}　{rval data/FINSCHOOLCD}
+                        <font color="black"><span id="label_name">{rval data/FINSCHOOLNAME}</span></font>
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap align="right">※&nbsp;前籍校課程</th>
+                      <td nowrap bgcolor="#ffffff">{rval data/STUDENT_DIV}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap align="right">※&nbsp;学科名称</th>
+                      <td nowrap bgcolor="#ffffff">{rval data/MAJOR_NAME}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap align="right">※&nbsp;在籍期間</th>
+                      <td nowrap bgcolor="#ffffff" style="color:black";>
+                        {rval data/REGD_S_DATE}&nbsp;～&nbsp;{rval data/REGD_E_DATE}
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap align="right">期間月数</th>
+                      <td nowrap bgcolor="#ffffff">
+                        <font color="black">
+                            <span id="PERIOD_MONTH_CNT">{rval data/PERIOD_MONTH_CNT}</span>
+                        </font>
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap align="right">休学月数</th>
+                      <td nowrap bgcolor="#ffffff">{rval data/ABSENCE_CNT}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap align="right">月数</th>
+                      <td nowrap bgcolor="#ffffff">
+                        <font color="black">
+                            <span id="MONTH_CNT">{rval data/MONTH_CNT}</span>
+                        </font>
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap align="right">※&nbsp;入学形態</th>
+                      <td nowrap bgcolor="#ffffff">{rval data/ENT_FORM}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap align="right">事由</th>
+                      <td nowrap bgcolor="#ffffff">{rval data/REASON}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap align="right">スポーツ振興センター{rval data/ANOTHER_SPORT_LABEL}</th>
+                      <td nowrap bgcolor="#ffffff">{rval data/ANOTHER_SPORT}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td nowrap bgcolor="#ffffff" colspan="2">
+                      {rval button/btn_insert}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}
+                      </td>
+                    </tr>
+                    </table>
+                  </td>
+                </tr>
+                </table>
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}
+
+  setInterval('callfunc()',1000);
+
+function callfunc()
+{
+    var s_date = document.forms[0].REGD_S_DATE.value;
+    var e_date = document.forms[0].REGD_E_DATE.value;
+    
+    if (s_date.length != 0 && e_date.length != 0) {
+        st_date = s_date.split("/");
+        ed_date = e_date.split("/");
+        
+        //月数計算方法 例：開始:2007/04/1 終了:2007/04/03 = 1月数
+        //             例：開始:2007/04/1 終了:2007/05/01 = 2月数
+        //生徒が４月に入学して４月に退学しても１月数と計算する
+        //      ４月に入学して５月に退学したら２月数と計算する
+        //日では計算しない！！
+        set_year = (eval(ed_date[0]) - eval(st_date[0])) * 12;
+        set_month = (eval(ed_date[1])+set_year) - eval(st_date[1]);
+        
+        //期間月数
+        document.getElementById("PERIOD_MONTH_CNT").innerHTML = set_month + 1;
+        document.forms[0].PERIOD_MONTH_CNT.value = set_month + 1;
+        if (eval(set_month) < 0) {
+            document.getElementById("PERIOD_MONTH_CNT").style.color = "#F00";
+        }
+        else {
+            document.getElementById("PERIOD_MONTH_CNT").style.color = "#000";
+        }
+        
+        var a_cnt = document.forms[0].ABSENCE_CNT.value;
+        if (a_cnt.length != 0) {
+            set_a_cnt = set_month - eval(a_cnt);
+            //月数
+            document.getElementById("MONTH_CNT").innerHTML = set_a_cnt + 1;
+            document.forms[0].MONTH_CNT.value = set_a_cnt + 1;
+            if (set_a_cnt < 0) {
+                document.getElementById("MONTH_CNT").style.color = "#F00";
+            }
+            else {
+                document.getElementById("MONTH_CNT").style.color = "#000";
+            }
+        }
+        else {
+            //月数
+            document.getElementById("MONTH_CNT").innerHTML = set_month + 1;
+            document.forms[0].MONTH_CNT.value = set_month + 1;
+        }
+    }
+    else {
+        //期間月数
+        document.getElementById("PERIOD_MONTH_CNT").innerHTML = "";
+        document.forms[0].PERIOD_MONTH_CNT.value = "";
+        //月数
+        document.getElementById("MONTH_CNT").innerHTML = "";
+        document.forms[0].MONTH_CNT.value = "";
+    }
+} 
+</script>
+

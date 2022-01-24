@@ -1,0 +1,82 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td >「※」がある項目は必須入力</td>
+    </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="*%" colspan="2">項 目</th>
+                      <th width="80%">値</th>
+                    </tr>
+<!--結果一覧-->
+                    <tr>
+                      <th class="no_search" align="right" colspan="2">※　来室日時</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/DATE}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" colspan="2">※　来室校時</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/PERIOD}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" colspan="2">※　来室診療区分</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/TREATMENT_DIV}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" colspan="2">来室理由</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/VISIT_REASON}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" colspan="2">症状が出た時間</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/OCCURTIMECD}&nbsp;&nbsp;&nbsp;&nbsp;{rval data/OCCURTIME}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" colspan="2">体温</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/TEMPERATURE}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" colspan="2">朝食</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/BREAKFAST}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="center" rowspan="2">睡眠</th>
+                      <th class="no_search" align="right">時間</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/BEDTIME}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right">状況</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/SLEEPING}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" colspan="2">保健室での処置</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/NURSETREAT}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" colspan="2">備考</th>
+                      <td align="left" bgcolor="#ffffff">&nbsp;{rval data/REMARK}</td>
+                    </tr>
+<!--{def button}-->
+                    <tr>
+                      <th class="no_search" align="right" colspan="2">&nbsp;</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}</td>
+                    </tr>
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

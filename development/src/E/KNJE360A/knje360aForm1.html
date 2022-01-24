@@ -1,0 +1,111 @@
+{rval start}
+{rval IFRAME}
+<style type="text/css">
+
+a:link { color: white; }
+a:visited { color: white; }
+a:hover { color: white; }
+a:active { color: white; }
+
+</style>
+
+<table style="line-height:10px;"><tr><td><br></td></tr></table>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            {rval button/btn_select}　　　　
+            {rval DATA_SELECT1}<LABEL for="DATA_SELECT1">受験結果入力済み</LABEL>　
+            {rval DATA_SELECT2}<LABEL for="DATA_SELECT2">受験結果未入力</LABEL>　
+            {rval DATA_SELECT3}<LABEL for="DATA_SELECT3">全て</LABEL><br><br>
+          </td>
+        </tr>
+        <tr>
+          <td>{rval button/btn_update}{rval button/btn_reset}{rval button/btn_print}{rval button/btn_end}<br><br></td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width:95vw;height:75vh;overflow-x:scroll;overflow-y:scroll;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th align="center" nowrap>卒業<br>年度</th>
+                      <th align="center" nowrap>{rval HR_NAME_LABEL}</th>
+                      <th align="center" nowrap>出席<br>番号</th>
+                      <th align="center" nowrap>学籍番号</th>
+                      <th align="center" nowrap>氏名</th>
+                      <th align="center" nowrap width="20">{rval TAISYOU_ALL}</th>
+                      <th align="center" nowrap>{rval DECISION_LABEL}</th>
+                      <th align="center" nowrap>{rval PLANSTAT_LABEL}</th>
+                      <th align="center" nowrap width="80">{rval EXAMNO_LABEL}</th>
+                      <th align="center" nowrap width="110">受験方式</th>
+                      <th align="center" nowrap width="200">学校名</th>
+                      <th align="center" nowrap width="150">学部</th>
+                      <th align="center" nowrap width="150">学科</th>
+<!--{def useCollegeExamCalendar}-->
+                      <th align="center" nowrap>募集<br>区分</th>
+                      <th align="center" nowrap>日程</th>
+                      <th align="center" nowrap>方式</th>
+                      <th align="center" nowrap width="100">大分類</th>
+                      <th align="center" nowrap width="100">小分類</th>
+<!--{/def}-->
+                      <th align="center" nowrap>合格発表日</th>
+                    </tr>
+                    <!--結果一覧--><!--{def data}--><!--{each data}-->
+                    <tr bgcolor="{rval data/BGCOLOR}" height="25">
+                      <td align="center" nowrap>{rval data/GRD_YEAR}</td>
+                      <td nowrap>{rval data/HR_NAME}</td>
+                      <td align="center" nowrap>{rval data/ATTENDNO}</td>
+                      <td align="center" nowrap>{rval data/SCHREGNO}</td>
+                      <td nowrap>{rval data/NAME_SHOW}</td>
+                      <td align="center" nowrap width="20">{rval data/TAISYOU}</td>
+                      <td align="center" nowrap>{rval data/DECISION}</td>
+                      <td align="center" nowrap>{rval data/PLANSTAT}</td>
+                      <td align="center" nowrap width="80">{rval data/EXAMNO}</td>
+                      <td align="center" nowrap width="110">{rval data/HOWTOEXAM}</td>
+                      <td width="200">{rval data/SCHOOL_NAME}</td>
+                      <td width="150">{rval data/FACULTYNAME}</td>
+                      <td width="150">{rval data/DEPARTMENTNAME}</td>
+<!--{def useCollegeExamCalendar}-->
+                      <td nowrap>{rval data/ADVERTISE_NAME}</td>
+                      <td nowrap>{rval data/PROGRAM_NAME}</td>
+                      <td nowrap>{rval data/FORM_NAME}</td>
+                      <td nowrap width="100">{rval data/L_NAME}</td>
+                      <td nowrap width="100">{rval data/S_NAME}</td>
+<!--{/def}-->
+                      <td align="center" nowrap>{rval data/STAT_DATE3}</td>
+                    </tr>
+                    <!--{/each}--><!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+        <tr class="no_search_line">
+          <th>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_reset}{rval button/btn_print}{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

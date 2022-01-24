@@ -1,0 +1,89 @@
+{rval start} 
+
+<!--{def button}--> 
+<!--{def data}-->
+
+<BR><BR><BR><BR><BR><BR>
+<table style="width: 570px" border="0" cellpadding="10" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                    <tr class="no_search" height="35">
+                      <td align="center">
+                        <b>{rval data/YEAR}年度　　{rval data/SEMESTER}　　
+                           {rval data/HR_CLASS_TYPE1}<LABEL for="HR_CLASS_TYPE1">法定クラス</LABEL>　
+                           {rval data/HR_CLASS_TYPE2}<LABEL for="HR_CLASS_TYPE2">複式クラス</LABEL>
+                        </b>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="120">
+                      <td width="100%" align="center">
+                        <table>
+                          <tr>
+                            <td width="50%" align="right" nowrap>学年</td>
+                            <td width="50%" nowrap>　&nbsp;{rval data/GRADE}</td>
+                          </tr>
+                          <tr>
+                            <td align="right" nowrap>異動対象日付、及び出欠集計日付</td>
+                            <td nowrap>　{rval data/DATE}</td>
+                          </tr>
+                          <tr>
+                            <td align="right" nowrap>記載日付</td>
+                            <td nowrap>　&nbsp;{rval data/KISAI_DATE}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="80">
+                      <td>
+                        <table width="100%">
+                          <tr>
+                            <td>
+                              <table>
+                                <tr height="40">
+                                  <td colspan="2" nowrap><b>　　　　　　出力する生徒</b></td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    　　　　　{rval data/KANA_PRINT}<LABEL for="KANA_PRINT">ふりがなを出力する。</LABEL><br><br>
+                                    　　　　　{rval data/KAIKINSYA1}<LABEL for="KAIKINSYA1">皆勤者</LABEL><br>
+                                    　　　　　　　欠席{rval data/KAIKIN_KESSEKI}で、遅刻・早退数 {rval data/KAIKIN_KAIKIN_TIKOKU}回以下<br><br>
+                                    　　　　　{rval data/KAIKINSYA2}<LABEL for="KAIKINSYA2">精勤者</LABEL><br>
+                                    　　　　　　　欠席1回を遅刻{rval data/KESSEKI_KANSAN}回に換算して、遅刻・早退数合計 {rval data/KAIKIN_SEIKIN_TIKOKU}回以下<br><br>
+                                  </td>
+                                  <td valign="top">
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <td>
+                        {rval button/btn_print}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 
+<script language="JavaScript">{rval jscript}</script>

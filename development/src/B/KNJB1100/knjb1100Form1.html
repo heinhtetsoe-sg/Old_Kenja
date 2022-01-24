@@ -1,0 +1,85 @@
+{rval start}
+<br>
+<table style="width: 750px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+    <table style="width: 750px" border="0" cellspacing="5" cellpadding="1">
+    <tr>
+    <td>
+        <table style="width: 750px" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 750px" border="0" cellpadding="0" cellspacing="1">
+                <tr class="no_search" height="30">
+                    <td align="left">&nbsp;&nbsp;&nbsp;<B>対象年度：{rval YEAR}</B>　　　　{rval header/SEMESTER}</td>
+                </tr>
+                <tr>
+                    <td bgcolor='#ffffff'>
+<br>
+&nbsp;&nbsp;&nbsp;●&nbsp;<b>合併先科目の講座名簿を自動生成</b>
+<br><br>
+                    </td>
+                </tr>
+            </table>
+            <table style="width: 750px" border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search" >
+                    <td align="center" width="5%">実行</td>
+                    <td align="center" width="25%">合併先科目名</td>
+                    <td align="center" width="10%">タイプ</td>
+                    <td align="center" width="*%">講座　　（群）</td>
+                    <td align="center" width="10%">名簿作成状況</td>
+                </tr>
+            <!--{def data}-->
+            <!--結果一覧-->
+            <!--{each data}-->
+                <tr class="no_search_line" height="35">
+                    <td bgcolor='#ffffff' align="center">{rval data/CHECK}</td>
+                    <td bgcolor='#ffffff' align="left">{rval data/COMBINED_SUBCLASSCD}：{rval data/SUBCLASSNAME}</td>
+                    <td bgcolor='#ffffff' align="center">単位加算</td>
+                    <td bgcolor='#ffffff' align="left">{rval data/CHAIRCD}</td>
+                    <td bgcolor='#ffffff' align="center"><font color='{rval data/COLOR}'>{rval data/MAKING}</font></td>
+                </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+            <table style="width: 750px" border="0" cellspacing="1" cellpadding="4">
+                <tr>
+                    <td bgcolor='#ffffff'>
+<br>
+<font color="red" size="2">
+&nbsp;&nbsp;&nbsp;&nbsp;
+※&nbsp;単位加算タイプの合併先科目についてのみ処理が対応しています。<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+※&nbsp;複数の講座が存在する科目については、一つの講座を選択して下さい。<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+※&nbsp;既に名簿が登録されている科目に対して処理を行うと、既存の名簿と受講クラスが一度削除されます。<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+※&nbsp;群に属する講座は処理できません。
+</font>
+<br><br>
+                    </td>
+                </tr>
+                <tr class="no_search">
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_updte}{rval button/btn_clear}{rval button/btn_end}</td>
+                </tr>
+            </table>
+            <table style="width: 750px" border="0" cellspacing="0" cellpadding="0">
+                <tr style="font-weight: 700; color:white">
+                    <td bgcolor='#ffffff'>
+                    <font color='#ffffff'>
+                        <marquee><span id="marq_msg">生成中です...しばらくおまちください</span></marquee>
+                    </font>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+    </table>
+</td>
+</tr>
+</table>
+<script language="JavaScript">{rval close}</script>
+{rval finish} 

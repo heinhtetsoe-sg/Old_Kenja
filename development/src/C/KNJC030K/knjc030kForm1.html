@@ -1,0 +1,136 @@
+{rval start}
+<style type="text/css">
+<!--
+    .tablespace {color:white; background-color:white; text-align:center }
+    .subtitle {color:white; background-color:#316F9B }
+-->
+</style>
+<BR>
+<BR>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <th valign="top">
+        <table width="97%" border="0" cellspacing="0" cellpadding="1">
+          <tr>
+            <td width="76%">
+              <table width="100%" border="0" cellspacing="1" cellpadding="6" bgcolor="#000066">
+                <tr class="no_search" nowrap>
+                  <th>{rval this_year}</th>
+                  <th>
+                      {rval GRADE}&nbsp;
+                      {rval btn_before}&nbsp;
+                      {rval control/executedate}&nbsp;
+                      {rval btn_next}&nbsp;&nbsp;
+                      {rval btn_end}
+                  </th>
+                </tr>
+              </table>
+            </td>
+            <th width="24%">
+                <table width="90%" height="90%" border="0" cellspacing="1" cellpadding="10" bgcolor="#000066">
+                  <tr nowrap>
+                    <th BGCOLOR="#ffffff"><font color="silver">授業無</font></th>
+                    <th BGCOLOR="#3399ff"><font color="#ffffff">出欠済</font></th>
+                    <th BGCOLOR="#ff0099"><font color="#ffffff">出欠未</font></th>
+                    <th BGCOLOR="#ffff00"><font color="black">出欠中</font></th>
+                  </tr>
+                </table>
+            </th>
+          </tr>
+        </table>
+<!-- 2006/01/30 alp m-yama -->
+		<table width="100%" border="0" cellspacing="1">
+		  <tr>
+			<td align="center">表示データ：{rval CNTL_DT_KEY}</td>
+		  </tr>
+		</table>
+<!-- 2006/01/30 alp m-yama -->
+      </th>
+  </tr>
+  <tr>
+  <td>
+   <BR>
+
+    <table width="989" border="0" cellspacing="0" cellpadding="10" align="center">
+      <tr>
+        <th align="left">
+            {rval btn_update}
+        </th>
+      </tr>
+      <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="search_line">
+           <td colspan="12">
+            <table width="100%" border="0" cellspacing="1" cellpadding="0" align="center">
+              <tr class="no_search" align="center" nowrap>
+                <th width="100">学級</th>
+                  <!--{def title_index}-->
+                  <!--結果一覧1-->
+                  <!--{each title_index}-->
+                <th width="{rval title_index/width_num}">{rval title_index/NAME1}</th>
+                  <!--{/each}-->
+                  <!--{/def}-->
+              </tr>
+            </table>
+           </td>
+          </tr>
+          <tr>
+          <td colspan="12">
+            <div style="width:100%;height:490; overflow-y:scroll; overflow-x:auto">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td>
+                  <table id="tbl" width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="silver">
+                  <!--{def data}-->
+                  <!--結果一覧2-->
+                  <!--{each data}-->
+                    <tr class="tablespace" nowrap>
+                    <td width="100" class="no_search" nowrap>{rval data/TARGETCLASS}</td>
+                     <!-- {rval data/Jump_target} -->
+                     {rval data/PERIODCD1}
+                     {rval data/PERIODCD2}
+                     {rval data/PERIODCD3}
+                     {rval data/PERIODCD4}
+                     {rval data/PERIODCD5}
+                     {rval data/PERIODCD6}
+                     {rval data/PERIODCD7}
+                     {rval data/PERIODCD8}
+                     {rval data/PERIODCD9}
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+          </tr>
+          <tr class="search_line">
+           <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search" nowarp>
+                <th width="100">学級</th>
+                  <!--{def title_index}-->
+                  <!--結果一覧3-->
+                  <!--{each title_index}-->
+                <th width="{rval title_index/width_num}">{rval title_index/NAME1}</th>
+                  <!--{/each}-->
+                  <!--{/def}-->
+              </tr>
+              </tr>
+            </table>
+           </td>
+          </tr>
+        </table>
+      </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval Closing}</script>
+

@@ -1,0 +1,59 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+  <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr >
+      <td >
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" height="25">
+                <th norwarp width="25%">対象年度&nbsp;{rval year}</th>
+                <td norwarp width="75%">&nbsp;{rval pre_copy}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr height="10">
+          <td></td>
+        </tr>
+
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" height="25">
+              <th nowrap rowspan="2" width="15%">会計科目・項目<BR>コード</th>
+              <th nowrap colspan="2" width="45%">会計細目</th>
+              <th nowrap rowspan="2" width="25%">金額</th>
+            </tr>
+            <tr class="no_search" height="25">
+              <th nowrap>コード</th>
+              <th nowrap>名称</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+            <!--{each data}-->
+            <tr>
+            <!--{def data/ROWSPAN}-->
+              <td nowrap bgcolor="#ffffff" align="center" rowspan={rval data/ROWSPAN}>{val data/COLLECT_L_M_CD}</td>
+            <!--{/def}-->
+              <td nowrap bgcolor="#ffffff" align="center">{val data/COLLECT_S_CD}</td>
+              <td nowrap bgcolor="#ffffff">{val data/COLLECT_S_NAME}</td>
+              <td nowrap bgcolor="#ffffff" align="right">{val data/COLLECT_S_MONEY}</td>
+            </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

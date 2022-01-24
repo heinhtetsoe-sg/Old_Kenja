@@ -1,0 +1,101 @@
+{rval start}
+
+<br>
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <hr width="90%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="90%" align="left">
+            <br>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <tr class="no_search">
+                      <th width="40%">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search"> 
+                            <th align="left" nowrap><b>※</b></th>
+                            <th align="right" nowrap><b>部クラブ</b></th>
+                          </tr>
+                        </table>
+                      </th>
+                      <td width="60%" bgcolor="#ffffff">{rval data/CLUBCD}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <th>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search"> 
+                            <th align="left" nowrap><b>※</b></th>
+                            <th align="right" nowrap><b>日付</b></th>
+                          </tr>
+                        </table>
+                      </th>
+                      <td bgcolor="#ffffff">{rval data/DETAIL_DATE}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap><b>大会名称</b></th>
+                      <td bgcolor="#ffffff">
+                        {rval data/MEETLIST}　{rval button/btn_refl}<br>
+                        {rval data/MEET_NAME}<br>
+                        <font color="red" style="font-size:10pt">(全角で30文字)</font>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap><b>区分</b></th>
+                      <td bgcolor="#ffffff">{rval data/DIV1}<LABEL for="DIV1">個人</LABEL>　　{rval data/DIV2}<LABEL for="DIV2">団体</LABEL></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap><b>開催地域</b></th>
+                      <td bgcolor="#ffffff">{rval data/HOSTCD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap><b>種目</b></th>
+                      <td bgcolor="#ffffff">{rval data/ITEMCD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap><b>種目種類</b></th>
+                      <td bgcolor="#ffffff">{rval data/KINDCD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap><b>成績</b></th>
+                      <td bgcolor="#ffffff">{rval data/RECORDCD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap><b>記録</b></th>
+                      <td bgcolor="#ffffff">{rval data/DOCUMENT}<br><font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap><b>表彰状添付</b></th>
+                      <td bgcolor="#ffffff">{rval data/FILESEL}&nbsp;&nbsp;{rval button/btn_viewpdf}&nbsp;&nbsp;{rval button/btn_delpdf}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap><b>備考</b></th>
+                      <td bgcolor="#ffffff">{rval data/DETAIL_REMARK}<br><font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{def button}-->
+                    <tr> 
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}</td>
+                    </tr>
+                    <!--{/def}--> 
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

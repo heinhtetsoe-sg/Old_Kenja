@@ -1,0 +1,84 @@
+{rval start}
+
+<br><br>
+<table width="800" border="0" cellpadding="0" cellspacing="10" align="center">
+  <tr class="no_search_line">
+    <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr nowrap height="30">
+          <td class="no_search" width="120" align="center">入試年度</td>
+          <td bgcolor="#ffffff" width="120" align="center">{rval TOP/YEAR}</td>
+          <td class="no_search" width="150" align="center">※ 入試制度</td>
+          <td bgcolor="#ffffff" width="*">{rval TOP/APPLICANTDIV}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="center" class="no_search" height="30">
+                <th>{rval LEFT_TITLE}{rval TOP/TEMPORARY_CLASS}</th>
+                <th>&nbsp;</th>
+                <th>{rval RIGHT_TITLE}</th>
+              </tr>
+              <!--{def main_part}-->
+              <tr align="center" bgcolor="#ffffff">
+                <td width="45%">
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr class="no_search_line">
+                      <td width="100%">{rval main_part/LEFT_PART}</td>
+                    </tr>
+                    <tr>
+                      <td align="right">
+                        人数：<span id="LEFT_PART_NUM"></span>&nbsp;
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td width="*%" class="no_search">
+                  {rval main_part/SEL_ADD_ALL} <br>
+                  {rval main_part/SEL_ADD} <br>
+                  {rval main_part/SEL_DEL} <br>
+                  {rval main_part/SEL_DEL_ALL} <br>
+                </td>
+                <td width="45%">
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr class="no_search_line">
+                      <td width="100%">{rval main_part/RIGHT_PART}</td>
+                    </tr>
+                    <tr>
+                      <td align="right">
+                        人数：<span id="RIGHT_PART_NUM"></span>&nbsp;
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!--{/def}-->
+              <!--{def button}-->
+              <tr class="no_search" height="30">
+                <td colspan="3" nowrap align="right">
+                  {rval data/csv1}<LABEL for="csv1">取込</LABEL>&nbsp;{rval data/csv2}<LABEL for="csv2">書出</LABEL>&nbsp;
+                  ファイル：{rval FILE}{rval button/btn_exec}&nbsp;{rval data/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL>&nbsp;&nbsp;
+                  {rval button/BTN_OK}{rval button/BTN_CLEAR}{rval button/BTN_END}
+                </td>
+              </tr>
+              <!--{/def}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">
+    document.getElementById("LEFT_PART_NUM").innerHTML = document.forms[0].LEFT_PART.options.length;
+    document.getElementById("RIGHT_PART_NUM").innerHTML = document.forms[0].RIGHT_PART.options.length;
+    {rval jscript}
+</script>
+{rval finish}

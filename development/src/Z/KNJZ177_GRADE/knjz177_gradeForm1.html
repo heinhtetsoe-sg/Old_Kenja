@@ -1,0 +1,107 @@
+{rval start}
+<BR><BR>
+<table width="70%" border="0" cellpadding="0" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      
+        <tr>
+          <td height="50">
+            <hr width="30%" align="left">
+                &nbsp;対象年度：{rval YEAR_SHOW}<!--{def SCHOOL_KIND}-->　校種:{rval SCHOOL_KIND}<!--{/def}-->
+            <hr width="30%" align="left">
+          </td>
+        </tr>
+      
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+                <!--{def header1}-->
+                <!--結果一覧-->
+                <!--{each header1}-->
+                {rval header1/th}
+                <!--{/each}-->
+                <!--{/def}-->
+            </tr>
+            <tr class="no_search" nowrap align="center">
+                <!--{def header2}-->
+                <!--結果一覧-->
+                <!--{each header2}-->
+                {rval header2/th}
+                <!--{/each}-->
+                <!--{/def}-->
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        
+        <tr>
+        <td>
+          <div onScroll="scrollRC()" style="overflow:scroll; width: 100%; height: 170;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def data2}-->
+                <!--結果一覧-->
+                <!--{each data2}-->
+                    {rval data2/tr_td}
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+        
+        <tr>
+          <td height="100">
+            <hr width="40%" align="left">
+                &nbsp;{rval GRADE}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_hanei}<BR>
+            <hr width="40%" align="left">
+          </td>
+        </tr>
+        <tr>
+        <td>
+            <table style="width: 450px" border="0" cellspacing="0" cellpadding="0">
+            <tr class="no_search_line">
+            <td>
+                <table style="width: 450px" border="0" cellspacing="1" cellpadding="4">
+                    <tr class="no_search" >
+                        <td align="center" width="25%">学期</td>
+                        <td align="center" width="25%">対象月</td>
+                        <td align="center" width="25%">締め日</td>
+                    </tr>
+                <!--{def data}-->
+                <!--結果一覧-->
+                <!--{each data}-->
+                    <tr class="no_search_line" >
+                        {val data/td}
+                    </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </tr>
+                </table>
+            </td>
+            </tr>
+            </table>
+        </td>
+        </tr>
+        <tr>
+            <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish} 

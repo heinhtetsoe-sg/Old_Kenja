@@ -1,0 +1,25 @@
+#!/bin/sh
+##############################################################################
+# SVF JPD's JavaQueryUtility control script  Copyright(C) by FIT.
+##############################################################################
+
+SCRIPT_NAME="QueryUtility"
+
+if [ "$FIT_PRODUCTS_BASE" = "" ]; then
+    echo "FIT_PRODUCTS_BASE not found!"
+    echo "please set 'FIT_PRODUCTS_BASE' environment variable and try again."
+    exit 1
+fi
+
+CLASSPATH="$CLASSPATH:$FIT_PRODUCTS_BASE/svfjpd/util/queryutil/jide-grids.jar"
+CLASSPATH="$CLASSPATH:$FIT_PRODUCTS_BASE/svfjpd/util/queryutil/jide-dialogs.jar"
+CLASSPATH="$CLASSPATH:$FIT_PRODUCTS_BASE/svfjpd/util/queryutil/jide-components.jar"
+CLASSPATH="$CLASSPATH:$FIT_PRODUCTS_BASE/svfjpd/util/queryutil/jide-common.jar"
+CLASSPATH="$CLASSPATH:$FIT_PRODUCTS_BASE/svfjpd/util/queryutil/jdom.jar"
+CLASSPATH="$CLASSPATH:$FIT_PRODUCTS_BASE/svfjpd/util/queryutil/vrq-connect.jar"
+CLASSPATH="$CLASSPATH:$FIT_PRODUCTS_BASE/svfjpd/util/queryutil/vrq-core.jar"
+CLASSPATH="$CLASSPATH:$FIT_PRODUCTS_BASE/svfjpd/util/queryutil/vrq-util.jar"
+export CLASSPATH
+
+java jp.co.fit.queryutil.Main
+exit 0

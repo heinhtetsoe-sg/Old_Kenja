@@ -1,0 +1,180 @@
+{rval start}
+{rval IFRAME}
+<style type="text/css">
+#tyousei {
+    height : 50px;
+}
+#tyousei2 {
+    height : 70px;
+}
+</style>
+
+<table width="1350" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td>
+       <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr class="no_search_line">
+          <th>
+            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+            <tr height="30">
+              <th width="100" align="left" class="no_search">{rval YEAR}年度</th>
+              <th width="200" align="left" class="no_search">学年 {rval GRADE}</th>
+              <th width="150" align="left" class="no_search">学期 {rval SEMESTER}</th>
+              <th width="250" align="left" class="no_search">考査 {rval TESTCD}</th>
+              <th width="200" align="left" class="no_search">教科 {rval CLASSCD}</th>
+              <th width="*" align="left" class="no_search">科目 {rval SUBCLASSCD}</th>
+            </tr>
+            </table>
+          </th>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" id="tyousei">
+                        <th width="70">講座コード</th>
+                        <th width="200">講座名称</th>
+                        <th width="200">正担任</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+
+            <td>
+            <div id="trow" style="overflow:hidden; width: 800px; ">
+            <div style="width: 1600px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" id="tyousei">
+                          <th width="200">監督者</th>
+                          <th width="200">返却先教職員</th>
+                          <th width="150">問題用紙枚数</th>
+                          <th width="150">解答用紙枚数</th>
+                          <th width="150">問題用紙両面有無</th>
+                          <th width="150">解答用紙両面有無</th>
+                          <th width="200">成績締切日</th>
+                          <th width="150">成績締切時刻</th>
+                          <th width="*">備考</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+            </div>
+            </td>
+          </tr>
+
+          <tr valign="TOP">
+
+            <td>
+            <div id="tcol" style="overflow: hidden; height: 483px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr bgcolor="#ffffff" id="tyousei2">
+                            <td width="70" align="center">{rval data/CHAIRCD}</td>
+                            <td width="200" align="left">{rval data/CHAIRNAME}</td>
+                            <td width="200" align="left">{rval data/STAFFNAME}</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
+            </div>
+            </td>
+
+            <td>
+            <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 800px; height: 500px;">
+            <div style="width: 1800px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr  bgcolor="#ffffff" id="tyousei2">
+                            <td width="200">{rval data/btn_subformProctor}<BR>{rval data/PROCTOR_STAFF_NAME}</td>
+                            <td width="200">{rval data/btn_subform2}<BR>{rval data/RETURN_STAFF_NAME}</td>
+                            <td width="150" align="center">{rval data/Q_PAPERS} 枚</td>
+                            <td width="150" align="center">{rval data/A_PAPERS} 枚</td>
+                            <td width="150" align="center">{rval data/Q_BOTH_DIV}</td>
+                            <td width="150" align="center">{rval data/A_BOTH_DIV}</td>
+                            <td width="200" align="center">{rval data/DUE_DATE}</td>
+                            <td width="150" align="center">{rval data/DUE_TIME} 時</td>
+                            <td width="*">
+                              {rval data/REMARK}<br>
+                              <font color="red">&nbsp;{rval data/REMARK_COMMENT}</font>
+                              <span id="{rval data/REMARK_STAT_ID}" style="display:none;"></span>
+                            </td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+          <tr class="no_search_line">
+            <th>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td bgcolor="#ffffff" align="right">{rval button/btn_replace} {rval button/btn_update} {rval button/btn_reset} {rval button/btn_back}</td>
+                </tr>
+              </table>
+            </th>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+<div id="lay"></div>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

@@ -1,0 +1,389 @@
+{rval start}
+<style type="text/css">
+.monthTitleTop {
+    width:35;
+    text-align:center;
+    border-top:solid 1px #7379ae;
+    border-right:solid 1px #7379ae;
+    border-left:solid 1px #7379ae;
+    border-bottom:solid 1px #7379ae;
+}
+.monthTitle {
+    width:35;
+    text-align:center;
+    border-top:solid 1px #7379ae;
+    border-right:solid 1px #7379ae;
+    border-bottom:solid 1px #7379ae;
+}
+.monthValueTop {
+    background-color:white;
+    width:35;
+    text-align:center;
+    border-top:solid 1px #7379ae;
+    border-right:solid 1px #7379ae;
+    border-left:solid 1px #7379ae;
+    border-bottom:solid 1px #7379ae;
+}
+.monthValue {
+    background-color:white;
+    width:35;
+    text-align:center;
+    border-top:solid 1px #7379ae;
+    border-right:solid 1px #7379ae;
+    border-bottom:solid 1px #7379ae;
+}
+</style>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr> 
+      <td > 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" height="28"> 
+              <th width="30%">項 目</th>
+              <th width="70%">値</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>入金科目コード</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/COLLECT_L_CD}</td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>入金項目コード</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/COLLECT_M_CD}</td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>入金項目名称</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/COLLECT_M_NAME}</td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>年額</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/COLLECT_M_MONEY}&nbsp;円</td>
+            </tr>
+
+            <!--{def data/SGL_ITEM}--> 
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap></th>
+                  <th align="right" nowrap>SIGEL対象外</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/SGL_ITEM}<LABEL for="SGL_ITEM">SIGEL対象外</LABEL></td>
+            </tr>
+            <!--{/def}--> 
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap></th>
+                  <th align="right" nowrap>学納金/預り金</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/KOUHI_SHIHI1}<LABEL for="KOUHI_SHIHI1">学納金</LABEL>　{rval data/KOUHI_SHIHI2}<LABEL for="KOUHI_SHIHI2">預り金</LABEL></td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap></th>
+                  <th align="right" nowrap><LABEL for="GAKUNOKIN_DIV">学納金区分</LABEL></th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/GAKUNOKIN_DIV}</td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap></th>
+                  <th align="right" nowrap>支援・補助区分</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/REDUCTION_DIV}</td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap></th>
+                  <th align="right" nowrap><LABEL for="IS_REDUCTION_SCHOOL">学校減免</LABEL></th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/IS_REDUCTION_SCHOOL}</td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap></th>
+                  <th align="right" nowrap><LABEL for="IS_CREDITCNT">単位数での算出</LABEL></th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/IS_CREDITCNT}</td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap></th>
+                  <th align="right" nowrap><LABEL for="IS_REPAY">返金対象</LABEL></th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/IS_REPAY}</td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap></th>
+                  <th align="right" nowrap>対象教科書区分</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/TEXTBOOKDIV}</td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap></th>
+                  <th align="right" nowrap>表示順</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/SHOW_ORDER}</td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap></th>
+                  <th align="right" nowrap>備考</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/REMARK}</td>
+            </tr>
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tr class="no_search">
+                    <th align="left" nowrap></th>
+                    <th align="right" nowrap>分割端数</th>
+                  </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/DIVIDE_PROCESS1}<LABEL for="DIVIDE_PROCESS1">初月</LABEL>
+                                    {rval data/DIVIDE_PROCESS2}<LABEL for="DIVIDE_PROCESS2">最終月</LABEL>
+                                    {rval data/DIVIDE_PROCESS3}<LABEL for="DIVIDE_PROCESS3">１円未満を繰越、整数分を加算</LABEL></td>
+            </tr>
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tr class="no_search">
+                    <th align="left" nowrap></th>
+                    <th align="right" nowrap>入金額のまるめ</th>
+                  </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/ROUND_DIGIT1}<LABEL for="ROUND_DIGIT1">１円</LABEL>
+                                    {rval data/ROUND_DIGIT2}<LABEL for="ROUND_DIGIT2">１０円</LABEL>
+                                    {rval data/ROUND_DIGIT3}<LABEL for="ROUND_DIGIT3">１００円</LABEL></td>
+            </tr>
+            <tr nowrap>
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tr class="no_search">
+                    <th align="left" nowrap>※</th>
+                    <th align="right" nowrap>入金計画</th>
+                  </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff" nowrap><LABEL for="ALL_CHECK">全て</LABEL>{rval data/ALL_CHECK}
+                <table border="1" cellpadding="0" cellspacing="0">
+                  <tr class="no_search">
+                    <td class="monthTitleTop">
+                      <LABEL for="COLLECT_MONTH_4">4月</LABEL>
+                    </td>
+                    <td class="monthTitle">
+                      <LABEL for="COLLECT_MONTH_5">5月</LABEL>
+                    </td>
+                    <td class="monthTitle">
+                      <LABEL for="COLLECT_MONTH_6">6月</LABEL>
+                    </td>
+                    <td class="monthTitle">
+                      <LABEL for="COLLECT_MONTH_7">7月</LABEL>
+                    </td>
+                    <td class="monthTitle">
+                      <LABEL for="COLLECT_MONTH_8">8月</LABEL>
+                    </td>
+                    <td class="monthTitle">
+                      <LABEL for="COLLECT_MONTH_9">9月</LABEL>
+                    </td>
+                    <td class="monthTitle">
+                      <LABEL for="COLLECT_MONTH_10">10月</LABEL>
+                    </td>
+                    <td class="monthTitle">
+                      <LABEL for="COLLECT_MONTH_11">11月</LABEL>
+                    </td>
+                    <td class="monthTitle">
+                      <LABEL for="COLLECT_MONTH_12">12月</LABEL>
+                    </td>
+                    <td class="monthTitle">
+                      <LABEL for="COLLECT_MONTH_1">1月</LABEL>
+                    </td>
+                    <td class="monthTitle">
+                      <LABEL for="COLLECT_MONTH_2">2月</LABEL>
+                    </td>
+                    <td class="monthTitle">
+                      <LABEL for="COLLECT_MONTH_3">3月</LABEL>
+                    </td>
+                  </tr>
+
+                  <tr class="no_search_line">
+                    <td class="monthValueTop">
+                      {rval data/COLLECT_MONTH_4}
+                    </td>
+                    <td class="monthValue">
+                      {rval data/COLLECT_MONTH_5}
+                    </td>
+                    <td class="monthValue">
+                      {rval data/COLLECT_MONTH_6}
+                    </td>
+                    <td class="monthValue">
+                      {rval data/COLLECT_MONTH_7}
+                    </td>
+                    <td class="monthValue">
+                      {rval data/COLLECT_MONTH_8}
+                    </td>
+                    <td class="monthValue">
+                      {rval data/COLLECT_MONTH_9}
+                    </td>
+                    <td class="monthValue">
+                      {rval data/COLLECT_MONTH_10}
+                    </td>
+                    <td class="monthValue">
+                      {rval data/COLLECT_MONTH_11}
+                    </td>
+                    <td class="monthValue">
+                      {rval data/COLLECT_MONTH_12}
+                    </td>
+                    <td class="monthValue">
+                      {rval data/COLLECT_MONTH_1}
+                    </td>
+                    <td class="monthValue">
+                      {rval data/COLLECT_MONTH_2}
+                    </td>
+                    <td class="monthValue">
+                      {rval data/COLLECT_MONTH_3}
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <!--{/def}--> 
+            <!--{def button}--> 
+            <tr height="28"> 
+              <th align="right" class="no_search" nowrap>&nbsp;</th>
+              <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}<!--{def syousaiCut}--><BR>{rval button/btn_shousai}<!--{/def}--></td>
+            </tr>
+            <!--{/def}--> 
+            </table>
+          </td>
+        </tr>
+<!--{def syousaiCut}-->
+<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+<tr>
+      <td> 
+        <hr width="30%" align="left">
+        詳細登録の設定内容
+        <hr width="30%" align="left">
+</tr>
+<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" height="28"> 
+              <th width="30%">区 分</th>
+              <th width="70%">設定値</th>
+            </tr>
+            <!--設定一覧-->
+            <!--{def shousai}--><!--{each shousai}-->
+            <tr height="28">
+              <td bgcolor="#ffffff">{rval shousai/NAMELABEL}</td>
+              <td bgcolor="#ffffff">{rval shousai/TOKUSYU_VAL_SET}</td>
+            </tr>
+            <!--{/each}--><!--{/def}-->
+            
+            </table>
+          </td>
+        </tr>
+        </table>
+        
+      </td>
+    </tr>
+    </table>
+  </td>
+</tr>
+<!--{/def}-->
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

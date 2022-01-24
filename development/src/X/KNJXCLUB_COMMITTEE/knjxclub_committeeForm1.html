@@ -1,0 +1,77 @@
+{rval start}
+<style>
+.sub_title {
+    padding:0 10px;
+}
+</style>
+<table width="{rval MAIN_WIDTH}" border="0" cellspacing="0" cellpadding="10">
+    <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr >
+        <td >
+        <hr width="350" align="left">
+          &nbsp;{rval YEAR}年度　{rval SCHREGNO}　{rval NAME}
+        <hr width="350" align="left">        
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{def CLUB_HYOUJI}-->
+              <tr class="no_search">
+                <th nowrap align="left">部クラブ</th>
+                <th nowrap align="center">日付</th>
+                <th nowrap align="left">記録備考</th>
+              </tr>
+              <!--結果一覧-->
+              <!--{each data}-->
+              <tr>
+                <td nowrap bgcolor="#ffffff">{rval data/CLUBNAME}</td>
+                <td nowrap bgcolor="#ffffff">{rval data/DETAIL_DATE}</td>
+                <td nowrap bgcolor="#ffffff">{rval data/DETAIL_REMARK}</td>
+              </tr>
+              <!--{/each}-->
+<!--{/def}-->
+<!--{def AWARD_HYOUJI}-->
+              <tr class="no_search">
+                <th {rval TITLE_OPTION1} nowrap>{rval TITLE1}</th>
+                <th {rval TITLE_OPTION2} nowrap>{rval TITLE2}</th>
+                <th {rval TITLE_OPTION3} nowrap>{rval TITLE3}</th>
+              </tr>
+              <!--結果一覧-->
+              <!--{each data}-->
+              <tr bgcolor="#ffffff">
+                <td {rval data/DATA_OPTION1} nowrap>{rval data/DATA1}</td>
+                <td {rval data/DATA_OPTION2} nowrap>{rval data/DATA2}</td>
+                <td {rval data/DATA_OPTION3} nowrap>{rval data/DATA3}</td>
+              </tr>
+              <!--{/each}-->
+<!--{/def}-->
+<!--{def COMMITTEE_HYOUJI}-->
+              <tr class="no_search">
+                <th nowrap align="left">委員会名 ／ 係り名</th>
+                <th nowrap align="center">日付</th>
+                <th nowrap align="left">記録備考</th>
+              </tr>
+              <!--結果一覧-->
+              <!--{each data}-->
+              <tr>
+                <td nowrap bgcolor="#ffffff">{rval data/COMMITTEENAME_CHARGENAME}</td>
+                <td nowrap bgcolor="#ffffff">{rval data/DETAIL_DATE}</td>
+                <td nowrap bgcolor="#ffffff">{rval data/DETAIL_REMARK}</td>
+              </tr>
+              <!--{/each}-->
+<!--{/def}-->
+            </table>
+          </td>
+          </tr>
+        </table>
+        {rval button/btn_back}
+        </td>
+        </tr>
+      </table>
+   </td>
+   </tr>
+</table>
+
+{rval finish}{rval javascript}

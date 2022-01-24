@@ -1,0 +1,53 @@
+{rval start}
+
+<table style="line-height:140px;"><tr><td>　</td></tr></table>
+<table width="500" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="5">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr class="no_search" height="30">
+                <td align="center"><B>入試年度：{rval data/YEAR}　　志願者CSV取込</B></td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td>
+                  <table width="90%" align="right" style="line-height: 230%;">
+                    <tr>
+                      <td><b>{rval data/OUTPUT3}<LABEL for="OUTPUT3">ヘッダ出力</LABEL></b></td>
+                    </tr>
+                    <tr>
+                      <td><b>{rval data/OUTPUT1}<LABEL for="OUTPUT1">データ取込</LABEL></b>（処理名：{rval data/SHORI_MEI}）（{rval data/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL>）<br>
+                          　　　　　　&nbsp;{rval FILE}<br>
+                    　　学校種別：{rval data/APPLICANTDIV}<br>
+                    　　入試種別：{rval data/TESTDIV}<br>
+                    　　入試方式：{rval data/EXAM_TYPE}<br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><b>{rval data/OUTPUT2}<LABEL for="OUTPUT2">エラー出力</LABEL></b>（データ取込後のエラー確認：必須）</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search" height="30">
+                <td align="center">
+                  &nbsp;&nbsp;{rval btn_exec}&nbsp;&nbsp;{rval btn_end}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-weight: 400; color:white">
+            <BR><marquee><span id="marq_msg">処理中です...しばらくおまちください</span></marquee>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval jscript}</script>
+{rval finish}

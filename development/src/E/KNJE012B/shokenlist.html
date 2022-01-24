@@ -1,0 +1,81 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+    <tr>
+      <td nowrap>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+           <td>
+            <hr align="left" width="50%">&nbsp;{rval NAME_SHOW}<hr align="left" width="50%">
+           </td>
+          </tr>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+               <tr class="no_search">
+                 <th nowrap align="center" width="15%"<!--{def shokenlist1}--> rowspan="2"<!--{/def}--><!--{def shokenlist2}--><!--{def show_train_ref_1_2_3_use_J}--> rowspan="2"<!--{/def}--><!--{/def}-->>学年</th>
+                 <th nowrap width="*"<!--{def shokenlist1}--> colspan="3"<!--{/def}--><!--{def shokenlist2}--><!--{def show_train_ref_1_2_3_use_J}--> colspan="3"<!--{/def}--><!--{/def}-->><!--{def shokenlist1}-->特別活動<!--{/def}--><!--{def shokenlist2}-->総合所見<!--{/def}--><!--{def shokenlist3}-->出欠の記録備考<!--{/def}--></th>
+               </tr>
+            <!--{def shokenlist1}-->
+               <tr class="no_search">
+                 <td nowrap align="center">生徒会・学校行事・HR活動</td>
+                 <td nowrap align="center">クラブ活動</td>
+               </tr>
+            <!--{/def}-->
+            <!--{def shokenlist2}-->
+            <!--{def show_train_ref_1_2_3_use_J}-->
+               <tr class="no_search">
+                 <td nowrap align="center">　1)学習における特徴等<br>　2)行動の特徴、特技等</td>
+                 <td nowrap align="center">　3)部活動、ボランティア活動等<br>　4)取得資格、検定等</td>
+                 <td nowrap align="center">　5)その他</td>
+               </tr>
+            <!--{/def}-->
+            <!--{/def}-->
+            <!--結果一覧--><!--{def data}--><!--{each data}-->
+<!--{def shokenlist1}-->
+                <tr>
+                  <th nowrap bgcolor="#ffffff" align="center" width="15%">{rval data/ANNUAL}学年</th>
+                  <td nowrap bgcolor="#ffffff">{rval data/SPECIALACTREC}</td>
+                  <td nowrap bgcolor="#ffffff">{rval data/CLUBACT}</td>
+                </tr>
+<!--{/def}-->
+<!--{def shokenlist2}-->
+<!--{def show_train_ref_1_2_3_use_J}-->
+                <tr>
+                  <th nowrap bgcolor="#ffffff" align="center" width="15%">{rval data/ANNUAL}学年</th>
+                  <td nowrap bgcolor="#ffffff">{rval data/TRAIN_REF1}</td>
+                  <td nowrap bgcolor="#ffffff">{rval data/TRAIN_REF2}</td>
+                  <td nowrap bgcolor="#ffffff">{rval data/TRAIN_REF3}</td>
+                </tr>
+<!--{/def}-->
+<!--{def show_totalremark}-->
+                <tr>
+                  <th nowrap bgcolor="#ffffff" align="center" width="15%">{rval data/ANNUAL}学年</th>
+                  <td nowrap bgcolor="#ffffff">{rval data/TOTALREMARK}</td>
+                </tr>
+<!--{/def}-->
+<!--{/def}-->
+<!--{def shokenlist3}-->
+                <tr>
+                  <th nowrap bgcolor="#ffffff" align="center" width="15%">{rval data/ANNUAL}学年</th>
+                  <td nowrap bgcolor="#ffffff">{rval data/ATTENDREC_REMARK}</td>
+                </tr>
+<!--{/def}-->
+            <!--{/each}--><!--{/def}-->
+                <tr class="no_search">
+                  <td width="50">{rval btn_back}</td>
+                  <td <!--{def shokenlist1}--> colspan="3"<!--{/def}--><!--{def shokenlist2}--><!--{def show_train_ref_1_2_3_use_J}--> colspan="3"<!--{/def}--><!--{/def}-->></td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}

@@ -1,0 +1,109 @@
+{rval start}
+
+<table width="75%" border="0" cellspacing="0" cellpadding="5" align="center" style="margin-top:15px;">
+  <tr>
+    <td valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+            <td>
+              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr height="30">
+                  <td width="10%" class="no_search" align="center" nowrap>※ 入試年度</td>
+                  <td width="10%" bgcolor="#ffffff" align="center" nowrap>{rval TOP/YEAR}</td>
+                  <td width="10%" class="no_search" align="center" nowrap>※ 入試制度</td>
+                  <td width="10%" bgcolor="#ffffff" nowrap>{rval TOP/APPLICANTDIV}</td>
+                  <td width="10%" class="no_search" align="center" nowrap>※ 入学コース</td>
+                  <td width="10%" bgcolor="#ffffff" nowrap>{rval TOP/EXAMCOURSECD}</td>
+                  <td width="10%" class="no_search" align="center" nowrap>※ 表示順</td>
+                  <td width="*" bgcolor="#ffffff" nowrap>
+                    {rval SORT1}<LABEL for="SORT1">かな氏名順</LABEL>
+                    {rval SORT2}<LABEL for="SORT2">出身学校順</LABEL>
+                    {rval SORT3}<LABEL for="SORT3">SEQ順</LABEL>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" align="center" height="30">
+                            <td width="80" nowrap>志願者SEQ</td>
+                            <td width="250" nowrap>氏名</td>
+                            <td width="250" nowrap>かな氏名</td>
+                            <td width="80" nowrap>性別</td>
+                            <td width="250" nowrap>入学コース</td>
+                            <td width="250" nowrap>出身学校</td>
+                            <td width="*" nowrap>辞退フラグ</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <div style="height: 65vh; overflow: auto;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table id="dataTable" width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--結果一覧-->
+                          <!--{def data}-->
+                          <!--{each data}-->
+                          <tr bgcolor="#ffffff" id="ROWID{rval data/EXAMNO}" nowrap>
+                            <td width="80" align="center" nowrap>{rval data/EXAMNO}</td>
+                            <td width="250" nowrap>{rval data/NAME}</td>
+                            <td width="250" nowrap>{rval data/NAME_KANA}</td>
+                            <td width="80" nowrap>{rval data/SEX}</td>
+                            <td width="250" nowrap>{rval data/EXAMCOURSE_NAME}</td>
+                            <td width="250" nowrap>{rval data/FINSCHOOL_NAME}</td>
+                            <td width="*" align="center" nowrap>{rval data/ENTDIV}</td>
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th nowrap>&nbsp;</th>
+                            <td width="30%" bgcolor="#ffffff" nowrap>{rval btn_update}{rval btn_reset}{rval btn_end}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

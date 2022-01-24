@@ -1,0 +1,96 @@
+{rval start}
+
+<BR>
+<table width="100%" border="0" cellspacing="0" cellpadding="3" style="margin:0% 0% 0% 1%">
+  <tr>
+    <td>
+      <hr width="95%" align="left">
+        　学籍番号&nbsp;{rval data/SCHREGNO}&nbsp;&nbsp;{rval button/btn_input}&nbsp;&nbsp;{rval button/btn_zaigaku}
+      <hr width="95%" align="left">
+    </td>
+  </tr>
+  <tr>
+    <td>
+        　&nbsp;{rval data/HR_CLASS}　&nbsp;{rval data/NAME}<br>
+        　　　
+    </td>
+  </tr>
+  <tr>
+    <td>
+        「※」のある項目は必須入力
+    </td>
+  </tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                 <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="30%">項 目</th>
+                      <th width="70%">値</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <td align="right" nowrap>寮コード</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/DOMI_CODE1}　<!--{rval data/DOMI_CODE2}--></td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <td align="right" nowrap>入寮日</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/DOMI_ENTDAY}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <td align="right" nowrap>退寮日</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/DOMI_OUTDAY}</td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{def button}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">
+                        {rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}<br>
+                        {rval button/btn_subform1}{rval button/btn_subform2}
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+                 </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

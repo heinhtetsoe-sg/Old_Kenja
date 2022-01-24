@@ -1,0 +1,35 @@
+-- $Id: 5abd0c3a314605aee63fe32b24d41d200251d076 $
+
+DROP TABLE ATTEND_SEMES_DETAIL_DAT_OLD
+RENAME TABLE ATTEND_SEMES_DETAIL_DAT TO ATTEND_SEMES_DETAIL_DAT_OLD
+CREATE TABLE ATTEND_SEMES_DETAIL_DAT \
+        (COPYCD             VARCHAR(1)      NOT NULL, \
+         YEAR               VARCHAR(4)      NOT NULL, \
+         MONTH              VARCHAR(2)      NOT NULL, \	 
+         SEMESTER           VARCHAR(1)      NOT NULL, \
+         SCHREGNO           VARCHAR(8)      NOT NULL, \
+         SEQ                VARCHAR(3)      NOT NULL, \
+         CNT                SMALLINT, \
+         VAL                VARCHAR(2), \
+         CNT_DECIMAL        DECIMAL(5, 1), \
+         REGISTERCD         VARCHAR(8), \
+         UPDATED            TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+        ) IN USR1DMS INDEX IN IDX1DMS
+
+INSERT INTO ATTEND_SEMES_DETAIL_DAT \
+    SELECT \
+        COPYCD, \
+        YEAR, \
+        MONTH, \
+        SEMESTER, \
+        SCHREGNO, \
+        SEQ, \
+        CNT, \
+        VAL, \
+        CAST(NULL AS DECIMAL(5, 1)) AS CNT_DECIMAL, \
+        REGISTERCD, \
+        UPDATED \
+    FROM \
+        ATTEND_SEMES_DETAIL_DAT
+
+ALTER TABLE ATTEND_SEMES_DETAIL_DAT ADD CONSTRAINT PK_AT_SEM_DET_DAT PRIMARY KEY (COPYCD, YEAR, MONTH, SEMESTER, SCHREGNO, SEQ)

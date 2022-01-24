@@ -1,0 +1,120 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR>
+
+<table width="60%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <td><b>
+                    　　　　　　　　　{rval data/YEAR}年度　　　{rval data/GAKKI}　　　{rval data/GRADE_HR_CLASS}
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_left2}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_right2}
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD height="70" align="left"  bgcolor="#ffffff">
+                        <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                          <TR>
+                            <TD width="25%" align="center">
+                                <b>出力順&nbsp&nbsp</b>
+                            </TD>
+                            <TD width="20%">
+                                {rval data/OUTPUT21}<LABEL for="OUTPUT21">&nbsp;学籍番号</LABEL>
+                            </TD>
+                            <TD width="*" colspan="2">
+                                {rval data/OUTPUT22}<LABEL for="OUTPUT22">&nbsp;年 組 番</LABEL>
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD width="25%" align="center">
+                                <b>印刷対象</b>
+                            </TD>
+                            <TD width="20%">
+                                {rval data/OUTPUT1}<LABEL for="OUTPUT1">&nbsp;保護者</LABEL>
+                            </TD>
+                            <TD width="20%">
+                                {rval data/OUTPUT3}<LABEL for="OUTPUT3">&nbsp;負担者</LABEL>
+                            </TD>
+                            <TD width="*">
+                                {rval data/OUTPUT4}<LABEL for="OUTPUT4">&nbsp;その他</LABEL>
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD width="25%" align="center">
+                            </TD>
+                            <TD width="20%">
+                            </TD>
+                            <TD width="*" colspan="2">
+                                {rval data/CHECK1}<LABEL for="CHECK1">&nbsp;生徒名出力</LABEL>
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD width="25%" align="center">
+                            </TD>
+                            <TD width="20%">
+                                {rval data/OUTPUT2}<LABEL for="OUTPUT2">&nbsp;生徒</LABEL>
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD width="25%" align="center">
+                                <b>出力条件</b>
+                            </TD>
+                            <TD colspan="3">
+                                {rval data/GRDDIV}&nbsp;<LABEL for="GRDDIV">退学者・転学者・卒業生は除く</LABEL>
+                            </TD>
+                          </TR>
+                        </TABLE>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}　<font color="red" size="2"> ※PDF印字する場合は、ページの拡大／縮小は</font><br>　　　　　　　　　　　　　　　　　　<font color="red" size="2">"なし"を選択してください。</font></td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

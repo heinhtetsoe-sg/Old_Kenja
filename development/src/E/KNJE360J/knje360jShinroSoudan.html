@@ -1,0 +1,103 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+    <tr>
+        <td valign="top">
+            <table width="100%" border="0" cellspacing="10" cellpadding="5">
+                <tr>
+                    <td width="100" nowrap bgcolor="#FFE4E1" align="center">
+                        <b><font size="3" color="#FF0000">進路相談</font></b>
+                    </td>
+                    <td>
+                        <hr width="70%" align="left" />
+                        &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+                        <hr width="70%" align="left" />
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr>
+                    <td>
+                        <div style="width: 700; height: 200; overflow-x: scroll; overflow-y: scroll">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td>
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr class="no_search_line">
+                                                <td>
+                                                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                                        <tr class="no_search">
+                                                            <th align="center" nowrap width="80" height="25">登録日</th>
+                                                            <th align="center" nowrap width="200" height="25">相談件名</th>
+                                                            <th align="center" nowrap width="*" height="25">相談内容</th>
+                                                        </tr>
+                                                        <!--結果一覧--><!--{def data}--><!--{each data}-->
+                                                        <tr bgcolor="#ffffff">
+                                                            <td nowrap width="80" align="center">
+                                                                <a href="knje360jindex.php?cmd=shinroSoudanA&ENTRYDATE={rval data/ENTRYDATE}&SEQ={rval data/SEQ}" target="">{rval data/ENTRYDATE}</a>
+                                                            </td>
+                                                            <td width="200">{rval data/TITLE}</td>
+                                                            <td width="*">&nbsp;{rval data/CONTENTS}</td>
+                                                        </tr>
+                                                        <!--{/each}--><!--{/def}-->
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td>
+                                    <table width="50%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr class="no_search_line">
+                                            <td>
+                                                <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                                                    <tr>
+                                                        <th align="center" class="no_search" nowrap width="100" height="25">登録日</th>
+                                                        <td align="left" bgcolor="#ffffff" nowrap>{rval data1/ENTRYDATE}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th align="center" class="no_search" nowrap width="100">相談件名</th>
+                                                        <td align="left" bgcolor="#ffffff">{rval data1/TITLE}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th align="center" class="no_search" nowrap width="100" height="25">対応者</th>
+                                                        <td align="left" bgcolor="#ffffff" nowrap>{rval data1/STAFFNAME}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th align="center" class="no_search" nowrap width="100" height="25">相談内容</th>
+                                                        <td align="left" bgcolor="#ffffff">{rval data1/CONTENTS}</td>
+                                                    </tr>
+                                                    <!--{def button}-->
+
+                                                    <tr>
+                                                        <th align="center" class="no_search" nowrap width="100" height="25"></th>
+                                                        <td align="left" bgcolor="#ffffff" nowrap>{rval button/btn_insert}{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}</td>
+                                                    </tr>
+                                                    <!--{/def}-->
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+{rval finish}

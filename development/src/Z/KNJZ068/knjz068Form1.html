@@ -1,0 +1,80 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="10" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr height="30">
+                <th class="no_search" nowrap width="20%">年度</th>
+                <td bgcolor="#ffffff" nowrap width="80%">{rval IBYEAR}　　　{rval button/btn_copy}</td>
+              </tr>
+              <tr height="30">
+                <th class="no_search" nowrap>学年</th>
+                <td bgcolor="#ffffff" nowrap>{rval IBGRADE}</td>
+              </tr>
+              <tr height="30">
+                <th class="no_search" nowrap>IBコース</th>
+                <td bgcolor="#ffffff" nowrap>{rval IBPRG_COURSE}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>　</td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th nowrap width="170">IB教科・科目</th>
+                      <th nowrap width="80">評価区分1</th>
+                      <th nowrap width="90">評価区分2</th>
+                      <th nowrap width="40">記号</th>
+                      <th nowrap width="170">名称</th>
+                      <th nowrap width="*">略称</th>
+                      <th nowrap width="170">名称英字</th>
+                      <th nowrap width="*">略称英字</th>
+                      <th nowrap width="50">表示順</th>
+                      <th nowrap width="40">満点</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <!--{def data/ROWSPAN1}-->
+                      <td nowrap rowspan={rval data/ROWSPAN1} width="170">{val data/IBSUBCLASS_SHOW}</td>
+                      <!--{/def}-->
+                      <!--{def data/ROWSPAN2}-->
+                      <td nowrap rowspan={rval data/ROWSPAN2} width="80">{val data/IBEVAL_DIV1_SHOW}</td>
+                      <!--{/def}-->
+                      <!--{def data/ROWSPAN3}-->
+                      <td nowrap rowspan={rval data/ROWSPAN3} width="90">{val data/IBEVAL_DIV2_SHOW}</td>
+                      <!--{/def}-->
+                      <td align="center" nowrap width="40"><a href="knjz068index.php?cmd=edit&IBCLASSCD={val data/IBCLASSCD}&IBPRG_COURSE={val data/IBPRG_COURSE}&IBCURRICULUM_CD={val data/IBCURRICULUM_CD}&IBSUBCLASSCD={val data/IBSUBCLASSCD}&IBEVAL_DIV1={val data/IBEVAL_DIV1}&IBEVAL_DIV2={val data/IBEVAL_DIV2}&IBEVAL_MARK={val data/IBEVAL_MARK}" target="right_frame">{val data/IBEVAL_MARK}</a></td>
+                      <td nowrap width="170">{val data/IBEVAL_NAME}</td>
+                      <td nowrap width="*">{val data/IBEVAL_ABBV}</td>
+                      <td nowrap width="170">{val data/IBEVAL_NAME_ENG}</td>
+                      <td nowrap width="*">{val data/IBEVAL_ABBV_ENG}</td>
+                      <td align="center" nowrap width="50">{val data/IBSORT}</td>
+                      <td align="center" nowrap width="40">{val data/IBPERFECT}</td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}{rval reload}</script>

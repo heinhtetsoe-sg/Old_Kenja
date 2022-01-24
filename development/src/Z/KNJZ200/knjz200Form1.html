@@ -1,0 +1,119 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr></tr><tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td nowrap width="30%" align="center">対象年度：{rval YEAR}</td>
+                      <td nowrap width="30%" align="center">校種：{rval SCH_KIND}</td>
+                      <td nowrap width="40%" align="center">{rval btn_copy}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td nowrap width="23%" align="center">コース名</td>
+                      <td nowrap width="*" align="left">{rval COURSENAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="40%" rowspan={rval ROWSPAN}>科目名</th>
+                      <th nowrap width="10%" rowspan={rval ROWSPAN}>単位数</th>
+<!--{def useRate}-->
+                      <th nowrap width="10%" rowspan={rval ROWSPAN}>掛け率</th>
+<!--{/def}-->
+<!--{def useTimeUnit}-->
+                      <th nowrap width="10%" rowspan={rval ROWSPAN}>単位<BR>時間</th>
+<!--{/def}-->
+<!--{def show/ABSENCE_HIGH_SHOW}-->
+                      <th nowrap width="20%" colspan="2">欠課数<br>上限値</th>
+<!--{/def}-->
+<!--{def title/ABSENCE_WARN}-->
+                      <th nowrap width="10%" rowspan={rval ROWSPAN}>{rval title/ABSENCE_WARN}<br>欠課数<br>オーバ</th>
+<!--{/def}-->
+<!--{def title/ABSENCE_WARN2}-->
+                      <th nowrap width="10%" rowspan={rval ROWSPAN}>{rval title/ABSENCE_WARN2}<br>欠課数<br>オーバ</th>
+<!--{/def}-->
+<!--{def title/ABSENCE_WARN3}-->
+                      <th nowrap width="10%" rowspan={rval ROWSPAN}>{rval title/ABSENCE_WARN3}<br>欠課数<br>オーバ</th>
+<!--{/def}-->
+                      <th nowrap width="10%" rowspan={rval ROWSPAN}>必履修<br>区分</th>
+                      <th nowrap width="10%" rowspan={rval ROWSPAN}>半期<br>認定</th>
+                      <th nowrap width="10%" rowspan={rval ROWSPAN}>無条件</th>
+                    </tr>
+<!--{def show/ABSENCE_HIGH_SHOW}-->
+                    <tr class="no_search">
+                      <th>履修</th>
+                      <th>修得</th>
+                    </tr>
+<!--{/def}-->
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+<!--{def useCurriculumcd}-->
+                      <td bgcolor="#ffffff"><a href="knjz200index.php?cmd=edit&SCH_KIND={rval data/SCH_KIND}&COURSENAME={rval data/COURSENAME}&CLASSCD={rval data/CLASSCD}&SCHOOL_KIND={rval data/SCHOOL_KIND}&CURRICULUM_CD={rval data/CURRICULUM_CD}&SUBCLASSCD={rval data/SUBCLASSCD}&PROGRAMID={rval PROGRAMID}" target="right_frame">{rval data/CLASSCD}-{rval data/SCHOOL_KIND}-{rval data/CURRICULUM_CD}-{rval data/SUBCLASSCD}&nbsp;&nbsp;&nbsp;&nbsp;{rval data/SUBCLASSNAME}</a></td>
+<!--{/def}-->
+<!--{def NoCurriculumcd}-->
+                      <td bgcolor="#ffffff"><a href="knjz200index.php?cmd=edit&SCH_KIND={rval data/SCH_KIND}&COURSENAME={rval data/COURSENAME}&SUBCLASSCD={rval data/SUBCLASSCD}&PROGRAMID={rval PROGRAMID}" target="right_frame">{rval data/SUBCLASSCD}&nbsp;&nbsp;&nbsp;&nbsp;{rval data/SUBCLASSNAME}</a></td>
+<!--{/def}-->
+                      <td bgcolor="#ffffff" align ="center">{rval data/CREDITS}</td>
+<!--{def useRate}-->
+                      <td bgcolor="#ffffff" align ="center">{rval data/RATE}</td>
+<!--{/def}-->
+<!--{def useTimeUnit}-->
+                      <td bgcolor="#ffffff" align ="center">{rval data/TIME_UNIT}</td>
+<!--{/def}-->
+<!--{def show/ABSENCE_HIGH_SHOW}-->
+                      <td bgcolor="#ffffff" align ="center">{rval data/ABSENCE_HIGH}</td>
+                      <td bgcolor="#ffffff" align ="center">{rval data/GET_ABSENCE_HIGH}</td>
+<!--{/def}-->
+<!--{def title/ABSENCE_WARN}-->
+                      <td bgcolor="#ffffff" align ="center">{rval data/ABSENCE_WARN}</td>
+<!--{/def}-->
+<!--{def title/ABSENCE_WARN2}-->
+                      <td bgcolor="#ffffff" align ="center">{rval data/ABSENCE_WARN2}</td>
+<!--{/def}-->
+<!--{def title/ABSENCE_WARN3}-->
+                      <td bgcolor="#ffffff" align ="center">{rval data/ABSENCE_WARN3}</td>
+<!--{/def}-->
+                      <td bgcolor="#ffffff" align ="center">{rval data/REQUIRE_FLG}</td>
+                      <td bgcolor="#ffffff" align ="center">{rval data/AUTHORIZE_FLG}</td>
+                      <td bgcolor="#ffffff" align ="center">{rval data/COMP_UNCONDITION_FLG}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}{rval reload}</script>

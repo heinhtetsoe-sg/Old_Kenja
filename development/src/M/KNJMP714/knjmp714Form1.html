@@ -1,0 +1,183 @@
+{rval start}
+{rval IFRAME}
+<style type="text/css">
+#tyousei {
+    height : 80px;
+}
+#tyousei2 {
+    height : 50px;
+}
+</style>
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td>
+       <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr class="no_search_line">
+          <th>
+            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+            <tr>
+              <th width="*" height="50" align="left" class="no_search">
+                　　　　諸経費一覧登録　　　　年度：{rval YEAR}　　学期：{rval SEMESTER}　　
+                {rval DATADIV1}<LABEL for="DATADIV1">在学生</LABEL>：{rval HR_CLASS}　{rval DATADIV2}<LABEL for="DATADIV2">併修生・科目生</LABEL><!--{def tennyuShow}-->　{rval DATADIV3}<LABEL for="DATADIV3">転入生</LABEL><!--{/def}-->　　
+                {rval SEIKYUU_DISP1}<LABEL for="SEIKYUU_DISP1">未請求のみ</LABEL>　{rval SEIKYUU_DISP2}<LABEL for="SEIKYUU_DISP2">請求済みも表示(未入金のみ)</LABEL>
+              </th>
+            </tr>
+            </table>
+          </th>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" id="tyousei">
+                        <th width="110">No.</th>
+                        <th width="290">氏名</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+
+            <td>
+            <div id="trow" style="overflow:hidden; width: 953px; ">
+                <div style="width: 3485px; ">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" id="tyousei">
+                          <th width="50"><LABEL for="UPDATE_CHK_ALL">更<BR>新</LABEL><BR>{rval UPDATE_CHK_ALL}</th>
+                          <th width="200">諸経費</th>
+                          <th width="200">授業料</th>
+                          <th width="50">数<BR>量</th>
+                          <th width="100">諸経費</th>
+                          <th width="100">授業料</th>
+                          <th width="100">総合計</th>
+                          <th width="100">伝票番号</th>
+                          <th width="100">入学区分</th>
+                          <th width="100">内外区分</th>
+                          <th width="100">復学者</th>
+                          <th width="100">スポーツ<BR>加入</th>
+                          <th width="100">前籍校で<BR>スポーツ<BR>加入</th>
+                          <th width="*"></th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+          <tr valign="TOP">
+
+            <td>
+            <div id="tcol" style="overflow: hidden; height: 483px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr bgcolor="{rval data/BG_COLOR}" id="tyousei2">
+                            <td width="115" align="center">{rval data/ATTENDNO}</td>
+                            <td width="290" align="left">{rval data/NAME_SHOW}</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
+            </div>
+            </td>
+
+            <td>
+            <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 970px; height: 500px;">
+                <div style="width: 3485px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr  bgcolor="{rval data/BG_COLOR}" id="tyousei2">
+                            <td width="50" align="center">{rval data/UPDATE_CHK}</td>
+                            <td width="200" align="center">{rval data/GROPCD}</td>
+                            <td width="200" align="center">{rval data/JUGYOU}</td>
+                            <td width="50" align="center">{rval data/COLLECT_CNT}</td>
+                            <td width="100" align="center"><span id="SYOKEIHI_DISP_{rval data/SET_KEY}">{rval data/SYOKEIHI_DISP}</span></td>
+                            <td width="100" align="center"><span id="JUGYOURYOU_DISP_{rval data/SET_KEY}">{rval data/JUGYOURYOU_DISP}</span></td>
+                            <td width="100" align="center"><span id="TMONEY_DISP_{rval data/SET_KEY}">{rval data/T_MONEY}</span></td>
+                            <td width="100" align="center"><a href="javascript:popupGrp('{rval data/SCHREGNO}', '{rval data/SLIP_NO}')">{rval data/SLIP_NO}</a></td>
+                            <td width="100" align="center">{rval data/ENT_NAME}</td>
+                            <td width="100" align="center">{rval data/INOUT_NAME}</td>
+                            <td width="100" align="center">{rval data/FUKUGAKU}</td>
+                            <td width="100" align="center">{rval data/SPORT}</td>
+                            <td width="100" align="center">{rval data/ZENSEKI_SPORT}</td>
+                            <td width="*" align="left"></td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+          <tr class="no_search_line">
+            <th>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_reset}{rval button/btn_back}</td>
+                </tr>
+              </table>
+            </th>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+<div id="lay"></div>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

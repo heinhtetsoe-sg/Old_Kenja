@@ -1,0 +1,97 @@
+{rval start}
+{rval IFRAME}
+
+<table width="950" border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr class="no_search_line">
+          <th>
+            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+              <tr>
+                <th width="100%" height="50" align="center" class="no_search">
+                    定期健康診断情報（詳細）　　　　年度：{rval YEAR}　　学期：{rval SEMESTERNAME}　　{rval HR_CLASS_TITLE}：{rval HR_CLASS}　　回数：{rval NO}
+                </th>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="50">
+                      <th width="30">No.</th>
+                      <th width="150">氏名</th>
+                      <th width="150">健康診断実施日</th>
+                      <th width="100">身長(cm)</th>
+                      <th width="100">体重(kg)</th>
+                      <th width="100">座高(cm)</th>
+                      <th width="*">視力</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr valign="TOP">
+          <td>
+            <div style="overflow-y:scroll; height: 500px;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff" height="60">
+                      <td width="30" align="center">{rval data/ATTENDNO}</td>
+                      <td width="150" align="left">{rval data/NAME_SHOW}</td>
+                      <td width="150" align="center">{rval data/DATE}</td>
+                      <td width="100" align="center">{rval data/HEIGHT}</td>
+                      <td width="100" align="center">{rval data/WEIGHT}</td>
+                      <td width="100" align="center">{rval data/SITHEIGHT}</td>
+                      <td width="*" align="center">
+                        右&nbsp;&nbsp;裸眼：&nbsp;{rval data/R_BAREVISION_MARK}&nbsp;&nbsp;矯正：&nbsp;{rval data/R_VISION_MARK}
+                        <BR>
+                        左&nbsp;&nbsp;裸眼：&nbsp;{rval data/L_BAREVISION_MARK}&nbsp;&nbsp;矯正：&nbsp;{rval data/L_VISION_MARK}
+                      </td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+        <tr class="no_search_line">
+          <th>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_reset}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<div id="lay"></div>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

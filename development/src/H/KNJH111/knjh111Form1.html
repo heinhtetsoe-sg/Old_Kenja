@@ -1,0 +1,49 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr > 
+    
+      <td >
+    <hr width="35%" align="left">
+      {rval SCHREGNO}&nbsp{val NAME}
+    <hr width="35%" align="left">
+      
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+        <td> 
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search"> 
+            <th align="center" nowrap width="90" height="30">取得日</th>
+            <th align="center" nowrap width="60" height="30">区分</th>
+            <th align="center" nowrap width="*" height="30">内容</th>
+            <th align="center" nowrap width="150" height="30">備考</th>
+            <th align="center" nowrap width="150" height="30">単位数</th>
+          </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}--> 
+          <tr> 
+             <td align="center" nowrap bgcolor="#ffffff">{val data/URL}</td>
+             <td align="left" nowrap bgcolor="#ffffff">{val data/CONDITION_DIV}</td>
+             <td align="left" nowrap bgcolor="#ffffff">{val data/CONTENTS}</td>
+             <td align="left" nowrap bgcolor="#ffffff">{val data/REMARK}</td>
+             <td align="center" nowrap bgcolor="#ffffff">{val data/CREDITS}</td>
+             
+          </tr> 
+<!--{/each}--> 
+<!--{/def}--> 
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval reload}{rval close}</script>
+{rval finish}

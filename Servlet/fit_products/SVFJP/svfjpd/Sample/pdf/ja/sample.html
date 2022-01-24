@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=shift_jis" http-equiv=Content-Type></HEAD>
+<BODY><XMP>
+サンプルプログラムについて
+===========================================================
+
+  このディレクトリには SVF クラスライブラリを使用した
+  サンプルプログラムが格納されています。
+  サンプルプログラムは従来の形式（frm）と新形式（xml）
+  の２つのセットとなっています。
+  frm形式のセット
+    hachusho.frm：呼び出される帳票ファイル
+    Sample.java：サンプルプログラム
+    Sample.class：そのコンパイル結果
+  xml形式のセット
+    svfxhachusho.xml：呼び出される帳票ファイル
+    Svfxsample.java：サンプルプログラム
+    Svfxsample.class：そのコンパイル結果
+
+
+１．サンプルを実行する前に
+--------------------------
+
+  サンプルプログラムを実行するには、あらかじめ SVF 環境設定で
+  プリンタを作成し、印刷したいプリンタを通常使うプリンタに
+  設定しておく必要があります。
+
+  プリンタの作成方法についてはマニュアルを参照して下さい。
+
+
+２. コンパイルと実行方法
+------------------------
+  ここでは JDK (Java Development Kit) の
+    javac (Java コンパイラ)
+    java  (Java アプリケーション起動コマンド)
+  を例に説明します。
+  xml形式のものを実行する際はSample.javaをSvfxsample.javaと
+  Sample.classをSvfxsample.classと読み替えて実施して下さい。
+
+  UNIX の場合
+  -----------
+
+    １．各プラットフォームにあった JDK を準備します。
+
+    ２．サンプルプログラムの格納されているディレクトリに移動します。
+
+        ex) cd SVFJP/svfjpd/Sample/pdf/ja
+
+    ３．必要なクラスパスを追加し、プログラムをコンパイルします。
+          
+        ex1 frm形式)
+            /usr/jdk1.5.0_13/bin/javac -classpath .:../../../lib/svf.jar Sample.java
+            エラーがなければカレントディレクトリに Sample.class が作成されます。
+
+        ex2 xml形式)
+            /usr/jdk1.5.0_13/bin/javac -classpath .:../../../lib/svf.jar Svfxsample.java
+            エラーがなければカレントディレクトリに Svfxsample.class が作成されます。
+
+        ※Sample.java は Shift-JIS で記述されています。
+          デフォルトエンコーディングが Shift-JIS 系でない環境では、2 バイト文字が認識できず
+          コンパイルエラーになる可能性があります。
+          その場合は javac に Shift-JIS のエンコーディングを指定するオプションを追加して
+          コンパイルして下さい。
+
+          ex) /usr/jdk1.5.0_13/bin/javac -classpath .:../../../lib/svf.jar -encoding SJIS Sample.java
+              /usr/jdk1.5.0_13/bin/javac -classpath .:../../../lib/svf.jar -encoding MS932 Sample.java
+
+    ４．必要なクラスパスを追加し、、Sample.class または Svfxsample.class を実行します。
+
+        本サンプルでは以下を使用します。
+
+        ex1 frm形式)
+            /usr/jdk1.5.0_13/bin/java -classpath .:../../../lib/svfpdfparser.jar:../../../lib/svf.jar Sample
+
+        ex2 xml形式)
+            /usr/jdk1.5.0_13/bin/java -classpath .:../../../lib/svfpdfparser.jar:../../../lib/svf.jar:../../../lib/svfgrph.jar Svfxsample
+
+        ※1. frm形式で必要となるjar : svfpdfparser.jar、svf.jar
+        ※2. xml形式でグラフィックモードアイテムがない場合の必要となるjar ： svfpdfparser.jar、svf.jar、svfgrph.jar
+        ※3. xml形式でグラフィックモードアイテムがある場合の必要となるjar ： svfpdfparser.jar、svf.jar、svfgrph.jar、jai_jai_core.jar、jai_codec.jar
+        ※3-1. PDFを印刷する場合は、frm形式、xml形式に関わらず必ずクラスパスの先頭にsvfpdfparser.jarを追加して下さい。
+               クラスパスにsvfpdfparser.jarを追加していない場合は、デバッグログにExceptionが記述されます。
+        ※3-2. グラフィックモードでは出力できないプリンタ記述言語が存在します。
+               詳細はマニュアルにてご確認下さい。
+
+          ex1 xml形式でグラフィックモードアイテムがない場合)
+            /usr/jdk1.5.0_13/bin/java -classpath .:../../../lib/svfpdfparser.jar:../../../lib/svf.jar:../../../lib/svfgrph.jar Svfxsample
+
+          ex2 xml形式でグラフィックモードアイテムがある場合)
+            /usr/jdk1.5.0_13/bin/java -classpath .:../../../lib/svfpdfparser.jar:../../../lib/svf.jar:../../../lib/svfgrph.jar:../../../lib/jai_codec.jar:../../../lib/jai_jai_core.jar Svfxsample
+
+          ex3 通常使うプリンタがPDF以外でVrSetPrinterでPDFを指定し、xml形式でグラフィックモードアイテムがない場合)
+            /usr/jdk1.5.0_13/bin/java -classpath .:../../../lib/svfpdfparser.jar:../../../lib/svf.jar:../../../lib/svfgrph.jar Svfxsample
+
+        ※4. 2次元バーコードを印刷する場合、クラスパスにBSPro.jarを追加して下さい。
+
+    ５．印刷が行われることを確認します。
+
+
+  Windows の場合
+  --------------
+
+    １．Windows の JDK を準備します。
+
+    ２．サンプルプログラムの格納されているディレクトリに移動します。
+
+        ex) cd SVFJP\svfjpd\Sample\pdf\ja
+
+    ３．必要なクラスパスを追加し、プログラムをコンパイルします。
+
+        ex1)frm形式
+
+           C:\Program Files\Java\jdk1.5.0_13\bin\javac -classpath .;..\..\..\lib\svf.jar Sample.java
+
+            エラーがなければカレントディレクトリに Sample.class が作成されます。
+
+        ex2)xml形式
+
+           C:\Program Files\Java\jdk1.5.0_13\bin\javac -classpath .;..\..\..\lib\svf.jar Svfxsample.java
+
+            エラーがなければカレントディレクトリに Svfxsample.class が作成されます。
+
+
+
+    ４．必要なクラスパスを追加し、Sample.class 及び Svfxsample.class を実行します。
+
+        本サンプルでは以下を使用します。
+
+        ex1 frm形式)
+           C:\Program Files\Java\jdk1.5.0_13\bin\java -classpath .;..\..\..\lib\svfpdfparser.jar;..\..\..\lib\svf.jar Sample
+
+        ex2 xml形式)
+           C:\Program Files\Java\jdk1.5.0_13\bin\java -classpath .;..\..\..\lib\svfpdfparser.jar;..\..\..\lib\svf.jar;..\..\..\lib\svfgrph.jar Svfxsample
+
+        ※1. frm形式で必要となるjar : svfpdfparser.jar、svf.jar
+        ※2. xml形式でグラフィックモードアイテムがない場合の必要となるjar ： svfpdfparser.jar、svf.jar、svfgrph.jar
+        ※3. xml形式でグラフィックモードアイテムがある場合の必要となるjar ： svfpdfparser.jar、svf.jar、svfgrph.jar、jai_jai_core.jar、jai_codec.jar
+        ※3-1. PDFを印刷する場合は、frm形式、xml形式に関わらず必ずクラスパスの先頭にsvfpdfparser.jarを追加して下さい。
+               クラスパスにsvfpdfparser.jarを追加していない場合は、デバッグログにExceptionが記述されます。
+        ※3-2. グラフィックモードでは出力できないプリンタ記述言語が存在します。
+               詳細はマニュアルにてご確認下さい。
+
+          ex1 xml形式でグラフィックモードアイテムがない場合)
+             C:\Program Files\Java\jdk1.5.0_13\bin\java -classpath .;..\..\..\lib\svfpdfparser.jar;..\..\..\lib\svf.jar;..\..\..\lib\svfgrph.jar Svfxsample
+
+          ex2 xml形式でグラフィックモードアイテムがある場合)
+             C:\Program Files\Java\jdk1.5.0_13\bin\java -classpath .;..\..\..\lib\svfpdfparser.jar;..\..\..\lib\svf.jar;..\..\..\lib\svfgrph.jar;..\..\..\lib\jai_codec.jar;..\..\..\lib\jai_jai_core.jar  Svfxsample
+
+          ex3 通常使うプリンタがPDF以外でVrSetPrinterでPDFを指定し、xml形式でグラフィックモードアイテムがない場合)
+             C:\Program Files\Java\jdk1.5.0_13\bin\java -classpath .;..\..\..\lib\svfpdfparser.jar;..\..\..\lib\svf.jar;..\..\..\lib\svfgrph.jar  Svfxsample
+
+        ※4. 2次元バーコードを印刷する場合、クラスパスにBSPro.jarを追加して下さい。
+
+    ５．印刷が行われることを確認します。
+
+
+３. 補足
+--------
+  ・UNIX と Windows では以下の点が異なるので注意して下さい。
+
+                          |   UNIX   |  Windows
+    ----------------------+----------+-----------
+      -classpath の区切り |    ':'   |    ';'
+
+
+========================= END =============================
+</XMP></BODY></HTML>

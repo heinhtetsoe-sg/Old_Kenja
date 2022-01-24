@@ -1,0 +1,148 @@
+{rval start}
+<br>
+<br>
+<table width="750" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tbody>
+    <tr>
+      <td valign="top"><br>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr bgcolor="#006633">
+              <td align="right">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tbody>
+                            <tr class="no_search">
+                              <th width="200">項目</th>
+                              <th>値</th>
+                            </tr>
+                            <tr class="no_search">
+                              <th align="right">入試年度</th>
+                              <td bgcolor="#ffffff" style="color:#000000">{rval CTRL_YEAR}</td>
+                            </tr>
+                            <tr class="no_search">
+                              <th align="right">※ 受験校種</th>
+                              <td bgcolor="#ffffff">{rval APPLICANTDIV}</td>
+                            </tr>
+                            <tr class="no_search">
+                              <th align="right">※ 試験区分</th>
+                              <td bgcolor="#ffffff">{rval TESTDIV}</td>
+                            </tr>
+                            <tr class="no_search">
+                              <th align="right">※ 受験コース</th>
+                              <td bgcolor="#ffffff">{rval WISH_COURSE}</td>
+                            </tr>
+                            <tr class="no_search">
+                              <th align="right">※ 専併区分</th>
+                              <td bgcolor="#ffffff">{rval SHDIV}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<BR>
+<BR>
+<table align="center" width="750" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tbody>
+                            <tr class="no_search">
+                              <th width="150">合格コース</th>
+                              <th width="80">専併区分</th>
+                              <th width="80">上限点</th>
+                              <th width="80">下限点</th>
+                              <th width="*">合格者／対象者数</th>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div style="border-style:solid;border-width:0.15pt;border-color:#255476;width:100%;height:180;overflow:auto">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                      <tr class="no_search_line">
+                        <td>
+                          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <tbody>
+                              <!--{each dataDesirediv}-->
+                              <tr bgcolor="#ffffff" nowrap>
+                                <td width="150" align="center">{rval dataDesirediv/PASS_COURSE_NAME}</td>
+                                <td width="80" align="center">{rval dataDesirediv/PASS_SHDIV_NAME}</td>
+                                <td width="80" align="center">{rval dataDesirediv/JOGEN_SCORE}</td>
+                                <td width="80" align="center">{rval dataDesirediv/KAGEN_SCORE}</td>
+                                <td width="*" align="right">{rval dataDesirediv/SUCCESS_CNT}</td>
+                              </tr>
+                              <!--{/each}-->
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tbody>
+                            <tr class="no_search">
+                              <th width="540">合格者／対象者合計</th>
+                              <td bgcolor="#ffffff" width="*" align="right" style="color:#000000">{rval sum/SUCCESS_CNT_TOTAL}</td>
+                            </tr>
+                            <tr class="no_search">
+                              <th width="540">不合格者数</th>
+                              <td bgcolor="#ffffff" width="*" align="right" style="color:#000000">{rval sum/SUCCESS_CNT_NO_TOTAL}</td>
+                            </tr>
+                            <tr class="no_search">
+                              <th width="540" align="left">{rval btn_sim}&nbsp;&nbsp;&nbsp;{rval btn_decision}{rval btn_end}</th>
+                              <td bgcolor="#ffffff" width="*" align="right" style="color:#000000"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}

@@ -1,0 +1,77 @@
+{rval IFRAME}
+{rval start}
+
+<BR>
+<BR>
+<BR>
+<BR>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+
+      <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+              <tr class="no_search_line">
+                <th align="left" colspan="2" class="no_search">　　　　　　　&nbsp;会計項目情報</th>
+              </tr>
+
+              <tr>
+                <th align="right" class="no_search" nowrap>グループコード</th>
+                <td bgcolor="#ffffff">{rval data/COLLECT_GRP_CD}</td>
+              </tr>
+
+              <tr>
+                <th align="right" class="no_search" nowrap>会計項目</th>
+                <td bgcolor="#ffffff">{rval data/COLLECT_LM_CD}　単価：{rval data/TANKA}</td>
+              </tr>
+
+              <tr>
+                <th align="right" class="no_search" nowrap>入金必要額</th>
+                <td bgcolor="#ffffff">{rval data/MONEY_DUE}</td>
+              </tr>
+
+              <tr>
+                <th align="right" class="no_search" nowrap>納入種別/期限</th>
+                <td bgcolor="#ffffff">{rval data/PAY_DIV1}<LABEL for="PAY_DIV1">口座</LABEL>　{rval data/PAY_DIV2}<LABEL for="PAY_DIV2">窓口</LABEL>　納入期限：{rval data/PAY_DATE}</td>
+              </tr>
+
+              <tr>
+                <th align="right" class="no_search" nowrap>備考</th>
+                <td bgcolor="#ffffff">{rval data/CHANGE_REMARK}</td>
+              </tr>
+
+            </table>
+            </td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+              <tr class="no_search_line" height="24">
+                <td class="no_search" align="right">{rval button/btn_upd}{rval button/btn_del}{rval button/btn_end}</td>
+              </tr>
+            </table>
+            </td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+
+    </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

@@ -1,0 +1,173 @@
+{rval start}
+<BR><BR>
+<table style="width: 100%" border="0" cellpadding="5" cellspacing="5" align="center">
+<tr>
+<td>
+  <table style="width: 100%" border="0" cellspacing="5" cellpadding="1">
+    <tr>
+      <td>
+       <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr class="no_search_line">
+           <th>
+          <table width="100%" border="0" cellspacing="0" cellpadding="3">
+          <tr> 
+          <th height="30" align="left" class="no_search"><B>　　精算票</B>　　　伝票番号:{rval data/REQUEST_NO}</th>
+          </tr>
+          </table>
+          </th>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                  <th width="130" align="right" class="no_search" nowrap>預り金項目(精算)</th>
+                  <td width="35%" bgcolor="#ffffff">{rval data/SEISAN_L_M_CD}</td>
+                  <th width="130" align="right" class="no_search" nowrap>伺い日</th>
+                  <td width="*%" bgcolor="#ffffff">{rval data/REQUEST_DATE}</td>
+              </tr>
+              <tr>
+                  <td bgcolor="#ffffff" nowrap colspan="2"></td>
+                  <th align="right" class="no_search">精算者</th>
+                  <td bgcolor="#ffffff">{rval data/REQUEST_STAFF}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                  <th width="130" align="right" class="no_search" nowrap>件名</th>
+                  <th width="*" align="left" bgcolor="#ffffff">{rval data/SEISAN_TITLE}</td>
+              </tr>
+              <tr>
+                  <th align="right" class="no_search" nowrap>現金受領者</th>
+                  <th align="left" bgcolor="#ffffff">{rval data/GENKIN_JURYOU_STAFF}</td>
+              </tr>
+              <tr>
+                  <th align="right" class="no_search" nowrap>精算内容</th>
+                  <th align="left" bgcolor="#ffffff">{rval data/SEISAN_NAIYOU}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+    <tr>
+    <td>
+      <table width="60%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                  <th align="center" class="no_search" colspan="2" nowrap>受領額</th>
+                  <th align="center" class="no_search" colspan="2" nowrap>支払額</th>
+                  <th align="center" class="no_search" nowrap>残額</th>
+              </tr>
+              <tr>
+                  <th align="center" class="no_search" nowrap>受領年月日</th>
+                  <th align="left" bgcolor="#ffffff">{rval data/JURYOU_DATE}</td>
+                  <th align="center" class="no_search" nowrap>支払年月日</th>
+                  <th align="left" bgcolor="#ffffff">{rval data/SIHARAI_DATE}</td>
+                  <th align="left" bgcolor="#ffffff" rowspan="2">{rval data/ZAN_GK}</td>
+              </tr>
+              <tr>
+                  <th align="center" class="no_search" nowrap>金額</th>
+                  <th align="left" bgcolor="#ffffff">{rval data/JURYOU_GK}</td>
+                  <th align="center" class="no_search" nowrap>金額</th>
+                  <th align="left" bgcolor="#ffffff">{rval data/SIHARAI_GK}</td>
+              </tr>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                  <th width="130" align="right" class="no_search" nowrap>備考</th>
+                  <th width="*" align="left" bgcolor="#ffffff">{rval data/REMARK}</td>
+              </tr>
+              <tr>
+                  <th width="130" align="right" class="no_search" nowrap>精算確認<BR>(出納責任者)</th>
+                  <th width="*" align="left" bgcolor="#ffffff">{rval data/SUITOU_STAFF}</td>
+              </tr>
+              <tr>
+                  <th width="130" align="right" class="no_search" nowrap>預金口座入金年月日</th>
+                  <th width="*" align="left" bgcolor="#ffffff">{rval data/INCOME_DATE}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                  <th width="130" align="right" class="no_search" nowrap>支出伺の状況</th>
+                  <th width="*" align="left" bgcolor="#ffffff">{rval data/SET_STATUS}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+<!--{def button}-->
+    <tr>
+      <td>
+       <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr class="no_search_line">
+           <th>
+          <table width="100%" border="0" cellspacing="0" cellpadding="3">
+          <tr> 
+          <th height="30" align="center" class="no_search">{rval button/btn_update}{rval button/btn_delete}{rval button/btn_reset}{rval button/btn_end}　　{rval button/btn_kessai}　{rval button/btn_print}</th>
+          </tr>
+          </table>
+          </th>
+        </tr>
+        </table>
+      </td>
+    </tr>
+<!--{/def}-->
+
+    </table>
+  </td>
+  </tr>
+  </table>
+</td>
+</tr>
+</table>
+<div id="lay"></div>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>
+

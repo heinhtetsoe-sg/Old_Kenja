@@ -1,0 +1,213 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td>
+            <hr width="300" align="left">
+            &nbsp;{rval NO}&nbsp;&nbsp;{val NAME}
+            <hr width="300" align="left">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search">
+                <td>
+                    &nbsp;{rval top/INFO_DIV1}<LABEL for="INFO_DIV1" {rval top/INFO_DIV1_COLOR}>生徒情報</LABEL>
+                    &nbsp;{rval top/INFO_DIV2}<LABEL for="INFO_DIV2" {rval top/INFO_DIV2_COLOR}>保護者情報</LABEL>
+                    <!--{def useGuardian2}-->&nbsp;{rval top/INFO_DIV3}<LABEL for="INFO_DIV3" {rval top/INFO_DIV3_COLOR}>保護者情報２</LABEL><!--{/def}-->
+                    &nbsp;{rval top/INFO_DIV4}<LABEL for="INFO_DIV4" {rval top/INFO_DIV4_COLOR}>保証人情報</LABEL>
+                    &nbsp;{rval top/INFO_DIV5}<LABEL for="INFO_DIV5" {rval top/INFO_DIV5_COLOR}>その他情報</LABEL>
+                    &nbsp;{rval top/INFO_DIV6}<LABEL for="INFO_DIV6" {rval top/INFO_DIV6_COLOR}>家族情報</LABEL>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{def infoDiv1}-->
+                    <tr class="no_search">
+                      <th align="center" nowrap width="90" height="30"><font size="2">住所<br>有効期間開始</font></th>
+                      <th align="center" nowrap width="90" height="30"><font size="2">住所<br>有効期間終了</font></th>
+                      <th align="center" nowrap width="70" height="30"><font size="2">郵便番号</font></th>
+                      <th align="center" nowrap width="70" height="30"><font size="2">地区コード</font></th>
+                      <th align="center" nowrap width="200" height="30">住所</th>
+                      <th align="center" nowrap width="200" height="30">方書き(アパート名等)</th>
+                      <th align="center" nowrap width="50" height="30"><font size="2">方書き<br>印刷可</font></th>
+                      <th align="center" nowrap width="200" height="30">(英字)住所</th>
+                      <th align="center" nowrap width="200" height="30">(英字)方書き(アパート名等)</th>
+                      <th align="center" nowrap width="100" height="30">電話番号</th>
+                      <th align="center" nowrap width="100" height="30">FAX番号</th>
+                      <th align="center" nowrap width="140" height="30">E-Mail</th>
+                      <th align="center" nowrap width="200" height="30">急用連絡先</th>
+                      <th align="center" nowrap width="200" height="30">急用連絡氏名</th>
+                      <th align="center" nowrap width="200" height="30">急用連絡続柄名</th>
+                      <th align="center" nowrap width="150" height="30">急用電話番号</th>
+                      <th align="center" nowrap width="200" height="30">急用連絡先２</th>
+                      <th align="center" nowrap width="200" height="30">急用連絡氏名２</th>
+                      <th align="center" nowrap width="200" height="30">急用連絡続柄名２</th>
+                      <th align="center" nowrap width="150" height="30">急用電話番号２</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td align="center" nowrap bgcolor="#ffffff">
+                        <a href="knja110_2aindex.php?cmd=edit&SCHREGNO={val NO}&ISSUEDATE={val data/ISSUEDATE}&INFO_DIV={val data/INFO_DIV}" target="bottom_frame">{val data/ISSUEDATE}</a>
+                      </td>
+                      <td align="center" nowrap bgcolor="#ffffff">{rval data/EXPIREDATE}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/ZIPCD}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/AREA_CD}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/ADDR1}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/ADDR2}</td>
+                      <td align="center" nowrap bgcolor="#ffffff">{rval data/ADDR_FLG}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/ADDR1_ENG}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/ADDR2_ENG}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/TELNO}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/FAXNO}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/EMAIL}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/EMERGENCYCALL}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/EMERGENCYNAME}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/EMERGENCYRELA_NAME}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/EMERGENCYTELNO}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/EMERGENCYCALL2}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/EMERGENCYNAME2}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/EMERGENCYRELA_NAME2}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/EMERGENCYTELNO2}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+<!--{/def}-->
+<!--{def infoDiv2}-->
+                    <tr class="no_search">
+                      <th align="center" nowrap width="90" height="30"><font size="2">住所<br>有効期間開始</font></th>
+                      <th align="center" nowrap width="90" height="30"><font size="2">住所<br>有効期間終了</font></th>
+                      <th align="center" nowrap width="70" height="30"><font size="2">郵便番号</font></th>
+                      <th align="center" nowrap width="200" height="30">住所</th>
+                      <th align="center" nowrap width="200" height="30">方書き(アパート名等)</th>
+                      <th align="center" nowrap width="50" height="30"><font size="2">方書き<br>印刷可</font></th>
+                      <th align="center" nowrap width="100" height="30">電話番号</th>
+                      <th align="center" nowrap width="100" height="30">FAX番号</th>
+                      <th align="center" nowrap width="140" height="30">E-Mail</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td align="center" nowrap bgcolor="#ffffff">
+                        <a href="knja110_2aindex.php?cmd=edit&SCHREGNO={val NO}&GUARD_ISSUEDATE={val data/GUARD_ISSUEDATE}&INFO_DIV={val data/INFO_DIV}" target="bottom_frame">{val data/GUARD_ISSUEDATE}</a>
+                      </td>
+                      <td align="center" nowrap bgcolor="#ffffff">{rval data/GUARD_EXPIREDATE}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/GUARD_ZIPCD}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/GUARD_ADDR1}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/GUARD_ADDR2}</td>
+                      <td align="center" nowrap bgcolor="#ffffff">{rval data/GUARD_ADDR_FLG}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/GUARD_TELNO}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/GUARD_FAXNO}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/GUARD_E_MAIL}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+<!--{/def}-->
+<!--{def infoDiv4}-->
+                    <tr class="no_search">
+                      <th align="center" nowrap width="90" height="30"><font size="2">住所<br>有効期間開始</font></th>
+                      <th align="center" nowrap width="90" height="30"><font size="2">住所<br>有効期間終了</font></th>
+                      <th align="center" nowrap width="70" height="30"><font size="2">郵便番号</font></th>
+                      <th align="center" nowrap width="200" height="30">住所</th>
+                      <th align="center" nowrap width="200" height="30">方書き(アパート名等)</th>
+                      <th align="center" nowrap width="50" height="30"><font size="2">方書き<br>印刷可</font></th>
+                      <th align="center" nowrap width="100" height="30">電話番号</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td align="center" nowrap bgcolor="#ffffff">
+                        <a href="knja110_2aindex.php?cmd=edit&SCHREGNO={val NO}&GUARANTOR_ISSUEDATE={val data/GUARANTOR_ISSUEDATE}&INFO_DIV={val data/INFO_DIV}" target="bottom_frame">{val data/GUARANTOR_ISSUEDATE}</a>
+                      </td>
+                      <td align="center" nowrap bgcolor="#ffffff">{rval data/GUARANTOR_EXPIREDATE}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/GUARANTOR_ZIPCD}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/GUARANTOR_ADDR1}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/GUARANTOR_ADDR2}</td>
+                      <td align="center" nowrap bgcolor="#ffffff">{rval data/GUARANTOR_ADDR_FLG}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/GUARANTOR_TELNO}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+<!--{/def}-->
+<!--{def infoDiv5}-->
+                    <tr class="no_search">
+                      <th align="center" nowrap width="90" height="30">区分</th>
+                      <th align="center" nowrap width="70" height="30"><font size="2">郵便番号</font></th>
+                      <th align="center" nowrap width="90" height="30"><font size="2">地区コード</font></th>
+                      <th align="center" nowrap width="200" height="30">住所</th>
+                      <th align="center" nowrap width="200" height="30">方書き(アパート名等)</th>
+                      <th align="center" nowrap width="50" height="30"><font size="2">方書き<br>印刷可</font></th>
+                      <th align="center" nowrap width="100" height="30">電話番号１</th>
+                      <th align="center" nowrap width="100" height="30">電話番号２</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td align="left"   nowrap bgcolor="#ffffff">&nbsp;
+                        <a href="knja110_2aindex.php?cmd=edit&SCHREGNO={val NO}&INFO_DIV={val data/INFO_DIV}&SEND_DIV={val data/SEND_DIV}" target="bottom_frame">{val data/SEND_DIV_SHOW}</a>
+                      </td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/SEND_ZIPCD}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/SEND_AREACD_SHOW}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/SEND_ADDR1}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/SEND_ADDR2}</td>
+                      <td align="center" nowrap bgcolor="#ffffff">{rval data/SEND_ADDR_FLG}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/SEND_TELNO}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/SEND_TELNO2}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+<!--{/def}-->
+<!--{def infoDiv6}-->
+                    <tr class="no_search">
+                      <th width="3%">連番</th>
+                      <th width="15%">氏名</th>
+                      <th width="18%">氏名(かな)</th>
+                      <th width="4%">性別</th>
+                      <th width="5%">生年月日</th>
+                      <th width="4%">続柄</th>
+                      <th width="15%">職業又は学校</th>
+                      <th width="5%">兄弟姉妹<br>学籍番号</th>
+                      <th width="5%">同居<br>区分</th>
+                      <th width="25%">備考</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td align="left"   nowrap bgcolor="#ffffff">&nbsp;
+                        <a href="knja110_2aindex.php?cmd=edit&SCHREGNO={val NO}&INFO_DIV={val data/INFO_DIV}&RELA_NO={val data/RELA_NO}" target="bottom_frame">{val data/RELA_NO}</a>
+                      </td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/RELA_NAME}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/RELA_KANA}</td>
+                      <td align="center" nowrap bgcolor="#ffffff">{rval data/RELA_SEX}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/RELA_BIRTHDAY}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/RELA_RELATIONSHIP}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/RELA_OCCUPATION}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/RELA_SCHREGNO}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/RELA_REGIDENTIALCD}</td>
+                      <td align="left"   nowrap bgcolor="#ffffff">{rval data/RELA_REMARK}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<script language="JavaScript">{rval close}</script>
+{rval finish}

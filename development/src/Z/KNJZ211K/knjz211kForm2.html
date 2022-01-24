@@ -1,0 +1,80 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <hr>
+      {val pattern}
+      <hr>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <th>
+            <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+              <tr class="no_search_line">
+                <th>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="4" align="center">
+                    <tr align="center">
+                      <th width="50%" class="no_search">
+                      項　目
+                      </th>
+                      <th width="50%" class="no_search">
+                      値
+                      </td>
+                    </tr>
+                    <tr align="center">
+                      <th width="50%" class="no_search">※類型平均_上限値</th>
+                      <td width="*%"  bgcolor="#FFFFFF">
+                      &nbsp; {rval ave/TYPE_GROUP_AVE_HIGH} &nbsp;
+                      </td>
+                    </tr>
+                    <tr align="center">
+                      <th width="50%" class="no_search">※類型平均_下限値</th>
+                      <td width="*%"  bgcolor="#FFFFFF">
+                      {val ave/TYPE_GROUP_AVE_LOW}
+                      </td>
+                    </tr>
+                  </table>
+                </th>
+              </tr>
+            </table>
+            <br><br>
+
+            <table width="90%" border="0" cellspacing="1" cellpadding="0" align="center" frame="box">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
+                    <tr class="no_search">
+                      <th width="34%">評定</th>
+                      <th width="33%">下限</th>
+                      <th width="33%">上限</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr align="center">
+                      <td bgcolor="#ffffff">{val data/TYPE_ASSES_LEVEL}</td>
+                      <td bgcolor="#ffffff">{val data/ASSESSLOWTEXT}</td>
+                      <td bgcolor="#ffffff">{val data/ASSESSHIGHTEXT}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                    <tr>
+                      <td colspan="3" bgcolor="#ffffff" align="center">
+                      {rval button/btn_update}&nbsp;
+                      {rval button/btn_reset} &nbsp;
+                      {rval button/btn_end}   &nbsp;
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </table>
+    </td> 
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

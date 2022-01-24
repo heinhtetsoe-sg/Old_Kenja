@@ -1,0 +1,322 @@
+{rval start}
+
+<style>
+#all {
+	position:relative;
+	width:100%;
+	height:75%;
+}
+#header_x {
+    width:265px;
+    position:absolute;
+    left:10px;
+    top:0px;
+    height:40px;
+    border-collapse:collapse;
+}
+#header_x th {
+    border: 1px solid #000000;
+    width:85px;
+}
+#right_header {
+   position: absolute;
+   left:275px;
+   top:0px;
+   width:956px;    /*表示部分の幅*/
+   overflow-x:hidden;
+   overflow-y:hidden;
+   border-right: 1px solid;
+}
+#left_body {
+   position: absolute;
+   left:10px;
+   top:71px;
+   width:265px;
+   height:580px;    /*表示部分の高さ*/
+   overflow-x:hidden;
+   overflow-y:hidden;
+   border-bottom: 1px solid;
+   }
+#right_body {
+   position: absolute;
+   left:275px;
+   top:71px;
+   //overflow-x:scroll;
+   overflow-x:scroll;
+   overflow-y:scroll;
+   width:974px;    /*表示部分の幅【スクロール部分込み】*/
+   height:598px;    /*表示部分の高さ【スクロール込み】*/
+   }
+   
+#left_body2 {
+   position: absolute;
+   left:10px;
+   top:40px;
+   width:265px;
+   height:600px;    /*表示部分の高さ*/
+   overflow-x:hidden;
+   overflow-y:hidden;
+   border-bottom: 1px solid;
+   }
+#right_body2 {
+   position: absolute;
+   left:275px;
+   top:40px;
+   //overflow-x:scroll;
+   overflow-x:scroll;
+   overflow-y:scroll;
+   width:974px;    /*表示部分の幅【スクロール部分込み】*/
+   height:618px;    /*表示部分の高さ【スクロール込み】*/
+   }
+#holizon {
+    width:200%; /*ここでtdの幅が調整される*/
+}
+
+#left_f {
+   position: absolute;
+   left:10px;
+   top:40px;
+   width:265px;
+   height:31px;    /*表示部分の高さ*/
+}
+#right_f {
+   position: absolute;
+   left:275px;
+   top:40px;
+   overflow-x:hidden;
+   overflow-y:hidden;
+   width:956px;    /*表示部分の幅*/
+   height:31px;    /*表示部分の高さ*/
+   border-right: 1px solid;
+   z-index:0;
+}
+
+table.right_h {
+    height:40px;
+    border-collapse:collapse;
+    text-align: center;
+}
+table.right_h th {
+    border: 1px solid #000000;
+    width: 114px;
+    min-width: 114px;
+}
+table.right_b, table.right_f {
+    border-collapse:collapse;
+    text-align: center;
+}
+table.right_b td, table.right_f td {
+    border: 1px solid #000000;
+    width: 114px;
+    min-width: 114px;
+    background: #ffffff;
+    height:31px;
+}
+table.left_b {
+    border-collapse:collapse;
+    text-align: center;
+}
+table.left_f {
+    border-collapse:collapse;
+    text-align: center;
+   width:265px;
+}
+table.left_b td, table.left_f td {
+    border: 1px solid #000000;
+    width: 85px;
+    background: #ffffff;
+    height:31px;
+}
+
+/*ツールチップ*/
+table.right_h th.no_search span {
+    display: none;
+}
+ 
+/* マウスオーバー */
+table.right_h th:hover {
+    position: relative;
+}
+ 
+/* マウスオーバー時にツールチップを表示 */
+table.right_h th:hover span {
+    display: block;                  /* ボックス要素にする */
+    position: absolute;            /* relativeからの絶対位置 */
+    top: 3px;
+    font-size: 90%;
+    color: #fff;
+    background-color: #C15151;
+    width: 150px;
+    padding: 5px;
+    border-radius:3px;
+    left: 1px;
+    z-index:100;
+}
+/* フキダシ部分を作成 */
+table.right_h th span:after{
+    content:''; 
+    display:block; 
+    position:absolute;                         /* relativeからの絶対位置 */
+    height:0; 
+    width:0; 
+    z-index:100;
+}
+/*************************************/
+
+
+
+</style>
+
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="5" cellpadding="1">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="0" width="100%">
+              <tr class="no_search">
+                <td nowrap align="center">実戦演習CBT一覧</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap align="center" class="no_search" width="234">年組番</th>
+                <td nowrap bgcolor="#ffffff">{rval GRADE}</td>
+              </tr>
+              <tr>
+                <th nowrap align="center" class="no_search">氏名</th>
+                <td nowrap bgcolor="#ffffff">{rval NAME}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap class="no_search" rowspan="4" width="114">表示内容</th>
+                <th nowrap class="no_search" width="114">教科</th>
+                <td nowrap bgcolor="#ffffff">{rval data/KYOKA}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search">科目</th>
+                <td nowrap bgcolor="#ffffff">{rval data/KAMOKU}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search">テスト種類</th>
+                <td nowrap bgcolor="#ffffff">{rval data/TEST_KIND}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search"></th>
+                <td nowrap bgcolor="#ffffff">{rval button/btn_search}&nbsp;{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    
+      <table width="100%" border="0" cellspacing="5" cellpadding="1">
+        <tr>
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="0" width="100%">
+              <tr>
+                <td nowrap align="left" bgcolor="#ffffff">{rval data/KIRIKAE}&nbsp;&nbsp;{rval button/btn_csv}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+    <!--{def SPACE}-->
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+                <table border="0" cellpadding="3" cellspacing="0" width="100%">
+                  <tr>
+                    <td nowrap align="right" bgcolor="#ffffff">{rval example}&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                  </tr>
+                </table>
+          
+            <div id="all">
+                <table id="header_x">
+                  <tr>
+                    <th nowrap align="center" class="no_search">回数</th>
+                    <th nowrap align="center" class="no_search">科目</th>
+                    <th nowrap align="center" class="no_search">配点</th>
+                  </tr>
+                </table>
+              
+              <div id="right_header">
+                <table class="right_h" {rval width}>
+                  <tr>
+                    {rval right_h}
+                  </tr>
+                </table>
+              </div>
+          
+              <div id="{rval left_b_id}">
+                <table class="left_b">
+                  <!--{def data2}-->
+                  <!--{each data2}-->
+                  <tr>
+                    {rval data2/left_b}
+                  </tr>
+                  <!--{/each}-->
+                  <!--{/def}-->
+                </table>
+              </div>
+                
+              <div id="{rval right_b_id}">
+                <table class="right_b" {rval width}>
+                  <!--{def data2}-->
+                  <!--{each data2}-->
+                  <tr>
+                    {rval data2/right_b}
+                  </tr>
+                  <!--{/each}-->
+                  <!--{/def}-->
+                </table>
+              </div>
+          
+            <!--{def right_f}-->
+              <div id="left_f">
+                <table class="left_f">
+                  <tr>
+                    {rval left_f}
+                  </tr>
+                </table>
+              </div>
+            
+              <div id="right_f">
+                <table class="right_f" {rval width}>
+                  <tr>
+                    {rval right_f}
+                  </tr>
+                </table>
+              </div>
+            <!--{/def}-->
+
+            </div>
+            
+          </td>
+        </tr>
+      </table>
+    <!--{/def}-->
+      </td>
+   </tr>
+</table>
+
+{rval java}
+
+{rval finish}

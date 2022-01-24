@@ -1,0 +1,39 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" height="25">
+                <th colspan="3" align="left">
+                  {rval btn_copy}
+                </th>
+              </tr>
+              <tr class="no_search" height="25">
+                <th colspan="3" align="left">
+                  &nbsp;&nbsp;処理年度：{val YEAR}年度
+                </th>
+              </tr>
+              <tr class="no_search" height="25">
+                <th nowrap >併願コード</th>
+                <th nowrap >併願グループ名称</th>
+                <th nowrap >学科名称</th>
+              </tr>
+              <!--{each data}-->
+              <tr>
+                <td nowrap align="center"bgcolor="#ffffff">{val data/HEIGAN_CD}</td>
+                <td nowrap align="center"bgcolor="#ffffff"><a href="knje701index.php?cmd=edit&HEIGAN_CD={val data/HEIGAN_CD}&HEIGAN_GROUPNAME={val data/HEIGAN_GROUPNAME}&FACULITYCD={val data/FACULITYCD}&DEPARTMENTCD={val data/DEPARTMENTCD}" target="right_frame">{val data/HEIGAN_GROUPNAME}</a></td>
+                <td nowrap align="center"bgcolor="#ffffff" style="line-height: 1.3em">{val data/DEPARTMENTNAME}</td>
+              </tr> 
+              <!--{/each}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

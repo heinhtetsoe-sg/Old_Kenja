@@ -1,0 +1,65 @@
+{rval start}
+
+<br>
+<table width="700" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="30">
+                      <td width="20%" align="right" class="no_search" nowrap>※来室日時</td>
+                      <td width="80%" bgcolor="#ffffff">
+                        {rval data/VISIT_DATE}　　　　{rval data/VISIT_HOUR} 時　{rval data/VISIT_MINUTE} 分　　　{rval button/btn_new}
+                      </td>
+                    </tr>
+                    <tr height="30">
+                      <td align="right" class="no_search" nowrap>相談者</td>
+                      <td bgcolor="#ffffff">{rval data/RELATIONSHIP}</td>
+                    </tr>
+                    <tr height="30">
+                      <td align="right" class="no_search" nowrap>相談区分</td>
+                      <td bgcolor="#ffffff">{rval data/CONSULTATION_METHOD}</td>
+                    </tr>
+                    <tr height="30">
+                      <td align="right" class="no_search" nowrap rowspan="2">相談内容</td>
+                      <td bgcolor="#ffffff">{rval data/CONSULTATION_KIND1}</td>
+                    </tr>
+                    <tr height="30">
+                      <td bgcolor="#ffffff">{rval data/CONSULTATION_KIND2}</td>
+                    </tr>
+                    <tr>
+                      <td align="right" class="no_search" nowrap>特記事項</td>
+                      <td bgcolor="#ffffff">{rval data/SPECIAL_NOTE}<br><span style="color:red;">(全角50文字まで)</span></td>
+                    </tr>
+                    <tr>
+                      <td align="right" class="no_search" nowrap>記録</td>
+                      <td bgcolor="#ffffff">{rval data/REMARK}<br><span style="color:red;">(全角25文字X4行まで)</span></td>
+                    </tr>
+                    <tr>
+                      <td align="right" class="no_search" nowrap>PDF取込</td>
+                      <td bgcolor="#ffffff">{rval data/PDF_FILE}&nbsp;&nbsp;{rval button/btn_upload}</td>
+                    </tr>
+                    <tr height="30">
+                      <td class="no_search"></td>
+                      <td bgcolor="#ffffff">
+                        {rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

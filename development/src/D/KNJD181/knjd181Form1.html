@@ -1,0 +1,98 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<br><br>
+
+<table width="40%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <td align='center'><b>{rval data/YEAR}年度　　{rval data/SEMESTER}　　{rval data/GRADE_HR_CLASS}</b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象者一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff">
+                      <td style="padding:15px 0;">
+                        　●出欠集計範囲<br>
+                        　　　{rval data/SDATE} ～ {rval data/EDATE}<br><br>
+                        　●帳票パターン<br>
+                        　　　{rval data/TYOUHYOU_PATTERN1}　<LABEL for="TYOUHYOU_PATTERN1">Ａ</LABEL>　　{rval data/TYOUHYOU_PATTERN2}　<LABEL for="TYOUHYOU_PATTERN2">Ｂ</LABEL>
+                        　　{rval data/TYOUHYOU_PATTERN3}　<LABEL for="TYOUHYOU_PATTERN3">Ｃ</LABEL>　　{rval data/TYOUHYOU_PATTERN4}　<LABEL for="TYOUHYOU_PATTERN4">Ｄ</LABEL><br><br>
+                        　●送り状住所　({rval data/FORM_SELECT} <LABEL for="FORM_SELECT">Ａ４角形封筒</LABEL>　{rval data/JUSYO_PRINT}<LABEL for="JUSYO_PRINT">送り状住所なし</LABEL>)<br>
+                        　　　{rval data/OKURIJOU_JUSYO1}<LABEL for="OKURIJOU_JUSYO1">生徒</LABEL>
+                          {rval data/OKURIJOU_JUSYO2}<LABEL for="OKURIJOU_JUSYO2">保護者</LABEL>({rval data/NO_PRINT_STUDENT_NAME}<LABEL for="NO_PRINT_STUDENT_NAME">生徒名出力なし</LABEL>)
+                          {rval data/OKURIJOU_JUSYO3}<LABEL for="OKURIJOU_JUSYO3">その他</LABEL>({rval data/NO_PRINT_STUDENT_NAME2}<LABEL for="NO_PRINT_STUDENT_NAME2">生徒名出力なし</LABEL>)<br><br>
+                        　●学年末欄の内容　({rval data/GAKUNENMATU_RAN1}<LABEL for="GAKUNENMATU_RAN1">学年評定</LABEL>　　{rval data/GAKUNENMATU_RAN2}<LABEL for="GAKUNENMATU_RAN2">学年評価</LABEL>　　{rval data/GAKUNENMATU_RAN3}<LABEL for="GAKUNENMATU_RAN3">３学期評価</LABEL>)<br><br>
+                        　●特別活動の出力方法<br>
+                        　　　{rval data/SPECIALACT1}<LABEL for="SPECIALACT1">個別</LABEL>　({rval data/SYUSEKI}({rval data/SHR_LATE_EARLY1}<LABEL for="SHR_LATE_EARLY1">SHRの欠席時数</LABEL>　{rval data/SHR_LATE_EARLY2}<LABEL for="SHR_LATE_EARLY2">遅刻・早退</LABEL>)　出力あり)<br>
+                        　　　{rval data/SPECIALACT2}<LABEL for="SPECIALACT2">合算</LABEL>　({rval data/LATE_EARLY}<LABEL for="LATE_EARLY">遅刻・早退　出力あり</LABEL>)<br><br>
+<!--{def KETTEN_FLG}-->
+                        　●欠点　　評価：{rval data/KETTEN} 点以下
+<!--{/def}-->
+<!--{def USE_SLUMP_D048}-->
+                        　●欠点　　評価：不振チェック参照
+<!--{/def}-->
+　　評定：{rval data/KETTEN_HYOTEI} 点以下<br><br>
+                        　{rval data/SYUKKETU_NO_KIROKU_SOUGOUTEKI_NA_GAKUSYUU_NO_JIKAN_NO_RAN_NASI}<LABEL for="SYUKKETU_NO_KIROKU_SOUGOUTEKI_NA_GAKUSYUU_NO_JIKAN_NO_RAN_NASI">総合的な学習の時間の欄なし</LABEL><br><br>
+                        　{rval data/KOUTYOU}<LABEL for="KOUTYOU">校長印の出力あり</LABEL><br><br>
+                        　{rval data/HANREI_SYUTURYOKU_NASI}<LABEL for="HANREI_SYUTURYOKU_NASI">凡例出力なし</LABEL><br><br>
+                        　{rval data/TYUI_TYOUKA_CHECK}<LABEL for="TYUI_TYOUKA_CHECK">{rval data/TYUI_TYOUKA_TITLE}</LABEL><br>
+                        　　　{rval data/TYUI_TYOUKA1}<LABEL for="TYUI_TYOUKA1">注意</LABEL>　　{rval data/TYUI_TYOUKA2}<LABEL for="TYUI_TYOUKA2">超過</LABEL><br><br>
+                        　{rval data/ZOUKA}<LABEL for="ZOUKA">増加単位を反映する</LABEL><br><br>
+                        　{rval data/NO_COMM}<LABEL for="NO_COMM">通信欄なし</LABEL><br><br>
+                        　{rval data/NO_BLANK_90}<LABEL for="NO_BLANK_90">学習の記録の総合的な学習の時間の行を詰める</LABEL>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {rval button/btn_print}{rval button/btn_end}　<font color="red" size="2"> ※序列確定処理時の得点です。</font>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

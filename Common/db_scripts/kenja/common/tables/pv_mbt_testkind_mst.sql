@@ -1,0 +1,19 @@
+
+create table PV_MBT_TESTKIND_MST( \
+    TEACHING_CD    VARCHAR(5)    NOT NULL, \
+    SITE_ID        VARCHAR(30)   NOT NULL, \
+    TEACHING_NAME  VARCHAR(120) , \
+    TEACHING_KIND  VARCHAR(30)  , \
+    STANDARD_TIME  VARCHAR(5)   , \
+    BORDER_LINE    DECIMAL(3,1) , \
+    STATUS         VARCHAR(30)  , \
+    SUBCLASSCD     VARCHAR(5)   , \
+    RECORD_DATE    TIMESTAMP    , \
+    UPDATE_DATE    TIMESTAMP    , \
+    DELETE_DATE    TIMESTAMP    , \
+    REGISTERCD     VARCHAR(10)  , \
+    UPDATED        TIMESTAMP     DEFAULT CURRENT TIMESTAMP \
+ ) in usr1dms index in idx1dms
+
+alter table PV_MBT_TESTKIND_MST add constraint PK_PV_MBT_TESTKIND_MST primary key (TEACHING_CD,SITE_ID)
+

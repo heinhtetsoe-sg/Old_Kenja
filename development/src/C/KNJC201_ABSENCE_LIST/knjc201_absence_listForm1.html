@@ -1,0 +1,79 @@
+{rval start}
+<BR>
+{rval data/SUBMIT_KAIHI}
+<table leftmargin="30" width="1040px" border="0" cellspacing="0" cellpadding="0">
+
+    <tr>
+        <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                  <th valign="top">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                      <tr>
+                        <td width="76%">
+                          <table width="100%" border="0" cellspacing="1" cellpadding="6" bgcolor="#000066">
+                            <tr class="no_search" nowrap>
+                              <th>{rval this_year}</th>
+                              <th>
+                                  学年:{rval GRADE}&nbsp;
+                                  年組:{rval CLASS}&nbsp;
+                                  {rval btn_before}&nbsp;
+                                  {rval control/executedate}&nbsp;
+                                  {rval btn_next}&nbsp;&nbsp;
+                              </th>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="1">
+                      <tr>
+                        <td align="center">表示データ：{rval CNTL_DT_KEY}</td>
+                      </tr>
+                    </table>
+                  </th>
+              </tr>
+            </table>
+       </td>
+    </tr>
+    <tr>
+        <th align="LEFT">
+            <div id="trow" style="overflow:hidden; width:990px;">
+                <table border="0" cellspacing="1" cellpadding="3" bgcolor="#255476" style="width:{rval TOTAL_WIDTH}px; margin-right:740px;">
+                    <tr class="no_search" id="haba">
+                    <!--{each PERIOD}-->
+                        <td align=center style="width:150px; height:30px;">{rval PERIOD/PERIODNAME}</td>
+                    <!--{/each}-->
+                    </td>
+                </table>
+            </div>
+        </th>
+    </tr>
+    <tr valign="TOP">
+        <th>
+            <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width:1008px; height: 480px;">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#255476" style="width: {rval TOTAL_WIDTH}px; margin:0 723px 452px 0;" id="list_table">
+                    <!--{each attend_data}-->
+                    <tr class="tablespace" align="left" nowrap height="{rval attend_data/HR_HEIGHT}">
+                        {rval attend_data/TD}
+                    </tr>
+                    <!--{/each}-->
+                </table>
+            </div>
+        </th>
+    </tr>
+    <tr>
+        <th align="right" colspan="2">
+            <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#255476">
+                <tr class="no_search" align="center" nowrap>
+                    <td>
+                        {rval btn_end}
+                    </td>
+                </tr>
+            </table>
+        </th>
+    </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval Closing}</script>

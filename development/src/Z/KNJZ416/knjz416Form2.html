@@ -1,0 +1,76 @@
+{rval start}
+<!--{def data}-->
+<!--{def button}--> 
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th align="center" colspan="2">中分類グループ</th>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap width="30%" >※ コード</th>
+                      <td bgcolor="#ffffff" width="70%" >{rval data/M_GROUPCD}<font color="red" size="-1"> (半角2桁)</font></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※ 　名称</th>
+                      <td bgcolor="#ffffff">
+                        {rval data/M_GROUPNAME}<br>
+                        <font color="red" size="-1">(全角30文字まで)</font>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <br>
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <th align="left" colspan="3">　　大分類　　{rval data/INDUSTRY_LCD}</th>
+                    </tr>
+                    <tr align="center" class="no_search">
+                      <th>更新対象中分類</th>
+                      <th class="no_search"></th>
+                      <th>中分類一覧</th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+        <td nowrap>{rval button/btn_update}{rval button/btn_del}{rval button/btn_clear}{rval button/btn_end}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}--> 
+<!--{/def}--> 
+{rval finish} 
+<script language="javascript">{rval reload}</script>

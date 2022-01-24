@@ -1,0 +1,68 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR><BR><BR><BR>
+
+<table width="40%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr > 
+    <td > 
+      <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+        <tr class="no_search_line"> 
+          <td width="100%"> 
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="left" class="no_search"> 
+                <td colspan="3">&nbsp&nbsp&nbsp&nbsp<b>{rval data/YEAR}年度&nbsp&nbsp試験区分　　：{rval data/TESTDIV}
+                <div style="margin-left:106px;">特別理由区分：{rval data/SPECIAL_REASON_DIV}</div></b></td>
+              </tr>
+              <tr align="left" bgcolor="#ffffff" height="100">
+                <td align="left" colspan="3">
+                  &nbsp&nbsp&nbsp&nbspスカラシップ：{rval data/SCALASHIPDIV}<br><br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp合計点数：{rval data/SCORE}点以上<br><br>
+<!-- NO004 -->
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp出力対象：{rval data/OUTPUT}合格者のみ
+<!-- NO004 -->
+                </td>
+              </tr>
+
+              <tr class="no_search">
+                <td nowrap colspan="3">&nbsp{rval SORT3}成績順&nbsp{rval SORT1}受験番号順&nbsp&nbsp{rval SORT2}かな氏名順</td>
+              </tr>
+              <tr class="no_search">
+                <th nowrap>選択ソート一覧</th>
+                <th>&nbsp;</th>
+                <th nowrap>ソート一覧</th>
+              </tr>
+              <tr align="center" bgcolor="#ffffff">
+                <td width="37%">{rval main_part/LEFT_PART}</td>
+                <td width="6%" class="no_search">{rval main_part/SEL_ADD_ALL}<br>
+                                                 {rval main_part/SEL_ADD}<br>
+                                                 {rval main_part/SEL_DEL}<br>
+                                                 {rval main_part/SEL_DEL_ALL}</td>
+                <td width="37%">{rval main_part/RIGHT_PART}</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap colspan="3"><font size=2, color="red">注）選択した並び順で出力します。</font></td>
+              </tr>
+
+              <tr align="left" class="no_search" height="20"> 
+                <td nowrap colspan="3"> &nbsp{rval button/btn_print}{rval button/btn_exec}{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <font color="red">※CSV出力は合格者のみ対象です。</font>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

@@ -1,0 +1,123 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tbody>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tbody>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                    <tbody>
+                    <tr height="35px" class="no_search" nowrap>
+                      <th nowrap align="left">&nbsp;&nbsp;年度：{rval TOP/CTRL_YEAR}&nbsp; &nbsp;&nbsp;学級：{rval GRADE_HR_CLASS}&nbsp; &nbsp;&nbsp;性別：{rval GENDER}</th>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tbody>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tbody>
+                          <tr class="no_search" nowrap align="center">
+                            <th width="50"  align="center" nowrap>No.</th>
+                            <th width="120" align="center" nowrap>氏名</th>
+                            <th width="85"  align="center" nowrap>性別</th>
+                            <th width="50"  align="center" nowrap>時</th>
+                            <th width="50"  align="center" nowrap>分</th>
+                            <th width="50"  align="center" nowrap>秒</th>
+                            <th width="*"   align="center" nowrap>備考</th>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="width: 100%; height=550; overflow: auto">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tbody>
+                      <tr class="no_search_line">
+                        <td>
+                          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <!--{def data}--><!--結果一覧--><!--{each data}-->
+                            <tbody>
+                            <tr id="{rval data/SCHREGNO}" bgcolor="#ffffff" align="center" nowrap>
+                              <td width="50" align="center">{rval data/ATTENDNO}</td>
+                              <td width="120" nowrap>{rval data/NAME}</td>
+                              <td width="85" align="center">{rval data/GENDER}</td>
+                              <td width="50" align="center" nowrap>{rval data/TIME_H}</td>
+                              <td width="50" align="center" nowrap>{rval data/TIME_M}</td>
+                              <td width="50" align="center" nowrap>{rval data/TIME_S}</td>
+                              <td width="*"  align="center" nowrap>{rval data/REMARK}</td>
+                            </tr>
+                            <!--{/each}--><!--{/def}-->
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tbody>
+                          <tr class="no_search" align="center">
+                            <td bgcolor="#ffffff" width="*">{rval btn_update}&nbsp;{rval btn_can}&nbsp;{rval btn_end}</td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  </tbody>
+</table>
+{rval finish}
+<script language="JavaScript">{rval Closing}</script>

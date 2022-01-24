@@ -1,0 +1,86 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR>
+
+<table width="60%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td><b>
+                    　　　　年度:{rval TOP/YEAR}　入試区分:{rval data/TESTDV}
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>会場一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_left2}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_right2}
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD height="70" align="left"  bgcolor="#ffffff">
+                          <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                          <TR>
+                              <TD width="100%" align="left">
+                                &nbsp&nbsp<b>※以下の指定は、選択会場が１つの場合のみ有効</b>
+                              </TD>
+                            </TR>
+                          <TR>
+                              <TD width="100%" align="left">
+                                &nbsp&nbsp&nbsp&nbsp&nbsp受付開始番号&nbsp&nbsp{rval data/NOINF_ST}&nbsp<b>～</b>&nbsp{rval data/NOINF_ED}
+                              </TD>
+                            </TR>
+                          <TR>
+                              <TD width="100%" align="left">
+                                &nbsp&nbsp&nbsp&nbsp&nbsp開始位置&nbsp&nbsp&nbsp;行 {rval data/POROW}&nbsp;列 {rval data/POCOL}
+                              </TD>
+                            </TR>
+                        </TABLE>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

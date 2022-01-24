@@ -1,0 +1,64 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr >
+        <td >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr></tr>
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+             <tr class="no_search"> 
+              <th align="left" colspan="13">処理年度：{rval YEAR}　　　　{rval button/btn_copy}<BR>
+                                           　　教科：{rval CLASSCD_SET}</th>
+             </tr>
+              <tr class="no_search">
+                <th nowrap align="center" width="">科目</th>
+    <!--{def kari_useMiyagiTokiwa}-->
+                <th nowrap align="center" width="8%">成績入力<BR>（実技科目）</th>
+                <th nowrap align="center" width="8%">序列確定処理<BR>の総合計</th>
+                <th nowrap align="center" width="8%">原簿<BR>に出力しない科目</th>
+                <th nowrap align="center" width="8%">調査書<BR>に出力しない科目</th>
+                <th nowrap align="center" width="8%">通知票・成績一覧</th>
+                <th nowrap align="center" width="8%">個人成績表<BR>に出力しない科目</th>
+                <th nowrap align="center" width="8%">評価をしない科目</th>
+                <th nowrap align="center" width="8%">通知票<BR>に出力しない合併科目</th>
+                <th nowrap align="center" width="8%">調査書印刷<BR>成績データの単位数のみ表示</th>
+    <!--{/def}-->
+                <th nowrap align="center" width="8%">修得科目<BR>として指定する科目</th>
+              </tr>
+              <!--{def data}-->
+              <!--結果一覧-->
+              <!--{each data}-->
+              <tr>
+                  <td nowrap align="left" bgcolor="#ffffff"><a href="knjz070_3index.php?cmd=edit&YEAR={val data/YEAR}&CLASSCD={val data/CLASSCD}&SCHOOL_KIND={val data/SCHOOL_KIND}&CURRICULUM_CD={val data/CURRICULUM_CD}&SUBCLASSCD={val data/SUBCLASSCD}" target="right_frame">{val data/CLASSCD}-{val data/SCHOOL_KIND}-{val data/CURRICULUM_CD}-{val data/SUBCLASSCD}</a>　{val data/SUBCLASSNAME}</td>
+    <!--{def kari_useMiyagiTokiwa}--> 
+                  <td nowrap align="center" bgcolor="#ffffff">{val data/SEQ_001}</td>
+                  <td nowrap align="center" bgcolor="#ffffff">{val data/SEQ_004}</td>
+                  <td nowrap align="center" bgcolor="#ffffff">{val data/SEQ_005}</td>
+                  <td nowrap align="center" bgcolor="#ffffff">{val data/SEQ_006}</td>
+                  <td nowrap align="left" bgcolor="#ffffff">{val data/SEQ_007}　{val data/REMARK1_007}　{val data/REMARK2_007}　{val data/REMARK3_007}　{val data/REMARK4_007}</td>
+                  <td nowrap align="left" bgcolor="#ffffff">{val data/SEQ_008}　{val data/REMARK1_008}　{val data/REMARK2_008}　{val data/REMARK3_008}　{val data/REMARK4_008}</td>
+                  <td nowrap align="center" bgcolor="#ffffff">{val data/SEQ_009}</td>
+                  <td nowrap align="center" bgcolor="#ffffff">{val data/SEQ_010}</td>
+                  <td nowrap align="center" bgcolor="#ffffff">{val data/SEQ_011}</td>
+    <!--{/def}-->
+                  <td nowrap align="left" bgcolor="#ffffff">{val data/SEQ_012}　{val data/REMARK1_012}{val data/REMARK2_012}{val data/REMARK3_012}</td>
+              </tr>
+              <!--{/each}-->
+              <!--{/def}-->
+            </table>
+          </td>
+          </tr>
+      </table>
+        </td>
+        </tr>
+      </table>
+   </td>
+   </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

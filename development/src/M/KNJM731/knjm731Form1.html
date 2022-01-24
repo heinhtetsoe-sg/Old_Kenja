@@ -1,0 +1,90 @@
+{rval start}
+<!--{def button}-->
+
+<br><br><br>
+<table width="60%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr height="20">
+                      <th class="no_search" nowrap>
+                        <b>{rval YEAR}　　{rval SEMESTER}　　{rval SEARCH_DIV1}<LABEL for="SEARCH_DIV1">新入生</LABEL>　　{rval SEARCH_DIV2}<LABEL for="SEARCH_DIV2">在籍者</LABEL>　{rval GRADE_HR_CLASS}</b></th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="20"><br></td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th width="100">学籍番号</th>
+                      <th width="200">氏名</th>
+                      <th width="150">年組番</th>
+                      <th width="*">回数</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width:100%;height:450;overflow-y:scroll">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--結果一覧--><!--{def data}--><!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td width="100" align="center">{rval data/SCHREGNO}</td>
+                      <td width="200">&nbsp;{rval data/NAME_SHOW}</td>
+                      <td width="150">&nbsp;{rval data/ATTENDNO}</td>
+                      <td width="*" align="center">{rval data/MUSYOU_KAISU}</td>
+                    </tr>
+                    <!--{/each}--><!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" heignt="25">
+                      <th nowrap>{rval button/btn_update}　{rval button/btn_clear}　{rval button/btn_end}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<br>
+
+<!--{/def}-->
+{rval finish}

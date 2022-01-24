@@ -1,0 +1,103 @@
+{rval start}
+
+<br>
+<table width="680" border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <!--{def COURSE_MAJOR}-->
+                    <tr class="no_search" height="30">
+                      <td nowrap></td>
+                      <td nowrap>課程学科：{rval COURSE_MAJOR}</td>
+                    </tr>
+                    <!--{/def}-->
+                    <tr class="no_search" height="30">
+                      <td width="40%" nowrap align="right">処理年度：{rval YEAR}年度　　{rval SEMESTER}</td>
+                      <td width="60%" nowrap>　　学級：{rval GROUP_HR_CLASS}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="60">№</th>
+                      <th width="180">氏名</th>
+                      <th width="100">コース</th>
+                      <th width="60">全体<br>評定<br>平均</th>
+                      <th width="60">履修<br>単位数</th>
+                      <th width="60">修得<br>単位数</th>
+                      <th width="*">マルＡ<br>{rval CHECKALL}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width:100%;height:450;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                    <!--{each data}-->
+                    <tr>
+                      <td width="60" align="center" bgcolor="{rval data/COLOR}">{rval data/ATTENDNO}</td>
+                      <td width="180" align="left"   bgcolor="{rval data/COLOR}">{rval data/NAME_SHOW}</td>
+                      <td width="100" align="left"   bgcolor="{rval data/COLOR}">{rval data/COURSECODENAME}</td>
+                      <td width="60" align="center" bgcolor="{rval data/COLOR}">{rval data/VAL_ALL_AVG}</td>
+                      <td width="60" align="center" bgcolor="{rval data/COLOR}">{rval data/COMP_CREDIT}</td>
+                      <td width="60" align="center" bgcolor="{rval data/COLOR}">{rval data/GET_CREDIT}</td>
+                      <td width="*" align="center" bgcolor="{rval data/COLOR}">{rval data/COMMENTEX_A_CD}</td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <td align="right">{val btn_update}{val btn_reset}{val btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+
+<script language="JavaScript">{rval close_win}</script>

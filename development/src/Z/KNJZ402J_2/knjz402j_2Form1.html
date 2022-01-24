@@ -1,0 +1,70 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <!--{def schkind}-->
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap align="left" width="*%">&nbsp;校種：{rval SCHKIND}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!--{/def}-->
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th nowrap width="20%">教科</th>
+                      <th nowrap width="20%">科目</th>
+                      <th nowrap width="10%">校種</th>
+                      <th nowrap width="10%">観点<br>コード</th>
+                      <th nowrap width="*%">観点名称</th>
+                      <th nowrap width="15%">観点略称</th>
+                      <th nowrap width="8%">表示<br>順</th>
+                      <th nowrap width="8%">重み</th>
+                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff">{val data/CLASSNAME}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/SUBCLASSNAME}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/SCHOOL_KIND}{val data/SCHOOL_KINDNAME}</td>
+<!--{def useCurriculumcd}-->
+                      <td nowrap align="center" bgcolor="#ffffff"><a href="knjz402j_2index.php?cmd=edit&CLASSCD={val data/CLASSCD}&SCHOOL_KIND={val data/SCHOOL_KIND}&CURRICULUM_CD={val data/CURRICULUM_CD}&SUBCLASSCD={val data/SUBCLASSCD}&VIEWCD={val data/VIEWCD}&year_code={val year}" target="right_frame">{val data/VIEWCD}</a></td>
+<!--{/def}-->
+<!--{def NoCurriculumcd}-->
+                      <td nowrap align="center" bgcolor="#ffffff"><a href="knjz402j_2index.php?cmd=edit&SUBCLASSCD={val data/SUBCLASSCD}&VIEWCD={val data/VIEWCD}&year_code={val year}" target="right_frame">{val data/VIEWCD}</a></td>
+<!--{/def}-->
+                      <td nowrap bgcolor="#ffffff">{val data/VIEWNAME}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/VIEWABBV}</td>
+                      <td nowrap align="center" bgcolor="#ffffff">{val data/SHOWORDER}</td>
+                      <td nowrap align="center" bgcolor="#ffffff">{val data/WEIGHT}</td>
+                    </tr>
+<!--{/each}-->
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

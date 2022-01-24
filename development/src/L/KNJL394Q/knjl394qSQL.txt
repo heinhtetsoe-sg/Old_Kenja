@@ -1,0 +1,210 @@
+//ヘッダー(実施日)とフッダー(受験者人数(男女))
+SELECT
+    t1.YEAR,            
+    t3.EXAM_DATE,       //試験日
+    t1.TOTAL_COUNT,     //全体人数
+    t2.MALE_COUNT,      //男子人数
+    t2.FEMALE_COUNT     //女子人数
+FROM
+    (SELECT
+        YEAR,
+        TOTAL_COUNT
+    FROM
+        SAT_AREA_RECORD_DAT
+    WHERE
+        YEAR = '/*CTRL_YEAR*/' AND
+        AREA = '9'
+    ) t1 
+    left join  (SELECT
+                    YEAR,
+                    MAX(ALL_MALE) as MALE_COUNT,
+                    MAX(ALL_FEMALE) as FEMALE_COUNT
+                FROM
+                    SAT_HOPE_DIST_DAT
+                WHERE
+                    YEAR = '/*CTRL_YEAR*/'
+                GROUP BY
+                    YEAR
+                ) t2 on t1.YEAR = t2.YEAR
+    left join SAT_INFO_MST t3 on t1.YEAR = t3.YEAR 
+
+//フッダー　平均点(男女)
+SELECT
+    a1.YEAR,            //
+    a1.SEX,             //1:男子　2:女子　9:全体
+    a1.TOTAL_AVG,       //三教科平均点
+    a2.ENGLISH_AVG,     //英語平均点
+    a3.MATH_AVG,        //数学平均点
+    a4.JAPANESE_AVG     //国語平均点
+FROM
+    (SELECT
+        t1.YEAR,
+        t2.SEX,
+        TRUNC(AVG(FLOAT(t1.SCORE_TOTAL)),3) as TOTAL_AVG
+    FROM
+        SAT_EXAM_DAT t1 left join SAT_APP_FORM_MST t2 on t1.YEAR = t2.YEAR and t1.SAT_NO = t2.SAT_NO
+    WHERE
+        t1.SCORE_TOTAL IS NOT NULL
+    AND
+        t1.YEAR = '/*CTRL_YEAR*/'
+    GROUP BY
+        t1.YEAR,
+        t2.SEX
+    ) a1 
+    left join (SELECT
+                    t1.YEAR,
+                    t2.SEX,
+                    TRUNC(AVG(FLOAT(t1.SCORE_ENGLISH)),3) as ENGLISH_AVG
+                FROM
+                    SAT_EXAM_DAT t1 left join SAT_APP_FORM_MST t2 on t1.YEAR = t2.YEAR and t1.SAT_NO = t2.SAT_NO
+                WHERE
+                    t1.SCORE_ENGLISH IS NOT NULL
+                AND
+                    t1.YEAR = '/*CTRL_YEAR*/'
+                GROUP BY
+                    t1.YEAR,
+                    t2.SEX
+                ) a2 on a1.YEAR = a2.YEAR and a1.SEX = a2.SEX
+    left join (SELECT
+                    t1.YEAR,
+                    t2.SEX,
+                    TRUNC(AVG(FLOAT(t1.SCORE_MATH)),3) as MATH_AVG
+                FROM
+                    SAT_EXAM_DAT t1 left join SAT_APP_FORM_MST t2 on t1.YEAR = t2.YEAR and t1.SAT_NO = t2.SAT_NO
+                WHERE
+                    t1.SCORE_MATH IS NOT NULL
+                AND
+                    t1.YEAR = '/*CTRL_YEAR*/'
+                GROUP BY
+                    t1.YEAR,
+                    t2.SEX
+                ) a3 on a1.YEAR = a3.YEAR and a1.SEX = a3.SEX
+    left join (SELECT
+                    t1.YEAR,
+                    t2.SEX,
+                    TRUNC(AVG(FLOAT(t1.SCORE_JAPANESE)),3) as JAPANESE_AVG
+                FROM
+                    SAT_EXAM_DAT t1 left join SAT_APP_FORM_MST t2 on t1.YEAR = t2.YEAR and t1.SAT_NO = t2.SAT_NO
+                WHERE
+                    t1.SCORE_JAPANESE IS NOT NULL
+                AND
+                    t1.YEAR = '/*CTRL_YEAR*/'
+                GROUP BY
+                    t1.YEAR,
+                    t2.SEX
+                ) a4 on a1.YEAR = a4.YEAR and a1.SEX = a4.SEX
+    UNION
+    (SELECT
+        YEAR,
+        AREA,
+        TOTAL_AVG,
+        ENGLISH_AVG,
+        MATH_AVG,
+        JAPANESE_AVG
+    FROM
+        SAT_AREA_RECORD_DAT
+    WHERE
+        YEAR = '/*CTRL_YEAR*/' AND
+        AREA = '9'
+    )
+ORDER BY
+    SEX
+
+
+//データ
+SELECT
+    t1.YEAR,                            //
+    t1.SAT_NO,                          //受験番号
+    t1.NAME1,                           //氏名
+    t2.SCORE_TOTAL,                     //三教科得点
+    t2.DEVIATION,                       //三教科偏差値
+    t2.ALL_RANK_TOTAL,                  //三教科席次
+    t2.SCORE_ENGLISH,                   //英語得点
+    t2.SCORE_MATH,                      //数学得点
+    t2.SCORE_JAPANESE,                  //国語得点
+    t1.PREFCD,                          //
+    t3.PREF_NAME,                       //都道府県
+    t1.SCHOOLCD,                        //
+    t4.FINSCHOOL_NAME_ABBV,             //出身中学
+    t2.JUDGE_SAT,                       //
+    t5.NAME1 as JUDGE,                  //判定
+    t1.GRADUATION,                      //
+    t6.NAME1 as GRADE,                  //学年
+    t1.SEX as SEXCD,                    //
+    t7.NAME2 as SEX,                    //性別
+    t1.HOPECD1,                         //
+    t8.FINSCHOOL_NAME_ABBV as HOPE1,    //志望高校1
+    t1.HOPECD2,                         //
+    t9.FINSCHOOL_NAME_ABBV as HOPE2,    //志望高校2
+    t1.HOPECD3,                         //
+    t10.FINSCHOOL_NAME_ABBV as HOPE3,   //志望高校3
+    t1.MOCK_AUG_DEV,                    //進研8月3科偏差
+    t1.MOCK_SEP_DEV,                    //進研9月3科偏差
+    t1.GROUPCD,                         //
+    t11.GROUPNAME                       //団体名
+FROM
+    SAT_APP_FORM_MST t1
+    left join SAT_EXAM_DAT t2 on t1.YEAR = t2.YEAR and t1.SAT_NO = t2.SAT_NO
+    left join PREF_MST t3 on t1.PREFCD = t3.PREF_CD
+    left join FINSCHOOL_MST t4 on t1.SCHOOLCD = t4.FINSCHOOLCD and t4.FINSCHOOL_TYPE = '3'
+    left join NAME_MST t5 on t2.JUDGE_SAT = t5.NAMECD2 and t5.NAMECD1 = 'L200'
+    left join NAME_MST t6 on t1.GRADUATION = t6.NAMECD2 and t6.NAMECD1 = 'L205'
+    left join NAME_MST t7 on t1.SEX = t7.NAMECD2 and t7.NAMECD1 = 'Z002'
+    left join FINSCHOOL_MST t8 on RIGHT('00000' || t1.HOPECD1, 5) = RIGHT(t8.FINSCHOOLCD, 5) and t8.FINSCHOOL_TYPE = '4'
+    left join FINSCHOOL_MST t9 on RIGHT('00000' || t1.HOPECD2, 5) = RIGHT(t9.FINSCHOOLCD, 5) and t9.FINSCHOOL_TYPE = '4'
+    left join FINSCHOOL_MST t10 on RIGHT('00000' || t1.HOPECD3, 5) = RIGHT(t10.FINSCHOOLCD, 5) and t10.FINSCHOOL_TYPE = '4'
+    left join SAT_GROUP_DAT t11 on t1.GROUPCD = t11.GROUPCD and t1.YEAR = t11.YEAR
+WHERE
+    t1.YEAR = '2015'
+AND
+    t1.ABSENCE != '0'
+/*受験番号指定*/
+AND
+    t1.SAT_NO BETWEEN '/*$model->field["EXAM_FROM"]*/' AND '/*$model->field["EXAM_TO"]*/'
+    t1.SAT_NO = '/*$model->field["EXAM_FROM"]*/'
+
+/*甲府市内*/
+AND
+    t1.ADDR1 LIKE '%甲府市%'
+/*甲府市内中学校*/
+AND
+    t4.FINSCHOOL_PREF_CD = '19'
+AND
+    t4.DISTRICTCD = '01'
+
+/*県内*/
+AND
+    t1.INOUT_KUBUN = '1'
+
+/*県外*/
+AND
+    t1.INOUT_KUBUN IN ('2','3')     //県内扱と県外
+
+/*海外*/
+AND
+    t1.INOUT_KUBUN = '4'
+
+/*県外海外*/
+AND
+    t1.INOUT_KUBUN IN ('2','3','4')
+
+/*男子*/
+AND
+    t1.SEX = '1'
+
+/*女子*/
+AND
+    t1.SEX = '1'
+
+/*校内生*/
+AND
+    t1.IND_KUBUN = '3'
+
+
+ORDER BY
+/*受験番号順*/
+    t1.SAT_NO
+/*高得点順*/
+    t2.ALL_RANK_TOTAL, t1.SAT_NO
+
+

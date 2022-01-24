@@ -1,0 +1,13 @@
+
+create table PV_CBT_SUBCLASS_MST( \
+    SUBCLASSCD    VARCHAR(2)   NOT NULL, \
+    SUBCLASSNAME  VARCHAR(30) , \
+    TAKE_FLG      VARCHAR(2)  , \
+    CLASSCD       VARCHAR(2)   NOT NULL, \
+    CLASSNAME     VARCHAR(30) , \
+    REGISTERCD    VARCHAR(10) , \
+    UPDATED       TIMESTAMP    DEFAULT CURRENT TIMESTAMP \
+ ) in usr1dms index in idx1dms
+
+alter table PV_CBT_SUBCLASS_MST add constraint PK_PV_CBT_SUBCLASS_MST primary key (SUBCLASSCD,CLASSCD)
+

@@ -1,0 +1,117 @@
+{rval start} 
+<style>
+.all {
+    height:80%;
+}
+.scrollbody {
+    height: 80%;
+    overflow-y: scroll;
+}
+@media all and (-ms-high-contrast:none){
+.scrollbody {
+    height: 600px;
+    overflow-y: scroll;
+}
+}
+</style>
+<BR><BR>
+<table style="width: 1050" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr class="no_search_line"> 
+    <td> 
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+        <tr class="no_search" height="30"> 
+          <th>欠席者の入力</th>
+        </tr>
+        
+      </table>
+    </td>
+  </tr>
+</table>
+
+<BR>
+<table style="width: 500" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr class="no_search_line"> 
+    <td> 
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+        <tr bgcolor="#ffffff"> 
+          <th class="no_search">表示区分</th>
+          <td bgcolor="#ffffff">{rval Radio1}&nbsp;&nbsp;{rval Radio2}</th>
+        </tr>
+        <tr bgcolor="#ffffff"> 
+          <th class="no_search">会場</th>
+          <td bgcolor="#ffffff">{rval PLACECD}</th>
+        </tr>
+        <tr bgcolor="#ffffff"> 
+          <td bgcolor="#ffffff" colspan="2" align="center">{rval btn_search}&nbsp;{val btn_end}</th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<BR><BR>
+<div class="all">
+<table style="width: 1050;height:100%;" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+          <div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" align="center">
+                      <td width="50">欠席</td>
+                      <td width="60" nowrap>受験番号</td>
+                      <td width="115">氏名</td>
+                      <td width="230">試験会場</td>
+                      <td width="260">中学校名</td>
+                      <td width="245">団体名</td>
+                      <td width="5px"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="scrollbody">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td width="50" align="center">{rval data/ABSENCE}</td>
+                      <td width="60" nowrap>{rval data/SAT_NO}</td>
+                      <td width="115" align="left">{rval data/NAME}</td>
+                      <td width="230" align="left" nowrap>{rval data/PLACE_NAME}</td>
+                      <td width="260" align="left" nowrap>{rval data/SCHOOL_NAME}</td>
+                      <td width="245" align="left" nowrap>{rval data/GROUP_NAME}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" align="center">
+                      <td colspan="6">{rval btn_print}&nbsp;{val btn_create}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+        </div>
+  </td>
+</tr>
+</table>
+</div>
+<script language="JavaScript">{rval jscript}</script>
+
+{rval finish} 

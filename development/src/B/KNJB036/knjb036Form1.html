@@ -1,0 +1,115 @@
+{rval start}
+<style type="text/css">
+<!--
+    .tablespace {color:white; background-color:white; text-align:left }
+    .subtitle {color:white; background-color:#316F9B; font-size:13pt }
+    .stfn {color:black; background-color:white; text-align:left }
+    .rstfn {color:black; background-color:#FFFFCC; text-align:left; font-weight:bold}
+-->
+</style>
+<BR>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10" >
+      <tr> 
+      <td> 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+          <td bgcolor="#000066"> 
+        	<table width="100%" border="0" cellspacing="1" cellpadding="6">
+          	  <tr class="no_search"> 
+            	<th width="136" align="left" nowrap>
+					対象年度／学期<BR>{rval hdr_year}&nbsp;{rval semester}{rval hdr_seme}
+				</th>
+            	<th width="15%" align="left" nowrap>
+					使用施設<BR>{rval faccd}&nbsp;
+				</th>
+            	<th width="10%" align="left" nowrap>
+					時間割種別<BR>{rval btn_jikanwari1}基本&nbsp;{rval btn_jikanwari2}通常&nbsp;
+				</th>
+            	<th width="%" align="left" nowrap>
+					{rval title}<BR>{rval seq}{rval executedate}{rval date_end}&nbsp;{rval btn_read}
+					&nbsp;&nbsp;{rval btn_end}
+				</th>
+          	  </tr>
+        	</table>
+     	  </td>
+    	  </tr>
+	    </table>
+      </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+  <tr> 
+  <td valign="top"> 
+    <table align="center" width="998" border="0" cellspacing="0" cellpadding="10">
+      <tr> 
+      <td >
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+          <td bgcolor="#000066"> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search" nowrap align="center">
+                <th width="145" height="30" nowrap>校時＼曜日</th>
+                <th width="116" nowrap>{rval date_youbi0}（月）</th>
+                <th width="116" nowrap>{rval date_youbi1}（火）</th>
+                <th width="116" nowrap>{rval date_youbi2}（水）</th>
+                <th width="116" nowrap>{rval date_youbi3}（木）</th>
+                <th width="116" nowrap>{rval date_youbi4}（金）</th>
+                <th width="116" nowrap>{rval date_youbi5}（土）</th>
+                <th width="*" nowrap>{rval date_youbi6}（日）</th>
+              </tr>
+            </table>
+          </td>
+          </tr>
+          <tr>
+          <td>
+            <div style="width:100%;height:500;overflow-x:visible;overflow-y:scroll";>
+              <table  id="tbl" width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="silver">
+              <!--{def data}-->
+              <!--結果一覧-->
+              <!--{each data}--> 
+                <tr class="tablespace" nowrap>
+                <td nowrap width="145" class="subtitle" align="center">{rval data/TARGETCLASS}</td>
+                {rval data/DAYCD2}
+                {rval data/DAYCD3}
+                {rval data/DAYCD4}
+                {rval data/DAYCD5}
+                {rval data/DAYCD6}
+                {rval data/DAYCD7}
+                {rval data/DAYCD1}
+                </tr>
+                <!--{/each}--> 
+                <!--{/def}--> 
+              </table>
+            </div>
+          </td>
+          </tr>
+          <tr>
+          <td bgcolor="#000066">
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search">
+                <th width="145" height="30" nowrap>校時／曜日</th>
+                <th width="116" nowrap>{rval date_youbi0}（月）</th>
+                <th width="116" nowrap>{rval date_youbi1}（火）</th>
+                <th width="116" nowrap>{rval date_youbi2}（水）</th>
+                <th width="116" nowrap>{rval date_youbi3}（木）</th>
+                <th width="116" nowrap>{rval date_youbi4}（金）</th>
+                <th width="116" nowrap>{rval date_youbi5}（土）</th>
+                <th width="*" nowrap>{rval date_youbi6}（日）</th>
+              </tr>
+            </table>
+          </td>
+          </tr>
+        </table>
+      </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval Closing}</script>
+

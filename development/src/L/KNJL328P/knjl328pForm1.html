@@ -1,0 +1,51 @@
+{rval start} 
+<!--{def button}-->
+<!--{def data}-->
+<br><br><br><br><br><br><br><br><br>
+<table width="450" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="5">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr class="no_search" height="30">
+                <td colspan="2" align="center"><B>入試年度：{rval data/YEAR}</B></td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" width="25%" align="right">入試制度&nbsp;</td>
+                <td bgcolor="#ffffff" width="75%">{rval data/APPLICANTDIV}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" align="right">入試区分&nbsp;</td>
+                <td bgcolor="#ffffff">{rval data/TESTDIV}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" align="right">通知日付&nbsp;</td>
+                <td bgcolor="#ffffff">{rval data/TSUCHI}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" align="right">帳票種類&nbsp;</td>
+                <td bgcolor="#ffffff" nowrap>{rval data/ALLFLG1}<LABEL for="ALLFLG1">全校</LABEL>（{rval data/JIZEN}<LABEL for="JIZEN">事前印刷</LABEL>）<br><br>
+                                      {rval data/ALLFLG2}<LABEL for="ALLFLG2">指定</LABEL><br>
+                                      　　&nbsp;出身学校コード&nbsp;{rval data/FINSCHOOLCD}<br><br>
+                                      　合格者用&nbsp;締切日付&nbsp;{rval data/SHIMEKIRI}<br>
+                                      不合格者用&nbsp;出願期間&nbsp;{rval data/SHUTSUGAN}&nbsp;必着<br><br>
+                                      　　　　　&nbsp;文書番号&nbsp;{rval data/DOCUMENTNO}
+                </td>
+              </tr>
+              <tr height="30">
+                <td class="no_search"></td>
+                <td bgcolor="#ffffff">{rval button/btn_print}{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}

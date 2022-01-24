@@ -1,0 +1,82 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR><BR>
+
+<table width="40%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td>&nbsp&nbsp&nbsp&nbsp<b>{rval data/YEAR}年度　　　　　　　　　試験区分：{rval data/TESTDIV}
+                        <div style="margin-left:195px;">特別理由区分：{rval data/SPECIAL_REASON_DIV}<div></b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td>
+                        &nbsp;　<b>{rval data/OUTPUT1}&nbsp;会場　{rval data/OUTPUT2}&nbsp;受験番号</b>
+                        &nbsp;　<b>　　　科目：{rval data/SUBCLASS}</b>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+<!--{def clsno}-->
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>会場一覧</b></th>
+<!--{/def}-->
+<!--{def schno}-->
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>受験番号一覧</b></th>
+<!--{/def}-->
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/DATA_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/DATA_NAME}</td>
+                    </tr>
+<!--{def clsno}-->
+                    <tr align="left" bgcolor="#ffffff">
+                      <td colspan="3">&nbsp&nbsp&nbsp&nbsp<b>{rval data/PCHANGE}：会場毎に改ページ</b></td>
+                    </tr>
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

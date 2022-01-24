@@ -1,0 +1,29 @@
+-- kanji=漢字
+-- $Id: e2ff71738627228b63eb42b6f02d271b8d10bd52 $
+
+-- 注意:このファイルは EUC/LFのみ でなければならない。
+-- 適用方法:
+--    1.データベース接続
+--    2.db2 +c -f <このファイル>
+--    3.コミットするなら、db2 +c commit。やり直すなら、db2 +c rollback
+--
+drop table SUBCLASS_WEIGHTING_GRADES_DAT
+
+create table SUBCLASS_WEIGHTING_GRADES_DAT ( \
+    YEAR                      VARCHAR(4) NOT NULL, \
+    GRADE                     VARCHAR(2) NOT NULL, \
+    COMBINED_CLASSCD          VARCHAR(2) NOT NULL, \
+    COMBINED_SCHOOL_KIND      VARCHAR(2) NOT NULL, \
+    COMBINED_CURRICULUM_CD    VARCHAR(2) NOT NULL, \
+    COMBINED_SUBCLASSCD       VARCHAR(6) NOT NULL, \
+    ATTEND_CLASSCD            VARCHAR(2) NOT NULL, \
+    ATTEND_SCHOOL_KIND        VARCHAR(2) NOT NULL, \
+    ATTEND_CURRICULUM_CD      VARCHAR(2) NOT NULL, \
+    ATTEND_SUBCLASSCD         VARCHAR(6) NOT NULL, \
+    WEIGHTING                 SMALLINT, \
+    REGISTERCD                VARCHAR(8), \
+    UPDATED                   TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+) in usr1dms index in idx1dms
+
+alter table SUBCLASS_WEIGHTING_GRADES_DAT add constraint PK_SUBWEIGHTING_D \
+        primary key (YEAR, GRADE, COMBINED_CLASSCD, COMBINED_SCHOOL_KIND, COMBINED_CURRICULUM_CD, COMBINED_SUBCLASSCD, ATTEND_CLASSCD, ATTEND_SCHOOL_KIND, ATTEND_CURRICULUM_CD, ATTEND_SUBCLASSCD)

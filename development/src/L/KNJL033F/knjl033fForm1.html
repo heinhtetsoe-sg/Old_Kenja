@@ -1,0 +1,71 @@
+{rval start}
+
+<br>
+<table width="800" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" height="25">
+                      <th norwarp width="15%">入試年度</th>
+                      <td norwarp width="*" bgcolor="#ffffff">{val year}&nbsp;&nbsp;{val btn_year_add}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr height="5">
+                <td></td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="10%">入試制度</th>
+                      <th nowrap width="40%">費目</th>
+                      <th nowrap width="10%">費目金額</th>
+                      <th nowrap width="10%">入学金</th>
+                      <th nowrap width="10%">諸費</th>
+                      <th nowrap width="10%">受験料</th>
+                      <th nowrap width="*%">入学<BR>支度金</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/ROWSPAN1}-->
+                      <td nowrap bgcolor="#ffffff" align="center" rowspan={rval data/ROWSPAN1}>{val data/APPLICANTNAME}</td>
+                      <!--{/def}-->
+                      <td nowrap bgcolor="#ffffff">{val data/ITEM}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/ITEM_MONEY}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/REMARK1}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/REMARK3}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/REMARK4}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/REMARK5}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+
+<script language="JavaScript">
+<!--{def reload}-->
+<!--{each reload}-->
+{rval reload}
+<!--{/each}-->
+<!--{/def}-->
+</script>

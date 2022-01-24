@@ -1,0 +1,70 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top">
+    
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search">
+                    <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <tbody>
+                        <tr class="no_search" height="30">
+                          <td width="100%" align="left" nowrap>
+                            　対象年度：{rval SELECT_YEAR}年度　　　　{rval button/copy}
+                          </td>
+                        </tr>
+                      </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+            <tr > 
+              <td > 
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr class="no_search_line"> 
+                    <td> 
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tr class="no_search"> 
+                          <th nowrap width="15%">学年</th>
+                          <th nowrap width="10%">グループCD</th>
+                          <th nowrap width="15%">グループ名称</th>
+                          <th nowrap width="*">グループ略称</th>
+                        </tr>
+                        <!--{def data}-->
+                        <!--結果一覧-->
+                        <!--{each data}--> 
+                        <tr>
+                                <td nowrap width="15%" bgcolor="#ffffff">{val data/GRADE_NAME1}</td>
+                                <td nowrap align="center" width="10%" bgcolor="#ffffff"><a href="knjb0211index.php?cmd=edit&GRADE={val data/GRADE}&SCHOOL_KIND={val data/SCHOOL_KIND}&GROUP_CD={val data/GROUP_CD}" target="right_frame">{val data/GROUP_CD}</a></td>
+                                <td nowrap width="15%" bgcolor="#ffffff">{val data/GROUP_NAME}</td>
+                                <td nowrap width="*%"bgcolor="#ffffff">{val data/GROUP_ABBV}</td>
+                        </tr> 
+                        <!--{/each}--> 
+                        <!--{/def}-->
+                        </table>
+                        </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+         </table>
+         
+      </td>
+    </tr>
+  </table>
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+{rval finish}
+<!--                                            <div style="width:100%;height:550;overflow:auto";>-->

@@ -1,0 +1,153 @@
+{rval start}
+
+<br>
+<table width="1350" border="0" cellspacing="0" cellpadding="0">
+  <tr align="center">
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="5" bgcolor="#000066">
+              <tr class="no_search" nowrap>
+                <td>
+                    　　　　処理年度：{rval year}年度　{rval semester}　　　科目：{rval SUBCLASSCD}　　　講座：{rval CHAIRCD}<br>
+                    　　　　対象月：{rval MONTHCD}　　※締め日：{rval APPOINTED_DAY}　　※授業時数：{rval LESSON_SET} {rval btn_reflect}
+                    &nbsp;&nbsp;移動方向({rval MOVE_ENTER1}<LABEL for="MOVE_ENTER1">縦</LABEL>　{rval MOVE_ENTER2}<LABEL for="MOVE_ENTER2">横</LABEL>)
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <tr class="no_search" align="center" nowrap>
+                <td width="100">年-組-番</td>
+                <td width="300">氏名</td>
+                <td width="50">締<br>め<br>日</td>
+                <td width="50">授業<br>時数<br>{rval btn_lesson_clear}</td>
+                <!--{def A004_2}-->
+                <td width="50">休学<br>時数</td>
+                <!--{/def}-->
+                <!--{def A004_1}-->
+                <td width="50">留学<br>時数</td>
+                <!--{/def}-->
+                <!--{def C001_1}-->
+                <td width="50">公欠<br>時数</td>
+                <!--{/def}-->
+                <!--{def C001_2}-->
+                <td width="50">{rval C001_2_NAME}</td>
+                <!--{/def}-->
+                <!--{def C001_25}-->
+                <td width="50">{rval C001_25_NAME}</td>
+                <!--{/def}-->
+                <!--{def C001_19}-->
+                <td width="50">{rval C001_19_NAME}</td>
+                <!--{/def}-->
+                <!--{def C001_3}-->
+                <td width="50">忌引<br>時数</td>
+                <!--{/def}-->
+                <td width="50">出席<br>すべき<br>時数</td>
+                <!--{def C001_4}-->
+                <td width="50">病欠</td>
+                <!--{/def}-->
+                <!--{def C001_5}-->
+                <td width="50">事故欠</td>
+                <!--{/def}-->
+                <!--{def C001_6}-->
+                <td width="50">欠席</td>
+                <!--{/def}-->
+                <!--{def C001_14}-->
+                <td width="50">保健室<br>欠課</td>
+                <!--{/def}-->
+                <!--{def C001_15}-->
+                <td width="50">遅刻</td>
+                <!--{/def}-->
+                <!--{def C001_16}-->
+                <td width="*">早退</td>
+                <!--{/def}-->
+              </tr>
+            </table>
+
+            <div style="width:100%; height:500; overflow:auto">
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <!--{def attend_data}-->
+              <!--{each attend_data}-->
+              <tr bgcolor="#FFFFFF" align="center" nowrap height="26">
+                <td align="left" width="100" {rval attend_data/BGCOLOR_MONTH_NAME}>{rval attend_data/HR_ATTENDNO}</td>
+                <td align="left" width="300" {rval attend_data/BGCOLOR_MONTH_NAME}>{rval attend_data/SCHREGNO_SHOW}{rval attend_data/NAME}{rval attend_data/SCHREGNO}</td>
+                <td width="50" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/APPOINTED_DAY}</td>
+                <td width="50" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/LESSON}</td>
+                <!--{def A004_2}-->
+                <td width="50" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/OFFDAYS}</td>
+                <!--{/def}-->
+                <!--{def A004_1}-->
+                <td width="50" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/ABROAD}</td>
+                <!--{/def}-->
+                <!--{def C001_1}-->
+                <td width="50" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/ABSENT}</td>
+                <!--{/def}-->
+                <!--{def C001_2}-->
+                <td width="50" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/SUSPEND}</td>
+                <!--{/def}-->
+                <!--{def C001_25}-->
+                <td width="50" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/KOUDOME}</td>
+                <!--{/def}-->
+                <!--{def C001_19}-->
+                <td width="50" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/VIRUS}</td>
+                <!--{/def}-->
+                <!--{def C001_3}-->
+                <td width="50" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/MOURNING}</td>
+                <!--{/def}-->
+                <td width="50" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/ATTEND}</td>
+                <!--{def C001_4}-->
+                <td width="50" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/SICK}</td>
+                <!--{/def}-->
+                <!--{def C001_5}-->
+                <td width="50" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/NOTICE}</td>
+                <!--{/def}-->
+                <!--{def C001_6}-->
+                <td width="50" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/NONOTICE}</td>
+                <!--{/def}-->
+                <!--{def C001_14}-->
+                <td width="50" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/NURSEOFF}</td>
+                <!--{/def}-->
+                <!--{def C001_15}-->
+                <td width="50" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/LATE}</td>
+                <!--{/def}-->
+                <!--{def C001_16}-->
+                <td width="*" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/EARLY}</td>
+                <!--{/def}-->
+              </tr>
+              <!--{/each}-->
+              <!--{/def}-->
+            </table>
+            </div>
+
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <tr class="no_search" align="right" nowrap>
+                <td colspan="{rval useGedanCol}">
+                    ※'0'データは、空白で表示します。
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    {rval btn_update}
+                    {rval btn_reset}
+                    {rval btn_end}
+                    {rval btn_print}
+                    {rval btn_csv}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

@@ -1,0 +1,141 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<table width="750" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="10" >
+
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td align="center"><b>
+                          {rval data/YEAR}年度<!--{def schkind}-->　　校種：{rval data/SCHKIND}<!--{/def}-->　　委員会：{rval data/COMMITTEE}
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>対象者一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/STUDENT_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_stLefts}<BR>
+                        {rval button/btn_stLeft1}<BR>
+                        {rval button/btn_stRight1}<BR>
+                        {rval button/btn_stRights}
+                      <td width="45%">{rval data/STUDENT_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+
+                    <tr class="no_search">
+                      <th width="30%">項目</th>
+                      <th width="*%">値</th>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td align="right">欠席／遅刻／早退</td>
+                      <td bgcolor="#ffffff">
+                        <font color="black">開始：{rval data/FROMDATE}&nbsp;校時：{rval data/FROMPERIOD}<BR>
+                                            終了：&nbsp;{rval data/TODATE}&nbsp;校時：{rval data/TOPERIOD}<BR>
+                        </font>
+                        <font color="red" size="2">(校時を空白にすると、その日全てとなります)</font>
+                      </td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td align="right">勤怠</td>
+                      <td bgcolor="#ffffff">{rval data/DI_CD}</td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td align="right">症状・理由</td>
+                      <td width="100%" bgcolor="#ffffff"> 
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                          <tr class="no_search_line">
+                            <td width="100%"> 
+                              <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                                <tr align="center" class="no_search"> 
+                                  <th><b>対象項目一覧</b></th>
+                                  <th class="no_search"></th>
+                                  <th><b>項目一覧</b></th>
+                                </tr>
+                                <tr align="center" bgcolor="#ffffff">
+                                  <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                                  <td width="*%"  class="no_search">
+                                    {rval button/btn_lefts}<BR>
+                                    {rval button/btn_left1}<BR>
+                                    {rval button/btn_right1}<BR>
+                                    {rval button/btn_rights}
+                                  <td width="45%">{rval data/CATEGORY_NAME}</td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff"><font color="red" size="2">
+                              ●出欠入力の備考には、最初の項目のみ反映されます。（10文字まで）<br>
+                              ●10項目まで登録可能です。</font><br>
+                              <div style="margin-top:5px;">その他 {rval data/SONOTA}<div>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td></td>
+                      <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 
+<script language="JavaScript">
+function is_opener() {
+
+    var ua = navigator.userAgent
+    if(!!top.window.opener)
+        if( ua.indexOf('MSIE 4')!=-1 && ua.indexOf('Win')!=-1) 
+             return !top.window.opener.closed
+        else return typeof top.window.opener.document  == 'object'
+    else return false
+
+}
+function observeDisp(){
+    if (!is_opener()){
+        top.window.close();
+    }
+}
+setInterval('observeDisp()',2000);
+</script>

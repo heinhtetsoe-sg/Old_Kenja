@@ -1,0 +1,118 @@
+{rval start} 
+<table width="85%" border="0" cellpadding="0" cellspacing="10" align="center">
+  <tr class="no_search_line">
+    <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr class="no_search" nowrap> 
+          <td align="center">入試年度</td>
+          <td bgcolor="#ffffff" style="color:black; text-align:center">{rval TOP/YEAR}</td>
+          <td align="center">※ 入試制度</td>
+          <td bgcolor="#ffffff">{rval TOP/APPLICANTDIV}</td>
+          <td align="center">※ 入試区分</td>
+          <td bgcolor="#ffffff">{rval TOP/TESTDIV}</td>
+        </tr>
+        <tr class="no_search" nowrap> 
+          <td align="center">※ 合格区分</td>
+          <td bgcolor="#ffffff">{rval TOP/CHANGE_SINGLE_TEST_FLG}</td>
+          <td align="center">※ 手続日付</td>
+          <td bgcolor="#ffffff" colspan="3">{rval TOP/PRO_DATE}　{rval button/btn_dateset}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr class="no_search_line"> 
+    
+    <td nowrap> 
+      
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" >
+        
+        <tr class="no_search_line"> 
+          
+          <td width="100%"> 
+            
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              
+              <tr align="center" class="no_search"> 
+                
+                <th><font color="white">{rval LEFT_TITLE}</font></th>
+                <th class="no_search">&nbsp;</th>
+                <th><font color="white">{rval RIGHT_TITLE}</font></th>
+              
+              </tr>
+              
+              <tr align="center" bgcolor="#ffffff"> <!--{def main_part}--> 
+                
+                <td width="45%">
+                  
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0" >
+                    
+                    <tr class="no_search_line"> 
+                      
+                      <td width="100%">{rval main_part/LEFT_PART}</td>
+                    
+                    </tr>
+                  
+                    <tr>
+                    
+                      <td style="color:black; text-align:right">人数：<span id="SPECIALS_NUM"></span>&nbsp;</td>
+                  
+                    </tr>
+                
+                  </table>
+                
+                </td>
+
+                <td width="*%" class="no_search">
+                  {rval main_part/SEL_ADD_ALL} <br>
+                  {rval main_part/SEL_ADD} <br>
+                </td>
+
+                <td width="45%">
+                
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0" >
+                    
+                    <tr class="no_search_line"> 
+                      
+                      <td width="100%">{rval main_part/RIGHT_PART}</td>
+                    
+                    </tr>
+                    
+                    <tr>
+                    
+                      <td style="color:black; text-align:right">人数：<span id="APPROVED_NUM"></span>&nbsp;</td>
+                    
+                    </tr>
+                 
+                  </table>
+                
+                </td>
+              
+              </tr>
+
+               <!--{/def}--> 
+              <!--{def button}--> 
+              <tr bgcolor="#ffffff">
+
+                <td colspan="3" nowrap> {rval button/BTN_CSV}{rval button/BTN_OK}{rval button/BTN_CLEAR}{rval button/BTN_END}&nbsp;&nbsp;&nbsp;&nbsp;{rval button/BTN_EXEC}&nbsp;&nbsp;{rval LIMIT_DATE}</td>
+
+              </tr>
+              <!--{/def}--> 
+            </table>
+
+          </td>
+
+        </tr>
+
+    </table>
+
+    </td>
+
+  </tr>
+
+</table>
+<script language="JavaScript">
+    document.getElementById("SPECIALS_NUM").innerHTML = document.forms[0].SPECIALS.options.length;
+    document.getElementById("APPROVED_NUM").innerHTML = document.forms[0].APPROVED.options.length;
+</script>
+{rval finish} 

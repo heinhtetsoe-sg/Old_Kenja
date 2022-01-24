@@ -1,0 +1,226 @@
+{rval start}
+<style type="text/css">
+</style>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="70%">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <hr width="70%" align="left">
+                &nbsp;&nbsp;{rval SCHREGNO}&nbsp;&nbsp;{val NAME}
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<BR>
+
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="box">
+                    <tr>
+                      <th class="no_search">受験番号</th>
+                      <td bgcolor="#ffffff">{rval data/BASE_REMARK1}</td>
+                      <th class="no_search">氏名</th>
+                      <td bgcolor="#ffffff">{rval data/NAME}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search">性別</th>
+                      <td bgcolor="#ffffff">{rval data/SEX}</td>
+                      <th class="no_search">生年月日</th>
+                      <td bgcolor="#ffffff">{rval data/BIRTHDAY}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search">住所</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/GADDRESS1}{rval data/GADDRESS2}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search">電話番号</th>
+                      <td bgcolor="#ffffff">{rval data/GTELNO}</td>
+                      <th class="no_search">塾</th>
+                      <td bgcolor="#ffffff">{rval data/PRISCHOOL_NAME}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search">出身中学校</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/FINSCHOOLNAME}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search">特待種別</th>
+                      <td bgcolor="#ffffff">{rval data/HONORDIV}</td>
+                      <th class="no_search">特待理由</th>
+                      <td bgcolor="#ffffff">{rval data/HONOR_REASONDIV}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" colspan="4">志望コース</th>
+                    </tr>
+                    <tr>
+                      <th class="no_search">第一志望</th>
+                      <th class="no_search">第二志望</th>
+                      <th class="no_search">第三志望</th>
+                      <th class="no_search">第四志望</th>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff">{rval data/HOPE_COURSE1}</td>
+                      <td bgcolor="#ffffff">{rval data/HOPE_COURSE2}</td>
+                      <td bgcolor="#ffffff">{rval data/HOPE_COURSE3}</td>
+                      <td bgcolor="#ffffff">{rval data/HOPE_COURSE4}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<BR>
+
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="box">
+                    <tr>
+                      <th class="no_search">学年</th>
+                      <!--{def headerKyoka}-->
+                      <!--{each headerKyoka}-->
+                      <th class="no_search">{rval headerKyoka/TITLE}</th>
+                      <!--{/each}-->
+                      <!--{/def}-->
+                      <th class="no_search">評定平均</th>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff">1学年</td>
+                      <!--{each data/kyoka1}-->
+                      <td bgcolor="#ffffff">{rval data/kyoka1}</td>
+                      <!--{/each}-->
+                      <td bgcolor="#ffffff">{rval data/AVERAGE_ALL1}</td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff">2学年</td>
+                      <!--{each data/kyoka2}-->
+                      <td bgcolor="#ffffff">{rval data/kyoka2}</td>
+                      <!--{/each}-->
+                      <td bgcolor="#ffffff">{rval data/AVERAGE_ALL2}</td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff">3学年</td>
+                      <!--{each data/kyoka3}-->
+                      <td bgcolor="#ffffff">{rval data/kyoka3}</td>
+                      <!--{/each}-->
+                      <td bgcolor="#ffffff">{rval data/AVERAGE_ALL3}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" colspan="4">1年生</th>
+                      <th class="no_search" colspan="3">2年生</th>
+                      <th class="no_search" colspan="3">3年生</th>
+                      <th class="no_search">欠席日数合計</th>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff" colspan="4">{rval data/KESSEKI1}</td>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/KESSEKI2}</td>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/KESSEKI3}</td>
+                      <td bgcolor="#ffffff">{rval data/KESSEKI_ALL}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<BR>
+
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="box">
+                    <tr>
+                      <th class="no_search">国語</th>
+                      <th class="no_search">数学</th>
+                      <th class="no_search">社会</th>
+                      <th class="no_search">理科</th>
+                      <th class="no_search">英語</th>
+                      <th class="no_search">合計</th>
+                      <th class="no_search">科別順位</th>
+                      <th class="no_search">コース順位</th>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff">{rval data/SCORE1}</td>
+                      <td bgcolor="#ffffff">{rval data/SCORE2}</td>
+                      <td bgcolor="#ffffff">{rval data/SCORE3}</td>
+                      <td bgcolor="#ffffff">{rval data/SCORE4}</td>
+                      <td bgcolor="#ffffff">{rval data/SCORE5}</td>
+                      <td bgcolor="#ffffff">{rval data/TOTAL4}</td>
+                      <td bgcolor="#ffffff">{rval data/TOTAL_RANK1}</td>
+                      <td bgcolor="#ffffff">{rval data/TOTAL_RANK3}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<BR>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
+                    <tr class="no_search">
+                      <td align="center">
+                        {rval button/btn_back}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

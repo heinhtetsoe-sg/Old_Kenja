@@ -1,0 +1,84 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR><BR><BR><BR><BR><BR>
+
+<table width="700" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="0">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <th height="30">
+                        <b>{rval data/YEAR}年度　　{rval data/GAKKI}</b>
+                      </th>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td height="80">
+                        <b>　　　対象　　　　　　　　　　</b>
+                        {rval data/OUT_DIV3}<LABEL for="OUT_DIV3">進路調査（在籍者のみ）</LABEL>　　
+                        {rval data/OUT_DIV1}<LABEL for="OUT_DIV1">合格</LABEL>　　
+                        {rval data/OUT_DIV2}<LABEL for="OUT_DIV2">最終進路</LABEL>　　
+                      </td>
+                    </tr>
+
+                    <!--{def shinro_saki}-->
+                    <tr align="left" bgcolor="#ffffff">
+                      <td height="140">
+                        <b>　　　受験方式　　　　　　　　</b>
+                        {rval data/JUKEN_DIV1}<LABEL for="JUKEN_DIV1">出力あり</LABEL>　　
+                        {rval data/JUKEN_DIV2}<LABEL for="JUKEN_DIV2">出力なし</LABEL>
+                        <BR>　　
+                        <BR><b>　　　既卒者（1浪，2浪以上）　</b>
+                        {rval data/KISOTU_DIV1}<LABEL for="KISOTU_DIV1">出力あり</LABEL>　　
+                        {rval data/KISOTU_DIV2}<LABEL for="KISOTU_DIV2">出力なし</LABEL>
+                        <BR>　　
+                        <BR>　　　　　　　　　　　　　　　　
+                        {rval data/CNT_NOBE}<LABEL for="CNT_NOBE">延べ人数で出力</LABEL>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+
+                    <!--{def shinro_tyousa}-->
+                    <tr align="left" bgcolor="#ffffff">
+                      <td height="120">
+                        <b>　　　調査名　　　　　　　　　</b>
+                        {rval data/QUESTIONNAIRECD}　　
+                        {rval data/CHOICE1}<LABEL for="CHOICE1">第1希望</LABEL>　　
+                        {rval data/CHOICE2}<LABEL for="CHOICE2">第2希望</LABEL>
+                        <BR>　　
+                        <BR><b>　　　学校系列　　　　　　　　</b>
+                        {rval data/SCHOOL_GROUP1}<LABEL for="SCHOOL_GROUP1">専門学校</LABEL>　　
+                        {rval data/SCHOOL_GROUP2}<LABEL for="SCHOOL_GROUP2">専門学校以外</LABEL>　　
+                        {rval data/SCHOOL_GROUP3}<LABEL for="SCHOOL_GROUP3">全て</LABEL>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+
+                    <tr class="no_search"> 
+                      <td height="30">
+                        {rval button/btn_csv}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

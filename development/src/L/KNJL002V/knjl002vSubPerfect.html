@@ -1,0 +1,98 @@
+<!--knjl002vSubPerfect.html-->
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="1" cellpadding="1">
+        <tr>
+          <th>
+            <table width="50%" border="0" cellspacing="3" cellpadding="0" align="center">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tr height="25">
+                      <td class="no_search" width="25%" align="right" nowrap>入試年度</td>
+                      <td width="*" bgcolor="#ffffff" nowrap>&nbsp;{rval YEAR}</td>
+                    </tr>
+                    <tr height="25">
+                      <td class="no_search" width="25%" align="right" nowrap>試験ID</td>
+                      <td width="*" bgcolor="#ffffff" nowrap>&nbsp;{rval EXAM_ID}</td>
+                    </tr>
+                    <tr height="25">
+                      <td class="no_search" width="25%" align="right" nowrap>※科目</td>
+                      <td width="*" bgcolor="#ffffff" nowrap>&nbsp;{rval EXAM_SUBCLASS}</td>
+                    </tr>
+                    <tr height="25">
+                      <td class="no_search" width="25%" align="right" nowrap>満点／評価</td>
+                      <td width="*" bgcolor="#ffffff" nowrap>&nbsp;{rval MANTENDIV}</td>
+                    </tr>
+<!--{def isHyoka}-->
+                    <tr height="25">
+                      <td class="no_search" width="25%" align="right" nowrap>評価段階数</td>
+                      <td width="*" bgcolor="#ffffff"  nowrap><font color="black">&nbsp;{rval MAX_POINTLEVEL}&nbsp;{rval button/btn_kakutei}</font></td>
+                    </tr>
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <br><br>
+            <table width="50%" border="0" cellspacing="3" cellpadding="0" align="center">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" frame="box">
+<!--{def isManten}-->
+                    <tr class="no_search">
+                      <th width="25%"></th>
+                      <th width="*">値</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}--> 
+                    <tr align="center" bgcolor="#ffffff"> 
+                      <td class="no_search">満点</td>
+                      <td>{rval data/VALUE}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+<!--{/def}-->
+<!--{def isHyoka}-->
+                    <tr class="no_search">
+                      <th width="25%">段階値</th>
+                      <th width="25%">表示</th>
+                      <th width="25%">値</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}--> 
+                    <tr align="center" bgcolor="#ffffff"> 
+                        <td >{rval data/STEPS}</td>
+                        <td >{rval data/LABEL}</td>
+                        <td >{rval data/VALUE}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+<!--{/def}-->
+                    <!--{def button}-->
+                    <tr>
+                      <td colspan="4" bgcolor="#ffffff" align="center">
+                        {rval button/btn_update}&nbsp;
+                        {rval button/btn_reset} &nbsp;
+                        {rval button/btn_back}   &nbsp;
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </table>
+    </td> 
+  </tr>
+</table>
+
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+{rval finish}

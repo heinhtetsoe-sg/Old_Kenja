@@ -1,0 +1,77 @@
+{rval start} 
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR><BR><BR>
+<table width="64%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="5">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="center" class="no_search">
+                <td colspan="3">
+                  <b align="center">入試年度 : {rval data/YEAR}</b>
+                </td>
+              </tr>
+              <tr bgcolor="#ffffff" height="150"> 
+                <td nowrap colspan="3">
+                  <b>　　　　　　　入試制度</b>　 {rval data/APPLICANTDIV}<br><br>
+                  <b>　　　　　　　入試区分</b>　 {rval data/TESTDIV}<br><br>
+                  <b>　　　　　　　通知日付</b>　 {rval data/TSUCHI_DATE}<br><br>
+                     　　　　　　　{rval data/GOUKAKU1} <b><LABEL for="GOUKAKU1">正規合格</LABEL></b>　
+                                   <!--{def ippan}-->
+                                   {rval data/GOUKAKU2} <b><LABEL for="GOUKAKU2">単願切換合格</LABEL> {rval data/EARLY_PASSEXAMCOURSECD} </b>
+                                   <!--{/def}-->
+                </td>
+              </tr>
+
+              <tr align="center" class="no_search">
+                <td><b align="center">＜帳票種類＞</b></td>
+                <td><b align="center">＜出力範囲＞</b></td>
+              </tr>
+              <tr bgcolor="#ffffff" height="185"> 
+                <td  width="35%" >
+                <!--{def seiki}-->
+                  　{rval data/FORM1} <b><LABEL for="FORM1">合格通知書</LABEL></b><br><br>
+                <!--{/def}-->
+                <!--{def tangan}-->
+                  　{rval data/FORM2} <b><LABEL for="FORM2">単願切換合格通知書</LABEL></b><br><br>
+                <!--{/def}-->
+                  　{rval data/FORM3} <b><LABEL for="FORM3">入学確約書</LABEL></b><br><br>
+                  　{rval data/FORM4} <b><LABEL for="FORM4">振込依頼書</LABEL></b><br><br>
+                </td>
+                <td width="*%" >
+                    <BR>
+                  　{rval data/OUTPUT1} <b><LABEL for="OUTPUT1">全員</LABEL></b><br><br>
+                  　{rval data/OUTPUT2} <b><LABEL for="OUTPUT2">指定</LABEL></b><br><br>
+                  　　　　　受験番号：{rval data/EXAMNO_S}&nbsp;～&nbsp;{rval data/EXAMNO_E}<br><br>
+                <!--{def early}-->
+                  　<b>早期入学手続期間(自) </b>{rval data/EARLY_S_DATE}　{rval data/EARLY_S_TIME}時から<BR>
+                  　<b>早期入学手続期間(至) </b>{rval data/EARLY_E_DATE}　{rval data/EARLY_E_TIME}時まで<BR>
+                <!--{/def}-->
+                <!--{def nounyu}-->
+                  　<b>納入期限</b>{rval data/NOUNYU_DATE}<BR><BR><BR>
+                <!--{/def}-->
+                <!--{def tsujyou}-->
+                  　<BR><BR><BR>
+                <!--{/def}-->
+                </td>
+              </tr>
+
+              <tr align="left" class="no_search" height="20"> 
+                <td nowrap colspan="2"> &nbsp{rval button/btn_print}{rval button/btn_end}</td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish} 

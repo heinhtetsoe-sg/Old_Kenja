@@ -1,0 +1,126 @@
+{rval start}
+
+<br>
+<table width="95%" border="0" cellspacing="0" cellpadding="5" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td width="12%" align="center">入試年度</td>
+                      <td width="18%" bgcolor="#ffffff" style="color:black; text-align:center">{rval TOP/YEAR}</td>
+                      <td width="12%" align="center">※ 入試制度</td>
+                      <td width="18%" bgcolor="#ffffff">{rval TOP/APPLICANTDIV}</td>
+                      <td width="12%" align="center">※ 入試区分</td>
+                      <td width="*" bgcolor="#ffffff">{rval TOP/TESTDIV}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="center">試験出力情報</td>
+                      <td bgcolor="#ffffff" style="color:black" colspan="3">
+                        {rval TOP/RATE_DIV1}<LABEL for="RATE_DIV1">傾斜配点</LABEL>　　&nbsp;
+                        {rval TOP/RATE_DIV2}<LABEL for="RATE_DIV2">通常得点</LABEL>
+                      </td>
+                      <td align="center">表示順</td>
+                      <td bgcolor="#ffffff" style="color:black">{rval TOP/SORT1}<LABEL for="SORT1">成績順</LABEL>　　{rval TOP/SORT2}<LABEL for="SORT2">受験番号順</LABEL></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr bgcolor="#006633">
+          <td align="right">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" align="center"> 
+                            <th width="100" height="30" align="center">受験番号</th>
+                            <td width="200" align="center">氏名</th>
+                            <td width="150" align="center">合計<br><font style="font-size:9pt">集団あそび評価含む</font></th>
+                            <td width="100" align="center">順位</th>
+                            <td width="*" align="center" colspan="2">判定<br><font style="font-size:9pt">{rval TOP/JUDGE}</font></th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                <div style="width: 100%; height=505; overflow: auto">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{def data}-->
+<!--結果一覧-->
+<!--{each data}--> 
+                          <tr bgcolor="#ffffff" bgcolor="no_search" id="ROWID{rval data/EXAMNO}">
+                            <td width="100" align="center">{rval data/EXAMNO}</th>
+                            <td width="200" align="left">{rval data/NAME}</th>
+                            <td width="150" align="center">{rval data/TOTAL}</th>
+                            <td width="100" align="center">{rval data/TOTAL_RANK}</th>
+                            <td width="100" align="center">{rval data/JUDGEDIV}</th>
+                            <td width="*" align="center" id="{rval data/JUDGEDIV_ID}">{rval data/JUDGEDIV_NAME}</th>
+                          </tr>
+<!--{/each}-->
+<!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th></th>
+                            <th width="30%" align="left" bgcolor="#ffffff">{rval btn_update}{rval btn_reset}{rval btn_end}</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">
+var judgediv_name = {};
+<!--{def data2}-->
+<!--{each data2}--> 
+judgediv_name['{rval data2/judgediv_cd}'] = '{rval data2/judgediv_name}';
+<!--{/each}-->
+<!--{/def}-->
+
+change_flg = false;
+</script>
+{rval finish}

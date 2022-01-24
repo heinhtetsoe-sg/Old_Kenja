@@ -1,0 +1,68 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR>
+
+<table width="800" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <td align='left'>
+                        <b>
+                        　　{rval data/YEAR}年度　　{rval data/SCHREG_INFO}<br>
+                        　　　　　　　　学期：{rval data/SEMESTER}<br>
+                        　　　　　履修登録日：{rval data/RIREKI_CODE}<br>
+                        　　　　　基本時間割：{rval data/SCH_PTRN}　科目：{rval data/SUBCLASSCD}<br>
+                        　　　　　　　　　　　{rval data/CHAIRDIV1}<LABEL for="CHAIRDIV1">&nbsp;同一選択講座</LABEL>　{rval data/CHAIRDIV2}<LABEL for="CHAIRDIV2">&nbsp;同一展開講座</LABEL>
+                        </b>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>履修登録講座</b></th>
+                      <th class="no_search"></th>
+                      <th><b>履修登録講座候補一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {rval button/btn_update}{rval button/btn_end}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

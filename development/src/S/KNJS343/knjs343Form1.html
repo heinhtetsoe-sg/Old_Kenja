@@ -1,0 +1,140 @@
+{rval start} 
+
+<!--{def button}--> 
+<!--{def data}-->
+
+<table><tr height="120"><td></td></tr></table>
+<table width="1300" border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tr class="no_search" height="35" align="center">
+                      <td>
+                        <b>{rval YEAR}年度　　{rval SEMESTER}</b>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr class="no_search_line"> 
+          <td width="100%"> 
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="left" bgcolor="#ffffff" height="50">
+                <td>
+                  <table width="100%">
+                    <tr bgcolor="#ffffff" height="75">
+                    <!-- Edit by PP for PC-Talker 2020-02-03 start -->
+                      <td aria-label="">
+                    <!-- Edit by PP PC-Talker 2020-02-20 end -->
+                        <!--{def useFi_HrclassSelect}-->
+                        　　　{rval data/HR_CLASS_TYPE1}<LABEL for="HR_CLASS_TYPE1"><b>法定クラス</b></LABEL>　
+                              {rval data/HR_CLASS_TYPE2}<LABEL for="HR_CLASS_TYPE2"><b>複式クラス</b></LABEL><br><br>
+                        <!--{/def}-->
+                        <!--{def useSpecial_Support_HrclassSelect}-->
+                        　　　{rval data/HR_CLASS_TYPE1}<LABEL for="HR_CLASS_TYPE1"><b>法定クラス</b></LABEL>（{rval data/GAKUNEN_KONGOU}<LABEL for="GAKUNEN_KONGOU"><b>学年混合</b></LABEL>）
+                              {rval data/HR_CLASS_TYPE2}<LABEL for="HR_CLASS_TYPE2"><b>実クラス</b></LABEL><br><br>
+                        <!--{/def}-->
+                        　　　　<b>対象クラス</b>：{rval data/GRADE_HR_CLASS}　<b>対象月</b>：{rval data/TARGET_MONTH}<br><br>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td><font color="red" style="font-size:10pt">※色付きデータは未登録です。</font>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" nowrap align="center" height="25">
+                    <!-- Edit by PP for PC-Talker 2020-02-03 start -->
+                      <th width="60" aria-label=""><LABEL for="ALL_CHECK">{rval ALL_CHECK}削除</LABEL></th>
+                      <th width="100" aria-label="">種別</th>
+                      <th width="60" aria-label="">日数</th>
+                      <th width="180" aria-label="">氏名</th>
+                      <th width="200" aria-label="">事由</th>
+                      <th width="200" aria-label="">保護者氏名</th>
+                      <th width="*"  aria-label="">担任のとった処置</th>
+                      <!-- Edit by PP PC-Talker 2020-02-20 end -->
+                    </tr>
+                    <!--{each data2}--> 
+                    <tr class="no_search">
+                      <th align="center" class="changeColor" data-name="{rval data2/CHECK_NAME}">{rval data2/CHECK}</th>
+                      <td align="center" bgcolor="{rval data2/BGCOLOR}">{rval data2/DI_CD}</td>
+                      <td align="center" bgcolor="{rval data2/BGCOLOR}">{rval data2/TOTAL_DAY}</td>
+                      <td align="left"   bgcolor="{rval data2/BGCOLOR}">{rval data2/NAME}</td>
+                      <td align="left"   bgcolor="{rval data2/BGCOLOR}">{rval data2/REMARK}</td>
+                      <td align="left"   bgcolor="{rval data2/BGCOLOR}"><font color="black"><span id="{rval data2/GNAME_ID}">{rval data2/GNAME}</span></font></td>
+                      <td align="left"   bgcolor="{rval data2/BGCOLOR}">{rval data2/TREATMENT}</td>
+                    </tr> 
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search">
+                <td align="right" height="25">
+                  {rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}&nbsp;
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 
+<script language="JavaScript">
+    document.addEventListener('click', function(e) {tdChangeColor(e)});
+    document.addEventListener('mouseover', function(e) {tdChangeColor(e)});
+    document.addEventListener('mouseout', function(e) {tdChangeColor(e)});
+
+    function tdChangeColor(e) {
+        var t = e.target;
+        if (t.className == "changeColor") {
+            var objName = e.target.getAttribute('data-name');
+            targetCheckBox = document.getElementById(objName);
+            switch (e.type) {
+                case "mouseover":
+                    targetCheckBox.parentNode.style.backgroundColor = "pink";
+                    break;
+                case "mouseout":
+                    targetCheckBox.parentNode.style.backgroundColor = "#316F9B";
+                    break;
+                case "click":
+                    if (e.target.type != "checkbox") {
+                        targetCheckBox.checked = targetCheckBox.checked ? false: true;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+</script>

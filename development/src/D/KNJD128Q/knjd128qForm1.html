@@ -1,0 +1,167 @@
+{rval start}
+{rval IFRAME}
+<style type="text/css">
+#tyousei {
+    height : 80px;
+}
+#tyousei2 {
+    height : 50px;
+}
+#tyousei3 {
+    height : 30px;
+}
+</style>
+
+<table width="1300px" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td>
+       <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr class="no_search_line">
+          <th>
+            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+            <tr>
+              <th width="*" height="50" align="left" class="no_search">
+                　　　&nbsp;{rval YEAR}年度　　学期：{rval SEMESTER}<!--{def COURSE_MAJOR}-->　　課程学科：{rval COURSE_MAJOR}<!--{/def}-->　　テスト：{rval TESTCD}<BR>
+                　　　　　　　　　　学年：{rval GRADE}　　&nbsp;年組：{rval HR_CLASS}
+              </th>
+            </tr>
+            </table>
+          </th>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" id="tyousei">
+                        <th width="100">No.</th>
+                        <th width="270">氏名</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+
+            <td>
+            <div id="trow" style="overflow:hidden; width: 953px; ">
+                <div style="width: {rval setWidth}px; ">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" height="49px">
+  <!--{each TITLE}-->
+                          <th width="100px" colspan="2">{rval TITLE/SUBCLASSNAME}</th>
+  <!--{/each}-->
+                      </tr>
+                      <tr class="no_search" id="tyousei3">
+  <!--{each TITLE2}-->
+                          <th width="40px">{rval TITLE2/TOKUTEN}</th>
+                          <th width="56px">{rval TITLE2/SAISI}</th>
+  <!--{/each}-->
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+          <tr valign="TOP">
+
+            <td>
+            <div id="tcol" style="overflow: hidden; height: 483px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr bgcolor="#ffffff" id="tyousei2">
+                            <td width="100" align="center">{rval data/ATTENDNO}</td>
+                            <td width="270" align="left">{rval data/NAME_SHOW}</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
+            </div>
+            </td>
+
+            <td>
+            <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 970px; height: 500px;">
+                <div style="width: {rval setWidth}px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+      <!--{each data2}-->
+                        <tr  bgcolor="#ffffff" id="tyousei2">
+                            {rval data2/LISTDATA}
+                        </tr>
+      <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+          <tr class="no_search_line">
+            <th>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_reset}{rval button/btn_back}　※再試験欠席者は「*」を入力して下さい</td>
+                </tr>
+              </table>
+            </th>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+<div id="lay"></div>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

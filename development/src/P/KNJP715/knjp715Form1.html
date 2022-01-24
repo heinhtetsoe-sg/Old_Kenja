@@ -1,0 +1,206 @@
+{rval start}
+{rval IFRAME}
+
+<table width="950" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td align="center">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--結果一覧-->
+                    <tr height="30">
+                      <td class="no_search" colspan="4" nowrap>&nbsp;
+                        <b>生徒基本情報　　学籍番号：{rval data/SCHREGNO}　　氏 名：{rval data/NAME}</b>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" width="150" align="right" nowrap>処理年度</th>
+                      <td bgcolor="#ffffff" width="750" colspan="3">{rval SELECT_YEAR}</td>
+                    </tr>
+                    <tr height="25">
+                      <th class="no_search" align="right" nowrap>伝票番号</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval SLIP_NO}</td>
+                    </tr>
+                    <tr height="25">
+                      <th class="no_search" align="right" nowrap>伝票日付</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/SLIP_DATE}</td>
+                    </tr>
+                    <tr height="25">
+                      <th class="no_search"" align="right" nowrap><LABEL for="CANCEL_FLG">キャンセル日付</LABEL></th>
+                      <td bgcolor="#ffffff" colspan="3" nowrap>{rval data/CANCEL_DATE}　　　{rval data/CANCEL_REASON}</td>
+                    </tr>
+                    <tr height="25">
+                      <th class="no_search" align="right" nowrap>仮履修登録単位</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/CREDITS}</td>
+                    </tr>
+                    <tr>
+                      <td align="right" height="20" colspan="4" bgcolor="#ffffff"></td>
+                    </tr>
+<!-- 以下データ -->
+
+
+
+                    <tr height="30">
+                      <td class="no_search" colspan="4" nowrap>&nbsp;
+                        <b>入金方法</b>
+                      </td>
+                    </tr>
+                    <tr height="25">
+                      <th class="no_search" align="right" nowrap>入金パターン</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval COLLECT_PATTERN_CD}&nbsp;{rval button/btn_readP}</td>
+                    </tr>
+                    <tr height="25">
+                      <th class="no_search" align="right" nowrap>入金方法</th>
+                      <td bgcolor="#ffffff" colspan="3">
+                        {rval data/PAY_DIV1}<LABEL for="PAY_DIV1">口座引落</LABEL>　
+                        {rval data/PAY_DIV2}<LABEL for="PAY_DIV2">口座引落2</LABEL>　
+                        {rval data/PAY_DIV3}<LABEL for="PAY_DIV3">振込</LABEL>　
+                        {rval data/PAY_DIV4}<LABEL for="PAY_DIV4">現金</LABEL>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff" colspan="4">
+                        <table width="100%" border="0" cellspacing="3" cellpadding="0">
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr class="no_search" nowrap  height="25">
+                                  <td colspan="13">&nbsp;
+                                    <b>入金月設定</b>
+                                    <!--{def data/DIRECT_DEBIT_DATE}-->　　全て：{rval data/COLLECT_MONTH_ALL}　　引き落とし日：{rval data/DIRECT_DEBIT_DATE}（休日は翌営業日）<!--{/def}-->
+                                  </td>
+                                </tr>
+                                <tr class="no_search" nowrap height="25">
+                                  <th width="60">4月</th>
+                                  <th width="60">5月</th>
+                                  <th width="60">6月</th>
+                                  <th width="60">7月</th>
+                                  <th width="60">8月</th>
+                                  <th width="60">9月</th>
+                                  <th width="60">10月</th>
+                                  <th width="60">11月</th>
+                                  <th width="60">12月</th>
+                                  <th width="60">1月</th>
+                                  <th width="60">2月</th>
+                                  <th width="60">3月</th>
+                                </tr>
+                                <tr bgcolor="#ffffff" height="25" style="size:8px;">
+                                  <th>{rval data/COLLECT_MONTH_4}</th>
+                                  <th>{rval data/COLLECT_MONTH_5}</th>
+                                  <th>{rval data/COLLECT_MONTH_6}</th>
+                                  <th>{rval data/COLLECT_MONTH_7}</th>
+                                  <th>{rval data/COLLECT_MONTH_8}</th>
+                                  <th>{rval data/COLLECT_MONTH_9}</th>
+                                  <th>{rval data/COLLECT_MONTH_10}</th>
+                                  <th>{rval data/COLLECT_MONTH_11}</th>
+                                  <th>{rval data/COLLECT_MONTH_12}</th>
+                                  <th>{rval data/COLLECT_MONTH_1}</th>
+                                  <th>{rval data/COLLECT_MONTH_2}</th>
+                                  <th>{rval data/COLLECT_MONTH_3}</th>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td align="right" height="20" colspan="4" bgcolor="#ffffff"></td>
+                    </tr>
+
+                    <tr height="30">
+                      <td class="no_search" colspan="4" nowrap>&nbsp;
+                        <b>明細</b>
+                      </td>
+                    </tr>
+                    <tr height="25">
+                      <th class="no_search" align="right" nowrap>入金グループ</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval GROUPCD}&nbsp;{rval button/btn_readG}</td>
+                    </tr>
+                    <tr height="25" width="100%">
+                      <th class="no_search" align="right" width="150" nowrap>計画金額合計</th>
+                      <td bgcolor="#ffffff" align="right" width="300">{rval data/TMONEY}</td>
+                      <th class="no_search" align="right" width="150" nowrap>入金金額合計</th>
+                      <td bgcolor="#ffffff" align="right" width="300">{rval data/TPAID_MONEY}</td>
+                    </tr>
+                    <tr height="25">
+                      <th class="no_search" align="right" nowrap>計画金額総計</th>
+                      <td bgcolor="#ffffff" align="right">{rval data/ALL_MONEY}</td>
+                      <th class="no_search" align="right" nowrap>入金金額総計</th>
+                      <td bgcolor="#ffffff" align="right">{rval data/ALL_PAID_MONEY}</td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff" colspan="4">
+                        <table width="720px" border="0" cellspacing="3" cellpadding="0">
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr class="no_search" nowrap align="center" height="60">
+                                  <th width="25"><LABEL for="CHECKALL">削</LABEL><br>{rval data/CHECKALL}</th>
+                                  <th width="30">行<br>番<br>号</th>
+                                  <th width="300">入金項目</th>
+                                  <th width="80">単価</th>
+                                  <th width="50">数<br>量</th>
+                                  <th width="*">合計金額</th>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff">
+                              <div style="width: 100%; height=230; overflow: auto">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr class="no_search_line">
+                                  <td>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                      <!--結果一覧-->
+                                      <!--{each data2}-->
+                                      <tr bgcolor="#ffffff" >
+                                        <td width="25" align="center" >{rval data2/DELCHK}</td>
+                                        <td width="30" align="center" >{rval data2/SEQ}</td>
+                                        <td width="300" align="center" >{rval data2/COLLECT_LM_CD}</td>
+                                        <td width="80" align="center">{rval data2/COLLECT_MONEY}</td>
+                                        <td width="50" align="center" >{rval data2/COLLECT_CNT}</td>
+                                        <td width="*" align="right" ><span id="TMONEY_DISP_{rval data2/SEQ}">{rval data2/TMONEY}</span></td>
+                                      </tr>
+                                      <!--{/each}-->
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="4" bgcolor="#ffffff">
+                        &nbsp;{rval button/btn_addline}{rval button/btn_delline}　{rval button/btn_update}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<font color="#ffffff">{rval PARA/PRGID}</font>
+<font color="#ffffff">{rval PARA/DBNAME}</font>
+<font color="#ffffff">{rval PARA/YEAR}</font>
+<font color="#ffffff">{rval PARA/SCHREGNO}</font>
+<font color="#ffffff">{rval PARA/CTRL_YEAR}</font>
+<font color="#ffffff">{rval PARA/CTRL_SEMESTER}</font>
+<font color="#ffffff">{rval PARA/CTRL_DATE}</font>
+<script language="JavaScript">{rval jscript}</script>
+{rval finish}

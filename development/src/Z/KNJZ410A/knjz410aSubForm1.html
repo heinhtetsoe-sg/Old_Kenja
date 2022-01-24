@@ -1,0 +1,48 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+        <td valign="top">
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr >
+                    <td >
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                          <tr class="no_search_line">
+                                <td>
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                    <tr class="no_search">
+                                      <th nowrap>学校<BR>コード</th>
+                                      <th nowrap>住所コード</th>
+                                      <th nowrap>学校名</th>
+                                      <th nowrap>都道府県</th>
+                                      <th nowrap>郵便番号</th>
+                                      <th nowrap>住所１</th>
+                                      <th nowrap>住所２</th>
+                                      <th nowrap>電話番号</th>
+                                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+                                    <tr>
+                                      <td nowrap bgcolor="#ffffff">{val data/SCHOOL_CD}</td>
+                                      <td nowrap bgcolor="#ffffff"><a href="knjz410aindex.php?cmd=add_addr_edit&SCHOOL_CD={val data/SCHOOL_CD}&CAMPUS_ADDR_CD={val data/CAMPUS_ADDR_CD}" target="right_frame">{val data/CAMPUS_ADDR_CD}</a></td>
+                                      <td nowrap bgcolor="#ffffff">{val data/SCHOOL_NAME}</td>
+                                      <td nowrap bgcolor="#ffffff">{val data/PREF_NAME}</td>
+                                      <td nowrap bgcolor="#ffffff">{val data/ZIPCD}</td>
+                                      <td nowrap bgcolor="#ffffff">{val data/ADDR1}</td>
+                                      <td nowrap bgcolor="#ffffff">{val data/ADDR2}</td>
+                                      <td nowrap bgcolor="#ffffff">{val data/TELNO}</td>
+                                    </tr>
+<!--{/each}-->
+<!--{/def}-->
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+</table>
+{rval finish}

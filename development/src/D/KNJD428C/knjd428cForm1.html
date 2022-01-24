@@ -1,0 +1,71 @@
+{rval start}
+{rval IFRAME}
+<script language="javascript">
+window.fep = '{rval fep}';
+</script>
+<!--{def button}-->
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                <hr width="50%" align="left">
+                    &nbsp;{rval NAME_SHOW}
+                <hr width="50%" align="left">
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="800" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" height="30">
+                      <td colspan="3">　学期：{rval data/SEMESTER}</td>
+                    </tr>
+                    <tr align="center">
+                      <td class="no_search" align="center" nowrap width="100">担任名<br>{rval button/btn_defaultStf}</th>
+                      <td width="*" bgcolor="#ffffff" aria-label="">{rval data/REMARK1}&nbsp;{rval data/REMARK2}&nbsp;{rval data/REMARK3}&nbsp;{rval data/REMARK4}&nbsp;{rval data/REMARK5}&nbsp;{rval data/REMARK6}</td>
+                    </tr>
+                    <tr align="center">
+                      <td class="no_search" align="center" nowrap width="100">出欠の備考</td>
+                      <td bgcolor="#ffffff" align="left" valign="top" colspan="2">
+                        &nbsp;{rval ATTENDREC_REMARK}{rval btn_syukketsu_sansyo}<br>
+                        &nbsp;<font size=2, color="red">{rval ATTENDREC_REMARK_COMMENT}</font>
+                      </td>
+                    </tr>
+                    <!--{def communication}-->
+                    <tr align="center">
+                      <td class="no_search" align="center" nowrap width="100">学校より</td>
+                      <td bgcolor="#ffffff" align="left" valign="top" colspan="2">
+                        &nbsp;{rval COMMUNICATION}<br>
+                        &nbsp;<font size=2, color="red">{rval COMMUNICATION_COMMENT}</font>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+                    <tr>
+                      <td class="no_search" colspan="3" align="right" nowrap>
+                        {rval button/ikkatsu}{rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_back}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!--{/def}-->
+{rval finish}
+{rval javascript}
+<script language="javascript">{rval reload}{rval next}</script>

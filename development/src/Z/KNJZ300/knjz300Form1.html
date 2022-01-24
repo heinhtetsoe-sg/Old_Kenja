@@ -1,0 +1,65 @@
+{rval start}
+<table width="870" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr > 
+          <td >
+             <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line">
+               <th>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search"> 
+                <th width="*%" align="left">{rval auth_check}&nbsp;&nbsp;&nbsp;&nbsp;利用者一覧&nbsp対象年度： &nbsp{rval year/VAL}</th>
+                </tr>
+            </table>
+               </th>
+              </tr>
+             </table>
+            <BR>
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="80" nowrap>所属グループ</th>
+                      <th width="80" nowrap>{val STAFFCD_SORT}</th>
+                      <th width="150" nowrap>職員氏名</th>
+                      <th width="150" nowrap>{val USERKANA_SORT}</th>
+                      <th width="150" nowrap>ユーザーID</th>
+                      <th width="80" nowrap>無効フラグ</th>
+                      <th width="90" nowrap>パスワード<br>期限</th>
+                      <!--{def chgPwd}-->
+                      <th width="110" nowrap>次回パスワード<br>強制変更</th>
+                      <!--{/def}-->
+                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}--> 
+          <tr  align="center" nowrap> 
+         <td bgcolor="#ffffff">{val data/LINKER}</td>
+             <td bgcolor="#ffffff">{val data/Link_CD}</td>
+             <td bgcolor="#ffffff" align="left" nowrap>{val data/STAFFNAME}</td>
+             <td bgcolor="#ffffff" align="left" nowrap>{val data/STAFFKANA}</td>
+             <td bgcolor="#ffffff" align="left" nowrap>{val data/USERID}</td>
+             <td bgcolor="#ffffff" align="center" nowrap>{val data/INVALID_FLG}</td>
+             <td bgcolor="#ffffff" align="center" nowrap>{val data/PWDTERMCHK_FLG}</td>
+             <!--{def chgPwd}-->
+             <td bgcolor="#ffffff" align="center" nowrap>{val data/CHG_PWD_FLG}</td>
+             <!--{/def}-->
+          </tr> 
+<!--{/each}--> 
+<!--{/def}--> 
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval close}</script>

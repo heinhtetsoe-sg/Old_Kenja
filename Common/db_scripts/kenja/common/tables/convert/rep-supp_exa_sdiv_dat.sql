@@ -1,0 +1,48 @@
+-- $Id: 6c9e545a6ef03f46d3b0f6c91a212821b17e6fcb $
+
+drop   table SUPP_EXA_SDIV_DAT_OLD
+
+rename table SUPP_EXA_SDIV_DAT TO SUPP_EXA_SDIV_DAT_OLD
+
+create table SUPP_EXA_SDIV_DAT( \
+     YEAR           VARCHAR(4) NOT NULL, \
+     SEMESTER       VARCHAR(1) NOT NULL, \
+     TESTKINDCD     VARCHAR(2) NOT NULL, \
+     TESTITEMCD     VARCHAR(2) NOT NULL, \
+     SCORE_DIV      VARCHAR(2) NOT NULL, \
+     CLASSCD        VARCHAR(2) NOT NULL, \
+     SCHOOL_KIND    VARCHAR(2) NOT NULL, \
+     CURRICULUM_CD  VARCHAR(2) NOT NULL, \
+     SUBCLASSCD     VARCHAR(6) NOT NULL, \
+     SCHREGNO       VARCHAR(8) NOT NULL, \
+     SCORE          SMALLINT, \
+     SCORE_PASS     SMALLINT, \
+     SCORE_PASS_FLG VARCHAR(1), \
+     SCORE_FLG      VARCHAR(1), \
+     SCORE_DI       VARCHAR(1), \
+     REGISTERCD     VARCHAR(10), \
+     UPDATED        TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+    ) in usr1dms index in idx1dms
+
+insert into SUPP_EXA_SDIV_DAT \
+    select \
+        YEAR, \
+        SEMESTER, \
+        TESTKINDCD, \
+        TESTITEMCD, \
+        SCORE_DIV, \
+        CLASSCD, \
+        SCHOOL_KIND, \
+        CURRICULUM_CD, \
+        SUBCLASSCD, \
+        SCHREGNO, \
+        SCORE, \
+        SCORE_PASS, \
+        SCORE_PASS_FLG, \
+        SCORE_FLG, \
+        CAST(NULL AS VARCHAR(1)) AS SCORE_DI, \
+        REGISTERCD, \
+        UPDATED \
+    from SUPP_EXA_SDIV_DAT_OLD
+
+alter table SUPP_EXA_SDIV_DAT add constraint PK_SUPP_EXA_SDIV primary key (YEAR, SEMESTER, TESTKINDCD, TESTITEMCD, SCORE_DIV, CLASSCD, SCHOOL_KIND, CURRICULUM_CD, SUBCLASSCD, SCHREGNO)

@@ -1,0 +1,109 @@
+{rval start}
+<table width="1200" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+        <td valign="top">
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr >
+                  <td >
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td width="55%">
+                            <hr>年度：{val YEAR}　{val HR_NAMEABBV}　{val NAME}({val SCHREGNO})　認定番号{val PASSNO}<hr>
+                          </td>
+                          <td width="5%">&nbsp;</td>
+                          <td width="40%">{val TRANSFER_INFO1}<BR>{val TRANSFER_INFO2}</td>
+                        </tr>
+                      </table>
+                     {rval button/btn_print}{rval button/btn_end}
+                     <br>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                                <td>
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search">
+                                          <th colspan=3 width="10%"></th>
+                                          <th width="4.8%">4月</th>
+                                          <th width="4.8%">5月</th>
+                                          <th width="4.8%">6月</th>
+                                          <th width="4.8%">7月</th>
+                                          <th width="4.8%">8月</th>
+                                          <th width="4.8%">9月</th>
+                                          <th width="4.8%">10月</th>
+                                          <th width="4.8%">11月</th>
+                                          <th width="4.8%">12月</th>
+                                          <th width="4.8%">1月</th>
+                                          <th width="4.8%">2月</th>
+                                          <th width="4.8%">3月</th>
+                                          <th width="6.5%">計</th>
+                                          <th width="6.5%"><font size="2">残支給<br>期間</font></th>
+                                          <th width="6.5%">府県</th>
+                                          <th width="*%">備考</th>
+                                        </tr>
+
+<!--{each TEST}-->
+                                        <tr class="no_search">
+                                          <!--{def TEST/TITLE1}-->
+                                          <th rowspan=2 width="3%"><font size="2">{rval TEST/TITLE1}</font></th>
+                                          <th colspan=2 width="10%"><font size="2">{rval TEST/TITLE2}</font></th>
+                                          <!--{/def}-->
+
+                                          <!--{def TEST/TITLE3}-->
+                                          <th colspan=2 width="10%"><font size="2">{rval TEST/TITLE3}</font></th>
+                                          <!--{/def}-->
+
+                                          <!--{def TEST/TITLE4}-->
+                                          <th rowspan=4 width="3%"><font size="2">{rval TEST/TITLE4}</font></th>
+                                          <th rowspan=2 width="5%"><font size="2">{rval TEST/TITLE5}</font></th>
+                                          <th width="5%"><font size="2">{rval TEST/TITLE6}</font></th>
+                                          <!--{/def}-->
+
+                                          <!--{def TEST/TITLE7}-->
+                                          <th width="5%"><font size="2">{rval TEST/TITLE7}</font></th>
+                                          <!--{/def}-->
+
+                                          <!--{def TEST/TITLE8}-->
+                                          <th rowspan=2 width="5%"><font size="2">{rval TEST/TITLE8}</font></th>
+                                          <th width="5%"><font size="2">{rval TEST/TITLE9}</font></th>
+                                          <!--{/def}-->
+
+                                          <!--{def TEST/TITLE10}-->
+                                          <th width="3%"><font size="2">{rval TEST/TITLE10}</font></th>
+                                          <th width="5%"><font size="2">{rval TEST/TITLE11}</font></th>
+                                          <th width="5%"><font size="2">{rval TEST/TITLE12}</font></th>
+                                          <!--{/def}-->
+
+                                          <!--{def TEST/TITLE13}-->
+                                          <th colspan=3 width="13%"><font size="2">{rval TEST/TITLE13}</font></th>
+                                          <!--{/def}-->
+
+                                          <th bgcolor="{rval TEST/BGCOLOR04}" width="4.8%"> <font color="black"> {rval TEST/DATA04}</font></th>
+                                          <th bgcolor="{rval TEST/BGCOLOR05}" width="4.8%"> <font color="black"> {rval TEST/DATA05}</font></th>
+                                          <th bgcolor="{rval TEST/BGCOLOR06}" width="4.8%"> <font color="black"> {rval TEST/DATA06}</font></th>
+                                          <th bgcolor="{rval TEST/BGCOLOR07}" width="4.8%"> <font color="black"> {rval TEST/DATA07}</font></th>
+                                          <th bgcolor="{rval TEST/BGCOLOR08}" width="4.8%"> <font color="black"> {rval TEST/DATA08}</font></th>
+                                          <th bgcolor="{rval TEST/BGCOLOR09}" width="4.8%"> <font color="black"> {rval TEST/DATA09}</font></th>
+                                          <th bgcolor="{rval TEST/BGCOLOR10}" width="4.8%"> <font color="black"> {rval TEST/DATA10}</font></th>
+                                          <th bgcolor="{rval TEST/BGCOLOR11}" width="4.8%"> <font color="black"> {rval TEST/DATA11}</font></th>
+                                          <th bgcolor="{rval TEST/BGCOLOR12}" width="4.8%"> <font color="black"> {rval TEST/DATA12}</font></th>
+                                          <th bgcolor="{rval TEST/BGCOLOR01}" width="4.8%"> <font color="black"> {rval TEST/DATA01}</font></th>
+                                          <th bgcolor="{rval TEST/BGCOLOR02}" width="4.8%"> <font color="black"> {rval TEST/DATA02}</font></th>
+                                          <th bgcolor="{rval TEST/BGCOLOR03}" width="4.8%"> <font color="black"> {rval TEST/DATA03}</font></th>
+                                          <th bgcolor="#ffffff" width="6.5%"> <font color="black"> {rval TEST/KEI}</font></th>
+                                          <th bgcolor="#ffffff" width="6.5%"><font color="black"> {rval TEST/ZAN}</font></th>
+                                          <th bgcolor="#ffffff" width="6.5%"> <font color="black"> {rval TEST/FUKEN}</font></th>
+                                          <th bgcolor="#ffffff" width="*%" align="left"> <font color="black"> {rval TEST/REMARK}</font></th>
+                                        </tr>
+<!--{/each}-->
+
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval disable}</script>

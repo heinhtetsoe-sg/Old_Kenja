@@ -1,0 +1,62 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th align="center">
+                        対象年度：{val YEAR}　　　　{rval btn_copy}
+                      </th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" onclick="selectRow();" id="list">
+                    <tr class="no_search">
+                      <th nowrap width="25%">祝祭日区分</th>
+                      <th nowrap width="10%">月</th>
+                      <th nowrap width="10%">日</th>
+                      <th nowrap width="12%">週</th>
+                      <th nowrap width="12%">曜日</th>
+                      <th nowrap width="30%">祝祭日名</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff"> 
+                      <td nowrap  bgcolor="{rval data/BGCOLOR_ROW}"><a href="knjs510index.php?cmd=edit&SEQ={val data/SEQ}" target="right_frame"></a>{val data/HOLIDAY_DIV}</td>
+                      <td nowrap align="center"  bgcolor="{rval data/BGCOLOR_ROW}">{val data/HOLIDAY_MONTH}</td>
+                      <td nowrap align="center"  bgcolor="{rval data/BGCOLOR_ROW}">{val data/HOLIDAY_DAY}</td>
+                      <td nowrap align="center"  bgcolor="{rval data/BGCOLOR_ROW}">{val data/HOLIDAY_WEEK_PERIOD}</td>
+                      <td nowrap align="center"  bgcolor="{rval data/BGCOLOR_ROW}">{val data/HOLIDAY_WEEKDAY}</td>
+                      <td nowrap  bgcolor="{rval data/BGCOLOR_ROW}">{val data/HOLIDAY_NAME}</td>
+                    </tr> 
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

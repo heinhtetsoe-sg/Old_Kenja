@@ -1,0 +1,57 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <!--{def schkind}-->
+  <tr >
+    <td >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search">
+                <th nowrap align="left" width="*%">校種：{rval SCHKIND}</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <!--{/def}-->
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="20%" nowrap>委員会<br>区分</th>
+                      <th width="20%" nowrap>委員会<br>コード</th>
+                      <th width="60%" nowrap>委員会名称</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}--> 
+                    <tr>
+                      <td nowrap align="center" width="20%" bgcolor="#ffffff">{val data/COMMITTEE_FLG}</td> 
+                      <td nowrap align="center" width="20%" bgcolor="#ffffff"><a href="knjj080_2index.php?cmd=edit&COMMITTEECD={val data/COMMITTEECD}&COMMITTEE_FLG={val data/COMMITTEE_FLG}" target="right_frame">{val data/COMMITTEECD}</a></td>
+                      <td nowrap width="60%" bgcolor="#ffffff">　{val data/COMMITTEENAME}</td>
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}-->
+                    </table>
+                  </td>
+                </tr>
+              </td>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

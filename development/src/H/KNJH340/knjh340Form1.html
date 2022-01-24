@@ -1,0 +1,67 @@
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="1">
+  <tr class="no_search_line">
+    <td>
+      <table border="0" cellpadding="2" cellspacing="0" width="100%">
+        <tr class="no_search">
+          <td>&nbsp;&nbsp;参照年度：{rval RYEAR}&nbsp&nbsp{rval COPYBTN}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr class="no_search_line">
+    <td>
+      <table border="0" cellpadding="2" cellspacing="0" width="100%">
+        <tr class="no_search">
+          <td nowrap>&nbsp;&nbsp;対象年度：{rval OYEAR}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="20%">区分</th>
+                      <th nowrap width="10%">学年</th>
+                      <th nowrap width="40%">科目</th>
+                      <th nowrap width="10%">満点</th>
+                      <th nowrap width="*%">合格点</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap align="center" width="20%" bgcolor="#ffffff"><a href="knjh340index.php?cmd=edit&CLICK_DATA={val data/CLICK_DATA}" target="right_frame">{val data/COURSE_NAME}</a></td>
+                      <td nowrap align="center" width="10%" bgcolor="#ffffff">{val data/GRADE}</td>
+                      <td nowrap align="left" width="40%" bgcolor="#ffffff">{val data/SUBCLASS_NAME}</td>
+                      <td nowrap align="right" width="*%" bgcolor="#ffffff">{val data/PERFECT}</td>
+                      <td nowrap align="right" width="*%" bgcolor="#ffffff">{val data/PASS_SCORE}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                    </table>
+                  </td>
+                </tr>
+              </td>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

@@ -1,0 +1,96 @@
+﻿{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<table height="100"><tr></tr></table>
+<table width="500" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <th height="30"><b>
+                        {rval data/YEAR}年度　　{rval data/SEMESTER}
+                      </b></th>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="60">
+                      <td><b>
+                        　　{rval data/DATA_DIV1}<LABEL for="DATA_DIV1">学年</LABEL>　{rval data/DATA_DIV2}<LABEL for="DATA_DIV2">クラス</LABEL>　{rval data/DATA_DIV3}<LABEL for="DATA_DIV3">個人</LABEL><BR>
+                        　　{rval data/DATA_DIV4}<LABEL for="DATA_DIV4">支部</LABEL>　{rval data/DATA_DIV5}<LABEL for="DATA_DIV5">自宅生</LABEL>　{rval data/DATA_DIV6}<LABEL for="DATA_DIV6">寮生</LABEL>　　{rval data/DATA_DIV7}<LABEL for="DATA_DIV7">下宿生</LABEL>　{rval data/DATA_DIV8}<LABEL for="DATA_DIV8">寮生/下宿生</LABEL>
+                      </b></td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="30">
+                      <td><b>
+                              　　　　{rval data/TYOUSHI_FLG}<LABEL for="TYOUSHI_FLG">長子</LABEL>　　　　{rval data/GRADE}　　　{rval data/HR_CLASS}<br>
+                        　　　　{rval data/IDOU_FLG}<LABEL for="IDOU_FLG">異動者も出力する</LABEL> 　　　　異動対象日　{rval data/IDOU_DATE}
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象{rval data/CLASS_LABEL}</b></th>
+                      <th class="no_search"></th>
+                      <th><b>{rval data/CLASS_LABEL}一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CLASS_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff" height="60">
+                      <th><b>開始位置　　行：{rval data/S_ROW}　列：{rval data/S_COL}</b></th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap>{rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}
+<script language="javascript">{rval jscript}</script>
+<script language="javascript">
+var oldIdoDate = document.forms[0].IDOU_DATE.value;
+function checkIdoDate() {
+    var idoDate = document.forms[0].IDOU_DATE.value;
+    console.log("old:", oldIdoDate);
+    if (null == oldIdoDate) {
+        oldIdoDate = idoDate;
+    } else if (null != idoDate && oldIdoDate != idoDate) {
+        btn_submit("knjj193");
+    }
+    setTimeout(checkIdoDate, 500);
+}
+
+document.getElementsByName("btn_calen")[0].addEventListener("click", checkIdoDate);
+
+</script>

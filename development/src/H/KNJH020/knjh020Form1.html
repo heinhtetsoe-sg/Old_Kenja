@@ -1,0 +1,155 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+    <tr>
+        <td>
+            <table width="60%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr nowrap><hr style="width:97%">
+                                <td width="45%" nowrap>
+                                    &nbsp;&nbsp;{rval header/SCHREGNO}&nbsp;：&nbsp;{rval header/NAME_SHOW}
+                                </td>
+                                <td width="35%" nowrap>&nbsp;{rval header/BIRTHDAY}</td>
+                                <td width="20%" nowrap>生まれ&nbsp;</td>
+                            </tr>
+                        </table><hr style="width:97%">
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line" >
+                <td>
+                 <table width="100%" border="0" cellspacing="1" cellpadding="3" style="color:#336666">
+<!--結果一覧-->
+<!--{def data}-->
+                    <tr class="no_search">
+                       <th colspan="7" width="100%">
+                           兄弟姉妹のデータからコピー&nbsp;&nbsp;{rval data/J_STUCD}{rval data/BTN_STUCD}{rval data/BTN_APPLY}&nbsp;{rval data/btn_data_cp}{rval button2/btn_add}
+                       </th>
+                    </tr>
+                    <tr class="no_search">
+                      <th width="5%" nowrap rowspan="9" class="no_search"><font color="#FFFFFF">保<br><br>護<br><br>者<br><br>情<br><br>報</font></th>
+                      <th width="15%" nowrap >氏 名</th>
+                      <td bgcolor="#ffffff" colspan="5">&nbsp;&nbsp;{rval data/GUARD_NAME}<font color="red">&nbsp;&nbsp;(※ 全角20文字まで)</font></td>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap>か な</th>
+                      <td bgcolor="#ffffff" colspan="5">&nbsp;&nbsp;{rval data/GUARD_KANA}<font color="red"><br>&nbsp;&nbsp;(※ 全角40文字まで)</font></td>
+
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap width="15%">性 別</th>
+
+                      <td bgcolor="#ffffff" width="10%">&nbsp;&nbsp;{rval data/GUARD_SEX}</td>
+                      <th width="15%" nowrap colspan="1">生年月日</th>
+                      <td bgcolor="#ffffff" width="15%"colspan="1">&nbsp;&nbsp;{rval data/GUARD_BIRTHDAY}</td>
+                      <th width="15%" nowrap colspan="1">続柄</th>
+                      <td bgcolor="#ffffff" width="25%">&nbsp;&nbsp;{rval data/RELATIONSHIP}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap>郵便番号</th>
+                      <td bgcolor="#ffffff" colspan="7">&nbsp;&nbsp;{rval data/J_ZIPCD}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap >住所１</th>
+                      <td bgcolor="#ffffff" colspan="5">&nbsp;&nbsp;{rval data/GUARD_ADDR1}<font color="red">&nbsp;&nbsp;(※ 全角30文字まで)</font></td>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap >住所２</th>
+                      <td bgcolor="#ffffff" colspan="5">&nbsp;&nbsp;{rval data/GUARD_ADDR2}<font color="red">&nbsp;&nbsp;(※ 全角30文字まで)</font></td>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap >電話番号</th>
+                      <td bgcolor="#ffffff" >&nbsp;&nbsp;{rval data/GUARD_TELNO}</td>
+                      <th nowrap >ＦＡＸ番号</th>
+                      <td bgcolor="#ffffff" >&nbsp;&nbsp;{rval data/GUARD_FAXNO}</td>
+                      <th nowrap >Ｅ－ＭＡＩＬ</th>
+                      <td bgcolor="#ffffff" >&nbsp;&nbsp;{rval data/GUARD_E_MAIL}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap >勤務先名称</th>
+                      <td bgcolor="#ffffff" colspan="5">&nbsp;&nbsp;{rval data/GUARD_WORK_NAME}<font color="red">&nbsp;&nbsp;(※ 全角20文字まで)</font></td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <th nowrap >職種コード</th>
+                      <td bgcolor="#ffffff" align="left">&nbsp;&nbsp;{rval data/GUARD_JOBCD}&nbsp;&nbsp;</td>
+                      <th nowrap >勤務先電話番号</th>
+                      <td align="left" bgcolor="#ffffff" colspan="3">&nbsp;&nbsp;{rval data/GUARD_WORK_TELNO}<font color="red">&nbsp;&nbsp;(※ 半角14文字まで)</font></td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <th nowrap rowspan="8" class="no_search"><font color="#FFFFFF">保<br>証<br>人<br>・<br>学<br>資<br>負<br>担<br>者<br><br>情<br>報</font></th>
+                      <!--<th nowrap rowspan="8" class="no_search"><font color="#FFFFFF">保<br><br>証<br><br>人<br><br>情<br><br>報</font></th> -->
+                      <th nowrap >氏 名</th>
+                      <td bgcolor="#ffffff" colspan="5">&nbsp;&nbsp;{rval data/GUARANTOR_NAME}<font color="red">&nbsp;&nbsp;(※ 全角20文字まで)</font></td>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap>か な</th>
+                      <td bgcolor="#ffffff" colspan="5">&nbsp;&nbsp;{rval data/GUARANTOR_KANA}<font color="red"><br>&nbsp;&nbsp;(※ 全角40文字まで)</font></td>
+
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap>性 別</th>
+
+                      <td bgcolor="#ffffff" width="10%">&nbsp;&nbsp;{rval data/GUARANTOR_SEX}</td>
+                      <th nowrap colspan="1">生徒との関係</th>
+                      <td bgcolor="#ffffff" colspan="3">&nbsp;&nbsp;{rval data/GUARANTOR_RELATIONSHIP}</td>
+
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap>郵便番号</th>
+                      <td bgcolor="#ffffff" colspan="7">&nbsp;&nbsp;{rval data/J_GUARANTOR_ZIPCD}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap >住所１</th>
+                      <td bgcolor="#ffffff" colspan="5">&nbsp;&nbsp;{rval data/GUARANTOR_ADDR1}<font color="red">&nbsp;&nbsp;(※ 全角30文字まで)</font></td>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap >住所２</th>
+                      <td bgcolor="#ffffff" colspan="5">&nbsp;&nbsp;{rval data/GUARANTOR_ADDR2}<font color="red">&nbsp;&nbsp;(※ 全角30文字まで)</font></td>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap >電話番号</th>
+                      <td bgcolor="#ffffff" colspan="5">&nbsp;&nbsp;{rval data/GUARANTOR_TELNO}</td>
+
+                    </tr>
+
+                    <tr class="no_search">
+                      <th nowrap >職種コード</th>
+                      <td bgcolor="#ffffff" align="left">&nbsp;&nbsp;{rval data/GUARANTOR_JOBCD}</td>
+                      <th nowrap >兼ねている公職</th>
+                      <td align="left" bgcolor="#ffffff" colspan="3">&nbsp;&nbsp;{rval data/PUBLIC_OFFICE}<font color="red">&nbsp;&nbsp;(※ 全角10文字まで)</font></td>
+                    </tr>
+<!--{/def}-->
+<!--{def button}--> 
+                    <tr class="no_search">
+                      <th colspan="2">
+                      <th nowrap colspan="5" style="background:#FFFFFF" align="right">{rval button/btn_update}{rval button/btn_up_next}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}&nbsp;&nbsp;</th>
+                    </tr>
+<!--{/def}-->
+                    </table>
+                   </td>
+                  </tr>
+               </table>
+           </td>
+          </tr>
+       </table>
+      </td>
+   </tr>
+</table>
+
+
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

@@ -1,0 +1,177 @@
+<style>
+.cell_width {
+    width:50px;
+}
+</style>
+
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="5" align="center">
+
+<tr>
+<td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+    <td >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line"> 
+      <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr class="no_search" nowrap>
+          <td width="207"><b>　　{rval TOP/YEAR}年度</b></td>
+          <td width="*"><b>{rval TOP/ORDER1}学籍番号順　&nbsp&nbsp&nbsp&nbsp科目　：{rval TOP/SELSUB}<br>
+                  {rval TOP/ORDER2}クラス番号順</b></td>
+        </tr>
+        </table>
+      </td>
+      </tr>
+      </table>
+    </td>
+    </tr>
+    </table>
+</td>
+</tr>
+
+<tr >
+<td valign="top">
+
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr bgcolor="#006633"> 
+  <td align="right">
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line">
+      <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr class="no_search" align="center">
+          <th rowspan="2" width="80" align="center">学籍番号</th>
+          <th rowspan="2" width="120" align="center">クラス番号</th>
+          <th rowspan="2" width="150" align="center">氏　　名</th>
+          <th colspan="2" align="center">前　期</th>
+          <th colspan="2" align="center">後　期</th>
+          <th rowspan="2" class="cell_width" align="center">学年<BR>成績</th>
+          <th rowspan="2" class="cell_width" align="center">評定</th>
+          <th rowspan="2" class="cell_width" align="center">履修<BR>単位数</th>
+          <th rowspan="2" class="cell_width" align="center">修得<BR>単位数</th>
+          <th rowspan="2" width="*" align="center">備考</th>
+        </tr>
+        <tr class="no_search" align="center"> 
+          <th class="cell_width" align="center">試験</th>
+          <th class="cell_width" align="center">補充<BR>指導点</th>
+          <th class="cell_width" align="center">試験</th>
+          <th class="cell_width" align="center">補充<BR>指導点</th>
+        </tr>
+        </table>
+      </td>
+      </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td bgcolor="#ffffff">
+      <div style="width: 100%; height=450; overflow: auto">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line" >
+      <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <!--{def data}-->
+        <!--結果一覧-->
+        <!--{each data}-->
+        <tr style="height:25"; bgcolor="{rval data/COLOR}">
+          <td width="80"  align="center">{rval data/SCHREGNO}</td>
+          <td width="120" align="center">{rval data/GRA_HR_ATTEND}</td>
+          <td width="150" align="left">&nbsp;{rval data/NAME_SHOW}</td>
+          <td class="cell_width" align="center">{rval data/SEM1_INTR_VALUE}</td>
+          <td class="cell_width" align="center">{rval data/SEM1_TERM_VALUE}</td>
+          <td class="cell_width" align="center">{rval data/SEM2_INTR_VALUE}</td>
+          <td class="cell_width" align="center">{rval data/SEM2_TERM_VALUE}</td>
+          <td class="cell_width"  align="center">{rval data/GRAD_VALUE2}</td>
+          <td class="cell_width"  align="center">{rval data/GRAD_VALUE}</td>
+          <td class="cell_width" align="center">{rval data/COMP_CREDIT}</td>
+          <td class="cell_width"  align="center">{rval data/GET_CREDIT}</td>
+          <td width="*"  align="center">{rval data/REMARK}</td>
+        </tr>
+        <!--{/each}-->
+        <!--{/def}-->
+        </table>
+      </td>
+      </tr>
+      </table>
+      </div>
+    </td>
+    </tr>
+
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line" >
+      <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr class="no_search">
+          <th width="364">平均</th>
+          <th class="cell_width">{rval SEM1_INTR_VALUE_AVG}</th>
+          <th class="cell_width">{rval SEM1_TERM_VALUE_AVG}</th>
+          <th class="cell_width">{rval SEM2_INTR_VALUE_AVG}</th>
+          <th class="cell_width">{rval SEM2_TERM_VALUE_AVG}</th>
+          <th class="cell_width">{rval GRAD_VALUE2_AVG}</th>
+          <th class="cell_width"></th>
+          <th class="cell_width"></th>
+          <th class="cell_width"></th>
+          <th width="*"></th>
+        </tr>
+        <tr class="no_search">
+          <th>最高点</th>
+          <th>{rval SEM1_INTR_VALUE_MAX}</th>
+          <th>{rval SEM1_TERM_VALUE_MAX}</th>
+          <th>{rval SEM2_INTR_VALUE_MAX}</th>
+          <th>{rval SEM2_TERM_VALUE_MAX}</th>
+          <th>{rval GRAD_VALUE2_MAX}</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr class="no_search">
+          <th>最低点</th>
+          <th>{rval SEM1_INTR_VALUE_MIN}</th>
+          <th>{rval SEM1_TERM_VALUE_MIN}</th>
+          <th>{rval SEM2_INTR_VALUE_MIN}</th>
+          <th>{rval SEM2_TERM_VALUE_MIN}</th>
+          <th>{rval GRAD_VALUE2_MIN}</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr class="no_search">
+          <th>{rval btn_update}{rval btn_reset}{rval btn_end}</th>
+          <th colspan="5">{rval page_count}</th>
+          <th colspan="4">{rval btn_pre}{rval btn_next}</th>
+        </tr>
+        </table>
+      </td>
+      </tr>
+      </table>
+    </td>
+    </tr>
+
+
+
+    </table>
+
+  </td>
+  </tr>
+  </table>
+
+</td>
+</tr>
+</table>
+
+<script language="JavaScript">{rval Closing}</script>
+
+{rval finish}

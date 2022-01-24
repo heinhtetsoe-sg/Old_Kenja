@@ -1,0 +1,108 @@
+{rval start}
+ <!-- Edit by HPA for PC-talker 読み start 2020/01/20 -->
+<table width="100%" border="0" cellspacing="10" cellpadding="5" id = "screen_id" aria-label="検定選択画面">
+  <!-- Edit by HPA for PC-talker 読み end 2020/01/31 -->
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <hr align="left" width="300">
+            &nbsp;&nbsp;&nbsp;{rval NAME_SHOW}
+            <hr align="left" width="300">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <td width="40" align="center"><LABEL for="CHECKALL" aria-label="全てを選択">選択</LABEL><br>{rval CHECKALL}</td>
+                      <!--{def useQualifiedMst}-->
+                      <td width="150" align="center"><LABEL for="CHECK_QUALIFIED">資格名称</LABEL><br>{rval CHECK_QUALIFIED}</td>
+                      <td width="100" align="center">資格略称</td>
+                      <td width="150" align="center"><LABEL for="CHECK_RANK">[級・段位] [得点] [備考]</LABEL><br>{rval CHECK_RANK}</td>
+                      <td width="80" align="center"><LABEL for="CHECK_REGDDATE">取得日</LABEL><br>{rval CHECK_REGDDATE}</td>
+                      <td width="80" align="center">区分</td>
+                      <td width="*" align="center">主催</td>
+                      <!--{/def}-->
+                      <!--{def NOTuseQualifiedMst}-->
+                      <td width="200" align="center"><LABEL for="CHECK_CONTENTS">内容</LABEL><br>{rval CHECK_CONTENTS}</td>
+                      <td width="200" align="center"><LABEL for="CHECK_REMARK">備考</LABEL><br>{rval CHECK_REMARK}</td>
+                      <td width="80" align="center"><LABEL for="CHECK_REGDDATE">取得日</LABEL><br>{rval CHECK_REGDDATE}</td>
+                      <td width="*" align="center">区分</td>
+                      <!--{/def}-->
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="height:330;overflow-y:scroll">
+            <!-- Add by PP for empty data start 2020/01/20 -->
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" id = "data" aria-label="選択できるデータがありません">
+                <!-- Add by PP for empty data end 2020/01/31 -->
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr height="25" bgcolor="#ffffff">
+                      <td width="40" align="center">{rval data/CHECKED}</td>
+                      <!--{def useQualifiedMst}-->
+                      <td width="150">{rval data/QUALIFIED_SHOW}</td>
+                      <td width="100">{rval data/QUALIFIED_ABBV}</td>
+                      <td width="150">{rval data/RANK_SHOW}</td>
+                      <td width="80" align="center">{rval data/REGDDATE}</td>
+                      <td width="80">{rval data/CONDITION_DIV}</td>
+                      <td width="*">{rval data/PROMOTER}</td>
+                      <!--{/def}-->
+                      <!--{def NOTuseQualifiedMst}-->
+                      <td width="200">{rval data/CONTENTS_SHOW}</td>
+                      <td width="200">{rval data/REMARK_SHOW}</td>
+                      <td width="80" align="center">{rval data/REGDDATE}</td>
+                      <td width="*">{rval data/CONDITION_DIV}</td>
+                      <!--{/def}-->
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td align="right" nowrap>{rval btn_torikomi}{rval btn_back}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval reload}{rval close}</script>
+{rval finish}

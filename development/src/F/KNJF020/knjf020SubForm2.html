@@ -1,0 +1,167 @@
+{rval start}
+
+<style type="text/css">
+<!--
+A.menuTitle:link    { color:#FF0000; text-decoration:none; }
+A.menuTitle:visited { color:#FF0000; text-decoration:none; }
+A.menuTitle:active  { color:#FF0000; text-decoration:none; }
+A.menuTitle:hover   { color:#ff99cc; text-decoration:none; }
+A.menuTitle { padding-left:10px}
+
+A.menu:link    { color:#008b8b; text-decoration:none; }
+A.menu:visited { color:#008b8b; text-decoration:none; }
+A.menu:active  { color:#008b8b; text-decoration:none; }
+A.menu:hover   { color:#ff99cc; background-color:#FFFFFF; text-decoration:none; }
+A.menu { padding-left:10px}
+.topman {vertical-align:top;}
+.id_css {font:bold;}
+-->
+</style>
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR>
+
+<table width="35%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr > 
+    <td > 
+      <table width="100%" border="0" cellpadding="0" cellspacing="10" >
+
+        <tr class="no_search_line"> 
+          <td width="100%"> 
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="left" class="no_search">
+                <td>&nbsp<b>{rval data/SCHREGNO}：{rval data/HR_NAME}　{rval data/ATTENDNO}　{rval data/NAME}</b></td>
+              </tr>
+              <tr align="left" bgcolor="#ffffff" height="100">
+                <td>
+                  <b>入力方法</b><br>
+                  &nbsp&nbsp{rval data/NYURYOKU1}<LABEL for="NYURYOKU1">値選択</LABEL><br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/TYPE_DIV1}<LABEL for="TYPE_DIV1">　{rval data/SHOW_DIV1}</LABEL>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/TYPE_DIV4}<LABEL for="TYPE_DIV4">　{rval data/SHOW_DIV4}</LABEL>&nbsp{rval data/TYPE_DIV7}<LABEL for="TYPE_DIV7">　{rval data/SHOW_DIV7}</LABEL><BR>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/TYPE_DIV2}<LABEL for="TYPE_DIV2">　{rval data/SHOW_DIV2}</LABEL>&nbsp{rval data/TYPE_DIV5}<LABEL for="TYPE_DIV5">　{rval data/SHOW_DIV5}</LABEL>&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/TYPE_DIV8}<LABEL for="TYPE_DIV8">　{rval data/SHOW_DIV8}</LABEL><BR>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/TYPE_DIV3}<LABEL for="TYPE_DIV3">　{rval data/SHOW_DIV3}</LABEL>&nbsp{rval data/TYPE_DIV6}<LABEL for="TYPE_DIV6">　{rval data/SHOW_DIV6}</LABEL>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/TYPE_DIV9}<LABEL for="TYPE_DIV9">　{rval data/SHOW_DIV9}</LABEL><BR>
+                  &nbsp&nbsp{rval data/NYURYOKU2}<LABEL for="NYURYOKU2">データクリア</LABEL><br>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr class="no_search_line"> 
+          <td width="100%"> 
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+
+              <tr align="left"  bgcolor="#ffffff" height="20"> 
+                <td colspan=18>
+                    &nbsp;{rval button/btn_adultIns}{rval button/btn_babyIns}{rval button/btn_dataClear}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/DISP1}&nbsp;<LABEL for="DISP1">健康診断</LABEL>&nbsp;{rval data/DISP2}&nbsp;<LABEL for="DISP2">健康手帳</LABEL>
+                </td>
+              </tr>
+
+              <tr bgcolor="#ffffff" height="60" class="topman">
+                <td align=center>
+                永久歯
+                </td>
+                <!--{each upAdult}-->
+                <td align=center>
+                  {rval upAdult/UP_ADULT_LABEL_NAME}
+                  {rval upAdult/UP_ADULT_FORM_NAME}
+                  {rval upAdult/UP_ADULT_FORM_ID}
+                </td>
+                <!--{/each}-->
+              </tr>
+
+              <tr bgcolor="#ffffff" height="60" class="topman">
+                <td align=center>
+                乳歯
+                </td>
+                <td align=right colspan=3 rowspan=2>
+                    <br>
+                    <br>
+                    <br>
+                    上&nbsp&nbsp<br>
+                    {rval data/LEFT_SIDE_LABEL}<br>
+                    下&nbsp&nbsp<br>
+                </td>
+                <!--{each upBaby}-->
+                <td align=center>
+                  {rval upBaby/UP_BABY_LABEL_NAME}
+                  {rval upBaby/UP_BABY_FORM_NAME}
+                  {rval upBaby/UP_BABY_FORM_ID}
+                </td>
+                <!--{/each}-->
+                <td align=left colspan=3 rowspan=2>
+                    <br>
+                    <br>
+                    <br>
+                    &nbsp&nbsp上<br>
+                    {rval data/RIGHT_SIDE_LABEL}<br>
+                    &nbsp&nbsp下<br>
+                </td>
+              </tr>
+
+              <tr bgcolor="#ffffff" height="60" class="topman">
+                <td align=center>
+                乳歯
+                </td>
+                <!--{each lwBaby}-->
+                <td align=center>
+                  {rval lwBaby/LW_BABY_LABEL_NAME}
+                  {rval lwBaby/LW_BABY_FORM_NAME}
+                  {rval lwBaby/LW_BABY_FORM_ID}
+                </td>
+                <!--{/each}-->
+              </tr>
+
+              <tr bgcolor="#ffffff" height="60" class="topman">
+                <td align=center>
+                永久歯
+                </td>
+                <!--{each lwAdult}-->
+                <td align=center>
+                  {rval lwAdult/LW_ADULT_LABEL_NAME}
+                  {rval lwAdult/LW_ADULT_FORM_NAME}
+                  {rval lwAdult/LW_ADULT_FORM_ID}
+                </td>
+                <!--{/each}-->
+              </tr>
+
+              <tr align="left" class="no_search" height="20"> 
+                <td colspan=18> &nbsp{rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_end}</td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+
+<div id="myID_Menu" style="position:absolute; visibility:hidden;">
+<table width=180 border="1" cellpadding="1" cellspacing="0" bgcolor="#C0C0C0">
+
+<tr class="no_search_line">
+  <td class="no_search" align="right">
+    <span style="float:left;"><font color="#FFFFFF"><strong>　入力項目　</span><a class="menuTitle" href={rval menuTitle/CLICK_VAL}>{rval menuTitle/CLICK_NAME}</a></strong><br></font>
+  </td>
+</tr>
+
+<tr class="no_search_line">
+  <td bgcolor="#FFFFFF">
+    <!--{each menu}-->
+    <a class="menu" href={rval menu/CLICK_VAL}>{rval menu/CLICK_NAME}</a><br>
+    <!--{/each}-->
+  </td>
+</tr>
+
+</table>
+</div>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 
+<script language="javascript">{rval topLoad}{rval next}</script>

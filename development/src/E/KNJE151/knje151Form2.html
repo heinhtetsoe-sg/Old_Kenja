@@ -1,0 +1,125 @@
+{rval start}
+
+<BR><BR>
+<table width="85%" border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tr class="no_search" height="30">
+                      <td width="100%" align="center" nowrap>
+                        {rval YEAR}年度　　校種：{rval SCHOOL_KIND}　　年組：{rval GRADE_HR_CLASS}　　教科：{rval CLASSCD}　　科目：{rval SUBCLASSCD}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr class="no_search_line"> 
+          <td width="100%"> 
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="left" bgcolor="#ffffff" height="50">
+                <td>
+                  　　　<b>観点別学習状況の入力方法選択</b><br>
+                  　　　　　　{rval SELECT1}<LABEL for="SELECT1"> マウス入力</LABEL>　　{rval SELECT2}<LABEL for="SELECT2"> 手入力</LABEL>
+                </td>
+              </tr>
+              <!--{def USE_AUTO_INPUT}-->
+              <tr align="left" bgcolor="#ffffff">
+                <td>
+                  　　　<b>空欄自動入力</b>　{rval btn_auto_input_A}　{rval btn_auto_input_B}　{rval btn_auto_input_C}<BR>
+                </td>
+              </tr>
+              <!--{/def}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th rowspan="2" width="150">クラス-出席番号</th>
+                      <th rowspan="2" width="230">氏名</th>
+                      <th colspan="5" >観点別学習状況</th>
+                      <th rowspan="2" width="*">評定</th>
+                    </tr>
+                    <tr class="no_search">{rval view_html}</tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width:100%;height:480;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+<!--{each data}-->
+                    <tr height="30">
+                      <td width="150" align="center" bgcolor="#ffffff">{rval data/ATTENDNO}</td>
+                      <td width="230" align="left" bgcolor="#ffffff">{rval data/NAME_SHOW}</td>
+                      <td width="60" align="center" bgcolor="{rval data/COLOR}">{rval data/STATUS1}</td>
+                      <td width="60" align="center" bgcolor="{rval data/COLOR}">{rval data/STATUS2}</td>
+                      <td width="60" align="center" bgcolor="{rval data/COLOR}">{rval data/STATUS3}</td>
+                      <td width="60" align="center" bgcolor="{rval data/COLOR}">{rval data/STATUS4}</td>
+                      <td width="60" align="center" bgcolor="{rval data/COLOR}">{rval data/STATUS5}</td>
+                      <td width="*" align="center" bgcolor="{rval data/COLOR}">{rval data/STATUS9}</td>
+                    </tr>
+<!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td colspan="14">
+                        <table cellpadding="0" cellspacing="0">
+                          <tr class="no_search" height="30">
+                            <td width="10%" align="right">
+                                {val btn_update}{val btn_reset}{val btn_end}{val btn_print}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<div id="lay"></div>
+{rval finish} 
+<script language="JavaScript">{rval close_win}</script>

@@ -1,0 +1,221 @@
+{rval start}
+{rval IFRAME}
+
+<!--{def button}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <hr width="80%" align="left">
+                &nbsp;{rval TITLE}&nbsp;&nbsp;{rval SCHREGNO}&nbsp;&nbsp;{val NAME}
+            <hr width="80%" align="left">
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width=100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  &nbsp;{rval btn_ziritu}
+                </td>
+              </tr>
+
+              <tr><td height="10"></td></tr>
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" nowrap align="center">
+                      <th width="100">対象</th>
+                      <th width="40" >区分</th>
+                      <th width="150">区分(内容)</th>
+                      <th width="40" >項目</th>
+                      <th width="*"  >項目(内容)</th>
+                    </tr>
+                    <!--{def list1}-->
+                    <!--{each list1}-->
+                    <tr bgcolor="#ffffff">
+                      <!--{def list1/SELF_TARGET_NAME}-->
+                      <td rowspan="{rval list1/SELF_TARGET_ROWSPAN}" align="center" width="100">{rval list1/SELF_TARGET_NAME}</td>
+                      <!--{/def}-->
+                      <td align="center" width="40">{rval list1/SELF_DIV}</td>
+                      <td width="150">{rval list1/SELF_TITLE}</td>
+                      <td align="center" width="40">{rval list1/SELF_ITEM}</td>
+                      <td width="*">{rval list1/SELF_CONTENT}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr><td height="10"></td></tr>
+
+        <tr>
+          <td>
+            <table width=80%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" nowrap align="center">
+                      <th>{rval REMARK_TITLE-001}</th>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td>
+                        {rval REMARK-1}<br>
+                        {rval EXTFMT-1}<br>
+                        {rval btn_update-1}{rval btn_reset-1}{rval button/btn_end}　{rval btn_lastYearData-1}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width=80%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" nowrap align="center">
+                      <th>{rval REMARK_TITLE-002}</th>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td>
+                        {rval REMARK-2}<br>
+                        {rval EXTFMT-2}<br>
+                        {rval btn_update-2}{rval btn_reset-2}{rval button/btn_end}　{rval btn_lastYearData-2}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div id="tbody" style="overflow:scroll; width: 100%; height: 200px;">
+              <table width=100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line">
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <tr class="no_search" nowrap align="center">
+                        <th width="15%">{rval SRT_SEMESTER}</th>
+                        <th width="25%">{rval REMARK_TITLE-003}</th>
+                        <th width="30%">{rval REMARK_TITLE-004}</th>
+                        <th width="30%">{rval REMARK_TITLE-005}</th>
+                      </tr>
+                      <!--{def list2}-->
+                      <!--{each list2}-->
+                      <tr bgcolor="#ffffff">
+                        <td width="15%">{rval list2/SEMESTERNAME}</td>
+                        <td width="25%">{rval list2/REMARK-3}</td>
+                        <td width="30%">{rval list2/REMARK-4}</td>
+                        <td width="30%">{rval list2/REMARK-5}</td>
+                      </tr>
+                      <!--{/each}-->
+                      <!--{/def}-->
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width=100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="35">
+                      <th class="no_search" width="25%">学期</th>
+                      <td colspan="2" bgcolor="#ffffff" width="70%">{rval SEMESTER}</td>
+                    </tr>
+                    <tr class="no_search" height="35">
+                      <th width="25%">{rval REMARK_TITLE-003}</th>
+                      <th width="30%">{rval REMARK_TITLE-004}</th>
+                      <th width="30%">{rval REMARK_TITLE-005}</th>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td width="25%">{rval REMARK-3}<br>{rval EXTFMT-3}</td>
+                      <td width="30%">{rval REMARK-4}<br>{rval EXTFMT-4}</td>
+                      <td width="30%">{rval REMARK-5}<br>{rval EXTFMT-5}</td>
+                    </tr>
+                    <tr>
+                      <td align="left" bgcolor="#ffffff" colspan="3">{rval btn_update-3:4:5}{rval btn_delete-3:4:5}{rval btn_reset-3:4:5}{rval button/btn_end}　{rval btn_lastYearData-3}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width=80%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" nowrap align="center">
+                      <th>{rval REMARK_TITLE-007}</th>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td>
+                        {rval REMARK-7}<br>
+                        {rval EXTFMT-7}<br>
+                        {rval btn_update-7}{rval btn_reset-7}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width=80%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" nowrap align="center">
+                      <th>{rval REMARK_TITLE-008}</th>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td>
+                        {rval REMARK-8}<br>
+                        {rval EXTFMT-8}<br>
+                        {rval btn_update-8}{rval btn_reset-8}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+
+{rval finish}

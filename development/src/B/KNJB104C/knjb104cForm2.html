@@ -1,0 +1,75 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="2">
+                    <tr class="no_search"> 
+                      <th width="70%">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="no_search">
+                          <tr>
+                            <td colspan="2">年度:{rval YEAR}&nbsp;&nbsp;学期:{rval SEMESTERNAME}&nbsp;教室名:{rval FACNAME}</td>
+                          </tr>
+                          <tr>
+                            <td width="70">科目名&nbsp;&nbsp;&nbsp;</td>
+                            <td>{rval SUBCLASSNAME}</td>
+                          </tr>
+                          <tr>
+                            <td width="70">講座名&nbsp;&nbsp;&nbsp;</td>
+                            <td>{rval CHAIRNAME}</td>
+                          </tr>
+                          <tr>
+                            <td width="70">年組&nbsp;&nbsp;&nbsp;</td>
+                            <td>{rval HR_NAME}<td>
+                          </tr>
+                        </table>
+                      </th>
+                      <th width="30%">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <td><div style="width:50px;margin:10px;border:#000000 solid 1px;background-color:#999999;text-align:center;padding:2px;color:#000000">灰色</div></td>
+                            <td>席を配置しない場所</td>
+                          </tr>
+                          <tr class="no_search">
+                            <td><div style="width:50px;margin:10px;border:#000000 solid 1px;background-color:#FFFFFF;text-align:center;padding:2px;color:#000000">白色</div></td>
+                            <td>席を配置する場所</td>
+                          </tr>
+                        </table>
+                      </th>
+                    </tr>
+                    <tr>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr bgcolor="#FFFFFF">
+                            <td colspan="{rval colspan}" style="text-align:center"><div style="display:inline-block;"><div style="margin:30px;border:#000000 solid 1px;width:300px;height:30px;background-color:#FFFFFF;text-align:center;line-height:30px;">教卓</div></div></td>
+                          </tr>
+                          <!--{each data}--> 
+                          <tr bgcolor="#FFFFFF">
+                            <!--{each data/RETU}--> 
+                            <td style="text-align:center">{rval data/RETU/BOX}</td>
+                            <!--{/each}--> 
+                          </tr>
+                          <!--{/each}--> 
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="no_search" colspan="2">{rval button/btn_wariate}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_update}&nbsp;&nbsp;{rval button/btn_delete}&nbsp;&nbsp;{rval button/btn_reset}&nbsp;&nbsp;{rval button/btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<script language="javascript">{rval jscript}</script>
+{rval finish}

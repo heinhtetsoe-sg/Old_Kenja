@@ -1,0 +1,71 @@
+{rval start}
+
+<br>
+<table width="500" border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" height="30">
+                <td nowrap align="center">
+                    対象年度：{rval YEAR}<!--{def SCHOOL_KIND}-->　　{rval SCHOOL_KIND}<!--{/def}-->　{rval button/btn_copy}
+                </td>
+              </tr>
+              <tr width="100%" bgcolor="#ffffff" height="50">
+                <td nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="35%" align="right">区分：</td>
+                      <td width="65%">{rval ATTEND_DIV}</td>
+                    </tr>
+                    <!--{def use_COURSE_MAJOR}-->
+                    <tr>
+                      <td align="right">課程学科：</td>
+                      <td>{rval COURSE_MAJOR}</td>
+                    </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th width="50%">基本</th>
+                      <th width="50%">変更後 <span style="font-size:85%;">(全角10文字まで)</span></th>
+                    </tr>
+                    <!--{each data}-->
+                    <tr height="30">
+                      <td align="center" bgcolor="{rval data/COLOR}">{rval data/DEFAULT_NAME}</td>
+                      <td align="center" bgcolor="{rval data/COLOR}">{rval data/ATTEND_ITEMNAME}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <tr class="no_search" height="30">
+                      <td colspan="3">&nbsp;{rval btn_update}{rval btn_reset}{rval btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

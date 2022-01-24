@@ -1,0 +1,276 @@
+<style>
+input[type=radio] {
+    /*height:0px;*/
+    width:0px;
+}
+label {
+    color:midnightblue;
+    text-decoration:underline;
+}
+label:hover {
+    font-weight:bold;
+}
+</style>
+{rval start}
+{rval IFRAME}
+<BR><BR>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table border="0" cellspacing="0" cellpadding="3" style="margin-bottom:1em">
+              <tr>
+<!--{def KNJH400_Pattern}-->
+                <td style="vertical-align:top">
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td align="center">
+                  <table border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th style="width:100px">年度</th>
+                      <th style="width:150px">学科</th>
+                      <th style="width:150px">コース</th>
+                      <th style="width:50px">学年</th>
+                      <th style="width:50px">クラス</th>
+                      <th style="width:100px">出席番号</th>
+                      <th style="width:150px">担任</th>
+                    </tr>
+<!--{each zaiseki}-->
+                    <tr bgcolor="#FFFFFF">
+                      <td>{rval zaiseki/YEAR}年度</td>
+                      <td>{rval zaiseki/MAJORNAME}</td>
+                      <td>{rval zaiseki/COURSECODENAME}</td>
+                      <td>{rval zaiseki/GRADE}</td>
+                      <td>{rval zaiseki/HR_CLASS}</td>
+                      <td>{rval zaiseki/ATTENDNO}</td>
+                      <td>{rval zaiseki/STAFFNAME_SHOW}</td>
+                    </tr>
+<!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+                </td>
+<!--{/def}-->
+              <!--{def dispPicture}-->
+                <td width="200" bgcolor="#ffffff" style="border:1px solid #000000;vertical-align:top"><img src="{rval data/FACE_IMG}" alt="生徒顔写真&nbsp{rval data/IMG_PATH}" width="120" height="160"></td>
+              <!--{/def}-->
+              <!--{def unDispPicture}-->
+                <td width="200" bgcolor="#ffffff" onmouseover="image1.style.display='';" onmouseout="image1.style.display='none';" style="border:1px solid #000000;vertical-align:top"><img name="image1" src="{rval data/FACE_IMG}" alt="生徒顔写真&nbsp{rval data/IMG_PATH}" width="120" height="160" style="display:none"></td>
+              <!--{/def}-->
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td align="center">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--結果一覧-->
+<!--{def data}-->
+                    <tr height="30">
+                      <th width="150" class="no_search" align="right" nowrap>{rval data/HEADNAME01}</th>
+                      <td width="250" bgcolor="#ffffff">&nbsp;{rval data/HEADDATA01}</td>
+                      <th width="150" class="no_search" align="right" nowrap>{rval data/HEADNAME07}</th>
+                      <td width="250" bgcolor="#ffffff">&nbsp;{rval data/HEADDATA07}</td>
+<!--{def KNJH400_Pattern}-->
+                      <td width="200" bgcolor="#ffffff" rowspan="6" style="vertical-align:top">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+			              <tr class="no_search_line">
+			                <td align="center">
+			                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+		                        <tr class="no_search">
+		                          <th rowspan="{rval averowspan}">評定平均</th>
+		                          <th>学年</th>
+		                          <th>評定平均</th>
+		                        </tr>
+		<!--{each avedata}-->
+		                        <tr>
+		                          <td bgcolor="#ffffff">{rval avedata/name}</td>
+		                          <td bgcolor="#ffffff">{rval avedata/disp}</td>
+		                        </tr>
+		<!--{/each}-->
+		                        <tr>
+		                          <td bgcolor="#ffffff">平均</td>
+		                          <td bgcolor="#ffffff">{rval allave}</td>
+		                        </tr>
+		                        </table>
+		                      </td>
+		                    </tr>
+		                  </table>
+		                </td>
+<!--{/def}-->
+<!--{def NON_KNJH400_Pattern}-->
+                      <!--{def dispPicture}-->
+                      <td width="200" bgcolor="#ffffff" rowspan="6"><img src="{rval data/FACE_IMG}" alt="生徒顔写真&nbsp{rval data/IMG_PATH}" width="120" height="160"></td>
+                      <!--{/def}-->
+                      <!--{def unDispPicture}-->
+                      <td width="200" bgcolor="#ffffff" rowspan="6" onmouseover="image1.style.display='';" onmouseout="image1.style.display='none';"><img name="image1" src="{rval data/FACE_IMG}" alt="生徒顔写真&nbsp{rval data/IMG_PATH}" width="120" height="160" style="display:none"></td>
+                      <!--{/def}-->
+<!--{/def}-->
+                    </tr>
+
+                    <tr height="30">
+                      <th width="150" class="no_search" align="right" nowrap>{rval data/HEADNAME02}</th>
+                      <td width="250" bgcolor="#ffffff">&nbsp;{rval data/HEADDATA02}</td>
+                      <th width="150" class="no_search" align="right" nowrap>{rval data/HEADNAME08}</th>
+                      <td width="250" bgcolor="#ffffff">&nbsp;{rval data/HEADDATA08}</td>
+                    </tr>
+
+                    <tr height="30">
+                      <th width="150" class="no_search" align="right" nowrap>{rval data/HEADNAME03}</th>
+                      <td width="250" bgcolor="#ffffff">&nbsp;{rval data/HEADDATA03}</td>
+                      <th width="150" class="no_search" align="right" nowrap>{rval data/HEADNAME09}</th>
+                      <td width="250" bgcolor="#ffffff">&nbsp;{rval data/HEADDATA09}</td>
+                    </tr>
+
+                    <tr height="30">
+                      <th width="150" class="no_search" align="right" nowrap>{rval data/HEADNAME04}</th>
+                      <td width="250" bgcolor="#ffffff">&nbsp;{rval data/HEADDATA04}</td>
+                      <th width="150" class="no_search" align="right" nowrap>{rval data/HEADNAME10}</th>
+                      <td width="250" bgcolor="#ffffff">&nbsp;{rval data/HEADDATA10}</td>
+                    </tr>
+
+                    <tr height="30">
+                      <th width="150" class="no_search" align="right" nowrap>{rval data/HEADNAME05}</th>
+                      <td width="250" bgcolor="#ffffff">&nbsp;{rval data/HEADDATA05}</td>
+                      <th width="150" class="no_search" align="right" nowrap>{rval data/HEADNAME11}</th>
+                      <td width="250" bgcolor="#ffffff">&nbsp;{rval data/HEADDATA11}</td>
+                    </tr>
+
+                    <tr height="30">
+                      <th width="150" class="no_search" align="right" nowrap>{rval data/HEADNAME06}</th>
+                      <td width="250" bgcolor="#ffffff">&nbsp;{rval data/HEADDATA06}</td>
+                      <th width="150" class="no_search" align="right" nowrap>{rval data/HEADNAME12}</th>
+                      <td width="250" bgcolor="#ffffff">&nbsp;{rval data/HEADDATA12}</td>
+                    </tr>
+
+<!--{def KNJH400_Pattern}-->
+                    <tr>
+                      <th width="150" class="no_search" align="right" nowrap>出欠集計</th>
+                      <td bgcolor="#ffffff" colspan="4">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+			              <tr class="no_search_line">
+			                <td align="center">
+			                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+		                        <tr class="no_search">
+		                          <th>学年</th>
+		                          <th>授業日数</th>
+		                          <th>出停・忌引</th>
+		                          <th>留学中</th>
+		                          <th>要出席日数</th>
+		                          <th>欠席日数</th>
+		                          <th>出席日数</th>
+		                          <th>遅刻回数</th>
+		                          <th>早退回数</th>
+		                          <th>出席率(％)</th>
+		                          <th>皆勤</th>
+		                          <th>換算欠席数</th>
+		                        </tr>
+		<!--{each syukketu}-->
+		                        <tr>
+		                          <td bgcolor="#ffffff">{rval syukketu/GRADE_CD}</td>
+		                          <td bgcolor="#ffffff">{rval syukketu/ZYUGYOU}</td>
+		                          <td bgcolor="#ffffff">{rval syukketu/SYUTTEIKIBIKI}</td>
+		                          <td bgcolor="#ffffff">{rval syukketu/RYUUGAKU}</td>
+		                          <td bgcolor="#ffffff">{rval syukketu/YOUSYUSSKEI}</td>
+		                          <td bgcolor="#ffffff">{rval syukketu/KESSEKI}</td>
+		                          <td bgcolor="#ffffff">{rval syukketu/SYUSSEKI}</td>
+		                          <td bgcolor="#ffffff">{rval syukketu/TIKOKU}</td>
+		                          <td bgcolor="#ffffff">{rval syukketu/SOUTAI}</td>
+		                          <td bgcolor="#ffffff">{rval syukketu/SYUSSEKIRITU}</td>
+		                          <td bgcolor="#ffffff">{rval syukketu/KAIKIN}</td>
+		                          <td bgcolor="#ffffff">{rval syukketu/KANSANKESSEKISUU}</td>
+		                        </tr>
+		<!--{/each}-->
+		                        </table>
+		                      </td>
+		                    </tr>
+		                  </table>
+		                </td>
+                      </td>
+                    </tr>
+<!--{/def}-->        
+                    <tr>
+                      <th width="150" class="no_search" align="right" nowrap>各種情報</th>
+                      <td bgcolor="#ffffff" colspan="4">{rval data3/btnRadio1}{rval data3/btnRadio2}{rval data3/btnRadio3}{rval data3/btnRadio4}{rval data3/btnRadio5}{rval data3/btnRadio6}{rval data3/btnRadio7}
+                      <!--{def btn}-->
+                      <br><br>
+                      {rval data/BTN_SCHREG}{rval data/BTN_ZYUSYO}{rval appendButton/Pattern3}{rval data/BTN_TSUGAKU}{rval data/BTN_CLUB}{rval data/BTN_COMMITTEE}{rval data/BTN_SHIKAKU}{rval data/BTN_TRAIN}{rval data/BTN_DETAIL}{rval appendButton/Pattern6}{rval data/BTN_PASSWORD}
+                      {rval data/BTN_TEST}{rval appendButton/Pattern7}{rval appendButton/Pattern8}{rval data/BTN_APPEND}{rval data/BTN_SHAM}
+                      {rval data/BTN_SHIBOU}{rval data/BTN_HANTEI}{rval data/BTN_SEISEKI}{rval data/BTN_KYOUKA}
+                      {rval appendButton/Pattern9}{rval appendButton/Pattern10}
+                      {rval appendButton/Pattern11}{rval appendButton/Pattern12}{rval appendButton/Pattern13}{rval appendButton/Pattern14}{rval appendButton/Pattern15}
+                      {rval appendButton/Pattern16}{rval appendButton/Pattern17}{rval appendButton/Pattern18}{rval appendButton/Pattern20}{rval appendButton/Pattern19}{rval appendButton/Pattern21}
+                      {rval appendButton/Pattern22}
+                      <!--{/def}-->
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th width="150" class="no_search" align="right" nowrap>行動の記録</th>
+
+                        <td bgcolor="#ffffff" colspan="4">
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                          <td>
+                            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <tr class="no_search" nowrap align="center">
+                              <th width="20">削<br>{rval data/CHECKALL}</th>
+                              <th width="200">{rval data/STAFFSORT}</th>
+                              <th width="80">{rval data/DATESORT}</th>
+                              <th width="50">時間</th>
+                              <th width="80">分類<br>{rval data/NARROWING}</th>
+                              <th width="*">{rval data/TITLESORT}</th>
+                            </tr>
+                            </table>
+                          </td>
+                          </tr>
+                          <tr>
+                          <td bgcolor="#ffffff">
+                            <div style="width: 100%; height=330; overflow: auto">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr class="no_search_line">
+                                <td>
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3"> 
+                                  <!--結果一覧-->
+                                  <!--{each data2}--> 
+                                    <tr bgcolor="#ffffff" >
+                                      <td width="20" align="center" >{rval data2/DELCHK}</td>
+                                      <td width="200" align="left" >{rval data2/STAFFNAME}</td>
+                                      <td width="80" align="left" >{rval data2/ACTIONDATE}</td>
+                                      <td width="50" align="center">{rval data2/ACTIONTIME}</td>
+                                      <td width="80" align="center">{rval data2/DIVIDENAME}</td>
+                                      <td width="*" align="left" >{rval data2/TITLE}</td>
+                                    </tr> 
+                                  <!--{/each}--> 
+                                  </table>
+                                </td>
+                              </table>
+                            </div>
+                          </td>
+                          </tr>
+                          </table>
+                        </td>
+
+                    </tr>
+                    <tr>
+                      <th class="no_search" ></th>
+                      <td colspan="6" bgcolor="#ffffff" align="right">
+<!--{def button}-->
+                      &nbsp{rval button/btn_insert}{rval button/btn_del}{rval button/btn_end}
+<!--{/def}-->
+                        </td>
+                    </tr>
+                </table>
+                   </td>
+               </tr>
+              </table>
+           </td>
+          </tr>
+       </table>
+      </td>
+   </tr>
+</table>
+<!--{/def}-->
+{rval finish}

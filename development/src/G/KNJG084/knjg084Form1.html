@@ -1,0 +1,62 @@
+{rval start}
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25"> 
+                      <th align="right" width="25%">校種：</th>
+                      <th align="left" width="*" bgcolor="#ffffff">{rval head/SCHKIND}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search" height="25"> 
+                      <th align="left" width="*" bgcolor="#ffffff">{rval button/btn_copylastyear}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25"> 
+                      <th width="15%" nowrap>年組</th>
+                      <th width="*%" nowrap>氏名</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/ROWSPAN1}-->
+                      <td nowrap align="left" width="15%" bgcolor="#ffffff" rowspan={rval data/ROWSPAN1}><a href="knjg084index.php?cmd=sel&SEL_GRADECLASS={rval data/GRADE_CLASS}" target="right_frame">{rval data/HR_NAME}</a></td>
+                      <!--{/def}-->
+                      <td nowrap width="*%" bgcolor="#ffffff">{rval data/SET_NAME}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>  
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="javascript">{rval reload}{rval jscript}</script>

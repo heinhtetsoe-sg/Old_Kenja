@@ -1,0 +1,57 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr > 
+    
+      <td >
+    <hr width="25%" align="left">
+      {rval SCHREGNO}&nbsp;&nbsp;{val NAME}
+    <hr width="25%" align="left">
+      
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+        <td> 
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search"> 
+            <th align="center" nowrap width="90" height="30">登録日</th>
+            <th align="center" nowrap width="90" height="30">終了日</th>
+            <th align="center" nowrap width="110" height="30">詳細区分</th>
+            <th align="center" nowrap width="110" height="30">自転車許可番号</th>
+            <th align="center" nowrap width="130" height="30">駐輪場番号</th>
+            <th align="center" nowrap width="300" height="30">詳細内容</th>
+            <th align="center" nowrap width="150" height="30">備考</th>
+            
+          </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}--> 
+          <tr> 
+             <td align="center" nowrap bgcolor="#ffffff">
+<!-- NO001 -->
+             <a href="knjh155index.php?cmd=edit&DETAIL_DIV={val data/DETAIL_DIV}&DETAIL_SDATE={val data/DETAIL_SDATE}&DETAIL_EDATE={val data/DETAIL_EDATE}&SCHREGNO={rval SCHREGNO}" target={rval FRAMENAME}>{val data/DETAIL_SDATE}
+             </a></td>
+             <td align="left" nowrap bgcolor="#ffffff">{val data/DETAIL_EDATE}</td>
+             <td align="left" nowrap bgcolor="#ffffff">{val data/DETAIL_DATA}</td>
+             <td align="left" nowrap bgcolor="#ffffff">{val data/BICYCLE_CD}</td>
+             <td align="left" nowrap bgcolor="#ffffff">{val data/BICYCLE_NO}</td>
+             <td align="left" nowrap bgcolor="#ffffff">{val data/CONTENT}</td>
+             <td align="left" nowrap bgcolor="#ffffff">{val data/REMARK}</td>
+             
+          </tr> 
+<!--{/each}--> 
+<!--{/def}--> 
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval reload}{rval close}</script>
+{rval finish}

@@ -1,0 +1,64 @@
+{rval start} 
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR><BR><BR><BR><BR><BR>
+<table width="40%" border="0" cellpadding="0" cellspacing="0" align="center">
+  <tr>
+	<td>
+	  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+			  <tr align="center" class="no_search">
+			    <td>
+	        	  <b align="center">年度 : {rval data/YEAR}</b>
+				</td>
+			  </tr>
+			  <tr bgcolor="#ffffff" height="250"> 
+			  	<td>
+                  <table width="100%" border="0" cellpadding="10" cellspacing="0">
+                    <tr>
+                      <td width="40%" align="right" valign="top"><b>入試制度</b></td>
+                      <td width="*">{rval data/APPLICANTDIV}</td>
+                    </tr>
+                    <tr>
+                      <td align="right" valign="top"><b>入試区分</b></td>
+                      <td>{rval data/TESTDIV}</td>
+                    </tr>
+                    <tr>
+                      <td align="right" valign="top"><b>通知日付</b></td>
+                      <td>{rval data/NDATE}</td>
+                    </tr>
+                    <tr>
+                      <td align="right" valign="top"><b>出力帳票</b></td>
+                      <td>{rval data/OUTPUTDIV1}<LABEL for="OUTPUTDIV1">学校宛結果一覧表</LABEL><br>
+                          {rval data/OUTPUTDIV2}<LABEL for="OUTPUTDIV2">合格通知書　　　</LABEL><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="right" valign="top"><b>出力範囲</b></td>
+                      <td>
+                        {rval data/OUTPUT1} <LABEL for="OUTPUT1">全て</LABEL><br>
+                        {rval data/OUTPUT2} <LABEL for="OUTPUT2">指定</LABEL><br>
+				        　　　学校番号：{rval data/FS_CD}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+			  <tr align="left" class="no_search" height="20"> 
+				<td nowrap> &nbsp;{rval button/btn_print}{rval button/btn_end}</td>
+			  </tr>
+
+			</table>
+		  </td>
+		</tr>
+	  </table>
+	</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish} 

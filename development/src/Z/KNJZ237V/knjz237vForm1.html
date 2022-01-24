@@ -1,0 +1,80 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="500" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search">
+                <th nowrap width="30%" align="center">対象年度：{rval YEAR}</th>
+                <th nowrap align = "right">{rval btn_copy}&nbsp;&nbsp;&nbsp;&nbsp;</th>
+              </tr>
+              <tr class="no_search">
+                <th nowrap align = "right" colspan="2">
+                    <!--{def div}-->
+                    {rval div/SCHOOL_KIND_DIV}
+                    <!--{/def}-->
+<!--{def use_school_detail_gcm_dat}-->
+　&nbsp;　{rval COURSE_MAJOR}&nbsp;
+<!--{/def}-->
+                    　　　{rval SEMESTER}　　　{rval TESTKINDCD}&nbsp;&nbsp;&nbsp;&nbsp;</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="15%">科目名</th>
+                      <th nowrap width="15%">学年</th>
+                      <th nowrap width="*%">課程学科コース名</th>
+                      <!--{def usePerfectCourseGroup}-->
+                      <th nowrap width="30%">コース<br>グループ名</th>
+                      <!--{/def}-->
+                      <th nowrap width="10%">満点</th>
+                      <!--{def usePerfectPass}-->
+                      <th nowrap width="10%">合格点</th>
+                      <!--{/def}-->
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff">{val data/SUBCLASSNAME}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/GRADENAME}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/COURSECD_MAJORCD} {val data/COURSENAME}{val data/MAJORNAME} {val data/COURSECODE} {val data/COURSECODENAME}</td>
+                      <!--{def usePerfectCourseGroup}-->
+                      <td nowrap bgcolor="#ffffff">{val data/GROUP_NAME}</td>
+                      <!--{/def}-->
+                      <td nowrap bgcolor="#ffffff" align="right">&nbsp;{val data/PERFECT}</td>
+                      <!--{def usePerfectPass}-->
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/PASS_SCORE}</td>
+                      <!--{/def}-->
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

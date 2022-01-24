@@ -1,0 +1,106 @@
+{rval start}
+<style>
+    body {
+        padding-top:{rval padding-top};
+    }
+</style>
+
+<table width="40%" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr>
+<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+  <td>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr><td>{rval SCH_NAME2}</td></tr>
+    <tr class="no_search_line">
+    <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+      <tr class="no_search">
+        <td align="center" nowrap colspan="3"><b>{rval YEAR}年度</b></td>
+      </tr>
+      <tr class="no_search">
+        <td align="center" nowrap colspan="2">項目</td>
+        <td align="center" nowrap>値</td>
+      </tr>
+      <tr class="no_search">
+        <td align="right" nowrap colspan="2">※課程学科</td>
+        <td bgcolor="#ffffff" nowrap>{rval data/COURSE_MAJOR}</td>
+      </tr>
+      <tr class="no_search">
+        <td align="right" nowrap colspan="2">※授業時数管理区分</td>
+        <td bgcolor="#ffffff" nowrap>{rval data/JUGYOU_JISU_FLG}</td>
+      </tr>
+      <tr class="no_search">
+        <td align="right" nowrap colspan="2">※履修上限値(分子/分母)</td>
+        <td bgcolor="#ffffff"><font color="#000000">{rval data/RISYU_BUNSI} / {rval data/RISYU_BUNBO}</font></td>
+      </tr>
+      <tr class="no_search">
+        <td align="right" nowrap colspan="2">※修得上限値(分子/分母)</td>
+        <td bgcolor="#ffffff"><font color="#000000">{rval data/SYUTOKU_BUNSI} / {rval data/SYUTOKU_BUNBO}</font></td>
+      </tr>
+      <tr class="no_search">
+        <td align="right" nowrap colspan="2">※特活上限値(分子/分母)</td>
+        <td bgcolor="#ffffff"><font color="#000000">{rval data/RISYU_BUNSI_SPECIAL} / {rval data/RISYU_BUNBO_SPECIAL}</font></td>
+      </tr>
+      <tr class="no_search">
+        <td align="right" nowrap colspan="2">※上限値算出方法</td>
+        <td bgcolor="#ffffff"><font color="#000000">{rval data/JOUGENTI_SANSYUTU_HOU}</font></td>
+      </tr>
+      <tr class="no_search">
+        <td align="right" nowrap rowspan="3">※1単位あたり</td>
+        <td align="right" nowrap>授業時間(分)</td>
+        <td bgcolor="#ffffff"><font color="#000000">{rval data/JITU_JIFUN}</font></td>
+      </tr>
+      <tr class="no_search">
+        <td align="right" nowrap>特活授業時間(分)</td>
+        <td bgcolor="#ffffff"><font color="#000000">{rval data/JITU_JIFUN_SPECIAL}</font></td>
+      </tr>
+      <tr class="no_search">
+        <td align="right" nowrap>授業週数</td>
+        <td bgcolor="#ffffff"><font color="#000000">{rval data/JITU_SYUSU}</font></td>
+      </tr>
+      <tr class="no_search">
+        <td align="right" nowrap colspan="2">欠席日数注意(分子/分母)</td>
+        <td bgcolor="#ffffff"><font color="#000000">{rval data/KESSEKI_WARN_BUNSI} / {rval data/KESSEKI_WARN_BUNBO}</font></td>
+      </tr>
+      <tr class="no_search">
+        <td align="right" nowrap colspan="2">欠席日数超過(分子/分母)</td>
+        <td bgcolor="#ffffff"><font color="#000000">{rval data/KESSEKI_OUT_BUNSI} / {rval data/KESSEKI_OUT_BUNBO}</font></td>
+      </tr>
+<!--{def syusu}-->
+<!--{each syusu}-->
+      <tr class="no_search">
+        <td align="right" nowrap colspan="2">{rval syusu/SEMESTER_NAME}週数</td>
+        <td bgcolor="#ffffff"><font color="#000000">{rval syusu/HOUTEI_SYUSU_SEMESTER}</font></td>
+      </tr>
+<!--{/each}-->
+<!--{/def}-->
+<!--{def m_syusu}-->
+<!--{each m_syusu}-->
+      <tr class="no_search">
+        <td align="right" nowrap colspan="2">{rval m_syusu/SYUSU_LABEL}</td>
+        <td bgcolor="#ffffff"><font color="#000000">{rval m_syusu/HOUTEI_SYUSU_MONTH}</font></td>
+      </tr>
+<!--{/each}-->
+<!--{/def}-->
+      <tr class="no_search">
+        <td align="right" nowrap colspan="2"></td>
+        <td bgcolor="#ffffff" nowrap>{rval btn_update}&nbsp;{rval btn_cancel}&nbsp;{rval btn_end}</td>
+      </tr>
+    </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+  </table>
+</td>
+</tr>
+</table>
+
+{rval finish}
+
+<script language="JavaScript">{rval Closing}</script>
+
+
+

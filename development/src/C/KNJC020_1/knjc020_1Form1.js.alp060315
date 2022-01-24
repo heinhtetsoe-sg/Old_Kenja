@@ -1,0 +1,30 @@
+function btn_submit(cmd)
+{
+    if(cmd == 'execute'){
+        cmd = 'update';
+        document.forms[0].update_type.value = 'checked';
+    }else if(cmd == 'confirm'){
+        if(confirm('{rval MSG105}')){
+            cmd = 'update';
+        }else{
+            return false;
+        }
+    }
+    document.forms[0].cmd.value = cmd;
+    document.forms[0].submit();
+    return false;
+}
+
+function IsUserOK_ToJump(URL, syoribi, period, class_staffcd, ccd)
+{
+    window.open(URL+'?syoribi='+syoribi+'&periodcd='+period+'&STAFFCD='+class_staffcd+'&chaircd='+ccd);
+    closeWindow()
+}
+
+function closeWindow()
+{
+    if(document.forms[0].chg.value == 'on')
+        window.opener.document.forms[0].submit();
+    closeWin();
+}
+

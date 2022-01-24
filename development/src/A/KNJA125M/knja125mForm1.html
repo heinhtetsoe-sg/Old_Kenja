@@ -1,0 +1,98 @@
+{rval start}
+
+<!--{def data}-->
+<!--{def button}-->
+
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <hr width="40%" align="left">
+            &nbsp;{rval SCHREGNO}&nbsp;&nbsp;{val NAME}
+            <hr width="40%" align="left">
+            <br>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th colspan="2" width="20%">項 目</th>
+                      <th width="80%">値</th>
+                    </tr>
+                    <tr>
+                      <th rowspan="2" class="no_search" nowrap>{rval TOP/TOTAL_STUDY_TIME_TITLE}</th>
+                      <th align="right" class="no_search" nowrap Valign="top">活動内容<BR><!--{def tokyoto}-->※1<!--{/def}--></th>
+                      <td bgcolor="#ffffff" Valign="top">{rval data/TOTALSTUDYACT}<br><font size=2, color="red">{rval data/TOTALSTUDYACT_TYUI}</font></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap Valign="top">評価<BR><!--{def tokyoto}-->※1<!--{/def}--></th>
+                      <td bgcolor="#ffffff" Valign="top">{rval data/TOTALSTUDYVAL}<br><font size=2, color="red">{rval data/TOTALSTUDYVAL_TYUI}</font></td>
+                    </tr>
+<!--{def tokyoto}-->
+                    <tr>
+                      <th rowspan="2" class="no_search" nowrap>奉<br>仕<br>の<br>記<br>録</th>
+                      <th align="right" class="no_search" nowrap Valign="top">学習活動<BR>※2</th>
+                      <td bgcolor="#ffffff">{rval data/TOTALSTUDYACT2}<br><font size=2, color="red">(全角44文字X2行まで)</font></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap Valign="top">評価<BR>※2</th>
+                      <td bgcolor="#ffffff" Valign="top">{rval data/TOTALSTUDYVAL2}<br><font size=2, color="red">(全角44文字X2行まで)</font></td>
+                    </tr>
+<!--{/def}-->
+<!--{def sagaken}-->
+                    <tr>
+                      <th colspan="2" align="right" class="no_search" nowrap Valign="top">特別活動出席時数<BR></th>
+                      <td bgcolor="#ffffff">{rval data/SPECIALJISUU}　{rval button/btn_specialjisuu}</td>
+                    </tr>
+<!--{/def}-->
+                    <tr>
+                      <th colspan="2" align="right" class="no_search" nowrap Valign="top">特別活動所見<BR><!--{def tokyoto}-->※1<!--{/def}--></th>
+                      <td bgcolor="#ffffff">{rval data/SPECIALACTREMARK}<br><font size=2, color="red">{rval data/SPECIALACTREMARK_TYUI}</font>　　{rval button/btn_committee}{rval button/btn_club_spe}{rval button/btn_special_activity_sele}</td>
+                    </tr>
+                    <tr>
+                      <th colspan="2" align="right" class="no_search" nowrap Valign="top">総合所見<BR><!--{def tokyoto}-->※1<!--{/def}--></th>
+                      <td bgcolor="#ffffff">{rval data/TOTALREMARK}<br><font size=2, color="red">{rval data/TOTALREMARK_TYUI}</font>　　{rval button/btn_club_total}{rval button/btn_club_kirokubikou}{rval button/btn_qualified}{rval button/btn_hyosyo}</td>
+                    </tr>
+<!--{def naraken}-->
+                    <tr>
+                      <th colspan="2" align="right" class="no_search" nowrap Valign="top">奈良Time<BR></th>
+                      <td bgcolor="#ffffff">{rval data/NARA_TIME}<br><font size=2, color="red">{rval data/NARA_TIME_TYUI}</font></td>
+                    </tr>
+<!--{/def}-->
+                    <tr>
+                      <th colspan="2" align="right" class="no_search" nowrap Valign="top">出校の記録備考<BR><!--{def tokyoto}-->※1<!--{/def}--></th>
+                      <td bgcolor="#ffffff">{rval data/ATTENDREC_REMARK}<br><font size=2, color="red">(全角40文字X1行まで)</font>　　{rval button/TYOSASYO_SANSYO}</td>
+                      </td>
+                    </tr>
+<!--{def tokyoto}-->
+                    <tr>
+                      <th colspan="2" align="right" class="no_search" nowrap Valign="top">備考<br>※2</th>
+                      <td bgcolor="#ffffff">{rval data/CREDITREMARK}<br><font size=2, color="red">(全角44文字X5行まで)</font></td>
+                    </tr>
+<!--{/def}-->
+                    <tr>
+                      <th colspan="2" align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_end}
+                      <br>{rval button/btn_csv}<!--{def tokyoto}-->{rval button/btn_csv2}<!--{/def}--></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->

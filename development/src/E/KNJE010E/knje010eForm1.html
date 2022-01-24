@@ -1,0 +1,453 @@
+<!-- knje010eForm1.html -->
+{rval start}
+{rval IFRAME}
+<style>
+* {
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+
+.tref {
+    {rval SHOJIKOU_HEIGHT}
+    overflow-x: auto;
+    border: 1px solid gray;
+}
+
+.red {
+  color: red;
+  font-size: 0.9em;
+}
+
+table {
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.tab {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.tab, .tab tr, .tab tr th, .tab tr td {
+  border: 1px solid black;
+}
+
+tr td {
+  vertical-align: top;
+}
+
+.title {
+  padding: 3px;
+}
+
+.btn_torikomi {
+    color: #1E90FF;
+    /* font-weight: bold; */
+}
+
+</style>
+<table style="width: 100%; margin-left: 4px;">
+  <tbody>
+    <tr>
+      <td nowrap>
+      <table style="width: 100%;">
+        <tbody>
+          <tr>
+           <td>
+             <table style="width: 50%;">
+                 <tbody>
+                     <tr>
+                       <td>
+                         <hr>
+                         {rval NAME_SHOW}
+                         <hr>
+                       </td>
+                     </tr>
+                 </tbody>
+             </table>
+           </td>
+          </tr>
+
+          <tr>
+           <td style="width: 100%;">
+            {rval btn_readYear}{rval btn_yorokuYoriYomikomi}
+           </td>
+          </tr>
+
+          <tr>
+            <td>
+              <table style="width: 100%;" class="tab">
+                <tbody>
+                  <tr>
+                    <th rowspan="2" style="width: 10%;" class="title no_search">５．<br>総合的な<br>学習の時<br>間の内容<br>・評価
+                        <div style="margin-top: 1em;" >{rval btn_reload3}</div>
+                        <div>{rval btn_yorokuSanshou}</div>
+                    </th>
+                    <th style="width: 6%;" class="no_search">活動<br>内容</th>
+                    <td bgcolor="#ffffff">
+                      <div>{rval TOTALSTUDYACT}</div>
+                      <div class="red">{rval TOTALSTUDYACT_TYUI}</div>
+  <!--{def useTotalstudySlashFlg}-->
+                        <div>{rval TOTALSTUDYACT_SLASH_FLG}<LABEL for="TOTALSTUDYACT_SLASH_FLG">斜線を入れる</LABEL></div>
+  <!--{/def}-->
+                    </td>
+                  </tr>
+                  <tr>
+                    <th style="width: 6%;" class="no_search">評価</th>
+                    <td bgcolor="#ffffff">
+                      <div>{rval TOTALSTUDYVAL}</div>
+                      <div class="red">{rval TOTALSTUDYVAL_TYUI}</div>
+  <!--{def useTotalstudySlashFlg}-->
+                        <div>{rval TOTALSTUDYVAL_SLASH_FLG}<LABEL for="TOTALSTUDYVAL_SLASH_FLG">斜線を入れる</LABEL></div>
+  <!--{/def}-->
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+
+
+          <tr>
+            <td>
+            <table style="width: 100%;" class="tab">
+              <tbody>
+
+                <tr class="no_search" align="left">
+                  <th colspan="3" class="title">６．特別活動の記録</th>
+                </tr>
+                <tr class="no_search">
+                  <td >１年生　<span style="font-size: 0.8em">{rval YEAR1}</span></td>
+                  <td >２年生　<span style="font-size: 0.8em">{rval YEAR2}</span></td>
+                  <td >３年生　<span style="font-size: 0.8em">{rval YEAR3}</span></td>
+                </tr>
+                <tr bgcolor="#ffffff">
+                  <td >
+                    <div>{rval SPECIALACTREC1}</div>
+                    <div class="red">{rval SPECIALACTREC_TYUI}</div>
+                    {rval btn_committee1}{rval btn_club1_spe}{rval btn_hyosyo1_spe}<!--{def isKoma}--><br>{rval btn_marathon1}{rval btn_rouhatsu1}<!--{/def}-->
+                  </td>
+                  <td >
+                    <div>{rval SPECIALACTREC2}</div>
+                    <div class="red">{rval SPECIALACTREC_TYUI}</div>
+                    {rval btn_committee2}{rval btn_club2_spe}{rval btn_hyosyo2_spe}<!--{def isKoma}--><br>{rval btn_marathon2}{rval btn_rouhatsu2}<!--{/def}-->
+                  </td>
+                  <td >
+                    <div>{rval SPECIALACTREC3}</div>
+                    <div class="red">{rval SPECIALACTREC_TYUI}</div>
+                    {rval btn_committee3}{rval btn_club3_spe}{rval btn_hyosyo3_spe}<!--{def isKoma}--><br>{rval btn_marathon3}{rval btn_rouhatsu3}<!--{/def}-->
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr> <!-- 特別活動の記録 -->
+
+          <tr>
+            <td>
+            <table style="width: 100%;" class="tab">
+              <tbody>
+
+                <tr class="no_search" align="left">
+                  <th {rval COLSPAN_CHANGE} class="title">　　７．指導上参考となる諸事項　 <div class="red">{rval TRAIN_REF_COMMENT}</div></th>
+                </tr>
+
+                <tr bgcolor="#ffffff" height="60">
+                  <td {rval COLSPAN_CHANGE} style="padding: 4px;" >
+                      <div class="red">指導要録データ</div>
+                      <!--{def seitoSidoYorokuSogoShoken3Bunkatsu}-->
+                          <table>
+                              <tbody>
+                                  <tr class="no_search">
+                                      <th style="border: 1px solid black; text-align: left">(1)学習における特徴等<br/>(2)行動の特徴、特技等</th>
+                                      <th style="border: 1px solid black; text-align: left">(3)部活動、ボランティア活動等<br/>(4)取得資格、検定等</th>
+                                      <th style="border: 1px solid black; text-align: left">(5)その他</th>
+                                  </tr>
+                                  <tr>
+                                      <td>{rval YOROKU_TRAIN_REF1}</td>
+                                      <td>{rval YOROKU_TRAIN_REF2}</td>
+                                      <td>{rval YOROKU_TRAIN_REF3}</td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      <!--{/def}-->
+                      <!--{def not_seitoSidoYorokuSogoShoken3Bunkatsu}-->
+                          <div>{rval TOTALREMARK}</div>
+                      <!--{/def}-->
+                  </td>
+                </tr>
+                <tr>
+                  <th class="no_search" style="text-align: left; width: 220px;">
+                    <div>１年生</div>
+                    <div style="font-size: 0.9em;">{rval YEAR1}</div>
+                    <div>{val btn_formShojikouTori_1}</div>
+                  </th>
+                  <td>
+                    <table style="width: 100%;">
+                      <tbody>
+                        <tr class="no_search">
+                          <th style="text-align: left;">{rval TRAIN_REF1NAME}</th>
+                          <th style="text-align: left;">{rval TRAIN_REF2NAME}</th>
+                          <th style="text-align: left;">{rval TRAIN_REF3NAME}</th>
+                        </tr>
+                        <tr bgcolor="#ffffff">
+                          <td><div class="tref">{rval TRAIN_REF1_1}</div>
+                              <div class="red">{rval TRAIN_REF1_COMMENT}</div>
+                              <div>{rval TRAIN_REF1_1_NO_COMM}<LABEL for="{rval ID_TRAIN_REF1_1_NO_COMM}">{rval NO_COMMENTS_LABEL}</LABEL></div>
+                          </td>
+                          <td><div class="tref">{rval TRAIN_REF1_2}</div>
+                              <div class="red">{rval TRAIN_REF2_COMMENT}</div>
+                              <div>{rval TRAIN_REF1_2_NO_COMM}<LABEL for="{rval ID_TRAIN_REF1_2_NO_COMM}">{rval NO_COMMENTS_LABEL}</LABEL></div>
+                          </td>
+                          <td><div class="tref">{rval TRAIN_REF1_3}</div>
+                              <div class="red">{rval TRAIN_REF3_COMMENT}</div>
+                              <div>{rval TRAIN_REF1_3_NO_COMM}<LABEL for="{rval ID_TRAIN_REF1_3_NO_COMM}">{rval NO_COMMENTS_LABEL}</LABEL></div>
+                              {rval btn_club1_tra3}{rval btn_club_kirokubikou1_tra3}
+                          </td>
+                        </tr>
+                        <tr class="no_search">
+                          <th style="text-align: left;">{rval TRAIN_REF4NAME}</th>
+                          <th style="text-align: left;">{rval TRAIN_REF5NAME}</th>
+                          <th style="text-align: left;">{rval TRAIN_REF6NAME}</th>
+                        </tr>
+                        <tr bgcolor="#ffffff">
+                          <td><div class="tref">{rval TRAIN_REF1_4}</div>
+                              <div class="red">{rval TRAIN_REF4_COMMENT}</div>
+                              <div>{rval TRAIN_REF1_4_NO_COMM}<LABEL for="{rval ID_TRAIN_REF1_4_NO_COMM}">{rval NO_COMMENTS_LABEL}</LABEL></div>
+                              {rval btn_qualified1_tra4}
+                          </td>
+                          <td><div class="tref">{rval TRAIN_REF1_5}</div>
+                              <div class="red">{rval TRAIN_REF5_COMMENT}</div>
+                              <div>{rval TRAIN_REF1_5_NO_COMM}<LABEL for="{rval ID_TRAIN_REF1_5_NO_COMM}">{rval NO_COMMENTS_LABEL}</LABEL></div>
+                              {rval btn_hyosyo1_tra5}{rval btn_club_kirokubikou1_tra5}
+                          </td>
+                          <td><div class="tref">{rval TRAIN_REF1_6}</div>
+                              <div class="red">{rval TRAIN_REF6_COMMENT}</div>
+                              <div>{rval TRAIN_REF1_6_NO_COMM}<LABEL for="{rval ID_TRAIN_REF1_6_NO_COMM}">{rval NO_COMMENTS_LABEL}</LABEL></div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+
+                <tr>
+                  <th class="no_search" style="text-align: left;">
+                    <div>２年生</div>
+                    <div style="font-size: 0.9em;">{rval YEAR2}</div>
+                    <div>{val btn_formShojikouTori_2}</div>
+                  </th>
+                  <td>
+                    <table style="width: 100%">
+                      <tbody>
+                        <tr class="no_search">
+                          <th style="text-align: left;">{rval TRAIN_REF1NAME}</th>
+                          <th style="text-align: left;">{rval TRAIN_REF2NAME}</th>
+                          <th style="text-align: left;">{rval TRAIN_REF3NAME}</th>
+                        </tr>
+                        <tr bgcolor="#ffffff">
+                          <td><div class="tref">{rval TRAIN_REF2_1}</div>
+                              <div class="red">{rval TRAIN_REF1_COMMENT}</div>
+                              <div>{rval TRAIN_REF2_1_NO_COMM}<LABEL for="{rval ID_TRAIN_REF2_1_NO_COMM}">{rval NO_COMMENTS_LABEL}</LABEL></div>
+                          </td>
+                          <td><div class="tref">{rval TRAIN_REF2_2}</div>
+                              <div class="red">{rval TRAIN_REF2_COMMENT}</div>
+                              <div>{rval TRAIN_REF2_2_NO_COMM}<LABEL for="{rval ID_TRAIN_REF2_2_NO_COMM}">{rval NO_COMMENTS_LABEL}</LABEL></div>
+                          </td>
+                          <td><div class="tref">{rval TRAIN_REF2_3}</div>
+                              <div class="red">{rval TRAIN_REF3_COMMENT}</div>
+                              <div>{rval TRAIN_REF2_3_NO_COMM}<LABEL for="{rval ID_TRAIN_REF2_3_NO_COMM}">{rval NO_COMMENTS_LABEL}</LABEL></div>
+                              {rval btn_club2_tra3}{rval btn_club_kirokubikou2_tra3}
+                          </td>
+                        </tr>
+                        <tr class="no_search">
+                          <th style="text-align: left;">{rval TRAIN_REF4NAME}</th>
+                          <th style="text-align: left;">{rval TRAIN_REF5NAME}</th>
+                          <th style="text-align: left;">{rval TRAIN_REF6NAME}</th>
+                        </tr>
+                        <tr bgcolor="#ffffff">
+                          <td><div class="tref">{rval TRAIN_REF2_4}</div>
+                              <div class="red">{rval TRAIN_REF4_COMMENT}</div>
+                              <div>{rval TRAIN_REF2_4_NO_COMM}<LABEL for="{rval ID_TRAIN_REF2_4_NO_COMM}">{rval NO_COMMENTS_LABEL}</LABEL></div>
+                              {rval btn_qualified2_tra4}
+                          </td>
+                          <td><div class="tref">{rval TRAIN_REF2_5}</div>
+                              <div class="red">{rval TRAIN_REF5_COMMENT}</div>
+                              <div>{rval TRAIN_REF2_5_NO_COMM}<LABEL for="{rval ID_TRAIN_REF2_5_NO_COMM}">{rval NO_COMMENTS_LABEL}</LABEL></div>
+                              {rval btn_hyosyo2_tra5}{rval btn_club_kirokubikou2_tra5}
+                          </td>
+                          <td><div class="tref">{rval TRAIN_REF2_6}</div>
+                              <div class="red">{rval TRAIN_REF6_COMMENT}</div>
+                              <div>{rval TRAIN_REF2_6_NO_COMM}<LABEL for="{rval ID_TRAIN_REF2_6_NO_COMM}">{rval NO_COMMENTS_LABEL}</LABEL></div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+
+                <tr>
+                  <th class="no_search" style="text-align: left;">
+                    <div>３年生</div>
+                    <div style="font-size: 0.9em;">{rval YEAR3}</div>
+                    <div>{val btn_formShojikouTori_3}</div>
+                  </th>
+                  <td>
+                    <table style="width: 100%;">
+                      <tbody>
+                        <tr class="no_search">
+                          <th style="text-align: left;">{rval TRAIN_REF1NAME}</th>
+                          <th style="text-align: left;">{rval TRAIN_REF2NAME}</th>
+                          <th style="text-align: left;">{rval TRAIN_REF3NAME}</th>
+                        </tr>
+                        <tr bgcolor="#ffffff">
+                          <td><div class="tref">{rval TRAIN_REF3_1}</div>
+                              <div class="red">{rval TRAIN_REF1_COMMENT}</div>
+                              <div>{rval TRAIN_REF3_1_NO_COMM}<LABEL for="{rval ID_TRAIN_REF3_1_NO_COMM}">{rval NO_COMMENTS_LABEL}</LABEL></div>
+                          </td>
+                          <td><div class="tref">{rval TRAIN_REF3_2}</div>
+                              <div class="red">{rval TRAIN_REF2_COMMENT}</div>
+                              <div>{rval TRAIN_REF3_2_NO_COMM}<LABEL for="{rval ID_TRAIN_REF3_2_NO_COMM}">{rval NO_COMMENTS_LABEL}</LABEL></div>
+                          </td>
+                          <td><div class="tref">{rval TRAIN_REF3_3}</div>
+                              <div class="red">{rval TRAIN_REF3_COMMENT}</div>
+                              <div>{rval TRAIN_REF3_3_NO_COMM}<LABEL for="{rval ID_TRAIN_REF3_3_NO_COMM}">{rval NO_COMMENTS_LABEL}</LABEL></div>
+                              {rval btn_club3_tra3}{rval btn_club_kirokubikou3_tra3}
+                          </td>
+                        </tr>
+                        <tr class="no_search">
+                          <th style="text-align: left;">{rval TRAIN_REF4NAME}</th>
+                          <th style="text-align: left;">{rval TRAIN_REF5NAME}</th>
+                          <th style="text-align: left;">{rval TRAIN_REF6NAME}</th>
+                        </tr>
+                        <tr bgcolor="#ffffff">
+                          <td><div class="tref">{rval TRAIN_REF3_4}</div>
+                              <div class="red">{rval TRAIN_REF4_COMMENT}</div>
+                              <div>{rval TRAIN_REF3_4_NO_COMM}<LABEL for="{rval ID_TRAIN_REF3_4_NO_COMM}">{rval NO_COMMENTS_LABEL}</LABEL></div>
+                              {rval btn_qualified3_tra4}
+                          </td>
+                          <td><div class="tref">{rval TRAIN_REF3_5}</div>
+                              <div class="red">{rval TRAIN_REF5_COMMENT}</div>
+                              <div>{rval TRAIN_REF3_5_NO_COMM}<LABEL for="{rval ID_TRAIN_REF3_5_NO_COMM}">{rval NO_COMMENTS_LABEL}</LABEL></div>
+                              {rval btn_hyosyo3_tra5}{rval btn_club_kirokubikou3_tra5}
+                          </td>
+                          <td><div class="tref">{rval TRAIN_REF3_6}</div>
+                              <div class="red">{rval TRAIN_REF6_COMMENT}</div>
+                              <div>{rval TRAIN_REF3_6_NO_COMM}<LABEL for="{rval ID_TRAIN_REF3_6_NO_COMM}">{rval NO_COMMENTS_LABEL}</LABEL></div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr> <!-- 指導上参考となる諸事項 -->
+
+          <tr>
+            <td>
+              <table style="width:100%;" class="tab">
+                <tbody>
+                  <tr class="no_search" align="left">
+                    <th class="title">　　８．備考</th>
+                  </tr>
+                  <tr>
+                    <td bgcolor="#ffffff">
+                      <div>{rval REMARK}</div>
+                      <div>
+                      <span class="red">{rval REMARK_TYUI}</span>
+                      <span>{rval REMARK_NO_COMMENTS}<LABEL for="REMARK_NO_COMMENTS">{rval NO_COMMENTS_LABEL}</LABEL>
+                      <!--{def UseMaruA_avg}-->
+                      　　　　　学習成績概評のマルＡ評定平均値（{rval MARU_A_AVG}）
+                      <!--{/def}-->
+                      <!--{def UnUseMaruA_avg}-->
+                      　　　　　{rval COMMENTEX_A_CD}<label for="COMMENTEX_A_CD">学習成績概評のマルＡ表示対象者</label>
+                      <!--{/def}-->
+                      </span>
+                      </div>
+                      <div>
+                      {rval btn_formBikoTori}
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <table style="width: 100%;" class="tab">
+                <tbody>
+
+                  <tr class="no_search" align="left">
+                    <th colspan="3" class="title">　　９．{rval ATTEND_TITLE}備考　</th>
+                  </tr>
+                  <tr class="no_search">
+                    <td >１年生　<div style="font-size: 0.9em;">{rval YEAR1}</div></td>
+                    <td >２年生　<div style="font-size: 0.9em;">{rval YEAR2}</div></td>
+                    <td >３年生　<div style="font-size: 0.9em;">{rval YEAR3}</div></td>
+                  </tr>
+                  <tr bgcolor="#ffffff">
+                    <td ><div>{rval ATTENDREC_REMARK1}</div>
+                        <div class="red">{rval ATTENDREC_REMARK_TYUI}</div>
+                        <!--{def useAttendrecRemarkTokkiJikouNasi}--><div>{rval INS_COMMENTS1}<LABEL for="INS_COMMENTS1">{rval INS_COMMENTS_LABEL1}</LABEL></div><!--{/def}-->
+                        <!--{def useAttendrecRemarkSlashFlg}--><div>{rval ATTENDREC_REMARK_SLASH_FLG1}<LABEL for="ATTENDREC_REMARK_SLASH_FLG1">斜線を入れる</LABEL></div><!--{/def}-->
+                        <!--{def tyousasyoSyukketsuKirokuBtn}--><div>{rval btn_syukketsu_sansyo1}</div><!--{/def}-->
+                        <div>{rval SANSYO1}</div>
+                        <div>{rval YOROKU_SANSYO1}</div>
+                        <!--{def REASON_COLLECTION_SELECT}--><div>{rval btn_reason_collection_select1}</div><!--{/def}-->
+                    </td>
+                    <td ><div>{rval ATTENDREC_REMARK2}</div>
+                        <div class="red">{rval ATTENDREC_REMARK_TYUI}</div>
+                        <!--{def useAttendrecRemarkTokkiJikouNasi}--><div>{rval INS_COMMENTS2}<LABEL for="INS_COMMENTS2">{rval INS_COMMENTS_LABEL2}</LABEL></div><!--{/def}-->
+                        <!--{def useAttendrecRemarkSlashFlg}--><div>{rval ATTENDREC_REMARK_SLASH_FLG2}<LABEL for="ATTENDREC_REMARK_SLASH_FLG2">斜線を入れる</LABEL></div><!--{/def}-->
+                        <!--{def tyousasyoSyukketsuKirokuBtn}--><div>{rval btn_syukketsu_sansyo2}</div><!--{/def}-->
+                        <div>{rval SANSYO2}</div>
+                        <div>{rval YOROKU_SANSYO2}</div>
+                        <!--{def REASON_COLLECTION_SELECT}--><div>{rval btn_reason_collection_select2}</div><!--{/def}-->
+                    </td>
+                    <td ><div>{rval ATTENDREC_REMARK3}</div>
+                        <div class="red">{rval ATTENDREC_REMARK_TYUI}</div>
+                        <!--{def useAttendrecRemarkTokkiJikouNasi}--><div>{rval INS_COMMENTS3}<LABEL for="INS_COMMENTS3">{rval INS_COMMENTS_LABEL3}</LABEL></div><!--{/def}-->
+                        <!--{def useAttendrecRemarkSlashFlg}--><div>{rval ATTENDREC_REMARK_SLASH_FLG3}<LABEL for="ATTENDREC_REMARK_SLASH_FLG3">斜線を入れる</LABEL></div><!--{/def}-->
+                        <!--{def tyousasyoSyukketsuKirokuBtn}--><div>{rval btn_syukketsu_sansyo3}</div><!--{/def}-->
+                        <div>{rval SANSYO3}</div>
+                        <div>{rval YOROKU_SANSYO3}</div>
+                        <!--{def REASON_COLLECTION_SELECT}--><div>{rval btn_reason_collection_select3}</div><!--{/def}-->
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </td>
+          </tr> <!-- 出欠の記録備考 -->
+
+          <tr>
+            <td>
+            <table style="width: 100%; border: 1px solid #dddddd;">
+              <tbody>
+                <tr class="no_search">
+                  <td bgcolor="#ffffff">
+                    <div>{rval btn_formSeiseki}　{rval btn_update}{rval btn_up_pre}{rval btn_up_next}{rval btn_reset}{rval btn_back}</div>
+                    <div>{rval button/btn_check1}{rval button/btn_check2} {rval button/btn_homeRoomShojikouTori} {rval button/btn_print}</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->
+<script language="javascript">{rval reload}</script>
+

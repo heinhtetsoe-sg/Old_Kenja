@@ -1,0 +1,24 @@
+// kanji=漢字
+// $Id$
+
+2021/04/02  1.新規作成(KNJL411Hからコピー)
+            -- ENTEXAM_SETTING_MST L301(試験名->コード変換)、L404(続柄名->コード変換)追加
+
+2021/04/05  1.続柄のコード取得を入試設定マスタ「L404」から名称マスタ「H201」変更
+
+2021/04/08  1.以下の項目をCSVから正しく編集設定
+              ENTEXAM_STD_APPLICANTBASE_DAT.ADDR1
+              ENTEXAM_STD_APPLICANTBASE_DAT.ADDR2
+              ENTEXAM_STD_APPLICANTBASE_DAT.EMAIL
+              ENTEXAM_STD_APPLICANTGUARDIAN_DAT.GUARD_ZIP
+              ENTEXAM_STD_APPLICANTGUARDIAN_DAT.GUARD_NAME
+              ENTEXAM_STD_APPLICANTGUARDIAN_DAT.GUARD_NAME_KANA
+
+2021/04/09  1.ヘッダ出力を追加
+            2.ヘッダ有チェックボックスを追加
+
+2021/04/13  1.英検の情報（CSV34列目）の登録先の変更
+              ENTEXAM_STD_APPLICANTCONFRPT_REMARK_DAT.REMARK3
+                ↓変更
+              ENTEXAM_STD_APPLICANTCONFRPT_REMARK_DAT.SPECIAL_REMARK
+

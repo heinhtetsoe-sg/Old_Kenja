@@ -1,0 +1,92 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td valign="top">
+      <table width="450" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr>
+                      <th width="25%" class="no_search" nowrap><b>&nbsp;対象年度&nbsp;</b></th>
+                      <td width="75%" bgcolor="#ffffff" nowrap>{rval YEAR}</td>
+                    </tr>
+                    <!--{def schkind}-->
+                    <tr>
+                      <th class="no_search" nowrap><b>&nbsp;校種&nbsp;</b></th>
+                      <td bgcolor="#ffffff" nowrap>{rval SCHKIND}</td>
+                    </tr>
+                    <!--{/def}-->
+                    <tr>
+                      <th width="25%" class="no_search" nowrap><b>&nbsp;部クラブ&nbsp;</b></th>
+                      <td width="75%" bgcolor="#ffffff" nowrap>{rval CLUBLIST}</td>
+                    </tr>
+                  </table>
+                </td>
+                <td width="*" bgcolor="#ffffff">　</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td colspan="2"> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <!--{def ALL_ROWSPAN}--><th nowrap width="150">大会</th><!--{/def}-->
+                      <th nowrap width="85">日付</th>
+                      <th nowrap width="50">区分</th>
+                      <th nowrap width="30">No.</th>
+                      <th nowrap width="150">部クラブ</th>
+                      <th nowrap width="150">生徒</th>
+                      <th nowrap width="150">開催地域</th>
+                      <th nowrap width="150">種目</th>
+                      <th nowrap width="150">種目種類</th>
+                      <th nowrap width="150">成績</th>
+                      <th nowrap width="150">記録</th>
+                      <th nowrap width="150">備考</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/ROWSPAN}--><td bgcolor="#ffffff" nowrap rowspan={rval data/ROWSPAN}>{rval data/MEET_NAME}</td><!--{/def}-->
+                      <td bgcolor="#ffffff" nowrap align="center">{rval data/DETAIL_DATE}</td>
+                      <td bgcolor="#ffffff" nowrap align="center">{rval data/DIV_NAME}</td>
+                      <td bgcolor="#ffffff" nowrap align="center">{rval data/DETAIL_SEQ}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data/CLUBNAME}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data/SCH_NAME}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data/HOSTCD}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data/ITEMCD}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data/KINDCD}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data/RECORDCD}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data/DOCUMENT}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data/DETAIL_REMARK}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

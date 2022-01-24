@@ -1,0 +1,144 @@
+{rval start}
+<style type="text/css">
+<!--
+    .tablespace {color:white; background-color:white; text-align:center }
+    .subtitle {color:white; background-color:#316F9B; font-size:13pt }
+    .stfn {color:black; background-color:white; text-align:left }
+    .rstfn {color:black; background-color:#FFFFCC; text-align:left; font-weight:bold}
+-->
+</style>
+<table width="1250px" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+      <th valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+          <tr>
+            <td width="100%">
+              <table width="100%" border="0" cellspacing="1" cellpadding="6" bgcolor="#000066">
+                <tr class="no_search" nowrap>
+                  <th>処理年度　{rval TOP/THIS_YEAR}</th>
+                  <th>
+                      学年　{rval grade}　
+                      <!--{rval sub_combo}&nbsp;-->
+                      {rval btn_before}&nbsp;
+                      {rval control/executedate}&nbsp;
+                      {rval btn_next}&nbsp;
+                      {rval button/btn_new}&nbsp;
+                  </th>
+                </tr>
+              </table>
+            </td>
+            <th width="24%">
+                <table width="90%" height="90%" border="0" cellspacing="1" cellpadding="10" bgcolor="#000066">
+                  <tr nowrap>
+<!--                    <th BGCOLOR="#ffffff"><font color="silver">授業無</font></th>
+                    <th BGCOLOR="#3399ff"><font color="#ffffff">出欠済</font></th>
+                    <th BGCOLOR="#ff0099"><font color="#ffffff">出欠未</font></th>
+                    <th BGCOLOR="#ffff00"><font color="black">出欠中</font></th>  -->
+                  </tr>
+                </table>
+            </th>
+          </tr>
+        </table>
+        <table width="100%">
+          <tr align="center">
+            <td>
+                <div style="margin-left:200px">表示データ：{rval CNTL_DT_KEY}</div>
+            </td>
+          </tr>
+        </table>
+      </th>
+  </tr>
+  <tr>
+  <td>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+      <tr>
+      <td>
+<!-- ADD 2005/11/04 by ameku -->
+<!--{def DHEADER}-->
+        <div id="dheader" style="width:auto">
+          <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+            <td>
+              <table id="theader" border="0" cellspacing="1" cellpadding="1" bgcolor="silver">
+                <tr class="no_search" nowrap>
+                  <th align="center" nowrap width="25" height="25" rowspan="2">削<br>除<br>{val CHECKALL}</th>
+                  <th align="center" nowrap width="130" height="25" rowspan="2">年組番</th>
+                  <th align="center" nowrap width="130" height="25" rowspan="2">氏名</th>
+                  <th align="center" nowrap width="130" height="25" rowspan="2">来室日時</th>
+                  <th align="center" nowrap width="80" height="25" rowspan="2">退室時間</th>
+                  <th align="center" nowrap width="100" height="25" rowspan="2">種別</th>
+                  <th align="center" nowrap width="150" height="25" rowspan="2">理由</th>
+                  <th align="center" nowrap width="60" height="25" rowspan="2">体温</th>
+                  <th align="center" nowrap width="150" height="25" rowspan="2">処置</th>
+                  <th align="center" nowrap width="300" height="25" rowspan="2">特記事項</th>
+                </tr>
+              </table>
+            </td>
+            </tr>
+          </table>
+        </div>
+<!--{/def}-->
+<!-- ADD 2005/11/04 by ameku -->
+        <div id="dbody" style="width:auto;height:500; overflow-y:scroll; overflow-x:auto">
+          <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+            <td>
+              <table id="tbody" border="0" cellspacing="1" cellpadding="1" rules="all">
+                <!--{def data}-->
+                <!--結果一覧-->
+                <!--{each data}-->
+                <tr>
+                  <td align="center" width="25">{val data/CHECKED}</td>
+                  <td width="130">{val data/HR_NAME_ATTEND}</td>
+                  <td width="130">{val data/NAME}</td>
+                  <td width="130">{val data/VISIT_TIME}</td>
+                  <td width="80">{val data/OUT_TIME}</td>
+                  <td width="100">{val data/TYPE}:{val data/TYPE_NAME}</td>
+                  <td width="150">{val data/TYPE_REASON1}</td>
+                  <td width="60">{val data/BODY_TEMPERATURE}</td>
+                  <td width="150">{val data/TREATMENT1}</td>
+                  <td width="280"><p class="turning">{val data/SEQ99_REMARK_L1}</p></td>
+                </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+              </table>
+            </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+  <tr>
+    <th>
+      <table width="100%" border="0" cellspacing="1" cellpadding="3"  bgcolor="#000066"> 
+        <tr>
+          <th class="no_search">
+              {rval button/btn_delete}&nbsp;{rval button/btn_clear}&nbsp;{rval button/btn_end}&nbsp;
+              <!--{rval btn_detail}&nbsp;{rval btn_confirm}&nbsp;{rval btn_update}&nbsp;{rval btn_jump}&nbsp; -->
+              {rval btn_end}
+          </th>
+        </tr>
+      </table>
+    </th>
+  </tr>
+
+<style>
+.ui-button-text {
+    font-size: 0.8em;
+    padding: 0.1em !important;
+}
+.ui-dialog-content {
+    font-size: 0.9em;
+}
+</style>
+
+</table>
+{rval finish}
+<script language="JavaScript">
+var URLS = '{rval URLS}';
+{rval Closing}{rval jumping}{rval celcolchan}{rval update_chk}
+window.onunload=function(){if (newWin) newWin.close();}</script>
+

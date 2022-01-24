@@ -1,0 +1,97 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR>
+
+<table width="900px" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td align="center">
+                          {rval data/YEAR}年度　　学期:{rval data/SEMESTER}　　教科:{rval data/CLASSCD}　　科目:{rval data/SUBCLASSCD}<br>対象日　<b>{rval el/DATE}</b>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象</b></th>
+                      <th class="no_search"></th>
+                      <th><b>講座一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CLASS_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD align="left"  bgcolor="#ffffff">
+                        <TABLE>
+                          <tr>
+                            <td>
+                                　　　<b>フォーム選択</b>　{rval data/KANA_PRINT}<LABEL for="KANA_PRINT">ふりがな出力する</LABEL><br>
+                                　　　　　　　{rval data/FRM_PATERN1}<LABEL for="FRM_PATERN1">　出席番号、氏名</LABEL><br>
+                                　　　　　　　{rval data/FRM_PATERN2}<LABEL for="FRM_PATERN2">　出席番号、氏名、出身学校</LABEL><br>
+                                　　　　　　　{rval data/FRM_PATERN3}<LABEL for="FRM_PATERN3">　英語(出席番号、氏名)</LABEL><br>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                                　　　<b>出力件数</b>　　　{rval data/KENSUU}件
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                                　　　{rval data/GRD_NAME_NASI}<LABEL for="GRD_NAME_NASI">退学者・転学者・卒業生の名前は空白とする</LABEL>
+                            </td>
+                          </tr>
+                        </TABLE>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_xls}{rval button/btn_end}
+                　<font color="red" size="2"> ※PDF印字する場合は、ページの拡大／縮小は "なし" を選択してください。</font>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap></td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}
+<script language="javascript">{rval jscript}</script>

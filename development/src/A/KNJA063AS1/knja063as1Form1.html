@@ -1,0 +1,106 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10" align="center">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr> 
+      <td>
+      <table border="0" cellspacing="0" cellpadding="1"  width="100%">
+        <tr bgcolor="#006633"> 
+        <td> 
+          <table border="0" cellpadding="2" cellspacing="0"  width="100%">
+            <tr bgcolor="#cccccc"> 
+              <td nowrap colspan="2">
+                &nbsp;<B>{rval term}</b>　対象複式クラス&nbsp;{rval GHR_CD}&nbsp;&nbsp;担任：{rval teacher}
+              </td>
+            </tr>
+            <tr bgcolor="#cccccc">
+              <td nowrap>
+               &nbsp;<b>並び:</b>　{rval sort4}　　{rval sort1}　　{rval sort2}　　{rval sort3}
+              </td>
+            </tr>
+            <tr bgcolor="#cccccc">
+              <td>
+                <table border="0" cellpadding="0" cellspacing="0"  width="100%">
+                  <tr>
+                  <td align="right">
+                  <!--{def button}-->
+                  {rval button/BTN_DELETE}&nbsp;{rval button/BTN_ATTEND}&nbsp;{rval button/BTN_OK}&nbsp{rval button/BTN_CLEAR}&nbsp{rval button/BTN_END}
+                  <!--{/def}--> 
+                  </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>            
+        </td>
+        </tr>
+      </table>
+      </td>
+      </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="1">
+      <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="150" nowrap>年組番</th>
+              <th width="100" nowrap>学籍番号</th>
+              <th width="150" nowrap>氏名</th>
+              <th width="150" nowrap>氏名かな</th>
+              <th width="100" nowrap>性別</th>
+              <th width="*" nowrap>出席番号</th>
+           </tr>
+            </table>
+          </td>
+          </tr>
+         </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <div style="width: 100%; height=550; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3"> 
+                <!--{def data}-->
+                <!--結果一覧-->
+                <!--{each data}--> 
+                  <tr bgcolor="no_search" nowrap>
+                    <td bgcolor="#ffffff" nowrap align="center" width="150">{rval data/NENKUMIBAN}</td>
+                    <td bgcolor="#ffffff" nowrap align="center" width="100">{rval data/SCHREGNO}</td>
+                    <td bgcolor="#ffffff" nowrap width="150">{rval data/NAME}</td>
+                    <td bgcolor="#ffffff" nowrap width="150">{rval data/KANA}</td>
+                    <td bgcolor="#ffffff" nowrap align="center" width="100">{rval data/SEX_NAME}</td>
+                    <td bgcolor="#ffffff" nowrap align="center" width="*">{rval data/GHR_ATTENDNO}</td>
+                  </tr>
+                <!--{/each}--> 
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+        </table>
+      </td>
+      </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<script language="JavaScript">{rval jscript}</script>
+{rval finish}

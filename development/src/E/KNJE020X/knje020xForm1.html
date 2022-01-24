@@ -1,0 +1,83 @@
+{rval start}
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+        <td valign="top">
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr>
+                  <td>
+                     <hr width="75%" align="left">
+                        年度学期：{rval head/YEAR_SEME}&nbsp;&nbsp;年組：{rval head/HR_CLASS}&nbsp;&nbsp;調査書(就職用)&nbsp;&nbsp;入力項目：{rval head/INPUT_VAL}
+                     <hr width="75%" align="left">
+                       <br>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                                <td> 
+                                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr>
+                                          <th width="30%" align="right" class="no_search" nowrap Valign="top"></th>
+                                          <th width="*%" align="left" class="no_search" nowrap Valign="top">{rval head/TITLE}　　<font size=2, color="red">{rval head/TITLE_TYUI}</font></th>
+                                        </tr>
+                                      </table>
+                                </td>
+                          </tr>
+                          <tr class="no_search_line">
+                              <td bgcolor="#ffffff">
+                                <div style="width:100%;height:460;overflow:auto">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr class="no_search_line">
+                                  <td>
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{each data}-->
+<!--{def data/JOBHUNT_REC}-->
+                                        <tr>
+                                          <td width="30%" bgcolor="#ffffff">{rval data/STUDENTINFO}</td>
+                                          <td width="*%" bgcolor="#ffffff">{rval data/JOBHUNT_REC}</td>
+                                        </tr>
+<!--{/def}-->
+<!--{def data/JOBHUNT_ABSENCE}-->
+                                        <tr>
+                                          <td width="30%" bgcolor="#ffffff">{rval data/STUDENTINFO}</td>
+                                          <td width="*%" bgcolor="#ffffff">{rval data/JOBHUNT_ABSENCE}</td>
+                                        </tr>
+<!--{/def}-->
+<!--{def data/JOBHUNT_HEALTHREMARK}-->
+                                        <tr>
+                                          <td width="30%" bgcolor="#ffffff">{rval data/STUDENTINFO}</td>
+                                          <td width="*%" bgcolor="#ffffff">{rval data/JOBHUNT_HEALTHREMARK}</td>
+                                        </tr>
+<!--{/def}-->
+<!--{def data/JOBHUNT_RECOMMEND}-->
+                                        <tr>
+                                          <td width="30%" bgcolor="#ffffff">{rval data/STUDENTINFO}</td>
+                                          <td width="*%" bgcolor="#ffffff">{rval data/JOBHUNT_RECOMMEND}</td>
+                                        </tr>
+<!--{/def}-->
+<!--{/each}-->
+                                  </table>
+                                  </td>
+                                  </tr>
+                                </table>
+                                </div>
+                              </td>
+                          </tr>
+                          <tr class="no_search_line">
+                              <td>
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                    <tr>
+                                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                                      <td bgcolor="#ffffff">
+                                        {rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+</table>
+{rval finish}

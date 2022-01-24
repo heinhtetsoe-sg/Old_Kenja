@@ -1,0 +1,119 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="10" align="center">
+  <tr>
+    <th valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+              <tr class="no_search" nowrap>
+                <td>
+                    &nbsp;&nbsp;処理年度：{rval YEAR}年度
+                    &nbsp;&nbsp;日付：{rval DATE}
+<!--{def useFi_Hrclass}-->
+                    &nbsp;&nbsp;&nbsp;{rval data/HR_CLASS_TYPE1}<LABEL for="HR_CLASS_TYPE1">法定クラス</LABEL>
+                    &nbsp;{rval data/HR_CLASS_TYPE2}<LABEL for="HR_CLASS_TYPE2">{rval data/HR_CLASS_TYPE2_LABEL}</LABEL>
+<!--{/def}-->
+                    &nbsp;&nbsp;学級：{rval GRADE_HR_CLASS}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </th>
+  </tr>
+  <tr>
+    <th>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <th align="right">
+            <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+              <tr class="no_search" align="center" nowrap>
+                <td rowspan="2" width="40"><font size="1">No.</font></td>
+                <td rowspan="2" width="150"><font size="1">氏&nbsp;&nbsp;名</font></td>
+                <!--{def subl_title}-->
+                <td  colspan={rval subl_title_cnt} width={rval subl_title_width}><font size="1">病欠の詳細</font></td>
+                <!--{/def}-->
+                <!--{def NONOTICE}-->
+                <td rowspan="2" width="35"><font size="1">{rval NONOTICE}</font></td>
+                <!--{/def}-->
+                <!--{def NOTICE}-->
+                <td rowspan="2" width="35"><font size="1">{rval NOTICE}</font></td>
+                <!--{/def}-->
+                <!--{def SUS_MOUR}-->
+                <td colspan="2" width="70"><font size="1">出席停止<br>・忌引</font></td>
+                <!--{/def}-->
+                <!--{def NOT_SUS_MOUR}-->
+                <!--{def SUSPEND}-->
+                <td rowspan="2" width="35"><font size="1">{rval SUSPEND}</font></td>
+                <!--{/def}-->
+                <!--{def MOURNING}-->
+                <td rowspan="2" width="35"><font size="1">{rval MOURNING}</font></td>
+                <!--{/def}-->
+                <!--{/def}-->
+                <!--{def ABSENT}-->
+                <td rowspan="2" width="35"><font size="1">{rval ABSENT}</font></td>
+                <!--{/def}-->
+                <!--{def SICK}-->
+                <td rowspan="2" width="35"><font size="1">{rval SICK}</font></td>
+                <!--{/def}-->
+                <!--{def LATE}-->
+                <td rowspan="2" width="35"><font size="1">{rval LATE}</font></td>
+                <!--{/def}-->
+                <!--{def EARLY}-->
+                <td rowspan="2" width="35"><font size="1">{rval EARLY}</font></td>
+                <!--{/def}-->
+                <td rowspan="2" width="#"><font size="1">備考<br>(全角20文字)</font></td>
+              </tr>
+              <tr class="no_search" align="center" nowrap>
+                <!--{def subl_title}-->
+                  {rval subl_title}
+                <!--{/def}-->
+                <!--{def SUS_MOUR}-->
+                <td width="35"><font size="1">{rval SUSPEND}</font></td>
+                <td width="35"><font size="1">{rval MOURNING}</font></td>
+                <!--{/def}-->
+              </tr>
+            </table>
+          </th>
+        </tr>
+        <tr>
+          <th align="right">
+          <div style="height:500;overflow:auto">
+            <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+              <!--{each attend_data}-->
+              <tr bgcolor="{rval attend_data/BGCOLOR_ROW}" align="center" nowrap>
+                <td width="40">{rval attend_data/ATTENDNO}</td>
+                <td width="150" align="left" {rval attend_data/BGCOLOR_NAME_SHOW}><font size="2">{rval attend_data/NAME_SHOW}</font></td>
+                {rval attend_data/att_data}{rval attend_data/SCHREGNO}
+                <td width="#">{rval attend_data/REMARK}</td>
+              </tr>
+              <!--{/each}-->
+            </table>
+          </div>
+          </th>
+        </tr>
+        <tr>
+          <th align="right">
+            <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+              <tr class="no_search" nowrap>
+                <td>
+                    　　　　　　　　　　　　　　{rval btn_updateHrAte}　　　　　　　　　　　　　　　　　　　　　　　
+                    {rval btn_update}
+                    {rval btn_reset}
+                    {rval btn_end}
+                </td>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </table>
+    </th>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

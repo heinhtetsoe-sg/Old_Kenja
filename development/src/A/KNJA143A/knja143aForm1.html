@@ -1,0 +1,83 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR>
+
+<table width="50%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+	<td nowrap> 
+	  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+		<tr bgcolor="#ffffff"> 
+		  <td> 
+			<table width="100%" border="0" cellpadding="0" cellspacing="5" >
+		      <tr class="no_search_line"> 
+                <td width="100%"> 
+		          <table width="100%" border="0" cellpadding="5" cellspacing="1">
+			        <tr class="no_search"> 
+			          <td width="10%" nowrap>
+								<b>フォーム選択</b><br>&nbsp;
+								{rval data/OUTPUT1}<LABEL for="OUTPUT1">{rval data/SELFORMLABELSTR}</LABEL>
+								{rval data/OUTPUT2}<LABEL for="OUTPUT2">カード</LABEL>&nbsp;
+								({rval data/OUT2PRINT_SIDE1}<LABEL for="OUT2PRINT_SIDE1">表</LABEL>&nbsp;&nbsp;{rval data/OUT2PRINT_SIDE2}<LABEL for="OUT2PRINT_SIDE2">裏</LABEL>)
+				      </td>
+			          <th><b>{rval data/YEAR}年度　{rval data/GAKKI}　　{rval data/GRADE}　　{rval data/GRADE_HR_CLASS}</b></th>
+			        </tr>
+			      </table>
+		        </td>
+		      </tr>
+			  <tr class="no_search_line"> 
+				<td width="100%"> 
+				  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+					<tr align="center" class="no_search"> 
+					  <th><b>出力対象一覧</b></th>
+					  <th class="no_search"></th>
+					  <th><b>生徒一覧</b></th>
+					</tr>
+					<tr align="center" bgcolor="#ffffff">
+					  <td width="40%">{rval data/CATEGORY_SELECTED}</td>
+					  <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+					  <td width="40%">{rval data/CATEGORY_NAME}</td>
+					</tr>
+				  </table>
+				</td>
+			  </tr>
+			  <TR class="no_search_line">
+                <TD>
+				  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+				    <TR>
+					  <TD height="70" align="left"  bgcolor="#ffffff">
+				  		<TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+				    	  <TR>
+					  		<TD>
+								&nbsp;&nbsp;&nbsp;&nbsp;<b>発行日</b>&nbsp;&nbsp;&nbsp;&nbsp;
+								{rval data/TERM_SDATE}&nbsp;&nbsp;
+								&nbsp;&nbsp;&nbsp;&nbsp;<b>有効期限</b>&nbsp;&nbsp;&nbsp;&nbsp;
+								{rval data/TERM_EDATE}
+			          		</TD>
+                      	  </TR>
+						</TABLE>
+			          </TD>
+                    </TR>
+				  </TABLE>
+				</TD>
+			  </TR>
+			</table>
+		  </td>
+		</tr>
+	  </table>
+	</td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

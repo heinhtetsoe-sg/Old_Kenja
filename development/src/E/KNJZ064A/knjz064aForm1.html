@@ -1,0 +1,78 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th width="30%" class="no_search" nowrap><b>年度</b></td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval YEAR}　　{rval button/btn_copy}</td>
+                    </tr>
+                    <tr>
+                      <th width="30%" class="no_search" nowrap><b>学期</b></td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval SEMESTER}</td>
+                    </tr>
+                    <tr>
+                      <th width="30%" class="no_search" nowrap><b>学部</b></td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval GAKUBU_SCHOOL_KIND}</td>
+                    </tr>
+                    <tr>
+                      <th width="30%" class="no_search" nowrap><b>年組</b></td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval HR_CLASS}<!--{def ghr}-->&nbsp;>>&nbsp;{rval HR_CLASS2}<!--{/def}--></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="10"></td>
+        </tr>
+        <tr>
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="10%" nowrap><b>状態区分</b></th>
+                      <th width="10%" nowrap><b>グループ<BR>コード</b></th>
+                      <th width="30%" nowrap><b>名称</b></th>
+                      <th width="10%" nowrap><font size="1"><b>指導計画<BR>帳票<BR>パターン</b></font></th>
+                      <th width="*%" nowrap><b>科目</b></th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/ROWSPAN}-->
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN}>{val data/CONDITION_NAME}</td>
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN} align="center"><a href="knjz064aindex.php?cmd=edit2&YEAR={val data/YEAR}&GROUPCD={val data/GROUPCD}&GAKUBU_SCHOOL_KIND={val data/GAKUBU_SCHOOL_KIND}&CONDITION={val data/CONDITION}" target="right_frame">{val data/GROUPCD}</a></td>
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN}>{val data/GROUPNAME}</td>
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN} align="center">{val data/GUIDANCE_PATTERN}</td>
+                      <!--{/def}-->
+                      <td nowrap bgcolor="#ffffff">{val data/SUBCLASS}</td>
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+   </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

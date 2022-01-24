@@ -1,0 +1,86 @@
+{rval start}
+<!--{def button}-->
+<!-- Edit by HPA for PC-talker 読み start 2020/01/20 -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id = "screen_id" aria-label="{rval NAME_SHOW}の出欠の記録参照画面">
+  <!-- Edit by HPA for PC-talker 読み end 2020/01/31 -->
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                <hr width="55%" align="left">
+                    &nbsp;{rval NAME_SHOW}
+                <hr width="55%" align="left">
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+<!--{def useSemes}-->
+                      <th width="3%" align="center">　</th>
+<!--{/def}-->
+                      <!-- Edit by HPA for PC-talker 読み start 2020/01/20 -->
+                      <th width={rval WIDTH} align="center" aria-label="">学期</th>
+                      <!-- Edit by HPA for PC-talker 読み end 2020/01/31 -->
+                      <td width={rval WIDTH} align="center">授業日数</td>
+                      <td width={rval WIDTH} align="center"><LABEL for="CHECK_SUSPEND">出席停止</LABEL><br>{rval CHECK_SUSPEND}</td>
+<!--{def useVirus}-->
+                       <!-- Edit by HPA for PC-talker 読み start 2020/01/20 -->
+                      <td width={rval WIDTH} align="center"><LABEL for="CHECK_VIRUS" aria-label= "">{rval VIRUS_NAME}</LABEL><br>{rval CHECK_VIRUS}</td>
+<!--{/def}-->
+<!--{def useKoudome}-->
+                      <td width={rval WIDTH} align="center"><LABEL for="CHECK_KOUDOME" aria-label ="">{rval KOUDOME_NAME}</LABEL><br>{rval CHECK_KOUDOME}</td>
+<!--{/def}-->
+                      <td width={rval WIDTH} align="center"><LABEL for="CHECK_MOURNING" aria-label="">忌引</LABEL><br>{rval CHECK_MOURNING}</td>
+                      <!-- Edit by HPA for PC-talker 読み end 2020/01/31 -->
+                      <td width={rval WIDTH} align="center">要出席日数</td>
+                      <td width={rval WIDTH} align="center"><LABEL for="CHECK_SICK">欠席日数</LABEL><br>{rval CHECK_SICK}</td>
+                      <td width={rval WIDTH} align="center">出席日数</td>
+                      <td width={rval WIDTH} align="center"><LABEL for="CHECK_LATE">遅刻</LABEL><br>{rval CHECK_LATE}</td>
+                      <td width={rval WIDTH} align="center"><LABEL for="CHECK_EARLY">早退</LABEL><br>{rval CHECK_EARLY}</td>
+                    </tr>
+                    <!--{each data}-->
+                    <tr align="center" height="30">
+<!--{def useSemes}-->
+                      <td bgcolor="#ffffff">{rval data/CHECK_SEMES}</td>
+<!--{/def}-->
+                      <!-- Edit by HPA for PC-talker 読み start 2020/01/20 -->
+                      <th align="center" class="no_search" nowrap aria-label="">{rval data/SEMESTERNAME}</th>
+                      <!-- Edit by HPA for PC-talker 読み end 2020/01/31 -->
+                      <td bgcolor="#ffffff">{rval data/LESSON}</td>
+                      <td bgcolor="#ffffff">{rval data/SUSPEND}</td>
+<!--{def useVirus}-->
+                      <td bgcolor="#ffffff">{rval data/VIRUS}</td>
+<!--{/def}-->
+<!--{def useKoudome}-->
+                      <td bgcolor="#ffffff">{rval data/KOUDOME}</td>
+<!--{/def}-->
+                      <td bgcolor="#ffffff">{rval data/MOURNING}</td>
+                      <td bgcolor="#ffffff">{rval data/ATTEND1}</td>
+                      <td bgcolor="#ffffff">{rval data/SICK}</td>
+                      <td bgcolor="#ffffff">{rval data/ATTEND2}</td>
+                      <td bgcolor="#ffffff">{rval data/LATE}</td>
+                      <td bgcolor="#ffffff">{rval data/EARLY}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <tr>
+                      <td class="no_search" colspan={rval COLSPAN} align="right" nowrap>{rval button/btn_torikomi}　{rval button/btn_back}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+{rval finish}
+{rval javascript}

@@ -1,0 +1,109 @@
+﻿{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td>
+            <hr width="50%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="50%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="150">氏名</th>
+              <th width="50">続柄</th>
+              <th width="*">備考</th>
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <div style="width: 100%; height=170; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def data2}-->
+                <!--{each data2}-->
+                  <tr bgcolor="#ffffff">
+                    <td width="150" align="left">
+                      <a href="knje390mindex.php?cmd=family_set&YEAR={val data2/YEAR}&SCHREGNO={val data2/SCHREGNO}&RELANO={val data2/RELANO}">{rval data2/RELANAME}</a>
+                    </td>
+                    <td width="50" align="left">{rval data2/RELATIONSHIP_NAME}</td>
+                    <td width="*" align="left">{rval data2/REMARK}</td>
+                  </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+        
+        <tr><td height="20"></td></tr>
+        
+<!--{def data}-->
+<!--{def button}-->
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>※氏名</th>
+                <td bgcolor="#ffffff">
+                  {rval data/RELANAME}
+                  <font size=2 color="red">{rval data/RELANAME_COMMENT}</font>
+                </td>
+              </tr>
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>※氏名かな</th>
+                <td bgcolor="#ffffff">
+                  {rval data/RELAKANA}<br>
+                  <font size=2 color="red">{rval data/RELAKANA_COMMENT}</font>
+                </td>
+              </tr>
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>続柄</th>
+                <td bgcolor="#ffffff">{rval data/RELATIONSHIP}</td>
+              </tr>
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>備考</th>
+                <td bgcolor="#ffffff">
+                  {rval data/REMARK}
+                  <font size=2 color="red">{rval data/REMARK_COMMENT}</font>
+                </td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td align="left" bgcolor="#ffffff">{rval button/btn_insert}{rval button/btn_update}{rval button/btn_delete}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+<!--{/def}-->
+<!--{/def}-->
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish} 

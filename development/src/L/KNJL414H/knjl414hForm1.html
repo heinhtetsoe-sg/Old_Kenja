@@ -1,0 +1,147 @@
+{rval start}
+<table width="70%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="1">
+              <tr class="no_search_line">
+                <th>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                    <tr> 
+                      <td height="30" width="40%" align="right" class="no_search" nowrap>
+                        ※入試年度
+                      </td>
+                      <td height="30" width="20%" align="center" bgcolor="#FFFFFF" nowrap>
+                        {rval TOP/ENTEXAMYEAR}
+                      </td>
+                      <td height="30" width="10%" align="center" class="no_search" nowrap>
+                        ※入試制度
+                      </td>
+                      <td height="30" width="10%" align="right" bgcolor="#FFFFFF" nowrap>
+                        {rval TOP/APPLICANTDIV}
+                      </td>
+                      <td height="30" width="10%" class="no_search" align="right" nowrap>
+                        受験番号
+                      </td>
+                      <td height="30" width="10%" bgcolor="#ffffff" align="right" nowrap>
+                        {rval TOP/S_RECEPTNO}から50名　{rval BUTTON/BACK}{rval BUTTON/NEXT}&nbsp;
+                      </td>
+                    </tr>
+                  </table>
+                </th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="1">
+              <tr class="no_search_line">
+                <th>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                    <tr>
+                      <td style="color:#FFFFFF">
+                        <!--{def applicantdiv_flg1}-->{rval TOP/RADIO1}<LABEL for="RADIO1">中学内申</LABEL><!--{/def}-->
+                        {rval TOP/RADIO2}<LABEL for="RADIO2">模試結果</LABEL>
+                        <!--{def applicantdiv_flg3}-->{rval TOP/RADIO3}<LABEL for="RADIO3">OPT結果</LABEL><!--{/def}-->
+                      </td>
+                    </tr>
+                  </table>
+                </th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+  
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap height="40" width="100">志願者SEQ</th>
+                      <th nowrap width="200">氏名</th>
+<!--{def radio_flg1}-->
+                      <th nowrap>内諾5科<br />(中学3年間)</th>
+                      <th nowrap>内諾5科<br />(中学3年)</th>
+                      <th nowrap>内諾9科<br />(中学3年)</th>
+                      <th nowrap>強化クラブ</th>
+                      <th nowrap>国・数・英に2が有る</th>
+<!--{/def}-->
+<!--{def radio_flg2}-->
+                      <th nowrap>模試名</th>
+                      <th nowrap>模試結果</th>
+<!--{/def}-->
+<!--{def radio_flg3}-->
+                      <th nowrap width="200">OPT<br />結果1</th>
+                      <th nowrap width="200">OPT<br />結果2</th>
+                      <th nowrap width="200">OPT<br />結果3</th>
+                      <th nowrap width="*">OPT判定</th>
+<!--{/def}-->
+                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+                    <tr style="text-align:center">
+                      <td nowrap bgcolor="#ffffff" style="width:100px">{val data/EXAMNO}</td>
+                      <td nowrap bgcolor="#ffffff" style="text-align:left;width:200px">{val data/NAME}</td>
+<!--{def radio_flg1}-->
+                      <td nowrap bgcolor="#ffffff">{val data/CD2REMARK1}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/CD2REMARK2}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/CD2REMARK3}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/CD2REMARK4}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/CD2REMARK7}</td>
+<!--{/def}-->
+<!--{def radio_flg2}-->
+                      <td nowrap bgcolor="#ffffff">{val data/CD3REMARK1}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/CD3REMARK2}</td>
+<!--{/def}-->
+<!--{def radio_flg3}-->
+                      <td nowrap bgcolor="#ffffff">{val data/CD4REMARK1}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/CD4REMARK2}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/CD4REMARK3}</td>
+                      <td nowrap bgcolor="#ffffff" align="left">{val data/CD4REMARK4}&nbsp;{val data/CD4REMARKX}</td>
+<!--{/def}-->
+                      
+                    </tr>
+<!--{/each}-->
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="1">
+              <tr class="no_search_line">
+                <th>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                    <tr>
+                      <td height="30" width="100" class="no_search" nowrap>
+                        &nbsp;
+                      </td>
+                      <td bgcolor="#FFFFFF">
+                        {rval BUTTON/UPDATE}{rval BUTTON/DELETE}{rval BUTTON/RESET}{rval BUTTON/END}
+                      </td>
+                    </tr>
+                  </table>
+                </th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<!--<script language="JavaScript">{rval reload}</script>-->

@@ -1,0 +1,153 @@
+{rval start}
+<style>
+body {
+    overflow-y: auto;
+}
+div.holder {
+    display: block;
+    box-sizing: border-box;
+    float: left;
+    height: 400px;
+}
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="10" align="center">
+    <tr class="no_search_line">
+      <td nowrap>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr bgcolor="#ffffff">
+            <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+                <tr class="no_search_line">
+                  <td nowrap>
+                        <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                          <tr class="no_search">
+                            <th class="no_search">過回比較</th>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+              </table>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+              
+<!--{def HYOUZI}-->
+    <tr class="no_search_line">
+      <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tbody>
+          <tr bgcolor="#ffffff">
+            <th class="no_search" align="center">模試種別</th>
+          </tr>
+          <tr bgcolor="#ffffff">
+            <td align="center">{rval SYUBETU}</td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr class="no_search_line">
+      <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tbody>
+          <tr bgcolor="#ffffff">
+            <th class="no_search" align="center">教科絞込み</th>
+          </tr>
+          <tr bgcolor="#ffffff">
+            <td align="center">{rval button/btn_reappear}　{rval button/btn_sanka}　{rval button/btn_all}</td>
+          </tr>
+          <tr bgcolor="#ffffff">
+            <td align="center">{rval CHECK}</td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    
+    <tr class="no_search_line">
+      <td nowrap>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr bgcolor="#ffffff">
+            <td>
+            <!--{each data4}-->
+            <div style="width:100%;margin-bottom:10px;height:210px;">
+                <table border="0" cellpadding="0" cellspacing="0" align="left">
+                    <tr bgcolor="#ffffff">
+                      <td nowrap style="text-align:left;font-size:110%;font-weight:bold;padding:5px;">{rval data4/KYOUKA}</td>
+                    </tr>
+                    <tr class="no_search_line">
+                      <td nowrap>
+                            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                              <tr bgcolor="#ffffff">
+                                <th class="no_search" width="8%" nowrap></th>
+                                <!--{each data4/data}-->
+                                <th class="no_search" colspan="2" nowrap>{rval data4/data/mockname}</th>
+                                <!--{/each}-->
+                              </tr>
+                              
+                              <!--{each data4/data2}-->
+                              <tr bgcolor="#ffffff">
+                                <th class="no_search"  align="center"  nowrap>{rval data4/data2/th}</th>
+                                {rval data4/data2/td}
+                              </tr>
+                              <!--{/each}-->
+                              
+                              <tr bgcolor="#ffffff">
+                                <th class="no_search" width="8%" nowrap>平均<br>偏差値</th>
+                                <!--{each data4/data3}-->
+                                <th bgcolor="#ffffff" colspan="2" nowrap>{rval data4/data3/average}</th>
+                                <!--{/each}-->
+                              </tr>
+                            </table>
+                      </td>
+                    </tr>
+                </table>
+            </div>
+            <!--{/each}-->
+              </td>
+            </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+      
+    <!--{def data5}-->
+    <tr class="no_search_line">
+      <td nowrap>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr style="background: linear-gradient(135deg, #87cefa, #f0f8ff) fixed;">
+            <td>
+          <!--{each data5}-->
+          <div style="width:99.9%;margin:1px;">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                    <tr bgcolor="#ffffff">
+                        <td style="text-align:right;width:10%;">人</td>
+                        <td>
+                            <div class="holder">
+                                <canvas id="line{rval data5/GRAPHNO}" height="{rval cheight}" width="{rval cwidth}"></canvas>
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                        <td colspan="3" style="text-align:center;padding:3px;">模試名</td>
+                    </tr>
+                </table>
+          </div>
+          <!--{/each}-->
+            </td>
+          </tr>
+    <!--{/def}-->
+        </tbody>
+      </table>
+      </td>
+    </tr>
+<!--{/def}-->
+</table>
+{rval finish}

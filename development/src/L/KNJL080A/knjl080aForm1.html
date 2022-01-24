@@ -1,0 +1,129 @@
+{rval start}
+
+<table width="1500" border="0" cellspacing="0" cellpadding="5" align="center" style="margin-top:15px;">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="30">
+                      <td width="14%" class="no_search" align="center">※ 入試年度</td>
+                      <td width="25%" bgcolor="#ffffff" align="center">{rval TOP/YEAR}</td>
+                      <td width="14%" class="no_search" align="center">※ 受験校種</td>
+                      <td width="14%" bgcolor="#ffffff">{rval TOP/APPLICANTDIV}</td>
+                      <td width="14%" class="no_search" align="center">※ 試験区分</td>
+                      <td width="*" bgcolor="#ffffff">{rval TOP/TESTDIV}</td>
+                    </tr>
+                    <tr height="30">
+                      <td width="14%" class="no_search" align="center" nowrap>表示順</td>
+                      <td width="25%" bgcolor="#ffffff" align="center">
+                          {rval SORT1}<label for="SORT1">受験番号順</label>
+                          {rval SORT2}<label for="SORT2">成績順</label>
+                          {rval SORT3}<label for="SORT3">かな名順</label>
+                      </td>
+                      <td width="14%" class="no_search" align="center">表示対象</td>
+                      <td width="*" colspan="3" bgcolor="#ffffff">
+                        <label for="PASS_COURSE">&nbsp;合格コース:</label>{rval TOP/PASS_COURSE}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" align="center" height="30">
+                            <td width="80" nowrap>試験区分</td>
+                            <td width="60" nowrap>受験番号</td>
+                            <td width="185" nowrap>氏名</td>
+                            <td width="235" nowrap>出身学校</td>
+                            <td width="80" nowrap>出願</td>
+                            <td width="60" nowrap>成績</td>
+                            <td width="180" nowrap>入学コース<br>(合格コースの1及び2を指定)</td>
+                            <td width="110" {rval COURSE1_EVENT} nowrap>1.専願合格</td>
+                            <td width="110" {rval COURSE2_EVENT} nowrap>2.併願合格</td>
+                            <td width="*" nowrap>備考</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <div style="height: 500px; overflow: auto;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--結果一覧-->
+                          <!--{def data}-->
+                          <!--{each data}-->
+                          <tr id="{rval data/ROWID}" bgcolor="#ffffff" nowrap>
+                            <td width="80" align="center" nowrap>{rval data/TESTDIV_ABBV}</td>
+                            <td width="60" align="center" nowrap>{rval data/RECEPTNO}</td>
+                            <td width="185" nowrap>{rval data/NAME}</td>
+                            <td width="235" nowrap>{rval data/FINSCHOOL_NAME_ABBV}</td>
+                            <td width="80" align="center" nowrap>{rval data/SHDIVNAME}</td>
+                            <td width="60" align="center" nowrap>{rval data/TOTAL}</td>
+                            <td width="50" align="center" nowrap>{rval data/INPUT_SHDIV}</td>
+                            <td width="123" id="COURSENAME-{rval data/RECEPTNO}" nowrap>{rval data/COURSENAME}</td>
+                            <td width="110" {rval data/EVENT1} nowrap>{rval data/COURSENAME1}</td>
+                            <td width="110" {rval data/EVENT2} nowrap>{rval data/COURSENAME2}</td>
+                            <td width="*" nowrap>{rval data/BIKOU}</td>
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr>
+                            <td class="no_search" nowrap>&nbsp;</td>
+                            <td width="14%" bgcolor="#ffffff" nowrap>{rval btn_update}{rval btn_reset}{rval btn_end}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

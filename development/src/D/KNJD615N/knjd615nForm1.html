@@ -1,0 +1,84 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR>
+<BR><BR><BR>
+
+<table width="50%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search" align="center"> 
+                      <td><b>
+                        {rval data/YEAR}年度　　{rval data/SEMESTER}　{rval data/GRADE}　{rval data/TESTKINDCD}
+                      </b></td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="50" align="center">
+                      <td>
+                        <b>&nbsp&nbsp&nbsp出欠集計範囲</b>&nbsp;{rval data/SDATE} ～ &nbsp;{rval data/DATE}<br>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象クラス</b></th>
+                      <th class="no_search"></th>
+                      <th><b>クラス一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CLASS_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD align="left"  bgcolor="#ffffff">
+                        <TABLE cellspacing="5">
+                          <TR>
+                            <TD>　　　　&nbsp;{rval data/OUTPUT5}<LABEL for="OUTPUT5">総合的な学習の時間を表示しない</LABEL></TD>
+                          </TR>
+                          <TR>
+                            <TD>　　　　&nbsp;{rval data/OUTPUT6}<LABEL for="OUTPUT6">ＬＨＲを表示しない</LABEL></TD>
+                          </TR>
+                        </TABLE>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

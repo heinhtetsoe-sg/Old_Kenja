@@ -1,0 +1,165 @@
+{rval start}
+<!--{def button}--> 
+<!--{def data}-->
+
+<INPUT type="hidden" name="selectdata" size="70"><br>
+
+
+<table style="width: 530px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+    <table style="width: 530px" border="0" cellspacing="5" cellpadding="0">
+    <tr>
+    <td>
+        <table style="width: 530px" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+          <table style="width: 530px"    border="0" cellspacing="1" cellpadding="4">
+            <tr class="no_search" height="30">
+              <td>
+                    <b>　　　{rval data/YEAR}年度 　{rval data/GAKKINAME}</b>
+              </td>
+            </tr>
+            <tr bgcolor="#ffffff" height="50">
+            　<td>
+                <table>
+                  <tr>
+                    <td>
+                      <FIELDSET>
+                      <LEGEND><b>出欠表種別</b></LEGEND>
+                        <table>
+                          <TR>
+                            <TD>　{rval data/RADIO1}科目別出欠集計表<TD>
+                          </TR>
+                          <TR>
+                            <TD>　{rval data/RADIO2}本日の出欠状況</TD>
+                          </TR>
+                        </table>
+                      </FIELDSET>
+                    </td>
+            　      <td>
+                      <FIELDSET>
+                      <LEGEND><b>印刷範囲</b></LEGEND>
+                        <table>
+                          <TR><TD></TD></TR>
+                          <TR><TD></TD></TR>
+                          <TR><TD></TD></TR>
+                          <TR>
+                            <td valign="middle">{rval data/DATE1}　～　{rval data/DATE2}</td>
+                          </tr>
+                          <TR><TD></TD></TR>
+                          <TR><TD></TD></TR>
+                          <TR><TD></TD></TR>
+                          <TR><TD></TD></TR>
+                        </table>
+                      </FIELDSET>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr bgcolor="#ffffff" height=280">
+              <td colspan="7">
+                <table>
+                  <tr>
+            　      <td>
+                      <table style= border="0" cellspacing="4" cellpadding="0">
+                        <tr>
+                          <td>
+                             　     {rval button/btn_read}
+                          </td>
+                        </tr>
+                        <tr class="no_search_line"> 
+                          <td width="100%"> 
+                            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                              <tr align="center" class="no_search"> 
+                                <th><b>出力対象クラス</b></th>
+                                <th class="no_search"></th>
+                                <th><b>クラス一覧</b></th>
+                              </tr>
+                              <tr align="center" bgcolor="#ffffff">
+                                <td width="45%">{rval data/CLASS_SELECTED}</td>
+                                <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                                    {rval button/btn_left1}<BR>
+                                    {rval button/btn_right1}<BR>
+                                    {rval button/btn_rights}
+                                <td width="45%">{rval data/CLASS_NAME}</td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td>
+                      <FIELDSET>
+                      <LEGEND><b>出力する情報</b></LEGEND>
+                        <table>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr>
+                            <td>{rval data/OUTPUT1}遅　刻</td>
+                          </tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <TR>
+                            <TD>{rval data/OUTPUT2}欠　課</TD>
+                          </TR>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <TR>
+                            <TD>{rval data/OUTPUT3}出　欠</TD>
+                          </TR>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                          <tr><td></td></tr>
+                        </table>
+                      </FIELDSET>
+                    </td>
+                  </tr>
+                </table>
+              </TD>
+            </tr>
+            <tr class="no_search">
+              <td align="left">
+                {rval button/btn_print}{rval button/btn_end}
+              </td>
+            </tr>
+          </table>
+        </td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+    </table>
+</td>
+</tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 
+<script language="JavaScript">{rval Dis_Date}</script>

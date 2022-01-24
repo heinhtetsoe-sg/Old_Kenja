@@ -1,0 +1,115 @@
+<script language="JavaScript">{rval jscript}</script>
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr >
+    <td>
+      <table border="0" cellspacing="2" cellpadding="1">
+      <tr bgcolor="#006633">
+      <td>
+          <table border="0" cellpading="1" cellspacing="0">
+          <tr bgcolor="#cccccc">
+            <th align="left" nowrap>
+              {rval radio/CLASS_RADIO1}<LABEL for="CLASS_RADIO1">複式クラス</LABEL>
+              &nbsp;&nbsp;{rval radio/CLASS_RADIO2}<LABEL for="CLASS_RADIO2">法定クラス</LABEL>
+            </th>
+          </tr>
+          <tr bgcolor="#cccccc">
+            <th align="left" nowrap>
+            &nbsp;参照学期&nbsp;{rval term2}&nbsp;{rval btn_copy}<br>
+            　　　　　　{rval btn_check}<LABEL for="check">{rval SCH_LABEL}もコピー</LABEL>（{rval btn_grddiv}<LABEL for="grd_div">退学者・転学者・卒業生も含む</LABEL>）&nbsp;
+            </th>
+          </tr>
+          </table>
+      </td>
+      </tr>
+      </table>
+    </td>
+    </tr>
+    <tr > 
+      <td > 
+      <table border="0" cellspacing="0" cellpadding="1">
+      <tr bgcolor="#006633"> 
+      <td> 
+          <table border="0" cellpadding="1" cellspacing="0">
+          <tr bgcolor="#cccccc"> 
+          <th align="left" nowrap>&nbsp;対象年度&nbsp;{rval term}&nbsp;&nbsp;</th>
+          </tr>
+          </table>
+      </td>
+      </tr>
+      </table>
+      </td>
+      </tr>
+      <BR>
+        <table width="900" border="0" cellspacing="0" cellpadding="10">
+          <tr> 
+            <td valign="top"> 
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr > 
+                  <td > 
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr class="no_search_line"> 
+                        <td> 
+                          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <tr class="no_search"> 
+                              <th width="6%" nowrap>学年</th>
+                              <th width="4%" nowrap>&nbsp;組&nbsp;</th>
+                              <th width="%" nowrap>クラス形態</th>
+                              <th width="%" nowrap>年組名称</th>
+                              <th width="%" nowrap>年組略称</th>
+                              <th width="15%" nowrap>担任１</th>
+                              <th width="15%" nowrap>担任２</th>
+                              <th width="15%" nowrap>担任３</th>
+                              <th width="15%" nowrap>副担任１</th>
+                              <th width="15%" nowrap>副担任２</th>
+                              <th width="15%" nowrap>副担任３</th>
+                              <th width="%" nowrap>組名称1</th>
+                              <th width="%" nowrap>組名称2</th>
+                              <th width="%" nowrap>ＨＲ施設</th>
+                              <th width="%" nowrap>学期授業週数</th>
+                              <th width="%" nowrap>学期授業日数</th>
+                            </tr>
+                            <!--{def data}-->
+                            <!--結果一覧-->
+                            <!--{each data}--> 
+                            <tr bgcolor="{rval data/backcolor}"> 
+                              <td nowrap align="center" width="5%">{val data/GRADE}</td>
+                              <td nowrap align="center" width="5%">{val data/URL}</td>
+                              <td nowrap width="15%">{val data/RECORD_DIV_NAME}</td>
+                              <td nowrap width="15%">{val data/HR_NAME}</td>
+                              <td nowrap width="15%">{val data/HR_NAMEABBV}</td>
+                              <td nowrap width="15%">{val data/TR_CD1}&nbsp;{val data/NAME1}</td>
+                              <td nowrap width="15%">{val data/TR_CD2}&nbsp;{val data/NAME2}</td>
+                              <td nowrap width="15%">{val data/TR_CD3}&nbsp;{val data/NAME3}</td>
+                              <td nowrap width="15%">{val data/SUBTR_CD1}&nbsp;{val data/NAME4}</td>
+                              <td nowrap width="15%">{val data/SUBTR_CD2}&nbsp;{val data/NAME5}</td>
+                              <td nowrap width="15%">{val data/SUBTR_CD3}&nbsp;{val data/NAME6}</td>
+                              <td nowrap width="15%">{val data/HR_CLASS_NAME1}</td>
+                              <td nowrap width="15%">{val data/HR_CLASS_NAME2}</td>
+                              <td nowrap width="%">{val data/HR_FACCD}&nbsp;{val data/FACILITYNAME}</td>
+                              <td nowrap align="right" width="%">{val data/CLASSWEEKS}</td>
+                              <td nowrap align="right" width="%">{val data/CLASSDAYS}</td>
+                            </tr> 
+                            <!--{/each}--> 
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        <!--{/def}-->
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+<script language="JavaScript">{rval combo}{rval reload}</script>
+{rval finish}

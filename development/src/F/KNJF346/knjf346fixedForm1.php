@@ -1,0 +1,40 @@
+<?php
+
+require_once('for_php7.php');
+
+
+class knjf346fixedForm1
+{
+    public function main(&$model)
+    {
+        $objForm = new form();
+        $arg = array();
+        //フォーム作成
+        $arg["start"] = $objForm->get_start("knjf346fixedForm1", "POST", "knjf346index.php", "", "knjf346fixedForm1");
+
+        //変更開始日付
+        $arg["data"]["FIXED_DATE"] = View::popUpCalendar($objForm, "FIXED_DATE", str_replace("-", "/", CTRL_DATE), "");
+
+        //DB接続
+        $db = Query::dbCheckOut();
+
+        //更新ボタン
+        $extra = "onclick=\"return btn_submit('fixedUpd');\"";
+        $arg["button"]["btn_update"] = knjCreateBtn($objForm, "btn_update", "確 定", $extra);
+
+        //終了ボタン
+        $extra = "onclick=\"return btn_submit();\"";
+        $arg["button"]["btn_end"] = knjCreateBtn($objForm, "btn_end", "キャンセル", $extra);
+
+        //hidden
+        knjCreateHidden($objForm, "cmd");
+
+        //DB切断
+        Query::dbCheckIn($db);
+
+        $arg["finish"] = $objForm->get_finish();
+
+        //テンプレートのHTMLを読み込んでデータを$arg経由で渡す。
+        View::toHTML($model, "knjf346fixedForm1.html", $arg);
+    }
+}

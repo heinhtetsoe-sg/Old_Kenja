@@ -1,0 +1,49 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <br>
+
+        <tr>
+          <td>
+            {rval TARGET_DIV1}利用者&nbsp&nbsp{rval TARGET_DIV2}グループ
+          </td>
+        </tr>
+
+        <tr class="no_search_line"> 
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+              <tr class="no_search"> 
+                <th nowrap width="*%">目標値コード</th>
+                <th nowrap width="30%">ユーザー名称</th>
+                <th nowrap width="30%">目標値名称</th>
+                <th nowrap width="15%">目標値略称１</th>
+                <th nowrap width="15%">目標値略称２</th>
+              </tr>
+
+              <!--{def data}-->
+              <!--{each data}--> 
+              <tr>
+                <td nowrap align="center" width="*%" bgcolor="#ffffff"><a href="knjh331index.php?cmd=edit&TARGETCD={val data/TARGETCD}&STF_AUTH_CD={val data/STF_AUTH_CD}" target="right_frame">{val data/TARGETCD}</a></td>
+                <td nowrap width="30%" bgcolor="#ffffff">{val data/STF_AUTH_NAME}</td>
+                <td nowrap width="30%" bgcolor="#ffffff">{val data/TARGETNAME1}</td>
+                <td nowrap width="15%" bgcolor="#ffffff">{val data/TARGETNAME2}</td>
+                <td nowrap width="15%" bgcolor="#ffffff">{val data/TARGETNAME3}</td>
+              </tr> 
+              <!--{/each}--> 
+              <!--{/def}-->
+
+            </table>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

@@ -1,0 +1,59 @@
+{rval start}
+<!--{def data}-->
+<!--{def button}-->
+
+<br>
+<table width="100%" border="0" cellspacing="15" cellpadding="0">
+  <tr class="no_search_line" align="center">
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="1" cellpadding="0">
+        <tr class="no_search_line"> 
+          <td width="100%"> 
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr height="30">
+                <th width="20%" class="no_search" align="center" nowrap><b>項 目</b></th>
+                <td width="80%" class="no_search" align="center" colspan='3'>値</td>
+              </tr>
+              <tr height="30">
+                <th width="20%" class="no_search" align="right" nowrap><b>※状態区分</b></th>
+                <td width="80%" bgcolor="#ffffff" colspan='3'>&nbsp;{rval CONDITION}</td>
+              </tr>
+              <tr height="30">
+                <th width="20%" class="no_search" align="right" nowrap><b>※グループコード</b></th>
+                <td width="80%" bgcolor="#ffffff" colspan='3'>&nbsp;{rval CLASSGROUP_CD}<font size=2, color="red">{rval CLASSGROUP_CD_COMMENT}</font></td>
+              </tr>
+              <tr height="30">
+                <th width="20%" class="no_search" align="right" nowrap><b>※教科グループ名</b></th>
+                <td width="80%" bgcolor="#ffffff" colspan='3'>&nbsp;{rval CLASSGROUP_NAME}<font size=2, color="red">{rval CLASSGROUP_NAME_COMMENT}</font></td>
+              </tr>
+              <tr align="center" class="no_search" height="30"> 
+                <th width="20%" class="no_search" rowspan="3" align="right" nowrap><b>教科</b></th>
+                <th><b>対象教科一覧</b></th>
+                <th class="no_search">&nbsp;</th>
+                <th><b>教科一覧</b></th>
+              </tr>
+              <tr align="center" bgcolor="#ffffff">
+                <td width="35%">{rval data/SELECTED}</td>
+                <td width="*%" class="no_search">
+                  {rval button/btn_lefts}<br>
+                  {rval button/btn_left1}<br>
+                  {rval button/btn_right1}<br>
+                  {rval button/btn_rights}</td>
+                <td width="35%">{rval data/NAME}</td>
+              </tr>
+              <tr align="center" bgcolor="#ffffff">
+                <td width="*%" align="left" bgcolor="#ffffff" colspan="3">{rval button/btn_add}{rval button/btn_update}{rval button/btn_delete}{rval button/btn_reset}{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+<script language="javascript">{rval jscript}</script>
+{rval finish}

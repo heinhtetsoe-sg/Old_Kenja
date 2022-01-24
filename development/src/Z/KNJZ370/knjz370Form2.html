@@ -1,0 +1,67 @@
+{rval start} 
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" align="center">
+                      <th>項 目</th>
+                      <th>値</th>
+                    </tr>
+                    <tr class="no_search">
+                      <th align="right">グループ<br>コード</th>
+                      <td bgcolor="white">{rval COURSE_SEQ}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <th align="right">グループ名</th>
+                      <td bgcolor="white">{rval GROUP_NAME}&nbsp;&nbsp;<font size=2 color="red">※全角15文字</font></td>
+                    </tr>
+                    <tr class="no_search" rowspan="2">
+                      <th align="right" nowrap>グループ<br>クラス</th>
+                      <td>
+                        <table width="100%" border="0" cellpadding="2" cellspacing="1">
+                          <tr align="center" class="no_search"> 
+                            <th><font color="white">受講クラス</font></th>
+                            <th class="no_search">&nbsp;</th>
+                            <th><font color="white">クラス一覧</font></th>
+                          </tr>
+                          <tr align="center" bgcolor="#ffffff">
+                            <!--{def main_part}-->
+                            <th width="45%">{rval main_part/LEFT_PART}</th>
+                            <th width="*%" class="no_search">
+                            {rval main_part/SEL_ADD_ALL}
+                            {rval main_part/SEL_ADD}
+                            {rval main_part/SEL_DEL}
+                            {rval main_part/SEL_DEL_ALL}
+                            </th>
+                            <th width="45%">{rval main_part/RIGHT_PART}</th>
+                            <!--{/def}-->
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <!--{def button}--> 
+                    <tr class="no_search">
+                      <td>&nbsp;</td>
+                      <td nowrap>
+                      {rval button/BTN_ADD}{rval button/BTN_KEEP}{rval button/BTN_DELETE}{rval button/BTN_CLEAR}{rval button/BTN_END}
+                      </td>
+                    </tr>
+              <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish} 
+<script language="javascript">{rval reload}</script>

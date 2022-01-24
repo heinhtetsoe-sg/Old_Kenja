@@ -1,0 +1,217 @@
+<!--knjxexp_ghrForm1.html -->
+{rval start}
+<table width="50%" border="0" cellspacing="3" cellpadding="1">
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellspacing="5" cellpadding="1">
+        <tr bgcolor="#006633">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="0" width="100%">
+              <tr bgcolor="#cccccc">
+                <td nowrap>{rval EXP_YEAR}</td>
+              </tr>
+              <!--{def useSpecial_Support_Hrclass}-->
+              <tr bgcolor="#cccccc">
+                <td nowrap>&nbsp;{rval HUKUSIKI_RADIO1}<LABEL for="HUKUSIKI_RADIO1">年組</LABEL>&nbsp;{rval HUKUSIKI_RADIO2}<LABEL for="HUKUSIKI_RADIO2">実クラス</LABEL></td>
+              </tr>
+              <!--{/def}-->
+              <!--{def useSpecial_Support_Hrclass1AND2AND3}-->
+              <tr bgcolor="#cccccc">
+                <td nowrap>&nbsp;{rval HUKUSIKI_RADIO1}<LABEL for="HUKUSIKI_RADIO1">年組</LABEL>（{rval GRADE_MIX}<LABEL for="GRADE_MIX">学年混合</LABEL>）&nbsp;{rval HUKUSIKI_RADIO2}<LABEL for="HUKUSIKI_RADIO2">実クラス</LABEL></td>
+              </tr>
+              <!--{/def}-->
+              <!--{def useFi_Hrclass}-->
+              <tr bgcolor="#cccccc">
+                <td nowrap>&nbsp;{rval HUKUSIKI_RADIO1}<LABEL for="HUKUSIKI_RADIO1">年組</LABEL>&nbsp;{rval HUKUSIKI_RADIO2}<LABEL for="HUKUSIKI_RADIO2">{rval RADIO_NAME}</LABEL></td>
+              </tr>
+              <!--{/def}-->
+              <tr bgcolor="#cccccc">
+                <!--{def SHOW_ATTENDNO}-->
+                <td nowrap>&nbsp;{rval GRADE}{rval btn_ungrd}{rval btn_grd}</td>
+                <!--{/def}-->
+                <!--{def SHOW_HUKUSIKI_ATTENDNO}-->
+                    <!--{def useSpecial_Support_Hrclass}-->
+                    <td nowrap>&nbsp;{rval GHR_CD}</td>
+                    <!--{/def}-->
+                    <!--{def useSpecial_Support_Hrclass1AND2AND3}-->
+                    <td nowrap>&nbsp;{rval GHR_CD}</td>
+                    <!--{/def}-->
+                    <!--{def useFi_Hrclass}-->
+                    <td nowrap>&nbsp;複式クラス：&nbsp;{rval FI_GRADE_HR_CLASS}</td>
+                    <!--{/def}-->
+                <!--{/def}-->
+                <!--{def SHOW_HUKUSIKI_ATTENDNO1AND2AND3}-->
+                    <!--{def useSpecial_Support_Hrclass1AND2AND3}-->
+                    <td nowrap>&nbsp;{rval GHR_CD}</td>
+                    <!--{/def}-->
+                <!--{/def}-->
+              </tr>
+              <tr bgcolor="#cccccc">
+                <td nowrap>&nbsp;結果：{rval CLASS_SUM}名</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap>
+        <!-- /* Add by PP for CurrentCursor 2020-01-20 start */ -->
+    <table width="100%" border="0" cellspacing="5" cellpadding="0" id="for_search" aria-label="{rval result}">
+        <!-- /* Add by PP for CurrentCursor 2020-01-31 start */ -->
+      <tr>
+        <td valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr >
+              <td >
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr class="no_search_line">
+                    <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tr class="no_search">
+                        <!--{def CHECK_ALL}-->
+                          <th width="10">{val CHECK_ALL}</th>
+                        <!--{/def}-->
+                        <!--{def INFO}-->
+                          <th nowrap width="70" >情報</th>
+                        <!--{/def}-->
+
+                        <!--{def SEARCH_A}-->
+                            <!--{def SHOW_ATTENDNO}-->
+                              <th nowrap width="70">年-組-番</th>
+                              <!-- /* Add by PP for CurrentCursor 2020-01-20 start */ -->
+                              <th nowrap width="150" aria-label="">氏名</th>
+                              <!-- /* Add by PP for CurrentCursor 2020-01-31 end */ -->
+                              <th nowrap width="150">氏名かな</th>
+                              <th nowrap width="50">学籍<BR>番号</th>
+                              <th nowrap width="50">卒業<BR>年度</th>
+                              <!--{def useSpecial_Support_Hrclass}-->
+                              <th nowrap width="70">複式年組-番</th>
+                              <!--{/def}-->
+                              <!--{def useFi_Hrclass}-->
+                              <th nowrap width="70">複式年組-番</th>
+                              <!--{/def}-->
+                            <!--{/def}-->
+                            <!--{def SHOW_HUKUSIKI_ATTENDNO}-->
+                              <!--{def useSpecial_Support_Hrclass}-->
+                              <th nowrap width="70">複式年組-番</th>
+                              <!--{/def}-->
+                              <!--{def useFi_Hrclass}-->
+                              <th nowrap width="70">複式年組-番</th>
+                              <!--{/def}-->
+                              <!-- /* Add by PP for CurrentCursor 2020-01-20 start */ -->
+                              <th nowrap width="150" aria-label="">氏名</th>
+                              <!-- /* Add by PP for CurrentCursor 2020-01-31 end */ -->
+                              <th nowrap width="150">氏名かな</th>
+                              <th nowrap width="50">学籍<BR>番号</th>
+                              <th nowrap width="50">卒業<BR>年度</th>
+                              <th nowrap width="70">年-組-番</th>
+                            <!--{/def}-->
+                            <!--{def SHOW_HUKUSIKI_ATTENDNO1AND2AND3}-->
+                              <th nowrap width="70">年-組-番</th>
+                              <!-- /* Add by PP for CurrentCursor 2020-01-20 start */ -->
+                              <th nowrap width="150" aria-label="">氏名</th>
+                              <!-- /* Add by PP for CurrentCursor 2020-01-31 end */ -->
+                              <th nowrap width="150">氏名かな</th>
+                              <th nowrap width="50">学籍<BR>番号</th>
+                              <th nowrap width="50">卒業<BR>年度</th>
+                            <!--{/def}-->
+                        <!--{/def}-->
+
+                        <!--{def SEARCH_B}-->
+                          <th nowrap width="50">学籍<BR>番号</th>
+                          <!-- /* Add by PP for CurrentCursor 2020-01-20 start */ -->
+                          <th nowrap width="150" aria-label="">氏名</th>
+                          <!-- /* Add by PP for CurrentCursor 2020-01-31 end */ -->
+                          <th nowrap width="150">氏名かな</th>
+                          <th nowrap width="70">年-組-番</th>
+                          <!--{def useSpecial_Support_Hrclass}-->
+                          <th nowrap width="70">複式年組-番</th>
+                          <!--{/def}-->
+                          <!--{def useFi_Hrclass}-->
+                          <th nowrap width="70">複式年組-番</th>
+                          <!--{/def}-->
+                          <th nowrap width="50">卒業<BR>年度</th>
+                        <!--{/def}-->
+
+                        </tr>
+                        <!--{def data}-->
+                        <!--結果一覧-->
+                        <!--{each data}-->
+                        <tr bgcolor="#ffffff">
+                        <!--{def data/CHECKED}-->
+                          <td width="10" align="center">{val data/CHECKED}</td>
+                        <!--{/def}-->
+                        <!--{def INFO}-->
+                          <td nowrap width="70" align="center" >{val data/BASE}&nbsp;{val data/HOME}&nbsp;{val data/MOVE}</td>
+                        <!--{/def}-->
+
+                        <!--{def SEARCH_A}-->
+                        <!--{def SHOW_ATTENDNO}-->
+                          <td nowrap align="right" >{val data/ATTENDNO}</td>
+                          <td nowrap><img src="{val data/IMAGE}" width="16" height="16">&nbsp;{val data/NAME_SHOW}</td>
+                          <td nowrap>{val data/NAME_KANA}</td>
+                          <td nowrap>{val data/SCHREGNO}</td>
+                          <td nowrap align="center" >{val data/GRD_YEAR}</td>
+                          <!--{def useSpecial_Support_Hrclass}-->
+                          <td nowrap align="right" >{val data/GHR_ATTENDNO}</td>
+                          <!--{/def}-->
+                          <!--{def useFi_Hrclass}-->
+                          <td nowrap align="right" >{val data/FI_ATTENDNO}</td>
+                          <!--{/def}-->
+                        <!--{/def}-->
+                        <!--{def SHOW_HUKUSIKI_ATTENDNO}-->
+                          <!--{def useSpecial_Support_Hrclass}-->
+                          <td nowrap align="right" >{val data/GHR_ATTENDNO}</td>
+                          <!--{/def}-->
+                          <!--{def useFi_Hrclass}-->
+                          <td nowrap align="right" >{val data/FI_ATTENDNO}</td>
+                          <!--{/def}-->
+                          <td nowrap><img src="{val data/IMAGE}" width="16" height="16">&nbsp;{val data/NAME_SHOW}</td>
+                          <td nowrap>{val data/NAME_KANA}</td>
+                          <td nowrap>{val data/SCHREGNO}</td>
+                          <td nowrap align="center" >{val data/GRD_YEAR}</td>
+                          <td nowrap align="right" >{val data/ATTENDNO}</td>
+                        <!--{/def}-->
+                        <!--{def SHOW_HUKUSIKI_ATTENDNO1AND2AND3}-->
+                          <td nowrap align="right" >{val data/ATTENDNO}</td>
+                          <td nowrap><img src="{val data/IMAGE}" width="16" height="16">&nbsp;{val data/NAME_SHOW}</td>
+                          <td nowrap>{val data/NAME_KANA}</td>
+                          <td nowrap>{val data/SCHREGNO}</td>
+                          <td nowrap align="center" >{val data/GRD_YEAR}</td>
+                        <!--{/def}-->
+                        <!--{/def}-->
+
+                        <!--{def SEARCH_B}-->
+                          <td nowrap>{val data/SCHREGNO}</td>
+                          <td nowrap><img src="{val data/IMAGE}" width="16" height="16">&nbsp;{val data/NAME_SHOW}</td>
+                          <td nowrap>{val data/NAME_KANA}</td>
+                          <td nowrap align="right" >{val data/ATTENDNO}</td>
+                          <!--{def useSpecial_Support_Hrclass}-->
+                          <td nowrap align="right" >{val data/GHR_ATTENDNO}</td>
+                          <!--{/def}-->
+                          <!--{def useFi_Hrclass}-->
+                          <td nowrap align="right" >{val data/FI_ATTENDNO}</td>
+                          <!--{/def}-->
+                          <td nowrap align="center" >{val data/GRD_YEAR}</td>
+                        <!--{/def}-->
+
+                        </tr>
+                        <!--{/each}-->
+                        <!--{/def}-->
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="javascript">{rval reload}{rval jscript}</script>

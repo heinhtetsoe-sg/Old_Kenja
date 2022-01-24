@@ -1,0 +1,166 @@
+{rval start}
+
+<br>
+<table width={rval ALLWIDTH} border="0" cellspacing="0" cellpadding="3" align="center">
+<tr>
+    <th valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+        <tr class="no_search" nowrap>
+            <td>
+                &nbsp;&nbsp;処理年度：{rval year}年度
+                &nbsp;{rval semester}
+<!--{def useHukusiki}-->
+                    &nbsp;&nbsp;{rval data/HR_CLASS_TYPE1}<LABEL for="HR_CLASS_TYPE1">法定クラス</LABEL>
+                    &nbsp;{rval data/HR_CLASS_TYPE2}<LABEL for="HR_CLASS_TYPE2">{rval data/HR_CLASS_TYPE2_LABEL}</LABEL>
+<!--{/def}-->
+                &nbsp;&nbsp;学級：{rval hr_class}
+                &nbsp;&nbsp;対象月：{rval month}
+                &nbsp;&nbsp;締め日：{rval SET_APPOINTED_DAY}
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </th>
+</tr>
+<tr><td><br></td></tr>
+<tr>
+    <th valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <th align="right">
+        <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+        <tr class="no_search" align="center" nowrap>
+            <td rowspan="2" width="25"><font size="1">No.</font></td>
+            <td rowspan="2" width="110"><font size="1">氏&nbsp;&nbsp;名</font></td>
+            <td rowspan="2" width="30"><font size="1">締<br>め<br>日</font></td>
+            <td rowspan="2" width="30"><font size="1">授<br>業<br>日<br>数</font></td>
+            <td rowspan="2" width="30"><font size="1">休<br>学<br>日<br>数</font></td>
+            <td rowspan="2" width="30"><font size="1">留<br>学<br>日<br>数</font></td>
+            <!--{def ABSENT}-->
+            <td rowspan="2" width="30"><font size="1">{rval ABSENT}</font></td>
+            <!--{/def}-->
+            <!--{def SUS_MOUR}-->
+            <td colspan="2" width="60"><font size="1">出席停止<br>・忌引</font></td>
+            <!--{/def}-->
+            <!--{def NOT_SUS_MOUR}-->
+            <!--{def SUSPEND}-->
+            <td rowspan="2" width="30"><font size="1">{rval SUSPEND}</font></td>
+            <!--{/def}-->
+            <!--{def MOURNING}-->
+            <td rowspan="2" width="30"><font size="1">{rval MOURNING}</font></td>
+            <!--{/def}-->
+            <!--{/def}-->
+            <td rowspan="2" width="30"><font size="1">出席<br>すべき<br>日数</font></td>
+            <!--{def SICK}-->
+            <td rowspan="2" width="30"><font size="1">{rval SICK}</font></td>
+            <!--{/def}-->
+            <!--{def NOTICE}-->
+            <td rowspan="2" width="30"><font size="1">{rval NOTICE}</font></td>
+            <!--{/def}-->
+            <!--{def NONOTICE}-->
+            <td rowspan="2" width="30"><font size="1">{rval NONOTICE}</font></td>
+            <!--{/def}-->
+            <!--{def subl_title}-->
+            <td colspan="{rval subl_title_cnt}"><font size="1">欠席の詳細</font></td>
+            <!--{/def}-->
+            <td rowspan="2" width="{rval CLASSDAYS3_WIDTH}"><font size="1">出<br>席<br>日<br>数</font></td>
+            <!--{def LATE}-->
+            <td rowspan="2" width="{rval LATE_WIDTH}"><font size="1">遅<br>刻</font></td>
+            <!--{/def}-->
+            <!--{def EARLY}-->
+            <td rowspan="2" width="{rval EARLY_WIDTH}"><font size="1">早<br>退</font></td>
+            <!--{/def}-->
+            <!--{def DETAIL_TITLE_101}-->
+            <td rowspan="2" width="#"><font size="1">{rval DETAIL_TITLE_101}</font></td>
+            <!--{/def}-->
+        </tr>
+        <tr class="no_search" align="center" nowrap>
+            <!--{def SUS_MOUR}-->
+            <td width="30"><font size="1">{rval SUSPEND}</font></td>
+            <td width="30"><font size="1">{rval MOURNING}</font></td>
+            <!--{/def}-->
+            <!--{def subl_title}-->
+                {rval subl_title}
+            <!--{/def}-->
+        </tr>
+        </table>
+        </th>
+    </tr>
+    <tr>
+        <th align="right">
+        <div style="height:500;overflow:auto">
+        <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+        <!--{each attend_data}-->
+        <tr bgcolor="{rval attend_data/BGCOLOR_ROW}" align="center" nowrap>
+            <td width="25">{rval attend_data/ATTENDNO}</td>
+            <td width="110" align="left" {rval attend_data/BGCOLOR_NAME_SHOW}><font size="2">{rval attend_data/NAME_SHOW}</font>{rval attend_data/SCHREGNO}</td>
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/APPOINTED_DAY}</td>
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/LESSON}</td>
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/OFFDAYS}</td>
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/ABROAD}</td>
+            <!--{def ABSENT}-->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/ABSENT}</td>
+            <!--{/def}-->
+            <!--{def SUSPEND}-->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/SUSPEND}</td>
+            <!--{/def}-->
+            <!--{def MOURNING}-->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/MOURNING}</td>
+            <!--{/def}-->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/CLASSDAYS2}</td>
+            <!--{def SICK}-->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/SICK}</td>
+            <!--{/def}-->
+            <!--{def NOTICE}-->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/NOTICE}</td>
+            <!--{/def}-->
+            <!--{def NONOTICE}-->
+            <td width="30" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/NONOTICE}</td>
+            <!--{/def}-->
+            {rval attend_data/subl_data}
+            <td width="{rval CLASSDAYS3_WIDTH}" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/CLASSDAYS3}</td>
+            <!--{def LATE}-->
+            <td width="{rval LATE_WIDTH}" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/LATE}</td>
+            <!--{/def}-->
+            <!--{def EARLY}-->
+            <td width="{rval EARLY_WIDTH}" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/EARLY}</td>
+            <!--{/def}-->
+            <!--{def DETAIL_TITLE_101}-->
+            <td width="#" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/DETAIL_101}</td>
+            <!--{/def}-->
+        </tr>
+        <!--{/each}-->
+        </table>
+        </div>
+        </th>
+    </tr>
+    <tr>
+        <th align="right">
+        <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+        <tr class="no_search">
+            <td>
+            <table width="100%">
+            <tr class="no_search">
+                <td width="10%"></td>
+                <td width="35%" nowrap>※'0'データは、空白で表示します。</td>
+                <td width="10%"></td>
+                <td width="35%" align="right">{rval btn_update}{rval btn_reset}{rval btn_end}</td>
+                <td width="10%"></td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </th>
+    </tr>
+    </table>
+    </th>
+</tr>
+</table>
+
+{rval finish}

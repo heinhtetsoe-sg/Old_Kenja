@@ -1,0 +1,105 @@
+{rval start} 
+
+<BR><BR>
+<table style="width: 1000" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr class="no_search_line"> 
+    <td> 
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+
+        <tr class="no_search" height="30"> 
+          <th>駿台中学生テスト結合</th>
+        </tr>
+        
+      </table>
+    </td>
+  </tr>
+</table>
+
+<BR><BR>
+<table style="width: 500" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr class="no_search_line"> 
+    <td> 
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+
+        <tr class="no_search"> 
+          <th width="25%"></th>
+          <th width="25%">8月</th>
+          <th width="25%">9月</th>
+          <th width="25%">実戦模試</th>
+        </tr>
+        <tr> 
+          <th class="no_search">受験者数</th>
+          <td bgcolor="#ffffff" align="right">{rval data/AUG_CNT}</td>
+          <td bgcolor="#ffffff" align="right">{rval data/SEP_CNT}</td>
+          <td bgcolor="#ffffff" align="right">{rval data/SAT_CNT}</td>
+        </tr>
+        
+      </table>
+    </td>
+  </tr>
+</table>
+
+<BR><BR>
+<table style="width: 500" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr class="no_search_line"> 
+    <td> 
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+
+        <tr> 
+          <td bgcolor="#ffffff" align="center"><br>テストセンターへ送るCSVを出力します。<br><br>{rval button/btn_export}</td>
+        </tr>
+        
+      </table>
+    </td>
+  </tr>
+</table>
+<table style="width: 500" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr class="no_search_line"> 
+    <td> 
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+
+        <tr> 
+          <td bgcolor="#ffffff" align="center"><br>{rval FILE}<br><br></td>
+        </tr>
+        <tr> 
+          <th class="no_search">{rval button/btn_import}　　{rval button/btn_end}</th>
+        </tr>
+        
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{def err}-->
+<BR><BR>
+<table style="width: 1000" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr class="no_search_line"> 
+    <td> 
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+
+        <tr class="no_search"> 
+          <th>行</th>
+          <th>進適受験番号</th>
+          <th>氏名</th>
+          <th>進8受験番号</th>
+          <th>進9受験番号</th>
+        </tr>
+        <!--{each err}-->
+        <tr> 
+          <td bgcolor="#ffffff" align="center">{rval err/LINE}</td>
+          <td bgcolor="#ffffff" align="center">{rval err/SAT_NO}</td>
+          <td bgcolor="#ffffff" align="center">{rval err/NAME}</td>
+          <td bgcolor="#ffffff" align="center">{rval err/MOCK_AUG_NO}</td>
+          <td bgcolor="#ffffff" align="center">{rval err/MOCK_SEP_NO}</td>
+        </tr>
+        <!--{/each}-->
+        
+      </table>
+    </td>
+  </tr>
+</table>
+<!--{/def}-->
+
+<script language="JavaScript">{rval jscript}</script>
+
+{rval finish} 

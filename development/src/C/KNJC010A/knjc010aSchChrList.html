@@ -1,0 +1,61 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr > 
+      <td > 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search"> 
+              <th>　職員：{rval TITLE_STAFF_NAME}</th>
+              <th>日付：{rval TITLE_EXECUTEDATE}</th>
+              <th>出欠制御日時：{rval TITLE_ATTEND_CTRL_DATE}</th>
+            </tr>
+            </table>
+          </td>
+
+        </tr>
+        <tr class="no_search_line"> 
+          <td> 
+            <table id="schList" width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search"> 
+              <th align="center" width="15%" >校時</th>
+              <th align="center" width="30%" >クラス</th>
+              <th align="center" width="20%" >講座</th>
+              <th align="center" width="20%" >科目</th>
+              <th align="center" width="*" >出欠の未/済</th>
+            </tr>
+
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+            <tr bgcolor="#FFFFFF" align="center" onclick="selectRow(this, '{rval data/PERIODCD}', '{rval data/CHAIRCD}')" ondblclick="selectRowDbl()" nowrap>
+              <td>{rval data/PERIODNAME}</td>
+              <td align="left">{rval data/HR_CLASS}</td>
+              <td>{rval data/CHAIRNAME}</td>
+              <td>{rval data/SUBCLASSNAME}</td>
+              <td style="background-color:#{rval data/EXECUTED_BGCOLOR};color:#{rval data/EXECUTED_COLOR}">{rval data/EXECUTED_NAME}</td>
+            </tr>
+<!--{/each}-->
+
+<!--{/def}--> 
+<!--{def button}--> 
+            <tr> 
+              <td bgcolor="#ffffff" colspan="5">{rval button/btn_select}{rval button/btn_back}</td>
+            </tr>
+<!--{/def}--> 
+            </table>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

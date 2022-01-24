@@ -1,0 +1,6 @@
+// kanji=漢字
+// $Id: readme.txt 61146 2018-07-09 12:49:16Z maeshiro $
+
+2016/04/12  1.KNJD184Pを元に新規作成
+
+2018/07/09  1.パラメータHREPORTREMARK_DAT_TOTALSTUDYTIME_SIZE_P追加

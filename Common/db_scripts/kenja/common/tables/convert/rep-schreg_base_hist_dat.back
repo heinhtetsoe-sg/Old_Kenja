@@ -1,0 +1,133 @@
+-- kanji=漢字
+-- $Id: 3364eacaeadf164a9cd0db62b1d7c4283dd49608 $
+
+-- 注意:このファイルは EUC/LFのみ でなければならない。
+-- 適用方法:
+--    1.データベース接続
+--    2.db2 +c -f <このファイル>
+--    3.コミットするなら、db2 +c commit。やり直すなら、db2 +c rollback
+drop table SCHREG_BASE_HIST_DAT_OLD
+
+create table SCHREG_BASE_HIST_DAT_OLD like SCHREG_BASE_HIST_DAT
+
+insert into SCHREG_BASE_HIST_DAT_OLD select * from SCHREG_BASE_HIST_DAT
+
+drop table SCHREG_BASE_HIST_DAT
+
+create table SCHREG_BASE_HIST_DAT \
+(  \
+    SEQ               varchar(10) not null, \
+    S_APPDATE         date        not null, \
+    E_APPDATE         date        not null, \
+    YEAR              varchar(4)  not null, \
+    SEMESTER          varchar(1)  not null, \
+    GRADE             varchar(2)  not null, \
+    HR_CLASS          varchar(3)  not null, \
+    ATTENDNO          varchar(3)  not null, \
+    ANNUAL            varchar(2)  not null, \
+    COURSECD          varchar(1)  not null, \
+    MAJORCD           varchar(3)  not null, \
+    COURSECODE        varchar(4)  not null, \
+    SCHREGNO          varchar(8)  not null, \
+    INOUTCD           varchar(1)  not null, \
+    BIRTHDAY          date        not null, \
+    NAME              varchar(60) not null, \
+    NAME_SHOW         varchar(30) not null, \
+    NAME_KANA         varchar(120), \
+    NAME_ENG          varchar(40), \
+    SEX               varchar(1), \
+    BLOODTYPE         varchar(2), \
+    BLOOD_RH          varchar(1), \
+    FINSCHOOLCD       varchar(7), \
+    FINISH_DATE       date, \
+    ENT_DATE          date, \
+    ENT_DIV           varchar(1), \
+    ENT_REASON        varchar(75), \
+    ENT_SCHOOL        varchar(75), \
+    ENT_ADDR          varchar(75), \
+    GRD_DATE          date, \
+    GRD_DIV           varchar(1), \
+    GRD_REASON        varchar(75), \
+    GRD_SCHOOL        varchar(75), \
+    GRD_ADDR          varchar(75), \
+    GRD_TERM          varchar(4), \
+    PRISCHOOLCD       varchar(7), \
+    REMARK1           varchar(75), \
+    REMARK2           varchar(75), \
+    REMARK3           varchar(75), \
+    REGISTERCD        varchar(8), \
+    UPDATED           timestamp default current timestamp \
+) in usr1dms index in idx1dms
+
+
+insert into SCHREG_BASE_HIST_DAT \
+    select \
+        (ROW_NUMBER() OVER() -1) AS SEQ,
+        S_APPDATE  
+        E_APPDATE  
+        YEAR       
+        SEMESTER   
+        GRADE      
+        HR_CLASS   
+        ATTENDNO   
+        ANNUAL     
+        COURSECD   
+        MAJORCD    
+        COURSECODE 
+        SCHREGNO   
+        INOUTCD    
+        BIRTHDAY   
+        NAME       
+        NAME_SHOW  
+        NAME_KANA  
+        NAME_ENG   
+        SEX        
+        BLOODTYPE  
+        BLOOD_RH   
+        FINSCHOOLCD
+        FINISH_DATE
+        ENT_DATE   
+        ENT_DIV    
+        ENT_REASON 
+        ENT_SCHOOL 
+        ENT_ADDR   
+        GRD_DATE   
+        GRD_DIV    
+        GRD_REASON 
+        GRD_SCHOOL 
+        GRD_ADDR   
+        GRD_TERM   
+        PRISCHOOLCD
+        REMARK1    
+        REMARK2    
+        REMARK3    
+        REGISTERCD 
+        UPDATED    
+        
+     SCHREGNO, \
+     HIST_DATE, \
+     DATA_DIV, \
+     DATA_FLG, \
+     HIST_DIV, \
+     HIST_REASON, \
+     HIST_SCHOOL, \
+     HIST_ADDR, \
+     FINSCHOOLCD, \
+     FINISH_DATE, \
+     GRD_NO, \
+     GRD_TERM, \
+     REGISTERCD, \
+     UPDATED \
+
+
+        T1.YEAR, \
+        T1.SCHREGNO, \
+        cast(NULL as varchar(2)) as JAWS_JOINTCD2, \
+        T1.REGISTERCD, \
+        T1.UPDATED \
+    from \
+        SCHREG_BASE_HIST_DAT_OLD T1 \
+
+alter table SCHREG_BASE_HIST_DAT add constraint pk_medexam_tooth_d primary key \
+    (SEQ)
+

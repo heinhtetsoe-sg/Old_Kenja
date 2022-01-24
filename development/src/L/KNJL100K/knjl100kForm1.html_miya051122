@@ -1,0 +1,252 @@
+{rval start}
+<br>
+<br>
+<table width="60%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tbody>
+    <tr>
+      <td valign="top"><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr bgcolor="#006633">
+            <td align="right">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <tbody>
+                        <tr class="no_search">
+                          <th colspan="2" width="30%">項目</th>
+                          <th>値</th>
+                        </tr>
+                        <tr class="no_search">
+                          <th colspan="2" >入試年度</th>
+                          <td bgcolor="#ffffff"><span style="color:#000000">{rval CTRL_YEAR}</span></td>
+                        </tr>
+                        <tr class="no_search">
+                          <th colspan="2" >試験区分</th>
+                          <td bgcolor="#ffffff">{rval TESTDIV}</td>
+                        </tr>
+                        <tr class="no_search">
+                          <th colspan="2" >学科・コース</th>
+                          <td bgcolor="#ffffff">{rval COURSE}</td>
+                        </tr>
+                        <tr class="no_search">
+                          <th colspan="2" >専・併</th>
+                          <td bgcolor="#ffffff">{rval SHDIV}</td>
+                        </tr>
+                        <tr class="no_search">
+                          <th rowspan="3">合<BR>格<BR>点</th>
+                          <th>基本</th>
+                          <td bgcolor="#ffffff">{rval BORDER_SCORE}<span style="color:#000000">点　　</span>
+                                                                   <span style="color:#000000">{rval R_SUCCESS_CNT}　名</span>
+                          </td>
+                        </tr>
+                        <tr class="no_search">
+                          <th>Ａ判定</th>
+                          <td bgcolor="#ffffff">{rval A_BORDER_SCORE}<span style="color:#000000">点　　</span>
+                                                                   <span style="color:#000000">{rval A_SUCCESS_CNT}　名</span>
+                          </td>
+                        </tr>
+                        <tr class="no_search">
+                          <th>Ｂ判定</th>
+                          <td bgcolor="#ffffff">{rval B_BORDER_SCORE}<span style="color:#000000">点　　</span>
+                                                                   <span style="color:#000000">{rval B_SUCCESS_CNT}　名</span>
+                          </td>
+                        </tr>
+                        <tr class="no_search">
+                          <th colspan="2" >判定項目</th>
+                          <td bgcolor="#ffffff">{rval A_JUDGE_COL}　<span style="color:#000000">配点Ａ合計で判定( 素点 )</span><br>
+                                                {rval B_JUDGE_COL}　<span style="color:#000000">配点Ｂ合計で判定( 修正点またはアラカルト )</span></td>
+                        </tr>
+                        <tr class="no_search">
+                          <th colspan="2" >合格者数</th>
+                          <td bgcolor="#ffffff">　　<span style="color:#000000">{rval SUCCESS_CNT}　名</span></td>
+                        </tr>
+                        <tr class="no_search">
+                          <th colspan="2" >戻り率</th>
+                          <td bgcolor="#ffffff">{rval BACK_RATE}<span style="color:#000000">％</span></td>
+                        </tr>
+                        <tr class="no_search">
+                          <th colspan="2" >収容人数</th>
+                          <td bgcolor="#ffffff">　　<span id="CAPA_CNT" style="color:#000000">{rval CAPA_CNT}　名</span></td>
+                        </tr>
+                        <tr class="no_search">
+                          <th colspan="2" ></th>
+                          <th bgcolor="#ffffff" align="left" >{rval btn_sim}&nbsp;&nbsp;&nbsp;{rval btn_decision}{rval btn_end}</th>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table align="center" width="95%" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>{rval button/BTN_CHECK}</td>
+    </tr>
+</table>
+<table align="center" width="95%" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+<!-- COMMENT 2005/11/01 by ameku
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;確定結果一覧　{rval btn_notice}</td>
+    </tr>
+-->    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="140" rowspan="3">学科・コース</th>
+                        <th width="35" rowspan="3" align="center" nowrap>定員</th>
+<!-- COMMENT 2005/11/01 by ameku
+                            <th width="40" rowspan="3" align="center" nowrap><font size="1">付属推薦<BR>中高一貫</font></th>
+-->                        <th width="35" rowspan="3" align="center" nowrap>スポ<BR>推薦</th>
+                        <th colspan="7" align="center" nowrap>専　願</th>
+                        <th colspan="7" align="center" nowrap>併　願</th>
+                        <th width="*" rowspan="3" align="center" nowrap>増減</th>
+                      </tr>
+                      <tr class="no_search">
+                        <th width="35" rowspan="2">判定<BR>項目</th>
+                        <th colspan="3">合格点</th>
+                        <th width="35" rowspan="2" align="center" nowrap>合格<BR>者数</th>
+                        <th width="45" rowspan="2" align="center" nowrap>戻率</th>
+                        <th width="35" rowspan="2" align="center" nowrap>収容<BR>人数</th>
+                        <th width="35" rowspan="2">判定<BR>項目</th>
+                        <th colspan="3">合格点</th>
+                        <th width="35" rowspan="2" align="center" nowrap>合格<BR>者数</th>
+                        <th width="45" rowspan="2" align="center" nowrap>戻率</th>
+                        <th width="35" rowspan="2" align="center" nowrap>収容<BR>人数</th>
+                      </tr>
+                      <tr class="no_search">
+                        <th width="35" align="center" nowrap>基本</th>
+                        <th width="35" align="center" nowrap>Ａ</th>
+                        <th width="35" align="center" nowrap>Ｂ</th>
+                        <th width="35" align="center" nowrap>基本</th>
+                        <th width="35" align="center" nowrap>Ａ</th>
+                        <th width="35" align="center" nowrap>Ｂ</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+<!--            <div style="border-style:solid;border-width:0.15pt;border-color:#255476;width:100%;height:90;overflow:auto">-->
+            <div style="border-style:solid;border-width:0.15pt;border-color:#255476;width:100%;height:115;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <!--{each data}-->
+                      <tr nowrap>
+                        <td bgcolor="#ffffff" width="139" align="left" >&nbsp;{rval data/COURSE}:<BR>&nbsp;&nbsp;&nbsp;{rval data/EXAMCOURSE_NAME}</td>
+                        <td bgcolor="#ffffff" width="35"  align="right">{rval data/CAPACITY}</td>
+<!-- COMMENT 2005/11/01 by ameku
+                        <td bgcolor="#ffffff" width="40"  align="right">{rval data/F_SUCCESS_CNT}</td>
+-->                        
+                        <td bgcolor="#ffffff" width="35"  align="right">{rval data/S_SUCCESS_CNT}</td>
+                        <td bgcolor="{rval data/BGCOLOR1}" width="35" align="center" >{rval data/JUDGE_COL1}</td>
+                        <td bgcolor="{rval data/BGCOLOR1}" width="35" align="right" >{rval data/BORDER_SCORE1}</td>
+                        <td bgcolor="{rval data/BGCOLOR1}" width="35" align="right" >{rval data/A_BORDER_SCORE1}</td>
+                        <td bgcolor="{rval data/BGCOLOR1}" width="35" align="right" >{rval data/B_BORDER_SCORE1}</td>
+                        <td bgcolor="{rval data/BGCOLOR1}" width="35" align="right" >{rval data/SUCCESS_CNT1}</td>
+                        <td bgcolor="{rval data/BGCOLOR1}" width="45" align="right" >{rval data/BACK_RATE1}%</td>
+                        <td bgcolor="{rval data/BGCOLOR1}" width="35" align="right" >{rval data/CAPA_CNT1}</td>
+                        <td bgcolor="{rval data/BGCOLOR2}" width="35" align="center" >{rval data/JUDGE_COL2}</td>
+                        <td bgcolor="{rval data/BGCOLOR2}" width="35" align="right" >{rval data/BORDER_SCORE2}</td>
+                        <td bgcolor="{rval data/BGCOLOR2}" width="35" align="right" >{rval data/A_BORDER_SCORE2}</td>
+                        <td bgcolor="{rval data/BGCOLOR2}" width="35" align="right" >{rval data/B_BORDER_SCORE2}</td>
+                        <td bgcolor="{rval data/BGCOLOR2}" width="35" align="right" >{rval data/SUCCESS_CNT2}</td>
+                        <td bgcolor="{rval data/BGCOLOR2}" width="45" align="right" >{rval data/BACK_RATE2}%</td>
+                        <td bgcolor="{rval data/BGCOLOR2}" width="35" align="right" >{rval data/CAPA_CNT2}</td>
+                        <td bgcolor="#ffffff" width="*" align="right" rowspan="{rval data/rowspan}">{rval data/INCREASE}</td>
+                      </tr>
+                      <!--{/each}-->
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="140">合計</th>
+                        <td bgcolor="#ffffff" width="35" align="right" style="color:#000000">{rval sum/CAPACITY}</td>
+<!-- COMMENT 2005/11/01 by ameku
+                        <td bgcolor="#ffffff" width="40" align="right" style="color:#000000">{rval sum/F_SUCCESS_CNT}</td>
+-->                        
+                        <td bgcolor="#ffffff" width="35" align="right" style="color:#000000">{rval sum/S_SUCCESS_CNT}</td>
+                        <td bgcolor="#ffffff" width="35">　</td>
+                        <td bgcolor="#ffffff" width="35">　</td>
+                        <td bgcolor="#ffffff" width="35">　</td>
+                        <td bgcolor="#ffffff" width="35">　</td>
+                        <td bgcolor="#ffffff" width="35" align="right" style="color:#000000">{rval sum/SUCCESS_CNT1}</td>
+                        <td bgcolor="#ffffff" width="45">　</td>
+                        <td bgcolor="#ffffff" width="35" align="right" style="color:#000000">{rval sum/CAPA_CNT1}</td>
+                        <td bgcolor="#ffffff" width="35">　</td>
+                        <td bgcolor="#ffffff" width="35">　</td>
+                        <td bgcolor="#ffffff" width="35">　</td>
+                        <td bgcolor="#ffffff" width="35">　</td>
+                        <td bgcolor="#ffffff" width="35" align="right" style="color:#000000">{rval sum/SUCCESS_CNT2}</td>
+                        <td bgcolor="#ffffff" width="45">　</td>
+                        <td bgcolor="#ffffff" width="35" align="right" style="color:#000000">{rval sum/CAPA_CNT2}</td>
+                        <td bgcolor="#ffffff" width="*" align="right" style="color:#000000">{rval sum/INCREASE}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}
+<script language="JavaScript">
+  if (document.forms[0].msg != undefined) {
+      if (document.forms[0].msg.value != '') {
+          alert(document.forms[0].msg.value);
+      }
+      closeWin();
+  }
+
+</script>

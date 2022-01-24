@@ -1,0 +1,88 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<br><br>
+<table style="width: 600px" border="0" cellpadding="10" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table style="width: 600px" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <td>
+            <tablestyle="width: 600px" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table style="width: 600px"     border="0" cellspacing="1" cellpadding="4">
+                    <tr class="no_search" height="35">
+                      <td><b>&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/YEAR}年度
+                      </td></b>
+                    </tr>
+
+                    <tr bgcolor="#ffffff" height="120">
+                        <td align="left">
+                        &nbsp<b>対象：一学年</b><br>
+                        &nbsp&nbsp{rval data/OUTPUT1}１期分授業料・生徒会費・生活行事費納付処理<br>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp支払日&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp：{rval data/DATE1}<br><br>
+                        &nbsp&nbsp{rval data/OUTPUT2}生徒交付データ処理<br>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp登録開始日付：{rval data/DATE2}&nbsp～&nbsp{rval data/DATE3}<br>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp金額&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp：{rval data/MONEY}(スカラシップK-1のみ適用)
+                        </td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="left">
+                        {rval button/btn_exe}{rval button/btn_end}
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td  bgcolor="#ffffff"> 
+                        <table style="width: 600px" border="0" cellspacing="0" cellpadding="0">
+
+                        <tr class="no_search" align="center"> 
+                          <td> 
+                              クラス：{rval data/HR_CLASS}
+                          </td>
+                        </tr>
+
+                        <tr class="no_search_line"> 
+                          <td width="100%"> 
+                            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                              <tr align="center" class="no_search"> 
+                                <th><b>１期分対象外</b></th>
+                                <th class="no_search"></th>
+                                <th><b>個人一覧</b></th>
+                              </tr>
+                              <tr align="center" bgcolor="#ffffff">
+                                <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                                <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                                  {rval button/btn_left1}<BR>
+                                  {rval button/btn_right1}<BR>
+                                  {rval button/btn_rights}
+                                <td width="45%">{rval data/CATEGORY_NAME}</td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+
+                        </table>
+                      </td>
+                    </tr>
+
+                  </table>
+
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+<script language="JavaScript">{rval err_msg_not}</script>
+
+{rval finish} 

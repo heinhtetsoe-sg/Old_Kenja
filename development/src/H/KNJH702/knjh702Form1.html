@@ -1,0 +1,61 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th align="center">
+                        {val YEAR}年度
+                      </th>
+                      <th align="center">
+                        {rval btn_copy}
+                      </th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="list">
+                    <tr class="no_search">
+                      <th nowrap width="40%">テスト区分</th>
+                      <th nowrap width="15%">文理</th>
+                      <th nowrap width="30%">科目名称</th>
+                      <th nowrap width="15%">選択区分</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td nowrap align="center">{val data/TESTDIVNAME}</td>
+                      <td nowrap align="center">{val data/BUNRI}</td>
+                      <td nowrap align="center"><a href="knjh702index.php?cmd=edit&TESTDIV={val data/TESTDIV}&BUNRIDIV={val data/BUNRIDIV}&CLASSCD={val data/CLASSCD}&SUBCLASSCD={val data/SUBCLASSCD}" target="right_frame">{val data/SUBCLASSNAME}</a></td>
+                      <td nowrap align="center">{val data/ELECTDIV}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

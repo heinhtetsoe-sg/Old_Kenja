@@ -1,0 +1,146 @@
+{rval start}
+
+<table width="95%" border="0" cellspacing="0" cellpadding="5" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--{def applicantdiv1}-->
+                    <tr>
+                      <td width="12%" class="no_search" align="center">入試年度</td>
+                      <td width="20%" bgcolor="#ffffff" align="center">{rval TOP/YEAR}</td>
+                      <td width="12%" class="no_search" align="center">※ 入試制度</td>
+                      <td width="20%" bgcolor="#ffffff">{rval TOP/APPLICANTDIV}</td>
+                      <td width="12%" class="no_search" align="center">※ 入試区分</td>
+                      <td width="*%" bgcolor="#ffffff">{rval TOP/TESTDIV}　{rval TOP/EXAM_TYPE}</td>
+                    </tr>
+                    <tr nowrap>
+                      <td class="no_search" align="center">※ 受験科目</td>
+                      <td bgcolor="#ffffff">{rval TOP/TESTSUBCLASSCD}　{rval button/btn_back}{rval button/btn_next}</td>
+                      <td class="no_search" align="center">※ 管理番号</td>
+                      <td bgcolor="#ffffff" colspan="3">{rval TOP/RECEPTNO_FROM}　～　{rval TOP/RECEPTNO_TO}</td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{def applicantdiv2}-->
+                    <tr>
+                      <td width="12%" class="no_search" align="center">入試年度</td>
+                      <td width="20%" bgcolor="#ffffff" align="center">{rval TOP/YEAR}</td>
+                      <td width="12%" class="no_search" align="center">※ 入試制度</td>
+                      <td width="20%" bgcolor="#ffffff">{rval TOP/APPLICANTDIV}</td>
+                      <td width="12%" class="no_search" align="center">※ 入試区分</td>
+                      <td width="*"   bgcolor="#ffffff">{rval TOP/TESTDIV}</td>
+                    </tr>
+                    <tr nowrap>
+                      <td class="no_search" align="center">※ 受験科目</td>
+                      <td bgcolor="#ffffff">{rval TOP/TESTSUBCLASSCD}　{rval button/btn_back}{rval button/btn_next}</td>
+                      <td class="no_search" align="center">※ 受験番号</td>
+                      <td bgcolor="#ffffff" colspan="3">{rval TOP/RECEPTNO_FROM}　～　{rval TOP/RECEPTNO_TO}</td>
+                    </tr>
+                    <!--{def TOP/TARGET1}-->
+                    <tr nowrap>
+                      <td class="no_search" align="center"></td>
+                      <td bgcolor="#ffffff" colspan="5">
+                        {rval TOP/TARGET1}<LABEL for="TARGET1">すべて</LABEL>　　
+                        {rval TOP/TARGET2}<LABEL for="TARGET2">学科試験対象者</LABEL>　　
+                        {rval TOP/TARGET3}<LABEL for="TARGET3">学力診断テスト対象者</LABEL>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" align="center" height="30">
+                            <td width="100" nowrap>受験番号</td>
+                            <td width="100" nowrap>管理番号</td>
+                            <td width="100" nowrap>得点</td>
+                            <td width="*">{rval BIKOU}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <div style="height: 500px; overflow: auto;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--結果一覧-->
+                          <!--{def data}-->
+                          <!--{each data}-->
+                          <tr bgcolor="#ffffff" id="ROWID{rval data/RECEPTNO}" nowrap>
+                            <td width="100" align="center" nowrap>{rval data/RECEPTNO}</td>
+                            <td width="100" align="center" nowrap>{rval data/EXAMNO}</td>
+                            <td width="100" align="center" nowrap>{rval data/SCORE}</td>
+                            <td width="*">{rval data/EXAM_TYPE_NAME}</td>
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" nowrap>
+                            <th nowrap>{rval FILE}</th>
+                            <td width="30%" bgcolor="#ffffff" nowrap>{rval btn_update}{rval btn_reset}{rval btn_end}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">
+  change_flg = false;
+ var aPerfect = new Array();
+<!--{def data2}-->
+<!--{each data2}-->
+ aPerfect['{rval data2/key}'] = '{rval data2/perf}';
+<!--{/each}-->
+<!--{/def}-->
+</script>
+{rval finish}

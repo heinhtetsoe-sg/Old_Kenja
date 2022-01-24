@@ -1,0 +1,65 @@
+{rval start}
+<br><br><br>
+<table style="width: 520px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+  <table style="width: 520px" border="0" cellspacing="5" cellpadding="1">
+  <tr> 
+  <td>
+    <table style="width: 520px" border="0" cellspacing="0" cellpadding="0">
+
+    <tr class="no_search_line">
+    <td><!-- first table for subclass -->
+      <table style="width: 520px" border="0" cellspacing="1" cellpadding="4">
+      <tr class="no_search" height="40" nowrap>
+      <td  nowrap colspan="2">&nbsp&nbsp;処理年度：&nbsp;{rval data/YEAR}</td>
+      </tr>
+      <tr  bgcolor="#ffffff">
+      <td colspan="2"><br>&nbsp;&nbsp;&nbsp;&nbsp;上限値算定日付：&nbsp;&nbsp;{rval data/DATE}
+      <br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;●実授業数の上限値の算定を行います。
+      <br><br>&nbsp;&nbsp;&nbsp;&nbsp;●単位マスタの下記の項目が更新されます。
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;○欠課数オーバー
+<!--{def data/ABSENCE_WARN}-->
+<!--{def title/ABSENCE_WARN}-->
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/ABSENCE_WARN_CHECK}　{rval title/ABSENCE_WARN} {rval data/ABSENCE_WARN}{rval data/ABSENCE_WARN_KAI}前警告
+<!--{/def}-->
+<!--{/def}-->
+<!--{def data/ABSENCE_WARN2}-->
+<!--{def title/ABSENCE_WARN2}-->
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/ABSENCE_WARN_CHECK2}　{rval title/ABSENCE_WARN2} {rval data/ABSENCE_WARN2}{rval data/ABSENCE_WARN_KAI}前警告
+<!--{/def}-->
+<!--{/def}-->
+<!--{def data/ABSENCE_WARN3}-->
+<!--{def title/ABSENCE_WARN3}-->
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/ABSENCE_WARN_CHECK3}　{rval title/ABSENCE_WARN3} {rval data/ABSENCE_WARN3}{rval data/ABSENCE_WARN_KAI}前警告
+<!--{/def}-->
+<!--{/def}-->
+      <br><br>&nbsp;&nbsp;&nbsp;&nbsp;●前回実行履歴情報<br>
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上限値算定日付：{rval data/APPOINTED_DATE}
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;処理日付　　　：{rval data/UPDATED}
+      <br>&nbsp;
+      </td></tr>
+      <!--{def button}-->
+      <tr class="no_search" ><td width="70%"></td>
+      <td bgcolor="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;{rval button/BTN_OK}{rval button/BTN_CLEAR}</td>
+      </tr>
+      <!--{/def}-->
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+     <td style="font-weight: 700; color:white"><br><br><br>
+        <marquee><span id="marq_msg">集計しています...しばらくおまちください</span></marquee>
+     </td>
+    </tr>
+
+    </table>
+  </td>
+  </tr>
+  </table>
+</td>
+</tr>
+</table>
+{rval finish} 
+<script language="JavaScript">{rval Closing}{rval jscript}{rval Closing3}</script>

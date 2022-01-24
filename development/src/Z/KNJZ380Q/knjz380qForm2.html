@@ -1,0 +1,141 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th>項 目</th>
+                      <th>値</th>
+                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>課程学科</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/RIGHT_COURSE_MAJOR}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>学期</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/SEMESTER}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>考査種別 (大分類)</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/TESTKINDCD}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>考査種別 (中分類)</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/TESTITEMCD}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>考査種別 (小分類)</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/SCORE_DIV}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>考査種別名称</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/TESTITEMNAME}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>考査種別略称１</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/TESTITEMABBV1}　<font size="2" color="red">(全角5文字まで)</font></td>
+                    </tr>
+<!--{def Test_Period_Hyouji}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>テスト期間&nbsp;</th>
+                      <td bgcolor="#ffffff" nowrap>&nbsp;{rval data/TEST_START_DATE} ～ {rval data/TEST_END_DATE}&nbsp;</td>
+                    </tr>
+<!--{/def}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>集計フラグ&nbsp;</th>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/COUNTFLG}&nbsp;<LABEL for="COUNTFLG">ON=集計する、OFF=集計しない</LABEL></td>
+                    </tr>
+<!--{def sem_detail}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>出欠集計範囲&nbsp;</th>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/SEMESTER_DETAIL}<br>　<span id="hani">{rval data/S_E_DATE}</span></td>
+                    </tr>
+<!--{/def}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>追指導入力&nbsp;</th>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/SIDOU_INPUT}&nbsp;<LABEL for="SIDOU_INPUT">あり</LABEL>　{rval data/SIDOU_INPUT_INF1}<LABEL for="SIDOU_INPUT_INF1">記号</LABEL>　{rval data/SIDOU_INPUT_INF2}<LABEL for="SIDOU_INPUT_INF2">得点</LABEL></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>序列対象&nbsp;</th>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/JYORETSU_FLG}&nbsp;<LABEL for="JYORETSU_FLG">序列処理あり</LABEL></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>CSV取込&nbsp;</th>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/NOT_USE_CSV_FLG}&nbsp;<LABEL for="NOT_USE_CSV_FLG">不可</LABEL></td>
+                    </tr>
+<!--{/def}-->
+<!--{def button}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff" >&nbsp;{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}</td>
+                    </tr>
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval Closing}{rval check}</script>

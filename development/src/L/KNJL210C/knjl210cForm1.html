@@ -1,0 +1,207 @@
+{rval IFRAME}
+{rval start}
+<br>
+<table align="center" width="96%" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line">
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th width="150" nowrap align="right">※ 入試年度</th>
+                      <td width="10%" bgcolor="#ffffff" style="color:black; text-align:center">{rval TOP/YEAR}</td>
+                      <th width="10%" nowrap>※ 入試制度</th>
+                      <td width="10%" bgcolor="#ffffff">&nbsp;{rval data/APPLICANTDIV}</td>
+                      <th width="10%" nowrap>※ 受付番号</th>
+                      <td width="*" bgcolor="#ffffff">&nbsp;{rval data/PRE_RECEPTNO}&nbsp;{rval button/btn_addnew}{rval button/btn_reference}{rval button/btn_kana_reference}&nbsp;{rval button/btn_back}{rval button/btn_next}&nbsp;{rval button/btn_clear}</td>
+                    </tr>
+                    </table>
+                  </td>
+                </tr>
+                </table>
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line" >
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th nowrap align="right">申し込み方法</th>
+                      <td bgcolor="#ffffff" style="color:black;" colspan="5">
+{rval data/PRE_RECEPTDIV1}<LABEL for="PRE_RECEPTDIV1">FAX</LABEL>&nbsp;
+{rval data/PRE_RECEPTDIV2}<LABEL for="PRE_RECEPTDIV2">郵送</LABEL>&nbsp;
+{rval data/PRE_RECEPTDIV3}<LABEL for="PRE_RECEPTDIV3">インターネット</LABEL>
+                      </td>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th nowrap align="right">※ プレテスト区分</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/PRE_TESTDIV}</td>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th nowrap align="right">※ 受付日付</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/PRE_RECEPTDATE}</td>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th nowrap align="right">※ 氏名</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/NAME}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th nowrap align="right">※ 氏名かな</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/NAME_KANA}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(全角で40文字)</font></td>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th nowrap align="right">※ 性別</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/SEX}</td>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th nowrap align="right">※ 氏名(保護者)</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/GNAME}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th nowrap align="right">※ 氏名かな(保護者)</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/GKANA}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(全角で40文字)</font></td>
+                    </tr>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th nowrap align="right">郵便番号</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/ZIPCD}{rval button/btn_zip}{rval button/btn_apply}</td>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th nowrap align="right">住所</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/ADDRESS1}</td>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th nowrap align="right">方書</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/ADDRESS2}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(住所,方書 共に全角で25文字)</font></td>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th nowrap align="right">電話番号</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/TELNO}</td>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th nowrap align="right">出身学校</th>
+                      <td bgcolor="#ffffff" colspan="5" style="color:black;">
+                        {rval button/btn_searchfs}&nbsp;{rval data/FINSCHOOLCD}&nbsp;<span id="label_name">{rval data/FINSCHOOLNAME}</span>
+<!--
+                        {rval button/btn_fin_kana_reference}
+                        {rval data/FS_CD}
+                        <span id="FS_NAME_ID">{rval data/FS_NAME}</span>
+-->
+                      </td>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th nowrap align="right">塾</th>
+                      <td bgcolor="#ffffff" colspan="5" style="color:black;">
+                        {rval button/btn_pri_kana_reference}
+                        {rval data/PS_CD}
+                        <span id="PS_NAME_ID">{rval data/PS_NAME}</span>
+                      </td>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th nowrap align="right">塾への連絡を希望</th>
+                      <td bgcolor="#ffffff" style="color:black;" colspan="5">
+{rval data/PS_CONTACT1}<LABEL for="PS_CONTACT1">する</LABEL>&nbsp;
+{rval data/PS_CONTACT2}<LABEL for="PS_CONTACT2">しない</LABEL>
+                      </td>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th nowrap align="right">※ 受験型</th>
+                      <td bgcolor="#ffffff" style="color:black;" colspan="5">
+                        <!--{def data/TYPE_NAME1}-->
+                        {rval data/PRE_EXAM_TYPE1}<LABEL for="PRE_EXAM_TYPE1">{rval data/TYPE_NAME1}</LABEL>&nbsp;
+                        <!--{/def}-->
+                        <!--{def data/TYPE_NAME2}-->
+                        {rval data/PRE_EXAM_TYPE2}<LABEL for="PRE_EXAM_TYPE2">{rval data/TYPE_NAME2}</LABEL>&nbsp;
+                        <!--{/def}-->
+                        <!--{def data/TYPE_NAME3}-->
+                        {rval data/PRE_EXAM_TYPE3}<LABEL for="PRE_EXAM_TYPE3">{rval data/TYPE_NAME3}</LABEL>
+                        <!--{/def}-->
+                      </td>
+                    </tr>
+<!--{def Pretest_bus_Hyouji}-->
+                    <tr class="no_search" height="30">
+                      <th width="150" nowrap align="right">学園バス</th>
+                      <td width="15%" bgcolor="#ffffff" style="color:black;">{rval data/BUS_USE}<LABEL for="BUS_USE">利用する</LABEL></td>
+                      <th width="10%" nowrap>乗降地</th>
+                      <td width="35%" bgcolor="#ffffff" style="color:black;">
+{rval data/STATIONDIV3}<LABEL for="STATIONDIV3">JR五条駅</LABEL>&nbsp;
+{rval data/STATIONDIV1}<LABEL for="STATIONDIV1">林間田園都市駅</LABEL>&nbsp;
+{rval data/STATIONDIV2}<LABEL for="STATIONDIV2">福神駅</LABEL>
+                      </td>
+                      <th width="10%" nowrap>ご利用人数</th>
+                      <td width="*" bgcolor="#ffffff" style="color:black;">{rval data/BUS_USER_COUNT}</td>
+                    </tr>
+<!--{/def}-->
+                    <tr class="no_search" height="30">
+                      <th nowrap align="right">重複受験番号</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/RECOM_EXAMNO}</td>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th nowrap align="right">※ 備考</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/REMARK}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(全角で15文字)</font></td>
+                    </tr>
+                    </table>
+                  </td>
+                </tr>
+                </table>
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line" >
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <td width="150"></td>
+                      <td bgcolor="#ffffff">
+                      &nbsp;&nbsp;{rval button/btn_add}{rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}
+                      </td>
+                    </tr>
+                    </table>
+                  </td>
+                </tr>
+                </table>
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<script language="JavaScript">
+var vflg;
+var blank_name;
+blank_name = '&nbsp;' + '　　' + '&nbsp;';
+
+</script>
+<script language="JavaScript">{rval Closing}</script>
+{rval finish}

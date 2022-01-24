@@ -1,0 +1,128 @@
+{rval start}
+{rval IFRAME}
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="200" nowrap bgcolor="#FFFF00" align="center">
+            <b><font size="3" color="#FF8C00">家族情報（本人以外）</font></b>
+          </td>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr colspan="2">
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <div style="width:820;height:300;overflow-x:scroll;overflow-y:scroll">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="center" nowrap width="40" height="25">No.</th>
+                            <th align="center" nowrap width="160" height="25">氏名</th>
+                            <th align="center" nowrap width="160" height="25">氏名かな</th>
+                            <th align="center" nowrap width="90" height="25">続　柄</th>
+                            <th align="center" nowrap width="100" height="25">生年月日</th>
+                            <th align="center" nowrap width="300" height="25">健康状態</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table id="list" width="100%" border="0" cellspacing="1" cellpadding="5">
+                          <!--結果一覧--><!--{def data}--><!--{each data}-->
+                          <tr bgcolor="#ffffff">
+                            <td nowrap width="40" align="center"><a href="knjf160index.php?cmd=subform3A&RELANO={val data/RELANO}" target="">{val data/RELANO}</a></td>
+                            <td nowrap width="160">{val data/RELANAME}</td>
+                            <td nowrap width="160">{val data/RELAKANA}</td>
+                            <td align="center" nowrap width="90">{val data/RELATIONSHIP}</td>
+                            <td align="center" nowrap width="100">{val data/RELABIRTHDAY}</td>
+                            <td nowrap width="300">{val data/REMARK}</td>
+                          </tr>
+                          <!--{/each}--><!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="85%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                    <!--結果一覧-->
+                    <!--{def data1}-->
+                    <tr height="30">
+                      <th width="90" class="no_search" nowrap>No.</th>
+                      <td bgcolor="#ffffff">&nbsp;{rval data1/RELANO}</td>
+                    </tr>
+                    <tr height="30">
+                      <th width="90" class="no_search" nowrap>※氏名</th>
+                      <td bgcolor="#ffffff">&nbsp;{rval data1/RELANAME}</td>
+                    </tr>
+                    <tr height="30">
+                      <th width="90" class="no_search" nowrap>氏名かな</th>
+                      <td bgcolor="#ffffff">&nbsp;{rval data1/RELAKANA}</td>
+                    </tr>
+                    <tr height="30">
+                      <th width="90" class="no_search" nowrap>続柄</th>
+                      <td bgcolor="#ffffff">&nbsp;{rval data1/RELATIONSHIP}</td>
+                    </tr>
+                    <tr height="30">
+                      <th width="90" class="no_search" nowrap>生年月日</th>
+                      <td bgcolor="#ffffff">&nbsp;{rval data1/RELABIRTHDAY}</td>
+                    </tr>
+                    <tr height="30">
+                      <th width="90" class="no_search" nowrap>健康状態</th>
+                      <td bgcolor="#ffffff">&nbsp;{rval data1/REMARK}</td>
+                    </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!--{def button}-->
+        <tr>
+          <td>
+            　　　　　{rval button/btn_insert}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}
+          </td>
+        </tr>
+        <!--{/def}-->
+
+      </table>
+    </td>
+  </tr>
+</table>
+<div id="lay"></div>
+{rval finish}

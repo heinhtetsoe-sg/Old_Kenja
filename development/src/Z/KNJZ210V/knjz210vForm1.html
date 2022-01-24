@@ -1,0 +1,112 @@
+{rval start}
+
+<br>
+
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th width="15%" class="no_search" nowrap><b>年度</b></td>
+                      <td width="40%" bgcolor="#ffffff" nowrap colspan="3"><b>&nbsp;{rval YEAR}</b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td height="5"></td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th class="no_search" nowrap colspan="4"><b>コピー元</b></td>
+                    </tr>
+                    <tr>
+                      <th width="15%" class="no_search" nowrap><b>学期</b></td>
+                      <td width="25%" bgcolor="#ffffff" nowrap><b>&nbsp;{rval SEMESTER}</b></td>
+                      <th width="15%" class="no_search" nowrap><b>成績種別</b></td>
+                      <td width="45%" bgcolor="#ffffff" nowrap>&nbsp;{rval TESTCD}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr> 
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="30">
+                      <td width="25%" bgcolor="#ffffff" nowrap colspan="5" align="center"><b>&nbsp;{rval button/btn_copy_2}</b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th class="no_search" nowrap colspan="4"><b>コピー先</b></td>
+                    </tr>
+                    <tr>
+                      <th width="15%" class="no_search" nowrap><b>学期</b></th>
+                      <td width="25%" bgcolor="#ffffff" nowrap><b>&nbsp;{rval SEMESTER_2}</b></td>
+                      <th width="15%" class="no_search" nowrap><b>成績種別</b></th>
+                      <td width="45%" bgcolor="#ffffff" nowrap>&nbsp;{rval TESTCD_2}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="10"></td>
+        </tr>
+        <tr>
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                    <tr> 
+                      <th width="60%" height="20" class="no_search" nowrap><b>コピー元成績入力完了設定一覧</b></th>
+                      <td bgcolor="#ffffff" nowrap></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="20%" nowrap><b>科目<br>コード</b></th>
+                      <th width="40%" nowrap><b>科目名称</b></th>
+                      <th width="40%" nowrap><b>対象講座</b></th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap align="center" bgcolor="#ffffff">{val data/SUBCLASSCD}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/SUBCLASSNAME}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/CHAIRCD}</td>
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+   </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

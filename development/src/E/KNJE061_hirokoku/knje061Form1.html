@@ -1,0 +1,172 @@
+
+{rval start}
+<br><br><br><br>
+<table align="center" width="" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+    <tr>
+      <td nowrap>
+      <table width="100%" border="0" cellspacing="1" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td >
+              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search_line">
+                  <th align="left" class="no_search" colspan="3">
+                  <font color="#ffffff"><b>{rval SEMESTERNAME}</b></font>
+                  </th>
+                </tr>
+                <tr bgcolor="#ffffff">
+                  <th class="no_search" colspan="2" align="right" width="150">生成データ</th>
+                  <td>
+                  <table width="100%" border="0" cellspacing="2" cellpadding="0">
+                    <tbody>
+                      <tr>
+                        <td width="40%"><input type="radio" name="KIND" value="1" id="KIND1" onclick="btn_disabled(this);" checked><label for="KIND1">出欠データ</label></td>
+                        <td width="60%"><input type="radio" name="KIND" value="2" id="KIND2" onclick="btn_disabled(this);"><label for="KIND2">成績データ</label></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+                <tr bgcolor="#ffffff">
+                  <th class="no_search" colspan="2" rowspan="2" align="right">生成方法</th>
+                  <td>
+                  <table width="100%" border="0" cellspacing="5" cellpadding="0">
+                    <tbody>
+                      <tr>
+                        <td colspan="2" align="left"  width="50%"><input type="radio" name="METHOD" value="1" id="METHOD1" onclick="btn_disabled(this);" checked><label id="label1" for="METHOD1" style="color:#cccccc">自動生成</label>
+                          <br>&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="CREATEDIV" value="1" id="CREATEDIV1" checked>
+                          <label id="label6"  for="CREATEDIV1" style="color:#cccccc">新規作成：対象生徒のデータを全て削除して追加</label>
+                          <br>&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="CREATEDIV" value="2" id="CREATEDIV2">
+                          <label id="label7"  for="CREATEDIV2" style="color:#cccccc">追加作成：対象生徒の未作成データの追加</label>
+                          <br>&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="CREATEDIV" value="3" id="CREATEDIV3">
+                          <label id="label77" for="CREATEDIV3" style="color:#cccccc">追加上書：対象生徒の未作成データの追加＆既存データの上書き</label>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+                <tr bgcolor="#ffffff">
+                  <td>
+                  <table width="100%" border="0" cellspacing="5" cellpadding="0">
+                    <tbody>
+                      <tr>
+                        <td nowrap align="left" width="50%">
+                        <input type="radio" name="METHOD" value="2" id="METHOD2" onclick="btn_disabled(this);"><label id="label3" for="METHOD2" style="color:#cccccc">ファイルからの取り込み</label>
+                        <BR>&nbsp;&nbsp;&nbsp;<label id="label8" for="HEADERFLG" style="color:#cccccc">ヘッダ有り<input type="checkbox" name="HEADERFLG" value="1" id="HEADERFLG"></td>
+                        <td align="left"  width="50%">{rval FILE}<BR>{rval btn_output}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+                <tr bgcolor="#ffffff">
+                  <th class="no_search" colspan="2" align="right">生成範囲</th>
+                  <td>
+                  <table width="100%" border="0" cellspacing="2" cellpadding="0">
+                    <tbody>
+                      <tr>
+                        <td width="40%"><input type="radio" name="RANGE" value="1" id="RANGE1" checked><label id="label4" for="RANGE1">処理年度のみ</label></td>
+                        <td width="60%"><input type="radio" name="RANGE" value="2" id="RANGE2"><label id="label5" for="RANGE2">過年度も含めて生成</label></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+                <tr bgcolor="#ffffff">
+                  <th rowspan="4" class="no_search" nowrap>条件範囲</th>
+                  <th class="no_search" align="right">学年</th>
+                  <td>
+                  <table width="100%" border="0" cellspacing="2" cellpadding="0">
+                    <tbody>
+                      <tr>
+                        <td>{rval ANNUAL}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+                <tr bgcolor="#ffffff">
+                  <th class="no_search" align="right">組</th>
+                  <td>
+                  <table width="100%" border="0" cellspacing="2" cellpadding="0">
+                    <tbody>
+                      <tr>
+                        <td>{rval HR_CLASS}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+                <tr bgcolor="#ffffff">
+                  <th class="no_search" align="right">コース</th>
+                  <td>
+                  <table width="100%" border="0" cellspacing="2" cellpadding="0">
+                    <tbody>
+                      <tr>
+                        <td>{rval COURSECODE}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+                <tr bgcolor="#ffffff">
+                  <th class="no_search" align="right">生徒</th>
+                  <td>
+                  <table width="100%" border="0" cellspacing="2" cellpadding="0">
+                    <tbody>
+                      <tr>
+                        <td>{rval SCHREGNO}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+               <tr bgcolor="#ffffff">
+                  <th class="no_search" colspan="2">&nbsp;</th>
+                  <td>{rval btn_exec}{rval btn_end}</td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<script language="javascript">
+with(document.forms[0]){
+<!--{def RADIO/KIND}-->
+    KIND[{rval RADIO/KIND}-1].checked = true;
+<!--{/def}-->
+<!--{def RADIO/RANGE}-->
+    RANGE[{rval RADIO/RANGE}-1].checked = true;
+<!--{/def}-->
+<!--{def RADIO/METHOD}-->
+    METHOD[{rval RADIO/METHOD}-1].checked = true;
+<!--{/def}-->
+<!--{def RADIO/CREATEDIV}-->
+    CREATEDIV[{rval RADIO/CREATEDIV}-1].checked = true;
+<!--{/def}-->
+<!--{def RADIO/HEADERFLG}-->
+    HEADERFLG.checked = {rval RADIO/HEADERFLG};
+<!--{/def}-->
+
+    btn_disabled((METHOD[0].checked)? METHOD[0]:METHOD[1]);
+    btn_disabled((KIND[0].checked)? KIND[0]:KIND[1]);
+}
+  
+var hr_class = new Array();
+
+<!--{def data}-->	
+<!--{each data}-->
+	
+	hr_class[{rval data/count}] = new Array({rval data/hr_class});
+<!--{/each}-->
+<!--{/def}-->		
+</script>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

@@ -1,0 +1,230 @@
+{rval start}
+<style type="text/css">
+<!--
+    a.LinkColorRed:link {color:#ff0000;}
+    a.LinkColorRed:visited{color:#ff0000;} 
+    a.LinkColorRed:hover{color:#ff0000;} 
+    a.LinkColorRed:active{color:#ff0000;} 
+-->
+</style>
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+    <th valign="top">
+    <table width="950px" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+        <tr class="no_search" align="left" nowrap>
+            <td>
+                &nbsp;{rval YEAR}年度&nbsp;{rval SEMESTER}
+                &nbsp;{rval HR_OR_STAFF1}<LABEL for="HR_OR_STAFF1"><font color="pink">年組&nbsp;</font></LABEL>{rval HR_CLASS}
+                {rval HR_OR_STAFF2}<LABEL for="HR_OR_STAFF2"><font color="pink">先生&nbsp;</font></LABEL>{rval STAFF}
+                &nbsp;&nbsp;<font color="pink">教科欄</font>【{rval DISP_SHOW1}<LABEL for="DISP_SHOW1">{rval DISP_LABEL1}</LABEL>{rval DISP_SHOW2}<LABEL for="DISP_SHOW2">{rval DISP_LABEL2}</LABEL>{rval DISP_SHOW3}<LABEL for="DISP_SHOW3">{rval DISP_LABEL3}</LABEL>&nbsp;】<br>
+                &nbsp;<font color="pink">対象</font>【&nbsp;{rval MONTH}月&nbsp;{rval WEEK_SHOW1}<LABEL for="WEEK_SHOW1">1週</LABEL>{rval WEEK_SHOW2}<LABEL for="WEEK_SHOW2">2週</LABEL>{rval WEEK_SHOW3}<LABEL for="WEEK_SHOW3">3週</LABEL>{rval WEEK_SHOW4}<LABEL for="WEEK_SHOW4">4週</LABEL><!--{def WEEK5}-->{rval WEEK_SHOW5}<LABEL for="WEEK_SHOW5">5週</LABEL><!--{/def}--><!--{def WEEK6}-->{rval WEEK_SHOW6}<LABEL for="WEEK_SHOW6">6週</LABEL><!--{/def}-->&nbsp;】<!--{def UNWEEK5}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--{/def}--><!--{def UNWEEK6}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--{/def}-->
+                &nbsp;&nbsp;<font color="pink">教科名</font>【{rval JISU_SHOW1}<LABEL for="JISU_SHOW1">時間割上教科名</LABEL>{rval JISU_SHOW2}<LABEL for="JISU_SHOW2">時数集計上教科名</LABEL>&nbsp;】<br>
+                &nbsp;<font color="pink">単元</font>【{rval UNIT_SHOW1}<LABEL for="UNIT_SHOW1">最下位</LABEL>{rval UNIT_SHOW2}<LABEL for="UNIT_SHOW2">大単元</LABEL>&nbsp;】
+                &nbsp;&nbsp;<font color="pink">備考欄</font>【{rval REMARK_SHOW1}<LABEL for="REMARK_SHOW1">メモ</LABEL>{rval REMARK_SHOW2}<LABEL for="REMARK_SHOW2">授業内容</LABEL>{rval REMARK_SHOW3}<LABEL for="REMARK_SHOW3">目標</LABEL>&nbsp;】
+                {rval testMode}日付指定モード{rval testday}
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </th>
+</tr>
+<tr><td><br></td></tr>
+<tr>
+    <th valign="top">
+    <table width="950px" border="0" cellspacing="0" cellpadding="0">
+
+    <tr>
+
+        <th>
+
+            <div style="width: 100px;">
+            <table width="100%" border="0" cellspacing="1" cellpadding="6" bgcolor="#000066">
+
+            <tr class="no_search" align="center" nowrap height="30">
+                <td width="100">　</td>
+            </tr>
+
+            </table>
+            </div>
+
+        </th>
+
+        <th align="LEFT">
+
+            <div id="trow" style="overflow:hidden; width: 833px;">
+                <div style="width: 1167px;">
+
+                <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+                <tr class="no_search" align="center" nowrap height="30">
+                    <td width="159px">{rval TITLE/DAY1}{rval TITLE/HOLIDAY0}</td>
+                    <td width="159px">{rval TITLE/DAY2}{rval TITLE/HOLIDAY1}</td>
+                    <td width="159px">{rval TITLE/DAY3}{rval TITLE/HOLIDAY2}</td>
+                    <td width="159px">{rval TITLE/DAY4}{rval TITLE/HOLIDAY3}</td>
+                    <td width="159px">{rval TITLE/DAY5}{rval TITLE/HOLIDAY4}</td>
+                    <td width="159px">{rval TITLE/DAY6}{rval TITLE/HOLIDAY5}</td>
+                    <td width="#">    {rval TITLE/DAY0}{rval TITLE/HOLIDAY6}</td>
+                </tr>
+                </table>
+
+                </div>
+            </div>
+        </th>
+
+    </tr>
+
+
+    <tr valign="TOP">
+        <th>
+
+            <div id="tcol" style="overflow: hidden; width: 100px; height: 413px;">
+                <div style="width: 100px;">
+
+                <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+
+                <!--{each period1}-->
+                <tr bgcolor="#FFFFFF" align="center" nowrap>
+                    <td width="100" height="{rval period1/PERIOD_HEIGHT}" >{rval period1/PERIOD_NAME}</td>
+                </tr>
+                <!--{/each}-->
+
+                </table>
+                </div>
+            </div>
+
+        </th>
+
+        <th>
+            <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 850px; height: 430px;">
+                <div style="width: 1167px;">
+
+                <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+                <!--{each period_data}-->
+                <tr bgcolor="#FFFFFF" align="center" nowrap>
+                    <td width="159px" height="{rval period_data/PERIOD_HEIGHT}" id="{rval period_data/MEISAI_ID1}" {rval period_data/BGCOLOR_HOLIDAY1}>{rval period_data/MEISAI1}</td>
+                    <td width="159px" height="{rval period_data/PERIOD_HEIGHT}" id="{rval period_data/MEISAI_ID2}" {rval period_data/BGCOLOR_HOLIDAY2}>{rval period_data/MEISAI2}</td>
+                    <td width="159px" height="{rval period_data/PERIOD_HEIGHT}" id="{rval period_data/MEISAI_ID3}" {rval period_data/BGCOLOR_HOLIDAY3}>{rval period_data/MEISAI3}</td>
+                    <td width="159px" height="{rval period_data/PERIOD_HEIGHT}" id="{rval period_data/MEISAI_ID4}" {rval period_data/BGCOLOR_HOLIDAY4}>{rval period_data/MEISAI4}</td>
+                    <td width="159px" height="{rval period_data/PERIOD_HEIGHT}" id="{rval period_data/MEISAI_ID5}" {rval period_data/BGCOLOR_HOLIDAY5}>{rval period_data/MEISAI5}</td>
+                    <td width="159px" height="{rval period_data/PERIOD_HEIGHT}" id="{rval period_data/MEISAI_ID6}" {rval period_data/BGCOLOR_HOLIDAY6}>{rval period_data/MEISAI6}</td>
+                    <td width="#" height="{rval period_data/PERIOD_HEIGHT}" id="{rval period_data/MEISAI_ID7}" {rval period_data/BGCOLOR_HOLIDAY7}>{rval period_data/MEISAI7}</td>
+                </tr>
+                <!--{/each}-->
+
+                </table>
+
+                </div>
+            </div>
+
+        </th>
+    </tr>
+
+    <tr>
+        <th align="right" colspan="2">
+        <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+        <tr class="no_search" align="right" nowrap>
+            <td width="#" align="center"></td>
+            <td width="" align="center">{rval total_name/SUBCLASS1}</td>
+            <td width="50px" align="center">{rval total_name/SUBCLASS2}</td>
+            <td width="50px" align="center">{rval total_name/SUBCLASS3}</td>
+            <td width="50px" align="center">{rval total_name/SUBCLASS4}</td>
+            <td width="50px" align="center">{rval total_name/SUBCLASS5}</td>
+            <td width="50px" align="center">{rval total_name/SUBCLASS6}</td>
+            <td width="50px" align="center">{rval total_name/SUBCLASS7}</td>
+            <td width="50px" align="center">{rval total_name/SUBCLASS8}</td>
+            <td width="50px" align="center">{rval total_name/SUBCLASS9}</td>
+            <td width="50px" align="center">{rval total_name/SUBCLASS10}</td>
+            <td width="50px" align="center">{rval total_name/SUBCLASS11}</td>
+            <td width="50px" align="center">{rval total_name/SUBCLASS12}</td>
+            <td width="50px" align="center">{rval total_name/SUBCLASS13}</td>
+            <td width="50px" align="center">{rval total_name/SUBCLASS14}</td>
+        </tr>
+        <tr class="no_search" align="right" nowrap>
+            <td width="#" align="center">週時数</td>
+            <td width="50px">{rval total_jisu/SUBCLASS1}</td>
+            <td width="50px">{rval total_jisu/SUBCLASS2}</td>
+            <td width="50px">{rval total_jisu/SUBCLASS3}</td>
+            <td width="50px">{rval total_jisu/SUBCLASS4}</td>
+            <td width="50px">{rval total_jisu/SUBCLASS5}</td>
+            <td width="50px">{rval total_jisu/SUBCLASS6}</td>
+            <td width="50px">{rval total_jisu/SUBCLASS7}</td>
+            <td width="50px">{rval total_jisu/SUBCLASS8}</td>
+            <td width="50px">{rval total_jisu/SUBCLASS9}</td>
+            <td width="50px">{rval total_jisu/SUBCLASS10}</td>
+            <td width="50px">{rval total_jisu/SUBCLASS11}</td>
+            <td width="50px">{rval total_jisu/SUBCLASS12}</td>
+            <td width="50px">{rval total_jisu/SUBCLASS13}</td>
+            <td width="50px">{rval total_jisu/SUBCLASS14}</td>
+        </tr>
+        <tr class="no_search" align="right" nowrap>
+            <td width="#" align="center">今週までの累計</td>
+            <td width="50px">{rval total_nenkan/SUBCLASS1}</td>
+            <td width="50px">{rval total_nenkan/SUBCLASS2}</td>
+            <td width="50px">{rval total_nenkan/SUBCLASS3}</td>
+            <td width="50px">{rval total_nenkan/SUBCLASS4}</td>
+            <td width="50px">{rval total_nenkan/SUBCLASS5}</td>
+            <td width="50px">{rval total_nenkan/SUBCLASS6}</td>
+            <td width="50px">{rval total_nenkan/SUBCLASS7}</td>
+            <td width="50px">{rval total_nenkan/SUBCLASS8}</td>
+            <td width="50px">{rval total_nenkan/SUBCLASS9}</td>
+            <td width="50px">{rval total_nenkan/SUBCLASS10}</td>
+            <td width="50px">{rval total_nenkan/SUBCLASS11}</td>
+            <td width="50px">{rval total_nenkan/SUBCLASS12}</td>
+            <td width="50px">{rval total_nenkan/SUBCLASS13}</td>
+            <td width="50px">{rval total_nenkan/SUBCLASS14}</td>
+        </tr>
+        <tr class="no_search" align="right" nowrap>
+            <td width="#" align="center">標準時数</td>
+            <td width="50px">{rval total_hyoujun/SUBCLASS1}</td>
+            <td width="50px">{rval total_hyoujun/SUBCLASS2}</td>
+            <td width="50px">{rval total_hyoujun/SUBCLASS3}</td>
+            <td width="50px">{rval total_hyoujun/SUBCLASS4}</td>
+            <td width="50px">{rval total_hyoujun/SUBCLASS5}</td>
+            <td width="50px">{rval total_hyoujun/SUBCLASS6}</td>
+            <td width="50px">{rval total_hyoujun/SUBCLASS7}</td>
+            <td width="50px">{rval total_hyoujun/SUBCLASS8}</td>
+            <td width="50px">{rval total_hyoujun/SUBCLASS9}</td>
+            <td width="50px">{rval total_hyoujun/SUBCLASS10}</td>
+            <td width="50px">{rval total_hyoujun/SUBCLASS11}</td>
+            <td width="50px">{rval total_hyoujun/SUBCLASS12}</td>
+            <td width="50px">{rval total_hyoujun/SUBCLASS13}</td>
+            <td width="50px">{rval total_hyoujun/SUBCLASS14}</td>
+        </tr>
+        <tr class="no_search" align="right" nowrap>
+            <td width="#" align="center">残時数</td>
+            <td width="50px" {rval total_zan/SUB_BGCOLOR1}><font color="{rval total_zan/SUB_COLOR1}">{rval total_zan/SUBCLASS1}</font></td>
+            <td width="50px" {rval total_zan/SUB_BGCOLOR2}><font color="{rval total_zan/SUB_COLOR2}">{rval total_zan/SUBCLASS2}</font></td>
+            <td width="50px" {rval total_zan/SUB_BGCOLOR3}><font color="{rval total_zan/SUB_COLOR3}">{rval total_zan/SUBCLASS3}</font></td>
+            <td width="50px" {rval total_zan/SUB_BGCOLOR4}><font color="{rval total_zan/SUB_COLOR4}">{rval total_zan/SUBCLASS4}</font></td>
+            <td width="50px" {rval total_zan/SUB_BGCOLOR5}><font color="{rval total_zan/SUB_COLOR5}">{rval total_zan/SUBCLASS5}</font></td>
+            <td width="50px" {rval total_zan/SUB_BGCOLOR6}><font color="{rval total_zan/SUB_COLOR6}">{rval total_zan/SUBCLASS6}</font></td>
+            <td width="50px" {rval total_zan/SUB_BGCOLOR7}><font color="{rval total_zan/SUB_COLOR7}">{rval total_zan/SUBCLASS7}</font></td>
+            <td width="50px" {rval total_zan/SUB_BGCOLOR8}><font color="{rval total_zan/SUB_COLOR8}">{rval total_zan/SUBCLASS8}</font></td>
+            <td width="50px" {rval total_zan/SUB_BGCOLOR9}><font color="{rval total_zan/SUB_COLOR9}">{rval total_zan/SUBCLASS9}</font></td>
+            <td width="50px" {rval total_zan/SUB_BGCOLOR10}><font color="{rval total_zan/SUB_COLOR10}">{rval total_zan/SUBCLASS10}</font></td>
+            <td width="50px" {rval total_zan/SUB_BGCOLOR11}><font color="{rval total_zan/SUB_COLOR11}">{rval total_zan/SUBCLASS11}</font></td>
+            <td width="50px" {rval total_zan/SUB_BGCOLOR12}><font color="{rval total_zan/SUB_COLOR12}">{rval total_zan/SUBCLASS12}</font></td>
+            <td width="50px" {rval total_zan/SUB_BGCOLOR13}><font color="{rval total_zan/SUB_COLOR13}">{rval total_zan/SUBCLASS13}</font></td>
+            <td width="50px" {rval total_zan/SUB_BGCOLOR14}>   <font bgColor="{rval total_zan/SUB_COLOR14}">{rval total_zan/SUBCLASS14}</font></td>
+        </tr>
+        <tr class="no_search" align="right" nowrap>
+            <td colspan="16">
+            {rval btn_update}
+            {rval btn_reset}
+            {rval btn_end}
+            </td>
+        </tr>
+        </table>
+        </th>
+    </tr>
+    </table>
+    </th>
+</tr>
+</table>
+{rval finish}
+

@@ -1,0 +1,25 @@
+-- kanji=漢字
+-- $Id: f2c28c1aa8a8ed6e11468fbd477c0d6f68908d77 $
+
+-- 注意:このファイルは EUC/LFのみ でなければならない。
+-- 適用方法:
+--    1.データベース接続
+--    2.db2 +c -f <このファイル>
+--    3.コミットするなら、db2 +c commit。やり直すなら、db2 +c rollback
+--
+
+DROP TABLE HEXAM_MONTH_REMARK_DAT
+
+CREATE TABLE HEXAM_MONTH_REMARK_DAT ( \
+    YEAR        VARCHAR(4)    NOT NULL, \
+    MONTH       VARCHAR(2)    NOT NULL, \
+    SCHREGNO    VARCHAR(8)    NOT NULL, \
+    REMARK1     VARCHAR(750) , \
+    REMARK2     VARCHAR(750) , \
+    REMARK3     VARCHAR(750) , \
+    REGISTERCD  VARCHAR(10)  , \
+    UPDATED     TIMESTAMP     DEFAULT CURRENT TIMESTAMP \
+ ) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE HEXAM_MONTH_REMARK_DAT ADD CONSTRAINT PK_HEXMONREM_DAT PRIMARY KEY (YEAR,MONTH,SCHREGNO)
+

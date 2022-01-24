@@ -1,0 +1,195 @@
+{rval start}
+
+<!--{def button}-->
+
+<br>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="180" nowrap bgcolor="#ADFF2F" align="center">
+            <b><font size="3" color="#006400">受験報告(進学)<br>一括入力</font></b>
+          </td>
+          <td>
+            <hr width="350" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="350" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            {rval button/btn_replace}<span style="letter-spacing:200;">　　</span>{rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_end}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tbody>
+                          <tr class="no_search" height="50">
+                            <th align="center" nowrap width="140">登録日</th>
+                            <th align="center" nowrap width="110">学校名</th>
+                            <th align="center" nowrap width="70">学部</th>
+                            <th align="center" nowrap width="100">学科</th>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td>
+                  <div id="trow" style="overflow:hidden; width: 520px; ">
+                  <div style="width: 2800px;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tbody>
+                          <tr class="no_search" height="50">
+<!--{def useCollegeExamCalendar}-->
+                            <th align="center" nowrap width="100">日程</th>
+<!--{/def}-->
+                            <th align="center" nowrap width="130">受験方式</th>
+                            <th align="center" nowrap width="90">受験結果</th>
+<!--{def knje360ShowTokumeiCheck}-->
+                            <th align="center" nowrap width="50" style="font-size:75%;">合格短冊<BR>匿名希望</th>
+<!--{/def}-->
+<!--{def useISSUE}-->
+                            <th align="center" nowrap width="50">調査書<BR>発行</th>
+<!--{/def}-->
+                            <th align="center" nowrap width="75">進路状況</th>
+<!--{def useCollegeExamCalendar}-->
+                            <th align="center" nowrap width="100">方式</th>
+<!--{/def}-->
+                            <th align="center" nowrap width="85">受験番号</th>
+                            <th align="center" nowrap width="550">備考1</th>
+<!--{def useCollegeExamCalendar}-->
+                            <th align="center" nowrap width="100">募集区分</th>
+                            <th align="center" nowrap width="100">大分類</th>
+                            <th align="center" nowrap width="100">小分類</th>
+<!--{/def}-->
+                            <th align="center" nowrap width="140">締切日（窓口）</th>
+                            <th align="center" nowrap width="140">締切日（郵送）</th>
+                            <th align="center" nowrap width="130">郵送区分</th>
+                            <th align="center" nowrap width="140">入試日</th>
+                            <th align="center" nowrap width="140">合格発表日</th>
+                            <th align="center" nowrap width="550">備考2</th>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  </div>
+                  </div>
+                </td>
+              </tr>
+              <tr valign="TOP">
+                <td>
+                  <div id="tcol" style="height: 400px; overflow: hidden; ">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tbody>
+                          <!--結果一覧--><!--{def data}--><!--{each data}-->
+                          <tr bgcolor="{rval data/BGCOLOR}" height="50">
+                            <td align="center" nowrap width="140">{rval data/TOROKU_DATE}</td>
+                            <td nowrap width="110">{rval data/SCHOOL_CD}<br>{rval data/SCHOOL_NAME}</td>
+                            <td nowrap width="70">{rval data/FACULTYCD}<br>{rval data/FACULTYNAME}</td>
+                            <td nowrap width="100" id="dep">{rval data/DEPARTMENTCD}<br>{rval data/DEPARTMENTNAME}</td>
+                          </tr>
+                          <!--{/each}--><!--{/def}-->
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  </div>
+                </td>
+                <td>
+                  <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 520px; height: 416px;">
+                  <div style="width: 2800px;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tbody>
+                          <!--結果一覧--><!--{def data}--><!--{each data}-->
+                          <tr bgcolor="{rval data/BGCOLOR}" height="50">
+<!--{def useCollegeExamCalendar}-->
+                            <td nowrap width="100">{rval data/PROGRAM_CD}<br>{rval data/PROGRAM_NAME}</td>
+<!--{/def}-->
+                            <td align="center" nowrap width="130">{rval data/HOWTOEXAM}<div id="shDisp-{rval data/DISP_SEQ}" {rval data/SH_DISP}>{rval data/SHDIV}</div></td>
+                            <td align="center" nowrap width="90">{rval data/DECISION}</td>
+                            <!--{def knje360ShowTokumeiCheck}--><td align="center" nowrap width="50">{rval data/TOKUMEI}</td><!--{/def}-->
+<!--{def useISSUE}-->
+                            <td align="center" nowrap width="50">{rval data/ISSUE}</td>
+<!--{/def}-->
+                            <td align="center" nowrap width="75">{rval data/PLANSTAT}</td>
+<!--{def useCollegeExamCalendar}-->
+                            <td nowrap width="100">{rval data/FORM_CD}<br>{rval data/FORM_NAME}</td>
+<!--{/def}-->
+                            <td align="center" nowrap width="85">{rval data/EXAMNO}</td>
+                            <td nowrap width="550">{rval data/CONTENTEXAM}</td>
+<!--{def useCollegeExamCalendar}-->
+                            <td nowrap width="100">{rval data/ADVERTISE_DIV}<br>{rval data/ADVERTISE_NAME}</td>
+                            <td nowrap width="100">{rval data/L_CD}<br>{rval data/L_NAME}</td>
+                            <td nowrap width="100">{rval data/S_CD}<br>{rval data/S_NAME}</td>
+<!--{/def}-->
+                            <td align="center" nowrap width="140">{rval data/LIMIT_DATE_WINDOW}</td>
+                            <td align="center" nowrap width="140">{rval data/LIMIT_DATE_MAIL}</td>
+                            <td align="center" nowrap width="130">{rval data/LIMIT_MAIL_DIV}</td>
+                            <td align="center" nowrap width="140">{rval data/STAT_DATE1}</td>
+                            <td align="center" nowrap width="140">{rval data/STAT_DATE3}</td>
+                            <td nowrap width="550">{rval data/REASONEXAM}</td>
+                          </tr>
+                          <!--{/each}--><!--{/def}-->
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td><span style="letter-spacing:240;">　　</span>
+            {rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_end}
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->

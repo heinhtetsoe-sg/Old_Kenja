@@ -1,0 +1,120 @@
+{rval start}
+<style>
+div.holder {
+    display: block;
+    box-sizing: border-box;
+    float: left;
+    width: 600px;
+    height: 500px;
+}
+div.holder2 {
+    display: block;
+    box-sizing: border-box;
+    /*float: left;*/
+    width: 600px;
+    height: 500px;
+}
+</style>
+<table width="1000" border="0" cellpadding="0" cellspacing="10" align="center">
+  <tbody>
+      
+    <tr class="no_search_line">
+      <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tbody>
+          <tr bgcolor="#ffffff">
+            <th class="no_search" align="center">絞込み</th>
+          </tr>
+          <tr bgcolor="#ffffff">
+            <td align="center">{rval button/btn_reappear}　{rval button/btn_sanka}　{rval button/btn_all}</td>
+          </tr>
+          <tr bgcolor="#ffffff">
+            <td align="center">{rval GYOUSYA}　{rval KATA}　{rval SYUBETU}</td>
+          </tr>
+          <tr bgcolor="#ffffff">
+            <td align="center">{rval CHECK}</td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    
+    <tr class="no_search_line">
+      <td nowrap>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr bgcolor="#ffffff">
+            <td>
+            <table width="{rval width}%" border="0" cellpadding="0" cellspacing="0" align="center">
+                <tr class="no_search_line">
+                  <td nowrap>
+                        <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                          <tr bgcolor="#ffffff">
+                            <th class="no_search" width="145px" colspan="2">試験名称/科目名</th>
+                            <!--{each data}-->
+                            <th class="no_search" width="80px">{rval data/kyouka}</th>
+                            <!--{/each}-->
+                          </tr>
+                          <!--{def data2}-->
+                          <!--{each data2}-->
+                          <tr bgcolor="#ffffff">
+                            <!--<th class="no_search"  align="center">{rval data2/MOCKNAME}</th>-->
+                            {rval data2/MOCKNAME}
+                            {rval data2/HENSATI}
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                        </table>
+                  </td>
+                </tr>
+              </table>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+      
+    <tr class="no_search_line">
+      <td nowrap>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td class="no_search" style="padding:10px;font-size:120%;text-align:center;" colspan="2">全教材共通　成績推移グラフ</td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+
+    <tr class="no_search_line">
+      <td nowrap>
+      <table width="100%" border="0" cellpadding="0" cellspacing="1">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+                <table class="sunko_field" width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr bgcolor="#ffffff">
+                        <td style="text-align:right;width:25%;padding-right:3px;">全<BR>国<BR>偏<BR>差<BR>値</td>
+                        <td style="width:50%;">
+                            <div class="holder">
+                                <canvas id="line0" height="500" width="600"></canvas>
+                            </div>
+                        </td>
+                        <td style="width:25%;"></td>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                        <td colspan="3" style="text-align:center;padding:3px;">模試名</td>
+                    </tr>
+                </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<script language="JavaScript">{rval jscript}</script> 
+{rval java}
+{rval finish}

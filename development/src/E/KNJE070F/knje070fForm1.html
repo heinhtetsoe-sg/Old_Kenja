@@ -1,0 +1,178 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR>
+
+<table width="60%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5">
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="10" cellspacing="1">
+                    <tr class="no_search">
+                      <th nowrap><b>
+                        {rval data/YEAR}年度　　{rval data/GAKKI}<br><br>
+                        大学：{rval data/STAT_CD}　　学部・学科：{rval data/FACULTY_DEPARTMENT}
+                      </b></th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="40%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="40%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff">
+                      <td>
+                        <table>
+                          <tr>
+                            <td width="190"><b>　　　調査書種類</b></td>
+                            <td width="10"></td>
+                            <td>
+                                <!--{def hanki}-->
+                                {rval data/OUTPUT1}<LABEL for="OUTPUT1">進学用（通年）</LABEL>
+                                　　　{rval data/OUTPUT1h}<LABEL for="OUTPUT1h">進学用（半期認定）</LABEL>
+                                　　　{rval data/OUTPUT2}<LABEL for="OUTPUT2">就職用（通年）</LABEL>
+                                　　　{rval data/OUTPUT2h}<LABEL for="OUTPUT2h">就職用（半期認定）</LABEL>
+                                <!--{/def}-->
+                                <!--{def notHanki}-->
+                                {rval data/OUTPUT1}<LABEL for="OUTPUT1">進学用</LABEL>
+                                　　　{rval data/OUTPUT2}<LABEL for="OUTPUT2">就職用</LABEL>
+                                <!--{/def}-->
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td>
+                        <table>
+                          <tr>
+                            <td width="170"><b>　　　漢字氏名印刷</b></td>
+                            <td width="10"></td>
+                            <td>{rval data/KANJI1}<LABEL for="KANJI1">する</LABEL>　　　　{rval data/KANJI2}<LABEL for="KANJI2">しない</LABEL></td>
+                          </tr>
+                          <tr>
+                            <td width="170"><b>　　　住所</b></td>
+                            <td width="10"></td>
+                            <td>{rval data/SONOTAJUUSYO}<LABEL for="SONOTAJUUSYO">その他住所を優先して印字する。</LABEL></td>
+                          </tr>
+<!--{def hyoteiYomikae}-->
+                          <tr>
+                            <td width="170"><b>　　　評定読替</b></td>
+                            <td width="10"></td>
+                            <td>{rval data/HYOTEI}<LABEL for="HYOTEI">{rval data/HYOTEI_KARI}評定が１の場合は２で処理する。</LABEL></td>
+                          </tr>
+<!--{/def}-->
+                          <tr>
+                            <td width="170"><b>　　　学習成績概評</b></td>
+                            <td width="10"></td>
+                            <td>{rval data/COMMENT}<LABEL for="COMMENT">学年人数を印刷する。</LABEL></td>
+                          </tr>
+                          <tr>
+                            <td width="170"><b>　　　出欠日数</b></td>
+                            <td width="10"></td>
+                            <td>{rval data/tyousasyoNotPrintAnotherAttendrec}<LABEL for="tyousasyoNotPrintAnotherAttendrec">前籍校を含まない。</LABEL></td>
+                          </tr>
+<!--{def notKindai}-->
+                          <tr>
+                            <td width="170"><b>　　　未履修科目出力</b></td>
+                            <td width="10"></td>
+                            <td>{rval data/MIRISYU1}<LABEL for="MIRISYU1">する</LABEL>　　　　{rval data/MIRISYU2}<LABEL for="MIRISYU2">しない</LABEL></td>
+                          </tr>
+                          <tr>
+                            <td width="170"><b>　　　履修のみ科目出力</b></td>
+                            <td width="10"></td>
+                            <td>{rval data/RISYU1}<LABEL for="RISYU1">する</LABEL>　　　　{rval data/RISYU2}<LABEL for="RISYU2">しない</LABEL></td>
+                          </tr>
+<!--{/def}-->
+                          <tr>
+                            <td width="190"><b>　　　総合的な学習の時間<br>　　　の単位を０表示</b></td>
+                            <td width="10"></td>
+                            <td>{rval data/TANIPRINT_SOUGOU1}<LABEL for="TANIPRINT_SOUGOU1">する</LABEL>　　　　{rval data/TANIPRINT_SOUGOU2}<LABEL for="TANIPRINT_SOUGOU2">しない</LABEL></td>
+                          </tr>
+                          <tr>
+                            <td width="190"><b>　　　留学の単位を０表示</b></td>
+                            <td width="10"></td>
+                            <td>{rval data/TANIPRINT_RYUGAKU1}<LABEL for="TANIPRINT_RYUGAKU1">する</LABEL>　　　　{rval data/TANIPRINT_RYUGAKU2}<LABEL for="TANIPRINT_RYUGAKU2">しない</LABEL></td>
+                          </tr>
+<!--{def form_select}-->
+                          <tr>
+                            <td width="170"><b>　　　フォーム選択</b></td>
+                            <td width="10"></td>
+                            <td>
+<!--{def no_tyousasyoNoSelectNenYoForm}-->
+                              {rval data/FORM6}<LABEL for="FORM6">{rval data/FORM6NAME}</LABEL><br>
+<!--{/def}-->
+<!--{def no_tyousasyoNoSelectUseSyojikou3}-->
+                              {rval data/useSyojikou3}<LABEL for="useSyojikou3">指導上参考となる諸事欄、３分割フォーム</LABEL>
+<!--{/def}-->
+                            </td>
+                          </tr>
+<!--{/def}-->
+                          <tr>
+                            <td width="170"><b>　　　校長印刷</b></td>
+                            <td width="10"></td>
+                            <td>{rval data/KOTYO1}<LABEL for="KOTYO1">する</LABEL>　　　　{rval data/KOTYO2}<LABEL for="KOTYO2">しない</LABEL></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="left" bgcolor="#ffffff">
+                        <table>
+                          <tr>
+                            <td width="170"><b>　　　記載（証明）日付</b></td>
+                            <td width="10"></td>
+                            <td>{rval el/DATE}</td>
+                          </tr>
+                          <tr>
+                            <td width="170"><b>　　　記載責任者</b></td>
+                            <td width="10"></td>
+                            <td>{rval data/SEKI}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_csv}{rval button/btn_end}　<font color="red" size="2"> ※PDF印字する場合は、ページの拡大／縮小は</font><br>　　　　　　　　　　　　　　　　　　　　　　　　　<font color="red" size="2">"用紙にあわせる"を選択してください。</font></td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

@@ -1,0 +1,101 @@
+{rval start}
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR>
+<table width="620" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1" rules="none">
+                    <tr class="no_search">
+                      <td align="center"><b>
+                        　{rval data/YEAR}年度　　
+                        {rval data/DISP1}<LABEL for="DISP1">&nbsp;クラス選択</LABEL>　{rval data/DISP2}<LABEL for="DISP2">&nbsp;個人選択</LABEL>
+                      </b></td>
+                    </tr>
+                  </table>
+                  <!--{def is_disp1}-->
+                  <table width="100%" border="1" cellpadding="3" cellspacing="1" rules="none" bordercolor="#336699">
+                    <tr bgcolor="#ffffff">
+                      <td>　　　　</td>
+                      <td>{rval data/DIV1}<LABEL for="DIV1">&nbsp;中間（本人成績有り）</LABEL></td>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td></td>
+                      <td>{rval data/SEMESTER1}　　{rval data/GRADE}</td>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td></td>
+                      <td>{rval data/DIV2}<LABEL for="DIV2">&nbsp;期末（本人成績無し）※クラス選択は不要</LABEL></td>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td></td>
+                      <td>{rval data/SEMESTER2}</td>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </table>
+                  <!--{/def}-->
+                  <!--{def is_disp2}-->
+                  <table width="100%" border="1" cellpadding="10" cellspacing="1" rules="none" bordercolor="#336699">
+                    <tr align="center" bgcolor="#ffffff">
+                      <td>{rval data/SEMESTER1}　{rval data/GRADE}　{rval data/HR_CLASS}</td>
+                    </tr>
+                  </table>
+                  <!--{/def}-->
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <!--{def is_LRlist}-->
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>{rval data/RNAME}</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CLSS_OR_STDNTS_SELECTED}</td>
+                      <td width="*%"  class="no_search">
+                        {rval button/btn_lefts_all}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights_all}
+                      </td>
+                      <td width="45%">{rval data/CLSS_OR_STDNTS_LIST}</td>
+                    </tr>
+                  </table>
+                  <!--{/def}-->
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                    <td></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}

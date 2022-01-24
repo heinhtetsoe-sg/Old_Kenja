@@ -1,0 +1,99 @@
+{rval start} 
+
+<br><br><br><br><br>
+<table style="width: 400px" border="0" cellpadding="10" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table style="width: 400px" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <td>
+            <table style="width: 400px" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table style="width: 400px" border="0" cellspacing="1" cellpadding="4">
+                    <tr class="no_search" height="30" align="center">
+                      <td><b>
+                        {rval data/YEAR}年度　　{rval data/SEMESTER}
+                      </b></td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="100">
+                      <td>
+                        <table>
+                          <tr>
+                            <td>
+                                <!--{def SCHOOL_KIND}-->　　校種：{rval SCHOOL_KIND}<BR><BR><!--{/def}-->
+                                　　{rval data/STD_DIV1}<LABEL for="STD_DIV1">卒業生</LABEL>　　{rval data/STD_DIV2}<LABEL for="STD_DIV2">在校生</LABEL>　　{rval data/STD_DIV3}<LABEL for="STD_DIV3">卒業生・在校生</LABEL><br>　
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+
+                    <tr bgcolor="#ffffff" height="90">
+                      <td>
+                        <table>
+                          <tr>
+                            <td><b>
+                                　　印刷ページ番号条件
+                            </b></td>
+                          </tr>
+                          <tr>
+                            <td>
+
+                              <div style="width: 100%; height=200; overflow: auto">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr class="no_search_line">
+                                  <td>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="3"> 
+                                      <tr bgcolor="#ffffff" >            
+                                        <td width="40" align="center" nowrap>No</td>
+                                        <td width="40" align="center" nowrap>印字</td>
+                                        <td width="40" align="center" nowrap>ﾍﾟｰｼﾞ</td>
+                                        <td width="70" align="center" nowrap>開始番号</td>
+                                        <td width="70" align="center" nowrap>終了番号</td>
+                                        <td width="150" align="center" nowrap>状態</td>
+                                      </tr> 
+                                    <!--{def data2}-->
+                                    <!--結果一覧-->
+                                    <!--{each data2}--> 
+                                      <tr bgcolor="#ffffff" >            
+                                        <td width="40" align="center" nowrap>{rval data2/LINE_NO}</td>
+                                        <td width="40" align="center" nowrap>{rval data2/UPD_CHECK}</td>
+                                        <td width="40" align="center" nowrap>{rval data2/PAGE_NO}</td>
+                                        <td width="70" align="center" nowrap>{rval data2/S_CERTIF_NO}</td>
+                                        <td width="70" align="center" nowrap>{rval data2/E_CERTIF_NO}</td>
+                                        <td width="150" align="center" nowrap>{rval data2/STATUS}</td>
+                                      </tr> 
+                                    <!--{/each}--> 
+                                    <!--{/def}-->
+                                    </table>
+                                  </td>
+                                  </tr>
+                                </table>
+                              </div>
+
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="left">
+                        {rval button/btn_print}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">
+{rval printOut}
+</script>

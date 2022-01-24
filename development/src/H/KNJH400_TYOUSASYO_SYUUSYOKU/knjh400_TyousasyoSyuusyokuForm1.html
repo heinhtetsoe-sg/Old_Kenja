@@ -1,0 +1,153 @@
+{rval start}
+{rval IFRAME}
+
+<style>
+.pattern {
+  padding-bottom: 10px;
+}
+</style>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line"> 
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4">
+              <tr class="no_search" height="25">
+                <th>{rval name}</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+<!--{def use_tyousasyo_shokenTable_Seq}-->
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <td>
+            <table>
+              <tr>
+                <td width="50%" class="pattern">
+                  <b>参照パターン</b>&nbsp;{rval REFER_PATTERN}
+                </td>
+              </tr>
+              <tr>
+                <td width="50%" class="pattern">
+                  <b>対象パターン</b>&nbsp;{rval SELECT_PATTERN}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+<!--{/def}-->
+
+      <table width="100%" height="200" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td width="50%">
+            <table width="100%" height="100%" border="0" cellspacing="1" cellpadding="4">
+              <tr>
+                <td width="10%" class="no_search" align="center">特<br>別<br>活<br>動<br>の<br>記<br>録</td>
+                <td width="90% "bgcolor="#ffffff">
+                {rval data/JOBHUNT_REC}<br>
+                <font color="red" size=2>&nbsp;&nbsp;{rval data/JOBHUNT_REC_TYUI}</font>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td width="50%">
+            <table width="100%" height="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <td width="30%"class="no_search" align="center">欠席の<br>主な理由</td>
+                <td width="60% "bgcolor="#ffffff">
+                {rval data/JOBHUNT_ABSENCE}<br>
+                <font color="red" size=2>&nbsp;&nbsp;{rval data/JOBHUNT_ABSENCE_TYUI}</font></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line"> 
+          <td width="100%" height="120">
+            <table width="100%" height="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search">
+                <td colspan="8">
+                  <table width="100%" border="0" cellspacing="3" cellpadding="0">
+                    <tr class="no_search">
+                      <th align="right" nowrap width="50%">身　体　状　況</th>
+                      <th align="right" nowrap width="50%">検査日：{rval data/DATE}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td width="8%" class="no_search" align="center">身長</td>
+                <td width="22%" colspan="2" bgcolor="#ffffff" align="center">{rval data/HEIGHT}</td>
+                <td width="8%" class="no_search" align="center">体重</td>
+                <td width="22%" colspan="2" bgcolor="#ffffff" align="center">{rval data/WEIGHT}</td>
+                <td width="6%" rowspan="3" class="no_search" align="center">備<br>考</td>
+                <td width="34%" rowspan="3" bgcolor="#ffffff">{rval data/JOBHUNT_HEALTHREMARK}<br>{rval data/CHECK}<LABEL for="CHECK">{rval data/CHECK_LABEL}</LABEL><font color="red" size=2>&nbsp;&nbsp;(全角14文字X3行まで)</font></td>
+              </tr>
+              <tr>
+                <td width="8%" rowspan="2" class="no_search" align="center">視力</td>
+                <td width="6%" bgcolor="#ffffff" align="center">右</td>
+                <td width="16%" bgcolor="#ffffff" align="center">{rval data/R_VISION_MARK}</td>
+                <td width="8%" rowspan="2" class="no_search" align="center">聴力</td>
+                <td width="6%" bgcolor="#ffffff" align="center">右</td>
+                <td width="16%" bgcolor="#ffffff" align="center">{rval data/R_EAR_NAME}</td>
+              </tr>
+              <tr>
+                <td width="6%" bgcolor="#ffffff" align="center">左</td>
+                <td width="16%" bgcolor="#ffffff" align="center">{rval data/L_VISION_MARK}</td>
+                <td width="6%" bgcolor="#ffffff" align="center">左</td>
+                <td width="16%" bgcolor="#ffffff" align="center">{rval data/L_EAR_NAME}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        </table>
+        
+        <table width="100%" border="0" cellspacing="5" cellpadding="0">
+          <tr class="no_search_line"> 
+            <td width="100%">
+              <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                <tr>
+                  <td class="no_search" width="5%" align="center" rowspan="2">本<br>人<br>の<br>長<br>所<br>・<br>推<br>薦<br>事<br>由</td>
+                  <td bgcolor="#ffffff" width="95%"><font color="red" size="2">指導要録データ</font>
+                  <div style="height:80;overflow-y:scroll">
+                    <!--{each sido_data}-->
+                      <br>{rval sido_data/YEAR}
+                      <br>{rval sido_data/TOTALREMARK}
+                    <!--{/each}-->
+                    <!--{def sidoyoroku}-->
+                      <br>{rval no_data}
+                    <!--{/def}-->
+                  </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td bgcolor="#ffffff" width="95%">{rval data/JOBHUNT_RECOMMEND}<br>
+                  <font color="red" size=2>&nbsp;&nbsp;{rval data/JOBHUNT_RECOMMEND_TYUI}</font></td>
+                </tr>
+                <tr>
+                  <td width="5%" class="no_search">　</td>
+                  <td width="95%" bgcolor="#ffffff">{rval button/btn_back}</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+</table>
+
+{rval finish}
+
+<!-- <script language="JavaScript">{rval reload}</script> -->
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->
+<script language="javascript">{rval reload}</script>

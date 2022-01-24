@@ -1,0 +1,16 @@
+-- kanji=´Á»ú
+-- $Id: 387e04ad74c8138e2016e7f70d8480e39e4f6ec3 $
+
+DROP TABLE AFT_DISEASE_ADDITION434_HDAT
+
+CREATE TABLE AFT_DISEASE_ADDITION434_HDAT \
+      (EDBOARD_SCHOOLCD     VARCHAR(12) NOT NULL, \
+       YEAR                 VARCHAR(4)  NOT NULL, \
+       DATA_DIV             VARCHAR(3)  NOT NULL, \
+       IDOU_DATE            DATE, \
+       REGISTERCD           VARCHAR(10), \
+       UPDATED      TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+      ) in usr1dms index in idx1dms
+
+alter table AFT_DISEASE_ADDITION434_HDAT add constraint PK_AFT_D_ADD434_H \
+primary key (EDBOARD_SCHOOLCD, YEAR, DATA_DIV)

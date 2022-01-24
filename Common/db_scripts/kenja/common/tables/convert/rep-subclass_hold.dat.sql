@@ -1,0 +1,50 @@
+-- $Id: 9172fa4c23d584f529041a198af013ac12fa558e $
+
+DROP TABLE SUBCLASS_HOLD_DAT_OLD
+RENAME TABLE SUBCLASS_HOLD_DAT TO SUBCLASS_HOLD_DAT_OLD
+CREATE TABLE SUBCLASS_HOLD_DAT( \
+       ENTYEAR       VARCHAR(4)      NOT NULL, \
+       COURSECD      VARCHAR(1)      NOT NULL, \
+       MAJORCD       VARCHAR(3)      NOT NULL, \
+       CLASSCD       VARCHAR(2)      NOT NULL, \
+       SCHOOL_KIND   VARCHAR(2)      NOT NULL, \
+       CURRICULUM_CD VARCHAR(2)      NOT NULL, \
+       SUBCLASSCD    VARCHAR(6)      NOT NULL, \
+       SELECTKIND    VARCHAR(2)      NOT NULL, \
+       STUDY1        VARCHAR(1), \
+       STUDY2        VARCHAR(1), \
+       STUDY3        VARCHAR(1), \
+       STUDY4        VARCHAR(1), \
+       STUDY5        VARCHAR(1), \
+       STUDY6        VARCHAR(1), \
+       CREDITS       smallint, \
+       REMARK        VARCHAR(75), \
+       REGISTERCD    VARCHAR(10), \
+       UPDATED       TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+      ) IN USR1DMS INDEX IN IDX1DMS
+
+INSERT INTO SUBCLASS_HOLD_DAT \
+    SELECT \
+        ENTYEAR, \
+        COURSECD, \
+        MAJORCD, \
+        CLASSCD, \
+        SCHOOL_KIND, \
+        CURRICULUM_CD, \
+        SUBCLASSCD, \
+        SELECTKIND, \
+        STUDY1, \
+        STUDY2, \
+        STUDY3, \
+        STUDY4, \
+        STUDY5, \
+        STUDY6, \
+        cast(null as smallint) as CREDITS, \
+        cast(null as varchar(75)) as REMARK, \
+        REGISTERCD, \
+        UPDATED \
+    FROM \
+        SUBCLASS_HOLD_DAT_OLD
+
+ALTER TABLE SUBCLASS_HOLD_DAT ADD CONSTRAINT PK_SBCLS_HOLD_DAT PRIMARY KEY \
+      (ENTYEAR,COURSECD,MAJORCD,CLASSCD,SCHOOL_KIND,CURRICULUM_CD,SUBCLASSCD)

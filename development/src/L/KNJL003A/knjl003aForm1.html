@@ -1,0 +1,93 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="10" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" height="25">
+                      <th norwarp width="17%" nowrap>入試年度</th>
+                      <td norwarp width="*" bgcolor="#ffffff">{rval year}&nbsp;&nbsp;{rval btn_year_add}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" height="25">
+                      <th norwarp width="17%" nowrap>受験校種</th>
+                      <td norwarp width="*" bgcolor="#ffffff">{rval APPLICANTDIV}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="7%" rowspan="2">特待CD</th>
+                      <th nowrap width="16%" rowspan="2">特待名称</th>
+                      <th nowrap width="12%" rowspan="2">特待略称</th>
+                      <th nowrap width="7%" rowspan="2">特待区分</th>
+                      <th nowrap width="7%" rowspan="2">優先<br>順位</th>
+                      <th nowrap width="7%" rowspan="2">クラブ</th>
+                      <th nowrap width="15%" colspan="2">通知書用</th>
+                      <th nowrap width="12%" rowspan="2" colspan="{rval enroll_fees_cols}">入学金</th>
+                      <th nowrap width="18%" {rval SPAN}>{rval SCHOLARSHIP_LABEL}</th>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap width="5%">区分1</th>
+                      <th nowrap width="8%">区分2</th>
+                      <!--{def showSCHOLARSHIP}-->
+                      <th nowrap width="9%">月額</th>
+                      <th nowrap width="9%">年間</th>
+                      <!--{/def}-->
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td nowrap align="center">{rval data/HONORDIV}</td>
+                      <td nowrap>{rval data/HONORDIV_NAME}</td>
+                      <td nowrap>{rval data/HONORDIV_ABBV}</td>
+                      <td nowrap>{rval data/HONOR_TYPE_NAME}</td>
+                      <td nowrap align="center">{rval data/PRIORITY}</td>
+                      <td nowrap align="center">{rval data/CLUB_FLG}</td>
+                      <td nowrap>{rval data/NOTICE_CLASS}</td>
+                      <td nowrap>{rval data/NOTICE_KIND}</td>
+                      <td nowrap>{rval data/ENROLL_FEES}</td>
+                      <!--{def showENROLL_FEES2}-->
+                      <td nowrap width="7%">{rval data/ENROLL_FEES2}</td>
+                      <!--{/def}-->
+                      <td nowrap>{rval data/SCHOLARSHIP1}</td>
+                      <!--{def showSCHOLARSHIP}-->
+                      <td nowrap>{rval data/SCHOLARSHIP2}</td>
+                      <!--{/def}-->
+                    </tr> 
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+
+<script language="JavaScript">
+<!--{def reload}-->
+{rval reload}
+<!--{/def}-->
+</script>

@@ -1,0 +1,117 @@
+{rval start} 
+<BR><BR>
+
+<table width="40%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td align="center"><b>
+                        {rval data/YEAR}年度　　　{rval data/SEMESTER}
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td><b>
+                      <!--{def schoolKind}-->
+                            　　{rval data/STUDENT1} <LABEL for="STUDENT1">在校生</LABEL>　　校種 {rval data/SCHOOL_KIND}　　{rval data/STUDENT2} <LABEL for="STUDENT2">卒業生</LABEL>
+                      <!--{/def}-->
+                      <!--{def grd}-->
+                            　　{rval data/STUDENT1} <LABEL for="STUDENT1">在校生</LABEL>　　　　　　　　　　　{rval data/STUDENT2} <LABEL for="STUDENT2">卒業生</LABEL>　　{rval data/GRD_YEAR} 年度以降
+                      <!--{/def}-->
+                      </b>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>出身学校一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="40%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="40%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+<!--{def knje374Pattern}-->
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff" height={rval data/HEIGHT}>
+                      <td align="left">
+                        <table>
+                          <tr>
+                            <td>
+                                <b>　　　学期・学年末成績</b>　　　{rval data/REC_SEMESTER}
+                            <!--{def show_test}-->　　{rval data/TESTKINDCD} <!--{/def}-->
+                            </td>
+                          </tr>
+<!--{def useOutputRadio}-->
+                          <tr>
+                            <td><br>
+                                <b>　　　　　　　出力内容</b>
+                                　　{rval data/OUTPUT1} <LABEL for="OUTPUT1">クラブ名・委員会名</LABEL>
+                                　　{rval data/OUTPUT2} <LABEL for="OUTPUT2">科目別成績</LABEL>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td nowrap><br>
+                                <b>　　　　　出欠集計範囲</b>
+                                　　{rval data/ATTEND_SDATE}　～　{rval data/ATTEND_EDATE}
+                            </td>
+                          </tr>
+<!--{/def}-->
+<!--{def score_dat}-->
+                          <tr>
+                            <td><br>
+                                <b>　　　　　順位の基準点</b>
+                                　　{rval data/STANDARD1} <LABEL for="STANDARD1">総合点</LABEL>
+                                　　{rval data/STANDARD2} <LABEL for="STANDARD2">平均点</LABEL>
+                                　　{rval data/STANDARD3} <LABEL for="STANDARD3">偏差値</LABEL>
+                            </td>
+                          </tr>
+<!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+<!--{/def}-->
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+<!--{def button}--> 
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+<!--{/def}--> 
+</table>
+
+{rval finish} 

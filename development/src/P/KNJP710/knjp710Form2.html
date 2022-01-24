@@ -1,0 +1,293 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr> 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="28"> 
+                      <th width="30%">項 目</th>
+                      <th width="70%">値</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+
+                    <tr class="no_search" height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>都道府県コード</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/PREFECTURESCD}</td>
+                    </tr>
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>学年</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/GRADE}</td>
+                    </tr>
+
+                    <!--{def HOZYOKIN}-->
+                    <tr class="no_search" height="28"> 
+                      <th colspan="2">参照年度１：{rval top/LAST_YEAR}</th>
+                    </tr>
+                    <!--{/def}-->
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>金額区分<!--{def HOZYOKIN}-->１<!--{/def}--></th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">
+                        {rval data/MONEY_DIV11}<LABEL for="MONEY_DIV11">割合</LABEL>　
+                        {rval data/MONEY_DIV12}<LABEL for="MONEY_DIV12">絶対額</LABEL>　
+                        <!--{def HOZYOKIN}-->
+                        {rval data/MONEY_DIV13}<LABEL for="MONEY_DIV13">保護者の負担額</LABEL>
+                        <!--{/def}-->
+                      </td>
+                    </tr>
+
+                    <!--{def data/WARIAI_DISP1}-->
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>補助額<!--{def HOZYOKIN}-->１<!--{/def}-->(割合)</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/NUMERATOR1}&nbsp;/&nbsp;{rval data/DENOMINATOR1}</td>
+                    </tr>
+                    <!--{/def}-->
+
+                    <!--{def data/ZETTAI_DISP1}-->
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>補助額<!--{def HOZYOKIN}-->１<!--{/def}-->(絶対額)</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">
+                        {rval data/REDUCTIONMONEY_1}&nbsp;円
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+
+                    <!--{def data/HOGOSHA_DISP1}-->
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>補助額<!--{def HOZYOKIN}-->１<!--{/def}-->(保護者負担)</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/REDUCTIONMONEY_1}&nbsp;円</td>
+                    </tr>
+                    <!--{/def}-->
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>ランク<!--{def HOZYOKIN}-->１<!--{/def}--></th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/INCOME_RANK1}</td>
+                    </tr>
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>所得割下限額<!--{def HOZYOKIN}-->１<!--{/def}--></th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/INCOME_LOW1}&nbsp;円</td>
+                    </tr>
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>所得割上限額<!--{def HOZYOKIN}-->１<!--{/def}--></th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/INCOME_HIGH1}&nbsp;円</td>
+                    </tr>
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>学校負担金あり<!--{def HOZYOKIN}-->１<!--{/def}--></th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/BURDEN_CHARGE_FLG1}<LABEL for="BURDEN_CHARGE_FLG1">あり</LABEL></td>
+                    </tr>
+
+                    <!--{def HOZYOKIN}-->
+                    <tr class="no_search" height="28"> 
+                      <th colspan="2">参照年度２：{rval top/THIS_YEAR}</th>
+                    </tr>
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>金額区分２</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">
+                        {rval data/MONEY_DIV21}<LABEL for="MONEY_DIV21">割合</LABEL>　
+                        {rval data/MONEY_DIV22}<LABEL for="MONEY_DIV22">絶対額</LABEL>　
+                        {rval data/MONEY_DIV23}<LABEL for="MONEY_DIV23">保護者の負担額</LABEL>　
+                      </td>
+                    </tr>
+
+                    <!--{def data/WARIAI_DISP2}-->
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>補助額２(割合)</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/NUMERATOR2}&nbsp;/&nbsp;{rval data/DENOMINATOR2}</td>
+                    </tr>
+                    <!--{/def}-->
+
+                    <!--{def data/ZETTAI_DISP2}-->
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>補助額２(絶対額)</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/REDUCTIONMONEY_2}&nbsp;円</td>
+                    </tr>
+                    <!--{/def}-->
+
+                    <!--{def data/HOGOSHA_DISP2}-->
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>補助額２(保護者負担)</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/REDUCTIONMONEY_2}&nbsp;円</td>
+                    </tr>
+                    <!--{/def}-->
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>ランク２</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/INCOME_RANK2}</td>
+                    </tr>
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>所得割下限額２</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/INCOME_LOW2}&nbsp;円</td>
+                    </tr>
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>所得割上限額２</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/INCOME_HIGH2}&nbsp;円</td>
+                    </tr>
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>学校負担金あり２</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/BURDEN_CHARGE_FLG2}<LABEL for="BURDEN_CHARGE_FLG2">あり</LABEL></td>
+                    </tr>
+                    <!--{/def}-->
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>備考</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/REDUCTIONREMARK}</td>
+                    </tr>
+                    <!--{/def}--> 
+                    <!--{def button}--> 
+                    <tr height="28"> 
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+                    </tr>
+                    <!--{/def}--> 
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

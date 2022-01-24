@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 8.0.2.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+<STYLE type="text/css">
+<!--
+@import url(default.ja.css);
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1>講座作成(KNJB030)</H1>
+<H2>講座を作成する。１つの講座には同時展開の有無や講座を受講するクラス、施設などがある。</H2>
+
+<TABLE border="1">
+  <CAPTION>パラメータ</CAPTION>
+  <TBODY>
+    <TR>
+      <TD>職員コード</TD>
+      <TD>staffcd</TD>
+      <TD>999999</TD>
+    </TR>
+    <TR>
+      <TD>年度</TD>
+      <TD>year</TD>
+      <TD>2004</TD>
+    </TR>
+    <TR>
+      <TD>学期</TD>
+      <TD>semester</TD>
+      <TD>1</TD>
+    </TR>
+    <TR>
+      <TD>DB名</TD>
+      <TD>dbname</TD>
+      <TD><BR>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P><IMG src="knjb030/knjb030.gif" width="915" height="724" border="0"></P>
+<BR>
+<H3>主な関連テーブル</H3>
+<UL type="circle">
+  <LI>chair_dat
+  <LI>chair_cls_dat
+  <LI>chair_stf_dat
+  <LI>chair_textbook_dat
+  <LI>chair_fac_dat
+</UL>
+<H3>その他</H3>
+<UL>
+  <LI>年度＋学期＋講座コードでユニーク
+  <LI>予想されるデータ量
+  <UL>
+    <LI>年間２４００件、１学期あたり８００件となる
+  </UL>
+  <LI><A href="knjb030/knjb030copydialog.gif">過去のデータのコピー機能</A>
+  <LI><A href="knjb030/knjb030dialogs.html">ダイアログの画面イメージ</A>
+</UL>
+<HR>
+<H4>メニューバー</H4>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD align="center"><B>ファイル(F)</B></TD>
+      <TD align="center"><B>編集(E)</B></TD>
+      <TD align="center"><B>表示(V)</B></TD>
+      <TD align="center"><B>ツール(T)</B></TD>
+    </TR>
+    <TR>
+      <TD>保存(S)</TD>
+      <TD>削除(D)</TD>
+      <TD>時間割作成</TD>
+      <TD>CSV取込み</TD>
+    </TR>
+    <TR>
+      <TD>終了(X)</TD>
+      <TD>取消(C)</TD>
+      <TD>名簿入力</TD>
+      <TD><BR>
+      </TD>
+    </TR>
+    <TR>
+      <TD><BR>
+      </TD>
+      <TD>年度・学期のコピー(A)</TD>
+      <TD><BR>
+      </TD>
+      <TD><BR>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<H4>「対象年度／学期」エリア</H4>
+<UL>
+  <LI>年度＋学期、「読み込み」ボタンで該当データを表示する。
+  <LI>データが無い場合、空白の１行を表示、ある場合は先頭行をSelectedにする。
+</UL>
+<H4>「絞込み」エリア</H4>
+<UL>
+  <LI>選択された内容で一覧を表示する<BR>
+  「教科」、「群」の区別は選択群コードが０か否か？
+</UL>
+<H4>「一覧」エリア</H4>
+<UL>
+  <LI>講座の一覧が表示される。
+  <LI>Singleセレクトで、セレクトした行の内容がプロパティエリアに表示される。
+  <LI>５０００件を超えるとワーニング⇒ステータスバー
+</UL>
+<H4>「プロパティ」エリア</H4>
+<UL>
+  <LI>講座コードはキーの為、必須
+  <LI>講座をコピーしたい場合は、まずコピー元の講座を選択し、講座コードを書き換えて保存すれば良い
+  <LI>授業回数は「４回うち３時間」とは１週間のうちに１時間授業と３時間授業の２回となる
+  <UL>
+    <LI>すなわち連続枠数は「２」以上となる
+    <LI>すなわち連続枠数は週授業回数「以下」となる
+  </UL>
+  <LI>科目担任は最低でも１人は選択しなければならない。かつ、正担任が最低でも1人はいなければならない。
+</UL>
+<H4>「登録」ボタン</H4>
+<UL>
+  <LI>該当レコードがある場合、ステータスバーに「講座コード xxx を更新しました」
+  <LI>該当レコードがない場合、ステータスバーに「講座コード xxx を新規作成しました」
+</UL>
+<H4>「削除」ボタン</H4>
+<UL>
+  <LI>該当レコードを削除する。ステータスバーに「講座コード xxx を削除しました」
+</UL>
+<H3>過去のデータのコピー機能</H3>
+<P>過去の学期（年度）のデータをコピーできる。その際、生徒もコピーするか選べる。</P>
+<UL>
+  <LI>
+  <P>生徒もコピーする際はコピー元に存在する生徒だけを対象とする</P>
+</UL>
+</BODY>
+</HTML>

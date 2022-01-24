@@ -1,0 +1,141 @@
+{rval start}
+<style>
+.tooltip {
+  position: relative;
+}
+.tooltip::before,
+.tooltip::after {
+  position: absolute;
+  opacity: 0;
+}
+.tooltip::before {
+  content: "";
+  border: 10px solid transparent;
+  border-bottom-color: #eee;
+  transition: opacity 0.3s ease 0s;
+  top: 10px;
+  left: 10px;
+}
+.tooltip::after {
+  content: attr(data-tooltip);
+  display: block;
+  padding: 8px;
+  background: #eee;
+  color: #888;
+  border-radius: 5px;
+  transition: opacity 0.3s ease 0s;
+  top: 20px;
+  left: 0;
+}
+.tooltip:hover::before{
+  top: 16px;
+  transition: opacity 0.3s ease 10s;
+  opacity: 1;
+}
+.tooltip:hover::after{
+  top: 36px;
+  transition: opacity 0.3s ease 10s;
+  opacity: 1;
+}
+</style>
+<table style="width:100%; padding-top: 100px; " border="0" cellspacing="0" cellpadding="0">
+    <tr>
+    <td valign="top">
+            <table style="width: 100%;" border="0" cellspacing="1" cellpadding="1">
+            <tr >
+              <td>
+                    <table width="40%" border="0" cellspacing="3" cellpadding="0" align="center">
+                      <tr class="no_search_line">
+                        <td>
+                          <table style="width: 100%;" border="0" cellspacing="1" cellpadding="3">
+                            <tr class="no_search">
+                                <td nowrap rowspan="2" align="center">対象年度：{rval YEAR}　　<span {rval BTN_COPY_TOOLTIP}> {rval button/btn_copy} </span></td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <table width="40%" border="0" cellspacing="3" cellpadding="0" align="center" style="padding: 15px 0px 10px;">
+                      <tr class="no_search_line">
+                       <th>
+                         <table style="width: 100%;" border="0" cellspacing="1" cellpadding="1">
+                          <tr class="no_search"> 
+                            <th width="40%" nowrap>項　目</th>
+                            <th width="50%" nowrap>値</th>
+                          </tr>
+                          <tr class="no_search" height="30">
+                            <td width="25%" align="right" nowrap>評定区分</td>
+                            <td width="*" bgcolor="#ffffff" nowrap>&nbsp;{rval ASSESSCD}</td>
+                          </tr>
+                          <tr class="no_search" height="30">
+                            <td width="25%" align="right" nowrap>評定説明</td>
+                            <td width="*" bgcolor="#ffffff" nowrap><font color="black">&nbsp;評価の累積値からの評定換算テーブル</font></td>
+                          </tr>
+                          <tr class="no_search" height="30"> 
+                            <td class="no_search" align="right" nowrap>校種</td>
+                            <td bgcolor="#ffffff"  nowrap><font color="black">&nbsp;{rval SCHOOL_KIND}</font></td>
+                          </tr>
+                          <tr class="no_search" height="30"> 
+                            <td class="no_search" align="right" nowrap>科目</td>
+                            <td bgcolor="#ffffff"  nowrap><font color="black">&nbsp;{rval SUBCLASSCD}</font></td>
+                          </tr>
+                         </table>
+                       </th>
+                      </tr>
+                    </table>
+
+                    <table width="40%" border="0" cellspacing="3" cellpadding="0" align="center" style="margin: 10px 0px;">
+                      <tr>
+                       <td>
+                        &nbsp;&nbsp;{rval COPY_SUBCLASSCD} <span {rval BTN_COPY_SUBCLASS_TOOLTIP}>{rval button/btn_copy_subclass}</span>
+                       </td>
+                      </tr>
+                    </table>
+
+                    <table border="0" cellspacing="3" cellpadding="0" align="center">
+                      <tr class="no_search_line">
+                        <td>
+                            <table border="0" cellspacing="1" cellpadding="3" align="center" frame="box">
+                            <tr class="no_search">
+                            
+                            <th rowspan="2" style="width: 150px">評定段階</th>
+                            <th rowspan="2" style="width: 150px">評定記号</th>
+                            <!--{each data/TESTCOUNT}--> 
+                            <th colspan="2" style="width: 100px;">{rval data/TESTCOUNT/TITLE}</th>
+                            <!--{/each}--> 
+                            </tr>
+
+                            <tr class="no_search">
+                            <!--{each data/TESTCOUNT}--> 
+                            <th style="width: 100px;">下限</th>
+                            <th style="width: 100px;">上限</th>
+                            <!--{/each}--> 
+                            </tr>
+                    
+                            <!--結果一覧-->
+                            <!--{each data/ROWS}--> 
+                            <tr align="center" bgcolor="#ffffff"> 
+                                <!--{each data/ROWS/ITEM}--> 
+                                <td>{val data/ROWS/ITEM}</td>
+                                <!--{/each}--> 
+                            </tr> 
+                            <!--{/each}--> 
+                           <tr>
+                               <td colspan="{rval data/FOOTER_SPAN}" bgcolor="#ffffff" align="center">
+                                    {rval button/btn_update}&nbsp;
+                                    {rval button/btn_delete}&nbsp;
+                                    {rval button/btn_reset} &nbsp;
+                                    {rval button/btn_end}   &nbsp;
+                                </td>
+                            </tr>
+                            </table>
+                        </td>
+                      </tr>
+                    </table>
+              </td> 
+            </tr>
+        </table>
+      </td> 
+    </tr>
+{rval finish}
+<script language="JavaScript">{rval Closing}</script>

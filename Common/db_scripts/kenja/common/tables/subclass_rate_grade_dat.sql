@@ -1,0 +1,24 @@
+-- kanji=漢字
+-- $Id: d8e2086f14c59e7d86b52959b9efba9348066834 $
+
+DROP TABLE SUBCLASS_RATE_GRADE_DAT
+
+CREATE TABLE SUBCLASS_RATE_GRADE_DAT ( \
+    YEAR                        VARCHAR(4) NOT NULL, \
+    CLASSCD                     VARCHAR(2) NOT NULL, \
+    SCHOOL_KIND                 VARCHAR(2) NOT NULL, \
+    CURRICULUM_CD               VARCHAR(2) NOT NULL, \
+    SUBCLASSCD                  VARCHAR(6) NOT NULL, \
+    DIV                         VARCHAR(1) NOT NULL, \
+    GRADE                       VARCHAR(2) NOT NULL, \
+    HR_CLASS                    VARCHAR(3) NOT NULL, \
+    COURSECD                    VARCHAR(1) NOT NULL, \
+    MAJORCD                     VARCHAR(3) NOT NULL, \
+    COURSECODE                  VARCHAR(4) NOT NULL, \
+    RATE                        DECIMAL(5,2), \
+    REGISTERCD                  VARCHAR(8), \
+    UPDATED                     TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE SUBCLASS_RATE_GRADE_DAT ADD CONSTRAINT PK_SUBCLASS_RG_DAT \
+        PRIMARY KEY (YEAR, CLASSCD, SCHOOL_KIND, CURRICULUM_CD, SUBCLASSCD, DIV, GRADE, HR_CLASS, COURSECD, MAJORCD, COURSECODE)

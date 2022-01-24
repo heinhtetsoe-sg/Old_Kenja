@@ -1,0 +1,54 @@
+<?php
+class knjl080dModel extends model {
+    var $cmd;
+    var $applicantdiv;
+    var $testdiv;
+    var $sub_order;
+    var $desirediv;
+    var $judgement;
+    var $ObjYear;
+
+    function knjl080dModel() {}
+
+    function init() {
+
+        if (VARS::get("PROGRAMID")) {
+            unset($this->applicantdiv);
+            unset($this->testdiv);
+            unset($this->sub_order);
+            unset($this->desirediv);
+            unset($this->judgement);
+        }
+
+        $this->ObjYear      = CTRL_YEAR+1;
+        $this->applicantdiv = "1";  //固定値
+        $this->exam_type    = "1";  //固定値
+
+        $this->cmd = VARS::request("cmd");
+
+        $this->testdiv          = strlen(VARS::post("TESTDIV")) ? VARS::post("TESTDIV") : VARS::post("HID_TESTDIV");
+        $this->sub_order        = strlen(VARS::post("SUB_ORDER")) ? VARS::post("SUB_ORDER") : VARS::post("HID_SUB_ORDER");
+        $this->desirediv        = strlen(VARS::post("DESIREDIV")) ? VARS::post("DESIREDIV") : VARS::post("HID_DESIREDIV");
+        $this->judgement        = strlen(VARS::post("JUDGEMENT")) ? VARS::post("JUDGEMENT") : VARS::post("HID_JUDGEMENT");
+
+        $this->hid_examno       = VARS::post("HID_EXAMNO");
+
+        $this->data = array();
+        $array = explode(",", $this->hid_examno);
+        foreach ($array as $key => $examno) {
+            $this->data["ENTDIV"][$examno]          = VARS::post("ENTDIV_".$examno);
+            $this->data["PROCEDUREDIV"][$examno]    = VARS::post("PROCEDUREDIV_".$examno);
+            $this->data["JITAI"][$examno]           = VARS::post("JITAI_".$examno);
+        }
+    }
+
+    function &getMainModel() {}
+
+    // 編集完了用のモデルを返します
+    function &getUpdateModel() {
+        //更新
+        knjl080dQuery::getUpdateQuery($this);
+        $this->setMessage("MSG201");
+    }
+}
+?>

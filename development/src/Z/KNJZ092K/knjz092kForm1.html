@@ -1,0 +1,79 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="8">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th norwarp width="25%">対象年度&nbsp;{rval YEAR}</th>
+                      <td norwarp width="75%">&nbsp;{rval btn_pre_copy}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th nowrap width="115" colspan="2">都道府県</th>
+                      <th nowrap width="30" rowspan="2">学<br>年</th>
+                      <th nowrap width="30" rowspan="2">ラ<br>ン<br>ク</th>
+                      <th nowrap width="65" rowspan="2">上限額1</th>
+                      <th nowrap width="65" rowspan="2">上限額2</th>
+                      <th nowrap width="65" rowspan="2">合計<br>支援額</th>
+                      <th nowrap width="65" rowspan="2">下限額1</th>
+                      <th nowrap width="65" rowspan="2">下限額2</th>
+                      <th nowrap width="65" rowspan="2">保護者<br>負担金1</th>
+                      <th nowrap width="65" rowspan="2">保護者<br>負担金2</th>
+                      <th nowrap width="65" rowspan="2">合計<br>下限額</th>
+                    </tr>
+                    <tr class="no_search" height="25">
+                      <th nowrap width="50">コード</th>
+                      <th nowrap width="65">名称</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/PREFECTURESCD}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/NAME1}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/GRADE}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/RANK_NAME}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/REDUCTIONMONEY_1}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/REDUCTIONMONEY_2}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/MAX_MONEY}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/MIN_MONEY_1}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/MIN_MONEY_2}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/PARENTS_MONEY_1}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/PARENTS_MONEY_2}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/MIN_MONEY}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

@@ -1,0 +1,86 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR>
+
+<table width="40%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <td align="center" nowrap><b>　　{rval YEAR}年度&nbsp;校種：{rval SCHOOLKIND}</b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff">
+                      <td>　　転退学日：&nbsp;{rval TENTAI_DATE}<br>
+                          　対象クラス：&nbsp;{rval GRADE_HR_CLASS}<br>
+                          　返金確定日：{rval HENKIN_KAKUTEI}<br>
+                          　　出力対象：&nbsp;{rval OUTPUT_DIV1}<LABEL for="OUTPUT_DIV1">返金伝票未作成</LABEL>　
+                                              {rval OUTPUT_DIV2}<LABEL for="OUTPUT_DIV2">返金伝票作成済</LABEL>　
+                                              {rval OUTPUT_DIV3}<LABEL for="OUTPUT_DIV3">全員</LABEL>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象生徒一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b></th>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff">
+                      <td>{rval button/btn_print}　　　{rval button/btn_henkin_exec}{rval button/btn_henkin_cancel}{rval button/btn_end}<br>
+                          {rval ADDRESS}<LABEL for="ADDRESS">住所を出力する</LABEL>（{rval data/ADDR_DIV1}<LABEL for="ADDR_DIV1">生徒</LABEL>　{rval data/ADDR_DIV2}<LABEL for="ADDR_DIV2">保護者</LABEL>）</td>
+                      <td><font color="red">※「有」返金伝票作成有<br>
+                                            ※「済」返金済
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

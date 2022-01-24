@@ -1,0 +1,65 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="8">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="25">
+                      <td nowrap bgcolor="#ffffff">
+                        {val YEAR}年度
+                        　　{rval COPY_YEAR}
+                        {rval btn_pre_copy}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th nowrap width="10%">管理番号</th>
+                      <th nowrap width="15%">開始日付</th>
+                      <th nowrap width="15%">終了日付</th>
+                      <th nowrap width="*">特別活動内容</th>
+                      <th nowrap width="10%">活動時間数</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/SPECIALCD}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/SPECIAL_SDATE}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/SPECIAL_EDATE}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/SPECIALACTIVITYNAME}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/SPECIALACTIVITYTIME}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

@@ -1,0 +1,184 @@
+{rval start}
+<style>
+#dialogBox{
+    position:absolute;
+    background-color:transparent;
+    z-index:1000;
+    display:none;
+}
+#week_table{
+	border-collapse:collapse;
+}
+#week_table td{
+	border:1px solid #000000;
+	width:100px;
+	height:20px;
+}
+#daySelect{
+    min-width:200px;
+    min-height:100px;
+    padding:10px;
+}
+</style>
+
+<br><br><br>
+<table align="center" width="80%" border="0" cellspacing="5" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>
+      <table align="center" width="70%" border="0" cellspacing="1" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td >
+              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr height="35" bgcolor="#ffffff">
+                  <th class="no_search" align="right" width="40%">適用年度/学期</th>
+                  <td>&nbsp;{rval year}年度　{rval semester}</td>
+                </tr>
+                <tr height="35" bgcolor="#ffffff">
+                  <th class="no_search" align="right">適用可能期間</th>
+                  <td>&nbsp;{rval renge}</td>
+                </tr>
+                <tr height="35" bgcolor="#ffffff">
+                  <th class="no_search" align="right">基本時間割</th>
+                  <td>&nbsp;{rval BSCSEQ}</td>
+                </tr>
+                <tr height="35" bgcolor="#ffffff">
+                  <th class="no_search" align="right">反映区分</th>
+                  <td>&nbsp;{rval REFLECTDIV}</td>
+                </tr>
+                <tr height="35" bgcolor="#ffffff">
+                  <th class="no_search" align="right">適用期間</th>
+                  <td>
+                    <table>
+                      <tr>
+                        <td id="reflactDivBox1" style="padding-left:5px">{rval START_DATE}～{rval END_DATE}</td>
+                        <td id="reflactDivBox2" style="display:none;padding-left:5px">
+                          <p>
+                            {rval WEEK_RADIO1}<label for="WEEK_RADIO1">月</label>
+                            {rval WEEK_RADIO2}<label for="WEEK_RADIO2">火</label>
+                            {rval WEEK_RADIO3}<label for="WEEK_RADIO3">水</label>
+                            {rval WEEK_RADIO4}<label for="WEEK_RADIO4">木</label>
+                            {rval WEEK_RADIO5}<label for="WEEK_RADIO5">金</label>
+                            {rval WEEK_RADIO6}<label for="WEEK_RADIO6">土</label>
+                            {rval WEEK_RADIO7}<label for="WEEK_RADIO7">日</label>
+                          </p>
+                          <table id="week_table">
+                            <tr>
+                              <td id="week_table_1" onclick="weekTableAction(this);return false;" onmouseover="weekSetColor(this)" onmouseout="weekClearColor()">{rval week/WEEKTABLE1}</td>
+                              <td id="week_table_2" onclick="weekTableAction(this);return false;" onmouseover="weekSetColor(this)" onmouseout="weekClearColor()">{rval week/WEEKTABLE2}</td>
+                              <td id="week_table_3" onclick="weekTableAction(this);return false;" onmouseover="weekSetColor(this)" onmouseout="weekClearColor()">{rval week/WEEKTABLE3}</td>
+                              <td id="week_table_4" onclick="weekTableAction(this);return false;" onmouseover="weekSetColor(this)" onmouseout="weekClearColor()">{rval week/WEEKTABLE4}</td>
+                            </tr>
+                            <tr>
+                              <td id="week_table_5" onclick="weekTableAction(this);return false;" onmouseover="weekSetColor(this)" onmouseout="weekClearColor()">{rval week/WEEKTABLE5}</td>
+                              <td id="week_table_6" onclick="weekTableAction(this);return false;" onmouseover="weekSetColor(this)" onmouseout="weekClearColor()">{rval week/WEEKTABLE6}</td>
+                              <td id="week_table_7" onclick="weekTableAction(this);return false;" onmouseover="weekSetColor(this)" onmouseout="weekClearColor()">{rval week/WEEKTABLE7}</td>
+                              <td id="week_table_8" onclick="weekTableAction(this);return false;" onmouseover="weekSetColor(this)" onmouseout="weekClearColor()">{rval week/WEEKTABLE8}</td>
+                            </tr>
+                            <tr>
+                              <td id="week_table_9" onclick="weekTableAction(this);return false;" onmouseover="weekSetColor(this)" onmouseout="weekClearColor()">{rval week/WEEKTABLE9}</td>
+                              <td id="week_table_10" onclick="weekTableAction(this);return false;" onmouseover="weekSetColor(this)" onmouseout="weekClearColor()">{rval week/WEEKTABLE10}</td>
+                              <td id="week_table_11" onclick="weekTableAction(this);return false;" onmouseover="weekSetColor(this)" onmouseout="weekClearColor()">{rval week/WEEKTABLE11}</td>
+                              <td id="week_table_12" onclick="weekTableAction(this);return false;" onmouseover="weekSetColor(this)" onmouseout="weekClearColor()">{rval week/WEEKTABLE12}</td>
+                            </tr>
+                          </table>
+                          <p style="font-size:0.8em;color:#FF0000">※セルをクリックして下さい</p>
+                          <p><button onclick="weekClear();return false;">全ての日付をクリア</button>
+                          <button onclick="weekSort();return false;">並べ替え</button></p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr height="35" bgcolor="#ffffff">
+                  <th class="no_search">&nbsp;</th>
+                  <td>&nbsp;{rval button/btn_update}{rval button/btn_end}</td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+    <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                <tr>
+                    <td bgcolor="#cccccc">&nbsp;&nbsp;●&nbsp;<B>適用履歴</B></td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        <tr class="no_search_line">
+        <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search" >
+                    <td align="center" width="200">実施日時</td>
+                    <td align="center" width="100">反映区分</td>
+                    <td align="center" width="300">適用期間</td>
+                    <td align="center" width="*">基本時間割</td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+        <div style="width: 100%; height:200; overflow: auto">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4">
+            <!--{def data}-->
+            <!--結果一覧-->
+            <!--{each data}-->
+                <tr class="no_search_line" >
+                    <td bgcolor='#ffffff' width="200">{rval data/REFLECTDATE}</td>
+                    <td bgcolor='#ffffff' width="100">{rval data/REFLECTDIV}</td>
+                    <td bgcolor='#ffffff' width="300">{rval data/RENGE}</td>
+                    <td bgcolor='#ffffff' width="*">{rval data/TITLE}</td>
+                </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+        </td>
+        </tr>
+        </table>
+        </div>
+    </td>
+    </tr>
+
+  </tbody>
+</table>
+
+<div id="CalendarBox">
+</div>
+
+<!--基本部品：日付校時で移動/コピーや曜日リンクのダイアログ用-->
+<div id="dialogBox">
+<table border="1" cellpadding="1" cellspacing="0" bgcolor="#C0C0C0" id="dialogBoxTable">
+<tr class="no_search_line" id="dialogTitleBar">
+  <td class="no_search" align="right">
+    <!--hrefでjavascriptを使用する時は、void(0)を付けないと挙動がおかしくなる。ダイアログのタイトルと×ボタン-->
+    <span style="float:left;"><font color="#FFFFFF"><strong id="dialogBoxTitle">タイトル</span><a class="menuTitle" href="javascript:$('#dialogBox').hide();void(0);"><input type="button" value="×"></a></strong><br></font>
+  </td>
+</tr>
+<tr class="no_search_line">
+  <td bgcolor="#FFFFFF" id="dialogBoxContents">
+  </td>
+</tr>
+</table>
+</div>
+
+<!--日付選択ダイアログー-->
+<div id="daySelect" style="display:none">
+<p>{rval SELECT_DATE}</p>
+<p style="text-align:center"><button onclick="daySelect_OK();return false;">OK</button><button onclick="daySelect_Clear();return false;">クリア</button><button onclick="$('#dialogBox').hide();return false;">キャンセル</button></p>
+</div>
+
+<script language="JavaScript">{rval jscript}</script> 
+{rval finish}

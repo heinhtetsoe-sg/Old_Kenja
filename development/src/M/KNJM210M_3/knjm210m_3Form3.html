@@ -1,0 +1,159 @@
+{rval start}
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td align="center">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th class="no_search" style="text-align: center" height="30"><B>個人住所情報画面{rval NAME}</B></th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+  <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr >
+      <td >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search">
+            <th align="center" nowrap width="90" height="30">有効期間開始</th>
+            <th align="center" nowrap width="90" height="30">有効期間終了</th>
+            <th align="center" nowrap width="70" height="30">郵便番号</th>
+            <th align="center" nowrap width="70" height="30">地区コード</th>
+            <th align="center" nowrap width="200" height="30">住所</th>
+            <th align="center" nowrap width="200" height="30">方書き(アパート名等)</th>
+            <th align="center" nowrap width="200" height="30">(英字)住所</th>
+            <th align="center" nowrap width="200" height="30">(英字)方書き(アパート名等)</th>
+            <th align="center" nowrap width="100" height="30">電話番号</th>
+            <th align="center" nowrap width="100" height="30">FAX番号</th>
+            <th align="center" nowrap width="140" height="30">E-Mail</th>
+            <th align="center" nowrap width="200" height="30">急用連絡先</th>
+            <th align="center" nowrap width="100" height="30">急用電話番号</th>
+          </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+          <tr>
+             <td align="center" nowrap bgcolor="#ffffff">{val data/ISSUEDATE}</td>
+             <td align="center" nowrap bgcolor="#ffffff">{rval data/EXPIREDATE}</td>
+             <td align="left" nowrap bgcolor="#ffffff">{rval data/ZIPCD}</td>
+             <td align="left" nowrap bgcolor="#ffffff">{rval data/AREA_CD}</td>
+             <td align="left" nowrap bgcolor="#ffffff">{rval data/ADDR1}</td>
+             <td align="left" nowrap bgcolor="#ffffff">{rval data/ADDR2}</td>
+             <td align="left" nowrap bgcolor="#ffffff">{rval data/ADDR1_ENG}</td>
+             <td align="left" nowrap bgcolor="#ffffff">{rval data/ADDR2_ENG}</td>
+             <td align="left" nowrap bgcolor="#ffffff">{rval data/TELNO}</td>
+             <td align="left" nowrap bgcolor="#ffffff">{rval data/FAXNO}</td>
+             <td align="left" nowrap bgcolor="#ffffff">{rval data/EMAIL}</td>
+             <td align="left" nowrap bgcolor="#ffffff">{rval data/EMERGENCYCALL}</td>
+             <td align="left" nowrap bgcolor="#ffffff">{rval data/EMERGENCYTELNO}</td>
+          </tr>
+<!--{/each}-->
+<!--{/def}-->
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+  <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr >
+      <td >
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr class="no_search_line">
+              <td >
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <!--結果一覧--> <!--{def data2}-->
+                  <tr>
+                    <th width ="20%" colspan="4" class="no_search" bgcolor="#ffffff" nowrap><B>保護者情報</B></th>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>保護者氏名</th>
+                    <td bgcolor="#ffffff" colspan="3" nowrap>{rval data2/GUARD_NAME}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>保護者かな</th>
+                    <td bgcolor="#ffffff" colspan="3" nowrap>{rval data2/GUARD_KANA}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>性別</th>
+                    <td bgcolor="#ffffff" nowrap>{rval data2/SEX}</td>
+                    <th width="20%"  align="right" class="no_search" nowrap>生年月日</th>
+                    <td bgcolor="#ffffff" nowrap>{rval data2/BIRTHDAY}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>続柄</th>
+                    <td bgcolor="#ffffff" colspan="3" nowrap>{rval data2/RELATIONSHIP}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>郵便番号</th>
+                    <td bgcolor="#ffffff" colspan="3"  nowrap>{rval data2/GUARD_ZIPCD}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>住所</th>
+                    <td bgcolor="#ffffff" colspan="3"  nowrap>{rval data2/ADDR1}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>方書き</th>
+                    <td bgcolor="#ffffff" colspan="3"  nowrap>{rval data2/ADDR2}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right"class="no_search" nowrap>電話番号</th>
+                    <td bgcolor="#ffffff" colspan="3"  nowrap>{rval data2/TELNO}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>FAX番号</th>
+                    <td bgcolor="#ffffff" colspan="3"  nowrap>{rval data2/FAXNO}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>E-Mail</th>
+                    <td bgcolor="#ffffff" colspan="3"  nowrap>{rval data2/EMAIL}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>勤務先名称</th>
+                    <td bgcolor="#ffffff" colspan="3"  nowrap>{rval data2/WORK_NAME}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>職種コード</th>
+                    <td bgcolor="#ffffff" colspan="3"  nowrap>{rval data2/JOBCD}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%" height="16" align="right" class="no_search" nowrap>勤務先電話番号</th>
+                    <td bgcolor="#ffffff" colspan="3"  nowrap>{rval data2/WORK_TELNO}</td>
+                  </tr>
+                  <!--{/def}-->
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+{rval finish}

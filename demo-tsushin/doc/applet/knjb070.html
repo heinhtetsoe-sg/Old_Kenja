@@ -1,0 +1,412 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 7.0.0.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+<STYLE type="text/css">
+<!--
+@import url(default.ja.css);
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1>ＨＲ別時間割確認(KNJB070)</H1>
+<H2>全学年、全クラスの１週間の時間割を表示する。アプレット単体およびダイアログとして起動する。</H2>
+<TABLE border="1">
+  <CAPTION>パラメータ</CAPTION>
+  <TBODY>
+    <TR>
+      <TD>年度</TD>
+      <TD>year</TD>
+      <TD><BR>
+      </TD>
+    </TR>
+    <TR>
+      <TD>シーケンス番号</TD>
+      <TD>seq</TD>
+      <TD><BR>
+      </TD>
+    </TR>
+    <TR>
+      <TD>年月日</TD>
+      <TD>ymd</TD>
+      <TD>yyyymmdd</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<H3>パラメータの受け取りパターンは以下の２通り</H3>
+<UL>
+  <LI>?year=2004&amp;seq=1
+  <LI>?year=2004&amp;ymd=20040101
+</UL>
+<H3>主な関連テーブル</H3>
+<UL type="circle">
+  <LI>schreg_regd_hdat
+  <LI>sch_ptrn_dat
+  <LI>sch_chr_dat
+  <LI>chair_dat
+  <LI>chair_stf_dat
+  <LI>subclass_mst
+</UL>
+<H3>その他</H3>
+<UL>
+  <LI>各マスに表示する項目は“科目名称”と“職員名”を表示する。職員は同時展開の場合、複数表示される。<BR>
+  １マスの横幅は固定で、高さは先生の数によって変化する。
+  <LI>パラメータはデフォルト表示のためである。
+  <LI>表示した後はラジオボタンやコンボなどで表示する内容を操作できる。
+  <LI>「基本」から「通常」画面に遷移した際は、システム日付をデフォルトとする。
+  <LI>sch_ptrn_dat.bscseq は年度が変わると１始まりになる。型は smallint である。
+  <LI>sch_ptrn.選択群コード を見て ＨＲ／同時展開 の判断をする場合、？？？
+</UL>
+<H4>メニューバー</H4>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD align="center"><B>ファイル(F)</B></TD>
+      <TD align="center"><B>情報(I)</B></TD>
+    </TR>
+    <TR>
+      <TD>終了(X)</TD>
+      <TD>HR別時間割確認について．．．(About)</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<HR>
+<P>◎基本</P>
+<P>year=2004<BR>
+seq=1</P>
+<BLOCKQUOTE>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <FORM>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD>対象年度／学期<BR>
+            <INPUT size="5" type="text" disabled readonly value="2004">年度 <INPUT size="2" type="text" disabled readonly value="3">学期</TD>
+            <TD>時間割種別<BR>
+            <INPUT type="radio" checked name="syubetu" value="1">基本 <INPUT type="radio" name="syubetu" value="2">通常</TD>
+            <TD>SEQ:タイトル<BR>
+            <SELECT name="asdf">
+              <OPTION>１：基本時間割１　　　　　　　　　　　　</OPTION>
+            </SELECT></TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      <BR>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD rowspan="2" nowrap bgcolor="#cccccc">年組＼校時</TD>
+            <TD colspan="9" align="center" nowrap bgcolor="#cccccc">月曜日</TD>
+            <TD colspan="3" align="center" nowrap bgcolor="#cccccc">火曜日</TD>
+          </TR>
+          <TR>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">0</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">SHR</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">1</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">2</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">3</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">4</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">5</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">6</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">7</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">0</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">SHR</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">1</TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">1年1組</TD>
+            <TD><BR>
+            </TD>
+            <TD>SHRa<BR>
+            山田花子<BR>
+            本木雅弘</TD>
+            <TD>国語<BR>
+            細川俊之</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">1年2組</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD>体育<BR>
+            椎名桔平</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">1年3組</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD>論理<BR>
+            阿川泰子</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">1年4組</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      <BR>
+      <CENTER><INPUT type="submit" value="閉じる"></CENTER>
+      </FORM>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<HR>
+<P>◎通常</P>
+<P>year=2004<BR>
+ymd=2004-4-28</P>
+<BLOCKQUOTE>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <FORM>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD>対象年度／学期<BR>
+            <INPUT size="5" type="text" disabled readonly value="2004">年度 <INPUT size="2" type="text" disabled readonly value="1">学期</TD>
+            <TD>時間割種別<BR>
+            <INPUT type="radio" name="syubetu" value="1">基本 <INPUT type="radio" name="syubetu" value="2" checked>通常</TD>
+            <TD>実施期間<BR>
+            <INPUT type="submit" value="2004年04月28日(水)">～<INPUT size="20" type="text" disabled readonly value="2004年05月01日(日)"> <INPUT type="submit" value="確定"></TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      <BR>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD rowspan="2" nowrap bgcolor="#cccccc">年組＼校時</TD>
+            <TD colspan="9" align="center" nowrap bgcolor="#cccccc">04月26日(月)</TD>
+            <TD colspan="3" align="center" nowrap bgcolor="#cccccc">04月27日(火)</TD>
+          </TR>
+          <TR>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">0</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">SHR</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">1</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">2</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">3</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">4</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">5</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">6</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">7</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">0</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">SHR</TD>
+            <TD width="40" align="center" nowrap bgcolor="#cccccc">1</TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">1年1組</TD>
+            <TD><BR>
+            </TD>
+            <TD>SHRa<BR>
+            山田花子<BR>
+            本木雅弘</TD>
+            <TD>国語<BR>
+            細川俊之</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">1年2組</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD>体育<BR>
+            椎名桔平</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">1年3組</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD>論理<BR>
+            阿川泰子</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">1年4組</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      <BR>
+      <CENTER><INPUT type="submit" value="閉じる"></CENTER>
+      </FORM>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<UL>
+  <LI>指定された日の週を月曜日から日曜日まで表示する。
+  <LI>先頭を月曜日固定とする。
+  <LI>実施期間の開始ボタンは指定の日を表示し、終了のテキストフィールドはその週の最後（日曜日）が表示される。
+</UL>
+<P><BR>
+</P>
+</BODY>
+</HTML>

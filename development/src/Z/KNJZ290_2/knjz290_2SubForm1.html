@@ -1,0 +1,148 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+    <tr>
+
+        <td valign="top">
+            <table width="100%" border="0" cellpadding="10" cellspacing="0" align="center">
+
+              <tr>
+              <td valign="top">
+
+                <hr width="30%" align="left">
+                  {rval STAFFINFO}&nbsp;
+                <hr width="30%" align="left">
+
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                  <tr class="no_search_line">
+                  <td valign="top">
+                    <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                    
+                      <tr class="no_search" height="20">
+                        <th align="center" width="250" height="30"><font size="2">教科</font></th>
+                        
+                        <th align="center" width="200" height="30"><font size="2">開始日付</font></th>
+                        
+                        <th align="center" width="*" height="30"><font size="2">終了日付</font></th>
+                        
+                      </tr>
+
+                    </table>
+                  </td>
+                  </tr>
+
+                  <tr>
+                  <td valign="top">
+                    <div style="width:100%;height:120px;overflow:auto">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                      <tr class="no_search_line">
+                      <td valign="top">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="0">
+
+                          <!--結果一覧-->
+<!--{def rereki_data}-->
+<!--{each rereki_data}-->
+                          <tr height="20">
+                            <td align="left" width="250"  bgcolor="#ffffff">&nbsp;&nbsp;
+<!--{def CURRICULUM_CD}-->
+                            <a href="knjz290_2index.php?cmd=list2&STAFFCD={rval STAFFCD}&CLASSCD={rval rereki_data/CLASSCD}&SCHOOL_KIND={rval rereki_data/SCHOOL_KIND}&SDATE={rval rereki_data/SDATE}" target="right_frame">{rval rereki_data/CLASSCD}-{rval rereki_data/SCHOOL_KIND}
+<!--{/def}-->
+<!--{def NO_CURRICULUM_CD}-->
+                            <a href="knjz290_2index.php?cmd=list2&STAFFCD={rval STAFFCD}&CLASSCD={rval rereki_data/CLASSCD}&SDATE={rval rereki_data/SDATE}" target="right_frame">{rval rereki_data/CLASSCD}
+<!--{/def}-->
+                            {rval rereki_data/CLASSNAME}</a></td>
+                            <td align="center" width="200"  bgcolor="#ffffff">{rval rereki_data/SDATE}</td>
+                            <td align="center" width="*"  bgcolor="#ffffff">{rval rereki_data/EDATE}</td>
+                          </tr>
+<!--{/each}-->
+<!--{/def}-->
+                        </table>
+                      </td>
+                      </tr>
+
+                    </table>
+                    </div>
+                  </td>
+                  </tr>
+
+                  </table>
+                </td>
+              </tr>
+
+            </table>
+        </td>
+    </tr>
+
+    <tr> 
+        <td valign="top"> 
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+          &nbsp;&nbsp;「※」のある項目は必須入力
+                <tr > 
+                  <td > 
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line"> 
+                                <td> 
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search"> 
+                                          <th width="20%">項 目</th>
+                                          <th width="80%">値</th>
+                                        </tr>
+<!--結果一覧-->
+<!--{def data}-->
+                                        <tr>
+                                          <td class="no_search">
+                                             <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                               <tr class="no_search">
+                                                 <th align="left" nowrap>※</th>
+                                                 <th align="right" class="no_search" nowrap>教科</th>
+                                               </tr>
+                                             </table>
+                                          </td>
+                                          <td bgcolor="#ffffff">{rval data/CLASSCD}</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                          <td class="no_search">
+                                             <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                               <tr class="no_search">
+                                                 <th align="left" nowrap>※</th>
+                                                 <th align="right" nowrap>開始日付</th>
+                                               </tr>
+                                             </table>
+                                          </td>
+                                          <td bgcolor="#ffffff">{rval data/SDATE}</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                          <td class="no_search">
+                                             <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                               <tr class="no_search">
+                                                 <th align="left" nowrap>※</th>
+                                                 <th align="right" nowrap>終了日付</th>
+                                               </tr>
+                                             </table>
+                                          </td>
+                                          <td bgcolor="#ffffff">{rval data/EDATE}</td>
+                                        </tr>
+
+<!--{/def}--> 
+<!--{def button}--> 
+                                        <tr> 
+                                          <th align="right" class="no_search" nowrap>&nbsp;</th>
+                                          <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+                                        </tr>
+<!--{/def}--> 
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

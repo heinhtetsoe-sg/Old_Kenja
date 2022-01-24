@@ -1,0 +1,252 @@
+<?php
+class knjd425_6Form1 {
+    function main(&$model) {
+        $objForm =& new form;
+        $arg["start"] = $objForm->get_start("edit", "POST", "knjd425_6index.php", "", "edit");
+
+        $db = Query::dbCheckOut();
+
+        //生徒情報
+        $arg["SCHREGNO"] = $model->schregno;
+        $arg["NAME"]     = $model->name;
+        //グループ情報
+        $getGroupRow = array();
+        $getGroupRow = $db->getRow(knjd425_6Query::getViewGradeKindSchreg($model, "set"), DB_FETCHMODE_ASSOC);
+        if ($model->schregno) {
+            $getGroupName = $db->getOne(knjd425_6Query::getGroupcd($model, $getGroupRow));
+            if ($getGroupName) {
+                $arg["GROUP_NAME"] = '履修科目グループ:'.$getGroupName;
+            } else {
+                $arg["GROUP_NAME"] = '履修科目グループ未設定';
+            }
+            $getConditionName = $db->getOne(knjd425_6Query::getConditionName($model, $getGroupRow["CONDITION"]));
+            $arg["CONDITION_NAME"] = ($getConditionName) ? '('.$getConditionName.')' : "";
+        }
+
+        $query = knjd425_6Query::getGuidancePattern($model);
+        $result = $db->query($query);
+        $model->schregInfo = array();
+        while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+            $model->schregInfo = $row;
+        }
+        $result->free();
+
+        //項目名称セット
+        $model->itemNameArr = array();
+        $query = knjd425_6Query::getItemName($model);
+        $result = $db->query($query);
+        while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+            for ($i=1; $i <= $model->maxRemarkCnt; $i++) {
+                if ($row["ITEM_REMARK".$i] != '') {
+                    $row["ITEM_REMARK"] = $row["ITEM_REMARK".$i];
+                    $arg["koumoku"][] = $row;
+                    $model->itemNameArr[$i] = $row["ITEM_REMARK"];
+                }
+            }
+        }
+
+        //学期セット
+        $model->semeArr = array();
+        $query = knjd425_6Query::getSemester($model);
+        $result = $db->query($query);
+        while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+            $model->semeArr[$row["SEMESTER"]] = $row["SEMESTERNAME"];
+        }
+
+        /************/
+        /* 履歴一覧 */
+        /************/
+        makeList($arg, $db, $model);
+
+        //科目コンボ
+        $query = knjd425_6Query::getSubclass($model);
+        $extra = "onChange=\"return btn_submit('edit');\"";
+        makeCmb($objForm, $arg, $db, $query, $model->subclasscd, "SUBCLASSCD", $extra, 1);
+
+        //単元がセットされているか
+        $get_div = $db->getOne(knjd425_6Query::getUnitAimDiv($model));
+        $model->unit_aim_div = ($get_div == "1") ? "1" : "0";
+
+        //単元コンボ
+        $query = knjd425_6Query::getUnit($model);
+        if ($model->unit_aim_div == "1") {
+            $extra = "onChange=\"return btn_submit('edit');\"";
+            makeCmb($objForm, $arg, $db, $query, $model->unitcd, "UNITCD", $extra, 1);
+        }
+
+        //警告メッセージを表示しない場合
+        $warning = false;
+        if ((isset($model->schregno) && !isset($model->warning) && $model->cmd != "set") || !isset($model->schregno)) {
+            $result = $db->query(knjd425_6Query::getHreportGuidanceSchregSubclassDat($model));
+            while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+                $Row["REMARK_{$row["SEQ"]}_{$row["SEMESTER"]}"] = $row["REMARK"];
+            }
+        } else {
+            $Row =& $model->field;
+            if (isset($model->warning)) $warning = true;
+        }
+
+        //パターン取得
+        $query = knjd425_6Query::getNameMstPattern($model, $model->schregInfo["GUIDANCE_PATTERN"]);
+        $tmp = $db->getOne($query);
+        $model->printPattern = substr($tmp, 1, 1);
+
+        $outcnt = 0;
+        //テキストセット
+        if ($model->schregInfo["GUIDANCE_PATTERN"] && $model->subclasscd) {
+            foreach($model->semeArr as $semester => $semeName) {
+                $tmpData = array();
+                $tmpData["SEMESTERNAME"] = $semeName;
+                foreach($model->itemNameArr as $nameCd2 => $name1) {
+                    $tmpMini = array();
+
+                    //textArea
+                    $setName = "REMARK_{$nameCd2}_{$semester}";
+                    $extra = "id=\"{$setName}\"";
+                    $moji = $model->paternInfo[$model->printPattern][$nameCd2]["MOJI"];
+                    $gyou = $model->paternInfo[$model->printPattern][$nameCd2]["GYOU"];
+                    $tmpMini["REMARK"] = knjCreateTextArea($objForm, $setName, "10", $moji * 2, "", $extra, $Row[$setName]);
+                    $tmpMini["EXTFMT"] = "<BR><font size=2, color=\"red\">(全角{$moji}文字X{$gyou}行まで)</font><span id=\"statusarea".$outcnt."\" style=\"color:blue\">残り文字数</span>";
+                    knjCreateHidden($objForm, "{$setName}_KETA", ($moji * 2));
+                    knjCreateHidden($objForm, "{$setName}_GYO", $gyou);
+                    KnjCreateHidden($objForm, "{$setName}_STAT", "statusarea".$outcnt);
+                    $outcnt++;
+
+                    $tmpData["data2"][] = $tmpMini;
+                }
+                $arg["semester"][] = $tmpData;
+            }
+        }
+
+        $cnt = get_count($model->itemNameArr) + 1;
+        $arg["COLSPAN"] = ($cnt > 0) ? "colspan=\"{$cnt}\"" : "";
+
+        //列幅
+        $width = ($counter > 0) ? 100 / $counter : 100;
+        $arg["WIDTH"] = "style=\"width:{$width}%;\"";
+
+        //ボタン設置
+        if ($counter > 5) {
+            $arg["BTN1"] = "";
+            $arg["BTN2"] = "1";
+        } else {
+            $arg["BTN1"] = "1";
+            $arg["BTN2"] = "";
+        }
+
+        /**********/
+        /* ボタン */
+        /**********/
+        //更新
+        $extra = "onclick=\"return btn_submit('update');\"";
+        $arg["button"]["btn_update"] = knjCreateBtn($objForm, "btn_update", "更 新", $extra);
+        //削除
+        $extra = "onclick=\"return btn_submit('delete');\"";
+        $arg["button"]["btn_delete"] = knjCreateBtn($objForm, "btn_delete", "削 除", $extra);
+        //取消
+        $extra = "onclick=\"return btn_submit('clear');\"";
+        $arg["button"]["btn_reset"] = knjCreateBtn($objForm, "btn_reset", "取 消", $extra);
+        //戻る
+/*
+        $link = REQUESTROOT."/{$prgdivstr}/{$model->retprg}/{$prglowstr}index.php?cmd=edit&mode=1&SEND_PRGID={$model->getPrgId}&SEND_AUTH={$model->auth}&SCHREGNO={$model->schregno}&EXP_YEAR={$model->exp_year}&EXP_SEMESTER={$model->exp_semester}&GRADE={$model->gradeHrClass}&NAME={$model->name}";
+        $extra = "onclick=\"window.open('$link','_self');\"";
+        $arg["button"]["btn_end"] = knjCreateBtn($objForm, "btn_end", "戻 る", $extra);
+*/
+        $link = REQUESTROOT."/D/KNJD425/knjd425index.php?cmd=edit&SEND_PRGID={$model->getPrgId}&SEND_AUTH={$model->auth}&SCHREGNO={$model->schregno}&EXP_YEAR={$model->exp_year}&EXP_SEMESTER={$model->exp_semester}&GRADE={$model->grade}&NAME={$model->name}";
+        $extra = "onclick=\"window.open('$link','_self');\"";
+        $arg["button"]["btn_end"] = KnjCreateBtn($objForm, "btn_back", "戻 る", $extra);
+
+        //印刷ボタン
+        $extra = "onclick=\"return newwin('" . SERVLET_URL . "');\"";
+//        $arg["button"]["btn_print"] = knjCreateBtn($objForm, "btn_print", "印 刷", $extra);
+
+        //hidden
+        knjCreateHidden($objForm, "cmd");
+        knjCreateHidden($objForm, "SCHREGNO", $model->schregno);
+
+        //印刷用
+        knjCreateHidden($objForm, "DBNAME", DB_DATABASE);
+        knjCreateHidden($objForm, "CTRL_YEAR", CTRL_YEAR);
+        knjCreateHidden($objForm, "CTRL_SEMESTER", CTRL_SEMESTER);
+        knjCreateHidden($objForm, "CTRL_DATE", CTRL_DATE);
+        knjCreateHidden($objForm, "PRGID", "KNJD425_6");
+        knjCreateHidden($objForm, "YEAR", $model->exp_year);
+        knjCreateHidden($objForm, "SEMESTER", $model->exp_semester);
+        knjCreateHidden($objForm, "useGradeKindCompGroupSemester", $model->Properties["useGradeKindCompGroupSemester"]);
+        knjCreateHidden($objForm, "SELECT_GHR");
+
+        Query::dbCheckIn($db);
+
+        $arg["finish"]  = $objForm->get_finish();
+
+        View::toHTML5($model, "knjd425_6Form1.html", $arg);
+    }
+}
+
+//履歴一覧
+function makeList(&$arg, $db, $model) {
+
+    $setArr = $remarkArr = array();
+    $query = knjd425_6Query::getList($model);
+    $result = $db->query($query);
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+        $setKey = $row["SEMESTER"].'-'.$row["SET_SUBCLASSCD"].'-'.$row["UNITCD"];
+
+        $remarkArr[$row["SEQ"]]        = $row["REMARK"];
+        $remarkArr["UNITCD"]           = $row["UNITCD"];
+        $remarkArr["SET_SUBCLASSCD"]   = $row["SET_SUBCLASSCD"];
+        $remarkArr["SET_SUBCLASSNAME"] = $row["SET_SUBCLASSNAME"];
+        $setArr[$setKey] = $remarkArr;
+    }
+
+    $bifKey = "";
+    //データセット
+    $setData = array();
+    foreach ($setArr as $key => $remarkArr) {
+        list($semester, $classCd, $schoolKind, $curriculumCd, $subclassCd, $unitCd) = split("-", $key);
+        $chkKey = $classCd.$schoolKind.$curriculumCd.$subclassCd.$unitCd;
+
+        //初期化
+        $setData = array();
+
+        //学期名
+        $setData["SEMESTERNAME"] = $model->semeArr[$semester];
+
+        //リンクセット
+        if ($bifKey != $chkKey) {
+            $setData["ROWSPAN"] = get_count($model->semeArr);
+            $setData["SET_SUBCLASSNAME"] = "<a href=\"knjd425_6index.php?cmd=list_set&SUBCLASSCD={$remarkArr["SET_SUBCLASSCD"]}&UNITCD={$remarkArr["UNITCD"]}\">{$remarkArr["SET_SUBCLASSNAME"]}</a>";
+        }
+
+        //項目セット
+        $miniData = array();
+        foreach ($model->itemNameArr as $key2 => $val2) {
+            $miniData["REMARK"] = $remarkArr[$key2];
+            $setData["koumoku"][] = $miniData;
+        }
+
+        $bifKey = $chkKey;
+        $arg["list"][] = $setData;
+    }
+    return;
+}
+
+//makeCmb
+function makeCmb(&$objForm, &$arg, $db, $query, &$value, $name, $extra, $size, $blank="") {
+    $opt = array();
+    $value_flg = false;
+    if ($blank == "BLANK") {
+        $opt[] = array("label" => "", "value" => "");
+    }
+    $result = $db->query($query);
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+        $opt[] = array('label' => $row["LABEL"],
+                       'value' => $row["VALUE"]);
+        if ($value == $row["VALUE"]) $value_flg = true;
+    }
+    $value = ($value && $value_flg) ? $value : $opt[0]["value"];
+    $arg[$name] = knjCreateCombo($objForm, $name, $value, $opt, $extra, $size);
+
+    $result->free();
+}
+?>

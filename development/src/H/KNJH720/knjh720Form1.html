@@ -1,0 +1,192 @@
+{rval start}
+{rval IFRAME}
+<style type="text/css">
+<!--
+a{
+color:#ffffff;
+font-size: 3.3mm;
+}
+a:hover{
+color:#ffffff;
+font-weight:bold;
+font-size: 3.3mm;
+}
+a.photo { color:#0000ff; }
+-->
+</style>
+
+<table width="1280" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="7%" aria-label="" nowrap>{rval YEAR}年度</th>
+                        <th width="33%" nowrap>
+                          学力テスト区分{rval TESTDIV}&nbsp;{rval FILE}
+                        </th>
+                        <th width="33%" nowrap>
+                          教科{rval CLASSCD}&nbsp;
+                        </th>
+                        <th width="33%" nowrap>
+                          科目{rval SUBCLASSCD}&nbsp;
+                        </th>
+                        <td width="36%" nowrap>
+                          教室{rval FACCD}&nbsp;&nbsp;
+                          入力回数{rval INPUT_NUM1}<LABEL for="INPUT_NUM1">1回目</LABEL>&nbsp;&nbsp;{rval INPUT_NUM2}<LABEL for="INPUT_NUM2">2回目</LABEL>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tbody>
+                            <tr class="no_search">
+                              <th width="90"><font size="2">HR</font></th>
+                              <th width="90"><font size="2">NO</font></th>
+                              <th width="60"><font size="2">性別</font></th>
+                              <th width="250"><font size="2">氏名</font></th>
+                              <th width="250"><font size="2">氏名かな</font></th>
+                              <th width="70"><font size="2">素点1</font></th>
+                              <th width="50"><font size="2">欠席1</font></th>
+                              <th width="80"><font size="2">更新者1</font></th>
+                              <th width="70"><font size="2">素点2</font></th>
+                              <th width="50"><font size="2">欠席2</font></th>
+                              <th width="*"><font size="2">更新者2</font></th>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <div style="width:100%;height:300;overflow:auto">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                          <tbody>
+                            <!--{each data}-->
+                            <tr height="28">
+                              <td width="90"  align="center" bgcolor="{rval data/COLOR}">{rval data/HR_NAMEABBV}</td>
+                              <td width="90"  align="center" bgcolor="{rval data/COLOR}">{rval data/ATTENDNO}</td>
+                              <td width="60"  align="center" bgcolor="{rval data/COLOR}">{rval data/SEX}</td>
+                              <td width="250" align="center" bgcolor="{rval data/COLOR}">{rval data/NAME}</td>
+                              <td width="250" align="center" bgcolor="{rval data/COLOR}">{rval data/NAME_KANA}</td>
+                              <td width="70"  align="center" bgcolor="{rval data/COLOR}">{rval data/SCORE1}</td>
+                              <td width="50"  align="center" bgcolor="{rval data/COLOR}">{rval data/ABSENCE1}</td>
+                              <td width="80"  align="center" bgcolor="{rval data/COLOR}">{rval data/STAFF1}</td>
+                              <td width="70"  align="center" bgcolor="{rval data/COLOR}">{rval data/SCORE2}</td>
+                              <td width="50"  align="center" bgcolor="{rval data/COLOR}">{rval data/ABSENCE2}</td>
+                              <td width="*"   align="center" bgcolor="{rval data/COLOR}">{rval data/STAFF2}</td>
+                            </tr>
+                            <!--{/each}-->
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tbody>
+                            <tr class="no_search">
+                              <th width="770">平均点</th>
+                              <th align="center" width="70">{rval SCORE_AVG1}<font size="2"></font></th>
+                              <th align="center" width="50" rowspan="3"></th>
+                              <th align="center" width="80" rowspan="4"></th>
+                              <th align="center" width="70">{rval SCORE_AVG2}<font size="2"></font></th>
+                              <th align="center" width="50" rowspan="3">{rval CUR_DATE}<font size="2"></font></th>
+                              <th align="center" width="*" rowspan="4">{rval CUR_DATE}<font size="2"></font></th>
+                            </tr>
+                            <tr class="no_search">
+                              <th width="770">最高点</th>
+                              <th align="center" width="70">{rval SCORE_MAX1}<font size="2"></font></th>
+                              <th align="center" width="70">{rval SCORE_MAX2}<font size="2"></font></th>
+                            </tr>
+                            <tr class="no_search">
+                              <th width="770">最低点</th>
+                              <th align="center" width="70">{rval SCORE_MIN1}<font size="2"></font></th>
+                              <th align="center" width="70">{rval SCORE_MIN2}<font size="2"></font></th>
+                            </tr>
+                            <tr class="no_search">
+                              <th width="770" aria-label="">欠席者数</th>
+                              <th align="center" width="70"></th>
+                              <th align="center" width="50">{rval TOTAL_ABSENCE1}<font size="2"></font></th>
+                              <th align="center" width="70"></th>
+                              <th align="center" width="50">{rval TOTAL_ABSENCE2}<font size="2"></font></th>
+                            </tr>
+                            <tr class="no_search">
+                              <td colspan="7">
+                                <table width="100%" cellpadding="0" cellspacing="0">
+                                  <tr class="no_search">
+                                    <td align="center">
+                                      <form enctype="multipart/form-data" method="post">
+                                      {rval CSV/RADIO1}取込&nbsp;&nbsp;{rval CSV/RADIO2}書出&nbsp;&nbsp;
+                                      ファイル：{rval CSV/FILE}{rval CSV/btn_exec}
+                                      {rval CSV/HEADER_CHECK}ヘッダ有り
+                                      </form>
+                                    </td>
+                                    <td align="right">{val btn_update}{val btn_reset}{val btn_end}</td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}
+<script language="JavaScript">
+{rval close_win}</script>

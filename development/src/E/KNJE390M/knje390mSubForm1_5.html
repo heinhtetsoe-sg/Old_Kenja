@@ -1,0 +1,329 @@
+﻿{rval start}
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="150" nowrap bgcolor="#00FFFF" align="center">
+            <b><font size="3" color="#000080">基本情報</font><font size="2" color="#000080"><BR>(福祉)</font></b>
+          </td>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr><td>●補装具等の給付（補装具）</td></tr>
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search" nowrap align="center">
+                  <th class="no_search" width="25%">項目</th>
+                  <th width="25%">補装具</th>
+                  <th width="10%">申請年月</th>
+                  <th width="*">製造会社</th>
+                </tr>
+
+                <!--{def data12}-->
+                <!--{each data12}-->
+                <tr bgcolor="#ffffff">
+                  <td>{rval data12/RECORD_DIV_NAME}</td>
+                  <td>{rval data12/CONTENTS_NAME}</td>
+                  <td align="center">{rval data12/SUPPLY_DATE}</td>
+                  <td>{rval data12/CONTENTS}</td>
+                </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+
+              </table>
+              </td>
+              </tr>
+              </table>
+            </td>
+        </tr>
+        <tr height="10"><td></td></tr>
+
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th class="no_search" colspan="2" nowrap>補装具等の給付（補装具）</th>
+              </tr>
+              <tr>
+                <th class="no_search" width="10%" align="right" nowrap>補装具</th>
+                <td width="*" bgcolor="#ffffff">
+                  <table>
+                    <!--{def item12}-->
+                    <!--{each item12}-->
+                    <tr>
+                      <td nowrap>{rval item12/EQUIP2_ITEMDIV_NAME}&nbsp;</td>
+                      <td nowrap>{rval item12/EQUIP2_ITEMCD_SHOW}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <th class="no_search" align="right" nowrap>申請年月</th>
+                <td bgcolor="#ffffff">
+                  {rval data/EQUIP2_SUPPLY_DATE}{rval data/EQUIP2_SUPPLY_DATE_SAMPLE}<br>{rval data/EQUIP2_SUPPLY_DATE_SIZE}
+                </td>
+              </tr>
+              <tr>
+                <th class="no_search" align="right" nowrap>製造会社</th>
+                <td bgcolor="#ffffff">
+                  {rval data/EQUIP2_SERVICE_CENTER_TEXT}<br>{rval data/EQUIP2_SERVICE_CENTER_TEXT_SIZE}
+                </td>
+              </tr>
+
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td align="left" bgcolor="#ffffff">{rval button/btn_insertEquip2}{rval button/btn_updateEquip2}{rval button/btn_deleteEquip2}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr height="20"><td></td></tr>
+
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr><td>●補装具等の給付（日常生活用具）</td></tr>
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search" nowrap align="center">
+                  <th class="no_search" width="25%">項目</th>
+                  <th width="35%">日常生活用具</th>
+                  <th width="*">備考</th>
+                </tr>
+
+                <!--{def data13}-->
+                <!--{each data13}-->
+                <tr bgcolor="#ffffff">
+                  <td>{rval data13/RECORD_DIV_NAME}</td>
+                  <td>{rval data13/CONTENTS_NAME}</td>
+                  <td>{rval data13/CONTENTS_NAIYOU}</td>
+                </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+
+              </table>
+              </td>
+              </tr>
+              </table>
+            </td>
+        </tr>
+        <tr height="10"><td></td></tr>
+
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th class="no_search" colspan="2" nowrap>補装具等の給付（日常生活用具）</th>
+              </tr>
+              <tr>
+                <th class="no_search" width="10%" align="right" nowrap>日常生活用具</th>
+                <td width="*" bgcolor="#ffffff">
+                  <table>
+                    <!--{def item13}-->
+                    <!--{each item13}-->
+                    <tr>
+                      <td nowrap>{rval item13/EQUIP3_ITEMDIV_NAME}&nbsp;</td>
+                      <td nowrap>{rval item13/EQUIP3_ITEMCD_SHOW}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <th class="no_search" align="right" nowrap>備考</th>
+                <td bgcolor="#ffffff">
+                  {rval data/EQUIP3_WELFARE_REMARK}<br>{rval data/EQUIP3_WELFARE_REMARK_SIZE}
+                </td>
+              </tr>
+
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td align="left" bgcolor="#ffffff">{rval button/btn_insertEquip3}{rval button/btn_updateEquip3}{rval button/btn_deleteEquip3}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr height="20"><td></td></tr>
+
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr><td>●相談支援事業所</td></tr>
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search" nowrap align="center">
+                  <th class="no_search" width="25%">項目</th>
+                  <th width="35%">相談支援事業所</th>
+                  <th width="*">担当者</th>
+                </tr>
+
+                <!--{def data2}-->
+                <!--{each data2}-->
+                <tr bgcolor="#ffffff">
+                  <td>{rval data2/RECORD_DIV_NAME}</td>
+                  <td>{rval data2/CONTENTS_NAME}</td>
+                  <td>{rval data2/CONTENTS_NAIYOU}</td>
+                </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+
+              </table>
+              </td>
+              </tr>
+              </table>
+            </td>
+        </tr>
+        <tr height="10"><td></td></tr>
+
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th class="no_search" colspan="2" nowrap>相談支援事業所</th>
+              </tr>
+              <tr>
+                <th class="no_search" width="10%" align="right" nowrap>相談支援事業所</th>
+                <td bgcolor="#ffffff">
+                  {rval data/ADVICE_SERVICE_CENTER_TEXT} {rval button/btn_advice_center_search}<br>
+                  {rval data/ADVICE_SERVICE_CENTER_TEXT_SIZE}
+                </td>
+              </tr>
+              <tr>
+                <th class="no_search" align="right" nowrap>担当者</th>
+                <td bgcolor="#ffffff">
+                  {rval data/ADVICE_SERVICE_CHARGE}<br>{rval data/ADVICE_SERVICE_CHARGE_SIZE}
+                </td>
+              </tr>
+
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td align="left" bgcolor="#ffffff">{rval button/btn_insertAdvice}{rval button/btn_updateAdvice}{rval button/btn_deleteAdvice}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr height="20"><td></td></tr>
+
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr><td>●事業所サービスの利用</td></tr>
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search" nowrap align="center">
+                  <th class="no_search" width="25%">項目</th>
+                  <th width="25%">福祉サービス施設</th>
+                  <th width="20%">サービス内容</th>
+                  <th width="10%">支給量</th>
+                  <th width="*">頻度</th>
+                </tr>
+
+                <!--{def data3}-->
+                <!--{each data3}-->
+                <tr bgcolor="#ffffff">
+                  <td>{rval data3/RECORD_DIV_NAME}</td>
+                  <td>{rval data3/CONTENTS_NAME}</td>
+                  <td>{rval data3/CONTENTS_NAIYOU}</td>
+                  <td>{rval data3/CONTENTS}</td>
+                  <td>{rval data3/CONTENTS2}</td>
+                </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+
+              </table>
+              </td>
+              </tr>
+              </table>
+            </td>
+        </tr>
+        <tr height="10"><td></td></tr>
+
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th class="no_search" colspan="2" nowrap>事業所サービスの利用</th>
+              </tr>
+              <tr>
+                <th class="no_search" align="right" nowrap>福祉サービス施設</th>
+                <td bgcolor="#ffffff">
+                  {rval data/WELFARE_SERVICE_CENTER_TEXT} {rval button/btn_service_search}<br>
+                  {rval data/WELFARE_SERVICE_CENTER_TEXT_SIZE}
+                </td>
+              </tr>
+              <tr>
+                <th class="no_search" width="10%" align="right" nowrap>サービス内容</th>
+                <td width="*" bgcolor="#ffffff">
+                  <table>
+                    <!--{def item3}-->
+                    <!--{each item3}-->
+                    <tr>
+                      <td nowrap>{rval item3/WELFARE_ITEMDIV_NAME}&nbsp;</td>
+                      <td nowrap>{rval item3/WELFARE_ITEMCD_SHOW}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <th class="no_search" align="right" nowrap>支給量</th>
+                <td bgcolor="#ffffff">
+                  {rval data/WELFARE_ITEMCD}
+                  　{rval data/WELFARE_ITEMCD21}<LABEL for="WELFARE_ITEMCD21">(日/月)</LABEL>
+                  {rval data/WELFARE_ITEMCD22}<LABEL for="WELFARE_ITEMCD22">(時間/月)</LABEL><br>
+                  {rval data/WELFARE_ITEMCD_SIZE}
+                </td>
+              </tr>
+              <tr>
+                <th class="no_search" align="right" nowrap>頻度</th>
+                <td bgcolor="#ffffff">
+                  {rval data/WELFARE_WELFARE_REMARK}<br>{rval data/WELFARE_WELFARE_REMARK_SIZE}
+                </td>
+              </tr>
+
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td align="left" bgcolor="#ffffff">{rval button/btn_insertWelfare}{rval button/btn_updateWelfare}{rval button/btn_deleteWelfare}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr height="20"><td></td></tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish} 
+<script language="JavaScript">{rval jscript}</script>

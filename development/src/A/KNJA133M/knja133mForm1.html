@@ -1,0 +1,131 @@
+{rval start} 
+
+<br><br>
+
+<table width="40%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                        <td align="center"><b>
+                      {rval data/YEAR}年度　　{rval data/SEMESTER}　　　{rval data/GRADE_HR_CLASS}
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="40%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="40%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff" height="130">
+                      <td align="left">
+                        <table>
+                          <tr>
+                            <td>
+                              <B>　出力する帳票</B>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              　　１．　{rval data/SEITO}<LABEL for="SEITO">生徒指導要録</LABEL>
+                              <!--{def data/SEITO_OPT}-->
+                              <!--{each data/SEITO_OPT}-->
+                              {rval data/SEITO_OPT/SPACE}<FONT style="font-size:0.8em">　　{rval data/SEITO_OPT/FORM}<LABEL for="{rval data/SEITO_OPT/ID}">{rval data/SEITO_OPT/TITLE}</LABEL></FONT><br>
+                              <!--{/each}-->
+                              <!--{/def}-->
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              　　２．　{rval data/TANI}<LABEL for="TANI">修得単位の記録</LABEL>
+                            </td>
+                          </tr>
+<!--{def tokyoto}-->
+                          <tr>
+                            <td>
+                              　　３．　{rval data/SHUKKETSU}<LABEL for="SHUKKETSU">出欠の記録</LABEL>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              　　４．　{rval data/GAKUSHU}<LABEL for="GAKUSHU">学習の記録</LABEL>
+                              　&nbsp;<FONT style="font-size:0.8em">　　{rval data/notPrintKyugakuNendoInYoshiki2}<LABEL for="notPrintKyugakuNendoInYoshiki2">１年間休学の場合、表記しない</LABEL></FONT><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              　　５．　{rval data/KATSUDO}<LABEL for="KATSUDO">活動の記録</LABEL>
+                            </td>
+                          </tr>
+<!--{/def}-->
+<!--{def not_tokyoto}-->
+                          <tr>
+                            <td>
+                              　　３．　{rval data/GAKUSHU}<LABEL for="GAKUSHU">学習の記録</LABEL>
+                              　&nbsp;<FONT style="font-size:0.8em">　　{rval data/notPrintKyugakuNendoInYoshiki2}<LABEL for="notPrintKyugakuNendoInYoshiki2">１年間休学の場合、表記しない</LABEL></FONT><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              　　４．　{rval data/KATSUDO}<LABEL for="KATSUDO">活動の記録</LABEL>
+                            </td>
+                          </tr>
+<!--{/def}-->
+                        </table>
+                      <TABLE>
+                        <TR>
+                          <TD><B>　未履修科目出力</B></TD><TD>　　　　{rval data/MIRISYU1}<LABEL for="MIRISYU1">する</LABEL>　　　　{rval data/MIRISYU2}<LABEL for="MIRISYU2">しない</LABEL></TD>
+                        </TR>
+                        <TR>
+                          <TD><B>　履修のみ科目出力</B></TD><TD>　　　　{rval data/RISYU1}<LABEL for="RISYU1">する</LABEL>　　　　{rval data/RISYU2}<LABEL for="RISYU2">しない</LABEL></TD>
+                        </TR>
+                        <TR>
+                          <TD><B>　履修登録のみ科目出力</B></TD><TD>　　　　{rval data/RISYUTOUROKU1}<LABEL for="RISYUTOUROKU1">する</LABEL>　　　　{rval data/RISYUTOUROKU2}<LABEL for="RISYUTOUROKU2">しない</LABEL></TD>
+                        </TR>
+                      </TABLE>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <!--{def button}--> 
+  <tr>
+    <td nowrap>{rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+  <!--{/def}--> 
+</table>
+{rval finish} 
+<script language="JavaScript">
+{rval printgo}
+</script>

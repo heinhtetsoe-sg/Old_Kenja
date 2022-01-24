@@ -1,0 +1,80 @@
+{rval start}
+<style>
+body {
+    overflow-y: auto;
+}
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="10" align="center">
+
+    <tr class="no_search_line"> 
+        <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+                <tr bgcolor="#ffffff">
+                    <td width="30%">{rval NENDO}　年度</td>
+                    <td width="30%">{rval GYOUSYA}　模試</td>
+                    <td width="*">{rval MOCKNAME}</td>
+                </tr>
+                <tr class="no_search">
+                    <td colspan="3" align="center">{rval button/btn_appear}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    
+    <!--{def data}-->
+    <tr class="no_search_line">
+      <td nowrap>
+      <table width="100%" border="0" cellpadding="0" cellspacing="1">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+                <table class="sunko_field" width="100%" border="0" cellpadding="5" cellspacing="0">
+                    <tr class="no_search">
+                        <th colspan="2" style="text-align:center;padding:3px;">{rval data/NENDO} 年度　{rval data/MOCKNAME} 模試</th>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                        <td style="width:35%;">
+                            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                                <tr bgcolor="#ffffff">
+                                    <td width="100%" align="center">{rval KATA}</td>
+                                </tr>
+                                <tr class="no_search_line">
+                                    <td width="100%">
+                                        <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                                        <tr class="no_search">
+                                            <td>　</td>
+                                            <td align="center">教科</td>
+                                            <td align="center">偏差値</td>
+                                        </tr>
+                                        <!--{each data2}-->
+                                        <tr bgcolor="#ffffff">
+                                            <td align="center">{rval data2/CHECK}</td>
+                                            <td>{rval data2/KYOUKA}</td>
+                                            <td>{rval data2/HENSATI}</td>
+                                        </tr>
+                                        <!--{/each}-->
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr bgcolor="#ffffff">
+                                    <td width="100%" align="center">{rval button/btn_reappear}　{rval button/btn_sanka}</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td style="width:65%;">
+                            <div class="holder">
+                                <canvas id="radar0" height="400" width="400"></canvas>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <!--{/def}-->
+</table>
+{rval finish}

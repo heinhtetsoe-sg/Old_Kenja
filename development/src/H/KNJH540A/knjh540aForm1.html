@@ -1,0 +1,69 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr class="no_search_line">
+          <th>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search">
+                <th nowrap width="200" align="center">対象年度：{rval YEAR}　{rval SEMESTER}</th>
+                <th nowrap align = "right">{rval btn_copy}&nbsp;&nbsp;&nbsp;&nbsp;</th>
+              </tr>
+              <tr class="no_search">
+                <th nowrap align = "left" colspan="2">
+                    　　実力区分:{rval PROFICIENCYDIV}　{rval PROFICIENCYCD}&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+                    　　　　　&nbsp;&nbsp;コピー元：{rval PROFICIENCYCD_FROMCOPY}　{rval btn_fromcopy}
+                </th>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="10%">科目名</th>
+                      <th width="10%">区分</th>
+                      <th width="10%">学年</th>
+                      <th width="*%">課程学科コース名</th>
+                      <th width="10%">満点</th>
+                      <th width="10%">合格点</th>
+                      <th width="10%">傾斜配点率</th>
+                    </tr>
+
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff">{val data/SUBCLASS_NAME}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/DIV}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">&nbsp;{val data/GRADE}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/SETNAME}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">&nbsp;{val data/PERFECT}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">&nbsp;{val data/PASS_SCORE}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">&nbsp;{val data/WEIGHTING}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval Closing}</script>

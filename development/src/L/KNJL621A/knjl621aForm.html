@@ -1,0 +1,103 @@
+{rval start}
+
+<table height="120"><tr><td></td></tr></table>
+<table width="900" border="0" cellspacing="0" cellpadding="10" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="30">
+                      <th class="no_search" align="center" colspan="2">
+                        <b>{rval ENTEXAMYEAR}年度入試</b>
+                      </th>
+                    </tr>
+                    <tr height="30">
+                      <th width="20%"  class="no_search">入試制度</th>
+                      <td width="*" bgcolor="#ffffff">{rval APPLICANTDIV}</td>
+                    </tr>
+                    <tr height="30">
+                      <th class="no_search">入試区分</th>
+                      <td bgcolor="#ffffff">{rval TESTDIV}</td>
+                    </tr>
+                    <tr height="30">
+                      <th class="no_search">受験番号</th>
+                      <td bgcolor="#ffffff">
+                        {rval EXAMNO}
+                        <span id="examname"></span>
+                      </td>
+                    </tr>
+                    <tr height="30">
+                      <th class="no_search">座席番号</th>
+                      <td bgcolor="#ffffff">{rval SEATNO}</td>
+                    </tr>
+                    <tr height="30">
+                      <th class="no_search" align="center" colspan="2">{rval btn_insert}{rval btn_end}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <br><br>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th align="center" nowrap width="8%" height="30">入試年度</th>
+                      <th align="center" nowrap width="8%" height="30">入試制度</th>
+                      <th align="center" nowrap width="20%" height="30">日時</th>
+                      <th align="center" nowrap width="10%" height="30">受験番号</th>
+                      <th align="center" nowrap width="10%" height="30">入試区分</th>
+                      <th align="center" nowrap width="20%" height="30">氏名</th>
+                      <th align="center" nowrap width="8%" height="30">会場番号</th>
+                      <th align="center" nowrap width="8%" height="30">座席番号</th>
+                      <th align="center" nowrap width="8%" height="30">　</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table id="list" width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td align="center"  width="8%"  nowrap>{rval data/ENTEXAMYEAR}</td>
+                      <td align="center"  width="8%"  nowrap>{rval data/APPLICANTDIV}</td>
+                      <td align="center"  width="20%"  nowrap>{rval data/EXEC_TIME}</td>
+                      <td align="center"  width="10%"  nowrap>{rval data/EXAMNO}</td>
+                      <td align="center"  width="10%"  nowrap>{rval data/TESTDIV}</td>
+                      <td align="center"  width="20%"  nowrap>{rval data/NAME}</td>
+                      <td align="center"  width="8%"  nowrap>{rval data/EXAMHALLNO}</td>
+                      <td align="center"  width="8%"  nowrap>{rval data/SEATNO}</td>
+                      <td align="center"  width="8%"  nowrap>{rval data/btn_delete}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">
+    {rval reload}
+    document.forms[0].EXAMNO.focus();
+    showName();
+</script>
+{rval finish}

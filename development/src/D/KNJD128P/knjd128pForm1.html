@@ -1,0 +1,114 @@
+{rval start}
+
+{rval IFRAME}
+<table width="1250px" border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" height="30">
+                <td nowrap align="center">
+                    処理年度：{rval YEAR}年度　　
+                    学期：{rval SEMESTER}　　
+                    科目：{rval SUBCLASSCD}　　学級・講座：{rval CHAIRCD}
+                    &nbsp;&nbsp;移動方向({rval MOVE_ENTER1}<LABEL for="MOVE_ENTER1">縦</LABEL>　{rval MOVE_ENTER2}<LABEL for="MOVE_ENTER2">横</LABEL>)</td>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="item_header">
+                    <tr class="no_search">
+                      <th width="120" rowspan="3">クラス-<br>出席番号</th>
+                      <th width="180" rowspan="3">氏名</th>
+                      <th width="270" colspan="3">1学期</th>
+                      <th width="270" colspan="3">2学期</th>
+                      <th width="*" colspan="3">3学期</th>
+                    </tr>
+                    <tr class="no_search">
+                      <th width="270" colspan="3">学期評価</th>
+                      <th width="270" colspan="3">学期評価</th>
+                      <th width="*" colspan="3">学期評価</th>
+                    </tr>
+                    <tr class="no_search">
+                      <th width="90">Outputs</th>
+                      <th width="90">Skills</th>
+                      <th width="90">総括評価</th>
+                      <th width="90">Outputs</th>
+                      <th width="90">Skills</th>
+                      <th width="90">総括評価</th>
+                      <th width="90">Outputs</th>
+                      <th width="90">Skills</th>
+                      <th width="*">総括評価</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div id="REC_MAIN" style="width:100%;height:460;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+  <!--{each data}-->
+                    <tr>
+                      <td width="120" align="left" bgcolor="{rval data/COLOR}">&nbsp;{rval data/ATTENDNO}</td>
+                      <td width="180" align="left" bgcolor="{rval data/COLOR}">&nbsp;{rval data/NAME_SHOW}</td>
+                      <td width="90" align="center" bgcolor="{rval data/COLOR}">{rval data/OUTPUTS_SCORE1}</td>
+                      <td width="90" align="center" bgcolor="{rval data/COLOR}">{rval data/SKILLS_SCORE1}</td>
+                      <td width="90" align="center" bgcolor="{rval data/COLOR}">{rval data/TOTAL_SCORE1}</td>
+                      <td width="90" align="center" bgcolor="{rval data/COLOR}">{rval data/OUTPUTS_SCORE2}</td>
+                      <td width="90" align="center" bgcolor="{rval data/COLOR}">{rval data/SKILLS_SCORE2}</td>
+                      <td width="90" align="center" bgcolor="{rval data/COLOR}">{rval data/TOTAL_SCORE2}</td>
+                      <td width="90" align="center" bgcolor="{rval data/COLOR}">{rval data/OUTPUTS_SCORE3}</td>
+                      <td width="90" align="center" bgcolor="{rval data/COLOR}">{rval data/SKILLS_SCORE3}</td>
+                      <td width="*" align="center" bgcolor="{rval data/COLOR}">{rval data/TOTAL_SCORE3}</td>
+                    </tr>
+  <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <td align="right">
+                        {rval FILE}{rval btn_input}&nbsp;{rval btn_output}&nbsp;&nbsp;{rval HEADER}<LABEL for="HEADER">ヘッダ有</LABEL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval btn_update}{rval btn_reset}{rval btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

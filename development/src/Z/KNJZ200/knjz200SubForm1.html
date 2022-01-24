@@ -1,0 +1,178 @@
+{rval start}
+<!--{def data}-->
+<!--{def button}-->
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="40%" valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <hr>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td bgcolor="#ffffff">　　{rval GRADEINFO}</td>
+              </tr>
+            </table>
+            <hr>
+          </td>
+        </tr>
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th class="no_search" width="20">{rval data/RCHECK_ALL}</th>
+                <th width="50%" height="30" align="center" class="no_search" nowrap colspan="2">項目</th>
+                <th width="*" class="no_search">値</th>
+              </tr>
+              <tr>
+                <th class="no_search" width="20">{rval data/RCHECK_CREDITS}</th>
+                <th  height="30" align="center" class="no_search" nowrap colspan="2">単位</th>
+                <td bgcolor="#ffffff">{rval data/CREDITS}</td>
+              </tr>
+<!--{def ABSENCE_HIGH_SHOW}-->
+              <tr>
+                <th class="no_search" width="20" rowspan="2">{rval data/RCHECK_ABSENCE_HIGH}</th>
+                <th  height="30" align="center" class="no_search" nowrap rowspan="2">法定欠課数上限値</th>
+                <th  height="30" align="center" class="no_search" nowrap>履修</th>
+                <td bgcolor="#ffffff">{rval data/ABSENCE_HIGH}回</td>
+              </tr>
+              <tr>
+                <th  height="30" align="center" class="no_search" nowrap>修得</th>
+                <td bgcolor="#ffffff">{rval data/GET_ABSENCE_HIGH}回</td>
+              </tr>
+<!--{/def}-->
+              <tr>
+                <th class="no_search" width="20">{rval data/RCHECK_ABSENCE_WARN}</th>
+                <th  height="30" align="center" class="no_search" nowrap colspan="2">{rval data/SEMESTERNAME1}欠課数オーバー</th>
+                <td bgcolor="#ffffff">{rval data/ABSENCE_WARN}{rval data/ABSENCE_WARN_KAI}前警告</td>
+              </tr>
+              <tr>
+                <th class="no_search" width="20">{rval data/RCHECK_ABSENCE_WARN2}</th>
+                <th  height="30" align="center" class="no_search" nowrap colspan="2">{rval data/SEMESTERNAME2}欠課数オーバー</th>
+                <td bgcolor="#ffffff">{rval data/ABSENCE_WARN2}{rval data/ABSENCE_WARN_KAI}前警告</td>
+              </tr>
+<!--{def ABSENCE_WARN_DIV}-->
+              <tr>
+                <th class="no_search" width="20">{rval data/RCHECK_ABSENCE_WARN3}</th>
+                <th  height="30" align="center" class="no_search" nowrap colspan="2">{rval data/SEMESTERNAME3}欠課数オーバー</th>
+                <td bgcolor="#ffffff">{rval data/ABSENCE_WARN3}{rval data/ABSENCE_WARN_KAI}前警告</td>
+              </tr>
+<!--{/def}-->
+              <tr>
+                <th class="no_search" width="20">{rval data/RCHECK_REQUIRE_FLG}</th>
+                <th  height="30" align="center" class="no_search" nowrap colspan="2">必履修区分</th>
+                <td bgcolor="#ffffff">{rval data/REQUIRE_FLG}</td>
+              </tr>
+              <tr>
+                <th class="no_search" width="20">{rval data/RCHECK_AUTHORIZE_FLG}</th>
+                <th  height="30" align="center" class="no_search" nowrap colspan="2"><span id="check1_a">半期</span><span id="check2_a"></span>認定フラグ</th>
+                <td bgcolor="#ffffff">{rval data/AUTHORIZE_FLG}　<span id="check_a">{rval data/style_a}</span></td>
+              </tr>
+              <tr>
+                <th class="no_search" width="20">{rval data/RCHECK_COMP_UNCONDITION_FLG}</th>
+                <th  height="30" align="center" class="no_search" nowrap colspan="2"><span id="check1_c">無条件</span><span id="check2_c"></span>履修取得フラグ</th>
+                <td bgcolor="#ffffff">{rval data/COMP_UNCONDITION_FLG}　<span id="check_c">{rval data/style_c}</span></td>
+              </tr>
+<!--{def useTimeUnit}-->
+              <tr>
+                <th class="no_search" width="20">{rval data/RCHECK_TIME_UNIT}</th>
+                <th  height="30" align="center" class="no_search" nowrap colspan="2">単位時間</th>
+                <td bgcolor="#ffffff">{rval data/TIME_UNIT}</td>
+              </tr>
+<!--{/def}-->
+<!--{def useRate}-->
+              <tr>
+                <th class="no_search" width="20">{rval data/RCHECK_RATE}</th>
+                <th  height="30" align="center" class="no_search" nowrap colspan="2">掛け率</th>
+                <td bgcolor="#ffffff">{rval data/RATE}</td>
+              </tr>
+<!--{/def}-->
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <th class="no_search" colspan="2"></th>
+                <td align="center" bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td width="60%" valign="top">
+      <table width="100%" border="0" cellpadding="0" cellspacing="10" align="center">
+        <tr class="no_search_line"> 
+          <td nowrap> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="1">
+              <tr bgcolor="#ffffff"> 
+                <td> 
+                  <table width="100%" border="0" cellpadding="0" cellspacing="10" >
+                    <tr class="no_search_line"> 
+                      <td width="100%"> 
+                        <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                          <tr align="center" class="no_search" height="25"> 
+                            <th><font color="white">対象課程学科一覧</font></th>
+                            <th class="no_search">&nbsp;</th>
+                            <th><font color="white">課程学科一覧</font></th>
+                          </tr>
+                          <tr align="center" bgcolor="#ffffff">
+                            <td width="45%">{rval data/LEFT_COURSE}</td>
+                            <td width="*%" class="no_search" nowrap>
+                                {rval button/COURSE_ADD_ALL} <br>
+                                {rval button/COURSE_ADD} <br>
+                                {rval button/COURSE_DEL} <br>
+                                {rval button/COURSE_DEL_ALL}</td>
+                            <td width="45%">{rval data/RIGHT_COURSE}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+        </tr>
+        <tr class="no_search_line"> 
+          <td nowrap> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="1">
+              <tr bgcolor="#ffffff"> 
+                <td> 
+                  <table width="100%" border="0" cellpadding="0" cellspacing="10" >
+                    <tr class="no_search_line"> 
+                      <td width="100%"> 
+                        <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                          <tr align="center" class="no_search" height="25"> 
+                            <th><font color="white">対象科目一覧</font></th>
+                            <th class="no_search">&nbsp;</th>
+                            <th><font color="white">科目一覧</font></th>
+                          </tr>
+                          <tr align="center" bgcolor="#ffffff">
+                            <td width="45%">{rval data/LEFT_SUBCLASS}</td>
+                            <td width="*%" class="no_search" nowrap>
+                                {rval button/SUBCLASS_ADD_ALL} <br>
+                                {rval button/SUBCLASS_ADD} <br>
+                                {rval button/SUBCLASS_DEL} <br>
+                                {rval button/SUBCLASS_DEL_ALL}</td>
+                            <td width="45%">{rval data/RIGHT_SUBCLASS}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish} 

@@ -1,0 +1,179 @@
+{rval start}
+{rval IFRAME}
+<style type="text/css">
+#tyousei {
+    height : 50px;
+}
+#tyousei2 {
+    height : 40px;
+}
+
+a:link { color: white; }
+a:visited { color: white; }
+a:hover { color: white; }
+a:active { color: white; }
+
+</style>
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+          <tr class="no_search_line">
+            <th>
+              <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                <tr>
+                  <th align="left" class="no_search" height="35">
+                    　　　　　　
+                    年度：{rval YEAR}　<!--{def SCHOOL_KIND}-->&nbsp;{rval SCHOOL_KIND}<!--{/def}-->
+                    月：{rval MONTH_SEM}　　
+<!--{def useFukushiki}-->
+                    {rval HR_CLASS_TYPE1}<LABEL for="HR_CLASS_TYPE1">法定クラス</LABEL>
+                    <!--{def HR_CLASS_TYPE_1}-->（{rval GRADE_MIX}<LABEL for="GRADE_MIX">学年混合</LABEL>）<!--{/def}-->
+                    　　{rval HR_CLASS_TYPE2}<LABEL for="HR_CLASS_TYPE2">{rval HR_CLASS_TYPE_LABEL}</LABEL>
+<!--{/def}-->
+                    　　学級：{rval GRADE_HR_CLASS}
+                  </th>
+                </tr>
+              </table>
+            </th>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tbody>
+                            <tr class="no_search" id="tyousei">
+                              <th width="*" nowrap>{rval ATTENDNO_LABEL}</th>
+                              <th width="150" nowrap>氏　名</th>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td>
+                <div id="trow" style="overflow:hidden; width: 923px; ">
+                <div style="width: {rval WIDTH}; ">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tbody>
+                            <tr class="no_search" id="tyousei">
+                              <!--{each label}-->
+                              <th width={rval label/WIDTH}>{rval label/NAME}<br>{rval label/EXECUTED}</th>
+                              <!--{/each}-->
+                              <th width="*" nowrap>出欠の備考</th>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                </div>
+              </td>
+            </tr>
+            <tr valign="TOP">
+              <td>
+                <div id="tcol" style="overflow: hidden; height: 483px;">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                          <tbody>
+                            <!--{each data}-->
+                            <tr bgcolor="#ffffff" id="tyousei2">
+                              <td width="*" align="center" bgcolor="{rval data/COLOR}" nowrap>{rval data/ATTENDNO}</td>
+                              <td width="150" align="left" bgcolor="{rval data/COLOR}" nowrap>
+                                {rval data/NAME_SHOW}
+                                <!--{def data/VISIT}-->
+                                <span style="float:right;"><font color="red">訪問生</font></span>
+                                <!--{/def}-->
+                              </td>
+                            </tr>
+                            <!--{/each}-->
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                </div>
+              </td>
+              <td>
+                <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 940px; height: 500px;">
+                <div style="width: {rval WIDTH};">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                          <tbody>
+                            <!--{each data}-->
+                            <tr bgcolor="#ffffff" id="tyousei2">
+                              {rval data/DI_CD}
+                            </tr>
+                            <!--{/each}-->
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+          <tbody>
+            <tr class="no_search_line">
+              <th>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td bgcolor="#ffffff">
+                        {rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}
+                        <!--{def VISIT}-->
+                        <font color="red"><b>※訪問生の場合は「出席」を登録します。</b></font>
+                        <!--{/def}-->
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div id="lay"></div>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

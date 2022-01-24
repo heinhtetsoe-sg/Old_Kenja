@@ -1,0 +1,178 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR>
+
+<table width="45%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td colspan="3"><b>　　{rval data/YEAR}年度　　　学期：{rval data/SEMESTER}　　　学年：{rval data/GRADE}</b></td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="30">
+                      <td colspan="3">
+                        <b>　　成績入力処理で登録された内容を&nbsp;クリア&nbsp;／&nbsp;コピー&nbsp;する</b><BR>
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <td colspan="3"><b>　　{rval data/CHOICE1}<LABEL for="CHOICE1">クラス指定</LABEL>　{rval data/CHOICE2}<LABEL for="CHOICE2">個人指定</LABEL><!--{def gr_class}-->　　　年組：{rval data/GRADE_HR_CLASS}<!--{/def}--></b></td>
+                    </tr>
+                    <tr align="center" class="no_search"> 
+                      <th><b>処理対象{rval CHANGENAME}</b></th>
+                      <th class="no_search"></th>
+                      <th><b>{rval CHANGENAME}一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CLASS_NAME}</td>
+                    </tr>
+                    <tr align="center" class="no_search"> 
+                      <th><b>処理対象科目</b></th>
+                      <th class="no_search"></th>
+                      <th><b>科目一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/KAMOKU_SELECTED}</td>
+                      <td width="*%" class="no_search">
+                        {rval button/btn_kamoku_lefts}<BR>
+                        {rval button/btn_kamoku_left1}<BR>
+                        {rval button/btn_kamoku_right1}<BR>
+                        {rval button/btn_kamoku_rights}
+                      <td width="45%">{rval data/KAMOKU_NAME}</td>
+                    </tr>
+                    <tr>
+                      <td align="left"  bgcolor="#ffffff" colspan="3">
+                        <table>
+                          <tr height="150">
+                            <td>
+                              　&nbsp;{rval data/SHORI1}&nbsp;<b>『{rval data/TARGET_NAME}』をクリアする（{rval data/SOUGAKU}総学等も含む）</b><br>
+                              　　　&nbsp;注：履修／修得単位数もクリアします。<br>
+                              　　　&nbsp;注：学期評価／学年評定を設定せず、履修／修得単位数のみを登録している<br>
+                              　　　&nbsp;　　科目については、クリアした場合は単位数の再設定が必要になります。<br><br>
+                              　&nbsp;{rval data/SHORI2}&nbsp;<b>評価を『{rval data/TARGET_NAME}』にコピーする（{rval data/CONVERT}評定換算する<!--{def useSidou}-->　{rval data/SIDOU}追指導は参照する<!--{/def}-->）</b><br>
+                              　　　&nbsp;　　コピー元になる評価 ：{rval data/TESTKINDCD}<br>
+                              　　　&nbsp;　　　　　　評定フラグ ：{rval data/KARI_DIV2}本評定（{rval data/KEEKA_OVER}欠課時数オーバーは未履修にする）<br>
+                              　　　&nbsp;　　　　　　　　　　　 ：{rval data/KARI_DIV1}仮評定<br>
+                              　　　&nbsp;　　保存先になる仮評定 ：{rval data/KARI_TESTCD}<br>
+                              　　　&nbsp;　　　　（注：各段階毎の仮評定を保存する場合）
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="left"  bgcolor="#ffffff" colspan="3">
+                        <table>
+                          <tr height="30">
+                            <td><font color="red">
+                              　　※&nbsp;処理年度の全ての成績データに対してクリア／コピー処理を行います。<br>
+                              　　※&nbsp;学年評定に評価がコピーされた場合、単位も自動的に登録されます。
+                            </font></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right" colspan="3"><font color="red" size="2">※ クリア／コピー処理後、序列確定の実行が必要です。</font>{rval button/btn_exe}{rval button/btn_end}&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<BR>
+
+<table width="1050" border="0" cellpadding="0" cellspacing="5" align="center">
+    <tr>
+    <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                <tr>
+                    <td bgcolor="#cccccc">&nbsp;&nbsp;●&nbsp;<B>実行履歴</B>&nbsp;&nbsp;{rval button/btn_del_rireki}</td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        <tr class="no_search_line">
+        <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search" >
+                    <td align="center" width="40">削除</td>
+                    <td align="center" width="150">処理<BR>日時</td>
+                    <td align="center" width="100">処理<BR>クラス・生徒</td>
+                    <td align="center" width="120">処理<BR>科目</td>
+                    <td align="center" width="50">処理<BR>区分</td>
+                    <td align="center" width="150">コピー元<BR>になる評価</td>
+                    <td align="center" width="50">評定<BR>フラグ</td>
+                    <td align="center" width="40">評定換算</td>
+                    <!--{def useSidou}-->
+                    <td align="center" width="40">追指導</td>
+                    <!--{/def}-->
+                    <td align="center" width="40">総学等</td>
+                    <td align="center" width="40">欠課時数</td>
+                    <td align="center" width="*">保存先<BR>になる仮評定</td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+        <div style="width: 100%; height: 200; overflow: auto">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4">
+            <!--{def data2}-->
+            <!--結果一覧-->
+            <!--{each data2}-->
+                <tr class="no_search_line" >
+                    <td bgcolor='#ffffff' align="center" width="40">{rval data2/DEL_CHECK}</td>
+                    <td bgcolor='#ffffff' align="center" width="150">{rval data2/CALC_DATE}&nbsp;{rval data2/CALC_TIME}</td>
+                    <td bgcolor='#ffffff' align="center" width="100">{rval data2/SELECT_HR_CLASS}</td>
+                    <td bgcolor='#ffffff' align="center" width="120">{rval data2/SELECT_SUBCLASS}</td>
+                    <td bgcolor='#ffffff' align="center" width="50">{rval data2/SHORI_DIV}</td>
+                    <td bgcolor='#ffffff' align="center" width="150">{rval data2/MOTO_TESTCD}</td>
+                    <td bgcolor='#ffffff' align="center" width="50">{rval data2/KARI_DIV}</td>
+                    <td bgcolor='#ffffff' align="center" width="40">{rval data2/CONVERT_FLG}</td>
+                    <!--{def useSidou}-->
+                    <td bgcolor='#ffffff' align="center" width="40">{rval data2/SIDOU_FLG}</td>
+                    <!--{/def}-->
+                    <td bgcolor='#ffffff' align="center" width="40">{rval data2/SOUGAKU_FLG}</td>
+                    <td bgcolor='#ffffff' align="center" width="40">{rval data2/KEEKA_OVER_FLG}</td>
+                    <td bgcolor='#ffffff' align="center" width="*">{rval data2/KARI_TESTCD}</td>
+                </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+        </td>
+        </tr>
+        </table>
+        </div>
+    </td>
+    </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

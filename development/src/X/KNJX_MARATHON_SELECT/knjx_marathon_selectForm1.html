@@ -1,0 +1,90 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="10" cellpadding="5">
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <hr align="left" width="400">
+            &nbsp;&nbsp;&nbsp;{rval NAME_SHOW}
+            <hr align="left" width="400">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <td width="40" align="center"><LABEL for="CHECKALL">選択</LABEL><br>{rval CHECKALL}</td>
+                      <th width="80" align="center"><LABEL for="CHECK_SEMESTER">実施回数</LABEL><br>{rval CHECK_NUMBER_OF_TIMES}</th>
+                      <th width="180" align="center"><LABEL for="CHECK_SEMESTER">名称</LABEL><br>{rval CHECK_EVENT_NAME}</th>
+                      <td width="60" align="center"><LABEL for="CHECK_SEMESTER">順位</LABEL><br>{rval CHECK_RANK}</td>
+                      <td width="100" align="center"><LABEL for="CHECK_COMMITTEE">タイム</LABEL><br>{rval CHECK_TIME}</td>
+                      <td width="80" align="center"><LABEL for="CHECK_CHARGE">距離</LABEL><br>{rval CHECK_METERS}</td>
+                      <td width="80" align="center"><LABEL for="CHECK_EXECUTIVE">実施日</LABEL><br>{rval CHECK_EVENT_DATE}</td>
+                      <td width="*" align="center"><LABEL for="CHECK_EXECUTIVE">欠席</LABEL><br>{rval CHECK_ATTEND}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="height:160;overflow-y:scroll">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr height="25" bgcolor="#ffffff">
+                      <td width="40" align="center">{rval data/CHECKED}</td>
+                      <td width="80" align="center">{rval data/NUMBER_OF_TIMES}</td>
+                      <td width="180">{rval data/EVENT_NAME}</td>
+                      <td width="60" align="center">{rval data/RANK}</td>
+                      <td width="100">{rval data/TIME}</td>
+                      <td width="80">{rval data/METERS}</td>
+                      <td width="80">{rval data/EVENT_DATE}</td>
+                      <td width="*">{rval data/ATTEND}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td align="right" nowrap>{rval btn_torikomi}{rval btn_back}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

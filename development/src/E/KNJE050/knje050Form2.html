@@ -1,0 +1,111 @@
+{rval start} 
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="650" border="0" cellspacing="0" cellpadding="10">
+        <tr> 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                    <th>{rval HEADER}　</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td valign="top"> 
+      <table width="650" border="0" cellspacing="0" cellpadding="10">
+        <tr> 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="10">{val CHECK_ALL}</th>
+                      <th width="80">{val SORT/ATTENDNO}</th>
+<!--                      <th width="70">{val SORT/ATTENDNO}</th> -->
+                      <th width="70">学籍番号</th>
+                      <th width="150">生徒氏名</th>
+                      <th width="*">氏名カナ</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td> 
+      <div style="width:680;height:450;overflow:auto";> 
+        <table width="650" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td valign="top">
+            <!--{def data}--> 
+              <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr> 
+                  <td > 
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr class="no_search_line"> 
+                        <td> 
+                          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <!--結果一覧--> 
+                            <!--{each data}--> 
+                            <tr> 
+                              <td nowrap align="center" width="10" bgcolor="#ffffff">{val data/CHECK}</td>
+                              <td nowrap align="center" width="80" bgcolor="#ffffff">{rval data/NO}</td>
+                              <td nowrap align="center" width="70" bgcolor="#ffffff">{val data/SCHREGNO}</td>
+                              <td nowrap width="150" bgcolor="#ffffff">{val data/NAME_SHOW}</td>
+                              <td nowrap width="*" bgcolor="#ffffff">{val data/NAME_KANA}</td> 
+                            </tr>
+                            <!--{/each}--> 
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              <!--{/def}--> 
+            </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  </tr>
+  <tr> 
+    <td valign="top"> 
+      <table width="650" border="0" cellspacing="0" cellpadding="10">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <td width="*%">{rval REPLACE}&nbsp;評価が１の場合２に置換える　　　　　　　　{rval btn_cvs}&nbsp;{rval btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish} 

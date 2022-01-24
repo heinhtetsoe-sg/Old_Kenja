@@ -1,0 +1,301 @@
+body{
+    background: black;
+}
+
+html,body {     /*IEのときはスクロールバー表示されないように(横スクロールバーが消せないので)*/
+    scrollbar-face-color:black; 
+    scrollbar-track-color:black; 
+    scrollbar-arrow-color:black; 
+    scrollbar-highlight-color:black; 
+    scrollbar-shadow-color:black; 
+    scrollbar-3dlight-color:black; 
+    scrollbar-darkshadow-color:black; 
+}
+
+#left::-webkit-scrollbar-thumb:hover
+{
+        background:gray;
+}
+/*右画面のスクロールバーは表示しない*/
+#right::-webkit-scrollbar
+{
+        overflow:hidden;
+        width:1px;
+        background:black;
+}
+#right::-webkit-scrollbar-button
+{
+       display:none;
+}
+#right::-webkit-scrollbar-piece
+{
+        background:black;
+}
+#right::-webkit-scrollbar-thumb
+{
+        background:black;
+}
+#right::-webkit-scrollbar-corner
+{
+        background:black;
+}
+
+  /*****親カテゴリ*****/
+
+  #accordion2 div div, #accordion2big div div{ 
+    border-top: 2px dotted  #FFFFFF; 
+    /*background: #96514d; */
+    color: yellow;
+    
+  } 
+/*IEだけ点線じゃなくて実線にする*/
+@media all and (-ms-high-contrast:none){
+  #accordion2 div div, #accordion2big div div{ 
+    border-top: 2px dashed  #FFFFFF; 
+    /*border-top: 3px double  #FFFFFF; 二重線*/
+    /*background: #96514d; */
+    color: yellow;
+    
+  } 
+}
+
+  #accordion2 div div a, #accordion2big div div a{ 
+    color: yellow;
+    
+  } 
+
+  /**カテゴリオンマウス**/
+
+  #accordion2 div div:hover, #accordion2big div div:hover { 
+    /*background: #f0908d; */
+    text-decoration: underline;
+  } 
+
+  /**サブカテゴリ全体**/
+
+  #accordion2 ul, #accordion2big ul{ 
+    background: yellow; 
+  } 
+  #accordion2 ul li, #accordion2big ul li{ 
+    background: yellow; 
+  } 
+
+/*TOPのdiv選択中用*/
+.lefttopchoice {
+/*    background: yellow !important; 
+    color:  black !important;*/
+}
+.lefttopchoice:hover { 
+    /*background: #e198b4 !important; */
+    text-decoration: underline;
+} 
+
+/*TOPのaタグ用*/
+.alefttop {
+    /*color: yellow;*/
+}
+
+
+/*1番目のメニューの選択中用*/
+.choice {
+    background: yellow !important; 
+    color: black !important;
+}
+.choice:hover { 
+    /*background: yellow !important; */
+    text-decoration: underline;
+} 
+
+/*2番目のメニューの選択中用*/
+.active {
+    background: #ffffff !important;
+}
+
+  /**サブカテゴリのリンク**/
+  /****************************************************
+  **以下に記載されているベンダープレフィックスは     **
+  **外したほうがよい場合もあります。                 **
+  **ベンダープレフィックスとは-moz- -webkit- -o- -ms-**
+  **もしcssが機能しないときは、これを外してください。**
+  ****************************************************/
+
+  #accordion2 ul li a, #accordion2big ul li a{ 
+    color: black; 
+  } 
+
+  /**サブカテゴリーの最初と最後の余分なボーダー消す＋TOPにシャドウかけてます**/
+  #accordion2 input:checked + div ul li:first-child a, #accordion2big input:checked + div ul li:first-child a{ 
+    border-top: 0; 
+    box-shadow: 0 7px 7px -7px rgba(0,0,0,.5) inset; 
+  } 
+
+  #accordion2 input:checked + div ul li:last-child a, #accordion2big input:checked + div ul li:last-child a{ 
+    border-bottom: 0; 
+  } 
+  #accordion2 input:checked + div ul, #accordion2big input:checked + div ul{ 
+    border-top: 0; 
+    box-shadow: 0 7px 7px -7px rgba(0,0,0,.5) inset; 
+  } 
+
+
+  /**サブカテゴリーオンマウス**/
+  #accordion2 input:checked + div ul li a:hover, #accordion2big input:checked + div ul li a:hover{ 
+    /*background: #f0908d; 
+    border-top-color: #eef7fa; */
+    text-decoration: underline;
+  } 
+
+/*メニュー表示モードの装飾*/
+    .select{
+        background:yellow;
+        color:black;
+        border: 1px solid yellow;
+    }
+    .notselect{
+        background:black;
+        color:yellow;
+        border: 1px solid yellow;
+    }
+    #menuMode a:hover {
+        /*background:#f0908d;
+        color:#fff;*/
+        text-decoration: underline;
+    }
+
+/*ログアウトの装飾*/
+    #logout a {
+        background:gray;
+        color:#fff;
+    }
+    #logout a:hover {
+        background:yellow;
+        color:black;
+     }
+
+/*右側メニュー用*/
+.right td , .rightbig td, 
+.right td a, .rightbig td a,
+.right td a:hover, .rightbig td a:hover{
+    color: yellow;
+}
+
+.right th , .rightbig th{
+    background-color: yellow;
+    color: black;
+}
+.fsample th a, .fsample th a:hover, .fsamplebig th a, .fsamplebig th a:hover{
+    background-color: yellow;
+    color: black;
+}
+/*
+.rightbig th a, .rightbig th a:hover{
+    background-color: yellow;
+    color: black;
+}
+*/
+.title {
+    background:gray;
+}
+
+/*お知らせテーブル用*/
+.right table.top, .rightbig table.top{ 
+    border: 1px solid gray;
+}
+
+.right table.top th{ 
+    background-color: yellow !important; 
+    color: black; 
+    border: 1px solid gray;
+}
+
+.right table.top td{ 
+    border: 1px solid gray;
+}
+
+.rightbig table.top th{ 
+    background-color: yellow !important; 
+    color: black; 
+    border: 1px solid gray;
+}
+
+.rightbig table.top td{ 
+    border: 1px solid gray;
+}
+
+
+#gakuname {
+    border-bottom: 2px dashed #FF5AB0;
+}
+#gakuname:before{
+    background: #FF5AB0;
+}
+#gakuname:after{
+    background: #FF5AB0;
+}
+.rightbig #gakuname:before{
+    background: #FF5AB0;
+}
+.rightbig #gakuname:after{
+    background: #FF5AB0;
+}
+/*メニューのタイトル部分のリンク用に*/
+.link  {
+    color: white; 
+}
+
+/*つーるちっぷよう*/
+.fsample tr{ 
+    border: 1px solid #c0c0c0;
+}
+
+.fsamplebig tr{ 
+    border: 1px solid #c0c0c0;
+}
+
+.sample th{ 
+    border: 1px solid #c0c0c0;
+}
+
+.sample td{ 
+    border: 1px solid #c0c0c0;
+}
+
+.samplebig th{ 
+    border: 1px solid #c0c0c0;
+}
+
+.samplebig td{ 
+    border: 1px solid #c0c0c0;
+}
+.sample td i, .samplebig td i {
+    color: yellow;
+}
+
+/*TOP画面文字サイズ変更リンクデザイン*/
+.size, .size1 {
+    background:yellow;
+    color:black !important;
+}
+.sizechoice, .size0 {
+    background:black;
+    color:yellow !important;
+}
+.size:hover, .sizechoice:hover, .size0:hover, .size1:hover {
+    background:gray;
+    color:yellow !important;
+}
+
+/*二回目のログイン画面*/
+.seclogin {
+    color: black;
+}
+.seclogin th {
+	background:yellow;
+    border: 1px solid #c0c0c0;
+}
+.seclogin td {
+    border: 1px solid #c0c0c0;
+    background: black;
+}
+
+

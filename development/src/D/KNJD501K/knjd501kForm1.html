@@ -1,0 +1,136 @@
+<!-- kanji=漢字 -->
+<!-- <?php
+
+require_once('for_php7.php');
+ # $Id: knjd501kForm1.html 56580 2017-10-22 12:35:29Z maeshiro $ ?> -->
+{rval start}
+<style type="text/css">
+<!--
+    .tablespace {color:black; background-color:white; text-align:left }
+-->
+</style>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="1" >
+      <tr> 
+         <td width="100%" > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="6">
+              <tr class="no_search"> 
+                <td width="80%">&nbsp;&nbsp;
+                    処理年度：{rval TOP/CONFIRMATION}&nbsp;&nbsp;&nbsp;
+                    学年：{rval TOP/GRADE}&nbsp;&nbsp;&nbsp;
+                    学期：{rval TOP/SEMES}&nbsp;&nbsp;&nbsp;
+                    科目：{rval TOP/SUBCD}&nbsp;&nbsp;&nbsp;
+                </td>
+              </tr>
+            </table>
+          </td>
+      </tr>
+    </table>
+
+  </td>
+  </tr>
+  <tr> 
+  <td valign="top"> 
+    <table align="center" width="100%" border="0" cellspacing="0" cellpadding="1">
+      <tr> 
+      <td >
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+          <td colspan="12" bgcolor="#000066"> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search">
+                <th width="35" rowspan="2" nowrap>遡及<BR>指定</th>
+                <th width="95" rowspan="2" >クラス-<br>出席番</th>
+                <th width="125" rowspan="2">氏名</th>
+                <th width="50" rowspan="2">対象<BR>科目</th>
+
+                <th align="center" colspan="3" >１学期</th>
+                <th align="center" colspan="3" >２学期</th>
+                <th align="center" colspan="2" >３学期</th>
+
+                <th width="45" rowspan="2">学年<br>成績</th>
+                <th width="45" rowspan="2">学年<br>評定</th>
+                <th width="" colspan="2">３年時相対評価</th>
+              </tr>
+              <tr class="no_search">
+                <th align="center" width="45">中間</th>
+                <th align="center" width="45">期末</th>
+                <th align="center" width="45">成績</th>
+
+                <th align="center" width="45">中間</th>
+                <th align="center" width="45">期末</th>
+                <th align="center" width="45">成績</th>
+
+                <th align="center" width="45">期末</th>
+                <th align="center" width="45">成績</th>
+
+                <th width="45">５段階</th>
+                <th width="*">１０段階</th>
+              </tr>
+            </table>
+          </td>
+          </tr>
+          <tr>
+          <td colspan="12">
+            <div style="width:100%; height:500; overflow-x:visible; overflow-y:scroll;">
+              <table  id="tbl" width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="silver">
+              <!--{def data}-->
+              <!--結果一覧-->
+              <!--{each data}--> 
+                <tr style="height:27;" class="tablespace" nowrap>
+                  <td width="35"  align="center" bgcolor="{rval data/BG}">{rval data/CHK_BOX}</td>
+                  <td width="95" align="left"   bgcolor="{rval data/BG}">{rval data/HR_SHOW}</td>
+                  <td width="125" align="left"   bgcolor="{rval data/BG}">{rval data/NAME_SHOW}</td>
+                  <td width="50"  align="left"   bgcolor="{rval data/BG}">{rval data/SUBCLASSABBV}</td>
+                  <td width="45"  align="center" bgcolor="{rval data/BG}">{rval data/SEM1_INTER_REC}</td>
+                  <td width="45"  align="center" bgcolor="{rval data/BG}">{rval data/SEM1_TERM_REC}</td>
+                  <td width="45"  align="center" bgcolor="{rval data/BG}">{rval data/SEM1_COLOR_S}{rval data/SEM1_REC}{rval data/SEM1_COLOR_E}</td>
+                  <td width="45"  align="center" bgcolor="{rval data/BG}">{rval data/SEM2_INTER_REC}</td>
+                  <td width="45"  align="center" bgcolor="{rval data/BG}">{rval data/SEM2_TERM_REC}</td>
+                  <td width="45"  align="center" bgcolor="{rval data/BG}">{rval data/SEM2_COLOR_S}{rval data/SEM2_REC}{rval data/SEM2_COLOR_E}</td>
+                  <td width="45"  align="center" bgcolor="{rval data/BG}">{rval data/SEM3_TERM_REC}</td>
+                  <td width="45"  align="center" bgcolor="{rval data/BG}">{rval data/SEM3_COLOR_S}{rval data/SEM3_REC}{rval data/SEM3_COLOR_E}</td>
+                  <td width="45"  align="center" bgcolor="{rval data/BG}">{rval data/GRADE_RECORD}</td>
+                  <td width="45"  align="center" bgcolor="{rval data/BG}">{rval data/GRADE_ASSESS}</td>
+                  <td width="45"  align="center" bgcolor="#ffffff">{rval data/GRADE3_RELAASSESS_5STEP}</td>
+                  <td width="*"  align="center" bgcolor="#ffffff">{rval data/GRADE3_RELAASSESS_10STEP}</td>
+                </tr>
+                <!--{/each}--> 
+                <!--{/def}--> 
+              </table>
+            </div>
+          </td>
+          </tr>
+        </table>
+      </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+  <tr> 
+  <td valign="top"> 
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="1" >
+      <tr> 
+         <td width="100%" > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="6">
+              <tr class="no_search"> 
+                <td width="40%">
+                    {rval BUTTON/BTN_PRSV}{rval BUTTON/BTN_CAN}{rval BUTTON/BTN_END}
+                </td>
+              </tr>
+            </table>
+          </td>
+      </tr>
+    </table>
+
+  </td>
+  </tr>
+
+</table>
+{rval finish}
+<script language="JavaScript">{rval Closing}{rval jumping}{rval update_chk}</script>
+

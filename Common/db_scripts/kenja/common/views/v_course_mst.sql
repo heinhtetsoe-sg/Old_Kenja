@@ -1,0 +1,16 @@
+-- $Id: ac7d7e8017ec1f4bd2008579d0cd71570a37a58b $
+
+create view V_COURSE_MST \
+    (YEAR, COURSECD, COURSENAME, COURSEABBV, COURSEENG, UPDATED) as \
+select \
+    T1.YEAR, \
+    T2.COURSECD, \
+    T2.COURSENAME, \
+    T2.COURSEABBV, \
+    T2.COURSEENG, \
+    T2.UPDATED \
+from \
+    COURSE_YDAT T1, \
+    COURSE_MST T2 \
+where \
+    T1.COURSECD = T2.COURSECD

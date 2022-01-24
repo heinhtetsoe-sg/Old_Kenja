@@ -1,0 +1,136 @@
+//得点チェックリスト
+
+SELECT
+    ROW_NUMBER() OVER(ORDER BY a1.SAT_NO) as NO,                                                        //通し番号
+    a1.YEAR,                                                                                            //年度
+    a1.PLACECD,                                                                                         //会場コード
+    a7.PLACEAREA,                                                                                       //会場名
+    a1.SAT_NO,                                                                                          //受験番号
+    a1.NAME1,                                                                                           //氏名
+    a1.KANA1,                                                                                           //かな姓
+    a1.KANA2,                                                                                           //かな名
+    a2.NAME2 as SEX,                                                                                    //性別名称
+    a1.BIRTHDAY,                                                                                        //生年月日(YYmmdd)
+    a1.SCHOOLCD,                                                                                        //出身学校コード
+    a3.FINSCHOOL_NAME_ABBV,                                                                             //出身学校名
+    a1.GROUPCD,                                                                                         //団体コード
+    a4.GROUPNAME,                                                                                       //団体名
+    case when a1.ABSENCE_ENGLISH = '0' then '欠' else CHAR(a1.SCORE_ENGLISH) end as SCORE_ENGLISH,      //英語得点
+    case when a1.ABSENCE_MATH = '0' then '欠' else CHAR(a1.SCORE_MATH) end as SCORE_MATH,               //数学得点
+    case when a1.ABSENCE_JAPANESE = '0' then '欠' else CHAR(a1.SCORE_JAPANESE) end as SCORE_JAPANESE,   //国語得点
+    a5.CNT,                                                                                             //受験者人数
+    a6.EXAM_DATE                                                                                        //試験実施日
+FROM
+    (
+    SELECT
+        t1.YEAR,
+        t1.SAT_NO,
+        t1.NAME1,
+        t1.KANA1,
+        t1.KANA2,
+        t1.PLACECD,
+        t1.SEX,
+        substr(replace(t1.BIRTHDAY, '-', ''), 3, 6) as BIRTHDAY,
+        t1.SCHOOLCD,
+        t1.GROUPCD,
+        t2.ABSENCE_ENGLISH,
+        t2.ABSENCE_MATH,
+        t2.ABSENCE_JAPANESE,
+        t2.SCORE_ENGLISH,
+        t2.SCORE_MATH,
+        t2.SCORE_JAPANESE
+    FROM
+        SAT_APP_FORM_MST t1 
+        left join SAT_EXAM_DAT t2 on t1.YEAR = t2.YEAR and t1.SAT_NO = t2.SAT_NO
+    WHERE
+        t1.YEAR = '/*CTRL_YEAR*/'
+    /*試験会場指定時*********************************/
+    AND
+        t1.PLACECD = '/*$model->field["PLACE_COMB"]*/'
+    /************************************************/
+    ORDER BY
+        t1.SAT_NO
+    ) a1
+    left join NAME_MST a2 on a1.SEX = a2.NAMECD2 and a2.NAMECD1 = 'Z002'
+    left join FINSCHOOL_MST a3 on a1.SCHOOLCD = a3.FINSCHOOLCD and a3.FINSCHOOL_TYPE = '3'
+    left join SAT_GROUP_DAT a4 on a1.GROUPCD = a4.GROUPCD and a4.YEAR = '/*CTRL_YEAR*/'
+    left join (SELECT YEAR, COUNT(*) as CNT FROM SAT_APP_FORM_MST WHERE YEAR = '/*CTRL_YEAR*/' GROUP BY YEAR) a5 on a1.YEAR = a5.YEAR
+    left join SAT_INFO_MST a6 on a1.YEAR = a6.YEAR
+    left join SAT_EXAM_PLACE_DAT a7 on a1.PLACECD = a7.PLACECD and a7.YEAR = '/*CTRL_YEAR*/'
+ORDER BY
+    a1.SAT_NO
+
+
+//プルーフリスト
+SELECT 
+    a1.PLACECD,                             //会場コード
+    a8.PLACEAREA,                           //会場名称
+    a9.CNT,                                 //申込数
+    
+    a10.EXAM_DATE,                          //試験日
+    a1.YEAR,                                //年度
+    a1.SAT_NO,                              //受験番号
+    a1.NAME1,                               //氏名
+    a1.KANA1,                               //かな姓
+    a1.KANA2,                               //かな名
+    a2.NAME2 as SEX,                        //性別名称
+    a1.BIRTHDAY,                            //生年月日(YYmmdd)
+    a3.NAME1 as GRADE,                      //学年
+    substr(a1.SCHOOLCD, 3, 5) as SCHOOLCD,  //出身校コード
+    a7.FINSCHOOL_NAME_ABBV,                 //出身校名称
+    a1.ZIPCODE,                             //郵便番号
+    a1.ADDR1,                               //住所1
+    a1.ADDR2,                               //住所2
+    a1.TELNO1,                              //電話番号
+    a1.GROUPCD,                             //団体コード
+    a4.GROUPNAME,                           //団体名
+    a1.INSIDERNO,                           //校内生番号
+    a1.SCORE_ENGLISH,                       //英語得点
+    a1.SCORE_MATH,                          //数学得点
+    a1.SCORE_JAPANESE,                      //国語得点
+    a5.NAME1 as JUDGE                       //判定
+FROM
+    (
+    SELECT
+        t1.YEAR,
+        t1.SAT_NO,
+        t1.NAME1,
+        t1.KANA1,
+        t1.KANA2,
+        t1.SEX,
+        substr(replace(t1.BIRTHDAY, '-', ''), 3, 6) as BIRTHDAY,
+        t1.GRADUATION,
+        t1.PLACECD,
+        t1.SCHOOLCD,
+        t1.ZIPCODE,
+        t1.ADDR1,
+        t1.ADDR2,
+        t1.TELNO1,
+        t1.GROUPCD,
+        t1.INSIDERNO,
+        case when t2.ABSENCE_ENGLISH = '0' then '欠' else CHAR(t2.SCORE_ENGLISH) end as SCORE_ENGLISH,
+        case when t2.ABSENCE_MATH = '0' then '欠' else CHAR(t2.SCORE_MATH) end as SCORE_MATH,
+        case when t2.ABSENCE_JAPANESE = '0' then '欠' else CHAR(t2.SCORE_JAPANESE) end as SCORE_JAPANESE,
+        t2.JUDGE_SAT
+    FROM
+        SAT_APP_FORM_MST t1
+        left join SAT_EXAM_DAT t2 on t1.YEAR = t2.YEAR and t1.SAT_NO = t2.SAT_NO
+    WHERE
+        t1.YEAR = '/*CTRL_YEAR*/' 
+    /*試験会場指定時*********************************/
+    AND
+        t1.PLACECD = '/*$model->field["PLACE_COMB"]*/'
+    /************************************************/
+    ) a1
+    left join NAME_MST a2 on a1.SEX = a2.NAMECD2 and a2.NAMECD1 = 'Z002'
+    left join NAME_MST a3 on a1.GRADUATION = a3.NAMECD2 and a3.NAMECD1 = 'L205'
+    left join SAT_GROUP_DAT a4 on a1.GROUPCD = a4.GROUPCD and a1.YEAR = a4.YEAR
+    left join NAME_MST a5 on a1.JUDGE_SAT = a5.NAMECD2 and a5.NAMECD1 = 'L200'
+    left join SAT_EXAM_PLACE_DAT a6 on a1.PLACECD = a6.PLACECD and a1.YEAR = a6.YEAR
+    left join FINSCHOOL_MST a7 on a1.SCHOOLCD = a7.FINSCHOOLCD AND a7.FINSCHOOL_TYPE = '3'
+    left join SAT_EXAM_PLACE_DAT a8 on a1.PLACECD = a8.PLACECD and a1.YEAR = a8.YEAR
+    left join (SELECT YEAR, COUNT(*) as CNT FROM SAT_APP_FORM_MST GROUP BY YEAR) a9 on a1.YEAR = a9.YEAR
+    left join SAT_INFO_MST a10 on a1.YEAR = a10.YEAR
+ORDER BY
+    a1.PLACECD,
+    a1.SAT_NO

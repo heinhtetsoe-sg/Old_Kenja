@@ -1,0 +1,85 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR>
+
+<table width="60%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                    <tr class="no_search">
+                      <td><b>
+                      　　　　　{rval data/YEAR}&nbsp;年度　　{rval data/SEMESTER}
+                      </b></td>
+                      <td>
+                      {rval data/OUTPUT1}<LABEL for="OUTPUT1">&nbsp;新入生</LABEL><BR>
+                      {rval data/OUTPUT2}<LABEL for="OUTPUT2">&nbsp;在籍者</LABEL>　クラス&nbsp;{rval data/GRADE_HR_CLASS}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象者一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>履修登録者一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_left2}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_right2}
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            　{rval FORMTYPE1}<LABEL for="FORMTYPE1">教科書領収書・発注書</LABEL><br>
+            　　　{rval RYOUSYUU}<LABEL for="RYOUSYUU">領収書</LABEL>　{rval HIKIWATASHI}<LABEL for="HIKIWATASHI">引渡書</LABEL>　{rval MEISAI}<LABEL for="MEISAI">明細書</LABEL>　　　　　　日付{rval PRINTDATE}<br><br>
+            　{rval FORMTYPE2}<LABEL for="FORMTYPE2">初日のご案内</LABEL><br>
+            　　　{rval PRINT_STR}<br>
+            　　　<font size=2, color="red">(全角35文字X8行まで)</font><span id="statusarea1" style="color:blue">残り文字数</span><br><br>
+            <br>　　　　共済掛金：{rval KYOUSAI}&nbsp;円　健康診断費：{rval KENKOUSHINDAN}&nbsp;円　写真代：{rval SHASIN}&nbsp;円
+            <br>　　　ロッカー代：{rval LOCKER}&nbsp;円　　立志会費：{rval KAIHI}&nbsp;円
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap>
+        {rval button/btn_print}{rval button/btn_end}
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+<font color="#ffffff">{rval TOP/PRGID}</font>
+<font color="#ffffff">{rval TOP/DBNAME}</font>
+<font color="#ffffff">{rval TOP/CTRL_YEAR}</font>
+<font color="#ffffff">{rval TOP/CTRL_SEMESTER}</font>
+<font color="#ffffff">{rval TOP/CTRL_DATE}</font>
+<font color="#ffffff">{rval TOP/SCHOOLCD}</font>
+<font color="#ffffff">{rval TOP/SCHOOLKIND}</font>
+<font color="#ffffff">{rval TOP/useAddrField2}</font>
+<font color="#ffffff">{rval TOP/useSchool_KindField}</font>
+
+<script language="JavaScript">
+{rval printgo}
+</script>
+
+{rval finish}

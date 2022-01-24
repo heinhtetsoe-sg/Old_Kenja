@@ -1,0 +1,80 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR>
+<table width="50%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <td align="center" nowrap><b>
+		    {rval data/YEAR}年度　　校種 {rval data/SCHKIND}　　学年 {rval data/GRADE}
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象クラス</b></th>
+                      <th class="no_search"></th>
+                      <th><b>クラス一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr>
+                      <td align="left" bgcolor="#ffffff">
+                        <table>
+                          <tr height="150">
+                            <td>
+                              <b>　　　　　　出力データ</b><br>
+                              　　　　　　　　　{rval data/SELSUBJECT_NEXTYEAR}<LABEL for="SELSUBJECT_NEXTYEAR">次年度選択科目</LABEL><br>
+                              　　　　　　　　　{rval data/RATINGAVE}<LABEL for="RATINGAVE">評定平均</LABEL><br>
+                              　　　　　　　　　{rval data/AMBITIONSCHOOL}<LABEL for="AMBITIONSCHOOL">志望校</LABEL><br>
+                              　　　　　　　　　{rval data/OUTSIDE_TRIALTEST1}<LABEL for="OUTSIDE_TRIALTEST1">校外模試1</LABEL>　{rval data/TRIALTEST1_NAME}<br>
+                              　　　　　　　　　{rval data/OUTSIDE_TRIALTEST2}<LABEL for="OUTSIDE_TRIALTEST2">校外模試2</LABEL>　{rval data/TRIALTEST2_NAME}<br>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap>{rval button/btn_csv}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

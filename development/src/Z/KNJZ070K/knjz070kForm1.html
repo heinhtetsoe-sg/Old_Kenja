@@ -1,0 +1,57 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+  <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr >
+      <td >
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" height="25">
+                <th norwarp width="25%">対象年度&nbsp;{rval year}</th>
+                <td norwarp width="75%">&nbsp;{rval pre_copy}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr height="10">
+          <td></td>
+        </tr>
+
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" height="25">
+              <th nowrap colspan="2">費目小分類</th>
+              <th nowrap rowspan="2">金額</th>
+              <th nowrap rowspan="2">性別</th>
+            </tr>
+            <tr class="no_search" height="25">
+              <th nowrap>コード</th>
+              <th nowrap>名称</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+            <!--{each data}-->
+            <tr>
+              <td nowrap bgcolor="#ffffff" align="center">{val data/EXPENSE_S_CD}</td>
+              <td nowrap bgcolor="#ffffff">{val data/EXPENSE_S_NAME}</td>
+              <td nowrap bgcolor="#ffffff" align="right">{val data/EXPENSE_S_MONEY}</td>
+              <td nowrap bgcolor="#ffffff" align="center">{val data/ABBV1}</td>
+            </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

@@ -1,0 +1,20 @@
+-- $Id: efa0f62f9ad198755b7510e78647361e4b2390a1 $
+
+DROP TABLE CLUB_ADVISER_DAT
+
+CREATE TABLE CLUB_ADVISER_DAT \
+(  \
+        "SCHOOLCD"              VARCHAR(12)     NOT NULL, \
+        "SCHOOL_KIND"           VARCHAR(2)      NOT NULL, \
+        "YEAR"                  VARCHAR(4)      NOT NULL, \
+        "CLUBCD"                VARCHAR(4)      NOT NULL, \
+        "ADVISER"               VARCHAR(10)     NOT NULL, \
+        "CLUBDIV"               VARCHAR(2), \
+        "REGISTERCD"            VARCHAR(10), \
+        "UPDATED"               TIMESTAMP DEFAULT CURRENT TIMESTAMP  \
+) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE CLUB_ADVISER_DAT  \
+ADD CONSTRAINT PK_CLUB_ADVISER  \
+PRIMARY KEY  \
+(SCHOOLCD, SCHOOL_KIND, YEAR, CLUBCD, ADVISER)

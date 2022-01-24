@@ -1,0 +1,64 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap align="left" height="25">　年度：{rval YEAR}　学期：{rval SEMESTER}</th>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap align="left" height="25">　年組{rval LEFT_GRADE_HR_CLASS}　システム名{rval SYSTEMID}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="50">
+                      <th nowrap width="10%">年-組-番</th>
+                      <th nowrap width="25%">氏名</th>
+                      <th nowrap width="20%">氏名かな</th>
+                      <th nowrap width="10%">学籍番号</th>
+                      <th nowrap width="10%">ユーザーＩＤ</th>
+                      <th nowrap width="*%" >パスワード</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}--> 
+                    <div id="mainDiv">
+                    <tr> 
+                      <td nowrap bgcolor="#ffffff">{rval data/GRADE_HR_CLASS}</td>
+                      <td nowrap bgcolor="#ffffff"><a href="knja114index.php?cmd=edit&SCHREGNO={rval data/SCHREGNO}&SYSTEMID={rval data/SYSTEMID}" target="right_frame">{rval data/NAME}</a></td>
+                      <td nowrap bgcolor="#ffffff">{rval data/NAME_KANA}</td>
+                      <td nowrap bgcolor="#ffffff">{rval data/SCHREGNO}</td>
+                      <td nowrap bgcolor="#ffffff">{rval data/LOGINID}</td>
+                      <td nowrap bgcolor="#ffffff">{rval data/PASSWORD}</td>
+                    </tr> 
+                    </div>
+                    <!--{/each}--> 
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

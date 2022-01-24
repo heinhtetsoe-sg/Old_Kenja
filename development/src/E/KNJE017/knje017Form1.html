@@ -1,0 +1,60 @@
+{rval start}
+<!--{def button}-->
+<!--{def data}-->
+
+<table style="line-height: 80px;"><tr><td>　</td></tr></table>
+<table width={rval data/WIDTH} border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search" height="30">
+                      <th nowrap><b>
+                        {rval data/YEAR}年度　　{rval data/SEMESTER}　
+                        {rval data/DISP1}<LABEL for="DISP1">&nbsp;クラス指定</LABEL>　{rval data/DISP2}<LABEL for="DISP2">&nbsp;個人指定</LABEL>
+                        <!--{def data/GRADE}-->　{rval data/GRADE}<!--{/def}-->
+                        <!--{def data/GRADE_HR_CLASS}-->　{rval data/GRADE_HR_CLASS}<!--{/def}-->
+                      </b></th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search" height="30">
+                      <th><b>{rval data/TITLE_LEFT}</b></th>
+                      <th class="no_search"></th>
+                      <th><b>{rval data/TITLE_RIGHT}</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="47%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*" class="no_search">
+                        {rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="47%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap>{rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}

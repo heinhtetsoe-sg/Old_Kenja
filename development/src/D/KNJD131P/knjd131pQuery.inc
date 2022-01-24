@@ -1,0 +1,75 @@
+<?php
+
+require_once('for_php7.php');
+
+class knjd131pQuery extends Query {
+
+    //学期取得
+    function getSemester()
+    {
+        $query  = " SELECT ";
+        $query .= "     SEMESTERNAME ";
+        $query .= " FROM ";
+        $query .= "     SEMESTER_MST ";
+        $query .= " WHERE ";
+        $query .= "     YEAR = '".CTRL_YEAR."' ";
+        $query .= "     AND SEMESTER = '".CTRL_SEMESTER."' ";
+
+        return $query;
+    }
+
+    //学年取得
+    function getSelectGrade($model)
+    {
+        $query  = " SELECT DISTINCT ";
+        $query .= "     GRADE_NAME1 AS LABEL, ";
+        $query .= "     GRADE AS VALUE ";
+        $query .= " FROM ";
+        $query .= "     SCHREG_REGD_GDAT ";
+        $query .= " WHERE ";
+        $query .= "     YEAR = '".CTRL_YEAR."' ";
+        $query .= "     AND SCHOOL_KIND IN ('H','J') ";
+        $query .= " ORDER BY ";
+        $query .= "     VALUE ";
+
+        return $query;
+    }
+
+    //年組取得（権限チェック）
+    function getGradeHrclass($model)
+    {
+        //参照・更新可
+        if (AUTHORITY == DEF_REFERABLE || AUTHORITY == DEF_UPDATABLE){
+            $query  = " SELECT ";
+            $query .= "     GRADE || HR_CLASS AS VALUE, ";
+            $query .= "     HR_NAME AS LABEL ";
+            $query .= " FROM ";
+            $query .= "     SCHREG_REGD_HDAT ";
+            $query .= " WHERE ";
+            $query .= "     YEAR = '".CTRL_YEAR."' ";
+            $query .= "     AND SEMESTER = '".CTRL_SEMESTER."' ";
+            $query .= "     AND GRADE = '".$model->field["GRADE"]."'";
+        }
+        //参照・更新可（制限付き）
+        if (AUTHORITY == DEF_REFER_RESTRICT || AUTHORITY == DEF_UPDATE_RESTRICT){
+            $query  = " SELECT ";
+            $query .= "     GRADE || HR_CLASS AS VALUE, ";
+            $query .= "     HR_NAME AS LABEL ";
+            $query .= " FROM ";
+            $query .= "     SCHREG_REGD_HDAT ";
+            $query .= " WHERE ";
+            $query .= "     YEAR = '".CTRL_YEAR."' ";
+            $query .= "     AND SEMESTER = '".CTRL_SEMESTER."' ";
+            $query .= "     AND GRADE = '".$model->field["GRADE"]."'";
+            $query .= "     AND (TR_CD1 = '" .STAFFCD ."' OR ";
+            $query .= "          TR_CD2 = '" .STAFFCD ."' OR ";
+            $query .= "          TR_CD3 = '" .STAFFCD ."' OR ";
+            $query .= "          SUBTR_CD1 = '" .STAFFCD ."' OR ";
+            $query .= "          SUBTR_CD2 = '" .STAFFCD ."' OR ";
+            $query .= "          SUBTR_CD3 = '" .STAFFCD ."') ";
+        }
+
+        return $query;
+    }
+}
+?>

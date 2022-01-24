@@ -1,0 +1,111 @@
+{rval start}
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr>
+      <td >
+      <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr class="no_search_line">
+        <td>
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search">
+            <th align="center" width="132">処理年度</th>
+            <th align="left" bgcolor = "#ffffff" width="*%">&nbsp;{rval TOP/TRANSACTION}</th>
+          </tr>
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+  <tr>
+  <td valign="top">
+    <table width="80%" border="0" cellspacing="0" cellpadding="10" align="center">
+    <tr>
+      <td >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr bgcolor="#ffffff">
+            <td colspan="10">
+            <!--{def data}-->
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td valign="top">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                  <td >
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td >
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr class="no_search_line">
+                          <td>
+                          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <tr class="no_search">
+                            {rval HEAD/GRADE} {rval HEAD/HR_CLASS}
+                              {rval HEAD/SUM_WEEK} {rval HEAD/SUM_DAY} </tr>
+                            <!--{each gaki/GAKI}-->
+                            <th WIDTH="65" class="no_search" nowrap>{rval gaki/GAKI}</th>
+                            <!--{/each}-->
+                            <th WIDTH="65" class="no_search" nowrap>学年</th>
+                            <!--{each gaki/GAKI}-->
+                            <th WIDTH="65" class="no_search" nowrap>{rval gaki/GAKI}</th>
+                            <!--{/each}-->
+                            <th WIDTH="*" class="no_search" nowrap>学年</th>
+                            </tr>
+                          </table>
+                          </td>
+                      </tr>
+                      </table>
+                      <div style="width:100%;height:336;overflow:auto";>
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr class="no_search_line">
+                          <td>
+                          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <!--結果一覧--> <!--{each data}-->
+                            <tr align="center" bgcolor={val data/col}>
+                            <td width="130">{val data/GRADECLASS}</td>
+                            {val data/CW}{val data/CD}</tr>
+                            <!--{/each}-->
+                          </table>
+                          </td>
+                      </tr>
+                      </table>
+                      </div>
+                      </td>
+                    </tr>
+                    </table>
+                  </td>
+                  </tr>
+                </table>
+                </td>
+              </tr>
+              </table>
+              <!--{/def}-->
+            </td>
+          </tr>
+          </table>
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search">
+            <th width="130"></th>
+            <th align = "left" colspan="2" width="*%" bgcolor="#ffffff">{rval btn_update}&nbsp;{rval btn_can}&nbsp;{rval btn_end}</th>
+          </tr>
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval Closing}{rval close}</script>

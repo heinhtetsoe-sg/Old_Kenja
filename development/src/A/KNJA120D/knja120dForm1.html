@@ -1,0 +1,132 @@
+{rval start}
+{rval IFRAME}
+<!--{def button}-->
+<!--{def data}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <div style="text-align:right">
+              <div style="float:left;width:300px;text-align:left;">
+                 <hr width="100%" align="left">
+                    {rval SCHREGNO}&nbsp;&nbsp;{val NAME}
+                 <hr width="100%" align="left">
+                <br>
+              </div>
+<!--{def useUpdownPDF}-->
+              <div style="float:left;width:30px;text-align:left;">
+                  &nbsp;
+              </div>
+              <div style="float:left;width:300px;text-align:left;">
+                <hr>
+                  ●添付書類PDF<br><br>
+                  <!--{each down}-->
+                  <a href="{rval down/PDF_URL}" target="_blank">{rval down/PDF_FILE_NAME}</a><br><br>
+                  <!--{/each}-->
+                <hr>
+              </div>
+<!--{/def}-->
+            </div>
+            <br><!--{def chousasho_yomikomi}-->{rval btn_reload}<br><br><!--{/def}-->
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th colspan="2" width="20%">項 目</th>
+                      <th colspan="3" width="80%">値</th>
+                    </tr>
+<!--{def not_meiji}-->
+                    <tr>
+                      <th rowspan="2" class="no_search" nowrap>総<br>合<br>的<br>な<br>学<br>習<br>の<br>時<br>間<br>の<br>記<br>録<br>{rval btn_reload2}</th>
+                      <th align="right" class="no_search" nowrap Valign="top">活動内容<BR></th>
+                      <td colspan="3" bgcolor="#ffffff">{rval data/TOTALSTUDYACT}<br><font size=2, color="red">{rval data/TOTALSTUDYACT_TYUI}</font>　　{rval button/btn_teikei_act}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap Valign="top">評価<BR></th>
+                      <td colspan="3" bgcolor="#ffffff">{rval data/TOTALSTUDYVAL}<br><font size=2, color="red">{rval data/TOTALSTUDYVAL_TYUI}</font>　　{rval button/btn_teikei_val}</td>
+                    </tr>
+<!--{/def}-->
+<!--{def meiji}-->
+                    <tr>
+                      <th colspan="2" align="right" class="no_search" nowrap Valign="top">Catholic Spirit<BR></th>
+                      <td colspan="3" bgcolor="#ffffff">{rval data/TOTALSTUDYVAL}<br><font size=2, color="red">{rval data/TOTALSTUDYVAL_TYUI}</font></td>
+                    </tr>
+<!--{/def}-->
+                    <tr>
+                      <th colspan="2" align="right" class="no_search" nowrap Valign="top">特別活動所見<BR></th>
+                      <td colspan="3" bgcolor="#ffffff">{rval data/SPECIALACTREMARK}<br><font size=2, color="red">{rval data/SPECIALACTREMARK_TYUI}</font>　　{rval button/btn_committee}<!--{def useclubselect}-->{rval button/btn_club_spe}<!--{/def}--></td>
+                    </tr>
+
+                    <tr align="left" class="no_search">
+                      <th colspan="2" rowspan="3">
+                        総合所見及び指導上<br>参考となる諸事項
+                        <br><br>{rval button/SOUGOU_SANSYO}<br>{rval button/TYOUSASYO_SENTAKU}
+                      </th>
+                      <th class="no_search">　1)学習における特徴等<br>　2)行動の特徴、特技等</th>
+                      <th class="no_search">　3)部活動、ボランティア活動等<br>　4)取得資格、検定等</th>
+                      <th class="no_search">　5)その他</th>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td valign="TOP">{rval TRAIN_REF1}<br><font color="red" size="-1">{rval TRAIN_REF1_COMMENT}</font></td>
+                      <td valign="TOP">{rval TRAIN_REF2}<br><font color="red" size="-1">{rval TRAIN_REF2_COMMENT}</font></td>
+                      <td valign="TOP">{rval TRAIN_REF3}<br><font color="red" size="-1">{rval TRAIN_REF3_COMMENT}</font>
+                        <br>{rval INS_COMMENTS}<LABEL for="INS_COMMENTS">{rval INS_COMMENTS_LABEL}</LABEL>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff">
+                        {rval button/btn_popup}　{rval button/btn_actdoc}
+                      </td>
+                      <td bgcolor="#ffffff">
+                        {rval button/btn_club_tra2}{rval button/btn_club_kirokubikou}{rval button/btn_qualified}{rval button/btn_hyosyo}
+                      </td>
+                      <td bgcolor="#ffffff"></td>
+                    </tr>
+
+                    <tr>
+                      <th colspan="2" align="right" class="no_search" nowrap Valign="top">出欠の記録備考<BR></th>
+                      <td colspan="3" bgcolor="#ffffff">
+                        <table>
+                          <tr>
+                            <td>
+                              {rval data/ATTENDREC_REMARK}<br>
+                              <font size=2, color="red">{rval data/ATTENDREC_REMARK_TYUI}</font>
+                            </td>
+                            <td>
+                              <!--{def tyousasyoSyukketsuKirokuBtn}-->
+                              {rval btn_syukketsu_sansyo}<br>
+                              <!--{/def}-->
+                              {rval SANSYO}<br>
+                              {rval TYOSASYO_SANSYO}<br>
+                              <!--{def REASON_COLLECTION_SELECT}-->{rval btn_reason_collection_select}<br><!--{/def}-->
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th colspan="2" align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td colspan="3" bgcolor="#ffffff">{rval SEISEKI_SANSYO} {rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_end}
+                      <br>{rval button/btn_check1}<!--{def useUpdownPDF}--><BR>●添付書類PDF　{rval up/FILE}&nbsp;&nbsp;{rval button/BTN_OK}<br><font color="red">ファイル名は日本語不可(英数字のみ)</font><!--{/def}-->
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->

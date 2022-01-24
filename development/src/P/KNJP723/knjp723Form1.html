@@ -1,0 +1,220 @@
+{rval start}
+<style type="text/css">
+#tyouseiH {
+    height : 122px;
+}
+#tyousei2 {
+    height : 50px;
+}
+#tyouseiH1 {
+    height : 30px;
+}
+#tyouseiH2 {
+    height : 30px;
+}
+#tyouseiH3 {
+    height : 60px;
+}
+#tyouseiH3 > th {
+    font-size : 10pt;
+}
+</style>
+
+<table width="1783px" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td>
+       <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr class="no_search_line">
+          <th>
+            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+            <tr>
+              <th width="*" height="50" align="left" class="no_search">
+                　　　　年度：{rval YEAR}　　学期：{rval SEMESTER}　　　申請月：{rval MONTH}　　　<!--{def schkind}-->校種：{rval SCHOOL_KIND}　　<!--{/def}-->
+                学年：{rval GRADE}　　年組：{rval HR_CLASS}　　
+                ソート順（{rval SORT1}<LABEL for="SORT1">ふりがな</LABEL>　{rval SORT2}<LABEL for="SORT2">学籍番号</LABEL>）
+              </th>
+            </tr>
+            </table>
+          </th>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="630px" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                    <tbody>
+                      <tr class="no_search" id="tyouseiH">
+                        <th width="150px">年組番</th>
+                        <th width="80px">学籍番号</th>
+                        <th width="200">氏名</th>
+                        <th width="200">ふりがな</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+
+            <td>
+            <div id="trow" style="overflow:hidden; width: 1153px; ">
+                <div style="width: 3485px; ">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                    <tbody>
+                      <tr class="no_search" id="tyouseiH1">
+<!--　更新チェックボックスカット
+                          <th width="50"><LABEL for="UPDATE_CHK_ALL">更<BR>新</LABEL><BR>{rval UPDATE_CHK_ALL}</th>
+-->
+                          <th width="180" rowspan="3">資格認定番号</th>
+                          <th width="80" colspan="2">申請意思</th>
+                          <th width="80" colspan="2">申請書</th>
+                          <th width="540" colspan="9">添付書類</th>
+                          <th width="80" rowspan="3" style="font-size:10pt">奨学給付金<BR>事前申込書<BR>の有無</th>
+                          <th width="250" rowspan="3">備考</th>
+                          <th width="*" rowspan="3"></th>
+                      </tr>
+                      <tr class="no_search" id="tyouseiH2">
+                          <th width="40" rowspan="2">有</th>
+                          <th width="40" rowspan="2">無</th>
+                          <th width="40" rowspan="2">有</th>
+                          <th width="40" rowspan="2">無</th>
+                          <th width="180" colspan="3">保護者（父）</th>
+                          <th width="180" colspan="3">保護者（母）</th>
+                          <th width="180" colspan="3">主たる生計維持者</th>
+                      </tr>
+                      <tr class="no_search" id="tyouseiH3">
+                          <th width="60">課税<BR>証明書</th>
+                          <th width="60">特別徴収<BR>税額決定<BR>通知書</th>
+                          <th width="60">納税<BR>通知書</th>
+                          <th width="60">課税<BR>証明書</th>
+                          <th width="60">特別徴収<BR>税額決定<BR>通知書</th>
+                          <th width="60">納税<BR>通知書</th>
+                          <th width="60">課税<BR>証明書</th>
+                          <th width="60">特別徴収<BR>税額決定<BR>通知書</th>
+                          <th width="60">納税<BR>通知書</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+          <tr valign="TOP">
+
+            <td>
+            <div id="tcol" style="overflow: hidden; width:630px; height: 483px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="0" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr bgcolor="{rval data/BG_COLOR}" id="tyousei2">
+                            <td width="150" align="center">{rval data/ATTENDNO}</td>
+                            <td width="80" align="center">{rval data/SCHREGNO}</td>
+                            <td width="200" align="left">{rval data/NAME}</td>
+                            <td width="200" align="left">{rval data/NAME_KANA}</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
+            </div>
+            </td>
+
+            <td>
+            <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 1170px; height: 500px;">
+                <div style="width: 3485px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="0" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr  bgcolor="{rval data/BG_COLOR}" id="tyousei2">
+<!--
+                            <td width="50" align="center">{rval data/UPDATE_CHK}</td>
+-->
+                            <td width="180" align="center">{rval data/PASSNO}</td>
+                            <td width="40" align="center">{rval data/INTENTION_YES_FLG}</td>
+                            <td width="40" align="center">{rval data/INTENTION_NO_FLG}</td>
+                            <td width="40" align="center">{rval data/FORMS_YES_FLG}</td>
+                            <td width="40" align="center">{rval data/FORMS_NO_FLG}</td>
+                            <td width="60" align="center">{rval data/FATHER_TAX_CERTIFICATE_FLG}</td>
+                            <td width="60" align="center">{rval data/FATHER_SPECIAL_TAX_DEC_FLG}</td>
+                            <td width="60" align="center">{rval data/FATHER_TAX_NOTICE_FLG}</td>
+                            <td width="60" align="center">{rval data/MOTHER_TAX_CERTIFICATE_FLG}</td>
+                            <td width="60" align="center">{rval data/MOTHER_SPECIAL_TAX_DEC_FLG}</td>
+                            <td width="60" align="center">{rval data/MOTHER_TAX_NOTICE_FLG}</td>
+                            <td width="60" align="center">{rval data/MAINTAINER_TAX_CERTIFICATE_FLG}</td>
+                            <td width="60" align="center">{rval data/MAINTAINER_SPECIAL_TAX_DEC_FLG}</td>
+                            <td width="60" align="center">{rval data/MAINTAINER_TAX_NOTICE_FLG}</td>
+                            <td width="80" align="center">{rval data/SCHOLARSHIP_PAYMENT_YES_NO_FLG}</td>
+                            <td width="250" align="center">{rval data/REMARK}</td>
+                            <td width="*" align="left"></td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+          <tr class="no_search_line">
+            <th>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td bgcolor="#ffffff">{rval button/btn_csv}　　{rval button/btn_update}{rval button/btn_reset}{rval button/btn_back}</td>
+                </tr>
+              </table>
+            </th>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+<div id="lay"></div>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

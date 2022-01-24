@@ -1,0 +1,92 @@
+{rval start}
+<table style="width: 780px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+    <table style="width: 780px" border="0" cellspacing="5" cellpadding="1">
+    <tr>
+    <td>
+        <table style="width: 780px" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 780px" border="0" cellpadding="0" cellspacing="1">
+                <tr height="30">
+                    <td class="no_search">　<B>教育委員会職員取込</B></td>
+                    <td  bgcolor='#ffffff' color="black">&nbsp;県職員番号:{rval top/STAFFCD}
+                    <BR>&nbsp;　　職員名:{rval top/STAFFNAME}
+                    <BR>&nbsp;　職員かな:{rval top/STAFFNAME_KANA}　　{val button/btn_search}　<font color="red" size="2">※前方一致</font></td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+    <tr>
+    <td>
+        <table style="width: 850px" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 850px" border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search" >
+                    <td align="center" width="60"></td>
+                    <td align="center" width="350">職員名</td>
+                    <td align="center" width="130">開始日付</td>
+                    <td align="center" width="130">終了日付</td>
+                    <td align="center" width="*">職員番号</td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+        <div style="width: 100%; height=400; overflow: auto">
+        <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+            <!--{def data}-->
+            <!--結果一覧-->
+            <!--{each data}-->
+                <tr class="no_search_line" >
+                    <td bgcolor='#ffffff' align="center" width="60">{val data/CHECK_STAFF}</td>
+                    <td bgcolor='#ffffff' align="left" width="350">{val data/STAFFCD}　{val data/STAFFNAME}</td>
+                    <td bgcolor='#ffffff' align="center" width="130">{val data/SDATE}</td>
+                    <td bgcolor='#ffffff' align="center" width="130">{val data/EDATE}</td>
+                    <td bgcolor='#ffffff' align="center" width="*">{val data/UP_STAFFCD}</td>
+                    {val data/td}
+                </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+        </td>
+        </tr>
+        </table>
+        </div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+        <table style="width: 780px" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 780px" border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search" >
+                    <td>&nbsp;&nbsp;&nbsp;{val button/btn_updte}{val button/btn_end}</td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <font color="red" size="2">※取込後の削除は、マスタメンテで行ってください。</font>
+      </td>
+    </tr>
+    </table>
+</td>
+</tr>
+</table>
+<script language="JavaScript">{rval close}</script>
+{rval finish} 

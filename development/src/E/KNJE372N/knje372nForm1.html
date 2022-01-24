@@ -1,0 +1,59 @@
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="1">
+  <tr class="no_search_line">
+    <td>
+      <table border="0" cellpadding="2" cellspacing="0" width="100%">
+        <tr class="no_search">
+          <td>&nbsp;&nbsp;参照年度：{rval RYEAR}&nbsp&nbsp{rval COPYBTN}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr class="no_search_line">
+    <td>
+      <table border="0" cellpadding="2" cellspacing="0" width="100%">
+        <tr class="no_search">
+          <td nowrap>&nbsp;&nbsp;対象年度：{rval OYEAR}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+        <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search">
+            <th nowrap width="20%">推薦枠番号</th>
+            <th nowrap width="20%">平均点</th>
+            <th nowrap width="60%">科目名</th>
+          </tr>
+          <!--{def data}-->
+          <!--結果一覧-->
+          <!--{each data}-->
+          <tr bgcolor="#ffffff">
+              <td nowrap>{rval data/RECOMMENDATION_NAME}</td>
+              <td nowrap>{rval data/ASSESS_AVG}</td>
+              <td nowrap>{rval data/SUBCLASSNAME}</td>
+          </tr>
+          <!--{/each}-->
+          <!--{/def}-->
+            </table>
+        </td>
+          </tr>
+      </table>
+        </td>
+    </tr>
+      </table>
+  </td>
+   </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

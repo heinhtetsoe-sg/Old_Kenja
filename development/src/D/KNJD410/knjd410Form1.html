@@ -1,0 +1,80 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th width="30%" class="no_search" nowrap><b>年度</b></td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval YEAR}　　{rval button/btn_copy}</td>
+                    </tr>
+                    <!--{def useGradeKindCompGroupSemester}-->
+                    <tr>
+                      <th width="30%" class="no_search" nowrap><b>学期</b></td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval SEMESTER}</td>
+                    </tr>
+                    <!--{/def}-->
+                    <tr>
+                      <th width="30%" class="no_search" nowrap><b>学部</b></td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval GAKUBU_SCHOOL_KIND}</td>
+                    </tr>
+                    <tr>
+                      <th width="30%" class="no_search" nowrap><b>年組</b></td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>
+                        <!--{def useSpecial_Support_School}-->
+                        {rval HUKUSIKI_RADIO1}<LABEL for="HUKUSIKI_RADIO1">法定クラス</LABEL>　{rval HUKUSIKI_RADIO2}<LABEL for="HUKUSIKI_RADIO2">実クラス</LABEL>　　
+                        <!--{/def}-->
+                        &nbsp;{rval HR_CLASS}<!--{def ghr}-->&nbsp;>>&nbsp;{rval HR_CLASS2}<!--{/def}--></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="10"></td>
+        </tr>
+        <tr>
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="30%" nowrap><b>状態区分</b></th>
+                      <th width="50%" nowrap><b>グループコード</b></th>
+                      <th width="20%" nowrap><b>件数<BR>(人)</b></th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/ROWSPAN}-->
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN}>{val data/CONDITION_NAME}</td>
+                      <!--{/def}-->
+                      <td nowrap bgcolor="#ffffff" align="left"><a href="knjd410index.php?cmd=edit2&YEAR={val data/YEAR}&GROUPCD={val data/GROUPCD}&GAKUBU_SCHOOL_KIND={val data/GAKUBU_SCHOOL_KIND}&CONDITION={val data/CONDITION}" target="right_frame">{val data/GROUP_NAME}</a></td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/SCHREG_COUNT}</td>
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+   </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

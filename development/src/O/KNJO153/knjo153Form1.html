@@ -1,0 +1,427 @@
+{rval start}
+
+
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="5" cellpadding="1">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="0" width="100%">
+              <tr class="no_search" height="30">
+                <td nowrap align="center">学習者情報</td>
+                <td nowrap align="right">{rval SCHREGNO}：{rval NAME}　</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+            
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap align="center" class="no_search" width="234">様式種別</th>
+                <td nowrap bgcolor="#ffffff">　{rval SYUBETU}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap align="center" class="no_search" width="234">表示切替</th>
+                <td nowrap bgcolor="#ffffff">{rval TYPERADIO}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+    <!--{def data}-->
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap align="center" class="no_search" width="234">学年選択</th>
+                <td nowrap bgcolor="#ffffff">{rval GRADERADIO}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <!--{def ZIRITU}-->
+              <tr>
+                <th nowrap class="no_search" width="114">自立活動の記録</th>
+                <th nowrap class="no_search" width="114">自立の状況</th>
+                <td bgcolor="#ffffff">　{rval data/ZIRITU_ACTION}</td>
+              </tr>
+              <!--{/def}-->
+              <tr>
+                <th class="no_search" width="234" {rval colspan}>総合所見及び指導上参考となる<BR>諸事項</th>
+                <td bgcolor="#ffffff">{rval data/SYOKEN}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap class="no_search" width="114">出欠の記録</th>
+                <th nowrap class="no_search" width="114">備考</th>
+                <td nowrap bgcolor="#ffffff" >　{rval data/ATTEND_BIKOU}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      
+      <!--{def STUDY}-->
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap class="no_search" colspan="4">各教科の学習の記録</th>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="114">教科</th>
+                <th nowrap class="no_search">観点</th>
+                <th nowrap class="no_search" width="114">評価</th>
+                <th nowrap class="no_search" width="114">評定</th>
+              </tr>
+              <!--{each data1}-->
+              <tr>
+                {rval data1/KYOUKANAME}
+                <td nowrap bgcolor="#ffffff" >　{rval data1/POINT}</td>
+                <td nowrap bgcolor="#ffffff" >　{rval data1/SCORE}</td>
+                {rval data1/HYOUTEI}
+              </tr>
+              <!--{/each}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+      <!--{/def}-->
+      
+      <!--{def MORAL}-->
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap class="no_search" colspan="2">特別な教科 道徳</th>
+              </tr>
+              <tr>
+                <th nowrap class="no_search">評価</th>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff" >　{rval data9/POINT}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <!--{/def}-->
+
+      <!--{def FOREIGN}-->
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap class="no_search" colspan="2">外国語活動の記録</th>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="114">観点</th>
+                <th nowrap class="no_search">評価</th>
+              </tr>
+              <!--{each data2}-->
+              <tr>
+                <td bgcolor="#ffffff" >　{rval data2/POINT}</td>
+                <td bgcolor="#ffffff" >　{rval data2/SCORE}</td>
+              </tr>
+              <!--{/each}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+      <!--{/def}-->
+      
+      <!--{def INTEGRATED}-->
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap class="no_search" colspan="3">総合的な学習の時間の記録</th>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="234">学習活動</th>
+                <th nowrap class="no_search" width="114">観点</th>
+                <th nowrap class="no_search">評価</th>
+              </tr>
+              <!--{each data3}-->
+              <tr>
+                {rval data3/ACTION}
+                <td nowrap bgcolor="#ffffff" >　{rval data3/POINT}　</td>
+                {rval data3/SCORE}
+              </tr>
+              <!--{/each}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+      <!--{/def}-->
+      
+      <!--{def SPECIAL}-->
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap class="no_search" colspan="3">特別活動の記録</th>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="114">内容</th>
+                <th nowrap class="no_search">観点</th>
+                <th nowrap class="no_search" width="114">評価</th>
+              </tr>
+              <!--{each data4}-->
+              <tr>
+                <td nowrap bgcolor="#ffffff" >　{rval data4/NAIYO}</td>
+                <td nowrap bgcolor="#ffffff" >　{rval data4/POINT}</td>
+                <td nowrap bgcolor="#ffffff" >　{rval data4/SCORE}</td>
+              </tr>
+              <!--{/each}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+      <!--{/def}-->
+      
+      <!--{def BEHAV1}-->
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap class="no_search" colspan="3">行動の記録</th>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="234">項目</th>
+                <th nowrap class="no_search">評価</th>
+              </tr>
+              <!--{each data5}-->
+              <tr>
+                <td nowrap bgcolor="#ffffff" >　{rval data5/NAIYO}</td>
+                <td nowrap bgcolor="#ffffff" >　{rval data5/SCORE}</td>
+              </tr>
+              <!--{/each}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+      <!--{/def}-->
+
+      <!--{def BEHAV2}-->
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap class="no_search" colspan="3">行動の記録</th>
+              </tr>
+              <tr>
+                <th nowrap class="no_search">評価</th>
+              </tr>
+              <!--{each data5}-->
+              <tr>
+                <td nowrap bgcolor="#ffffff" >　{rval data5/SCORE}</td>
+              </tr>
+              <!--{/each}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+      <!--{/def}-->
+
+      <!--{def ALL}-->
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap class="no_search" colspan="3">各教科_特別活動_自立活動の記録</th>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="114">教科等</th>
+                <th nowrap class="no_search">評価</th>
+              </tr>
+              <!--{each data6}-->
+              <tr>
+                <td nowrap bgcolor="#ffffff" >　{rval data6/KYOUKA}</td>
+                <td bgcolor="#ffffff" >　{rval data6/SCORE}</td>
+              </tr>
+              <!--{/each}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+      <!--{/def}-->
+    <!--{/def}-->
+      
+    <!--{def data7}-->
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap class="no_search" width="27" rowspan="9">教<br>育<br>委<br>員<br>会</th>
+                <th nowrap class="no_search" width="200" colspan="2">教育委員会ID</th>
+                <td nowrap bgcolor="#ffffff">　{rval data7/ID}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" colspan="2">教育委員会名</th>
+                <td nowrap bgcolor="#ffffff">　{rval data7/NAME}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" colspan="2">部課係</th>
+                <td bgcolor="#ffffff">　{rval data7/SECTION}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="30" rowspan="4">所<br>在<br>地</th>
+                <th nowrap class="no_search" width="150">住所コード</th>
+                <td bgcolor="#ffffff">　{rval data7/ADDRCD}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search">郵便番号</th>
+                <td bgcolor="#ffffff">　{rval data7/ZIPCD}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search">住所</th>
+                <td bgcolor="#ffffff">　{rval data7/ADDR}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search">方書</th>
+                <td bgcolor="#ffffff">　{rval data7/KATAGAKI}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" colspan="2">電話番号</th>
+                <td bgcolor="#ffffff">　{rval data7/TELNO}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" colspan="2">職</th>
+                <td bgcolor="#ffffff">　{rval data7/SYOKU}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        </table>
+        <!--{/def}-->
+        
+        <!--{def data8}-->
+        <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap class="no_search" width="27" rowspan="15">学<br>校</th>
+                <th nowrap class="no_search" width="200" colspan="2">学校ID</th>
+                <td nowrap bgcolor="#ffffff">　{rval data8/ID}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" colspan="2">学校名</th>
+                <td nowrap bgcolor="#ffffff">　{rval data8/NAME}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="30" rowspan="4">所<br>在<br>地</th>
+                <th nowrap class="no_search" width="150">住所コード</th>
+                <td bgcolor="#ffffff">　{rval data8/ADDRCD}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search">郵便番号</th>
+                <td bgcolor="#ffffff">　{rval data8/ZIPCD}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search">住所</th>
+                <td bgcolor="#ffffff">　{rval data8/ADDR}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search">方書</th>
+                <td bgcolor="#ffffff">　{rval data8/KATAGAKI}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" colspan="2">分校ID</th>
+                <td bgcolor="#ffffff">　{rval data8/BUN_ID}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" colspan="2">分校名</th>
+                <td nowrap bgcolor="#ffffff">　{rval data8/BUN_NAME}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="30" rowspan="4">分<br>校<br>所<br>在<br>地</th>
+                <th nowrap class="no_search" width="150">住所コード</th>
+                <td bgcolor="#ffffff">　{rval data8/BUN_ADDRCD}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search">郵便番号</th>
+                <td bgcolor="#ffffff">　{rval data8/BUN_ZIPCD}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search">住所</th>
+                <td bgcolor="#ffffff">　{rval data8/BUN_ADDR}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search">方書</th>
+                <td bgcolor="#ffffff">　{rval data8/BUN_KATAGAKI}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" colspan="2">電話番号</th>
+                <td bgcolor="#ffffff">　{rval data8/TELNO}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" colspan="2">職</th>
+                <td bgcolor="#ffffff">　{rval data8/SYOKU}</td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    <!--{/def}-->
+
+      <table width="100%" border="0" cellspacing="5" cellpadding="1">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="0" width="100%">
+              <tr class="no_search" height="30">
+                <td nowrap align="right">{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+     </td>
+   </tr>
+</table>
+
+{rval java}
+
+{rval finish}

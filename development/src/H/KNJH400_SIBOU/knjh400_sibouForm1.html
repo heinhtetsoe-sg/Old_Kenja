@@ -1,0 +1,131 @@
+{rval start}
+<style>
+.sunko_table {
+    font-size:120%;
+    padding:10px 75px;
+    text-align:center;
+}
+div.sunko_header_x {
+    height:35px;
+    float:left;
+    overflow-y:hidden;
+}
+.sunko_header_x table {
+    width:100px;
+    border-collapse:collapse;
+}
+.sunko_header_x th {
+    height:34px;
+}
+div.sunko_header_h {
+    width:1201px;
+    height:35px;
+    float:left;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    position:relative;
+}
+.sunko_header_h table {
+    border-collapse:collapse;
+}
+.sunko_header_h th {
+    width:150px;
+    height:34px;
+}
+div.sunko_header_v {
+    width:100px;
+    height:301px;
+    float:left;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    position:relative;
+}
+.sunko_header_v table {
+    width:100px;
+    border-collapse:collapse;
+}
+.sunko_header_v td {
+    text-align:center;
+    height:75px;
+}
+div.sunko_data {
+    width:1218px;
+    height:318px;
+    position:relative;
+    overflow-x:scroll;
+    overflow-y:scroll;
+}
+.sunko_data table {
+    border-collapse:collapse;
+    /*height:140px;*/
+}
+.sunko_data td {
+    height:75px;
+    padding:0px 5px;
+}
+
+td.gakko {
+    width: 125px;
+}
+td.hyoka {
+    width:30px;
+}
+table.sunko_field {
+    border-collapse:collapse;
+}
+
+.parenttable {
+    width:1500;
+}
+@media screen and (max-width: 1366px) {
+    .parenttable {
+        width:1200;
+    }
+    div.sunko_header_h {
+        width:938px;
+    }
+    div.sunko_data {
+        width:955px;
+    }
+    .sunko_table {
+        font-size:120%;
+        padding:10px 60px;
+        text-align:center;
+    }
+}
+
+</style>
+<table class="parenttable" border="0" cellpadding="0" cellspacing="10" align="center">
+  <tbody>
+    <tr class="no_search_line">
+      <td nowrap>
+      
+      <table width="100%" border="0" cellpadding="0" cellspacing="1">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+                <!--{def data}-->
+                <!--{each data}-->
+                <table class="sunko_field" width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr bgcolor="#ffffff">
+                        <td style="font-size:120%;padding:10px;text-align:center;">{rval data/NENDO}<br></td>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                        <td class="sunko_table">
+                            {rval data/TABLE}
+                        </td>
+                    </tr>
+                </table>
+                <!--{/each}-->
+                <!--{/def}-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<script language="JavaScript">{rval jscript}</script> 
+{rval java}
+{rval finish}

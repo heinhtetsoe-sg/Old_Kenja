@@ -1,0 +1,151 @@
+{rval start}
+<BR><BR>
+<table style="width: 90%" border="0" cellpadding="5" cellspacing="5" align="center">
+<tr>
+<td>
+  <table style="width: 100%" border="0" cellspacing="5" cellpadding="1">
+    <tr>
+      <td>
+       <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr class="no_search_line">
+           <th>
+          <table width="100%" border="0" cellspacing="0" cellpadding="3">
+          <tr> 
+          <th height="30" align="center" class="no_search"><B>　　予算書</B></th>
+          </tr>
+          </table>
+          </th>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th colspan="6">年度：{rval data/YEAR}　予算区分：{rval data/SET_DIV}　予算科目：{rval data/YOSAN_L_CD}</th>
+            </tr>
+            
+            <tr class="no_search" nowrap align="right">
+              <th width="150">項目</th>
+              <th width="100">予算額</th>
+              <th width="100">前年度予算額</th>
+              <th width="100">増減</th>
+              <th width="250">摘要</th>
+              <th width="*">管理番号</th>
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <div style="width: 100%; height=500; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def data2}-->
+                <!--{each data2}-->
+                  <tr bgcolor="#ffffff">
+                    <td width="150" align="left"><a href="knjmp950index.php?cmd=data_set&SEND_YEAR={val data2/YEAR}&SEND_YOSAN_DIV={val data2/YOSAN_DIV}&SEND_YOSAN_L_CD={val data2/YOSAN_L_CD}&SEND_YOSAN_M_CD={val data2/YOSAN_M_CD}&SEND_YOSAN_L_M_CD={val data2/YOSAN_L_CD}{val data2/YOSAN_M_CD}">{rval data2/LEVY_M_NAME}</a></td>
+                    <th width="100" align="right">{rval data2/REQUEST_GK}</th>
+                    <th width="100" align="right">{rval data2/BOFORE_REQUEST_GK}</th>
+                    <th width="100" align="right">{rval data2/REQUEST_SAGAKU}</th>
+                    <th width="250" align="left">{rval data2/REQUEST_REASON}</th>
+                    <th width="*" align="center">{rval data2/REQUEST_NO}</th>
+                  </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                  <tr bgcolor="#ffffff">
+                    <td width="150" align="left">合計</td>
+                    <th width="100" align="right">{rval sumdata/REQUEST_GK}</th>
+                    <th width="100" align="right">{rval sumdata/BOFORE_REQUEST_GK}</th>
+                    <th width="100" align="right">{rval sumdata/REQUEST_SAGAKU}</th>
+                    <th width="250" align="left"></th>
+                    <th width="*" align="center"></th>
+                  </tr>
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+        
+        <tr><td height="50"></td></tr>
+        
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tr>
+                      <th width="150" align="right" class="no_search" nowrap>項目</th>
+                      <td width="*" bgcolor="#ffffff">{rval data/YOSAN_L_M_CD}</td>
+                  </tr>
+                  <tr>
+                      <th align="right" class="no_search" nowrap>作成日</th>
+                      <td bgcolor="#ffffff">{rval data/REQUEST_DATE}</td>
+                  </tr>
+                  <tr>
+                      <th align="right" class="no_search" nowrap>予算額</th>
+                      <td bgcolor="#ffffff">{rval data/REQUEST_GK}</td>
+                  </tr>
+                  <tr>
+                      <th align="right" class="no_search" nowrap>前年度予算額</th>
+                      <td bgcolor="#ffffff">{rval data/BOFORE_REQUEST_GK}</td>
+                  </tr>
+                  <tr>
+                      <th align="right" class="no_search" nowrap>増減</th>
+                      <td bgcolor="#ffffff">{rval data/REQUEST_SAGAKU}</td>
+                  </tr>
+                  <tr>
+                      <th align="right" class="no_search" nowrap>摘要</th>
+                      <td bgcolor="#ffffff">{rval data/REQUEST_REASON}</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+        </tr>
+    
+        <tr>
+          <td>
+           <table width="100%" border="0" cellspacing="0" cellpadding="1">
+            <tr class="no_search_line">
+               <th>
+              <table width="100%" border="0" cellspacing="0" cellpadding="3">
+              <tr> 
+              <th height="30" align="center" class="no_search">{rval button/btn_insert}{rval button/btn_update}{rval button/btn_delete}{rval button/btn_clear}{rval button/btn_reset}{rval button/btn_end}　　{rval button/btn_kessai}　{rval button/btn_print}</th>
+              </tr>
+              </table>
+              </th>
+            </tr>
+            </table>
+          </td>
+        </tr>
+
+    </table>
+  </td>
+  </tr>
+  </table>
+</td>
+</tr>
+</table>
+<div id="lay"></div>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>
+

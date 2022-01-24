@@ -1,0 +1,102 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<style>
+.title {
+    font-weight: bold;
+}
+
+.opttab .title {
+    padding: 3px 0px;
+}
+
+.col1 {
+  padding-left: 70px;
+}
+.col2 {
+  padding-left: 30px;
+}
+</style>
+
+<table width="40%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%" style="border-width: 1; border-style: solid;"> 
+                    <div class="no_search" style="text-align: center; padding: 7px;" > 
+                        <span class="title">
+                          {rval data/YEAR}年度
+                          &nbsp;&nbsp;&nbsp;&nbsp;学年&nbsp;{rval data/GRADE}
+                          &nbsp;&nbsp;学期&nbsp;{rval data/SEMESTER}
+                          &nbsp;&nbsp;考査&nbsp;{rval data/TESTKINDCD}
+                        </span>
+                    </div>
+                    <div style="background-color: #ffffff; text-align: center; padding: 10px;" >
+                        <span class="title">出欠集計日付</span>　{rval data/SDATE} ～ {rval data/DATE}
+                    </div>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><span class="title">出力対象{rval GROUP_DIV_NAME}</span></th>
+                      <th class="no_search"></th>
+                      <th><span class="title">{rval GROUP_DIV_NAME}一覧</span></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">
+                        <div>{rval button/btn_lefts}</div>
+                        <div>{rval button/btn_left1}</div>
+                        <div>{rval button/btn_right1}</div>
+                        <div>{rval button/btn_rights}</div>
+                      <td width="45%">{rval data/CLASS_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr>
+                      <td style="background-color: #ffffff;">
+                        <div style="padding-left: 70px;" class="opttab">
+                            <div style="padding-bottom: 10px;"></div>
+                        </div>
+                        <table cellspacing="5">
+                          <tr>
+                            <td>
+                              &nbsp;&nbsp;&nbsp;&nbsp;<b>出力条件</b><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/OUTPUT1}<label for="OUTPUT1">必履修区分順に出力する</label><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/OUTPUT2}<label for="OUTPUT2">授業時数を分数表記する</label><br>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_csv}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

@@ -1,0 +1,113 @@
+{rval start}
+{rval IFRAME}
+
+<table width="1200" border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tr class="no_search" width="900" height="30" nowrap>
+                      <th>&nbsp;処理年度：{rval YEAR}年度　　　学期：{rval SEMESTER}　　　学年：{rval GRADE}　年組：{rval HR_CLASS}
+                      </th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+
+          <td>処理：{rval SYORI_DIV}
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30px">
+                      <th nowrap width="55">{rval CHECK_ALL}</th>
+                      <th nowrap width="70">出席番号</th>
+                      <th nowrap width="200">氏名</th>
+                      <!--{each carry}-->
+                      <th nowrap width="100">{rval carry/LEVY_M_ABBV}</th>
+                      <!--{/each}-->
+                      <th nowrap width="*"></th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+
+        </tr>
+        <tr valign="TOP">
+          <td>
+            <div style="overflow: auto; height: 500px;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--{each data}-->
+                    <tr height="30px">
+                      <td nowrap width="55" align="center" bgcolor="{rval data/COLOR}">{rval data/CHECK}</td>
+                      <td nowrap width="70" align="center" bgcolor="{rval data/COLOR}">{rval data/ATTENDNO}</td>
+                      <td nowrap width="200" align="left" bgcolor="{rval data/COLOR}">{rval data/NAME}</td>
+                      <!--{each data/carry}-->
+                      <td nowrap width="100" align="center" bgcolor="{rval data/COLOR}">{rval data/carry/CARRY_OVER_MONEY}</td>
+                      <!--{/each}-->
+                      <td nowrap width="*" align="center" bgcolor="{rval data/COLOR}"></td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td>
+                        <table cellpadding="0" cellspacing="0">
+                          <tr class="no_search" height="30">
+                            <td width="84%" align="center">
+                                &nbsp;
+                            </td>
+                            <td width="*%" align="right">
+                                {val btn_update}{val btn_reset}{val btn_end}{rval btn_print}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+    </td>
+  </tr>
+</table>
+<input type='hidden' name='windowWidth' value=''>
+<input type='hidden' name='windowHeight' value=''>
+<script language="JavaScript">{rval reload}</script>
+{rval finish}

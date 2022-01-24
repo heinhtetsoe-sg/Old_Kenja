@@ -1,0 +1,22 @@
+-- kanji=´Á»ú
+-- $Id: 1f1c926fe8b338b7400df371a9d24ddebb8ff33e $
+
+DROP TABLE AFT_DISEASE_ADDITION441_COLLEGE_FIXED_DAT
+
+CREATE TABLE AFT_DISEASE_ADDITION441_COLLEGE_FIXED_DAT \
+      (EDBOARD_SCHOOLCD     VARCHAR(12) NOT NULL, \
+       YEAR                 VARCHAR(4)  NOT NULL, \
+       FIXED_DATE           DATE        NOT NULL, \
+       COURSECD             VARCHAR(1)  NOT NULL, \
+       MAJORCD              VARCHAR(3)  NOT NULL, \
+       SEX                  VARCHAR(1)  NOT NULL, \
+       SCHOOL_SORT          VARCHAR(2)  NOT NULL, \
+       SCHOOL_GROUP         VARCHAR(2)  NOT NULL, \
+       INT_VAL1             INTEGER, \
+       INT_VAL2             INTEGER, \
+       REGISTERCD           VARCHAR(10), \
+       UPDATED      TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+      ) in usr1dms index in idx1dms
+
+alter table AFT_DISEASE_ADDITION441_COLLEGE_FIXED_DAT add constraint PK_AFT_D_441C_FD \
+primary key (EDBOARD_SCHOOLCD, YEAR, FIXED_DATE, COURSECD, MAJORCD, SEX, SCHOOL_SORT, SCHOOL_GROUP)

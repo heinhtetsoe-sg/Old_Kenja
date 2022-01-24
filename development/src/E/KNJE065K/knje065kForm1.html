@@ -1,0 +1,131 @@
+{rval start}
+<style type="text/css">
+</style>
+<BR><BR>
+<table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr>
+<td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr>
+    <td >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line">
+      <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr class="no_search" nowrap>
+          <th width="*%" align="left" nowrap>
+                &nbsp;&nbsp;処理年度：{rval TOP/TRANSACTION}年度&nbsp;
+                &nbsp;&nbsp;処理学期：{rval TOP/SEMESTER}&nbsp;
+                &nbsp;&nbsp;処理学年：{rval gc_select}&nbsp;{rval RADIO1}&nbsp;{rval RADIO2}&nbsp;
+                <!--  2005.10.17 minei -->
+                &nbsp;&nbsp;在籍基準日：{rval base_date}
+                <!--  2005.10.17 minei -->
+          </th>
+        </tr>
+        </table>
+       </td>
+      </tr>
+      </table>
+    </td>
+    </tr>
+    </table>
+</td>
+</tr>
+<tr>
+<td valign="top">
+  <table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+  <td>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line">
+      <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr class="no_search" nowrap align="center">
+      <!--{def RADIO:1}-->
+        <th width="120" align="center" nowrap>課程学科</th>
+        <th width="85" align="center" nowrap>コースコード</th>
+        <th width="110" align="center" nowrap>コース名称</th>
+      <!--{/def}-->
+      <!--{def RADIO:2}-->
+        <th width="120" align="center" nowrap>コースコード</th>
+        <th width="202" align="center" nowrap>コース名称</th>
+      <!--{/def}-->
+        <th width="70" align="center" nowrap>A</th>
+        <th width="70" align="center" nowrap>B</th>
+        <th width="70" align="center" nowrap>C</th>
+        <th width="70" align="center" nowrap>D</th>
+        <th width="70" align="center" nowrap>E</th>
+        <th width="70" align="center" nowrap>コース人数</th>
+        <th width="*" align="center" nowrap>学年人数</th>
+        </tr>
+        </table>
+      </td>
+      </tr>
+      </table>
+    </td>
+    </tr>
+    <tr>
+    <td>
+      <div style="width: 100%; height=300; overflow: auto">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line">
+      <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+      <!--{def data}-->
+      <!--結果一覧-->
+      <!--{each data}-->
+      <tr class="no_search" align="center" nowrap>
+      <!--{def RADIO:1}-->
+      <td width="120" nowrap>{rval data/NAME}</td>
+      <td width="85" nowrap>{rval data/COURSECODE}</td>
+      <td width="110" align="left" nowrap>{rval data/COURSECODENAME}</td>
+      <!--{/def}-->
+      <!--{def RADIO:2}-->
+      <td width="120" nowrap>{rval data/COURSECODE}</td>
+      <td width="202" align="left" nowrap>{rval data/COURSECODENAME}</td>
+      <!--{/def}-->
+      <td bgcolor="#ffffff" width="70" nowrap>{rval data/A_MEMBER}</td>
+      <td bgcolor="#ffffff" width="70" nowrap>{rval data/B_MEMBER}</td>
+      <td bgcolor="#ffffff" width="70" nowrap>{rval data/C_MEMBER}</td>
+      <td bgcolor="#ffffff" width="70" nowrap>{rval data/D_MEMBER}</td>
+      <td bgcolor="#ffffff" width="70" nowrap>{rval data/E_MEMBER}</td>
+      <td bgcolor="#ffffff" style="color: black" width="70" nowrap><span id="{rval data/INDEX}">{rval data/COURSE_MEMBER}</span></td>
+      <td bgcolor="#ffffff" width="*" nowrap>{rval data/GRADE_MEMBER}</td>
+      </tr>
+      <!--{/each}-->
+      <!--{/def}-->
+      </table>
+      </td>
+      </tr>
+      </table>
+      </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line">
+      <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr class="no_search">
+        <td width="329">　</td>
+        <td bgcolor="#ffffff" width="*" align="right">{rval btn_recalc}&nbsp;{rval btn_update}&nbsp;{rval btn_can}&nbsp;{rval btn_end}</td>
+        </tr>
+        </table>
+      </td>
+      </tr>
+      </table>
+    </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+  </table>
+</td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}{rval Closing}</script>

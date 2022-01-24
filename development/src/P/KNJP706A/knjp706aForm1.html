@@ -1,0 +1,101 @@
+{rval start}
+{rval IFRAME}
+<br>
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <!--{def HR_CLASS_HYOUJI}-->
+      <table width="800" border="0" cellspacing="0" cellpadding="3">
+      <!--{/def}-->
+      <!--{def NOT_HR_CLASS_HYOUJI}-->
+      <table width="730" border="0" cellspacing="0" cellpadding="3">
+      <!--{/def}-->
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td align="center">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+                    <tr>
+                      <td align="left" bgcolor="#ffffff">　　　　<b>{rval TODAY}　入金日：{rval PAID_MONEY_DATE}</b></td>
+                    </tr>
+
+                    <tr>
+                        <td bgcolor="#ffffff">
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                          <tr class="no_search_line">
+                          <td>
+                            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <tr class="no_search" nowrap align="center">
+                              <th width="85">受験番号</th>
+                              <!--{def HR_CLASS_HYOUJI}-->
+                              <th width="100">年組番号</th>
+                              <th width="70">学籍番号</th>
+                              <!--{/def}-->
+                              <!--{def NOT_HR_CLASS_HYOUJI}-->
+                              <th width="85">学籍番号</th>
+                              <!--{/def}-->
+                              <th width="190">氏名</th>
+                              <th width="75">請求金額</th>
+                              <th width="120">グループ名</th>
+                              <th width="45">入金</th>
+                              <th nowrap width="*">入学<BR>辞退</th>
+                            </tr>
+                            </table>
+                          </td>
+                          </tr>
+
+                          <tr>
+                          <td bgcolor="#ffffff">
+                            <div style="width: 100%; height=500; overflow: auto">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr class="no_search_line">
+                                <td>
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3"> 
+                                  <!--結果一覧-->
+                                  <!--{each data}--> 
+                                    <tr bgcolor="#ffffff" >
+                                      <td width="85"  align="center" >{rval data/EXAMNO}</td>
+                                      <!--{def HR_CLASS_HYOUJI}-->
+                                      <th width="100" align="center">{rval data/HR_ATTEND_NAME}</th>
+                                      <td width="70"  align="center" >{rval data/SCHREGNO}</td>
+                                      <!--{/def}-->
+                                      <!--{def NOT_HR_CLASS_HYOUJI}-->
+                                      <td width="85"  align="center" >{rval data/SCHREGNO}</td>
+                                      <!--{/def}-->
+                                      <td width="190" align="left"  >{rval data/NAME}</td>
+                                      <td width="75"  align="center">{rval data/MONEY_DUE}</td>
+                                      <td width="120"  align="center">{rval data/COLLECT_GRP_NAME}</td>
+                                      <td width="45"  align="center">{rval data/PAID_FLG}</td>
+                                      <td width="*"  align="center">{rval data/UN_ENT}</td>
+                                    </tr> 
+                                  <!--{/each}--> 
+                                  </table>
+                                </td>
+                              </table>
+                            </div>
+                          </td>
+                          </tr>
+
+                          </table>
+                        </td>
+                    </tr>
+
+                    <tr>
+                      <td align="right" bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_end}</td>
+                    </tr>
+
+                </table>
+                   </td>
+               </tr>
+              </table>
+           </td>
+          </tr>
+       </table>
+      </td>
+   </tr>
+</table>
+{rval finish}

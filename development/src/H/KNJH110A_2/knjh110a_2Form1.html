@@ -1,0 +1,184 @@
+{rval start}
+
+<table style="width: 700px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+    <table style="width: 700px" border="0" cellspacing="5" cellpadding="1">
+    <tr>
+    <td>
+    <hr width="75%" align="left">
+      <B>{rval NAME}　　科目：{rval SUBCLASSCD}</B>
+    <hr width="75%" align="left">
+    </td>
+    </tr>
+    <tr>
+    <td>
+        <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search" >
+<!--
+                    <td align="center" width="25">No</td>
+-->
+                    <td align="center" width="100">取得日</td>
+                    <td align="center" width="100">分</td>
+                    <td align="center" width="*">備考</td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+        <div style="width: 100%; height=250; overflow: auto">
+        <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+            <!--{def data2}-->
+            <!--結果一覧-->
+            <!--{each data2}-->
+                <tr class="no_search_line" >
+<!--
+                    <td bgcolor='#ffffff' align="right"  width="25">{val data2/SEQ}</td>
+-->
+                    <td bgcolor='#ffffff' align="center" width="100">{val data2/URL}</td>
+                    <td bgcolor='#ffffff' align="center" width="100">{val data2/MINUTES}</td>
+                    <td bgcolor='#ffffff' align="left" width="*">{val data2/REMARK}</td>
+                    {val data/td}
+                </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+        </td>
+        </tr>
+        </table>
+        </div>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td valign="top">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line"> 
+                                <td> 
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search"> 
+                                          <th width="20%">項 目</th>
+                                          <th width="80%">値</th>
+                                        </tr>
+<!--
+                                        <tr>
+                                          <td class="no_search">
+                                             <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                               <tr class="no_search">
+                                                 <th align="left" nowrap>※</th>
+                                                 <th align="right" nowrap>No</th>
+                                               </tr>
+                                             </table>
+                                          </td>
+                                          <td bgcolor="#ffffff">{rval data/SEQ}</td>
+                                        </tr>
+-->
+                                        <tr>
+                                          <td class="no_search">
+                                             <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                               <tr class="no_search">
+                                                 <th align="left" nowrap>※</th>
+                                                 <th align="right" nowrap>取得日</th>
+                                               </tr>
+                                             </table>
+                                          </td>
+                                          <td bgcolor="#ffffff">{rval data/REGDDATE}</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="no_search">
+                                             <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                               <tr class="no_search">
+                                                 <th align="left" nowrap>※</th>
+                                                 <th align="right" nowrap>分</th>
+                                               </tr>
+                                             </table>
+                                          </td>
+                                          <td bgcolor="#ffffff">{rval data/MINUTES}</td>
+                                        </tr>
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap>備考</th>
+                                          <td bgcolor="#ffffff">{rval data/REMARK}</td>
+                                        </tr>
+
+                                        <tr> 
+                                          <th align="right" class="no_search" nowrap>&nbsp;</th>
+                                          <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_end}</td>
+                                        </tr>
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+
+
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+<BR>
+        <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search" >
+                    <td align="center" width="400">科目名</td>
+                    <td align="center" width="*">合計（分）</td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+        <div style="width: 100%; height=50; overflow: auto">
+        <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+            <!--{def data3}-->
+            <!--結果一覧-->
+            <!--{each data3}-->
+<!--{def useCurriculumcd}-->
+                <tr class="no_search_line" >
+                    <td bgcolor='#ffffff' align="left" width="400">{val data3/SUBCLASSNAME}</td>
+                    <td bgcolor='#ffffff' align="center" width="*">{val data3/TOTAL}</td>
+                </tr>
+<!--{/def}--> 
+<!--{def NoCurriculumcd}-->
+                <tr class="no_search_line" >
+                    <td bgcolor='#ffffff' align="left" width="400">{val data3/SUBCLASSNAME}</td>
+                    <td bgcolor='#ffffff' align="center" width="*">{val data3/TOTAL}</td>
+                </tr>
+<!--{/def}--> 
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+        </td>
+        </tr>
+        </table>
+        </div>
+    </td>
+    </tr>
+
+    </table>
+</td>
+</tr>
+</table>
+<script language="JavaScript">{rval close}</script>
+{rval finish} 

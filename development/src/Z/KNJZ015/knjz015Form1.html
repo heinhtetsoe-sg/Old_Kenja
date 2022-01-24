@@ -1,0 +1,40 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nawrap>{val SCHOOL_KIND_SORT}</th>
+                      <th nawrap>{val PROGRAMID_SORT}</th>
+                      <th nawrap>対応校種</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/ROWSPAN}-->
+                      <td nowrap bgcolor="#ffffff" align="center" rowspan={rval data/ROWSPAN}>&nbsp;{val data/SCHOOL_KIND_LABEL}</td>
+                      <td nawrap bgcolor="#ffffff" align="left" rowspan={rval data/ROWSPAN}><a href="knjz015index.php?cmd=edit&SCHKIND={val data/SCHOOL_KIND}&USEPROGRAMID={val data/PROGRAMID}" target="right_frame">{val data/PROGRAMID}</a></td>
+                      <!--{/def}-->
+                      <td nawrap bgcolor="#ffffff" align="center">&nbsp;{val data/SELECT_SCHOOL_KIND}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval Closing}</script>

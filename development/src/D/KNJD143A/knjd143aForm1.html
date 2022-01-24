@@ -1,0 +1,117 @@
+{rval start}
+<table width="95%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search" height="30">
+                        <td width="100%" align="center" nowrap>
+                          {rval YEAR}年度<!--{def useSchoolKindCmb}-->　　校種：{rval SCHOOL_KIND}<!--{/def}-->　　学期：{rval SEMESTER}　　年組：{rval GRADE_HR_CLASS}　　科目：{rval SUBCLASSCD}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="100">クラス-<br>出席番号</th>
+                        <th width="200">氏名</th>
+                        <th width="80">項目名</th>
+                        <th width="*">値</th>
+                        <!-- Add by PP for PC-Talker 2020-01-20 start  -->
+                        <th width={rval SCORE_WIDTH} aria-label="">{val SCORE_TITLE}</th>
+                        <!-- Add by PP for PC-Talker 2020-01-31 end -->
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <div style="width:100%;height:425;overflow:auto">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr>
+                          <td width="100"  align="center" bgcolor="{rval data/COLOR}">{rval data/ATTENDNO}</td>
+                          <td width="200" align="left"   bgcolor="{rval data/COLOR}">{rval data/SCHREGNO_SHOW}{rval data/NAME_SHOW}</td>
+                          <!-- /* Add by PP for PC-Talker 2020-01-20 start */ -->
+                          <td class="no_search" width="80"   align="center" aria-label="">実施・<br>評価</td>
+                          <!-- /* Add by PP for PC-Talker 2020-01-31 end */ -->
+                          <td width="*"   align="left"   bgcolor="{rval data/COLOR}">{rval data/CONDUCT_EVAL}<br>
+                              <font size="2" color="red">(全角で {rval conduct_eval_moji}文字X{rval conduct_eval_gyo}行)</font></td>
+                          <td width="100"  align="center" bgcolor="{rval data/COLOR}">{rval data/GRAD_VALUE}</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <td align="right">
+                        {rval FILE}{val btn_input}&nbsp;{val btn_print}&nbsp;{val btn_output}　{val btn_replace}　　{val btn_update}{val btn_reset}{val btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                  </td>
+                </tr>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}
+<script language="JavaScript">{rval close_win}</script>

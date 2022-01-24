@@ -1,0 +1,67 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="10%">IB<br>科目<br>コード</th>
+                      <th nowrap width="20%">IB<br>科目名</th>
+                      <th nowrap width="7%">IB<br>科目<br>略称</th>
+                      <th nowrap width="20%">IB<br>科目名英字</th>
+                      <th nowrap width="10%">IB<br>科目略称英字</th>
+                      <th nowrap width="10%">IB<br>調査書用<br>科目名</th>
+                      <th nowrap width="10%">IB<br>通知票用<br>科目名</th>
+                      <th nowrap width="10%">IB<br>科目名<br>その他３</th>
+                      <th nowrap width="5%">IB<br>表<br>示<br>順</th>
+                      <th nowrap width="5%">IB<br>(調)<br>表<br>示<br>順</th>
+                      <th nowrap width="5%">IB<br>(通)<br>表<br>示<br>順</th>
+                      <th nowrap width="8%">IB<br>(調)科目<br>グループ<br>コード</th>
+                      <th nowrap width="8%">IB<br>(通)科目<br>グループ<br>コード</th>
+                      <th nowrap width="5%">IB<br>選<br>択</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap align="center" bgcolor="#ffffff">
+                        <a href="knjz070_2aindex.php?cmd=edit&IBCLASSCD={val data/IBCLASSCD}&IBPRG_COURSE={val data/IBPRG_COURSE}&IBCURRICULUM_CD={val data/IBCURRICULUM_CD}&IBSUBCLASSCD={val data/IBSUBCLASSCD}" target="right_frame">
+                            {val data/IBCLASSCD}-{val data/IBPRG_COURSE}-{val data/IBCURRICULUM_CD}-{val data/IBSUBCLASSCD}
+                        </a>
+                      </td>
+                      <td nowrap bgcolor="#ffffff">{val data/IBSUBCLASSNAME}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/IBSUBCLASSABBV}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/IBSUBCLASSNAME_ENG}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/IBSUBCLASSABBV_ENG}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/IBSUBCLASSORDERNAME1}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/IBSUBCLASSORDERNAME2}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/IBSUBCLASSORDERNAME3}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/IBSHOWORDER}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/IBSHOWORDER2}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/IBSHOWORDER3}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/IBSUBCLASSCD2}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/IBSUBCLASSCD3}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/IBELECTDIV}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>
+<!-- <div style="width:100%;height:550;overflow:auto";>-->

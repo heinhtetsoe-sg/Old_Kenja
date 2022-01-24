@@ -1,0 +1,66 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr >
+          <td >
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                    <tr class="no_search">
+                      <th align=left>{rval button/copy}</th>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+            </table>
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+                    <tr class="no_search">
+                      <th align=left colspan=5>　処理年度：{rval YEAR}年度　　学年：{rval data1/LEFT_GRADE}　科目数：{rval data1/LEFT_GROUP_DIV}</th>
+                    </tr>
+
+                    <tr class="no_search">
+                      <th nowrap width="15%">学年</th>
+                      <th nowrap width="25%">コース</th>
+                      <th nowrap width="20%">科目数</th>
+                      <th nowrap width="*%">グループ名</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap align="center" width="15%" bgcolor="#ffffff">{val data/GRADE_NAME1}</td>
+                      <td nowrap width="25%" bgcolor="#ffffff">{val data/COURSE_NAME}</td>
+                      <td nowrap align="center" width="20%" bgcolor="#ffffff"><a href="knjz214index.php?cmd=edit&SEND_FLG=1&GROUP_DIV={val data/GROUP_DIV}&GRADE={val data/GRADE}&COURSECD={val data/COURSECD}&MAJORCD={val data/MAJORCD}&COURSECODE={val data/COURSECODE}" target="right_frame">{val data/GROUP_DIV}科目</a></td>
+                      <td nowrap width="*%" bgcolor="#ffffff">{val data/GROUP_NAME}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

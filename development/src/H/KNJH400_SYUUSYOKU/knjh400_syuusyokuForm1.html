@@ -1,0 +1,155 @@
+{rval start}
+<style type="text/css">
+</style>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="70%">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <hr width="70%" align="left">
+                &nbsp;&nbsp;{rval SCHREGNO}&nbsp;&nbsp;{val NAME}
+            <hr width="70%" align="left">
+          </td>
+          <td>
+          <table>
+            <tr>
+              <td>{rval GOUHI1}<label for="GOUHI1">全て</label>{rval GOUHI2}<label for="GOUHI2">合格</label>{rval GOUHI3}<label for="GOUHI3">不合格</label></td>
+            </tr>
+            <tr>
+              <td>{rval SINRO1}<label for="SINRO1">全て</label>{rval SINRO2}<label for="SINRO1">決定</label></td>
+            </tr>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<BR>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="box">
+                    <tr class="no_search">
+                      <th>登録日</th>
+                      <th>会社名</th>
+                      <th>産業種別</th>
+                      <th>就業場所</th>
+                      <th>合否</th>
+                      <th>進路状況</th>
+                    </tr>
+                    <!--{each data}-->
+                    <tr>
+                      <td bgcolor="#ffffff">{rval data/TOROKU_DATE}</td>
+                      <td bgcolor="#ffffff">{rval data/STAT_NAME}</td>
+                      <td bgcolor="#ffffff">{rval data/INDUSTRY_MNAME}</td>
+                      <td bgcolor="#ffffff">{rval data/PREF_CD}</td>
+                      <td bgcolor="#ffffff">{rval data/DECISION}</td>
+                      <td bgcolor="#ffffff">{rval data/PLANSTAT}</td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<BR>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="box">
+                    <tr class="no_search">
+                      <th rowspan="2">登録日</th>
+                      <th rowspan="2">調査名</th>
+                      <th colspan="4">第一希望</th>
+                      <th colspan="4">第二希望</th>
+                      <th rowspan="2">備考</th>
+                    </tr>
+                    <tr class="no_search">
+                      <th>職業種別</th>
+                      <th>職業</th>
+                      <th>就業場所</th>
+                      <th>紹介区分</th>
+                      <th>職業種別</th>
+                      <th>職業</th>
+                      <th>就業場所</th>
+                      <th>紹介区分</th>
+                    </tr>
+                    <!--{each data2}-->
+                    <tr>
+                      <td bgcolor="#ffffff">{rval data2/ENTRYDATE}</td>
+                      <td bgcolor="#ffffff">{rval data2/QUESTIONNAIRENAME}</td>
+                      
+                      <td bgcolor="#ffffff">{rval data2/JOBTYPE_LCD1}</td>
+                      <td bgcolor="#ffffff">{rval data2/JOBTYPE_SNAME1}</td>
+                      <td bgcolor="#ffffff">{rval data2/WORK_AREA1}</td>
+                      <td bgcolor="#ffffff">{rval data2/INTRODUCTION_DIV1}</td>
+                      
+                      <td bgcolor="#ffffff">{rval data2/JOBTYPE_LCD2}</td>
+                      <td bgcolor="#ffffff">{rval data2/JOBTYPE_SNAME2}</td>
+                      <td bgcolor="#ffffff">{rval data2/WORK_AREA2}</td>
+                      <td bgcolor="#ffffff">{rval data2/INTRODUCTION_DIV2}</td>
+                      <td bgcolor="#ffffff">{rval data2/REMARK}</td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<BR>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
+                    <tr class="no_search">
+                      <td align="center">
+                        {rval button/btn_back}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

@@ -1,0 +1,158 @@
+{rval start}
+{rval IFRAME}
+
+<!--{def button}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id="rightscreen" aria-label="{rval TITLE}">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td align="center">{rval TITLE}<br><br></td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="10%">学部</th>
+                      <td width="10%" bgcolor="#ffffff"><font color="#000000">{rval SCHKIND_NAME}</font></td>
+                      <th width="10%">年・組</th>
+                      <td width="15%" bgcolor="#ffffff"><font color="#000000">{rval GRADE_HR_NAME}</font></td>
+                      <th width="10%">氏名</th>
+                      <td width="*" bgcolor="#ffffff"><font color="#000000">{rval NAME_KANA}<br>{rval NAME}</font></td>
+                    </tr>
+                    <tr class="no_search" height="40px">
+                      <th >障害名等</th>
+                      <td colspan="5" bgcolor="#ffffff"><font color="#000000">{rval DISEASE_NAME}</font></td>
+                    </tr>
+                    <tr class="no_search" height="40px">
+                      <th >実態概要・<br>障害の特性</th>
+                      <td colspan="5" bgcolor="#ffffff"><font color="#000000">{rval DISEASE_OVERVIEW}</font></td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <th rowspan="4">検査</th>
+                      <th>検査日</th>
+                      <td bgcolor="#ffffff"><font color="#000000">{rval CHECKUP_DATE1}</font></td>
+                      <th width="10%">検査機関</th>
+                      <td colspan="2" bgcolor="#ffffff"><font color="#000000">{rval CHECKUP_FACILITY1}</font></td>
+                    </tr>
+                    <tr class="no_search">
+                      <th>検査名</th>
+                      <td colspan="4" bgcolor="#ffffff"><font color="#000000">{rval CHECKUP_NAME1}</font></td>
+                    </tr>
+                    <tr class="no_search">
+                      <th>検査日</th>
+                      <td bgcolor="#ffffff"><font color="#000000">{rval CHECKUP_DATE2}</font></td>
+                      <th width="10%">検査機関</th>
+                      <td colspan="2" bgcolor="#ffffff"><font color="#000000">{rval CHECKUP_FACILITY2}</font></td>
+                    </tr>
+                    <tr class="no_search">
+                      <th>検査名</th>
+                      <td colspan="4" bgcolor="#ffffff"><font color="#000000">{rval CHECKUP_NAME2}</font></td>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="10%"></th>
+                      <th colspan="2" width="*">{rval KIND_TITLE}</th>
+                    </tr>
+
+                    <tr class="no_search">
+                      <th></th>
+                      <th width="45%">{rval STATUS_NAME1}</th>
+                      <th width="45%">{rval STATUS_NAME2}</th>
+                    </tr>
+
+                    <!--{def KIND_LIST}-->
+                    <!--{each KIND_LIST}-->
+                    <tr>
+                      <th class="no_search">{rval KIND_LIST/KIND_NAME}</th>
+                      <td bgcolor="#ffffff">{rval KIND_LIST/HOPE1}</td>
+                      <td bgcolor="#ffffff">{rval KIND_LIST/HOPE2}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+
+                    <tr>
+                      <th class="no_search">合理的配慮</th>
+                      <td colspan="2" bgcolor="#ffffff">{rval REASONABLE_ACCOMMODATION}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr height="20px"><td></td></tr>
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th class="no_search" colspan="2">作成情報</th>
+                    </tr>
+                    <tr>
+                      <th class="no_search" width="10%">作成日</th>
+                      <td width="*" bgcolor="#ffffff">{rval SUPPORTPLAN_DATE}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search">作成者</th>
+                      <td width="*" bgcolor="#ffffff">{rval SUPPORTPLAN_STAFFCD}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" colspan="2" align="left">{rval button/btn_update}</th>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#ffffff">
+                    <!--{def dispseldate}-->
+                    <tr>
+                    <td>
+                      <br>{rval data/UPDTITLE} {rval data/UPDDATE}
+                      <!--{def newdate}-->{rval data/RECORD_DATE}<!--{/def}--><br><br>
+                    </td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--ボタン一覧-->
+                    <!--{def list}-->
+                    <tr height="20px"><td></td></tr>
+                    <!--{each list}-->
+                    <tr>
+                      <td align="left">{rval list/BTN_SUBFORMCALL}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                    <tr>
+                      <td><br>{rval button/btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->

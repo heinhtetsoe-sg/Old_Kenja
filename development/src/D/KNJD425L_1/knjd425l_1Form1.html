@@ -1,0 +1,168 @@
+{rval start}
+{rval IFRAME}
+
+<!--{def button}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id="rightscreen" aria-label="{rval TITLE}">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <hr width="80%" align="left">
+                &nbsp;{rval TITLE}&nbsp;&nbsp;&nbsp;&nbsp;{rval SCHREGNO}：{val NAME}
+            <hr width="80%" align="left">
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th height="25px">{rval TITLE_1}</th>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff">{rval REMARK_1}<br>{rval REMARK_1_SIZE}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            収集した情報を自立活動の区分に即して整理
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25px">
+                      <th>{rval TITLE_2}</th>
+                      <th>{rval TITLE_3}</th>
+                      <th>{rval TITLE_4}</th>
+                      <th>{rval TITLE_5}</th>
+                      <th>{rval TITLE_6}</th>
+                      <th>{rval TITLE_7}</th>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td>{rval REMARK_2}<br>{rval REMARK_2_SIZE}</td>
+                      <td>{rval REMARK_3}<br>{rval REMARK_3_SIZE}</td>
+                      <td>{rval REMARK_4}<br>{rval REMARK_4_SIZE}</td>
+                      <td>{rval REMARK_5}<br>{rval REMARK_5_SIZE}</td>
+                      <td>{rval REMARK_6}<br>{rval REMARK_6_SIZE}</td>
+                      <td>{rval REMARK_7}<br>{rval REMARK_7_SIZE}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+
+        <tr>
+          <td>
+            いくつかの指導目標の中で優先する目標<br>
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th height="30px">{rval TITLE_8}</th>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff">{rval REMARK_8}<br>{rval REMARK_8_SIZE}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+
+        <tr>
+          <td>
+            指導目標を達成するために必要な項目
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25px">
+<!--{def SELF_LIST}-->
+<!--{each SELF_LIST}-->
+                      <th colspan="{rval SELF_LIST/COLSPAN}">{rval SELF_LIST/SELF_TITLE}</th>
+<!--{/each}-->
+<!--{/def}-->
+                    </tr>
+                    <tr class="no_search" height="25px">
+
+<!--{def SELF_LIST}-->
+<!--{each SELF_LIST}-->
+<!--{each SELF_LIST/CHECK_LIST}-->
+                      <th>{rval SELF_LIST/CHECK_LIST/CHECK_TITLE}</th>
+<!--{/each}-->
+<!--{/each}-->
+<!--{/def}-->
+
+                    </tr>
+                    <tr bgcolor="#ffffff">
+
+<!--{def SELF_LIST}-->
+<!--{each SELF_LIST}-->
+<!--{each SELF_LIST/CHECK_LIST}-->
+                      <th>{rval SELF_LIST/CHECK_LIST/CHECK}</th>
+<!--{/each}-->
+<!--{/each}-->
+<!--{/def}-->
+
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            選定された項目を関連付け具体的な指導内容を設定<br>
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th colspan="3" height="25px">具体的な指導内容</th>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td>{rval REMARK_9}<br>{rval REMARK_9_SIZE}</td>
+                      <td>{rval REMARK_10}<br>{rval REMARK_10_SIZE}</td>
+                      <td>{rval REMARK_11}<br>{rval REMARK_11_SIZE}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr >
+          <td>
+            {rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+
+{rval finish}

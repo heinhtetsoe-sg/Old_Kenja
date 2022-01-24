@@ -1,0 +1,54 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr >
+        <td >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr></tr>
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+             <tr class="no_search"> 
+              <th align="left" colspan="8">処理年度：{rval YEAR}　　　　{rval button/btn_copy}<BR>
+                                           学校校種：{rval SCHOOL_KIND}</th>
+             </tr>
+              <tr class="no_search">
+                <th nowrap align="center" width="">教科</th>
+                <th nowrap align="center" width="15%">序列の対象<BR>（3教科指定）</th>
+                <th nowrap align="center" width="15%">序列の対象<BR>（5教科指定）</th>
+                <th nowrap align="center" width="10%">評定の設定</th>
+                <th nowrap align="center" width="15%">教科間バランス<BR>の出力順</th>
+                <th nowrap align="center" width="15%">履修・修得簿<BR>の表示順</th>
+                <th nowrap align="center" width="10%">単位数の集計<BR>に含めない</th>
+                <th nowrap align="center" width="15%">定期考査偏差値<BR>推移グラフの出力順</th>
+              </tr>
+              <!--{def data}-->
+              <!--結果一覧-->
+              <!--{each data}-->
+              <tr>
+                  <td nowrap align="left" bgcolor="#ffffff"><a href="knjz060_3index.php?cmd=edit&YEAR={val data/YEAR}&CLASSCD={val data/CLASSCD}&SCHOOL_KIND={val data/SCHOOL_KIND}" target="right_frame">{val data/CLASSCD_SET}</a>　{val data/CLASSNAME}</td>
+                  <td nowrap align="center" bgcolor="#ffffff">{val data/SEQ_001}</td>
+                  <td nowrap align="center" bgcolor="#ffffff">{val data/SEQ_002}</td>
+                  <td nowrap align="center" bgcolor="#ffffff">{val data/SEQ_003}</td>
+                  <td nowrap align="left" bgcolor="#ffffff">{val data/SEQ_004}　{val data/REMARK1_004}</td>
+                  <td nowrap align="left" bgcolor="#ffffff">{val data/SEQ_005}　{val data/REMARK1_005}</td>
+                  <td nowrap align="center" bgcolor="#ffffff">{val data/SEQ_006}</td>
+                  <td nowrap align="left" bgcolor="#ffffff">{val data/SEQ_007}　{val data/REMARK1_007}　{val data/REMARK2_007}</td>
+              </tr>
+              <!--{/each}-->
+              <!--{/def}-->
+            </table>
+          </td>
+          </tr>
+      </table>
+        </td>
+        </tr>
+      </table>
+   </td>
+   </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

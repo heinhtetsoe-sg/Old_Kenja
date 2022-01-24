@@ -1,0 +1,65 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="12%">証明書<br>種類コード</th>
+                      <th nowrap width="45%">証明書種類名称</th>
+                      <th nowrap width="35%">事務発行区分</th>
+                      <th nowrap width="30%">在学生</th>
+                      <th nowrap width="30%">卒業生</th>
+                      <th nowrap width="30%">転出・退学者</th>
+                      <th nowrap width="*%">経過年数</th>
+                    <!--{def certif_no_8keta}-->
+                      <th nowrap width="15%">証明書区分</th>
+                    <!--{/def}-->
+                      <th nowrap width="15%">在学生<br>発行手数料</th>
+                      <th nowrap width="15%">卒業生<br>発行手数料</th>
+                      <th nowrap width="15%">自動採番</th>
+                    <!--{def use_certif_kind_mst_school_kind}-->
+                      <th nowrap width="15%">校種</th>
+                    <!--{/def}-->
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap align="center" bgcolor="#ffffff"><a href="knjz250_2index.php?cmd=edit&CERTIF_KINDCD={val data/CERTIF_KINDCD}" target="right_frame">{val data/CERTIF_KINDCD}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/KINDNAME}</a></td>
+                      <td nowrap bgcolor="#ffffff">{val data/ISSUE}</a></td>
+                      <td nowrap bgcolor="#ffffff">{val data/STUDENT}</a></td>
+                      <td nowrap bgcolor="#ffffff">{val data/GRADUATE}</a></td>
+                      <td nowrap bgcolor="#ffffff">{val data/DROPOUT}</a></td>
+                      <td nowrap align="center" bgcolor="#ffffff">{val data/ELAPSED_YEARS}</a></td>
+                      <!--{def certif_no_8keta}-->
+                      <td nowrap align="center" bgcolor="#ffffff">{val data/CERTIF_DIV}</a></td>
+                      <!--{/def}-->
+                      <td nowrap align="center" bgcolor="#ffffff">{val data/CURRENT_PRICE}</a></td>
+                      <td nowrap align="center" bgcolor="#ffffff">{val data/GRADUATED_PRICE}</a></td>
+                      <td nowrap align="center" bgcolor="#ffffff">{val data/ISSUENO_AUTOFLG}</a></td>
+                       <!--{def use_certif_kind_mst_school_kind}-->
+                      <td nowrap align="center" bgcolor="#ffffff">{val data/CERTIF_SCHOOL_KIND_NAME}</a></td>
+                       <!--{/def}-->
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

@@ -1,0 +1,121 @@
+{rval start}
+<table width="50%" border="0" cellspacing="3" cellpadding="1">
+
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellspacing="5" cellpadding="1">
+        <tr bgcolor="#006633">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="0" width="100%">
+
+              <tr class="no_search">
+                <td nowrap>検索種別</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval HR_CLASS_HYOUJI_FLG}<LABEL for="HR_CLASS_HYOUJI_FLG">年組表示</LABEL></td>
+              </tr>
+
+              <tr class="no_search">
+                <td nowrap>学年</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval GRADE}</td>
+              </tr>
+
+              <tr class="no_search">
+                <td nowrap>年組</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval HR_CLASS}</td>
+              </tr>
+
+              <tr class="no_search">
+                <td nowrap>入学年度</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval ENT_YEAR}</td>
+              </tr>
+
+              <tr class="no_search">
+                <td nowrap>卒業予定年度</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval GRD_YEAR}</td>
+              </tr>
+
+              <tr class="no_search">
+                <td nowrap>学籍番号</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval SCHREGNO}</td>
+              </tr>
+
+              <tr class="no_search">
+                <td nowrap>氏名</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval NAME}</td>
+              </tr>
+
+              <tr class="no_search">
+                <td nowrap>かな氏名</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval NAME_KANA}</td>
+              </tr>
+
+              <tr class="no_search">
+                <td nowrap>{rval btn_search}</td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!--{def search}-->
+  <tr>
+    <td nowrap>
+    <table width="100%" border="0" cellspacing="5" cellpadding="0">
+      <tr>
+        <td valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr >
+              <td >
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr class="no_search_line">
+                    <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tr class="no_search">
+                          <th nowrap width="100">{rval KOUMOKU1}</th>
+                          <th nowrap width="150">氏名</th>
+                          <th nowrap width="100">{rval KOUMOKU2}</th>
+                        </tr>
+                        <!--{def data}-->
+                        <!--結果一覧-->
+                        <!--{each data}-->
+                        <tr bgcolor="#ffffff">
+                          <td nowrap align={val data/KOUMOKU1_align}>{val data/KOUMOKU1_VALUE}</td>
+                          <td nowrap><img src="{val data/IMAGE}" width="16" height="16">&nbsp;{val data/NAME}</td>
+                          <td nowrap align={val data/KOUMOKU2_align}>{val data/KOUMOKU2_VALUE}</td>
+                        </tr>
+                        <!--{/each}-->
+                        <!--{/def}-->
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <!--{/def}-->
+</table>
+{rval finish}
+<script language="javascript">{rval reload}{rval jscript}{rval send_list}</script>

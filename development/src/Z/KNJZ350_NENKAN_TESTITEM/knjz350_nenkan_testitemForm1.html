@@ -1,0 +1,53 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+                    <tr class="no_search">
+                      <th align=left colspan=5>対象年度：{rval YEAR}　{rval data1/LEFT_SCHOOL_KIND}　　{rval button/btn_copy}</th>
+                    </tr>
+
+                    <tr class="no_search">
+                      <th nowrap width="15%">学年</th>
+                      <th nowrap width="25%">コース</th>
+                      <th nowrap width="20%">科目</th>
+                      <th nowrap width="*%">考査種別</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+  <!--{def data/ROWSPAN}-->
+                      <td nowrap rowspan={rval data/ROWSPAN} align="center" bgcolor="#ffffff">{rval data/GRADE_NAME1}</td>
+                      <td nowrap rowspan={rval data/ROWSPAN} bgcolor="#ffffff">{rval data/COURSE_NAME}</td>
+                      <td nowrap rowspan={rval data/ROWSPAN} bgcolor="#ffffff"><a href="knjz350_nenkan_testitemindex.php?cmd=edit&SEND_FLG=1&GRADE={val data/GRADE}&SEMESTER={val data/SEMESTER}&TESTKINDCD={val data/TESTKINDCD}&TESTITEMCD={val data/TESTITEMCD}&SEND_COURSE_MAJOR_COURSECODE={val data/COURSE_MAJOR_COURSECODE}&SEND_SUBCLASSCD={val data/SET_SUBCLASSCD}" target="right_frame">{rval data/SET_SUBCLASSNAME}</a></td>
+  <!--{/def}-->
+                      <td nowrap bgcolor="#ffffff">{rval data/SET_TESTITEMNAME}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

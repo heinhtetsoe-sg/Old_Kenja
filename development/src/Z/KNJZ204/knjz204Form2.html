@@ -1,0 +1,97 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="25%">項 目</th>
+                      <th width="75%">値</th>
+                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>パターンコード</th>
+                      <td bgcolor="#ffffff">{rval data/PATTERNCD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>パターン名称</th>
+                      <td bgcolor="#ffffff">{rval data/PATTERNCDNAME}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>基準日</th>
+                      <td bgcolor="#ffffff">{rval data/BASEDATE}から</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>段階値</th>
+                      <td bgcolor="#ffffff">{rval data/ASSESSLEVELCNT}　{rval button/btn_kakutei}</td>
+                    </tr>
+<!--{/def}--> 
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td bgcolor="#ffffff">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="110" align="center">段階値</th>
+                      <th width="110" align="center">記号</th>
+                      <th width="110" align="center">率</th>
+                    </tr>
+                    <!--{def data2}-->
+                    <!--{each data2}-->
+                    <tr class="no_search">
+                      <td width="110" align="center">{rval data2/ASSESSLEVEL}</td>
+                      <td width="110" align="center" bgcolor="#ffffff">{rval data2/ASSESSMARK}</td>
+                      <td width="110" align="center" bgcolor="#ffffff">{rval data2/RATE}<font color="black">％</font>％</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--{def button}--> 
+                          <tr> 
+                            <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}
+                          </tr>
+                          <!--{/def}--> 
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

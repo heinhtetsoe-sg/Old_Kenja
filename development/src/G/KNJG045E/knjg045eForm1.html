@@ -1,0 +1,96 @@
+{rval start}
+<!--{def button}-->
+<br><br>
+<table width="1450px" border="0" cellspacing="0" cellpadding="10" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tr class="no_search" nowrap>
+                      <td align="center" nowrap colspan="2">
+                        <B>教務日誌</B>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th bgcolor="#ffffff">
+                        &nbsp;&nbsp;校種：{rval SCHKIND}&nbsp;&nbsp;日付：{rval DIARY_DATE}&nbsp;&nbsp;天気：{rval WEATHER}&nbsp;{rval WEATHER2}&nbsp;&nbsp;気温：{rval TEMPERATURE}&nbsp度
+                      </th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      <tr height="10"></tr>
+
+        <!--{def data}-->
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr>
+                      <th class="no_search">校時</th>
+                      <th class="no_search">講座名</th>
+                      <th class="no_search">授業コメント</th>
+                    </tr>
+
+                    <!--{each data}-->
+                    <tr>
+                      <td bgcolor="#ffffff">{rval data/PERIODNAME}</td>
+                      <td bgcolor="#ffffff">{rval data/CHAIRNAME}</td>
+                      <td bgcolor="#ffffff">
+                        &nbsp;{rval data/REMARK1}&nbsp;<br>
+                        <font size=2 color="red">&nbsp;{rval data/REMARK1_COMMENT}</font>
+                        <span id="statusarea_REMARK1{rval data/DATA_CNT}" style="color:blue">残り文字数</span>
+                      </td>
+                    </tr>
+                    <!--{/each}-->
+
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr>
+                      <th class="no_search">今日の出来事</th>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff">
+                        &nbsp;{rval REMARK}&nbsp;<br>
+                        <font size=2 color="red">&nbsp;{rval REMARK_COMMENT}</font>
+                        <span id="statusarea_REMARK" style="color:blue">残り文字数</span>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td bgcolor="#ffffff">{rval button/btn_update}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!--{/def}-->
+
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+{rval finish}
+<script language="JavaScript">
+</script>
+

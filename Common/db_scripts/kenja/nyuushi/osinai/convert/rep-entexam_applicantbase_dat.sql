@@ -1,0 +1,5 @@
+-- $Id: 4cfa54d8e88d6474a481f498e3619f67d922a091 $
+
+alter table ENTEXAM_APPLICANTBASE_DAT drop primary key
+
+alter table ENTEXAM_APPLICANTBASE_DAT add constraint PK_ENTEXAM_APP primary key (ENTEXAMYEAR, APPLICANTDIV, EXAMNO)

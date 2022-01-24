@@ -1,0 +1,80 @@
+{rval start}
+{rval IFRAME}
+
+<table width="80%" border="0" cellspacing="0" cellpadding="0" id = "rollclick_screen" aria-label="{rval SCHREGNO} {rval NAME}のロールクリック画面">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="20%">項目</th>
+                      <!-- Edit by HPA for current_cursor start 2020/02/03 -->
+                      <th width="80%" aria-label="">値</th>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap aria-label="">※　　　　　年度</th>
+                      <td bgcolor="#ffffff">{rval year/YEAR}&nbsp;&nbsp;{rval year/year_add}&nbsp;{rval year/btn_year_add}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap aria-label="">※　　　　教科名</th>
+                      <td bgcolor="#ffffff" nowrap>{rval data/CLASSCD}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <th align="right" class="no_search" nowrap aria-label="">※　　　教育課程</th>
+                      <td bgcolor="#ffffff" nowrap>{rval data/CURRICULUM_CD}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <th align="right" class="no_search" nowrap aria-label="">※　　科目コード</th>
+                      <td bgcolor="#ffffff" nowrap>{rval data/SUBCLASSCD}</td>
+                       <!-- Edit by HPA for current_cursor end 2020/02/20 -->
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap Valign="top">文言評価<br><br>{rval button/btn_subform1}
+                          <!--{def SUBCLASSCD_SEQ001}-->
+                          <br><br><br>
+                          <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                            <tr align="center">
+                              <td>{rval data/SUBCLASSCD_SEQ001}</td>
+                            </tr>
+                            <tr align="center">
+                              <td>{rval button/btn_subform1_2}</td>
+                            </tr>
+                          </table>
+                          <!--{/def}-->
+                      </th>
+                      <td bgcolor="#ffffff">
+                          <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                            <tr>
+                              <td>
+                                {rval REMARK1}
+                                <br>
+                                <font size=2, color="red">{rval REMARK1_SIZE}</font> <span id="statusareaREMARK1" style="color:blue"></span>
+                              </td>
+                              <td>{rval NARAKEN_HYOUKA_TEXT}</td>
+                            </tr>
+                          </table>
+                        </td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap></th>
+                      <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}&nbsp;{rval button/btn_print}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<div id="lay"></div>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

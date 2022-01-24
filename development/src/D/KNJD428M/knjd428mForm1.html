@@ -1,0 +1,148 @@
+{rval start}
+{rval IFRAME}
+<script language="javascript">
+window.fep = '{rval fep}';
+</script>
+<!--{def button}-->
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                <hr width="50%" align="left">
+                    &nbsp;{rval NAME_SHOW}
+                <hr width="50%" align="left">
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="1000" border="0" cellspacing="0" cellpadding="0">
+                <!--{def subform_show}-->
+                {rval button/subform1}<br><br>
+                <!--{/def}-->
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" height="30">
+                      <td colspan="3">　学期：{rval data/SEMESTER}</td>
+                    </tr>
+                    <!--{def remark_show}-->
+                    <tr align="center">
+                      <td class="no_search" align="center" nowrap width="130">行動の記録</th>
+                      <td colspan={rval data/BTN_F1COLSPN} bgcolor="#ffffff" align="left" valign="top">{rval button/btn_form1}</td>
+                    </tr>
+                    <!--{/def}-->
+
+                    <tr align="center">
+                      <td class="no_search" align="center" nowrap width="130">出欠の備考</td>
+                      <td bgcolor="#ffffff" align="left" valign="top" colspan="2">
+                        &nbsp;{rval ATTENDREC_REMARK}{rval btn_syukketsu_sansyo}<br>
+                        &nbsp;<font size=2, color="red">{rval ATTENDREC_REMARK_COMMENT}</font>
+                        <span id="statusarea1" style="display:none;"></span>
+                      </td>
+                    </tr>
+
+                    <!--{def jisshu_show}-->
+                    <tr class="no_search" height="30">
+                      <td colspan="3" align="center">実習の記録（現場実習・校内実習）</td>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <td align="center"></td>
+                      <td align="center" width="180">期日・実習先・実習内容</td>
+                      <td align="center">所見</td>
+                    </tr>
+                    <tr align="center">
+                      <td class="no_search" align="center" nowrap width="130">
+                        記録１
+                        <br>{rval D02_01_REMARK3}<LABEL for="D02_01_REMARK3">斜線を入れる</LABEL>
+                      </td>
+                      <td bgcolor="#ffffff" align="left" valign="top" width="180">
+                        &nbsp;{rval D02_01_REMARK1}<br>
+                        &nbsp;<font size="2" color="red">{rval D02_01_REMARK1_COMMENT}</font>
+                        <span id="statusarea_D02_01_REMARK1" style="display:none;"></span>
+                      </td>
+                      <td bgcolor="#ffffff" align="left" valign="top">
+                        &nbsp;{rval D02_01_REMARK2}<br>
+                        &nbsp;<font size="2" color="red">{rval D02_01_REMARK2_COMMENT}</font>
+                        <span id="statusarea_D02_01_REMARK2" style="display:none;"></span>
+                      </td>
+                    </tr>
+                    <tr align="center">
+                      <td class="no_search" align="center" nowrap width="130">
+                        記録２
+                        <br>{rval D02_02_REMARK3}<LABEL for="D02_02_REMARK3">斜線を入れる</LABEL>
+                      </td>
+                      <td bgcolor="#ffffff" align="left" valign="top" width="180">
+                        &nbsp;{rval D02_02_REMARK1}<br>
+                        &nbsp;<font size="2" color="red">{rval D02_02_REMARK1_COMMENT}</font>
+                        <span id="statusarea_D02_02_REMARK1" style="display:none;"></span>
+                      </td>
+                      <td bgcolor="#ffffff" align="left" valign="top">
+                        &nbsp;{rval D02_02_REMARK2}<br>
+                        &nbsp;<font size="2" color="red">{rval D02_02_REMARK2_COMMENT}</font>
+                        <span id="statusarea_D02_02_REMARK2" style="display:none;"></span>
+                      </td>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <td colspan="3" align="center">特別活動の記録</td>
+                    </tr>
+                    <tr align="center">
+                      <td class="no_search" align="center" nowrap width="100">ホームルーム<br>活動</td>
+                      <td bgcolor="#ffffff" align="left" valign="top" colspan="2">
+                        &nbsp;{rval D01_01_REMARK1}<br>
+                        &nbsp;<font size="2" color="red">{rval D01_01_REMARK1_COMMENT}</font>
+                        <span id="statusarea_D01_01_REMARK1" style="display:none;"></span>
+                      </td>
+                    </tr>
+                    <tr align="center">
+                      <td class="no_search" align="center" nowrap width="100">生徒会活動</td>
+                      <td bgcolor="#ffffff" align="left" valign="top" colspan="2">
+                        &nbsp;{rval D01_02_REMARK1}<br>
+                        &nbsp;<font size="2" color="red">{rval D01_02_REMARK1_COMMENT}</font>
+                        <span id="statusarea_D01_02_REMARK1" style="display:none;"></span>
+                      </td>
+                    </tr>
+                    <tr align="center">
+                      <td class="no_search" align="center" nowrap width="100">部活動・<br>その他</td>
+                      <td bgcolor="#ffffff" align="left" valign="top" colspan="2">
+                        &nbsp;{rval D01_03_REMARK1}<br>
+                        &nbsp;<font size="2" color="red">{rval D01_03_REMARK1_COMMENT}</font>
+                        <span id="statusarea_D01_03_REMARK1" style="display:none;"></span>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+
+                    <tr align="center">
+                      <td class="no_search" align="center" nowrap width="130">学校より</td>
+                      <td bgcolor="#ffffff" align="left" valign="top" colspan="2">
+                        &nbsp;{rval COMMUNICATION}<br>
+                        &nbsp;<font size=2, color="red">{rval COMMUNICATION_COMMENT}</font>
+                        <span id="statusarea2" style="display:none;"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="no_search" colspan="3" align="right" nowrap>
+                        {rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_back}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!--{/def}-->
+{rval finish}
+{rval javascript}
+<script language="javascript">{rval reload}{rval next}</script>

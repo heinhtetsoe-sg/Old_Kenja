@@ -1,0 +1,112 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" nowrap>
+                      <td width="12%" align="center">入試年度</td>
+                      <td width="18%" bgcolor="#ffffff" style="color:black; text-align:center">{rval TOP/YEAR}</td>
+                      <td width="12%" align="center">※ 入試制度</td>
+                      <td width="18%" bgcolor="#ffffff">{rval TOP/APPLICANTDIV}</td>
+                      <td width="12%" align="center">※ 入試区分</td>
+                      <td width="*" bgcolor="#ffffff">{rval TOP/TESTDIV}</td>
+                    </tr>
+                    <tr class="no_search" nowrap>
+                      <td align="center">※ 会場分割</td>
+                      <td bgcolor="#ffffff" style="color:black" colspan="5">{rval TOP/EXAMHALLCD}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr bgcolor="#006633">
+          <td align="right">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" nowrap align="center"> 
+                            <th width="100" height="30" align="center" nowrap>座席番号</th>
+                            <th width="100"  align="center" nowrap>受験番号</th>
+                            <td width="*" align="center" nowrap>面接備考</th>
+                            <td width="100" align="center" nowrap>面接評価</th>
+                            <td width="100" align="center" nowrap>作文評価</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                <div style="width: 100%; height=535; overflow: auto">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{def data}-->
+<!--結果一覧-->
+<!--{each data}--> 
+                          <tr bgcolor="#ffffff" bgcolor="no_search" id="ROWID{rval data/EXAMNO}" nowrap>
+                            <td width="100" align="center" nowrap>{rval data/RECEPTNO}</th>
+                            <td width="100" align="center" nowrap>{rval data/EXAMNO}</th>
+                            <td width="*" align="center" nowrap>{rval data/INTERVIEW_REMARK}</th>
+                            <td width="100" align="center" nowrap>{rval data/INTERVIEW_VALUE}</th>
+                            <td width="100" align="center" nowrap>{rval data/COMPOSITION_VALUE}</th>
+                          </tr>
+<!--{/each}-->
+<!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" nowrap>
+                            <th nowrap></th>
+                            <th width="30%" align="left" bgcolor="#ffffff" nowrap>{rval btn_update}{rval btn_reset}{rval btn_end}</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">
+  change_flg = false;
+</script>
+{rval finish}

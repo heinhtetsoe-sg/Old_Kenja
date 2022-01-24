@@ -1,0 +1,76 @@
+{rval start} 
+
+<!--{def button}--> 
+<!--{def data}-->
+
+<br><br><br><br><br>
+<table style="width: 450px" border="0" cellpadding="10" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table style="width: 450px" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <td>
+            <tablestyle="width: 450px" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table style="width: 450px"     border="0" cellspacing="1" cellpadding="4">
+                    <tr class="no_search" height="35">
+                      <td align="center"><b>
+                        {rval data/YEAR}年度　　{rval data/GAKKI}　
+                      </b>　　<font size="1">(1.1)</font></td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="100">
+                      <td>
+                        <table>
+                            <tr>
+                              <td>
+                                  <B>　　　　　　学年</B>
+                            </td>
+                              <td>
+                                  　　{rval data/GRADE}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="120">
+                      <td>
+                        <table>
+                            <tr>
+                              <td>
+                            &nbsp;&nbsp;{rval data/OUTPUT1}<label for="OUTPUT1"> 欠席日数超過者リスト[学年別]<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・出席すべき日数の1/{rval data/RATIO}以上の者<BR><BR></label>
+                            &nbsp;&nbsp;{rval data/OUTPUT2}<label for="OUTPUT2"> 欠課時数超過者リスト[科目別]<br>
+                                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・１，２年：単位数×１０Ｈ＋１以上の者<BR>
+                                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・３年　　：単位数×　８Ｈ＋１以上の者<BR></label>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="50">
+                      <td>
+                          &nbsp;&nbsp;{rval data/OUTPUT3}<label for="OUTPUT3">同一科目を３回遅刻・早退すると１回欠課の扱いとする</label>
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="left">
+                        {rval button/btn_print}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 
+<script language="JavaScript">{rval jscript}</script>

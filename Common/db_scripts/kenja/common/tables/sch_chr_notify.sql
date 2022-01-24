@@ -1,0 +1,30 @@
+-- $Id: 51201f3d34495c5f9465c287eed128b39586f70f $
+
+DROP   TABLE SCH_CHR_NOTIFY
+CREATE TABLE SCH_CHR_NOTIFY \
+( \
+        YEAR          VARCHAR(4)      NOT NULL, \
+        SEMESTER      VARCHAR(1)      NOT NULL, \
+        SEQ           INTEGER         NOT NULL, \
+        PAIRINGSEQ    INTEGER, \
+        NOTIFY_GROUP  INTEGER, \
+        EXECUTEDATE   DATE            NOT NULL, \
+        PERIODCD      VARCHAR(1)      NOT NULL, \
+        CHAIRCD       VARCHAR(7)      NOT NULL, \
+        ADDDELDIV     CHAR(1)         NOT NULL, \
+        GANSYOFLG     CHAR(1), \
+        NOTIFY_TS     TIMESTAMP, \
+        DELFLG        CHAR(1), \
+        REGISTERCD    VARCHAR(8), \
+        UPDATED       TIMESTAMP DEFAULT CURRENT TIMESTAMP  \
+) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE SCH_CHR_NOTIFY  \
+ADD CONSTRAINT PK_SCH_CHR_NOTIFY  \
+PRIMARY KEY  \
+( \
+YEAR, \
+SEMESTER, \
+SEQ \
+)
+

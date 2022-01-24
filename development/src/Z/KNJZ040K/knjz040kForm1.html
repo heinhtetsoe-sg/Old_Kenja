@@ -1,0 +1,70 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="8">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="25">
+                      <th class="no_search" norwarp width="20%">受験年度</th>
+                      <td norwarp bgcolor="#ffffff" width="80%">{rval VAL}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th nowrap width="35%">コース</th>
+                      <th nowrap width="6%">専<br>併</th>
+                      <th nowrap width="6%">事<br>前</th>
+                      <th nowrap width="35%">補完コース</th>
+                      <th nowrap width="9%">専願<br>判定</th>
+                      <th nowrap width="9%">併願<br>判定</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff">{val data/TOTALCD}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/S_NAME}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/H_NAME}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/CMP_TOTALCD}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/S_JUDGE_NAME}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/H_JUDGE_NAME}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">
+<!--{def reload}-->
+<!--{each reload}-->
+{rval reload}
+<!--{/each}-->
+<!--{/def}-->
+</script>

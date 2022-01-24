@@ -1,0 +1,174 @@
+<!--kanji=漢字-->
+
+{rval start}
+<!-- *********************************************************************************************************** -->
+<script language="JavaScript">
+{rval check2}
+</script>
+<table width="98%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" >
+                    <tr class="no_search"> 
+                    <td align="left">
+                    {rval button/btn_cancel}
+                    </td>
+                    <td align="right">
+                    {rval button/btn_add}{rval button/btn_update}{rval button/btn_del}
+                    {rval button/btn_reset}{rval button/btn_end}
+                    </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+     </td>
+  </tr>
+</table>
+<!-- *********************************************************************************************************** -->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line" >
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr bgcolor="#CCFFCC">
+                      <th width="10%" nowrap><font color="#336666">申請年月日</font></th>
+                      <td width="25%" bgcolor="#ffffff">&nbsp;{rval data/TK_DATE}</td>
+                      <th width="15%" ><font color="#336666">発行番号</font></th>
+                      <td width="15%" bgcolor="#ffffff" nowrap>&nbsp;&nbsp;{rval data/REMARK1}&nbsp;<span id="DISP_CERTIF_NO"><font color="black">{rval data/DISP_CERTIF_NO}</font></span></td>
+                      <th width="15%" ><font color="#336666">卒業年月日</font></th>
+                      <td width="20%" bgcolor="#ffffff">&nbsp;&nbsp;{rval data/SOTUGYOU}</td>
+                    </tr>
+                    <tr bgcolor="#CCFFCC">
+                      <th width="10%" ><font color="#336666">学籍番号</font></th>
+                      <td align="left" width="*%" bgcolor="#ffffff"colspan="3">&nbsp;{rval data/SCHREGNO}</font>
+                      &nbsp;&nbsp;{rval button/btn_input}
+                      &nbsp;&nbsp;{rval button/btn_zaigaku}
+                      &nbsp;&nbsp;{rval button/btn_sotugyou}</td>
+                      <th width="15%" ><font color="#336666">生年月日</font></th>
+                      <td width="15%" bgcolor="#ffffff">&nbsp;&nbsp;{rval data/BN_DATE}</td>
+                    </tr>
+                    <tr bgcolor="#CCFFCC">
+                      <th width="10%"><font color="#336666">氏　　名</font></th>
+                      <td width="25%" bgcolor="#ffffff">&nbsp;{rval data/NAME}</td>
+                      <th width="15%"><font color="#336666">年　　組</font></th>
+                      <td width="15%" bgcolor="#ffffff">&nbsp;{rval data/HR_CLASS}</td>
+                      <th width="15%"><font color="#336666">学級担任</font></th>
+                      <td width="20%"  bgcolor="#ffffff">&nbsp;{rval data/HR_TEARCH}</td>
+                    </tr>
+                    <tr bgcolor="#CCFFCC">
+                      <th width="10%"><font color="#336666">証明書種類</font></th>
+                      <td width="25%" bgcolor="#ffffff">&nbsp;{rval data/CERTIF_KD}</font></td>
+                      <th width="15%" ><font color="#336666">課　　程</font></th>
+                      <td width="15%" bgcolor="#ffffff">&nbsp;{rval data/KATEI}</td>
+                      <th width="15%" ><font color="#336666">学　　科</font></th>
+                      <td width="20%"  bgcolor="#ffffff">&nbsp;{rval data/GAKKA}</td>
+                    </tr>
+<!--{def showPrice}-->
+                    <tr bgcolor="#CCFFCC">
+                      <th width="10%"><font color="#336666">発行手数料</font></th>
+                      <td width="25%" bgcolor="#ffffff" style="text-align:center;"><span id="PRICE"></span></td>
+                      <td width="65%" bgcolor="#ffffff" colspan="4"></td>
+                    </tr>
+                  </table>
+<!--{/def}-->
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr bgcolor="#CCFFCC">
+                        <th align="right" width="100%" colspan="6"><font color="#336666">印刷パラメータ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/ENT_GRD_DATE_FORMAT}<LABEL for="ENT_GRD_DATE_FORMAT">{rval sotsugyo}日付は年月で表示する({rval sotsugyo}証明書のみ)</LABEL>&nbsp;&nbsp;&nbsp;
+<!--{def form_select}-->
+                                フォーム選択({rval data/FORM6_KIND}のみ)：{rval data/FORM6}<LABEL for="FORM6">{rval data/FORM6NAME}</LABEL>
+<!--{/def}-->
+<!--{def no_form_select}-->
+                                　　　　　　　　　　　　　　　　　　　　　　　　　　　　　&nbsp;
+<!--{/def}-->
+                        </th>
+                    </tr>
+                    <tr bgcolor="#CCFFCC">
+                      <th width="12%"><font color="#336666">記載責任者</font></th>
+                      <td width="22%" bgcolor="#ffffff">{rval data/KISAI_SEKI}</td>
+<!--{def notKindai}-->
+                      <th width="12%"><font color="#336666"><font size="2">履修のみ科目<BR>出力<BR>(調査書のみ)</font></th>
+                      <td width="21%" bgcolor="#ffffff">{rval data/RISYU1}<LABEL for="RISYU1">する</LABEL>&nbsp;{rval data/RISYU2}<LABEL for="RISYU2">しない</LABEL></td>
+<!--{/def}-->
+<!--{def Kindai}-->
+                      <td width="33%" bgcolor="#ffffff" colspan="2"></td>
+<!--{/def}-->
+                      <th width="12%"><font color="#336666">漢字出力<BR>(調査書のみ)</font></th>
+                      <td width="21%" bgcolor="#ffffff">{rval data/KJ_OUT1}<LABEL for="KJ_OUT1">する</LABEL>&nbsp;{rval data/KJ_OUT2}<LABEL for="KJ_OUT2">しない</LABEL></td>
+                    </tr>
+                    <tr bgcolor="#CCFFCC">
+                      <th width="12%"><font color="#336666">発行日付</font></th>
+                      <td width="22%" bgcolor="#ffffff">{rval data/PR_DATE}</td>
+                      <th width="12%"><font color="#336666">学習成績概評<BR>(調査書のみ)</font></th>
+                      <td width="21%" bgcolor="#ffffff">{rval data/GAIHYOU}<LABEL for="GAIHYOU">学年人数を印刷する</LABEL></td>
+<!--{def notKindai}-->
+                      <th width="12%"><font color="#336666">未履修科目出力<BR>(調査書のみ)</font></th>
+                      <td width="21%" bgcolor="#ffffff">{rval data/MIRISYU1}<LABEL for="MIRISYU1">する</LABEL>&nbsp;{rval data/MIRISYU2}<LABEL for="MIRISYU2">しない</LABEL></td>
+<!--{/def}-->
+<!--{def Kindai}-->
+                      <td width="33%" bgcolor="#ffffff" colspan="2"></td>
+<!--{/def}-->
+                    </tr>
+                    <tr bgcolor="#CCFFCC">
+                      <th width="12%"><font color="#336666">住所<BR>(調査書のみ)</font></th>
+                      <td width="21%" bgcolor="#ffffff">{rval data/SONOTAJUUSYO}<LABEL for="SONOTAJUUSYO">その他住所を優先する</LABEL></td>
+                      <th width="12%"><font color="#336666">出欠日数<BR>(調査書のみ)</font></th>
+                      <td width="21%" bgcolor="#ffffff">{rval data/tyousasyoNotPrintAnotherAttendrec}<LABEL for="tyousasyoNotPrintAnotherAttendrec">前籍校を含まない</LABEL></td>
+<!--{def showHyoteiYomikae}-->
+                      <th width="12%"><font color="#336666">{rval data/HYOUTEI_TITLE}</font></th>
+                      <td width="21%" bgcolor="#ffffff">{rval data/HYOUTEI}
+<!--{/def}-->
+                    </tr>
+
+<!--{def data/OPTS}-->
+<!--{each data/OPTS}-->
+    <tr bgcolor="#CCFFCC">
+        <th width="12%" >{rval data/OPTS/TEXT1}</th>
+        <td width="21%" bgcolor="#ffffff">{rval data/OPTS/VAL1}</td>
+
+        <!--{def data/OPTS/TEXT2}-->
+            <th width="12%" >{rval data/OPTS/TEXT2}</th>
+            <td width="21%" bgcolor="#ffffff">{rval data/OPTS/VAL2}</td>
+        <!--{/def}-->
+
+        <!--{def data/OPTS/TEXT3}-->
+            <th width="12%" >{rval data/OPTS/TEXT3}</th>
+            <td width="21%" bgcolor="#ffffff">{rval data/OPTS/VAL3}</td>
+        <!--{/def}-->
+
+        <!--{def data/OPTS/rest1Col}-->
+            <td width="*" bgcolor="#ffffff" colspan="{rval data/OPTS/rest1Col}"></td>
+        <!--{/def}-->
+    </tr>
+
+<!--{/each}-->
+<!--{/def}-->
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">
+{rval reload}
+</script>

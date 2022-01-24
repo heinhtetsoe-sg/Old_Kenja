@@ -1,0 +1,53 @@
+<style>
+<!--
+#foldinglist{list-style-image:url('{rval REQUESTROOT}/image/system/site1.gif')}
+//-->
+</style>
+<script language="JavaScript">
+<!--
+function initialize() {
+    document.forms[0].cmd.value = 'tree';
+    document.forms[0].submit();
+    return false;
+}
+//-->
+</script>
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+  <td bgcolor="#006633">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr bgcolor="#006633">
+        <td>
+          <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr bgcolor="#cccccc">
+            <td align="center" nowrap>{rval root}</td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+  <!--{def tree}-->
+  <tr>
+  <td valign="top">
+    <ul id="foldinglist" >
+    <!--{each tree}-->
+      <li>{rval tree}</li>
+    <!--{/each}-->
+    </ul>
+  </td>
+  </tr>
+  <!--{/def}-->
+</table>
+{rval finish}
+<script language="JavaScript">
+{val reload}
+</script>

@@ -1,0 +1,189 @@
+{rval start}
+
+<style>
+#all {
+	position:relative;
+	width:100%;
+	height:75%;
+}
+#header_x {
+    width:300px;
+    position:absolute;
+    left:20px;
+    top:0px;
+    height:40px;
+    border-collapse:collapse;
+}
+#header_x th {
+    border: 1px solid #000000;
+    width:85px;
+}
+#right_header {
+   position: absolute;
+   left:320px;
+   top:0px;
+   width:1283px;    /*表示部分の幅*/
+   overflow-x:hidden;
+   overflow-y:hidden;
+   }
+#left_body {
+   position: absolute;
+   left:20px;
+   top:40px;
+   width:300px;
+   height:600px;    /*表示部分の高さ*/
+   overflow-x:hidden;
+   overflow-y:hidden;
+   }
+#right_body {
+   position: absolute;
+   left:320px;
+   top:40px;
+   overflow-x:scroll;
+   overflow-y:scroll;
+   width:1300px;    /*表示部分の幅【スクロール部分込み】*/
+   height:617px;    /*表示部分の高さ【スクロール込み】*/
+   }
+#holizon {
+    width:200%; /*ここでtdの幅が調整される*/
+}
+
+table.right_h {
+    height:40px;
+    border-collapse:collapse;
+    text-align: center;
+}
+table.right_h th {
+    border: 1px solid #000000;
+    width: 114px;
+}
+table.right_b {
+    border-collapse:collapse;
+    text-align: center;
+}
+table.right_b td {
+    border: 1px solid #000000;
+    width: 114px;
+    background: #ffffff;
+    height:30px;
+}
+table.left_b {
+    border-collapse:collapse;
+    text-align: center;
+    width:100%;
+}
+table.left_b td {
+    border: 1px solid #000000;
+    width: 85px;
+    background: #ffffff;
+    height:30px;
+}
+
+a {
+    text-decoration: underline;
+}
+a:hover {
+    font-weight: normal;
+}
+a.choice {
+    font-weight: bold;
+    text-decoration: none;
+}
+</style>
+
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top" align="center">
+      <table width="60%" border="0" cellspacing="5" cellpadding="1">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="0" width="100%">
+              <tr class="no_search">
+                <td nowrap align="center">賢者+V　会員割り当て確認　　　　　　{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      
+      <table width="50%" border="0" cellspacing="5" cellpadding="0" align="center">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap align="center" class="no_search">表示対象</th>
+                <td nowrap bgcolor="#ffffff" width="300">{rval KUBUN}</td>
+                <th nowrap align="center" class="no_search">リンク状態</th>
+                <td nowrap bgcolor="#ffffff" width="300">{rval LINK}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <table width="30%" border="0" cellspacing="5" cellpadding="0" align="center">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap align="center" class="no_search">会員数</th>
+                <td nowrap bgcolor="#ffffff" width="300">&nbsp;{rval MEMBERCNT}</td>
+              </tr>
+              <tr>
+                <th nowrap align="center" class="no_search">リンク済</th>
+                <td nowrap bgcolor="#ffffff" width="300">&nbsp;{rval LINKCNT}</td>
+              </tr>
+              <tr>
+                <th nowrap align="center" class="no_search">リンク未</th>
+                <td nowrap bgcolor="#ffffff" width="300">&nbsp;{rval NOTLINKCNT}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      
+
+<!--{def HYOUZI}-->
+
+      <table width="60%" border="0" cellspacing="5" cellpadding="0" align="center">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap align="center" class="no_search">{rval TH_KNJID}</th>
+                <th nowrap align="center" class="no_search">ログインID</th>
+                <th nowrap align="center" class="no_search">初期パスワード</th>
+                <th nowrap align="center" class="no_search">有効／無効</th>
+                <th nowrap align="center" class="no_search">開始日</th>
+                <th nowrap align="center" class="no_search">終了日</th>
+                <th nowrap align="center" class="no_search">{rval TH_SCHEST}</th>
+                <th nowrap align="center" class="no_search">{rval TH_GRADE}</th>
+                <th nowrap align="center" class="no_search">氏名</th>
+              </tr>
+              <!--{each data}-->
+              <tr>
+                <td nowrap align="right" bgcolor="#ffffff">{rval data/KNJID}</td>
+                <td nowrap align="right" bgcolor="#ffffff">{rval data/LOGINID}</td>
+                <td nowrap align="right" bgcolor="#ffffff">{rval data/INITIAL_PASS}</td>
+                <td nowrap align="center" bgcolor="#ffffff">{rval data/USEFLG}</td>
+                <td nowrap align="center" bgcolor="#ffffff">{rval data/START_DATE}</td>
+                <td nowrap align="center" bgcolor="#ffffff">{rval data/END_DATE}</td>
+                <td nowrap align="right" bgcolor="#ffffff" style="min-width:100px;">{rval data/SCHREG_STAFFCD}</td>
+                <td nowrap align="center" bgcolor="#ffffff" style="min-width:60px;">{rval data/GRADE}</td>
+                <td nowrap align="left" bgcolor="#ffffff" style="min-width:90px;">{rval data/NAME}</td>
+              </tr>
+              <!--{/each}-->
+              
+            </table>
+          </td>
+        </tr>
+      </table>
+
+<!--{/def}-->
+      </td>
+   </tr>
+</table>
+
+
+{rval finish}

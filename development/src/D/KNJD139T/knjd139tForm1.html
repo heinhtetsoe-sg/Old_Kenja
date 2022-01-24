@@ -1,0 +1,73 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+          <hr width="60%" align="left">
+                &nbsp;{rval SCHREGNO}&nbsp;&nbsp;{val NAME}
+          <hr width="60%" align="left">
+          <br>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>&nbsp;学期：{rval data/SEMESTER}</td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="150" colspan="2" align="center">項 目</th>
+                      <th>値</th>
+                    </tr>
+                    <tr>
+                      <th class="no_search" colspan="2" align="right" nowrap>出欠の様子備考</th>
+                      <td bgcolor="#ffffff">
+                        &nbsp;&nbsp;{rval data/ATTENDREC_REMARK}<br>
+                        &nbsp;&nbsp;<font size=2, color="red">{rval data/ATTENDREC_REMARK_COMMENT}</font>
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <th class="no_search" rowspan="2">生<br>活<br>の<br>よ<br>う<br>す</th>
+                      <th class="no_search" align="right" nowrap>特別活動・係</th>
+                      <td bgcolor="#ffffff">
+                        &nbsp;&nbsp;{rval data/SPECIALACTREMARK}<br>
+                        &nbsp;&nbsp;<font size=2, color="red">{rval data/SPECIALACTREMARK_COMMENT}</font><br>
+                        &nbsp;&nbsp;{rval button/btn_committee}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" nowrap>フィールドワーク等</th>
+                      <td bgcolor="#ffffff">
+                        &nbsp;&nbsp;{rval data/REMARK1}<br>
+                        &nbsp;&nbsp;<font size=2, color="red">{rval data/REMARK1_COMMENT}</font>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" align="right" colspan="2"></th>
+                      <td bgcolor="#ffffff">&nbsp;&nbsp;{rval button/btn_update}{rval button/btn_up_pre}&nbsp;&nbsp;{rval button/btn_up_next}&nbsp;&nbsp;{rval button/btn_reset}&nbsp;&nbsp;{rval button/btn_end}
+                      <br>&nbsp;&nbsp;{rval button/btn_csv}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval reload}{rval next}</script>
+<!--{/def}-->

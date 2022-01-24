@@ -1,0 +1,186 @@
+<style type="text/css"><!-- A:hover {
+COLOR: #8000e2; BACKGROUND-COLOR: #ccffcc; TEXT-DECORATION: none
+}
+A {
+TEXT-DECORATION: underline
+}
+ --></style>
+<base target="{rval target}">
+<style>
+<!--
+#foldheader{cursor:pointer;cursor:hand ; font-weight:normal ;
+list-style-image:url('{rval REQUESTROOT}/image/system/nav_closed.gif')}
+#foldinglist{list-style-image:url('{rval REQUESTROOT}/image/system/site1.gif')}
+//-->
+</style>
+<script language="JavaScript1.2">
+<!--
+function btn_submit(cmd) {
+    document.forms[0].cmd.value = cmd;
+    document.forms[0].submit();
+    parent.right_frame.document.forms[0].cmd.value = 'init';
+    parent.right_frame.document.forms[0].submit();
+    return false;
+}
+
+//Smart Folding Menu tree- By Dynamic Drive (rewritten 03/03/02)     //For full source code and more DHTML scripts, visit http://www.dynamicdrive.com     //This credit MUST stay intact for use
+
+var head="display:''"
+img1=new Image()
+img1.src="{rval REQUESTROOT}/image/system/nav_closed.gif"
+img2=new Image()
+img2.src="{rval REQUESTROOT}/image/system/nav_open1.gif"
+
+var ns6=document.getElementById&&!document.all
+var ie4=document.all&&navigator.userAgent.indexOf("Opera")==-1
+
+function checkcontained(e){
+var iscontained=0
+cur=ns6? e.target : event.srcElement
+i=0
+if (cur.id=="foldheader")
+iscontained=1
+else
+while (ns6&&cur.parentNode||(ie4&&cur.parentElement)){
+if (cur.id=="foldheader"||cur.id=="foldinglist"){
+iscontained=(cur.id=="foldheader")? 1 : 0
+break
+}
+cur=ns6? cur.parentNode : cur.parentElement
+}
+
+if (iscontained){
+var foldercontent=ns6? cur.nextSibling.nextSibling : cur.all.tags("UL")[0]
+if (foldercontent.style.display=="none"){
+foldercontent.style.display=""
+cur.style.listStyleImage="url({rval REQUESTROOT}/image/system/nav_open1.gif)"
+}
+else{
+foldercontent.style.display="none"
+cur.style.listStyleImage="url({rval REQUESTROOT}/image/system/nav_closed.gif)"
+}
+}
+}
+
+if (ie4||ns6)
+document.onclick=checkcontained
+
+//-->
+</script>
+{rval start}
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+  <td nowrap>
+    <table width="100%" border="0" cellspacing="0" cellpadding="1">
+    <tr class="no_search_line">
+      <td nowrap>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr class="no_search">
+        <td align="left" nowrap>　　　{rval SEMESTER}</td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+  <tr>
+  <td valign="top" nowrap>{rval TREE}</td>
+  </tr>
+</table>
+<!--{def TREE}-->
+<script language="JavaScript1.2">
+<!--
+/*
+var cookie_name;
+cookie_name = 'cookie';
+
+function get_cookie(Name) {
+//Get cookie routine by Shelley Powers
+  var search = Name + "="
+  var returnvalue = "";
+  if (document.cookie.length > 0) {
+    offset = document.cookie.indexOf(search)
+    // if cookie exists
+    if (offset != -1) {
+      offset += search.length
+      // set index of beginning of value
+      end = document.cookie.indexOf(";", offset);
+      // set index of end of cookie value
+      if (end == -1) end = document.cookie.length;
+      returnvalue=unescape(document.cookie.substring(offset, end))
+      }
+   }
+   return returnvalue;
+}
+
+var foldercontentarray=new Array()
+var c=0
+
+if (ns6){
+for (i=0;i<document.getElementsByTagName("UL").length;i++){
+if (document.getElementsByTagName("UL")[i].id=="foldinglist"){
+foldercontentarray[c]=document.getElementsByTagName("UL")[i]
+c++
+}
+}
+}
+
+if (get_cookie(cookie_name) != ''){
+  var openresults=get_cookie(cookie_name).split(" ")
+  for (i=0 ; i < openresults.length ; i++){
+    if (ns6){
+    if (foldercontentarray.length <= openresults[i]) break;
+    foldercontentarray[openresults[i]].style.display=''
+    foldercontentarray[openresults[i]].previousSibling.previousSibling.style.listStyleImage="url({rval REQUESTROOT}/image/system/nav_open1.gif)"
+    }
+    else{
+    if (foldinglist.length <= openresults[i]) break;
+    foldinglist[openresults[i]].style.display=''
+    document.all[foldinglist[openresults[i]].sourceIndex -1].style.listStyleImage="url({rval REQUESTROOT}/image/system/nav_open1.gif)"
+    }
+  }
+}
+
+if (ns6||ie4){
+var nodelength=ns6? c-1 : foldinglist.length-1
+if (!isNaN(nodelength)){
+  var nodes=new Array(nodelength)
+}
+var openones=''
+}
+
+function checkit(){
+  for (i=0 ; i <= nodelength ; i++){
+    if ((ns6&&foldercontentarray[i].style.display=='')||(ie4&&foldinglist[i].style.display==''))
+       openones=openones + " " + i
+  }
+//  document.cookie=window.location.pathname+"="+openones
+    document.cookie=cookie_name+"="+openones
+}
+if (ns6||ie4){
+  window.onunload=checkit
+}
+*/
+//-->
+</script>
+<!--{/def}-->
+{rval finish}
+<script language="JavaScript">
+function is_opener() {
+
+    var ua = navigator.userAgent
+    if(!!top.window.opener)
+        if( ua.indexOf('MSIE 4')!=-1 && ua.indexOf('Win')!=-1)
+             return !top.window.opener.closed
+        else return typeof top.window.opener.document  == 'object'
+    else return false
+
+}
+function observeDisp(){
+    if (!is_opener()){
+        top.window.close();
+    }
+}
+//setInterval('observeDisp()',5000);
+</script>

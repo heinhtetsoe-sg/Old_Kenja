@@ -1,0 +1,174 @@
+﻿{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="150" nowrap bgcolor="#ADFF2F" align="center">
+            <b><font size="3" color="#006400">A&nbsp;アセスメント表</font><font size="2" color="#006400"><BR>{rval TITLE}</font></b>
+          </td>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+<!--{def CHECK_HYOUJI}-->
+  <tr>
+    <td width="100%" valign="top">
+    {rval button/btn_torikomi}{rval button/btn_back}<font>　作成年月日:</font>{rval data/SPACE}{rval data/WRITING_DATE}
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="80">項目</th>
+              <th width="150">検査機関</th>
+              <th width="*">内容</th>
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <div style="width: 100%; height=120; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def data2}-->
+                <!--{each data2}-->
+                  <tr bgcolor="#ffffff">
+                    <th width="80" align="left"><a href="knje390nindex.php?cmd={val data2/SET_CMD}&YEAR={val data2/YEAR}&SCHREGNO={val data2/SCHREGNO}&RECORD_SEQ={val data2/RECORD_SEQ}">{rval data2/RECORD_DIV_NAME}</a></th>
+                    <td width="150" align="left">{rval data2/CENTER_NAME}</td>
+                    <td width="*" align="left">検査日:{rval data2/CHECK_DATE}　検査名:{rval data2/CHECK_NAME}　検査者:{rval data2/CHECKER}</td>
+                  </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+        
+        <tr><td height="20"></td></tr>
+
+<!--{def data}-->
+<!--{def button}-->
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>検査日</th>
+                <td bgcolor="#ffffff">{rval data/CHECK_DATE}</td>
+              </tr>
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>検査機関</th>
+                <td bgcolor="#ffffff">{rval data/CENTERCD}</td>
+              </tr>
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>検査名</th>
+                <td bgcolor="#ffffff">{rval data/CHECK_NAME}</td>
+              </tr>
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>検査者</th>
+                <td bgcolor="#ffffff">{rval data/CHECKER}</td>
+              </tr>
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>検査結果<BR>所見等</th>
+                <td bgcolor="#ffffff">{rval data/CHECK_REMARK}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td width="100%" valign="top">
+          <BR>{rval button/btn_torikomi}{rval button/btn_back}
+         </td>
+        </tr>
+<!--{/def}-->
+<!--{/def}-->
+      </table>
+    </td>
+  </tr>
+<!--{/def}-->
+
+<!--{def GROWUP_HYOUJI}-->
+  <tr>
+    <td width="100%" valign="top">
+    {rval button/btn_back}<font>　作成年月日:</font>{rval data/SPACE}{rval data/WRITING_DATE}
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <div style="width: 100%; height=400; overflow: auto">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<!--{def data}-->
+<!--{def button}-->
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>概要</th>
+                <td bgcolor="#ffffff">{rval data/SUMMARY_GROWUP}</td>
+              </tr>
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>基本的生活習慣身辺自立</th>
+                <td bgcolor="#ffffff">{rval data/LIFESTYLE_GROWUP}</td>
+              </tr>
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>行動・社会性</th>
+                <td bgcolor="#ffffff">{rval data/SOCIALITY_GROWUP}</td>
+              </tr>
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>言語コミュニケーション</th>
+                <td bgcolor="#ffffff">{rval data/COMMUNICATION_GROWUP}</td>
+              </tr>
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>身体・運動</th>
+                <td bgcolor="#ffffff">{rval data/PHYSICAL_ACTIVITY_GROWUP}</td>
+              </tr>
+              
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>学習</th>
+                <td bgcolor="#ffffff">{rval data/STUDY_GROWUP}</td>
+              </tr>
+              <tr>
+                <th width="90" align="right" class="no_search" nowrap>興味・強み</th>
+                <td bgcolor="#ffffff">{rval data/INTERESTING_GROWUP}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td width="100%" valign="top">
+          <BR>{rval button/btn_back}
+         </td>
+        </tr>
+<!--{/def}-->
+<!--{/def}-->
+      </table>
+      </div>
+    </td>
+  </tr>
+<!--{/def}-->
+</table>
+{rval finish} 

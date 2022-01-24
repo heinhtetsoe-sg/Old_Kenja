@@ -1,0 +1,136 @@
+{rval IFRAME}
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                <hr width="50%" align="left">
+                    &nbsp;{rval NAME_SHOW}
+                <hr width="50%" align="left">
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">　学期：{rval data/SEMESTER}
+            <table width="600" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                    <tr class="no_search" height="30">
+                      <th width="150" colspan="2">項目</th>
+                      <th width="*">値</th>
+                    </tr>
+                    <tr align="center">
+                      <td class="no_search" rowspan="2">総<br>合<br>的<br>な<br>学<br>習<br>の<br>時<br>間</td>
+                      <td class="no_search" align="center" nowrap>目標</td>
+                      <td bgcolor="#ffffff" align="left" valign="top">
+                        &nbsp;{rval TOTALSTUDYTIME}<br>
+                        &nbsp;{rval TOTALSTUDYTIME_COMMENT}<br>
+                        &nbsp;{rval button/btn_totalStudy}
+                      </td>
+                    </tr>
+                    <!--{def no_semester9}-->
+                    <tr align="center">
+                      <td class="no_search" colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                                <tr class="no_search">
+                                  <th colspan="2" height="30" nowrap>観点　<font size=2>{rval TEXT_TITLE1}</font></th>
+                                </tr>
+                                <!--{each kanten}-->
+                                <tr align="center" height="30">
+                                  <th width="*" align="left" class="no_search" nowrap>{rval kanten/LABEL}</th>
+                                  <td width="50" bgcolor="#ffffff">{rval kanten/REMARK1}</td>
+                                </tr>
+                                <!--{/each}-->
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{def semester9}-->
+                    <tr align="center">
+                      <td class="no_search" align="center" nowrap>評価</td>
+                      <td bgcolor="#ffffff" align="left" valign="top">
+                        &nbsp;{rval REMARK4_07_00}<br>
+                        &nbsp;{rval REMARK4_07_00_COMMENT}
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">
+            <table width="600" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search">
+                      <th colspan="2" nowrap>生活および行動の記録　<font size=2>{rval TEXT_TITLE2}</font></th>
+                    </tr>
+                    <!--{each behav}-->
+                    <tr align="center" height="30">
+                      <th width="*" align="left" class="no_search" nowrap>{rval behav/CODENAME}</th>
+                      <td width="50" bgcolor="#ffffff">{rval behav/RECORD}</td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="600" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr align="center">
+                      <td class="no_search" align="center" nowrap>出欠の備考</td>
+                      <td bgcolor="#ffffff" align="left" valign="top">
+                        &nbsp;{rval ATTENDREC_REMARK}<br>
+                        &nbsp;{rval ATTENDREC_REMARK_COMMENT}<br>
+                        &nbsp;{rval button/btn_attendRemark}
+                      </td>
+                    </tr>
+                    <tr align="center">
+                      <td class="no_search" align="center" nowrap>所見</td>
+                      <td bgcolor="#ffffff" align="left" valign="top">
+                        &nbsp;{rval COMMUNICATION}<br>
+                        &nbsp;{rval COMMUNICATION_COMMENT}<br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="no_search" colspan="2" align="right" nowrap>
+                        {rval button/ikkatsu}{rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_back}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+{rval javascript}
+<script language="javascript">{rval reload}{rval next}</script>

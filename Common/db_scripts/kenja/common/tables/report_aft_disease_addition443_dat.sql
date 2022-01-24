@@ -1,0 +1,16 @@
+-- kanji=´Á»ú
+-- $Id: abbea4414c78f7aa79411fcc432e4533da534e3c $
+
+DROP TABLE REPORT_AFT_DISEASE_ADDITION443_DAT
+
+CREATE TABLE REPORT_AFT_DISEASE_ADDITION443_DAT \
+      (EDBOARD_SCHOOLCD     VARCHAR(12) NOT NULL, \
+       YEAR                 VARCHAR(4)  NOT NULL, \
+       EXECUTE_DATE         DATE        NOT NULL, \
+       FIXED_DATE           DATE, \
+       REGISTERCD           VARCHAR(10), \
+       UPDATED      TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+      ) in usr1dms index in idx1dms
+
+alter table REPORT_AFT_DISEASE_ADDITION443_DAT add constraint PK_REP_AFT_D_443 \
+primary key (EDBOARD_SCHOOLCD, YEAR, EXECUTE_DATE)

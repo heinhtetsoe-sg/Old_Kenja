@@ -1,0 +1,100 @@
+<?php
+
+require_once('for_php7.php');
+
+
+class knjx250Form1
+{
+    function main(&$model){
+
+        $objForm = new form;
+        //フォーム作成
+
+        //ファイルからの取り込み
+        $arg["up"]["FILE"] = knjCreateFile($objForm, "FILE", "", 10240000);
+
+        //アップロード先選択
+        $opt = array(1, 2, 3);
+        $model->field["UPLOAD_DIV"] = ($model->field["UPLOAD_DIV"] == "") ? "1" : $model->field["UPLOAD_DIV"];
+        $extra = array("id=\"UPLOAD_DIV1\"", "id=\"UPLOAD_DIV2\"", "id=\"UPLOAD_DIV3\"");
+        $radioArray = knjCreateRadio($objForm, "UPLOAD_DIV", $model->field["UPLOAD_DIV"], $extra, $opt, get_count($opt));
+        foreach($radioArray as $key => $val) $arg["radio"][$key] = $val;
+
+        //移動後のファイルパス単位
+        $dataDir = DOCUMENTROOT ."/receive_send/";
+        $aa = opendir($dataDir);
+        while (false !== ($filename = readdir($aa))) {
+            $bb = str_replace("src", "", DOCUMENTROOT);
+            $bb = str_replace("/usr/local", "", $bb);
+            $filedir = $bb."receive_send/".$filename;
+            $info = pathinfo($filedir);
+            $setFilename = mb_convert_encoding($filename,"UTF-8", "SJIS-win");
+            $setFiles = array();
+            //拡張子
+            if ($info["extension"] == "jpg" ||
+                $info["extension"] == "bmp" ||
+                $info["extension"] == "pdf" ||
+                $info["extension"] == "xls" ||
+                $info["extension"] == "xlsx" ||
+                $info["extension"] == "doc" ||
+                $info["extension"] == "ppt" ||
+                $info["extension"] == "zip" ||
+                $info["extension"] == "lzh" ||
+                $info["extension"] == "csv" ||
+                $info["extension"] == "txt"
+            ) {
+                $setFiles["DOWNLOAD_FILE_NAME2"] = $setFilename;
+                $setFiles["DOWNLOAD_FILE_TYPE2"] = $info["extension"];
+                $arg["data"][] = $setFiles;
+            }
+            if ($info["extension"] == "jpg" ||
+                $info["extension"] == "bmp"
+            ) {
+                $setFiles["DOWNLOAD_FILE_NAME"] = $setFilename;
+                $setFiles["DOWNLOAD_DATA"] = $filedir;
+                $arg["data2"][] = $setFiles;
+            }
+        }
+        closedir($aa);
+
+        //textbox
+        $extra = "";
+        $arg["ZIP_PASS"] = knjCreateTextBox($objForm, $model->zipPass, "ZIP_PASS", 50, 100, $extra);
+
+        makeBtn($objForm, $arg);
+
+        //hiddenを作成する
+        makeHidden($objForm);
+
+        $arg["start"]   = $objForm->get_start("knjx250Form1", "POST", "knjx250index.php", "", "knjx250Form1");
+        $arg["finish"]  = $objForm->get_finish();
+        //テンプレートのHTMLを読み込んでデータを$arg経由で渡す。 
+        View::toHTML($model, "knjx250Form1.html", $arg); 
+    }
+}
+
+//ボタン作成
+function makeBtn(&$objForm, &$arg)
+{
+    //実行
+    $extra = "onclick=\"return btn_submit('execute');\"";
+    $arg["button"]["BTN_OK"] = knjCreateBtn($objForm, "btn_ok", "実 行", $extra);
+    //ダウンロード
+    $extra = "onclick=\"return btn_submit('csvGet');\"";
+    $arg["button"]["btn_csvGet"] = knjCreateBtn($objForm, "btn_csvGet", "ダウンロード", $extra);
+    //削除
+    $extra = "onclick=\"return btn_submit('del');\"";
+    $arg["button"]["btn_delete"] = knjCreateBtn($objForm, "btn_delete", "削 除", $extra);
+    //終了
+    $arg["button"]["btn_end"] = knjCreateBtn($objForm, "btn_end", "終 了", "onclick=\"closeWin();\"");
+}
+
+//Hidden作成
+function makeHidden(&$objForm)
+{
+    knjCreateHidden($objForm, "cmd");
+    knjCreateHidden($objForm, "DBNAME", DB_DATABASE);
+    knjCreateHidden($objForm, "PRGID", "KNJX250");
+}
+
+?>

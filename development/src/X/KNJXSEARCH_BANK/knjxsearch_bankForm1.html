@@ -1,0 +1,59 @@
+{rval start}
+<table width="100%" border="0" cellspacing="5" cellpadding="1">
+ <tr bgcolor="#006633">
+   <td nowrap>
+     <table border="0" cellpadding="3" cellspacing="0" width="100%">
+       <tr bgcolor="#cccccc">
+         <td nowrap>{rval EXP_YEAR}</td>
+       </tr>
+       <tr bgcolor="#cccccc">
+         <td nowrap>&nbsp;年組：{rval GRADE}<span style="margin-left:10px;">{rval SEARCH_BTN}</span></td>
+       </tr>
+       <tr bgcolor="#cccccc">
+         <td nowrap>&nbsp;{rval RESULT}</td>
+       </tr>
+     </table>
+   </td>
+ </tr>
+</table>
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="70">年-組-番</th>
+                      <th nowrap width="150">氏名</th>
+                      <th nowrap width="150">氏名かな</th>
+                      <th nowrap width="50">学籍<BR>番号</th>
+                      <th nowrap width="50">卒業<BR>年度</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td nowrap align="center">{val data/ATTENDNO}</td>
+                      <td nowrap><img src="{val data/IMAGE}" width="16" height="16">&nbsp;{val data/NAME_SHOW}</td>
+                      <td nowrap align="center">{val data/NAME_KANA}</td>
+                      <td nowrap align="center">{val data/SCHREGNO}</td>
+                      <td nowrap align="center" >{val data/GRD_YEAR}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="javascript">{rval reload}{rval jscript}{rval search_result}</script>

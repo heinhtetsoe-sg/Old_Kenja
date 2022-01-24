@@ -1,0 +1,105 @@
+{rval start}
+
+<BR><BR>
+
+<table width="700" border="0" cellpadding="0" cellspacing="10" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="center" class="no_search" height="25">
+                <th colspan="2">予算作成</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="1" >
+        <tr class="no_search_line">
+          <th>
+            <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#cccccc">
+              <tr>
+                <td class="no_search">&nbsp;校種:{rval data/SCHOOL_KIND}</td>
+                <td class="no_search">{rval YEAR}</td>
+                <td class="no_search">預り金科目:{rval data/LEVY_L_CD}</td>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="center" class="no_search" height="25">
+                <th width="*" rowspan="2">支出項目</th>
+                <th width="100">{rval YEAR}</th>
+                <th width="100" colspan="2">{rval LAST_YEAR}</th>
+              </tr>
+              <tr align="center" class="no_search" height="25">
+                <th width="100">予算額</th>
+                <th width="100">予算額</th>
+                <th width="100">実績額</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div style="width:100%; height:440; overflow:auto">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <!--結果一覧-->
+                    <!--{def data2}-->
+                    <!--{each data2}-->
+                    <tr bgcolor="#ffffff">
+                      <td width="*" align="left">{rval data2/LEVY_M_NAME}</td>
+                      <td width="100" align="right">{rval data2/BUDGET_MONEY}</td>
+                      <td width="100" align="right">{rval data2/LASTYEAR_BUDGET}</td>
+                      <td width="100" align="right">{rval data2/LASTYEAR_SCH_PRICE}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <td align="right" bgcolor="#ffffff">{rval button/btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<script language="JavaScript">{rval closeCheck}</script>
+{rval finish}

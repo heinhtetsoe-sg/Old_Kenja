@@ -1,0 +1,130 @@
+{rval start}
+
+<BR><BR>
+
+<table width="85%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <!--{def button}-->
+  <!--{def data}-->
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="center" class="no_search" height="25">
+                <th colspan="2">購入伺　伝票検索</th>
+              </tr>
+              <!--{def schkind}-->
+              <tr>
+                <th align="right" class="no_search" width="20%">校種</th>
+                <td align="left" bgcolor="#ffffff" width="*">{rval data/SCHOOL_KIND}</td>
+              </tr>
+              <!--{/def}-->
+              <tr>
+                <th align="right" class="no_search" width="20%">年度</th>
+                <td align="left" bgcolor="#ffffff" width="*">{rval data/YEAR}　{rval button/btn_new}</td>
+              </tr>
+              <tr>
+                <th class="no_search" align="right">預り金科目(購入)</th>
+                <th align="left" bgcolor="#ffffff">{rval data/KOUNYU_L_CD}</th>
+              </tr>
+              <tr>
+                <th class="no_search" align="right">預り金項目(購入)</th>
+                <td align="left" bgcolor="#ffffff">{rval data/KOUNYU_L_M_CD}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search">伝票番号</th>
+                <td align="left" bgcolor="#ffffff">{rval data/REQUEST_NO}</td>
+              </tr>
+              <tr>
+                <th class="no_search" align="right">伺い日</th>
+                <td align="left" bgcolor="#ffffff">{rval data/REQUEST_DATE}</td>
+              </tr>
+              <tr>
+                <th class="no_search">　</th>
+                <td align="left" bgcolor="#ffffff">{rval button/btn_search}　　　{rval button/btn_clear}{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <!--{/def}-->
+  <!--{/def}-->
+
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="1" >
+        <tr class="no_search_line">
+          <th>
+            <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#cccccc">
+              <tr height="30">
+                <th align="center" class="no_search"><B>検索結果　：　{rval SEARCH_CNT}件　　{rval SEARCH_CNT_MSG}</B></th>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td style="font-weight: 700; color:white">
+      <marquee><span id="marq_msg"></span></marquee>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="center" class="no_search" height="25">
+                <th width="60">年度</th>
+                <th width="150">預り金科目(購入)</th>
+                <th width="200">預り金項目(購入)</th>
+                <th width="80">伝票番号</th>
+                <th width="80">伺い日</th>
+                <th width="80">購入金額</th>
+                <th width="*">支出伺の状況</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <div style="width:100%; height:300; overflow:auto">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <!--結果一覧-->
+              <!--{def data2}-->
+              <!--{each data2}-->
+              <tr bgcolor="#ffffff">
+                <td align="center" width="60">{rval data2/YEAR_SET}</td>
+                <td align="left" width="150">{rval data2/KOUNYU_L_NAME}</td>
+                <td align="left" width="200">{rval data2/KOUNYU_M_NAME}</td>
+                <td align="center" width="80">{rval data2/REQUEST_NO}</td>
+                <td align="center" width="80">{rval data2/REQUEST_DATE}</td>
+                <td align="right" width="80">{rval data2/REQUEST_GK}</td>
+                <td align="left" width="*">{rval data2/SET_STATUS}</td>
+              </tr>
+              <!--{/each}-->
+              <!--{/def}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+      </div>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

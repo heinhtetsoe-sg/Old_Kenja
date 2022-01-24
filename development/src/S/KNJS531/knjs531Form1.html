@@ -1,0 +1,102 @@
+{rval start}
+
+<!--{def batch}-->
+<span style="line-height:300%">　</span>
+<!--{/def}-->
+<table width="{rval WIDTH}" border="0" cellspacing="0" cellpadding="5" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="1">
+        <tr>
+          <td>
+            <br>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td width="120" align="center">対象年度</td>
+                      <td width="250" bgcolor="#ffffff" style="color: black">
+                        <div align="left">{rval YEAR/VAL}&nbsp;{rval YEAR/BUTTON}</div>
+                      </td>
+                      <td width="120" align="center">学校校種</td>
+                      <td width="*" bgcolor="#ffffff" style="color: black">
+                        <div align="left">{rval info/SCHOOL_KIND}
+                        <!--{def shori_div}-->　　{rval info/SHORI_DIV1}<LABEL for="SHORI_DIV1">年組</LABEL>　{rval info/SHORI_DIV2}<LABEL for="SHORI_DIV2">個人（訪問生）</LABEL><!--{/def}-->
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="no_search" >
+                      <td width="120" align="center"> 指定月</td>
+                      <td bgcolor="#ffffff" style="color: black">
+                        <div align="left">{rval info/MONTH}</div>
+                      </td>
+                      <td width="120" align="center">{rval info/GRADE_HR_NAME}</td>
+                      <td bgcolor="#ffffff" style="color: black" nowrap>
+                        <div align="left"><!--{def hr_class_div}-->{rval info/HR_CLASS_DIV1}<LABEL for="HR_CLASS_DIV1">法定</LABEL>　{rval info/HR_CLASS_DIV2}<LABEL for="HR_CLASS_DIV2">複式</LABEL>　　<!--{/def}-->
+                        {rval info/GRADE_HR}
+                        <!--{def use_btn_batch}-->　　　　　{rval button/btn_batch}<!--{/def}-->
+                        <!--{def use_visitor}-->　　{rval info/VISITOR}<!--{/def}-->
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <!--{def meisai}-->
+            <table style="width: 100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                    <tr class="no_search" height="23" nowrap>
+                      <td width="170" align="center">日付</td>
+                      <td width="40"  align="center">休日</td>
+                      <!--{def disp_holiday_event}-->
+                      <td width="80"  align="center">行事<BR>略称</td>
+                      <!--{/def}-->
+                      <td width="200" align="center">データ行事名<span style="font-size:80%;"> ※全角10文字まで</span></td>
+                      <td width="*" align="center">データ備考</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <div style="width:100%;height:500;overflow:auto">
+            <table style="width: 100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                    <!--{each data}-->
+                    <tr class="no_search" height="23">
+                      <td width="170" bgcolor="#ffffff" style="color: black"><div align="center">{rval data/EXECUTEDATE}</div></td>
+                      <td width="40"  bgcolor="#ffffff"><div align="center">{rval data/HOLIDAY_FLG}</div></td>
+                      <!--{def disp_holiday_event}-->
+                      <td width="80"  bgcolor="#ffffff"><div align="center">{rval data/EVENT_ABBV}</div></td>
+                      <!--{/def}-->
+                      <td width="200" bgcolor="#ffffff"><div align="center">{rval data/REMARK1}</div></td>
+                      <td width="*" bgcolor="#ffffff"><div align="center">{rval data/REMARK2}</div></td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+            <!--{/def}-->
+            <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+              <tr class="no_search" height="35" nowrap>
+                <td align="right" nowrap>
+                    <!--{def shori_div}-->{rval button/btn_sch_shokiti}　<!--{/def}-->
+                    {rval button/btn_update}　{rval button/btn_shokitiyear}　{rval button/btn_shokitimonth}<!--{def meisai}-->　{rval button/btn_reset}<!--{/def}-->　{rval button/btn_end}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

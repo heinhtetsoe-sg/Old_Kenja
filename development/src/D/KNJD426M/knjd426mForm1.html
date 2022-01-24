@@ -1,0 +1,116 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<table width="60%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <td align='center'><b>{rval data/YEAR}年度　　{rval data/SEMESTER}　　</b></td>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td>
+                        <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                          <tr>
+                            <td>　　　　　　　　　　{rval data/HUKUSIKI_RADIO1}<LABEL for="HUKUSIKI_RADIO1">法定クラス</LABEL>　{rval data/HUKUSIKI_RADIO2}<LABEL for="HUKUSIKI_RADIO2">実クラス</LABEL></td>
+                          </tr>
+                          <tr>
+                            <td>　　{rval data/SCHOOL_KIND}　<b>{rval data/GHR_CD_LABEL}</b> {rval data/GHR_CD}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象者一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                        <!-- Edit by PP for PC-Talker 2020-01-10 start  -->
+                      <td width="45%" id="td_CATEGORY_SELECTED">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%" id="td_CATEGORY_NAME">{rval data/CATEGORY_NAME}</td>
+                      <!-- Edit by PP for PC-Talker 2020-01-17 end  -->
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="10" cellspacing="1">
+                    <tr bgcolor="#ffffff">
+                      <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;●異動生徒（留学・休学・転入・編入・退学・転学）<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;異動対象日付{rval data/MOVE_DATE}<BR>
+                        <BR>
+                        &nbsp;&nbsp;&nbsp;&nbsp;●記載日付&nbsp;{rval data/PRINT_DATE}<BR>
+                        <BR>
+                        <b>&nbsp;&nbsp;&nbsp;&nbsp;出力クラス</b><BR>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/OUTPUT_CLASS1}<LABEL for="OUTPUT_CLASS1">法定クラス</LABEL>　{rval data/OUTPUT_CLASS2}<LABEL for="OUTPUT_CLASS2">実クラス</LABEL><BR>
+                        <BR>
+                        <b>&nbsp;&nbsp;&nbsp;&nbsp;出力する項目</b>
+                        <table width="100%" border="0" cellpadding="10" cellspacing="1">
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              &nbsp;&nbsp;{rval data/CHK_COLUMNBLOCK1}<LABEL for={rval data/CHK_COLUMNTTL1}>障害名等</LABEL>
+                              <BR>
+                              &nbsp;&nbsp;{rval data/CHK_COLUMNBLOCK2}<LABEL for={rval data/CHK_COLUMNTTL2}>実態概要・障害の特性</LABEL>
+                              <BR>
+                              &nbsp;&nbsp;{rval data/CHK_COLUMNBLOCK3}<LABEL for={rval data/CHK_COLUMNTTL3}>検査</LABEL>
+                              <BR>
+                              &nbsp;&nbsp;{rval data/CHK_COLUMNBLOCK4}<LABEL for={rval data/CHK_COLUMNTTL4}>願い</LABEL>
+                              <BR>
+                              &nbsp;&nbsp;{rval data/CHK_COLUMNBLOCK5}<LABEL for={rval data/CHK_COLUMNTTL5}>合理的配慮</LABEL>
+                            </td>
+                            <td>
+                              {rval data/CHK_PRINTBLOCK1}<LABEL for={rval data/CHK_PRINTTTL1}>{rval data/CHK_PRINTLABEL1}</LABEL>
+                              <BR>
+                              {rval data/CHK_PRINTBLOCK2}<LABEL for={rval data/CHK_PRINTTTL2}>{rval data/CHK_PRINTLABEL2}</LABEL>
+                              <BR>
+                              {rval data/CHK_PRINTBLOCK3}<LABEL for={rval data/CHK_PRINTTTL3}>{rval data/CHK_PRINTLABEL3}</LABEL>
+                              <BR>
+                              {rval data/CHK_PRINTBLOCK4}<LABEL for={rval data/CHK_PRINTTTL4}>{rval data/CHK_PRINTLABEL4}</LABEL>
+                              <BR>
+                              {rval data/CHK_PRINTBLOCK5}<LABEL for={rval data/CHK_PRINTTTL5}>{rval data/CHK_PRINTLABEL5}</LABEL>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

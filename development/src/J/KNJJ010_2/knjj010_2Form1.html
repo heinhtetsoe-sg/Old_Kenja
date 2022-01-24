@@ -1,0 +1,61 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <!--{def schkind}-->
+  <tr >
+    <td >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search">
+                <th nowrap align="left" width="*%">校種：{rval SCHKIND}</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <!--{/def}-->
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th nowrap width="10%" nowrap>部クラブ<br>コード</th>
+                      <th nowrap width="25%">部クラブ名</th>
+                      <th nowrap width="15%">設立日付</th>
+                      <th nowrap width="25%">活動場所</th>
+                      <th nowrap width="25%">部室割り当て</th>
+                      <th nowrap width="15%">種目</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}--> 
+                    <tr> 
+                        <td nowrap align="center" width="10%" bgcolor="#ffffff"><a href="knjj010_2index.php?cmd=edit&CLUBCD={val data/CLUBCD}&SCHKIND={val data/SCHOOL_KIND}" target="right_frame">{val data/CLUBCD}</a></td>
+                        <td nowrap width="25%" bgcolor="#ffffff">{val data/CLUBNAME}</td>
+                        <td nowrap width="15%"bgcolor="#ffffff">{val data/SDATE}</td>
+                        <td nowrap width="25%" bgcolor="#ffffff">{val data/ACTIVITY_PLACE}</td>
+                        <td nowrap width="25%"bgcolor="#ffffff">{val data/CLUBROOM_ASSIGN}</td>
+                        <td nowrap width="15%"bgcolor="#ffffff">{val data/CLUB_ITEM}</td>
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<!--                        <div style="width:100%;height:550;overflow:auto";>-->

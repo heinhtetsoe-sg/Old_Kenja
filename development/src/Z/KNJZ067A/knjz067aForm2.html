@@ -1,0 +1,93 @@
+{rval start}
+<!--{def data}-->
+<!--{def button}-->
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="10" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr>
+                      <th class="no_search" width="20%" nowrap>項目</th>
+                      <th class="no_search" width="80%" nowrap>値</th>
+                    </tr>
+                    <tr>
+                      <th class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <td>&nbsp;※<td>
+                            <td align="right" nowrap>IBコース<td>
+                          </tr>
+                        </table>
+                      </th>
+                      <td bgcolor="#ffffff">{rval data/IBPRG_COURSE}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <td>&nbsp;※<td>
+                            <td align="right" nowrap>IB科目<td>
+                          </tr>
+                        </table>
+                      </th>
+                      <td bgcolor="#ffffff">{rval data/IBSUBCLASS}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr align="center" class="no_search">
+                      <th><b>対象科目</b></th>
+                      <th class="no_search"></th>
+                      <th><b>科目一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">
+                        {rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <th align="left" colspan="3">&nbsp;{rval button/btn_add}{rval button/btn_reset}{rval button/btn_back}　{rval button/btn_csv}
+                        <br>
+                        <!--{def show_csv}-->
+                          {rval data/OUTPUT4}<LABEL for="OUTPUT4">ヘッダ出力(見本)</LABEL><br>
+                          {rval data/OUTPUT1}<LABEL for="OUTPUT1">取込</LABEL>{rval data/OUTPUT2}<LABEL for="OUTPUT2">書出</LABEL>
+                          ファイル：<span id="type_file">{rval FILE}</span>{val btn_exec}　{rval data/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL><br>
+                          {rval data/OUTPUT3}<LABEL for="OUTPUT3">エラー出力</LABEL>
+                        <!--{/def}--> 
+                      </th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

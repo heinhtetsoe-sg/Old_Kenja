@@ -1,0 +1,188 @@
+{rval start}
+<!--{def data}-->
+<!--{def button}-->
+
+<br>
+<table width="550" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="110" nowrap>項 目</th>
+                      <th width="*" nowrap>値</th>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th width="100">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th width="25%" align="right" nowrap>※</th>
+                            <th width="75%" align="right" nowrap>部クラブ</th>
+                          </tr>
+                        </table>
+                      </th>
+                      <td width="*" bgcolor="#ffffff">{rval data/CLUBCD}</td>
+                    </tr>
+
+                    <!--{def schkind}-->
+                    <tr class="no_search">
+                      <th>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th width="25%" align="right" nowrap>※</th>
+                            <th width="75%" align="right" nowrap>校種</th>
+                          </tr>
+                        </table>
+                      </th>
+                      <td bgcolor="#ffffff"><font color="black">{rval data/DETAIL_SCHKIND}</font></td>
+                    </tr>
+                    <!--{/def}-->
+
+                    <tr class="no_search">
+                      <th>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th width="25%" align="right" nowrap>※</th>
+                            <th width="75%" align="right" nowrap>日付</th>
+                          </tr>
+                        </table>
+                      </th>
+                      <td bgcolor="#ffffff"><font color="black">{rval data/DETAIL_DATE}　　{rval data/DETAIL_SEQ}</font></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>大会名称</th>
+                      <td bgcolor="#ffffff">
+                        {rval data/MEETLIST}　{rval button/btn_refl}<br>
+                        {rval data/MEET_NAME}<br><font color="red" style="font-size:10pt">(全角で30文字)</font>
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <th>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th width="25%" align="right" nowrap>※</th>
+                            <th width="75%" align="right" nowrap>区分</th>
+                          </tr>
+                        </table>
+                      </th>
+                      <td bgcolor="#ffffff"><font color="black">{rval data/DIV1}<LABEL for="DIV1">個人</LABEL>　　{rval data/DIV2}<LABEL for="DIV2">団体</LABEL></font></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td>　
+                </td>
+              </tr>
+
+              <!--{def kojin}-->
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="110">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th width="25%" align="right" nowrap>※</th>
+                            <th width="75%" align="right" nowrap>生徒</th>
+                          </tr>
+                        </table>
+                      </th>
+                      <td width="*" bgcolor="#ffffff">{rval data/SCHREGNO}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def dantai}-->
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                    <tr class="no_search">
+                      <td width="100%">
+                        <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                          <tr align="center" class="no_search">
+                            <th>※　　対象生徒一覧</th>
+                            <th class="no_search"></th>
+                            <th>所属生徒一覧</th>
+                          </tr>
+                          <tr align="center" bgcolor="#ffffff">
+                            <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                            <td width="*%"  class="no_search">
+                              {rval button/btn_lefts}<br>
+                              {rval button/btn_left1}<br>
+                              {rval button/btn_right1}<br>
+                              {rval button/btn_rights}
+                            <td width="45%">{rval data/CATEGORY_NAME}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!--{/def}-->
+
+              <tr>
+                <td>　
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th width="110" align="right" class="no_search" nowrap>開催地域</th>
+                      <td width="*" bgcolor="#ffffff">{rval data/HOSTCD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>種目</th>
+                      <td bgcolor="#ffffff">{rval data/ITEMCD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>種目種類</th>
+                      <td bgcolor="#ffffff">{rval data/KINDCD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>成績</th>
+                      <td bgcolor="#ffffff">{rval data/RECORDCD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>記録</th>
+                      <td bgcolor="#ffffff">{rval data/DOCUMENT}<br><font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>備考</th>
+                      <td bgcolor="#ffffff">{rval data/DETAIL_REMARK}<br><font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td colspan="2" nowrap>&nbsp;{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}　　{rval button/btn_csv}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

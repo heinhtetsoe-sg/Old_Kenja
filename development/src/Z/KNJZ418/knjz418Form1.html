@@ -1,0 +1,52 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr >
+          <td >
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                    <tr class="no_search">
+                      <th align=left>　　{rval JOBTYPE_LCD}</th>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+            </table>
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="40%">中分類</th>
+                      <th nowrap width="*%">小分類</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/ROWSPAN}-->
+                      <td align="center" bgcolor="#ffffff" rowspan={rval data/ROWSPAN}>{val data/JOBTYPE_MCD} {val data/JOBTYPE_MNAME}</td>
+                      <!--{/def}-->
+                      <td bgcolor="#ffffff"><a href="knjz418index.php?cmd=edit&SEND_FLG=1&JOBTYPE_LCD={val data/JOBTYPE_LCD}&JOBTYPE_MCD={val data/JOBTYPE_MCD}&JOBTYPE_SCD={val data/JOBTYPE_SCD}" target="right_frame">{val data/JOBTYPE_SCD} {val data/JOBTYPE_SNAME}</a></td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

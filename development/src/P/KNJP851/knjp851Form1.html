@@ -1,0 +1,131 @@
+{rval start}
+<br><br><br><br>
+<table style="width: 550px" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th align="left">対象年度</th>
+                      <td align="left" colspan="5">：{rval TOP/YEAR}</td>
+                    </tr>
+                    <tr>
+                      <th align="left">校種</th>
+                      <td align="left">：{rval TOP/SCHOOL_KIND}</td>
+                      <th align="left">学年</th>
+                      <td align="left">：{rval TOP/GRADE}</td>
+                      <th align="left">クラス</th>
+                      <td align="left">：{rval TOP/HR_CLASS}</td>
+                    </tr>
+                    </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th align="left">&nbsp;&nbsp;対象種別：{rval TOP/PATTERN_DIV}</th>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="70">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr>
+                            <td><b>&nbsp;&nbsp;入金計画・実績情報</b></td>
+                          </tr>
+                          <tr>
+                            <td align="center">
+                              <table width="90%" border="0" cellspacing="1" cellpadding="3">
+                                <tr>
+                                  <th valign="top" width="20%" height="50%">抽出基準：</th>
+                                  <td valign="top" width="80%" height="100%">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                      <tr>
+                                        <th align="left">{rval DATE_DIV1}<LABEL for="DATE_DIV1">徴収日</LABEL></th>
+                                        <th align="left">（{rval DATE_CHK1}<LABEL for="DATE_CHK1">未納のみ出力</LABEL>）
+                                          <!--{def disp_chk_sum}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval SUM_CHK}<LABEL for="SUM_CHK">合計出力</LABEL><!--{/def}--></th>
+                                      </tr>
+                                      <tr>
+                                        <th align="left">{rval DATE_DIV2}<LABEL for="DATE_DIV2">入金日</LABEL></th>
+                                        <th align="left">（{rval DATE_CHK2}<LABEL for="DATE_CHK2">対象年度以外の入金を含む</LABEL>）</th>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th valign="top" width="20%" height="50%">出力対象：</th>
+                                  <td valign="top" width="80%" height="100%">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                      <tr>
+                                        <th align="left">{rval MONTH_CHK_ALL}<LABEL for="MONTH_CHK_ALL">（全選択）</LABEL> </th>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th></th>
+                                  <td>
+                                    <table width="80%" border="0" cellspacing="0" cellpadding="0">
+                                      <tr>
+                                        <th align="left"></th>
+                                        <td align="left">
+                                          <table>
+                                            <!--{each monthlist}-->
+                                            <tr>
+                                              <th>&nbsp;&nbsp;{rval monthlist/MONTH_CHK}</th>
+                                              <th align="left">&nbsp;&nbsp;<LABEL for="{rval monthlist/MONTH_ID}">{rval monthlist/MONTH_VAL}月計画実績情報</LABEL></th>
+                                            </tr>
+                                            <!--{/each}-->
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="50">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr>
+                            <td><b>&nbsp;&nbsp;学校徴収金（預り金）情報</b></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <table width="90%" border="0" cellspacing="1" cellpadding="3">
+                                <tr>
+                                  <th></th>
+                                  <th align="left">
+                                    &nbsp;&nbsp;{rval IN_OUT_DIV1}<LABEL for="IN_OUT_DIV1">収入情報</LABEL>
+                                    &nbsp;&nbsp;{rval IN_OUT_DIV2}<LABEL for="IN_OUT_DIV2">支出情報</LABEL>
+                                  </th>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th align="left">{rval btn_csv}{rval btn_end}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<script language="JavaScript">{rval jscript}</script>
+{rval finish} 

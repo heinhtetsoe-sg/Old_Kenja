@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="Shift_JIS" ?>
+<!-- kanji=漢字 -->
+<!-- $Id: nbi_build.xml 56574 2017-10-22 11:21:06Z maeshiro $ -->
+<project name="nbi_groupware_csv" default="deploy" basedir=".">
+	<property name="src"				location="nbi_src"/>
+	<property name="build"				location="nbi_build"/>
+	<property name="kenja_common_path"	location="http://tokio/development/common/java"/>
+	<property name="pkg.version"		value="1.5"/>
+
+	<path id="project.classpath">
+		<pathelement location="${build}"/>
+		<!--
+		<pathelement location="${kenja_common_path}/extlib/commons-lang-2.0.jar" />
+		<pathelement location="${kenja_common_path}/extlib/commons-logging.jar" />
+		<pathelement location="${kenja_common_path}/nao_package.jar" />
+		-->
+		<pathelement location="D:\0-ALP\CVS_EXTLIB_WORK\java_extlib\JAKARTA\commons-collections-3.0\commons-collections-3.0.jar" />
+		<pathelement location="D:\0-ALP\CVS_EXTLIB_WORK\java_extlib\JAKARTA\commons-lang-2.0\commons-lang-2.0.jar" />
+		<pathelement location="D:\0-ALP\CVS_EXTLIB_WORK\java_extlib\JAKARTA\commons-logging-1.0.3\commons-logging.jar" />
+		<pathelement location="D:\0-ALP\CVS_EXTLIB_WORK\java_extlib\JAKARTA\commons-dbutils-1.0\commons-dbutils-1.0.jar" />
+		<pathelement location="D:\0-ALP\CVS_EXTLIB_WORK\java_extlib\JAKARTA\jakarta-log4j-1.2.8\log4j-1.2.8.jar" />
+		<pathelement location="D:\0-ALP\CVS_WORK\nao_package\dist\nao_package.jar" />
+		<pathelement location="dist\kenja_batch.jar" />
+	</path>
+
+	<!-- **** 初期化 -->
+	<target name="init">
+		<tstamp/>
+		<mkdir dir="${build}"/>
+	</target>
+
+	<!-- **** コンパイル -->
+	<target name="compile" description="compile java" depends="init">
+		<!-- MEMO:javacタスクのencodingは、"SJIS"または"EUCJIS"または"EUC-JP" -->
+		<javac
+				encoding="SJIS"
+				target="1.3"
+				source="1.3"
+				deprecation="true"
+				srcdir="${src}"
+				destdir="${build}"
+				classpathref="project.classpath"
+				debug="on">
+			<include name="**/nbi/**/*.java"/>
+			<exclude name="**/test/*.java"/>
+		</javac>
+	</target>
+
+	<!-- **** .classファイルを削除 -->
+	<target name="clean" description="clean up" >
+		<delete dir="${build}"/>
+	</target>
+
+	<!-- **** 配布ファイル作成 -->
+	<target name="dist" description="generate the distribution" depends="compile">
+		<buildnumber file="${src}/build.number"/>
+		<jar index="true" destfile="${build}/nbi_groupware_csv.${pkg.version}.${build.number}.jar" filesonly="false">
+			<fileset dir="${build}">
+				<include name="**/nbi/**/*.class"/>
+				<exclude name="**/test/*.class"/>
+			</fileset>
+			<manifest>
+				<attribute name="Main-Class" value="jp.co.alp.kenja.batch.nbi.groupware.Main"/>
+				<attribute name="Implementation-Version" value="${pkg.version}.${build.number}" />
+			</manifest>
+		</jar>
+	</target>
+
+	<!-- **** deploy -->
+	<target name="deploy" description="deployment" depends="dist">
+		<copy overwrite="true" file="${src}/log4j.properties.skel" tofile="${build}/log4j.properties.skel"/>
+		<copy overwrite="true" file="dist\kenja_batch.jar" tofile="${build}/kenja_batch.jar"/>
+
+		<!-- 
+		<copy overwrite="true" file="nbi_csv_read.sh" tofile="${build}/nbi_csv_read.sh"/>
+		<fixcrlf srcdir="." includes="${build}/nbi_csv_read.sh" eol="lf" />
+		<chmod file="nbi_csv_read.sh" perm="+x" />
+		-->
+
+		<fixcrlf srcdir="${src}" includes="nbi_csv_write.sh" eol="lf" destdir="${build}" eof="remove" encoding="utf8"/>
+		<chmod file="nbi_csv_write.sh" perm="+x" />
+
+		<!-- ToDo: nbi_doc 配下も ${build} 配下にコピーせよ -->
+	</target>
+</project>

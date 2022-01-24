@@ -1,0 +1,61 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="3">
+
+          <tr class="no_search_line" height="24">
+            <td width="40%" class="no_search" >&nbsp;{rval NAME}</td>
+          </tr>
+
+        </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line"> 
+        <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search"> 
+            <th width="8%" nowrap>費目<br>コード</th>
+            <th width="16%" nowrap>費目詳細名称</th>
+            <th width="8%" nowrap>入金<br>必要額</th>
+            <th width="8%" nowrap>入金額</th>
+            <th width="12%" nowrap>入金日</th>
+            <th width="7%" nowrap>入金<br>区分</th>
+            <th width="8%" nowrap>返金額</th>
+            <th width="17%" nowrap>返金区分</th>
+            <th width="*" nowrap>備考</th>
+          </tr>
+          <!--結果一覧-->
+          <!--{def data}-->
+          <!--{each data}--> 
+          <tr> 
+            <td align="center" bgcolor="#ffffff" nowrap>{rval data/EXPENSE_M_CD}</td>
+            <td bgcolor="#ffffff" nowrap>{rval data/EXPENSE_M_NAME}</td>
+            <td align="right" bgcolor="#ffffff" nowrap>{rval data/MONEY_DUE}</td>
+            <td align="right" bgcolor="#ffffff" nowrap>{rval data/PAID_MONEY}</td>
+            <td align="right" bgcolor="#ffffff" nowrap>{rval data/PAID_MONEY_DATE}</td>
+            <td align="center" bgcolor="#ffffff" nowrap>{rval data/PAID_MONEY_DIV}</td>
+            <td align="right" bgcolor="#ffffff" nowrap>{rval data/REPAY_MONEY}</td>
+            <td bgcolor="#ffffff" nowrap>{rval data/REPAY_DEV}</td>
+            <td bgcolor="#ffffff" nowrap>{rval data/REMARK}</td>
+          </tr> 
+          <!--{/each}--> 
+          <!--{/def}--> 
+        </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table><script language="JavaScript">{rval close}</script>
+{rval finish}
+

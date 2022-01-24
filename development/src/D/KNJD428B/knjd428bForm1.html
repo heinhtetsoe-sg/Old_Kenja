@@ -1,0 +1,150 @@
+{rval start}
+
+<!--{def button}-->
+<!-- Edit by HPA for current_cursor start 2020/01/20 -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id="rightscreen" aria-label="{rval TITLE}">
+<!-- Edit by HPA for current_cursor end 2020/01/31 -->
+
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <hr width="80%" align="left">
+                &nbsp;{rval SCHREGNO}&nbsp;&nbsp;{val NAME}&nbsp;&nbsp;{val CONDITION_NAME}&nbsp;&nbsp;{val GROUP_NAME}
+            <hr width="80%" align="left">
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 100%; height: 200;">
+            <table width=100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id = "table" aria-label="{rval LABEL}">
+                    <tr class="no_search" nowrap align="center">
+
+                      <th width="300" aria-label="" >教科・科目(単元)</th>
+                      <th width="100">{rval SEMESTER_TITLE}</th>
+                      <!--{each koumoku}-->
+                      <th width="150">{rval koumoku/KIND_REMARK}</th>
+                      <!--{/each}-->
+
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--{def list}-->
+                    <!--{each list}-->
+                    <tr bgcolor="#ffffff">
+                      <!--{def hoge}-->
+                      <td width="300" align="left">{rval list/SET_SUBCLASSNAME}</td>
+                      <!--{/def}-->
+                      <td width="300" align="left">{rval list/SET_NAME}</td>
+                      <td width="100" align="left">{rval list/SEMESTERNAME}</td>
+                      <!--{each list/koumoku}-->
+                      <td width="150" align="left">{rval list/koumoku/REMARK}</td>
+                      <!--{/def}-->
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+
+        <tr><td height="10"></td></tr>
+
+        <tr>
+          <td>
+            <table width="90%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="35">
+                      <th class="no_search" width="30%" aria-label = "">入力項目</th>
+                      <td nowrap bgcolor="#ffffff" width="70%">
+                        {rval data/INPUT_DIV1}<label for="INPUT_DIV1">{rval INPUT_DIV_NAME1}</label>
+                        {rval data/INPUT_DIV2}<label for="INPUT_DIV2">{rval INPUT_DIV_NAME2}({rval data/INPUT_DETAIL_DIV11}<label for="INPUT_DETAIL_DIV11">3枠</label> {rval data/INPUT_DETAIL_DIV12}<label for="INPUT_DETAIL_DIV12">2枠</label>)</label>
+                        {rval data/INPUT_DIV3}<label for="INPUT_DIV3">{rval INPUT_DIV_NAME3}({rval data/INPUT_DETAIL_DIV21}<label for="INPUT_DETAIL_DIV21">3枠</label> {rval data/INPUT_DETAIL_DIV22}<label for="INPUT_DETAIL_DIV22">2枠</label>)</label>
+                        {rval data/INPUT_DIV4}<label for="INPUT_DIV4">{rval INPUT_DIV_NAME4}</label>
+                      </td>
+                    </tr>
+                    <tr height="35">
+                      <!-- Edit by HPA for PC-talker 読み start 2020/01/20 -->
+                      <th class="no_search" width="30%" aria-label = "">学期</th>
+                      <!-- Edit by HPA for PC-talker 読み end 2020/01/31 -->
+                      <td bgcolor="#ffffff" width="70%">{rval SELECT_SEMES}
+                        <!--{def NOT_DIV3_FLG}-->&nbsp;&nbsp;{rval button/btn_guidance_copy}<!--{/def}-->
+                        <!--{def DIV3_FLG}-->&nbsp;&nbsp;{rval button/btn_all_copy}<!--{/def}-->
+                      </td>
+                    </tr>
+                    <!--{def DIV3_FLG}-->
+                    <tr height="35">
+                      <!-- Edit by HPA for PC-talker 読み start 2020/01/20 -->
+                      <th class="no_search" width="30%" aria-label = "">教科・科目</th>
+                      <!-- Edit by HPA for PC-talker 読み end 2020/01/31 -->
+                      <td bgcolor="#ffffff" width="70%">{rval SUBCLASSCD}&nbsp;&nbsp;{rval button/btn_sub_copy}</td>
+                    </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="30" class="no_search" >
+                      <!--{each koumoku}-->
+                      <!-- Edit by HPA for PC-talker 読み start 2020/01/20 -->
+                      <th nowrap aria-label="">{rval koumoku/KIND_REMARK}</th>
+                      <!-- Edit by HPA for PC-talker 読み end 2020/01/31  -->
+                      <!--{/each}-->
+                    </tr>
+
+                    <tr bgcolor="#ffffff">
+                      <!--{each data2}-->
+                      <td valign="top">{rval data2/REMARK}{rval data2/EXTFMT}</td>
+                      <!--{/each}-->
+                    </tr>
+
+                    <tr bgcolor="#ffffff">
+                      <td {rval COLSPAN}>
+                        <table width="100%">
+                          <tr>
+                            <td align="left" nowrap>{rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_delete}{rval button/btn_reset}{rval button/btn_end}&nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_print}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}--> 
+
+{rval finish}

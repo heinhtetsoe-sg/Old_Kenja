@@ -1,0 +1,97 @@
+<!--knjxexpForm1.html -->
+{rval start}
+<table width="100%" border="0" cellspacing="3" cellpadding="1">
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellspacing="5" cellpadding="1">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="0" width="100%">
+              <tr class="no_search">
+                <td nowrap>{rval EXP_YEAR}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellspacing="1" cellpadding="1">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th align="right" class="no_search">学籍番号</th>
+                <td nowrap bgcolor="#ffffff">{rval GAKUSEKINO}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search">年組</th>
+                <td nowrap bgcolor="#ffffff">{rval GRADE}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search">コース</th>
+                <td nowrap bgcolor="#ffffff">{rval COURSE}</td>
+              </tr>
+              <tr>
+                  <th align="right" class="no_search" nowrap>氏名</th>
+                  <td bgcolor="#ffffff">{rval NAME}　<span style="color:red">※全角</span></td>
+              </tr>
+              <tr>
+                  <th align="right" class="no_search" nowrap>氏名かな</th>
+                  <td bgcolor="#ffffff">{rval NAME_KANA}　<span style="color:red">※全角</span></td>
+              </tr>
+              <tr>
+                  <th align="right" class="no_search" nowrap>&nbsp;</th>
+                  <td bgcolor="#ffffff">{rval btn_search}{rval btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  
+  <tr>
+    <td nowrap>
+    <table width="100%" border="0" cellspacing="5" cellpadding="0">
+      <tr>
+        <td valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr >
+              <td >
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr class="no_search_line">
+                    <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tr class="no_search">
+                          <th nowrap width="70">年-組-番</th>
+                          <th nowrap width="150">氏名</th>
+                        </tr>
+                        <!--{def data}-->
+                        <!--結果一覧-->
+                        <!--{each data}-->
+                        <tr bgcolor="#ffffff">
+                          <td nowrap align="center" >{rval data/GAKUNEN}</td>
+                          <td nowrap align="center">{rval data/NAME}</td>
+                        </tr>
+                        <!--{/each}-->
+                        <!--{/def}-->
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  
+</table>
+{rval finish}
+<script language="javascript">{rval reload}{rval jscript}</script>

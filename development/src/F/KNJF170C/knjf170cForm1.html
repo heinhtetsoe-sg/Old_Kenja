@@ -1,0 +1,65 @@
+{rval start}
+
+<br>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr><td>{rval SCH_NAME2}</td></tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td nowrap align="center"><b>対象年度：{rval YEAR}</b><!--{def schkind}-->　校種：{rval SCHKIND}<!--{/def}--></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th nowrap width="23%"><b>{rval DATE_SORT}</b></th>
+                      <th nowrap width="14%"><b>内科</b></th>
+                      <th nowrap width="14%"><b>外科</b></th>
+                      <th nowrap width="14%"><b>その他</b></th>
+                      <th nowrap width="14%"><b>{rval SCH_LABEL}<br>以外</b></th>
+                      <th nowrap width="14%"><b>健康<br>相談</b></th>
+                      <th nowrap width="7%"><b>日誌</b></th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}--> 
+                    <tr> 
+                      <td bgcolor="#ffffff" align="center"><a href="knjf170cindex.php?cmd=edit&YEAR={rval data/YEAR}&DATE={rval data/DATE}&PROGRAMID={rval PROGRAMID}&SENDSCHOOLKIND={rval data/SCHKIND}" target="right_frame">{rval data/DATE}</a></td>
+                      <td bgcolor="#ffffff" align="center">{rval data/TYPE1}</td>
+                      <td bgcolor="#ffffff" align="center">{rval data/TYPE2}</td>
+                      <td bgcolor="#ffffff" align="center">{rval data/TYPE3}</td>
+                      <td bgcolor="#ffffff" align="center">{rval data/TYPE4}</td>
+                      <td bgcolor="#ffffff" align="center">{rval data/TYPE5}</td>
+                      <td bgcolor="#ffffff" align="center">{rval data/DIARY}</td>
+                    </tr>
+                    <!--{/each}--> 
+                    <!--{/def}--> 
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

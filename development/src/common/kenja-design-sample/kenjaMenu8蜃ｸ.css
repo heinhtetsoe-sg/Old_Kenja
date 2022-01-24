@@ -1,0 +1,755 @@
+<!--CSS-->  
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+body {
+    font-family:'Lucida Grande',
+    'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',
+    Meiryo, メイリオ, sans-serif;
+    color:#333;
+ }
+
+
+/*IE用のスクロールバーデザイン*/
+html,body {
+    scrollbar-face-color:#FFFFFF; 
+    scrollbar-track-color:#FFFFFF; 
+    scrollbar-arrow-color:#FFFFFF; 
+    scrollbar-highlight-color:#FFFFFF; 
+    scrollbar-shadow-color:#FFFFFF; 
+    scrollbar-3dlight-color:#FFFFFF; 
+    scrollbar-darkshadow-color:#FFFFFF; 
+}
+
+/*chrome用のスクロールバーデザイン*/
+#left::-webkit-scrollbar
+{
+        overflow:hidden;
+        width:1px;
+        background:#ffffff;
+}
+#left::-webkit-scrollbar-button
+{
+       display:none;
+}
+#left::-webkit-scrollbar-piece
+{
+        background:#ffffff;
+}
+#left::-webkit-scrollbar-thumb
+{
+        background:#ffffff;
+}
+#left::-webkit-scrollbar-corner
+{
+        background:#ffffff;
+}
+
+
+#right::-webkit-scrollbar
+{
+        overflow:hidden;
+        width:1px;
+        background:#ffffff;
+}
+#right::-webkit-scrollbar-button
+{
+       display:none;
+}
+#right::-webkit-scrollbar-piece
+{
+        background:#ffffff;
+}
+#right::-webkit-scrollbar-thumb
+{
+        background:#ffffff;
+}
+#right::-webkit-scrollbar-corner
+{
+        background:#ffffff;
+}
+
+  /***********アコーディオンメニュー全体***************/
+
+  #accordion2 { 
+    position:relative; 
+    width: 100%; 
+    float: left;
+    /*font-size: 15px; */
+    line-height: 1;
+    text-align: left; 
+  }
+  #accordion2big { 
+    position:relative; 
+    width: 100%; 
+    float: left;
+    font-size: 20px; 
+    line-height: 1;
+    text-align: left; 
+  }
+
+  /**ラジオボタン非表示設定**/
+  #accordion2 input, #accordion2big input{ 
+    position:absolute; 
+    height: 0; 
+    padding: 0; 
+  } 
+
+  /*****親カテゴリ*****/
+
+  #accordion2 div div, #accordion2big div div{ 
+    position: relative; 
+    padding: 11px 10px 11px 30px; 
+    /*border-top: 1px solid #000080;*/
+     //border-bottom: 1px solid #FFFFFF; 
+    //background: #316f9b; 
+    background: #A59EBD; 
+    color: #FFFFFF;
+border-top: 0px solid #ffffff;              /*--線消し--*/
+box-shadow: rgba(100, 100, 100, .5) 0px -10px 5px -5px inset, rgba(255, 255, 255, .5) 0px 10px 5px -5px inset;             /*--ぼかしだけ--*/
+text-shadow: -1px 1px 0 rgba(0,0,0,.3);    /*--立体的に(凸)--*/
+  } 
+
+  #accordion2 div div a, #accordion2big div div a{ 
+    color: #FFFFFF;
+    
+  } 
+
+  /**親カテゴリーの最初と最後の段の余分なボーダー消す＋最後の段のリンク設定**/
+  #accordion2 label:nth-child(4) div div, #accordion2big label:nth-child(4) div div{ 
+    border-top: 0; 
+  } 
+
+  #accordion2 label:last-child div div, #accordion2big label:last-child div div{ 
+    border-bottom: 0; 
+  } 
+  
+  #accordion2 label:last-child div div a, #accordion2big label:last-child div div a{ 
+   display: block;
+   width: 100%;
+    color: #FFFFFF;
+   text-decoration: none; 
+  } 
+
+  /**カテゴリオンマウス**/
+
+  #accordion2 div div:hover, #accordion2big div div:hover { 
+    background: #a899ff; 
+    cursor: pointer; 
+  } 
+
+  /**サブカテゴリ全体**/
+
+  #accordion2 ul, #accordion2big ul{ 
+    list-style: none; 
+    margin: 0; 
+    background: #D6CFDE; 
+    /*font-size: 15px;*/
+    text-align: left; 
+  } 
+  #accordion2 ul li, #accordion2big ul li{ 
+    list-style: none; 
+    margin: 0; 
+    background: #D6CFDE; 
+    /*font-size: 15px;*/
+    text-align: left; 
+  } 
+
+/*1番目のメニューの選択中用*/
+.choice {
+    position: relative; 
+    padding: 10px 10px 10px 30px; 
+    //border-top: 1px solid #FFFFFF; 
+    //border-bottom: 1px solid #FFFFFF; 
+    //background: #316f9b; 
+    background: #7379ae !important; 
+    color: #FFFFFF;
+}
+.choice:hover { 
+    background: #b7b7ff !important; 
+    cursor: pointer; 
+} 
+
+/*2番目のメニューの選択中用*/
+.active {
+    background: #ffffff !important;
+}
+.active a {
+text-shadow: -1px 1px 0 rgba(0,0,0,.2) !important;    /*--立体的に(凸)--*/
+}
+  ul { 
+       list-style: none;
+       z-index: 1;
+  }
+
+  /**サブカテゴリのリンク**/
+  /****************************************************
+  **以下に記載されているベンダープレフィックスは     **
+  **外したほうがよい場合もあります。                 **
+  **ベンダープレフィックスとは-moz- -webkit- -o- -ms-**
+  **もしcssが機能しないときは、これを外してください。**
+  ****************************************************/
+
+  #accordion2 ul li a, #accordion2big ul li a{ 
+    display: block; 
+    overflow: hidden; 
+    height: 0; 
+    padding: 0px 10px; 
+    color: #000080; 
+    text-decoration: none; 
+    -moz-transition: .3s; 
+    -webkit-transition: .3s; 
+    -o-transition: .3s; 
+    -ms-transition: .3s; 
+    transition: .3s; 
+text-shadow: -1px 1px 0 rgba(255,255,255,.5);    /*--立体的に(凹)--*/
+  } 
+
+  /**サブカテゴリのリンク（チェック）**/
+  #accordion2 input:checked + div ul li a, #accordion2big input:checked + div ul li a{ 
+    position:relative; 
+    background: none; 
+    line-height: 1; 
+    height: auto; 
+    padding: 10px 10px; 
+border-top: 1px solid #000080; 
+box-shadow: 0px 1px 0px 0px rgba(255,255,255,.5) inset;    /*--立体的に(凹)--*/
+    /*border-bottom: 1px solid #FFFFFF; */
+  } 
+
+
+  /**サブカテゴリーの最初と最後の余分なボーダー消す＋TOPにシャドウかけてます**/
+  #accordion2 input:checked + div ul li:first-child a, #accordion2big input:checked + div ul li:first-child a{ 
+    border-top: 0; 
+    box-shadow: 0 10px 7px -7px rgba(0,0,0,.5) inset; 
+  } 
+
+  #accordion2 input:checked + div ul li:last-child a, #accordion2big input:checked + div ul li:last-child a{ 
+    border-bottom: 0; 
+  } 
+  #accordion2 input:checked + div ul, #accordion2big input:checked + div ul{ 
+    box-shadow: 0 10px 7px -7px rgba(0,0,0,.5) inset; 
+  } 
+
+
+  /**サブカテゴリーオンマウス**/
+  #accordion2 input:checked + div ul li a:hover, #accordion2big input:checked + div ul li a:hover{ 
+    background: #a899ff; 
+  } 
+
+ #div div span {
+  position : absolute;
+  top : -2000px;
+  left : -2000px;
+  display : block;
+  width : 200%;
+  height : 30px;
+  background : #fafafa;
+  border : 1px solid #669900;
+  border-left : 0;
+  padding : 5px;
+  padding-left : 23px;
+  text-indent : -17px;
+  cursor : pointer;
+  color : #cc9900;
+}
+
+/*メニュー表示モードの装飾*/
+    #menuMode  {
+        position: relative; 
+        padding-top: 10px; 
+        padding-bottom: 10px; 
+        font-size: 80%;
+        width: 100%;
+        display: inline-block;
+        /*margin-left: 5%;*/
+    }
+    #menuMode a {
+        text-decoration: none;
+        border-radius:0;
+        width:50%;
+        text-align: center;
+        display:inline-block;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    .select{
+        background:#A59EBD/*#0090d2*/;
+        color:#fff;
+text-shadow: -1px 1px 0 rgba(0,0,0,.3);    /*--立体的に(凸)--*/
+box-shadow: rgba(100, 100, 100, .5) 0px -10px 5px -5px inset, rgba(255, 255, 255, .5) 0px 10px 5px -5px inset;             /*--ぼかしだけ--*/
+
+    }
+    .notselect{
+        background:#D6CFDE;
+        color:#666;
+text-shadow: -1px 1px 0 rgba(255,255,255,.5);    /*--立体的に(凹)--*/
+box-shadow: rgba(100, 100, 100, .5) 0px 10px 5px -5px inset, rgba(255, 255, 255, .5) 0px -10px 5px -5px inset;             /*--ぼかしだけ--*/
+    }
+    #menuMode a:hover {
+        background:#a899ff;
+        /*color:#fff;*/
+         }
+
+/*ログアウトの装飾*/
+    #logout  {
+        position: relative; 
+        /*padding-top: 5px; 
+        padding-bottom: 10px; */
+        font-size: 90%;
+        width: 100%;
+    }
+    #logout a {
+        width: 90%;
+        float: left;
+        border-radius: 15px;
+        margin: 2% 0 2% 20%;
+        background:#E23E57/*#0090d2*/;
+        color:#fff;
+        text-decoration: none;
+        text-align: center;
+        display:inline-block;
+        padding: 10px;
+        box-sizing: border-box;
+text-shadow: -1px 1px 0 rgba(0,0,0,.3);    /*--立体的に(凸)--*/
+box-shadow: rgba(100, 100, 100, .5) 0px -10px 5px -5px inset, rgba(255, 255, 255, .5) 0px 10px 5px -5px inset;             /*--ぼかしだけ--*/
+    }
+    #logout a:hover {
+        background:#FF9999;
+        color:#fff;
+     }
+
+/*画像用クラス*/
+@media screen and (min-width: 371px){
+    .image {
+        width: 35%;
+        float: left;
+        display: inline-block;
+    }
+}
+@media screen and (max-width: 370px){
+    .image {
+        margin-top: 15px;
+        width: 35%;
+        float: left;
+        display: inline-block;
+    }
+}
+
+
+
+/*左側メニューのdiv*/
+.leftMenu {
+    position:relative;
+    width:90%;
+    float:left;
+    padding-left:15px;
+    padding-right:15px;
+    box-sizing: border-box;
+    
+    height: 98%;
+    overflow-y:scroll;
+}
+
+/*右側メニューのdiv*/
+.rightMenu {
+    position:relative;
+    width:100%;
+    float:left;
+    padding-left:15px;
+    padding-right:15px;
+    box-sizing: border-box;    
+    
+    height: 98%;
+    overflow-y:scroll;
+}
+
+/*右側メニュー用*/
+table.right, table.rightbig {
+    width: 100%;
+    border: 0;
+    font-size: 120%;
+}
+.right table, .rightbig table{
+    width:100%;
+    border-collapse:collapse;
+}
+.right td {
+    color: #666;
+    font-weight: normal;
+    font-size: 110%;    /*←右側全体の文字サイズ*/
+}
+.rightbig td {
+    color: #666;
+    font-weight: normal;
+    font-size: 150%;    /*←右側全体の文字サイズ*/
+}
+.right td a, .rightbig td a{
+    color: #337ab7;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.right td a:hover, .rightbig td a:hover{
+    color: #23527c;
+    text-decoration: underline;
+}
+
+.right th , .rightbig th{
+    background-color: #A59EBD;
+    color: white;
+    font-weight: normal;
+}
+.right th a, .right th a:hover{
+    /*background-color: #A59EBD;*/
+    color: white;
+    font-size: 100%;    /*←右側選択タイトルの文字サイズ*/
+    font-weight: normal;
+    text-decoration: none;
+}
+.rightbig th a, .rightbig th a:hover{
+    /*background-color: #A59EBD;*/
+    color: white;
+    /*font-size: 150%;    /*←右側選択タイトルの文字サイズ*/
+    font-weight: normal;
+    text-decoration: none;
+}
+.title {
+    background:#fcffcc/*f9dfd5*/;
+    font-size:105%;     /*←右側表帯の文字サイズ*/
+    padding: 5px;
+    text-align: center;
+}
+
+
+/*お知らせテーブル用*/
+.right table.top, .rightbig table.top{ 
+    width: 90%;
+    display: block;
+    float: left;
+    text-align: center;
+    margin-left: 5%;
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+
+.right table.top th{ 
+    font-size: 120%;
+    background-color: #84a2d4 !important; 
+    color: white; 
+    border: 1px solid gray;
+    padding: 5px;
+}
+
+.right table.top td{ 
+    font-size: 100%;
+    border: 1px solid gray;
+    padding: 5px;
+}
+
+.rightbig table.top th{ 
+    font-size: 150%;
+    background-color: #84a2d4 !important; 
+    color: white; 
+    border: 1px solid gray;
+    padding: 5px;
+}
+
+.rightbig table.top td{ 
+    font-size: 150%;
+    border: 1px solid gray;
+    padding: 5px;
+}
+
+
+/*****************ここからSCHEDULE_YEAR********************/
+
+
+.right table.schedule_year{ 
+    width: 46%;
+    display: block;
+    float: left;
+    text-align: center;
+    margin-left: 30px;
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+
+.schedule_year th{ 
+    font-size: 25px;
+    background-color: yellowgreen !important; 
+    color: white; 
+    border: 1px solid gray;
+    padding: 5px;
+}
+
+.schedule_year td{ 
+    font-size: 19px;
+    border: 1px solid gray;
+    padding: 5px;
+}
+
+.month {
+    width: 100px;
+}
+
+.syori {
+    width: 600px;
+}
+
+.syori a{
+    display : block;
+    width: 100%;
+}
+
+.syori a:hover{
+    background: #d4ebf2; 
+    cursor: pointer; 
+    color: black; 
+    font-weight:bold;
+}
+
+
+.right table.todolist{ 
+    width: 46%;
+    display: block;
+    float: left;
+    text-align: center;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+
+.todolist th{ 
+    font-size: 25px;
+    background-color: yellowgreen !important; 
+    color: white; 
+    border: 1px solid gray;
+    padding: 5px;
+}
+
+.todolist td{ 
+    font-size: 19px;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    padding: 5px;
+}
+
+.box {
+    width: 50px;
+    border-right: hidden;
+}
+
+.task {
+    width: 650px;
+    text-align: left;
+}
+
+.task:hover{
+    color: pink;
+    font-weight: bold;
+}
+
+/*メニューのタイトル部分のリンク用に*/
+.link  {
+    color: white; 
+    text-decoration: none ; 
+    width: 50%;
+    font-size: 19px;
+    padding: 10px;
+}
+
+//つーるちっぷよう
+table.fsample  {
+    width: 100%;
+}       /*メニュー名表示部分のテーブル*/
+
+.fsample th{ 
+    border: 0px;
+    padding: 10px;
+    font-size: 120%;
+text-shadow: -1px 1px 0 rgba(0,0,0,.3);    /*--立体的に(凸)--*/
+box-shadow: rgba(100, 100, 100, .5) 0px -10px 5px -5px inset, rgba(255, 255, 255, .5) 0px 10px 5px -5px inset;             /*--ぼかしだけ--*/
+}
+
+.fsample tr{ 
+    border: 1px solid #c0c0c0;
+    padding: 10px;
+}
+
+.fsample td{ 
+    border: 0px;
+    padding: 5px;
+}
+table.fsamplebig  {
+    width: 100%;
+}       /*文字サイズ大きいやつ用*/
+
+.fsamplebig tr{ 
+    border: 1px solid #c0c0c0;
+    padding: 5px;
+}
+.fsamplebig th{ 
+    border: 0px;
+    font-size: 150%;    
+    padding: 5px;
+text-shadow: -1px 1px 0 rgba(0,0,0,.3);    /*--立体的に(凸)--*/
+box-shadow: rgba(100, 100, 100, .5) 0px -10px 5px -5px inset, rgba(255, 255, 255, .5) 0px 10px 5px -5px inset;             /*--ぼかしだけ--*/
+}
+
+.fsamplebig td{ 
+    border: 0px;
+    font-size: 150%;    
+    padding: 5px;
+}
+
+table.sample  {
+}       /*ないとだめらしい*/
+
+.sample th{ 
+    border: 1px solid #c0c0c0;
+    padding: 5px;
+text-shadow: -1px 1px 0 rgba(0,0,0,.3);    /*--立体的に(凸)--*/
+box-shadow: rgba(100, 100, 100, .5) 0px -10px 5px -5px inset, rgba(255, 255, 255, .5) 0px 10px 5px -5px inset;             /*--ぼかしだけ--*/
+}
+
+.sample td{ 
+    border: 1px solid #c0c0c0;
+    padding: 5px;
+}
+table.samplebig  {
+}       /*文字サイズ大きいやつ用*/
+
+.samplebig th{ 
+    border: 1px solid #c0c0c0;
+    font-size: 150%;    
+    padding: 5px;
+text-shadow: -1px 1px 0 rgba(0,0,0,.3);    /*--立体的に(凸)--*/
+box-shadow: rgba(100, 100, 100, .5) 0px -10px 5px -5px inset, rgba(255, 255, 255, .5) 0px 10px 5px -5px inset;             /*--ぼかしだけ--*/
+}
+
+.samplebig td{ 
+    border: 1px solid #c0c0c0;
+    padding: 5px;
+}
+
+/* 表示文字の装飾 */
+/***********メインメニューのほうのチップ用************************************/
+div.sample3{
+    color: #555;
+    display: inline-block;                        /* インライン要素化 */
+    //border-bottom:dashed 1px #555;    /* 下線を引く */
+}
+ 
+/* ツールチップ部分を隠す */
+div.sample3 span {
+    display: none;
+}
+ 
+/* マウスオーバー */
+div.sample3:hover {
+    position: relative;
+    color: #333;
+}
+ 
+/* マウスオーバー時にツールチップを表示 */
+div.sample3:hover span {
+    display: block;                  /* ボックス要素にする */
+    position: absolute;            /* relativeからの絶対位置 */
+    top: 25px;
+    left:-120px;
+    text-align: center;
+    font-size: 90%;
+    //font-weight:bold;
+    color: #000;
+    background-color: #adff2f;
+    //border:2px #c0c0c0 solid;         /*影出ないから縁取りしてみる。*/
+    width: 150px;
+    padding: 5px;
+    border-radius:3px;
+    -webkit-box-shadow: 0 0 8px gray;
+            box-shadow: 0 0 8px gray;
+    z-index:100;
+}
+ 
+/* フキダシ部分を作成 */
+div.sample3 span:before{
+    content:''; 
+    display:block; 
+    position:absolute;                         /* relativeからの絶対位置 */
+    height:0; 
+    width:0; 
+    top:-10px; 
+    left:130px;
+    border:10px transparent solid; 
+    border-right-width:0; 
+    border-left-color:#adff2f; 
+    //transform:rotate(270deg);            /* 傾きをつける */
+    //-webkit-transform:rotate(270deg);
+    //-o-transform:rotate(270deg);
+    z-index:100;
+}
+/**********メインメニューの上のちっぷよう*******************************/
+/* 表示文字の装飾 */
+div.sample2{
+    color: #555;
+    display: inline-block;                        /* インライン要素化 */
+    //border-bottom:dashed 1px #555;    /* 下線を引く */
+}
+ 
+/* ツールチップ部分を隠す */
+div.sample2 span {
+    display: none;
+}
+ 
+/* マウスオーバー */
+div.sample2:hover {
+    position: relative;
+    color: #333;
+}
+ 
+/* マウスオーバー時にツールチップを表示 */
+div.sample2:hover span {
+    display: block;                  /* ボックス要素にする */
+    position: absolute;            /* relativeからの絶対位置 */
+    top: 30px;
+    left:-125px;
+    text-align: center;
+    font-size: 90%;
+    //font-weight:bold;
+    color: #fff;
+    background-color: #ff9e3d;
+    //border:2px #ffffe0 solid;         /*影出ないから縁取りしてみる。*/
+    width: 150px;
+    padding: 5px;
+    border-radius:5px;
+    -webkit-box-shadow: 0 0 8px white;
+            box-shadow: 0 0 8px white;      /*IE*/
+    z-index:100;
+}
+ 
+/* フキダシ部分を作成 */
+div.sample2 span:before{
+    content:''; 
+    display:block; 
+    position:absolute;                         /* relativeからの絶対位置 */
+    height:0; 
+    width:0; 
+    top:-10px; 
+    left:135px;
+    border:13px transparent solid; 
+    border-right-width:0; 
+    border-left-color:#ff9e3d; 
+    //transform:rotate(270deg);            /* 傾きをつける */
+    //-webkit-transform:rotate(270deg);
+    //-o-transform:rotate(270deg);
+    z-index:100;
+}
+
+form {
+    margin-bottom: 0px;
+}

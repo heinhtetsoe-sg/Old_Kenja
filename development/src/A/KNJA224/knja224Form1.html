@@ -1,0 +1,113 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<br /><br /><br />
+
+<table width="45%" border="0" cellpadding="0" cellspacing="5" align="center">
+    <tr class="no_search_line">
+        <td nowrap>
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                <tr bgcolor="#ffffff">
+                    <td>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="5">
+                            <tr class="no_search_line">
+                                <td width="100%">
+                                    <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                                        <tr class="no_search" align="center">
+                                            <td><b> {rval data/YEAR}年度　　{rval data/GAKKI} </b></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr class="no_search_line">
+                                <td width="100%">
+                                    <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                                        <tr align="center" class="no_search">
+                                            <th><b>出力対象クラス</b></th>
+                                            <th class="no_search"></th>
+                                            <th><b>クラス一覧</b></th>
+                                        </tr>
+                                        <tr align="center" bgcolor="#ffffff">
+                                            <td width="45%">{rval data/CLASS_SELECTED}</td>
+                                            <td width="*%" class="no_search">
+                                                {rval button/btn_lefts}<br />
+                                                {rval button/btn_left1}<br />
+                                                {rval button/btn_right1}<br />
+                                                {rval button/btn_rights}
+                                            </td>
+
+                                            <td width="45%">{rval data/CLASS_NAME}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr class="no_search_line">
+                                <td>
+                                    <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                                        <tr>
+                                            <td align="left" bgcolor="#ffffff">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            　　　<b>フォーム種別</b>　　　<font size="2">{rval data/KARA}<label for="KARA">空行を詰めて印字</label></font
+                                                            ><br />
+                                                        </td>
+                                                    </tr>
+                                                    <!--{def is_not_musashi}-->
+                                                    <tr>
+                                                        <td>
+                                                            　　　　　　{rval data/OUTPUT2}<label for="OUTPUT2">　名票（氏名漢字）</label><br />
+                                                            　　　　　　{rval data/OUTPUT1}<label for="OUTPUT1">　名票（氏名漢字・ふりかな）</label><br />
+                                                            　　　　　　{rval data/OUTPUT7}<label for="OUTPUT7">　名票（氏名漢字・自由）</label><br />
+                                                            　　　　　　{rval data/OUTPUT3}<label for="OUTPUT3">　名票（氏名漢字・出身校）</label><br />
+                                                            　　　　　　{rval data/OUTPUT4}<label for="OUTPUT4">　名票（Ａ３ヨコ）</label><br />
+                                                            　　　　　　{rval data/OUTPUT5}<label for="OUTPUT5">　名票　サイズ指定（氏名漢字）</label><br />
+                                                            　　　　　　　　　　　　縦サイズ {rval data/HEIGHT}<br />
+                                                            　　　　　　　　　　　　横サイズ {rval data/WIDTH}<br />
+                                                            　　　　　　　　　　　　{rval data/PRINT_SCHREGNO}<label for="PRINT_SCHREGNO">学籍番号を表記する</label><br />
+                                                            　　　　　　{rval data/OUTPUT8}<label for="OUTPUT8">{rval data/OUTPUT8_LABEL}</label><br />
+                                                            　　　　　　{rval data/OUTPUT6}<label for="OUTPUT6">　教務手帳</label><br />
+                                                            　　　　　　　　　　　　{rval data/KYOUMU1}<label for="KYOUMU1">　Aパターン</label><br />
+                                                            　　　　　　　　　　　　{rval data/KYOUMU2}<label for="KYOUMU2">　Bパターン</label><br /><br />
+                                                        </td>
+                                                    </tr>
+                                                    <!--{/def}-->
+                                                    <tr>
+                                                        <td>　　　<b>出力件数</b>　　　{rval data/KENSUU}件</td>
+                                                    </tr>
+                                                    <!--{def is_musashi}-->
+                                                    <tr>
+                                                        <td>
+                                                            　　　{rval data/WAKU_NASI}<b><label for="WAKU_NASI">枠なしフォーム</label></b>
+                                                        </td>
+                                                    </tr>
+                                                    <!--{/def}-->
+                                                    <tr>
+                                                        <td>　　　{rval data/NAME_NASI}<label for="NAME_NASI">退学者・転学者・卒業生の名前は空白とする</label></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td nowrap>
+            {rval button/btn_print}{rval button/btn_csv}{rval button/btn_end} 　<font color="red" size="2"> ※PDF印字する場合は、ページの拡大／縮小は</font><br />
+            　　　　　　　　　　　　　　　　　　　　　　　　　　<font color="red" size="2">"なし"を選択してください。</font>
+        </td>
+    </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

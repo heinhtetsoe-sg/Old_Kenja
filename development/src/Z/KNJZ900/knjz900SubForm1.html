@@ -1,0 +1,119 @@
+{rval start}
+{rval IFRAME}
+
+<br>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <div style="width:980;height:300;overflow-x:scroll;overflow-y:scroll">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="1200" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th width="25%">パラメータ</th>
+                            <th width="25%">値</th>
+                            <th width="8%">プログラム<br>ＩＤ</th>
+                            <th width="25%">処理名</th>
+                            <th width="*">備考</th>
+                          </tr>
+                          <!--結果一覧--><!--{def data}--><!--{each data}-->
+                          <tr bgcolor="#ffffff">
+                            <!--{def data/ROWSPAN}-->
+                            <td rowspan={rval data/ROWSPAN}><a href="knjz900index.php?cmd=subform1A&NAME={val data/NAME}&VALUE={val data/VALUE}" target="">{val data/NAME}</a></td>
+                            <td rowspan={rval data/ROWSPAN}>{val data/VALUE}</td>
+                            <!--{/def}-->
+                            <td>{val data/PRG_ID}</td>
+                            <td>{val data/MENUNAME}</td>
+                            <td>{val data/REMARK}</td>
+                          </tr>
+                          <!--{/each}--><!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+
+<!--{def data1}-->
+<!--{def button}-->
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="90%" border="0" cellspacing="0" cellpadding="0">
+
+                    <tr class="no_search_line">
+                      <td width="100%">
+                        <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                          <tr align="center" class="no_search">
+                            <th><b>対象プログラム一覧</b></th>
+                            <th class="no_search"></th>
+                            <th><b>プログラム一覧</b></th>
+                          </tr>
+                          <tr align="center" bgcolor="#ffffff">
+                            <td width="45%">{rval data1/CATEGORY_SELECTED}</td>
+                            <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                                {rval button/btn_left1}<BR>
+                                {rval button/btn_right1}<BR>
+                                {rval button/btn_rights}
+                            <td width="45%">{rval data1/CATEGORY_NAME}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                          <tr>
+                            <th align="center" class="no_search" nowrap width="100" height="25">※パラメータ</th>
+                            <td align="left" bgcolor="#ffffff" nowrap>{val data1/NAME}</td>
+                          </tr>
+                          <tr>
+                            <th align="center"  class="no_search" nowrap width="100">値</th>
+                            <td align="left" bgcolor="#ffffff" nowrap>{val data1/VALUE}</td>
+                          </tr>
+                          <tr>
+                            <th align="center" class="no_search" nowrap width="100" height="25">備考</th>
+                            <td align="left" bgcolor="#ffffff" nowrap>{val data1/REMARK}</td>
+                          </tr>
+                          <tr>
+                            <th align="center" class="no_search" nowrap width="100" height="25"></th>
+                            <td bgcolor="#ffffff" nowrap>
+                                {rval button/btn_update}{rval button/btn_reset}{rval button/btn_back}　　{rval button/btn_end}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+<!--{/def}-->
+<!--{/def}-->
+
+      </table>
+    </td>
+  </tr>
+</table>
+<div id="lay"></div>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

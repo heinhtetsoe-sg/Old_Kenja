@@ -1,0 +1,116 @@
+{rval start}
+{rval IFRAME}
+<!--{def button}-->
+<!--{def data}-->
+
+<style>
+    .tyui {
+        color: red;
+        font-size: 0.9em;
+    }
+
+    .itemtitle {
+        text-align: right;
+        vertical-align: top;
+    }
+
+    .itemdata {
+        background-color: #ffffff;
+    }
+
+    .tabcels th, 
+    .tabcels td {
+        padding: 3px;
+    }
+
+</style>
+
+<table style="width: 100%; " >
+  <tr>
+    <td style="vertical-align: top; padding: 10px; ">
+      <table style="width: 100%; " >
+        <tr>
+          <td>
+            <div style="width: 300px; text-align: left; ">
+               <hr>
+                  {rval SCHREGNO}&nbsp;&nbsp;{val NAME}
+               <hr>
+              <br>
+            </div>
+
+            <table style="width: 100%; border-spacing: 0; " >
+              <tr class="no_search_line">
+                <td style="padding: 0px; " >
+                  <table style="width: 100%; border-spacing: 1px; " class="tabcels" >
+                    <tr class="no_search"> 
+                      <th colspan="2" width="20%">項 目</th>
+                      <th width="80%">値</th>
+                    </tr>
+                    <tr>
+                      <th colspan="2" class="no_search itemtitle" nowrap>
+                          {rval data/SCHOOL_KIND_STUDENT_KIND}が登校できない事由
+                      </th>
+                      <td class="itemdata">
+                          <div>{rval data/ABSENCE_REASON}</div>
+                          <div><span class="tyui">{rval data/ABSENCE_REASON_TYUI}</span>　　{rval button/btn_teikei_act}</div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th rowspan="3" class="no_search itemtitle" style="text-align: center; vertical-align: middle; " nowrap>
+                          <div style="padding: 2px 0px;"> オンライン</div>
+                          <div style="padding: 2px 0px;">を活用した</div>
+                          <div style="padding: 2px 0px;">特例の授業</div>
+                      </th>
+                      <th class="no_search itemtitle" nowrap>実施日数</th>
+                      <td class="itemdata" >
+                          <div>{rval data/DAYS}</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="no_search itemtitle" nowrap>参加日数</th>
+                      <td class="itemdata" >
+                          <div>{rval data/PARTICIPATION_DAYS}</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="no_search itemtitle" nowrap>実施方法等</th>
+                      <td class="itemdata" >
+                         <div>{rval data/METHOD}</div> 
+                          <div><span class="tyui">{rval data/METHOD_TYUI}</span></div>
+                      </td>
+                    </tr>
+                    
+                    <tr>
+                      <th colspan="2" class="no_search itemtitle" nowrap>その他の学習等</th>
+                      <td class="itemdata" >
+                          <div>{rval data/OTHER_LEARNING}</div>
+                          <div><span class="tyui">{rval data/OTHER_LEARNING_TYUI}</span></div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th colspan="2" align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td class="itemdata">
+                          <div>{rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_end}</div>
+                          <div>{rval button/btn_csv}&nbsp;&nbsp;{rval button/btn_print}</div>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval nextjs}</script>
+<!--{/def}-->
+<script language="javascript">{rval reloadjs}</script>

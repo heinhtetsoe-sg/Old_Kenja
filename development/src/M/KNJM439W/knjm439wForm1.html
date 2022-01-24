@@ -1,0 +1,49 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr > 
+    
+      <td >
+    <hr width="25%" align="left">
+      {rval SCHREGNO}&nbsp;&nbsp;{val NAME}
+    <hr width="25%" align="left">
+      
+      <table width="700" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+        <td> 
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search"> 
+            <th align="center" nowrap width="200" height="30">科目</th>
+            <th align="center" nowrap width="200" height="30">テスト種別</th>
+            <th align="center" nowrap width="50" height="30">回数</th>
+            <th align="center" nowrap width="50" height="30">出席</th>
+            <th align="center" nowrap width="*" height="30">試験日付</th>
+          </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}--> 
+          <tr> 
+             <td align="right" nowrap bgcolor="#ffffff">
+             <a href="knjm439windex.php?cmd=edit&SEND_YEAR={rval data/YEAR}&SEND_SEMESTER={rval data/SEMESTER}&SEND_TESTKINDCD={rval data/TESTKINDCD}&SEND_TESTITEMCD={rval data/TESTITEMCD}&SEND_SCORE_DIV={rval data/SCORE_DIV}&SEND_CLASSCD={rval data/CLASSCD}&SEND_SCHOOL_KIND={rval data/SCHOOL_KIND}&SEND_CURRICULUM_CD={rval data/CURRICULUM_CD}&SEND_SUBCLASSCD={rval data/SUBCLASSCD}&SEND_SCHREGNO={rval data/SCHREGNO}&SEND_SEQ={rval data/SEQ}" target="edit_frame">{val data/SUBCLASSNAME}</a></td>
+             <td align="left" nowrap bgcolor="#ffffff">{val data/TESTITEMNAME}</td>
+             <td align="right" nowrap bgcolor="#ffffff">{val data/SEQ}</td>
+             <td align="right" nowrap bgcolor="#ffffff">{val data/ATTEND}</td>
+             <td align="center" nowrap bgcolor="#ffffff">{val data/TEST_DATE}</td>
+          </tr> 
+<!--{/each}--> 
+<!--{/def}--> 
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval reload}{rval close}</script>
+{rval finish}

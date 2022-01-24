@@ -1,0 +1,343 @@
+{rval start}
+
+<style type="text/css">
+
+#box td div{
+    writing-mode: vertical-lr;
+    background-color:#FFFFFF;
+    height:400px;
+}
+</style>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="70%">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <hr width="70%" align="left">
+                  &nbsp;&nbsp;{rval header/SCHREGNO}&nbsp;：&nbsp;{rval header/NAME_SHOW}
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<BR>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="box">
+                    <tr class="no_search">
+                      <th rowspan="3">年<br>齢</th>
+                      <th rowspan="3">年<br>度</th>
+<!--{def NO_CHG_DISPORDER}-->
+                      <th rowspan="3">顎<br>関<br>節</td>
+<!--{/def}-->
+                      <th rowspan="3">{rval header/JAWS_JOINTCD_LABEL}</th>
+<!--{def kuma_tokiwa_miyagi}-->
+<!--{def kuma_Renovation}-->
+                      <th rowspan="3">咬<br>合</th>
+<!--{/def}-->
+<!--{/def}-->
+<!--{def jaws_jointcd3_mie}-->
+                      <th rowspan="3">咬<br>合</th>
+<!--{/def}-->
+<!--{def CHG_DISPORDER}-->
+                      <th rowspan="3">顎<br>関<br>節</th>
+<!--{/def}-->
+                      <th rowspan="3"><!--{def SIKOU_STRTYPE1}-->歯<br>垢<br>の<br>状<br>態<!--{/def}--><!--{def SIKOU_STRTYPE2}-->歯<br>垢<br>の<br>付<br>着<!--{/def}--></th>
+                      <th rowspan="3">歯<br>肉<br>の<br>状<br>態</th>
+<!--{def NO_CHG_DISPORDER}-->
+<!--{def not_kuma_tokiwa_miyagi}-->
+<!--{def not_miyagiken}-->
+                      <th rowspan="3">歯<br>石<br>沈<br>着</th>
+<!--{/def}-->
+<!--{/def}-->
+<!--{/def}-->
+<!--{def Ippan3}-->
+                      <th rowspan="3">歯<br>石<br>沈<br>着</th>
+<!--{/def}-->
+<!--{def not_miyagiken}-->
+                      <th rowspan="3">矯<br>正</th>
+<!--{/def}-->
+                      <th rowspan="2">歯式</th>
+                      <th colspan="9">歯の状態</th>
+                      <th rowspan="3">そ<br>の<br>他<br>の<br>疾<br>病<br>及<br>び<br>異<br>常</th>
+                      <th rowspan="2" colspan="2">学校歯科医</th>
+                      <th rowspan="3">事<br>後<br>措<br>置</th>
+                    </tr>
+                    <tr class="no_search">
+                      <th colspan="3">乳歯</th>
+                      <th>&nbsp;</th>
+                      <th colspan="5">永久歯</th>
+                    </tr>
+                    <tr class="no_search">
+                      <th style="text-align:left">
+                      ・現在歯(例　A 6)<br>
+                      ・う歯　未処置は　C<br>
+                      　　　　処置し　　〇<br>
+                      ・喪失歯(永久歯)　△<br>
+                      ・要注意乳歯　　　×<br>
+                      ・要観察歯　　　　C0
+                      </th>
+                      <th>現<br>在<br>歯<br>数</th>
+                      <th>未<br>処<br>置<br>歯<br>数</th>
+                      <th>処<br>置<br>歯<br>数</th>
+                      <th>要<br>注<br>意<br>乳<br>歯<br>数</th>
+                      <th>現<br>在<br>歯<br>数</th>
+                      <th>未<br>処<br>置<br>歯<br>数</th>
+                      <th>処<br>置<br>歯<br>数</th>
+                      <th>喪<br>失<br>歯<br>数</th>
+                      <th>要<br>観<br>察<br>歯</th>
+                      <th>所<br>見</th>
+                      <th>月<br>日</th>
+                    </tr>
+                    <!--{each data}-->
+                    <tr>
+                      <td bgcolor="#ffffff"><div>{rval data/AGE}</div></td>
+                      <td bgcolor="#ffffff"><div>{rval data/YEAR}年度</div></td>
+                      
+<!--{def NO_CHG_DISPORDER}-->
+                      <td bgcolor="#ffffff"><div>{rval data/JAWS_JOINTCD2}</div></td>
+<!--{/def}-->
+                      <td bgcolor="#ffffff"><div>{rval data/JAWS_JOINTCD}</div></td>
+<!--{def kuma_tokiwa_miyagi}-->
+<!--{def kuma_Renovation}-->
+                      <td bgcolor="#ffffff"><div>{rval data/JAWS_JOINTCD3}</div></td>
+<!--{/def}-->
+<!--{/def}-->
+<!--{def jaws_jointcd3_mie}-->
+                      <td bgcolor="#ffffff"><div>{rval data/JAWS_JOINTCD3}</div></td>
+<!--{/def}-->
+<!--{def CHG_DISPORDER}-->
+                      <td bgcolor="#ffffff"><div>{rval data/JAWS_JOINTCD2}</div></td>
+<!--{/def}-->
+                      <td bgcolor="#ffffff"><div>{rval data/PLAQUECD}</div></td>
+                      <td bgcolor="#ffffff"><div>{rval data/GUMCD}</div></td>
+
+<!--{def NO_CHG_DISPORDER}-->
+<!--{def not_kuma_tokiwa_miyagi}-->
+<!--{def not_miyagiken}-->
+                      <td bgcolor="#ffffff"><div>{rval data/CALCULUS}</div></td>
+<!--{/def}-->
+<!--{/def}-->
+<!--{/def}-->
+<!--{def Ippan3}-->
+                      <td bgcolor="#ffffff"><div>{rval data/CALCULUS}</div></td>
+<!--{/def}-->
+<!--{def not_miyagiken}-->
+                      <td bgcolor="#ffffff"><div>{rval data/ORTHODONTICS}</div></td>
+<!--{/def}-->
+                      <td bgcolor="#ffffff">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                          <tr class="no_search">
+                            <td>
+                              <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                                <tr bgcolor="#ffffff" height="60" class="topman">
+                                  <td align=center>永久歯</td>
+                                  <!--{each data/upAdult}-->
+                                  <td align=center>
+                                    {rval data/upAdult/UP_ADULT_LABEL_NAME}
+                                    {rval data/upAdult/UP_ADULT_FORM_NAME}
+                                    {rval data/upAdult/UP_ADULT_FORM_ID}
+                                  </td>
+                                  <!--{/each}-->
+                                </tr>
+                                <tr bgcolor="#ffffff" height="60" class="topman">
+                                  <td align=center>乳歯</td>
+                                  <td align=right colspan=3 rowspan=2>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    上&nbsp;&nbsp;<br>
+                                    {rval data/LEFT_SIDE_LABEL}<br>
+                                    下&nbsp;&nbsp;<br>
+                                  </td>
+                                  <!--{each data/upBaby}-->
+                                  <td align=center>
+                                    {rval data/upBaby/UP_BABY_LABEL_NAME}
+                                    {rval data/upBaby/UP_BABY_FORM_NAME}
+                                    {rval data/upBaby/UP_BABY_FORM_ID}
+                                  </td>
+                                  <!--{/each}-->
+                                  <td align=left colspan=3 rowspan=2>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    &nbsp;&nbsp;上<br>
+                                    {rval data/RIGHT_SIDE_LABEL}<br>
+                                    &nbsp;&nbsp;下<br>
+                                  </td>
+                                </tr>
+                                <tr bgcolor="#ffffff" height="60" class="topman">
+                                  <td align=center>乳歯</td>
+                                  <!--{each data/lwBaby}-->
+                                  <td align=center>
+                                    {rval data/lwBaby/LW_BABY_LABEL_NAME}
+                                    {rval data/lwBaby/LW_BABY_FORM_NAME}
+                                    {rval data/lwBaby/LW_BABY_FORM_ID}
+                                  </td>
+                                  <!--{/each}-->
+                                </tr>
+                                <tr bgcolor="#ffffff" height="60" class="topman">
+                                  <td align=center>永久歯</td>
+                                  <!--{each data/lwAdult}-->
+                                  <td align=center>
+                                    {rval data/lwAdult/LW_ADULT_LABEL_NAME}
+                                    {rval data/lwAdult/LW_ADULT_FORM_NAME}
+                                    {rval data/lwAdult/LW_ADULT_FORM_ID}
+                                  </td>
+                                  <!--{/each}-->
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/BABYTOOTH}</td>
+                      <td bgcolor="#ffffff">{rval data/REMAINBABYTOOTH}</td>
+                      <td bgcolor="#ffffff">{rval data/TREATEDBABYTOOTH}</td>
+                      <td bgcolor="#ffffff">{rval data/BRACK_BABYTOOTH}</td>
+                      <td bgcolor="#ffffff">{rval data/ADULTTOOTH}</td>
+                      <td bgcolor="#ffffff">{rval data/REMAINADULTTOOTH}</td>
+                      <td bgcolor="#ffffff">{rval data/TREATEDADULTTOOTH}</td>
+                      <td bgcolor="#ffffff">{rval data/LOSTADULTTOOTH}</td>
+                      <td bgcolor="#ffffff">{rval data/BRACK_ADULTTOOTH}</td>
+<!--{def kuma_tokiwa_miyagi}-->
+                      <td bgcolor="#ffffff"><div>
+                        <!--{def Ippan2}-->{rval data/OTHERDISEASECD}<BR><!--{/def}-->
+                        {rval data/OTHERDISEASE}
+                        <!--{def Ippan2Igai}-->
+                        <BR><font color="black">口腔の疾病及び異常：</font>
+                        <BR>　　　{rval data/OTHERDISEASECD2}&nbsp;{rval data/OTHERDISEASE2}
+                        <!--{/def}-->
+                      </div></td>
+                      <td bgcolor="#ffffff"><div>&nbsp;★&nbsp;CO(要観察歯数)
+                      {rval data/DENTISTREMARK_CO}
+                      <br>
+                      &nbsp;★&nbsp;GO
+                      {rval data/DENTISTREMARK_GO}
+                      <br>
+                      &nbsp;★&nbsp;G&nbsp;
+                      {rval data/DENTISTREMARK_G}
+                      </div></td>
+                      <td bgcolor="#ffffff"><div>
+                      {rval data/DENTISTREMARKDATE}
+                      </div></td>
+                      <!--{def Ippan2}-->
+                      <td bgcolor="#ffffff"><div>
+                        {rval data/DENTISTTREATCD}<BR>
+                        <font color="black">1:</font>{rval data/DENTISTTREAT}<BR>
+                        <font color="black">2:</font>{rval data/DENTISTTREAT2}<font color="black">3:</font>{rval data/DENTISTTREAT3}
+                      </div></td>
+                      <!--{/def}-->
+                      <!--{def Ippan3}-->
+                      <td bgcolor="#ffffff"><div>
+                        {rval data/DENTISTTREAT}
+                      </div></td>
+                      <!--{/def}-->
+<!--{/def}-->
+<!--{def not_kuma_tokiwa_miyagi}-->
+                      <td bgcolor="#ffffff"><div>
+                        {rval data/OTHERDISEASECD}&nbsp;{rval data/OTHERDISEASE}
+                        <!--{def is_miyagiken}-->
+                        <br>{rval data/OTHERDISEASECD3}
+                        <br>{rval data/OTHERDISEASECD4}
+                        <!--{/def}-->
+                        <!--{def F020_OTHERDISESE_HYOUJI2}-->
+                        <br>{rval data/OTHERDISEASECD3}&nbsp;{rval data/OTHERDISEASE3}
+                        <br>{rval data/OTHERDISEASECD4}&nbsp;{rval data/OTHERDISEASE4}
+                        <!--{/def}-->
+                      <!--{def Ippan2Igai}-->
+                        <BR><font color="black">口腔の疾病及び異常：</font>
+                        <BR><!--{def not_miyagiken}-->{rval data/OTHERDISEASECD2}&nbsp;<!--{/def}-->{rval data/OTHERDISEASE2}
+                        <!--{def F020_OTHERDISESE_HYOUJI}-->
+                        <br>{rval data/OTHERDISEASE_REMARK1}&nbsp;{rval data/OTHERDISEASE_REMARK2}
+                        <br>{rval data/OTHERDISEASE_REMARK3}&nbsp;{rval data/OTHERDISEASE_REMARK4}
+                        <!--{/def}-->
+                      <!--{/def}-->
+                      </div></td>
+                      <td bgcolor="#ffffff"><div>
+                        {rval data/DENTISTREMARKCD}<!--{def is_not_mie}-->&nbsp;{rval data/DENTISTREMARK}<!--{/def}-->
+                        <!--{def F020_DENTISTREMARK_HYOUJI}-->
+                        <br>{rval data/DENTISTREMARK_REMARK1}&nbsp;{rval data/DENTISTREMARK_REMARK2}
+                        <br>{rval data/DENTISTREMARK_REMARK3}&nbsp;{rval data/DENTISTREMARK_REMARK4}
+                        <!--{/def}-->
+                      </div></td>
+                      <td bgcolor="#ffffff"><div>{rval data/DENTISTREMARKDATE}<!--{def is_mie}-->学校医&nbsp;：&nbsp;{rval data/DOC_NAME}<!--{/def}--></div></td>
+                      <td bgcolor="#ffffff"><div>{rval data/DENTISTTREATCD}<!--{def is_not_mie}-->&nbsp;{rval data/DENTISTTREAT}<!--{/def}--></div></td>
+<!--{/def}-->
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<BR>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
+                    <tr class="no_search">
+                      <td align="center">
+                        {rval button/btn_back}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<div id="myID_Menu" style="position:absolute; visibility:hidden;">
+<table width=180 border="1" cellpadding="1" cellspacing="0" bgcolor="#C0C0C0">
+
+<tr class="no_search_line">
+  <td class="no_search" align="right">
+    <span style="float:left;"><font color="#FFFFFF"><strong>　入力項目　</span><a class="menuTitle" href={rval menuTitle/CLICK_VAL}>{rval menuTitle/CLICK_NAME}</a></strong><br></font>
+  </td>
+</tr>
+
+<tr class="no_search_line">
+  <td bgcolor="#FFFFFF">
+    <!--{each menu}-->
+    <a class="menu" href={rval menu/CLICK_VAL}>{rval menu/CLICK_NAME}</a><br>
+    <!--{/each}-->
+  </td>
+</tr>
+
+</table>
+</div>
+
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->

@@ -1,0 +1,85 @@
+{rval start}
+<style>
+.eki_select_a {
+    width:300px;
+}
+.eki_select_b {
+    width:150px;
+}
+td.td_select_a {
+    width:300px;
+}
+td.td_select_b {
+    width:150px;
+}
+span.train_title {
+    font-weight: bold;
+}
+</style>
+<table width="90%" align="center" border="0" cellspacing="0" cellpadding="5">
+<tr>
+<td>
+  <table style="width: 100%" border="0" cellspacing="5" cellpadding="1">
+  <tr> 
+  <td>
+    <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+<!-- 選択データ -->
+    <tr class="no_search_line">
+    <td><!-- first table for subclass -->
+      <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+      <tr class="no_search" height="35" nowrap>
+        <td align="center" nowrap colspan="3">
+            <div class="train_only" style="text-align:left; padding-left:90px; margin-bottom:5px;">
+                エリア選択{rval data/AREA_SENTAKU}
+            </div>
+            電車通学{rval data/TUGAKU1} その他通学{rval data/TUGAKU2}
+            <span style="margin-left:70px;">経路{rval data/KEIRO_NO}</span>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="white">
+            <table>
+                <tr>
+                    <td class="td_select_a">
+                        <span class="train_title">路線</span>
+                        {rval data/ROSEN_TEXT}
+                        <div id="rosen" class="train_only">
+                            <select name='ROSEN_SELECT' class="eki_select_a" size="20"></select>
+                        </div>
+                    </td>
+                    <td class="td_select_b">
+                        <span class="train_title">乗車駅</span>
+                        {rval data/JOSYA_TEXT}<br>
+                        <div id="josya" class="train_only">
+                            <select name='JOSYA_SELECT' class="eki_select_b" size="20"></select>
+                        </div>
+                    </td>
+                    <td class="td_select_b">
+                        <span class="train_title">下車駅</span>
+                        {rval data/GESYA_TEXT}<br>
+                        <div id="gesya" class="train_only">
+                            <select name='GESYA_SELECT' class="eki_select_b" size="20"></select>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            
+        </td>
+      </tr>
+      <tr class="no_search">
+        <td align="right">
+          {rval btn_up}
+          {rval btn_close}
+        </td>
+      </tr>
+      </table>
+    </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+  </table>
+</td>
+</tr>
+</table>
+{rval finish}

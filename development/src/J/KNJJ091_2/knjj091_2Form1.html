@@ -1,0 +1,93 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR>
+
+<table width="45%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td align="center">
+                          <b>{rval data/YEAR}年度　　<!--{def schkind}-->　　校種：{rval data/SCHKIND}<!--{/def}-->　　{rval data/GRADE_HR_CLASS}</b>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>対象者一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/STUDENT_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/STUDENT_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr bgcolor="#ffffff"> 
+    <td> 
+      <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+        <tr class="no_search_line"> 
+          <td width="100%"> 
+            <table width="100%" border="0" cellpadding="3" cellspacing="1">
+              <tr class="no_search">
+                <th align="center" width="30%"><b>項目</b></th>
+                <th align="center" width="70%"><b>値</b></th>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap><b>※　　　　　学期</b></th>
+                <td bgcolor="#ffffff">&nbsp;{rval data/SEMESTER}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap><b>※　　委員会区分</b></th>
+                <td bgcolor="#ffffff">&nbsp;{rval data/COMMITTEE_FLG}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap><b>※　委員会・係り</b></th>
+                <td bgcolor="#ffffff">&nbsp;{rval data/COMMITTEECD}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap><b>役職</b></th>
+                <td bgcolor="#ffffff">&nbsp;{rval data/EXECUTIVECD}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap></th>
+                <td bgcolor="#ffffff" align="center">{rval button/btn_insert}{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

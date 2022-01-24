@@ -1,0 +1,193 @@
+<!--knjl_event_searchForm1.html -->
+{rval start}
+<table width="50%" border="0" cellspacing="3" cellpadding="1">
+
+  <tr>
+    <td nowrap>
+    <table width="100%" border="0" cellspacing="5" cellpadding="0">
+      <tr>
+        <td valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr >
+              <td >
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr class="no_search_line">
+                    <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tr class="no_search">
+                          <td nowrap>　　　<< 生徒募集 >></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellspacing="5" cellpadding="1">
+        <tr bgcolor="#006633">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="0" width="100%">
+
+              <!--{def schoolKind}-->
+              <tr class="no_search">
+                <td nowrap>受付校種</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap><LABEL for="SCHOOL_KIND1">{rval SCHOOL_KIND1}中学</LABEL>　<LABEL for="SCHOOL_KIND2">{rval SCHOOL_KIND2}高校</LABEL></td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def recruit_no}-->
+              <tr class="no_search">
+                <td nowrap>管理番号</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval RECRUIT_NO}</td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def name}-->
+              <tr class="no_search">
+                <td nowrap>氏名</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval NAME}</td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def name_kana}-->
+              <tr class="no_search">
+                <td nowrap>かな氏名</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval NAME_KANA}</td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def event_class_cd}-->
+              <tr class="no_search">
+                <td nowrap>分類</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval EVENT_CLASS_CD}</td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def event_cd}-->
+              <tr class="no_search">
+                <td nowrap>イベント名</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval EVENT_CD}</td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def media_cd}-->
+              <tr class="no_search">
+                <td nowrap>媒体</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval MEDIA_CD}</td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def finschoolcd}-->
+              <tr class="no_search">
+                <td nowrap>出身学校</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval FINSCHOOLCD}</td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def grade}-->
+              <tr class="no_search">
+                <td nowrap>学年</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval GRADE}</td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def prischoolcd}-->
+              <tr class="no_search">
+                <td nowrap>塾</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval PRISCHOOLCD}</td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def prischoolClassCd}-->
+              <tr class="no_search">
+                <td nowrap>教室</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap>{rval PRISCHOOL_CLASS_CD}</td>
+              </tr>
+              <!--{/def}-->
+
+              <tr class="no_search">
+                <td nowrap>{rval btn_search}</td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!--{def search}-->
+  <tr>
+    <td nowrap>
+    <table width="100%" border="0" cellspacing="5" cellpadding="0">
+      <tr>
+        <td valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr >
+              <td >
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr class="no_search_line">
+                    <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tr class="no_search">
+                          <th nowrap width="80" align="center">管理番号</th>
+                          <th nowrap width="150">氏名</th>
+                          <th nowrap width="50">年度</th>
+                        </tr>
+                        <!--{def data}-->
+                        <!--結果一覧-->
+                        <!--{each data}-->
+                        <tr bgcolor="#ffffff">
+                          <td nowrap align="left">{val data/RECRUIT_NO}</td>
+                          <td nowrap align="left"><img src="{val data/IMAGE}" width="16" height="16">&nbsp;{val data/NAME}</td>
+                          <td nowrap align="center">{val data/YEAR}</td>
+                        </tr>
+                        <!--{/each}-->
+                        <!--{/def}-->
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <!--{/def}-->
+</table>
+{rval finish}
+<script language="javascript">{rval reload}{rval jscript}</script>

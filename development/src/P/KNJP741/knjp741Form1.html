@@ -1,0 +1,83 @@
+{rval start}
+<table width="600px" border="0" cellspacing="0" cellpadding="10">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <hr width="100%" align="left">
+            {rval HR_NAME}&nbsp;{rval ATTENDNO}番&nbsp;&nbsp;{rval NAME}({rval SCHREGNO})&nbsp;<font color="red">{rval GRD_DIV}</font>
+            <hr width="100%" align="left">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th align="center" nowrap width="200px" height="30">返金日</th>
+                        <th align="center" nowrap width="120px" height="30">返金額</th>
+                        <th align="center" nowrap width="*px" height="30">返金区分</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <div style="width:100%;height:200;overflow-y:scroll">
+            <table width="600px" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table id="list" width="100%" border="0" cellspacing="1" cellpadding="3" onclick="selectRow()">
+                    <tbody>
+                      <!--結果一覧--><!--{def data}--><!--{each data}-->
+                      <tr style="background-color:white" data-val={rval data/SETVAL}>
+                        <td align="center" nowrap width="200px">{rval data/REPAY_DATE}</td>
+                        <td align="center" nowrap width="120px">{rval data/REPAY_MONEY}</td>
+                        <td align="center" nowrap width="*px">{rval data/REPAY_DIV}</td>
+                      </tr>
+                      <!--{/each}--><!--{/def}-->
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th align="center" nowrap width="20" height="30"></th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<script language="JavaScript">{rval reload}</script> 
+{rval finish}

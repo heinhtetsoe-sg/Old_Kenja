@@ -1,0 +1,83 @@
+{rval start}
+
+<table height="30"><tr><td>　</td></tr></table>
+<table width="700" border="0" cellpadding="0" cellspacing="10" align="center">
+  <tr bgcolor="#ffffff">
+    <td valign="top">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr class="no_search" height="30">
+                <td align="center" nowrap><b>処理年度 {rval YEAR}　　処理学期 {rval SEMESTER}　　処理学年 {rval GRADE}</b></td>
+              </tr>
+              <tr bgcolor="#ffffff" height="100">
+                <td valign="top">
+                  <table width="100%">
+                    <tr>
+                      <td>
+                        　　設定年度：{rval NEW_YS}<br><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <table width="100%">
+                          <tr>
+                            <td width="40%">コース名</td>
+                            <td width="15%">人数</td>
+                            <td width="25%">開始クラス</td>
+                            <td width="20%">クラス数</td>
+                          </tr>
+                          <!--{each data}-->
+                          <tr>
+                            <td>{rval data/COURSENAME}</td>
+                            <td>{rval data/CNT} 名</td>
+                            <td>{rval data/START_CLASS} から</td>
+                            <td>{rval data/CLASS_CNT}</td>
+                          </tr>
+                          <!--{/each}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search" height="30">
+                <td nowrap align="right">{rval button/btn_execute}　　{rval button/btn_csv}{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr><td>　</td></tr>
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="1">
+              <tr height="25" bgcolor="darkgray">
+                <td nowrap colspan="5"><b>　● 処理結果</b></td>
+              </tr>
+              <tr class="no_search" height="25">
+                <td width="42%" align="center">コース名</td>
+                <td width="22%" align="center">処理クラス</td>
+                <td width="12%" align="center">男</td>
+                <td width="12%" align="center">女</td>
+                <td width="12%" align="center">合計</td>
+              </tr>
+              <!--{each list}-->
+              <tr bgcolor="#ffffff" height="25" align="center">
+                <td>{rval list/COURSENAME}</td>
+                <td>{rval list/HR_NAME}</td>
+                <td>{rval list/BOY}</td>
+                <td>{rval list/GIRL}</td>
+                <td>{rval list/TOTAL}</td>
+              </tr>
+              <!--{/each}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval authError}{rval maxsemError}</script>
+{rval finish}

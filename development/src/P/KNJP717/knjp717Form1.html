@@ -1,0 +1,95 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+  <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line">
+        <td>
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search_line">
+            <td colspan="2" class="no_search" >{rval SCHREGNO}&nbsp;&nbsp;{rval NAME_SHOW}</td>
+          </tr>
+          </table>
+        </td>
+      </tr>
+      </table>
+  </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search_line">
+                <th class="no_search" colspan="2">項目</th>
+                <th class="no_search">値</th>
+              </tr>
+<!--{def data}-->
+              <tr>
+                <th align="center" class="no_search" nowrap width="50" rowspan="6">口座1</th>
+                <th align="right" class="no_search" nowrap width="20%">※　銀行コード</th>
+                <td bgcolor="#ffffff" width="*%">{rval data/BANKCD1}　絞込検索：{rval data/BANKCD_SEARCH1}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>※　支店コード</th>
+                <td bgcolor="#ffffff">{rval data/BRANCHCD_T1}{rval data/BRANCHCD_C1}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>※　預金種目</th>
+                <td bgcolor="#ffffff">{rval data/DEPOSIT_ITEM1}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>※　口座番号</th>
+                <td bgcolor="#ffffff">{rval data/ACCOUNTNO1}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>※　口座名義</th>
+                <td bgcolor="#ffffff">{rval data/ACCOUNTNAME1}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>続柄</th>
+                <td bgcolor="#ffffff">{rval data/RELATIONSHIP1}</td>
+              </tr>
+
+              <tr>
+                <th align="center" class="no_search" nowrap width="50" rowspan="6">口座2</th>
+                <th align="right" class="no_search" nowrap width="20%">※　銀行コード</th>
+                <td bgcolor="#ffffff" width="*%">{rval data/BANKCD2}　絞込検索：{rval data/BANKCD_SEARCH2}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>※　支店コード</th>
+                <td bgcolor="#ffffff">{rval data/BRANCHCD_T2}{rval data/BRANCHCD_C2}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>※　預金種目</th>
+                <td bgcolor="#ffffff">{rval data/DEPOSIT_ITEM2}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>※　口座番号</th>
+                <td bgcolor="#ffffff">{rval data/ACCOUNTNO2}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>※　口座名義</th>
+                <td bgcolor="#ffffff">{rval data/ACCOUNTNAME2}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>続柄</th>
+                <td bgcolor="#ffffff">{rval data/RELATIONSHIP2}</td>
+              </tr>
+<!--{/def}-->
+<!--{def button}-->
+              <tr>
+                <th align="right" class="no_search" nowrap colspan="2">&nbsp;</th>
+                <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}</td>
+              </tr>
+<!--{/def}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<div id="debug" />
+{rval finish}

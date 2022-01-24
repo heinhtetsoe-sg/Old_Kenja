@@ -1,0 +1,95 @@
+{rval start}
+<!--{def data}-->
+<!--{def button}-->
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th width="100" align="right" class="no_search" nowrap><b>※日付</b></th>
+                      <td bgcolor="#ffffff">{rval data/DATE}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap><b>天気</b></th>
+                      <td bgcolor="#ffffff">{rval data/WEATHER}　{rval data/WEATHER_TEXT}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap><b>気温</b></th>
+                      <td bgcolor="#ffffff">{rval data/TEMPERATURE}&nbsp;度</td>
+                    </tr>
+<!--{def useNurseoffAttend}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width={rval header/WIDTH} border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th class="no_search" nowrap colspan={rval header/COLSPAN}><b>欠　席　状　況</b></th>
+                    </tr>
+                    <tr class="no_search">
+                        {rval header/GRADE}
+                    </tr>
+                    <!--{def attend}-->
+                    <!--{each attend}-->
+                    <tr bgcolor="#ffffff">
+                      {rval attend}
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{/def}-->
+                    <tr>
+                      <th width="100" align="right" class="no_search" nowrap><b>行事</b></th>
+                      <td bgcolor="#ffffff">{rval data/EVENT}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap><b>日誌</b></th>
+                      <td bgcolor="#ffffff">{rval data/DIARY}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

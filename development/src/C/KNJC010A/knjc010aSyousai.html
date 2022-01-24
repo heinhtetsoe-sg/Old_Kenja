@@ -1,0 +1,48 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+        <td valign="top"> 
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr > 
+                  <td > 
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line"> 
+                                <td> 
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search"> 
+                                          <th align="left" colspan="5">年組-番：{rval HR_ATTENDNO}&nbsp;&nbsp;氏名：{rval NAME}</th>
+                                        </tr>
+<!--結果一覧-->
+<!--{def data}-->
+                                        <tr class="no_search" align="center" nowrap>
+                                            <td width="50" height="50">校時</td>
+                                            <td width="100" height="50">備考コード</td>
+                                            <td width="100" height="50">備考(全角２０文字)</td>
+                                        </tr>
+
+                                        <!--{each data}-->
+                                        <tr class="no_search" align="center" nowrap>
+                                            <td bgcolor="white"><font color="black">{rval data/SYOUSAI_PERIOD}</font></td>
+                                            <td bgcolor="white">{rval data/SYOUSAI_REMARK_CD}</td>
+                                            <td bgcolor="white">{rval data/SYOUSAI_REMARK}</td>
+                                        </tr>
+                                        <!--{/each}-->
+
+<!--{/def}--> 
+<!--{def button}--> 
+                                        <tr> 
+                                          <td bgcolor="#ffffff" colspan="5">{rval button/btn_update}{rval button/btn_back}</td>
+                                        </tr>
+<!--{/def}--> 
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

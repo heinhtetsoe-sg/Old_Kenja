@@ -1,0 +1,210 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+
+<!--過去の在籍データ-->
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td align="center">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+                    <!--{each old}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap width="10%">{rval old/TITLE}</th>
+                      <td align="center" bgcolor="#ffffff" width="10%">{rval old/DATA1}</td>
+                      <td align="center" bgcolor="#ffffff" width="10%">{rval old/DATA2}</td>
+                      <td align="center" bgcolor="#ffffff" width="10%">{rval old/DATA3}</td>
+                      <td align="center" bgcolor="#ffffff" width="10%">{rval old/DATA4}</td>
+                      <td align="center" bgcolor="#ffffff" width="10%">{rval old/DATA5}</td>
+                      <td align="center" bgcolor="#ffffff" width="10%">{rval old/DATA6}</td>
+                    </tr>
+                    <!--{/each}-->
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+<!--結果一覧-->
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td align="center">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+                    <tr class="no_search">
+                      <td align="right">年-組-番</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left">{rval data/GRADE_CLASS}&nbsp-&nbsp{rval data/ATTENDNO}番</td>
+                      <td align="right">年次</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="2">{rval data/ANNUAL}</td>
+                      <td width="20%" bgcolor="#ffffff" rowspan="6" colspan="2"><img src="{rval data/FACE_IMG}" alt="生徒顔写真&nbsp;{rval data/IMG_PATH}" width="120" height="160"></td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td align="right">課程学科</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left">{rval data/COURSEMAJORCD}</td>
+                      <td align="right">コース</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="2">{rval data/COURSECODE}</td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td align="right">学籍番号</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left">{rval data/SCHREGNO}</td>
+                      <td align="right">内外区分</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="2">{rval data/INOUTCD}</td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td align="right">氏 名</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="4">{rval data/NAME}</td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td align="right">氏名表示用</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="4">{rval data/NAME_SHOW}</td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td align="right">氏名かな</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="4">{rval data/NAME_KANA}</td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td align="right">英字氏名</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="6">{rval data/NAME_ENG}</td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td align="right">生年月日</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left">{rval data/BIRTHDAY}</td>
+                      <td align="right">性別</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left">{rval data/SEX}</td>
+                      <td align="right">血液</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="2">{rval data/BLOODTYPE}型&nbspRH&nbsp{rval data/BLOOD_RH}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right">出身学校</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left">{rval data/FINSCHOOL_NAME}</td>
+                      <td align="right">卒業年月日</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="4">{rval data/FINISH_DATE}</td>
+                    </tr>
+                    <tr>
+                        <th class="no_search" style="text-align: right">出身塾</th><td bgcolor="#ffffff" colspan="6" nowrap>{rval data/PRISCHOOL_NAME}
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td bgcolor="#ffffff">
+                  <BR><BR>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td align="center">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td width="28%" align="right">有効期間</td>
+                      <td width="*%" bgcolor="#ffffff" style="color:black; text-align:left" colspan="3">{rval data/ISSUEDATE}&nbsp～&nbsp{rval data/EXPIREDATE}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right">郵便番号</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="3">{rval data/ZIPCD}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right">地区コード</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="3">{rval data/AREACD}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right">住所</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="3">{rval data/ADDR1}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right">方書き(アパート名等)</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="3">{rval data/ADDR2}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right">(英字)住所</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="3">{rval data/ADDR1_ENG}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right">(英字)方書き(アパート名等)</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="3">{rval data/ADDR2_ENG}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right">電話番号</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="3">{rval data/TELNO}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right">FAX番号</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="3">{rval data/FAXNO}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right">E-Mail</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="3">{rval data/EMAIL}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right">急用連絡先</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="3">{rval data/EMERGENCYCALL}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right">急用氏名</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="3">{rval data/EMERGENCYNAME}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right">急用続柄</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left">{rval data/EMERGENCYRELA_NAME}</td>
+                      <td width="15%" align="right">急用電話番号</td>
+                      <td width="15%" bgcolor="#ffffff" style="color:black; text-align:left">{rval data/EMERGENCYTELNO}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right">急用連絡先２</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="3">{rval data/EMERGENCYCALL2}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right">急用氏名２</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left" colspan="3">{rval data/EMERGENCYNAME2}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right">急用続柄２</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left">{rval data/EMERGENCYRELA_NAME2}</td>
+                      <td align="right">急用電話番号２</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left">{rval data/EMERGENCYTELNO2}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right">自転車許可番号</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left">{rval data/BICYCLE_CD}</td>
+                      <td align="right">駐輪場番号</td>
+                      <td bgcolor="#ffffff" style="color:black; text-align:left">{rval data/BICYCLE_NO}</td>
+                    </tr>
+
+                    <tr>
+                      <th class="no_search"></th>
+                      <td bgcolor="#ffffff" colspan="3">
+<!--{def button}-->
+                      &nbsp;{rval button/btn_up_pre}{rval button/btn_update}{rval button/btn_up_next}{rval button/btn_end}
+<!--{/def}-->
+                        </td>
+                    </tr>
+                </table>
+                   </td>
+               </tr>
+              </table>
+           </td>
+          </tr>
+       </table>
+      </td>
+   </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval Closing}
+</script>

@@ -1,0 +1,94 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr> 
+      <td > 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" height="28"> 
+              <th width="30%">項 目</th>
+              <th width="70%">値</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>申込コード</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/APPLICATIONCD}</td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>申込名称</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/APPLICATIONNAME}</td>
+            </tr>
+
+            <tr height="28">
+              <th align="right" class="no_search" nowrap>金額</th>
+              <td bgcolor="#ffffff">{rval data/APPLICATIONMONEY}円</td>
+            </tr>
+
+		<!-- mk 2005.06.17 以下追加（銀行情報） -->
+            <tr height="28">
+              <th align="right" class="no_search" nowrap>銀行コード</th>
+              <td bgcolor="#ffffff">{rval data/BANKCD}</td>
+            </tr>
+
+            <tr height="28">
+              <th align="right" class="no_search" nowrap>支店コード</th>
+              <td bgcolor="#ffffff">{rval data/BANK_BRANCHCD}</td>
+            </tr>
+
+            <tr height="28">
+              <th align="right" class="no_search" nowrap>預金種目</th>
+              <td bgcolor="#ffffff">{rval data/DEPOSIT_ITEM}</td>
+            </tr>
+
+            <tr height="28">
+              <th align="right" class="no_search" nowrap>口座番号</th>
+              <td bgcolor="#ffffff">{rval data/ACCOUNTNO}</td>
+            </tr>
+
+            <tr height="28">
+              <th align="right" class="no_search" nowrap>口座名義</th>
+              <td bgcolor="#ffffff">{rval data/ACCOUNTNAME}</td>
+            </tr>
+
+		<!-- ここまで -->
+
+            <!--{/def}--> 
+            <!--{def button}--> 
+            <tr height="28"> 
+              <th align="right" class="no_search" nowrap>&nbsp;</th>
+              <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+            </tr>
+            <!--{/def}--> 
+            </table>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

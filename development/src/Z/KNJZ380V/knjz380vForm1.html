@@ -1,0 +1,89 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr class="no_search_line">
+           <th>
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search">
+          <th nowrap width="150" align="center">対象年度：{rval header}</th>
+          <th nowrap align = "left">{rval btn_copy}</th>
+          </tr>
+        </table>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="8%">学期</th>
+                      <th width="14%">考査種別<BR>(大分類)</th>
+                      <th width="17%">考査種別<BR>名称</th>
+                      <th width="12%">考査種別<BR>略称１</th>
+                      <th width="10%">集計フラグ</th>
+<!--{def sem_detail}-->
+                      <th width="10%">出欠集計<BR>範囲</th>
+<!--{/def}-->
+                      <th width="10%">追指導入力</th>
+<!--{def useMikomiFlg}-->
+                      <th width="8%" nowrap>&nbsp;見込点&nbsp;<br>入力</th>
+<!--{/def}-->
+<!--{def useSankouFlg}-->
+                      <th width="8%" nowrap>&nbsp;参考点&nbsp;<br>入力</th>
+<!--{/def}-->
+<!--{def useRemarkFlg}-->
+                      <th width="8%" nowrap>&nbsp;備考&nbsp;<br>入力</th>
+<!--{/def}-->
+                      <th width="10%" nowrap>序列対象</th>
+                      <th width="*" nowrap>CSV取込</th>
+                    </tr>
+
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{rval data/SEMESTERNAME}</td>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{rval data/TESTKIND_SHOW}</td>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{rval data/TESTITEM_SHOW}</td>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{rval data/TESTITEMABBV1}</td>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{rval data/COUNTFLG_SHOW}</td>
+<!--{def sem_detail}-->
+                      <td nowrap bgcolor="#ffffff">&nbsp;{rval data/DETAIL_NAME}</td>
+<!--{/def}-->
+                      <td nowrap bgcolor="#ffffff">&nbsp;{rval data/SIDOU_INPUT_SHOW}{rval data/SIDOU_INPUT_INF_SHOW}</td>
+<!--{def useMikomiFlg}-->
+                      <td nowrap bgcolor="#ffffff" align="center">{rval data/MIKOMI_FLG_SHOW}</td>
+<!--{/def}-->
+<!--{def useSankouFlg}-->
+                      <td nowrap bgcolor="#ffffff" align="center">{rval data/SANKOU_FLG_SHOW}</td>
+<!--{/def}-->
+<!--{def useRemarkFlg}-->
+                      <td nowrap bgcolor="#ffffff" align="center">{rval data/REMARK_FLG_SHOW}</td>
+<!--{/def}-->
+                      <td nowrap bgcolor="#ffffff">&nbsp;{rval data/JYORETSU_FLG_SHOW}</td>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{rval data/NOT_USE_CSV_FLG_SHOW}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval Closing}</script>

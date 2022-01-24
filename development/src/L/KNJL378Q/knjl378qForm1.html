@@ -1,0 +1,113 @@
+{rval start} 
+
+<table height="20%">
+  <tr> 
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<table style="width: 600px" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+                    <tr class="no_search" height="25"> 
+                      <th>成績計算処理</th>
+                    </tr>
+                    
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr bgcolor="#ffffff">
+                      <th class="no_search">{rval CTRL_YEAR}年度&nbsp;&nbsp;試験日：{rval EXAM_DATE}</th>
+                    </tr>
+
+                    <tr bgcolor="#ffffff" align="center">
+                      <td>
+                        <table width="50%" border="0" cellspacing="0" cellpadding="5">
+                          <tr bgcolor="#ffffff">
+                            <td>得点を確定し、<BR><BR>平均点・標準偏差・順位の計算をします。</td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td align="center"><BR><BR>{rval btn_exec}&nbsp;&nbsp;{rval btn_end}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+    
+  <!--{def HYOU}-->
+  <tr align="center"> 
+    <td valign="top"> 
+      <table width="80%" border="0" cellspacing="0" cellpadding="10">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr bgcolor="#ffffff">
+                      <th class="no_search">平均点</th>
+                      <th class="no_search">英語</th>
+                      <th class="no_search">数学</th>
+                      <th class="no_search">国語</th>
+                      <th class="no_search">合計</th>
+                    </tr>
+
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td class="no_search" align="center">{rval data/AREA_NAME}</td>
+                      <td bgcolor="#ffffff" align="right">{rval data/ENGLISH_AVG}</td>
+                      <td bgcolor="#ffffff" align="right">{rval data/MATH_AVG}</td>
+                      <td bgcolor="#ffffff" align="right">{rval data/JAPANESE_AVG}</td>
+                      <td bgcolor="#ffffff" align="right">{rval data/TOTAL_AVG}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <!--{/def}-->
+
+</table>
+<script language="JavaScript">{rval jscript}</script>
+
+{rval finish} 

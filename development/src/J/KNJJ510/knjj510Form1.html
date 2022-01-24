@@ -1,0 +1,44 @@
+{rval start}
+
+<br><br>
+<table width="95%" border="0" cellspacing="0" cellpadding="10" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="10%">種目<br>コード</th>
+                      <th nowrap width="33%">種目名称</th>
+                      <th nowrap width="33%">種目略称</th>
+                      <th nowrap width="12%">単位</th>
+                      <th nowrap width="12%">通知票<br>への<br>印刷順</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td align="center" nowrap><a href="knjj510index.php?cmd=edit&ITEMCD={val data/ITEMCD}" target="right_frame">{val data/ITEMCD}</a></td>
+                      <td nowrap>{val data/ITEMNAME}</td>
+                      <td nowrap>{val data/ITEMABBV}</td>
+                      <td align="center" nowrap>{val data/UNIT}</td>
+                      <td align="center" nowrap>{val data/SHOWORDER}</td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

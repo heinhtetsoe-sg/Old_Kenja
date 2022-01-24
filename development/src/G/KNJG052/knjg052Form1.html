@@ -1,0 +1,123 @@
+<!--kanji=漢字-->
+<!-- <?php # $Id: knjg052Form1.html 58564 2018-02-14 06:05:25Z maeshiro $ ?> -->
+
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR>
+
+<table width="45%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>{rval data/YEAR}</b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD align="left" bgcolor="#ffffff">
+                        <TABLE>
+                          <TR>
+                            <TD>
+                                &nbsp&nbsp&nbsp&nbsp●印刷種別：{rval data/KIND1}<LABEL for="KIND1">修了証明書</LABEL>
+                                &nbsp&nbsp&nbsp{rval data/KIND2}<LABEL for="KIND2">卒業証明書</LABEL><br>
+                                &nbsp&nbsp&nbsp&nbsp●印刷指定：{rval data/OUTPUT1}<LABEL for="OUTPUT1">クラス指定</LABEL>
+                                &nbsp&nbsp&nbsp{rval data/OUTPUT2}<LABEL for="OUTPUT2">個人指定</LABEL>
+                            </TD>
+                          </TR>
+                        </TABLE>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+<!--{def clsno}-->
+                      <td>&nbsp&nbsp&nbsp<b>クラス選択</b>　　　　　　　　　　　　　{rval data/CMBCLASS}</td>
+<!--{/def}-->
+<!--{def schno}-->
+                      <td>&nbsp&nbsp&nbsp<b>個人選択</b>　　　　　　　　　　　　　　{rval data/CMBCLASS}</td>
+<!--{/def}-->
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+<!--{def clsno}-->
+                      <th><b>出力対象クラス</b></th>
+                      <th class="no_search"></th>
+                      <th><b>クラス一覧</b></th>
+<!--{/def}-->
+<!--{def schno}-->
+                      <th><b>出力対象生徒</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b></th>
+<!--{/def}-->
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CLASS_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD bgcolor="#ffffff">
+                        <TABLE>
+                          <TR>
+                            <TD nowrap>
+                                　　　　・記載日付　　{rval el/NOTICEDAY}<br>
+                                　　　　・卒業年月　　 {rval el/GRADUATE_DATE}（卒業証明書用）<br>
+                                　　　　{rval data/POINT}<LABEL for="POINT">句点あり</LABEL>
+<!--{def showPrintStamp}-->
+                                <br>　　　　{rval data/PRINT_STAMP}<LABEL for="PRINT_STAMP">印影出力する</LABEL>
+<!--{/def}-->
+                            </TD>
+                          </TR>
+                        </TABLE>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

@@ -1,0 +1,96 @@
+<!--knjxexp_subclassForm1.html -->
+{rval start}
+<table width="50%" border="0" cellspacing="3" cellpadding="1">
+
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellspacing="5" cellpadding="1">
+        <tr bgcolor="#006633">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="0" width="100%">
+              <tr class="no_search">
+                <td nowrap>年度:{rval YEAR}<!--{def semester}-->&nbsp;&nbsp;&nbsp;&nbsp;学期：{rval SEMESTER}</td><!--{/def}-->
+              </tr>
+
+              <!--{def subclass}-->
+              <tr class="no_search">
+                <td nowrap>科目：&nbsp;{rval SUBCLASS}</td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def chair}-->
+              <tr class="no_search">
+                <td nowrap>講座：&nbsp;{rval CHAIR}</td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def testtype}-->
+              <tr class="no_search">
+                <td nowrap>テスト種別：&nbsp;{rval TESTTYPE}</td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def req_flg}-->
+              <tr class="no_search">
+                <td nowrap><LABEL for="REQ_FLG">受験資格者</LABEL>{rval REQ_FLG}</td>
+              </tr>
+              <!--{/def}-->
+
+              <!--{def resultcnt}-->
+              <tr class="no_search">
+                <td nowrap>結果：{rval RESULTCNT}&nbsp;&nbsp;&nbsp;&nbsp;{rval btn_search}</td>
+              </tr>
+              <!--{/def}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!--{def search}-->
+  <tr>
+    <td nowrap>
+    <table width="100%" border="0" cellspacing="5" cellpadding="0">
+      <tr>
+        <td valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr >
+              <td >
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr class="no_search_line">
+                    <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tr class="no_search">
+                          <th nowrap width="80">{rval KOUMOKU1}</th>
+                          <th nowrap width="150">{rval KOUMOKU2}</th>
+                          <th nowrap width="130">{rval KOUMOKU3}</th>
+                          <th nowrap width="130">{rval KOUMOKU4}</th>
+                        </tr>
+                        <!--{def data}-->
+                        <!--結果一覧-->
+                        <!--{each data}-->
+                        <tr bgcolor="#ffffff">
+                          <td nowrap align={val data/KOUMOKU1_align}>{val data/KOUMOKU1_VALUE}</td>
+                          <td nowrap align={val data/KOUMOKU2_align}>{val data/NAME}</td>
+                          <td nowrap align={val data/KOUMOKU3_align}>{val data/KOUMOKU2_VALUE}</td>
+                          <td nowrap align={val data/KOUMOKU4_align}>{val data/KOUMOKU3_VALUE}</td>
+                        </tr>
+                        <!--{/each}-->
+                        <!--{/def}-->
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <!--{/def}-->
+</table>
+{rval finish}
+<script language="javascript">{rval reload}{rval jscript}</script>

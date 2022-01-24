@@ -1,0 +1,65 @@
+{rval start}
+<table width="550px" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+        <td valign="top"> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr class="no_search_line"> 
+                                <td> 
+                                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                    <tr class="no_search"> 
+                                        <th align="left" nowrap>&nbsp;{val top/year}年度&nbsp;&nbsp;{val top/semester}<br>&nbsp;対象生徒：{val top/SCHREGNO}
+                                        </th>
+                                    </tr>
+                                </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr > 
+                    <td > 
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr class="no_search_line"> 
+                                <td> 
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search" > 
+                                            <th width="15%" nowrap>科目コード</th>
+                                            <th width="48%" nowrap>&nbsp;&nbsp;科&nbsp;目&nbsp;名&nbsp;&nbsp;</th>
+                                            <th width="8%" nowrap>学年<br>(年次)</th>
+                                            <th width="5%" nowrap>評定</th>
+                                            <th width="5%" nowrap>修得<br>単位</th>
+                                            <th width="5%" nowrap>増加<br>単位</th>
+                                        </tr>
+                                        <!--結果一覧-->
+                                        <!--{def data}-->
+                                        <!--{each data}--> 
+                                        <tr> 
+                                        <!--{def useCurriculumcd}-->
+                                            <td bgcolor="#ffffff"><a href="knje030kindex.php?cmd=edit&CLASSCD={val data/CLASSCD}-{val data/SCHOOL_KIND}&SUBCLASSCD={val data/SUBCLASSCD}&SCHOOL_KIND={val data/SCHOOL_KIND}&CURRICULUM_CD={val data/CURRICULUM_CD}&SCHREGNO={val data/SCHREGNO}&YEAR={val top/year}" target="right_frame">{val data/CLASSCD}-{val data/SCHOOL_KIND}-{val data/CURRICULUM_CD}-{val data/SUBCLASSCD}</td>
+                                            <!--{/def}--> 
+                                            <!--{def NoCurriculumcd}-->
+                                            <td bgcolor="#ffffff"><a href="knje030kindex.php?cmd=edit&SUBCLASSCD={val data/SUBCLASSCD}&SCHREGNO={val data/SCHREGNO}&YEAR={val top/year}" target="right_frame">{val data/SUBCLASSCD}</td>
+                                            <!--{/def}--> 
+                                            <td bgcolor="#ffffff">{val data/SUBCLASSNAME}</a></td>
+                                            <td bgcolor="#ffffff" align="right">{val data/ANNUAL}</a></td>
+                                            <td bgcolor="#ffffff" align="right">{val data/VALUATION}</a></td>
+                                            <td bgcolor="#ffffff" align="right">{val data/GET_CREDIT}</a></td>
+                                            <td bgcolor="#ffffff" align="right">{val data/ADD_CREDIT}</a></td>
+                                        </tr> 
+                                        <!--{/each}--> 
+                                        <!--{/def}--> 
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload_edit}{rval close}</script>

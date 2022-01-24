@@ -1,0 +1,225 @@
+{rval start}
+<br>
+&nbsp;&nbsp;「※」のある項目は必須入力
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--{def PATAN}-->
+                    <tr class="no_search"> 
+                      <th width="20%">項 目</th>
+                      <th width="80%">値</th>
+                    </tr>
+                    <!--{def data}-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>登録日付</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/DETAIL_SDATE}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>詳細区分</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/DETAIL_DIV}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>詳細種類</th>
+                      <td bgcolor="#ffffff">{rval data/DETAILCD}</td>
+                    </tr>
+                    <!--{/def}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>詳細内容</th>
+                      <td bgcolor="#ffffff">{rval data/CONTENT}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>備 考</th>
+                      <td bgcolor="#ffffff">{rval data/REMARK}</td>
+                    </tr>
+                    <!--{def PDF}--> 
+                    <tr> 
+                      <th align="right" class="no_search" nowrap>添付書類PDF</th>
+                      <td bgcolor="#ffffff">
+                          <!--{each down}-->
+                          <a href="{rval down/PDF_URL}" target="_blank">{rval down/PDF_FILE_NAME}</a><br>
+                          <!--{/each}-->
+                      </td>
+                    </tr>
+                    <!--{/def}--> 
+                    <!--{def button}--> 
+                    <tr> 
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}　　{rval button/btn_batch}</td>
+                    </tr>
+                    <!--{/def}--> 
+                    <!--{def PDF}--> 
+                    <tr> 
+                      <th align="right" class="no_search" nowrap>添付書類PDF取込</th>
+                      <td bgcolor="#ffffff">
+                          {rval up/FILE}&nbsp;&nbsp;{rval button/BTN_OK}<br><font color="red">ファイル名は日本語不可(英数字のみ)</font>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{/def}-->
+
+                    <!--{def PATAN2}-->
+                    <tr class="no_search"> 
+                      <th width="20%">項 目</th>
+                      <th width="80%" colspan="5">値</th>
+                    </tr>
+                    <!--{def data}-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>登録日付</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/DETAIL_SDATE}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>詳細区分</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/DETAIL_DIV}</td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--発生日付-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>発生日付</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/OCCURRENCE_DATE}</td>
+                    </tr>
+                    <!--調査日付-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>調査日付</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/INVESTIGATION_DATE}</td>
+                    </tr>
+                    <!--罰理由-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>罰理由</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/DETAILCD}</td>
+                    </tr>
+                    <!--生徒指導部会議-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>生徒指導部会議</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/STD_GUID_MTG_DATE}</td>
+                    </tr>
+                    <!--原案-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>原案</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/ORIGINAL_PLAN_CD}</td>
+                    </tr>
+                    <!--職員会議-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>職員会議</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/STAFF_MTG_DATE}</td>
+                    </tr>
+                    <!--処分-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>処分</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/PUNISH_CD}</td>
+                    </tr>
+                    <!--場所-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>場所</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/OCCURRENCE_PLACE}</td>
+                    </tr>
+                    <!--詳細内容-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>詳細内容</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/CONTENT}</td>
+                    </tr>
+                    <!--備考-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>備 考</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/REMARK}</td>
+                    </tr>
+                    <!--日誌-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>日誌</th>
+                      <td bgcolor="#ffffff">{rval data/DIARY_FLG}</td>
+                      <!--誓約書-->
+                      <th align="right" class="no_search" nowrap>誓約書</th>
+                      <td bgcolor="#ffffff">{rval data/WRITTEN_OATH_FLG}</td>
+                      <!--調書-->
+                      <th align="right" class="no_search" nowrap>調書</th>
+                      <td bgcolor="#ffffff">{rval data/REPORT_FLG}</td>
+                    </tr>
+                    <!--資料作成者-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>資料作成者</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/WRITTEN_STAFFCD}</td>
+                    </tr>
+                    <!--調査教員-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>調査教員</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/INVESTIGATION_STAFFCD1}　{rval data/INVESTIGATION_STAFFCD2}　{rval data/INVESTIGATION_STAFFCD3}　{rval data/INVESTIGATION_STAFFCD4}</td>
+                    </tr>
+                    <!--{def PDF}--> 
+                    <tr> 
+                      <th align="right" class="no_search" nowrap>添付書類PDF</th>
+                      <td bgcolor="#ffffff" colspan="5">
+                          <!--{each down}-->
+                          <a href="{rval down/PDF_URL}" target="_blank">{rval down/PDF_FILE_NAME}</a><br>
+                          <!--{/each}-->
+                      </td>
+                    </tr>
+                    <!--{/def}--> 
+                    <!--{def button}--> 
+                    <tr> 
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}</td>
+                    </tr>
+                    <!--{/def}--> 
+                    <!--{def PDF}--> 
+                    <tr> 
+                      <th align="right" class="no_search" nowrap>添付書類PDF取込</th>
+                      <td bgcolor="#ffffff" colspan="5">
+                          {rval up/FILE}&nbsp;&nbsp;{rval button/BTN_OK}<br><font color="red">ファイル名は日本語不可(英数字のみ)</font>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{/def}-->
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

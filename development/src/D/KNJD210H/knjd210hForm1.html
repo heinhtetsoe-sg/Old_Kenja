@@ -1,0 +1,78 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <br><br><br>
+        <tr>
+        <td valign="top">
+                <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                <tr >
+                  <th>
+                        <table width="40%" border="0" cellspacing="3" cellpadding="0" align="center">
+                          <tr class="no_search_line">
+                           <th>
+                             <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                              <tr class="no_search"> 
+                                <th height="40" colspan="2" nowrap><B>評定算出処理</B></th>
+                              </tr>
+                              <tr class="no_search"> 
+                                <td height="30" width="30%" align="right" nowrap>処理年度&nbsp;</td>
+                                <td bgcolor="#ffffff" nowrap><font color="black">&nbsp;{rval sepa/YEAR}</font></td>
+                              </tr>
+                              <tr class="no_search"> 
+                                <td height="30" align="right" nowrap>処理学期&nbsp;</td>
+                                <td bgcolor="#ffffff" nowrap>&nbsp;{rval sepa/SEMESTER}</td>
+                              </tr>
+                              <tr class="no_search"> 
+                                <td height="30" align="right" nowrap>処理学年&nbsp;</td>
+                                <td bgcolor="#ffffff" nowrap>&nbsp;{rval sepa/GRADE}</td>
+                              </tr>
+                              <tr class="no_search"> 
+                                <td height="30" align="right" nowrap></td>
+                                <td bgcolor="#ffffff" nowrap>&nbsp;{rval button/btn_update}{rval button/btn_end}</td>
+                              </tr>
+                             </table>
+                           </th>
+                          </tr>
+                        </table>
+                        <br><br>
+                        <table width="40%" border="0" cellspacing="3" cellpadding="0" align="center">
+                          <tr class="no_search_line">
+                            <td>
+                                <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" frame="box">
+                                        <tr class="no_search">
+                                        <th width="15%" height="30">処理<br>年度</th>
+                                        <th width="15%">処理<br>学期</th>
+                                        <th width="15%">処理<br>学年</th>
+                                        <th width="*">処理日付</th>
+                                        </tr>
+                                
+                                        <!--結果一覧-->
+                                        <!--{def data}-->
+                                        <!--{each data}--> 
+                                        <tr align="center" bgcolor="#ffffff"> 
+                                                <td >{val data/YEAR}</td>
+                                                <td >{val data/SEMESTERNAME}</td>
+                                                <td >{val data/GRADE}</td>
+                                                <td >{val data/UPDATED}</td>
+                                        </tr> 
+                                        <!--{/each}--> 
+                                        <!--{/def}--> 
+                                </table>
+                            </td>
+                          </tr>
+                        </table>
+                        <br><br><br><br>
+                        <table width="40%" border="0" cellspacing="3" cellpadding="0" align="center">
+                        <tr>
+                         <td style="font-weight: 700; color:white">
+                            <marquee><span id="marq_msg">処理中です...しばらくおまちください</span></marquee>
+                         </td>
+                        </tr>
+                        </table>
+                  </th> 
+                </tr>
+                </table>
+       </td> 
+        </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}{rval Closing}</script>

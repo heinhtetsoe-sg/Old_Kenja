@@ -1,0 +1,186 @@
+{rval start}
+<style type="text/css">
+<!--
+.touroku1 { color:white; background-color: "red"; }
+.touroku2 { background-color: "#ccffff"; }
+-->
+</style>
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th width="15%" nowrap class="no_search">対象年度</th>
+                      <td width="30%" nowrap bgcolor="#ffffff">&nbsp;{rval data/YEAR}</td>
+                      <th width="25%" nowrap class="no_search">修得済単位数</th>
+                      <td width="30%" nowrap bgcolor="#ffffff">&nbsp;{rval info/GET_CREDIT}</td>
+                    </tr>
+                    <tr>
+                      <th width="15%" nowrap class="no_search">学籍番号</th>
+                      <td width="30%" nowrap bgcolor="#ffffff">&nbsp;{rval info/SCHREGNO}</td>
+                      <th nowrap class="no_search">{rval info/YEAR}年度履修登録科目数</th>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{rval info/SUBCLASS_NUM}</td>
+                    </tr>
+                    <tr>
+                      <th nowrap class="no_search">入学年度</th>
+                      <td nowrap bgcolor="#ffffff" colspan="3">&nbsp;{rval info/ENT_DATE}</td>
+                    </tr>
+                    <tr>
+                      <th nowrap class="no_search">年次</th>
+                      <td nowrap bgcolor="#ffffff" colspan="3">&nbsp;{rval info/ANNUAL}</td>
+                    </tr>
+                    <tr>
+                      <th nowrap class="no_search">氏名</th>
+                      <td nowrap bgcolor="#ffffff" colspan="3">&nbsp;{rval info/NAME}</td>
+                    </tr>
+                    <tr>
+                      <th nowrap class="no_search">住所１</th>
+                      <td nowrap bgcolor="#ffffff" colspan="3">&nbsp;{rval info/ADDRESS1}</td>
+                    </tr>
+                    <tr>
+                      <th nowrap class="no_search">住所２</th>
+                      <td nowrap bgcolor="#ffffff" colspan="3">&nbsp;{rval info/ADDRESS2}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="15%">指定登録日</th>
+                      <td width="*" bgcolor="#ffffff" colspan="4">&nbsp;{rval data/REGISTER_DATE_CMB}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <th width="15%" rowspan="3">無償給与<br>対象／対象外</th>
+                      <th width="40%">無償給与対象</th>
+                      <th width="5%"></th>
+                      <th width="40%">無償給与対象外</th>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td width="40%" align="center">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="5%" class="no_search">
+                        {rval button/btn_lefts}<br>
+                        {rval button/btn_left1}<br>
+                        {rval button/btn_right1}<br>
+                        {rval button/btn_rights}
+                      </td>
+                      <td width="40%" align="center">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td width="40%" align="left">教科書<span id="L_DIV1_PRICE">{rval data/L_DIV1_PRICE}</span>円　学習書<span id="L_DIV2_PRICE">{rval data/L_DIV2_PRICE}</span>円　計<span id="L_TOTAL_PRICE">{rval data/L_TOTAL_PRICE}</span>円(<span id="L_TOTAL_NUM">{rval data/L_TOTAL_NUM}</span>冊)</td>
+                      <td width="5%"></td>
+                      <td width="40%" align="left">教科書<span id="R_DIV1_PRICE">{rval data/R_DIV1_PRICE}</span>円　学習書<span id="R_DIV2_PRICE">{rval data/R_DIV2_PRICE}</span>円　計<span id="R_TOTAL_PRICE">{rval data/R_TOTAL_PRICE}</span>円(<span id="R_TOTAL_NUM">{rval data/R_TOTAL_NUM}</span>冊)</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="15%" nowrap>登録日</th>
+                      <td width="85%" nowrap bgcolor="#ffffff">&nbsp;{rval data/REGISTER_DATE}</td>
+                    </tr>
+                    <tr>
+                      <th width="15%" nowrap class="no_search">給与費対象額</th>
+                      <td width="85%" nowrap bgcolor="#ffffff">&nbsp;{rval data/TOTAL_GK}円</td>
+                    </tr>
+                    <tr>
+                      <th width="15%" nowrap class="no_search">教科書</th>
+                      <td width="85%" nowrap bgcolor="#ffffff">&nbsp;{rval data/BOOKDIV1_GK}円</td>
+                    </tr>
+                    <tr>
+                      <th width="15%" nowrap class="no_search">学習書</th>
+                      <td width="85%" nowrap bgcolor="#ffffff">&nbsp;{rval data/BOOKDIV2_GK}円</td>
+                    </tr>
+                    <tr>
+                      <th width="15%" nowrap class="no_search">冊数</th>
+                      <td width="85%" nowrap bgcolor="#ffffff">&nbsp;{rval data/TOTAL_COUNT}冊</td>
+                    </tr>
+                    <tr>
+                      <th width="15%" nowrap class="no_search">支給対象事由</th>
+                      <td width="85%" nowrap bgcolor="#ffffff">&nbsp;{rval data/PROVIDE_REASON}</td>
+                    </tr>
+                    <tr>
+                      <th width="15%" nowrap class="no_search">添付書類</th>
+                      <td width="85%" nowrap bgcolor="#ffffff">&nbsp;{rval data/ATTACH_DOCUMENTS}</td>
+                    </tr>
+                    <tr>
+                      <th width="15%" nowrap class="no_search">備考</th>
+                      <td width="85%" nowrap bgcolor="#ffffff">&nbsp;{rval data/REMARK}</td>
+                    </tr>
+                    <tr>
+                      <th width="15%" nowrap class="no_search">審査結果</th>
+                      <td width="85%" nowrap bgcolor="#ffffff">&nbsp;{rval data/JUDGE_RESULT}</td>
+                    </tr>
+                    <tr>
+                      <th width="15%" nowrap class="no_search">決定日</th>
+                      <td width="85%" nowrap bgcolor="#ffffff">&nbsp;{rval data/DECISION_DATE}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td align="right">
+                        {rval button/btn_update}　{val button/btn_reset}　{val button/btn_delete}　{val button/btn_end}&nbsp;&nbsp;&nbsp;
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish} 

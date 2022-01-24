@@ -1,0 +1,49 @@
+{rval start}
+<br><br><br><br><br><br><br><br>
+<table style="width: 400px" border="0" cellpadding="10" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table style="width: 400px" border="0" cellspacing="5" cellpadding="1">
+        <tr> 
+          <td>
+            <table style="width: 400px" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table style="width: 400px" border="0" cellspacing="1" cellpadding="4">
+                    <tr class="no_search" height="40">
+                      <td colspan="2" align="center" nowrap><b>処理年度 : {rval data/YEAR}</b></td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="120">
+                      <td colspan="2" nowrap>
+                        　　　　　学年　　　：{rval data/GRADE}<br>
+                        　　　　　部門番号　：{rval data/BUMON}<br>
+                        　　　　　証明書種類：{rval data/CERTIF_KINDCD}
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="100">
+                      <td colspan="2" nowrap align="center">
+                        ※{rval data/CERTIF_NO_COMMENT}の最終発行番号は、{rval data/CERTIF_NO_SHOW} です。<br><br>
+                        <b>一括発行</b>　発行番号：{rval data/CERTIF_NO_KOTEI} {rval data/CERTIF_NO_MAX} から開始
+                      </td>
+                    </tr>
+
+                    <!--{def button}-->
+                    <tr class="no_search" >
+                      <td width="80%">&nbsp;&nbsp;発行対象人数：&nbsp;{rval data/SCH_CNT_SHOW}名</td>
+                      <td bgcolor="#ffffff">&nbsp;&nbsp;{rval button/BTN_OK}{rval button/BTN_CLEAR}&nbsp;&nbsp;</td>
+                    </tr>
+                    <!--{/def}-->
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval jscript}</script>
+{rval finish} 

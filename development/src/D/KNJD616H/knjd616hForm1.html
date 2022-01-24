@@ -1,0 +1,48 @@
+{rval start} 
+
+<!--{def button}--> 
+<!--{def data}-->
+<table style="width: 620px" border="0" cellpadding="10" cellspacing="10" align="center" height="600">
+  <tr>
+    <td>
+      <table style="width: 620px" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <td>
+            <table style="width: 620px" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table style="width: 620px"    border="0" cellspacing="1" cellpadding="4">
+                    <tr class="no_search" height="35">
+                      <td style="text-align:center;">
+                        <b>{rval data/YEAR}年度　学期：{rval data/SEMESTER}　学年：{rval data/GRADE}</b>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="150">
+                      <td>
+                        　{rval data/DATA_DIV1}<LABEL for="DATA_DIV1">成績上位者</LABEL><BR><BR>
+                        　　　{rval data/RANK}位までまたは評定平均{rval data/HYOUTEI}以上表示<BR><BR>
+                        　{rval data/DATA_DIV2}<LABEL for="DATA_DIV2">成績下位者</LABEL><BR><BR>
+                        　　　評定１があるか２が{rval data/HYOUTEI_2}個以上ある者を表示
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right">
+                        {rval button/btn_print}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 
+<script language="JavaScript">{rval jscript}</script>

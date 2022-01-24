@@ -1,0 +1,76 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+{rval IFRAME}
+<table width="115%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+        <td valign="top">
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr>
+                  <td>
+                     <hr width="40%" align="left">
+                        &nbsp;{rval SCHREGNO}　{val NAME}
+                     <hr width="40%" align="left">
+                       <br>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                                <td> 
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search"> 
+                                          <th colspan="2" width="16%">項 目</th>
+                                          <th width="*%">値</th>
+                                          <th width="8%">項 目</th>
+                                          <th width="*%">値</th>
+                                        </tr>
+                                        <tr>
+                                          <th rowspan={rval data/ROWSPAN1} class="no_search" nowrap>総<br>合<br>的<br>な<br>学<br>習<br>の<br>時<br>間<br>の<br>記<br>録<br>　{rval button/shokenlist1}</th>
+                                          <th align="right" class="no_search" nowrap Valign="top">学習活動</th>
+                                          <td bgcolor="#ffffff">{rval data/TOTALSTUDYACT}<br><font size=2, color="red">{rval data/TOTALSTUDYACT_COMMENT}</font>　{rval button/btn_teikei_act}</td>
+                                          <th rowspan={rval data/ROWSPAN2} class="no_search" nowrap>総<br>合<br>所<br>見</th>
+                                          <td rowspan={rval data/ROWSPAN2} bgcolor="#ffffff">{rval data/TOTALREMARK}<br><font size=2, color="red">{rval data/TOTALREMARK_COMMENT}</font>　{rval button/shokenlist2}</td>
+                                        </tr>
+                                        <!--{def KantenHyouji}-->
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap Valign="top">観点</th>
+                                          <td bgcolor="#ffffff">{rval data/VIEWREMARK}<br><font size=2, color="red">{rval data/VIEWREMARK_COMMENT}</font></td>
+                                        </tr>
+                                        <!--{/def}-->
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap Valign="top">評価</th>
+                                          <td bgcolor="#ffffff">{rval data/TOTALSTUDYVAL}<br><font size=2, color="red">{rval data/TOTALSTUDYVAL_COMMENT}</font>　{rval button/btn_teikei_val}</td>
+                                        </tr>
+                                        <tr>
+                                          <th colspan="2" align="right" class="no_search" nowrap Valign="top">行動の記録備考</th>
+                                          <td bgcolor="#ffffff">{rval button/btn_form2}</td>
+                                        </tr>
+                                        <tr>
+                                          <th colspan="2" align="right" class="no_search" nowrap Valign="top">出欠の記録備考<br>　{rval button/shokenlist3}</th>
+                                          <td bgcolor="#ffffff">{rval data/ATTENDREC_REMARK}<br><font size=2, color="red">{rval data/ATTENDREC_REMARK_COMMENT}</font>　{rval button/btn_subform2}</td>
+                                        </tr>
+                                        <tr>
+                                          <th colspan="2" align="right" class="no_search" nowrap>&nbsp;</th>
+                                          <td colspan="3" width="*%" bgcolor="#ffffff">{rval button/btn_subform1}<br>
+                                          {rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_end}<br>
+                                          {rval button/btn_csv}</td>
+                                        </tr>
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->
+

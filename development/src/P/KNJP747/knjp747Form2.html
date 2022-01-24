@@ -1,0 +1,174 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr> 
+      <td > 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" height="28"> 
+              <th width="30%" colspan="2">項 目</th>
+              <th width="70%">値</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+
+            <tr height="28">
+              <td class="no_search" colspan="2">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>校種</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/SCHOOL_KIND}</td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search" colspan="2">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>フォーマット区分</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/FORMAT_DIV1}<LABEL for="FORMAT_DIV1">引落</LABEL>
+                                    {rval data/FORMAT_DIV2}<LABEL for="FORMAT_DIV2">返金</LABEL></td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search" colspan="2">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>契約種別コード</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/SHUBETSU_CD}</td>
+            </tr>
+
+            <!--{def HENKIN_FLG}-->
+            <tr height="28">
+              <td class="no_search" colspan="2">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap></th>
+                  <th align="right" nowrap>JCコード</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/JC_CD}</td>
+            </tr>
+            <!--{/def}-->
+
+            <tr height="28">
+              <td class="no_search" colspan="2">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>事業主番号</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/ACCOUNT_CD}</td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search" colspan="2">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>事業主名</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/ACCOUNTNAME_KANA}</td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search" colspan="2">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>金融機関コード</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/BANK_CD}</td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search" colspan="2">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>金融機関名</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/BANKNAME_KANA}</td>
+            </tr>
+
+            <!--{def HIKI_FLG}--> 
+            <tr height="28">
+              <td class="no_search" colspan="2">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>振替口座記号</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/BRANCHCD}</td>
+            </tr>
+            <!--{/def}--> 
+
+            <tr height="28">
+              <td class="no_search" colspan="2">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>振替口座番号</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/ACCOUNTNO}</td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search" colspan="2">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>{rval FEE_TITLE}手数料</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/BANK_TRANSFER_FEE}&nbsp;円</td>
+            </tr>
+
+            <!--{/def}--> 
+            <!--{def button}--> 
+            <tr height="28"> 
+              <th align="right" class="no_search" nowrap colspan="2">&nbsp;</th>
+              <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+            </tr>
+            <!--{/def}--> 
+            </table>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}</script>

@@ -1,0 +1,64 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search">
+                <th nowrap width="25%"><B>自動収入伺い設定</B></th>
+                <th nowrap width="25%">処理年度：{rval YEAR}</th>
+                <td nowrap width="50%">　参照年度：{rval SANSYOU_YEAR}　{rval copy_btn}</td>
+              </tr>
+              <!--{def schkind}-->
+              <tr class="no_search">
+                <td nowrap colspan="3"><span style="padding-left:100px;">校種：{rval SCHOOL_KIND}</td>
+              </tr>
+              <!--{/def}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                        <th nowrap width="10%">ID</th>
+                        <th nowrap width="30%">名称</th>
+                        <th nowrap width="30%">入金項目</th>
+                        <th nowrap width="30%">預り金項目(収入)</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                        <th nowrap>{rval data/AUTO_NO}</th>
+                        <td nowrap>{rval data/AUTO_NAME}</td>
+                        <td nowrap>{rval data/COLLECT_M_NAME}</td>
+                        <td nowrap>{rval data/INCOME_M_NAME}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

@@ -1,0 +1,103 @@
+{rval start} 
+<!--{def button}-->
+<!--{def data}-->
+
+<table height="50"><tr><td></td></tr></table>
+<table width="800" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="10">
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <th width="20%">項目</th>
+                      <th width="*%">値</th>
+                    </tr>
+                    <tr>
+                      <td class="no_search" align="right">対象年度／学期</td>
+                      <td bgcolor="#ffffff">{rval data/YEAR}年度　{rval data/SEMESTER}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search" align="right">新規／実行済一覧</td>
+                      <td bgcolor="#ffffff">{rval data/SEQNO}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search" align="right">対象日付／校時</td>
+                      <td bgcolor="#ffffff">
+                          開始：{rval data/FROM_DATE}　<!--{def useAttendDat}-->校時：{rval data/FROM_PERIOD}<!--{/def}--><BR>
+                        終了：&nbsp;{rval data/TO_DATE}　<!--{def useAttendDat}-->校時：{rval data/TO_PERIOD}<!--{/def}--><BR>
+                        <!--{def useAttendDat}-->
+                        <font color="red" size="2">(校時を空白にすると、その日全てとなります)</font>
+                        <!--{/def}-->
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="no_search" align="right">閉鎖区分</td>
+                      <td bgcolor="#ffffff">{rval data/INPUT_TYPE}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search" align="right">勤怠</td>
+                      <td bgcolor="#ffffff">{rval data/DI_CD}</td>
+                    </tr>
+<!--{def list}-->
+                    <tr>
+                      <td class="no_search" align="right">{rval data/HR_LABEL}</td>
+                      <td width="100%" bgcolor="#ffffff">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                          <tr class="no_search_line">
+                            <td width="100%">
+                              <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                                <tr align="center" class="no_search">
+                                  <th><b>対象項目一覧</b></th>
+                                  <th class="no_search"></th>
+                                  <th><b>{rval data/HR_LABEL}一覧</b></th>
+                                </tr>
+                                <tr align="center" bgcolor="#ffffff">
+                                  <td width="45%">{rval data/HR_SELECTED}</td>
+                                  <td width="*%"  class="no_search">
+                                    {rval hr_button/btn_lefts}<BR>
+                                    {rval hr_button/btn_left1}<BR>
+                                    {rval hr_button/btn_right1}<BR>
+                                    {rval hr_button/btn_rights}
+                                  <td width="45%">{rval data/HR_NAME}</td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+<!--{/def}-->
+                    <tr>
+                      <td class="no_search" align="right">症状・理由</td>
+                      <td bgcolor="#ffffff">
+<!--{def useAttendDat}-->
+                        {rval data/DI_REMARK_CD}<BR>
+<!--{/def}-->
+                        その他：{rval data/DI_REMARK} <font color="red" size="2">(全角20文字まで)</font>
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <td></td>
+                      <td bgcolor="#ffffff">{rval button/btn_exec}{rval button/btn_del}{rval button/btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}
+<script language="JavaScript">{rval closing}</script>

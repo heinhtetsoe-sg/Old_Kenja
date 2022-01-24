@@ -1,0 +1,119 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<style>
+.title {
+    font-weight: bold;
+}
+
+.opttab .title {
+    padding: 3px 0px;
+}
+
+.col1 {
+  padding-left: 70px;
+}
+.col2 {
+  padding-left: 30px;
+}
+</style>
+
+<table width="70%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%" style="border-width: 1; border-style: solid;"> 
+                    <div class="no_search" style="text-align: center; padding: 7px;" > 
+                        <span class="title">{rval data/YEAR}年度　　{rval data/SEMESTER}　{rval data/GRADE}　{rval data/TESTKINDCD}</span>
+                    </div>
+                    <div style="background-color: #ffffff; text-align: center; padding: 10px;" >
+                        <span class="title">出欠集計日付</span>　{rval data/SDATE} ～ {rval data/DATE}
+                    </div>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <!--{def showGroupDiv}-->
+                    <tr align="center" class="no_search"> 
+                      <td colspan="3">
+                        <div style="padding: 2px; text-align: center;" >
+                            <span class="title">出力対象範囲</span>　{rval data/GROUP_DIV1}<label for="GROUP_DIV1">クラス毎</label>　{rval data/GROUP_DIV2}<label for="GROUP_DIV2">学年毎</label>　{rval data/GROUP_DIV3}<label for="GROUP_DIV3">コース毎</label>
+                        </div>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{def showGroupSelect}-->
+                    <tr align="center" class="no_search"> 
+                      <th><span class="title">出力対象{rval GROUP_DIV_NAME}</span></th>
+                      <th class="no_search"></th>
+                      <th><span class="title">{rval GROUP_DIV_NAME}一覧</span></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">
+                        <div>{rval button/btn_lefts}</div>
+                        <div>{rval button/btn_left1}</div>
+                        <div>{rval button/btn_right1}</div>
+                        <div>{rval button/btn_rights}</div>
+                      <td width="45%">{rval data/CLASS_NAME}</td>
+                    </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr>
+                      <td style="background-color: #ffffff;">
+                        <table cellspacing="5">
+                          <tr>
+                              <td class="col1">{rval data/OUTPUT4}<label for="OUTPUT4">単位保留の科目には＊を表示する</label></td>
+                            <!--{def dispOutputOptBikoRadio}-->
+                              <td class="col2">{rval data/OUTPUT_BIKO}<label for="OUTPUT_BIKO">備考欄出力（出欠備考を出力</label> {rval data/BIKO_KIND1}<label for="BIKO_KIND1">全て</label> {rval data/BIKO_KIND2}<label for="BIKO_KIND2">学期から</label> {rval data/BIKO_KIND3}<label for="BIKO_KIND3">年間まとめ</label>）</td>
+                            <!--{/def}-->
+                            <!--{def dispOutputOptSelTermType}-->
+                              <td class="col2">{rval data/OUTPUT_BIKO}<label for="OUTPUT_BIKO">備考欄出力（出力対象備考：&nbsp;{rval data/BIKO_TERM_TYPE}）</label></td>
+                            <!--{/def}-->
+                          </tr>
+                          <tr>
+                              <td class="col1">{rval data/OUTPUT5}<label for="OUTPUT5">総合的な学習の時間を表示しない</label></td>
+                              <td class="col2">{rval data/PRINT_KEKKA0}<label for="PRINT_KEKKA0">欠課時数/出欠の記録を0表記する</label></td>
+                          </tr>
+                          <tr>
+                              <td class="col1">{rval data/OUTPUT6}<label for="OUTPUT6">欠点に追指導を含む</label></td>
+                              <td class="col2">{rval data/OUTPUT7}<label for="OUTPUT7">欠点者数に欠査者を含めない</label></td>
+                          </tr>
+                          <tr>
+                              <td class="col1">{rval data/NOT_EMPTY_LINE}<label for="NOT_EMPTY_LINE">空行を詰めて印字</label></td>
+                              <td></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_csv}{rval button/btn_end}　<span style="color: red; font-size: 0.8em;"> ※序列確定処理時の得点です。</span></td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

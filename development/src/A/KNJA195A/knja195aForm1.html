@@ -1,0 +1,127 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR>
+
+<table width="600px" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td><b>　　　{rval data/YEAR}年度　{rval data/GAKKI}
+                        &nbsp;&nbsp;&nbsp;&nbsp;<b>{rval data/KUBUN1}&nbsp;<LABEL for="KUBUN1">在校生</LABEL>　{rval data/KUBUN2}&nbsp;<LABEL for="KUBUN2">卒業生</LABEL></b>
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td nowrap> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff"> 
+                      <td>
+                        <table>
+<!--{def ZAIKOUSEI}-->
+                          <tr>
+                            <td>
+                              {rval data/GRADE_HR_CLASS}
+                            </td>
+                          </tr>
+<!--{/def}-->
+<!--{def SOTUGYOUSEI}-->
+                          <tr>
+                            <td>
+                              　　　　　　卒業年度：{rval data/G_YEAR}
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              　　　　　　卒業年組：{rval data/GRADE_HR_CLASS}
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              　　　氏名漢字　姓名：{rval data/KANJI}
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              　　　氏名かな　姓名：{rval data/KANA}
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              　　　　　　　　　　　{rval button/btn_search}
+                            </td>
+                          </tr>
+<!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td nowrap> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff"> 
+                      <td>
+                        <table align="center">
+                          <tr>
+                            <td>
+                              {rval data/OUTPUT1}<label for="OUTPUT1">封筒1(通常版)</label>　 <label for="OUTPUT2">{rval data/OUTPUT2}封筒2(学部なし)</label>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CLASS_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 
+<script language="JavaScript">{rval Dis_Date}{rval Dis_Date5}</script>

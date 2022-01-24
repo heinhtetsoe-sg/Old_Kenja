@@ -1,0 +1,87 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR><BR><BR>
+
+<table width="50%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search" align="center">
+                      <td><b>
+                        {rval data/YEAR}年度
+                      </b></td>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff" height="40">
+                      <td><b>
+                      {rval data/SEMESTER}　 {rval data/TESTCD}　 {rval data/GRADE}
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD align="left"  bgcolor="#ffffff">
+                        <TABLE cellspacing="5">
+                          <TR>
+                            <TD>　　　　●&nbsp;平均点・順位
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>　　　　　　&nbsp;{rval data/GROUP_DIV1}<LABEL for="GROUP_DIV1">学年</LABEL>
+                                　{rval data/GROUP_DIV2}<LABEL for="GROUP_DIV2">コース</LABEL>
+<!--{def useCourseGroup}-->
+                                　{rval data/GROUP_DIV3}<LABEL for="GROUP_DIV3">コースグループ</LABEL>
+<!--{/def}-->
+                            </TD>
+                          </TR>
+
+                          <TR>
+                            <TD>　　　　●&nbsp;順位の基準点　　総合点
+                            </TD>
+                          </TR>
+
+                          <TR>
+                            <TD>　　　　●&nbsp;出力順
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>　　　　　　&nbsp;{rval data/SORT_DIV1}<LABEL for="SORT_DIV1">年組番号順</LABEL>
+                                　{rval data/SORT_DIV2}<LABEL for="SORT_DIV2">成績順</LABEL>
+                            </TD>
+                          </TR>
+
+                        </TABLE>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap>{rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

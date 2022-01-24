@@ -1,0 +1,105 @@
+{rval start}
+{rval IFRAME}
+
+<table width="600px" border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tr class="no_search" width="900" height="30" nowrap>
+                      <th>&nbsp;処理年度：{rval YEAR}年度　　　学期：{rval SEMESTER}　　　年組：{rval GRADE_HR_CLASS}
+                      </th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30px">
+                      <th nowrap width="70">出席番号</th>
+                      <th nowrap width="350">氏名</th>
+                      <th nowrap width="*">給付金額</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+
+        </tr>
+        <tr valign="TOP">
+          <td>
+            <div style="overflow: auto; height: 500px;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--{each data}-->
+                    <tr height="30px">
+                      <td nowrap width="70" align="center" bgcolor="{rval data/COLOR}">{rval data/ATTENDNO}</td>
+                      <td nowrap width="350" align="left" bgcolor="{rval data/COLOR}">{rval data/NAME}</td>
+                      <td nowrap width="*" align="center" bgcolor="{rval data/COLOR}">{rval data/BENEFIT_MONEY}</td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td>
+                        <table cellpadding="0" cellspacing="0">
+                          <tr class="no_search" height="30">
+                            <td width="84%" align="center">
+                                &nbsp;
+                            </td>
+                            <td width="*%" align="right">
+                                {val btn_update}{val btn_reset}{val btn_end}{rval btn_print}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+    </td>
+  </tr>
+</table>
+<input type='hidden' name='windowWidth' value=''>
+<input type='hidden' name='windowHeight' value=''>
+<script language="JavaScript">{rval reload}</script>
+{rval finish}

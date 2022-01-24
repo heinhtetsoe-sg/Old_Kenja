@@ -1,0 +1,56 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th align="left">
+                        {val YEAR}年度　　　　{rval btn_copy}
+                      </th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="list">
+                    <tr class="no_search">
+                      <th nowrap width="35%">テスト区分</th>
+                      <th nowrap width="20%">実施日付</th>
+                      <th nowrap width="45%">テスト名称</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td nowrap align="center"  bgcolor="{rval data/BGCOLOR_ROW}">{val data/TESTKUBUNNAME}</td>
+                      <td nowrap align="center"  bgcolor="{rval data/BGCOLOR_ROW}"><a href="knjh701index.php?cmd=edit&TESTDIV={val data/TESTDIV}&TESTID={val data/TESTID}&EXAM_DATE={val data/EXAM_DATE}" target="right_frame">{val data/EXAM_DATE}</a></td>
+                      <td nowrap align="center"  bgcolor="{rval data/BGCOLOR_ROW}">{val data/TESTNAME}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

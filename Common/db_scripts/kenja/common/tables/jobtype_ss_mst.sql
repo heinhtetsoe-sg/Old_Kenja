@@ -1,0 +1,21 @@
+-- kanji=漢字
+-- 注意:このファイルは EUC/LFのみ でなければならない。
+-- 適用方法:
+--    1.データベース接続
+--    2.db2 +c -f <このファイル>
+--    3.コミットするなら、db2 +c commit。やり直すなら、db2 +c rollback
+--
+
+DROP TABLE JOBTYPE_SS_MST
+CREATE TABLE JOBTYPE_SS_MST( \
+    JOBTYPE_LCD        VARCHAR(2)    NOT NULL, \
+    JOBTYPE_MCD        VARCHAR(2)    NOT NULL, \
+    JOBTYPE_SCD        VARCHAR(3)    NOT NULL, \
+    JOBTYPE_SSCD       VARCHAR(2)    NOT NULL, \
+    JOBTYPE_SNAME      VARCHAR(270), \
+    JOBTYPE_SNAME_KANA VARCHAR(360), \
+    REGISTERCD         VARCHAR(10), \
+    UPDATED            TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE JOBTYPE_SS_MST ADD CONSTRAINT PK_JOBTYPE_SS_MST PRIMARY KEY (JOBTYPE_LCD, JOBTYPE_MCD, JOBTYPE_SCD, JOBTYPE_SSCD)

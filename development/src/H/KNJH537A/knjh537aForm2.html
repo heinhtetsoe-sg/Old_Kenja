@@ -1,0 +1,64 @@
+{rval start}
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="10" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="center" class="no_search">
+                <th width="30%">項目</th>
+                <th width="70%">値</th>
+              </tr>
+              <tr class="no_search">
+                <th align="right">※実力科目</th>
+                <td align="left" bgcolor="#ffffff">{rval data/PROFICIENCY_SUBCLASS_CD}</td>
+              </tr>
+              <tr class="no_search">
+                <th align="right">※学年</th>
+                <td align="left" bgcolor="#ffffff">{rval data/GRADE}</td>
+              </tr>
+              <tr class="no_search">
+                <th align="right">※{rval data/TITLE}</th>
+                <td align="left" bgcolor="#ffffff">{rval data/COURSE}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="center" class="no_search">
+                <th><font color="white"><b>{rval info/LEFT_LIST}</b></font></th>
+                <th class="no_search">&nbsp;</th>
+                <th><font color="white"><b>{rval info/RIGHT_LIST}</b></font></th>
+              </tr>
+              <tr align="center" class="no_search">
+              <!--{def main_part}-->
+                <td width="45%" bgcolor="#ffffff"><div style="width:200px;height:220px;overflow:scroll">{rval main_part/SUBCLASSLEFT_PART}</div></td>
+                <td width="*" bgcolor="#ffffff" class="no_search">{rval main_part/SUBCLASSSEL_ADD_ALL}
+                {rval main_part/SUBCLASSSEL_ADD}
+                {rval main_part/SUBCLASSSEL_DEL}
+                {rval main_part/SUBCLASSSEL_DEL_ALL}
+                <td width="45%" bgcolor="#ffffff"><div style="width:200px;height:220px;overflow:scroll">{rval main_part/SUBCLASSRIGHT_PART}</div></td>
+              <!--{/def}-->
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr align="left">
+          <td><br>{rval button/btn_update}{rval button/btn_clear}{rval button/btn_end}　<font size="1" color="red">※考査科目一覧には、設定済科目は対象外です。</font> </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish} 
+<script language="javascript">{rval reload}</script>

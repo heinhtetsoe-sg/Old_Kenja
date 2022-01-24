@@ -1,0 +1,6 @@
+-- $Id$
+
+alter table PRISCHOOL_MST add column PRISCHOOL_STAFFCD VARCHAR(10)
+alter table PRISCHOOL_MST add column PRISCHOOL_PREF_CD VARCHAR(2)
+alter table PRISCHOOL_MST add column PRISCHOOL_CITY_CD VARCHAR(3)
+reorg table PRISCHOOL_MST

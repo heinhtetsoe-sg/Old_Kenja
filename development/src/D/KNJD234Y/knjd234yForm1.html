@@ -1,0 +1,163 @@
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search" height="30">
+                        <td align="center">
+                          <b>{rval YEAR}年度　　　{rval GAKKI}<b>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+                <tr bgcolor="#ffffff">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr>
+                        <td width="40%" align="center">
+                            <b>学年{rval GRADE}　　　学期{rval GAKKI2}</b><br><br>
+
+                            ※異動対象日付(必須) {rval DATE}
+                        </td>
+                        <td width="50%"   align="left">
+                            {rval SEISEKI_HUSIN1}{rval HYOUTEI_OR_HYOUKA}{rval SEISEKI_HUSIN_HYOUTEI_FROM} ～ {rval SEISEKI_HUSIN_HYOUTEI_TO}　　（{rval KYOUKA_SOUGOU1}教科・科目　{rval KYOUKA_SOUGOU2}総合的な時間）<br>
+
+                            {rval SEISEKI_HUSIN2}欠課時数が修得上限値{rval SYUTOKU_JOUGENTI}を超えて履修上限値{rval RISYU_JOUGENTI}以下の者<br>
+
+                            {rval SEISEKI_HUSIN3}欠課時数が履修上限値{rval RISYU_JOUGENTI}を超えた者
+                        </td>
+                        <td width="*"   align="left">
+                            {val btn_read}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="25">更<br>新</th>
+                        <th width="90">クラス-<br>出席番号</th>
+                        <th width="120">氏名</th>
+                        <th width="135">科目名</th>
+                        <th width="55">見込<br>単位数</th>
+                        <th width="55">10段階<br>評定</th>
+                        <th width="55">評定</th>
+                        <th width="55">履修<br>単位数</th>
+                        <th width="55">修得<br>単位数</th>
+                        <th width="55">欠時数</th>
+                        <th width="55">遅刻<br>早退</th>
+                        <th width="55">欠課<br>時数</th>
+                        <th width="*">出席すべき<br>時数</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <div style="width:100%;height:420;overflow:auto">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr>
+                          <td width="25" align="center" bgcolor="{rval data/COLOR}">{rval data/UPDATE_DATA}</td>
+                          <td width="90" align="center" bgcolor="{rval data/COLOR}">{rval data/ATTENDNO}</td>
+                          <td width="120" align="left" bgcolor="{rval data/COLOR}">{rval data/NAME}</td>
+                          <td width="135" align="left" bgcolor="{rval data/COLOR}">{rval data/SUBCLASSNAME}</td>
+                          <td width="55" align="center" bgcolor="{rval data/COLOR}">{rval data/CREDITS}</td>
+                          <td width="55" align="center" bgcolor="{rval data/COLOR}">{rval data/SCORE}</td>
+                          <td width="55" align="center" bgcolor="{rval data/COLOR}">{rval data/VALUE}</td>
+                          <td width="55" align="center" bgcolor="{rval data/COLOR}">{rval data/COMP_CREDIT}</td>
+                          <td width="55" align="center" bgcolor="{rval data/COLOR}">{rval data/GET_CREDIT}</td>
+                          <td width="55" align="center" bgcolor="{rval data/COLOR}">{rval data/KETUJISU}</td>
+                          <td width="55" align="center" bgcolor="{rval data/COLOR}">{rval data/TIKOKU_SOUTAI}</td>
+                          <td width="55" align="center" bgcolor="{rval data/COLOR}">{rval data/NOTICE_LATE}</td>
+                          <td width="*" align="center" bgcolor="{rval data/COLOR}">{rval data/LESSON}</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <td>
+                          <table cellpadding="0" cellspacing="0">
+                            <tr class="no_search" height="30">
+                              <td width="90%" align="center">
+                              &nbsp;
+                              </td>
+                              <td width="10%" align="right">
+                              {val btn_update}{val btn_reset}{val btn_end}
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                  </table>
+                  </td>
+                </tr>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

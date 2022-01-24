@@ -1,0 +1,57 @@
+{rval start}
+<table style="width: 100%" border="0" cellspacing="5" cellpadding="5" align="center">
+<tr>
+<td>
+  <table style="width: 100%" border="0" cellspacing="5" cellpadding="1">
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr height="30">
+                <th align="center" class="no_search">&nbsp;</th>
+              </tr>
+              <tr height="80">
+                <td bgcolor="#ffffff">
+                  <!--{def showKojinCheck}-->
+                  　　{rval data/KOJIN_CHECK}<LABEL for="KOJIN_CHECK">☆1 個人</LABEL>　　{rval data/SGK_CHECK}<LABEL for="SGK_CHECK">☆2 修学</LABEL>　　{rval data/STK_CHECK}<LABEL for="STK_CHECK">☆3 支度</LABEL><BR><BR>
+                  <!--{/def}-->
+                  　　開始日付：{rval data/ISSUEDATE}
+                </td>
+              </tr>
+              <!--{def showKojinCheck}-->
+              <tr height="50">
+                <td bgcolor="#ffffff">
+                  　　<font size="2" color="red">※チェック有の場合、履歴を作成します。</font><BR>
+                  　　<font size="2" color="red">※チェック有の場合、{rval data/MAX_ISSUEDATE} 以降を入力して下さい。個人</font><BR>
+                  　　<font size="2" color="red">※チェック有の場合、{rval data/SGK_ISSUEDATE} 以降を入力して下さい。修学</font><BR>
+                  　　<font size="2" color="red">※チェック有の場合、{rval data/STK_ISSUEDATE} 以降を入力して下さい。支度</font>
+                </td>
+              </tr>
+              <!--{/def}-->
+              <!--{def unshowKojinCheck}-->
+              <tr height="50">
+                <td bgcolor="#ffffff">
+                  　　<font size="2" color="red">※更新：生徒個人番号が付番され、入力データが保存されます。</font><BR>
+                </td>
+              </tr>
+              <!--{/def}-->
+              <tr height="30">
+                <th align="left" class="no_search">　{rval button/btn_upd}{rval button/btn_end}</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+  </table>
+</td>
+</tr>
+</table>
+<div id="lay"></div>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

@@ -1,0 +1,57 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="10" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" height="25">
+                      <th nowrap>{rval TITLE}　学校種別:{rval APPLICANTDIV}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="50%">入試判別</th>
+                      <th nowrap width="10%">試験日</th>
+                      <th nowrap width="20%">入試種別</th>
+                      <th nowrap width="*">入試方式</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff" align="center">{rval data/DISTINCT_NAME}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{rval data/TEST_DATE}</td>
+                      <td nowrap bgcolor="#ffffff">{rval data/TESTDIV_NAME}</td>
+                      <td nowrap bgcolor="#ffffff">{rval data/EXAMTYPE_NAME}</td>
+                    </tr> 
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+
+<script language="JavaScript">
+<!--{def reload}-->
+{rval reload}
+<!--{/def}-->
+</script>

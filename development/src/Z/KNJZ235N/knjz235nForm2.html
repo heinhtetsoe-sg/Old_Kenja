@@ -1,0 +1,127 @@
+{rval start}
+<!--{def button}-->
+<!--{def data}-->
+
+<table width="850" border="0" cellpadding="0" cellspacing="10" align="center" style="margin-top:50px;">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="10">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr class="no_search">
+                <td>
+                  <div style="width:80%;float:left">　　　　対象年度：{rval data/YEAR}　　　　　　{rval button/btn_copy}
+                  <!--{def schkind}-->　　校種：{rval data/SCHOOL_KIND}<!--{/def}-->
+                  </div>
+                  <div style="width:20%;float:left;text-align:right">Pattern:{rval pattern}</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr class="no_search">
+                <th width="25%">項目</th>
+                <th width="75%">値</th>
+              </tr>
+
+
+              <tr>
+                <td class="no_search" nowrap>&nbsp;帳票パターン</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="100%" nowrap>
+                          {rval data/SEQ0511}<LABEL for="SEQ0511">A</LABEL>　{rval data/SEQ0512}<LABEL for="SEQ0512">B</LABEL>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+
+              <tr>
+                <td class="no_search" nowrap>&nbsp;出欠の記録<br>&nbsp;(共通)</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="100%" nowrap>
+                          {rval data/SEQ057}<LABEL for="SEQ057">留学中の授業日数非表示</LABEL><br>
+                          {rval data/SEQ058}<LABEL for="SEQ058">LHR欠課時数非表示</LABEL><br>
+                          {rval data/SEQ059}<LABEL for="SEQ059">行事欠課時数非表示</LABEL>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+
+              <tr>
+                <td class="no_search" nowrap>&nbsp;平均点</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="50%" nowrap>
+                          {rval data/SEQ0541}<LABEL for="SEQ0541">クラス</LABEL>
+                          {rval data/SEQ0542}<LABEL for="SEQ0542">コース</LABEL>
+                          {rval data/SEQ0543}<LABEL for="SEQ0543">学年</LABEL>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+
+              <tr>
+                <td class="no_search" nowrap>&nbsp;担任項目名</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="100%" nowrap>{rval data/SEQ0621}<LABEL for="SEQ0621">担任</LABEL>　{rval data/SEQ0622}<LABEL for="SEQ0622">チューター</LABEL></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+
+              <tr>
+                <td class="no_search" nowrap>&nbsp;表示項目選択<br>&nbsp;(Aパターンのみ)</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="100%" nowrap>{rval data/SEQ063}<LABEL for="SEQ063">返信欄非表示</LABEL></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="no_search" nowrap>&nbsp;表示項目選択<br>&nbsp;(Bパターンのみ)</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="100%" nowrap>{rval data/SEQ064}<LABEL for="SEQ064">度数分布表非表示</LABEL></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="no_search" nowrap colspan="2" align="right">
+                  &nbsp;{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}
+
+
+<script>setPattern();</script>

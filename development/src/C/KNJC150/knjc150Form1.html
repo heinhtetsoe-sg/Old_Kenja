@@ -1,0 +1,86 @@
+{rval start} 
+
+<!--{def button}--> 
+<!--{def data}-->
+
+<br><br><br><br>
+<table style="width: 420px" border="0" cellpadding="10" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table style="width: 420px" border="0" cellspacing="5" cellpadding="0">
+	    <tr>
+	      <td>
+		    <tablestyle="width: 420px" border="0" cellspacing="0" cellpadding="0">
+		      <tr class="no_search_line">
+		        <td>
+			      <table style="width: 420px"	 border="0" cellspacing="1" cellpadding="4">
+			        <tr class="no_search" height="35">
+			          <td align="center"><b>
+						{rval data/YEAR}年度　　{rval data/GAKKI}　
+				      </b>　　<font size="1">(1.1)</font></td>
+			        </tr>
+			        <tr bgcolor="#ffffff" height="90">
+			          <td>
+					    <table>
+					  	  <tr>
+			        		<td>
+					  		  <table>
+					  			<tr>
+						  		  <td>
+			              				　　　　<B>学年</B>
+			                	  </td>
+						  		  <td>
+			              				　　{rval data/GRADE}
+			                	  </td>
+			              		</tr>
+							  </table>
+			          		</td>
+			              </tr>
+						</table>
+			          </td>
+			        </tr>
+			        <tr bgcolor="#ffffff" height="70">
+			          <td>
+					    <table>
+					  	  <tr>
+						  	<td>
+							  <table>
+					  	  		<tr>
+						  		  <td>
+										<!-- NO001↓ KARIは、帳票作成後削除-->
+						              	&nbsp&nbsp{rval data/OUTPUT1} 長欠者要注意者リスト<br>
+															  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp・月{rval data/DAYS}日以上<BR>
+															  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp・印刷範囲 {rval data/NENGETSU_FROM}　～　{rval data/NENGETSU_TO}<BR><BR>
+										&nbsp&nbsp{rval data/OUTPUT2} 欠課時数要注意者リスト<br>
+															  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp・１，２年：単位数×１０Ｈ＋１以上の者<BR>
+												  			  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp・３年　　：単位数×　８Ｈ＋１以上の者<BR>
+										<!-- NO001↑ -->
+			                	  </td>
+			              		</tr>
+							  </table>
+			          		</td>
+			              </tr>
+						</table>
+			          </td>
+			        </tr>
+			        <tr class="no_search">
+			          <td align="left">
+			            {rval button/btn_print}{rval button/btn_end}
+			          </td>
+			        </tr>
+		          </table>
+		        </td>
+	          </tr>
+		    </table>
+	      </td>
+	    </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 
+<script language="JavaScript">{rval jscript}</script>

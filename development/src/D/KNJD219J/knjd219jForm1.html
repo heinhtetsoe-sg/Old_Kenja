@@ -1,0 +1,146 @@
+{rval start}
+<br><br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+   <tr>
+     <table width="100%" border="0" cellspacing="1" cellpadding="1">
+     <tr>
+       <th>
+
+         <table width="60%" border="0" cellspacing="3" cellpadding="0" align="center">
+           <tr class="no_search_line">
+             <th>
+               <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                 <tr class="no_search">
+                   <th colspan="2" nowrap>{rval sepa/YEAR}年度　　学期成績自動算出</th>
+                 </tr>
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap width="25%">学期</td>
+                   <td bgcolor="#ffffff" nowrap width="*">&nbsp;{rval sepa/SEMESTER}</td>
+                 </tr>
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap width="25%">校種</td>
+                   <td bgcolor="#ffffff" nowrap width="*">&nbsp;{rval sepa/SCHOOL_KIND}</td>
+                 </tr>
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap>学年</td>
+                   <td bgcolor="#ffffff" nowrap>
+                   <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                   <tr>
+                   <td width="100%" align="left">&nbsp;{rval sepa/GRADE}</td>
+                   </tr>
+                   </table>
+                   </td>
+                 </tr>
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap>コース</td>
+                   <td bgcolor="#ffffff" nowrap>&nbsp;{rval sepa/GROUP_CD}</td>
+                 </tr>
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap>科目</td>
+                   <td bgcolor="#ffffff" nowrap>&nbsp;{rval sepa/SUBCLASSCD}</td>
+                 </tr>
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap>算出先になる学校成績</td>
+                   <td bgcolor="#ffffff" nowrap>&nbsp;{rval sepa/COMBINED}</td>
+                 </tr>
+               </table>
+             </th>
+           </tr>
+         </table>
+
+         <br>
+
+         <table width="60%" border="0" cellspacing="3" cellpadding="0" align="center">
+           <tr class="no_search_line"> 
+             <td width="100%"> 
+               <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                 <tr align="center" class="no_search"> 
+                   <th><b>処理対象テスト種別</b></th>
+                   <th class="no_search"></th>
+                   <th><b>テスト種別一覧</b></th>
+                 </tr>
+                 <tr align="center" bgcolor="#ffffff">
+                   <td width="45%">{rval sepa/CATEGORY_SELECTED}</td>
+                   <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                     {rval button/btn_left1}<BR>
+                     {rval button/btn_right1}<BR>
+                     {rval button/btn_rights}
+                   <td width="45%">{rval sepa/CATEGORY_NAME}</td>
+                 </tr>
+<!--
+                 <tr class="no_search">
+                   <td colspan="3">&nbsp;{rval button/btn_read}</td>
+                 </tr>
+-->
+               </table>
+             </td>
+           </tr>
+         </table>
+
+         <table width="60%" border="0" cellspacing="3" cellpadding="0" align="center">
+           <tr> 
+             <td width="100%"> 
+               <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                 <tr>
+                   <td bgcolor="#ffffff" align="right">
+                     {rval button/btn_read}
+                   </td>
+                 </tr>
+               </table>
+             </td>
+           </tr>
+         </table>
+
+         <table width="60%" border="0" cellspacing="3" cellpadding="0" align="center">
+           <tr class="no_search_line">
+             <td>
+               <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" frame="box">
+               <tr class="no_search">
+                 <th width="10%">No</th>
+                 <th width="*%">テスト種別（満点）　※対象実力科目なし</th>
+                 <th width="30%">割合％</th>
+               </tr>
+
+               <!--結果一覧-->
+               <!--{def data}-->
+               <!--{each data}-->
+               <tr align="center" bgcolor="#ffffff">
+                 <td>{rval data/SEQ}</td>
+                 <td align="left" style="padding-left: 50px">{rval data/TESTCD_SHOW}（{rval data/PERFECT_SHOW}）{rval data/MARK}</td>
+                 <!--{def data/PERCENT_TEXT}-->
+                 <td {rval data/PERCENT_ROW}>{rval data/PERCENT_TEXT}</td>
+                 <!--{/def}-->
+               </tr>
+               <!--{/each}-->
+               <!--{/def}-->
+
+               </table>
+             </td>
+           </tr>
+         </table>
+
+         <table width="60%" border="0" cellspacing="3" cellpadding="0" align="center">
+           <tr class="no_search_line">
+             <th>
+               <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                 <tr class="no_search">
+                   <td bgcolor="#ffffff" width="*" align="right">
+                     {rval button/btn_update}
+                     {rval button/btn_del}
+                     {rval button/btn_reset}
+                     {rval button/btn_end}&nbsp;
+                   </td>
+                 </tr>
+               </table>
+             </th>
+           </tr>
+         </table>
+
+       </th>
+     </tr>
+     </table>
+  </td>
+   </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval Closing}</script>

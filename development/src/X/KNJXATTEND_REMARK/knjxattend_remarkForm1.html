@@ -1,0 +1,56 @@
+{rval start}
+<style>
+.sub_title {
+    padding:0 10px;
+}
+</style>
+<!-- Edit by PP for PC-Talker(voice) 2020-01-20 start -->
+<table width="100%" border="0" cellspacing="0" cellpadding="10" id="screen_id" aria-label="{rval TITLE}">
+    <!-- Edit by PP for PC-Talker(voice) 2020-01-31 end -->
+    <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr >
+        <td >
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th class="no_search" colspan="2" aria-label="">
+                    年度:{val YEAR}
+                    <span class="sub_title">{val SCHREGNO}</span>
+                    {val NAME}
+                </th>
+              </tr>
+<!--{def ABSENCE_REMARK}-->
+              <tr class="no_search">
+                <th nowrap align="center" width="15%">日付</th>
+                <th nowrap width="*">出欠備考</th>
+              </tr>
+              <!--結果一覧-->
+              <!--{each data}-->
+              <tr>
+                  <td nowrap bgcolor="#ffffff">{val data/ATTENDDATE}</td>
+                  <td nowrap bgcolor="#ffffff">{val data/DI_REMARK}</td>
+              </tr>
+              <!--{/each}-->
+<!--{/def}-->
+<!--{def SEMES_REMARK}-->
+              <tr>
+                  <td nowrap bgcolor="#ffffff">{rval REMARK1}</td>
+              </tr>
+<!--{/def}-->
+            </table>
+          </td>
+          </tr>
+        </table>
+        {rval button/btn_back}
+        </td>
+        </tr>
+      </table>
+   </td>
+   </tr>
+</table>
+
+{rval finish}{rval javascript}

@@ -1,0 +1,82 @@
+{rval start}
+
+<table><tr><td height="130">　</td></tr></table>
+<table width="650" border="0" cellpadding="0" cellspacing="10" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <td align="center" height="25"><b>
+                        {rval data/YEAR}年度　{rval button/btn_copy}</b>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+<!--{def data/GAKUNEN}-->
+              <tr >
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <td align="left" height="25"><b>
+                        学年：{rval data/GRADE}
+<!--{def data/KOJIN}-->
+                        <br><br>年組：{rval data/GRADE_HR_CLASS}　　　　{rval data/SCHREGNO}
+<!--{/def}-->
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+<!--{/def}-->
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search" height="25">
+                      <th nowrap><b>対象指導一覧</b></th>
+                      <th class="no_search">&nbsp;</th>
+                      <th nowrap><b>指導一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/LEFT_SELECT}</td>
+                      <td width="*%" class="no_search" nowrap>
+                        {rval button/btn_lefts} <br>
+                        {rval button/btn_left1} <br>
+                        {rval button/btn_right1} <br>
+                        {rval button/btn_rights}</td>
+                      <td width="45%">{rval data/RIGHT_SELECT}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr align="right">
+    <td nowrap>注）選択した並び順で出力します。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_update}
+<!--{def buttonHyouji}-->
+<!--{def data/BTN_GAKUNEN}-->
+               {rval button/btn_gakunen}
+<!--{/def}-->
+<!--{def data/BTN_KOJIN}-->
+               {rval button/btn_kojin}
+<!--{/def}-->
+<!--{/def}-->
+<!--{def data/BACK}-->
+               {rval button/btn_back}
+<!--{/def}-->
+               {rval button/btn_end}</td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval jscript}</script>
+{rval finish}

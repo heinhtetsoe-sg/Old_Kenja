@@ -1,0 +1,88 @@
+{rval start}
+<br>
+&nbsp;&nbsp;「※」のある項目は必須入力
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+        <td valign="top"> 
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr > 
+                  <td > 
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line"> 
+                                <td> 
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search"> 
+                                          <th width="20%">項 目</th>
+                                          <th width="80%">値</th>
+                                        </tr>
+<!--結果一覧-->
+<!--{def data}-->
+                                        <tr>
+                                          <td class="no_search">
+                                             <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                               <tr class="no_search">
+                                                 <th align="left" nowrap>※</th>
+                                                 <th align="right" nowrap>取得日付</th>
+                                               </tr>
+                                             </table>
+                                          </td>
+                                          <td bgcolor="#ffffff">{rval data/REGDDATE}</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="no_search">
+                                             <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                               <tr class="no_search">
+                                                 <th align="left" nowrap>※</th>
+                                                 <th align="right" nowrap>設定区分</th>
+                                               </tr>
+                                             </table>
+                                          </td>
+                                          <td bgcolor="#ffffff">{rval data/CONDITION_DIV1}<label for="CONDITION_DIV1">国家資格</label><span style="padding-left:60px;">{rval data/CONDITION_DIV2}<label for="CONDITION_DIV2">公的資格(検定等)</label></span><span style="padding-left:60px;">{rval data/CONDITION_DIV3}<label for="CONDITION_DIV3">民間資格(TOEIC等)</label></span></td>
+                                        </tr>
+                                        <tr>
+                                          <td class="no_search">
+                                             <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                               <tr class="no_search">
+                                                 <th align="left" nowrap>※</th>
+                                                 <th align="right" class="no_search" nowrap>資格名称</th>
+                                               </tr>
+                                             </table>
+                                          </td>
+                                          <td bgcolor="#ffffff">{rval data/QUALIFIED_CD}　　級・段位{rval data/RANK}</td>
+                                        </tr>
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap>主催</th>
+                                          <td bgcolor="#ffffff">{rval data/PROMOTER}</td>
+                                        </tr>
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap>資格証書</th>
+                                          <td bgcolor="#ffffff"><label for="CERTIFICATE">受領済</label>{rval data/CERTIFICATE}</td>
+                                        </tr>
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap>得点</th>
+                                          <td bgcolor="#ffffff">{rval data/HOBBY_SCORE}</td>
+                                        </tr>
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap>備考</th>
+                                          <td bgcolor="#ffffff">{rval data/REMARK}<br>{rval data/CONTENTS}</td>
+                                        </tr>
+<!--{/def}--> 
+<!--{def button}--> 
+                                        <tr> 
+                                          <th align="right" class="no_search" nowrap>&nbsp;</th>
+                                          <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}<br>
+                                                                {rval button/btn_replace1}{rval button/btn_csv}</td>
+                                        </tr>
+<!--{/def}--> 
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

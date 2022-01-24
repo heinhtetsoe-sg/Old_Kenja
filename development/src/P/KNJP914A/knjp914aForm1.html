@@ -1,0 +1,111 @@
+{rval start}
+<style></style>
+<table>
+    <tr height="100"></tr>
+</table>
+<table width="600" border="0" cellspacing="10" cellpadding="0" align="center">
+    <tr>
+        <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="5" cellpadding="0">
+                            <tr class="no_search_line">
+                                <th>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr>
+                                            <th height="30" class="no_search" colspan="2"><b>{rval YEAR}年度　振替処理</b></th>
+                                        </tr>
+                                        <tr height="25">
+                                            <th width="100" align="right" class="no_search">校種</th>
+                                            <td bgcolor="#ffffff">{rval data/SCHOOL_KIND}</td>
+                                        </tr>
+                                        <tr height="25">
+                                            <th width="100" align="right" class="no_search">振替項目指定</th>
+                                            <td bgcolor="#ffffff">{rval data/INCOME_LM_CD_MOTO}&nbsp;→&nbsp;{rval data/INCOME_LM_CD_SAKI}</td>
+                                        </tr>
+                                        <tr height="25">
+                                            <th width="100" align="right" class="no_search">支出項目</th>
+                                            <td bgcolor="#ffffff">{rval data/OUTGO_LM_CD_MOTO}</td>
+                                        </tr>
+                                        <tr height="25">
+                                            <th width="100" align="right" class="no_search">支出細目</th>
+                                            <td bgcolor="#ffffff">{rval data/OUTGO_LMS_CD_MOTO}</td>
+                                        </tr>
+                                        <tr height="25">
+                                            <th width="100" align="right" class="no_search">件名</th>
+                                            <td bgcolor="#ffffff">{rval data/REQUEST_REASON}</td>
+                                        </tr>
+                                        <tr height="25">
+                                            <th width="100" align="right" class="no_search">振替金額</th>
+                                            <td bgcolor="#ffffff">{rval data/SET_MONEY}&nbsp;円／人</td>
+                                        </tr>
+                                    </table>
+                                </th>
+                            </tr>
+                            <tr class="no_search_line">
+                                <td bgcolor="#ffffff" align="right">{rval data/TAIGAKU}<label for="TAIGAKU">転退学を除く</label></td>
+                            </tr>
+                            <tr class="no_search_line">
+                                <td width="100%" colspan="2">
+                                    <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                                        <tr align="center" class="no_search">
+                                            <th><b>対象生徒</b></th>
+                                            <th class="no_search"></th>
+                                            <th><b>生徒一覧</b></th>
+                                        </tr>
+                                        <tr align="center" bgcolor="#ffffff">
+                                            <td width="40%">
+                                                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                    <tr class="no_search_line">
+                                                        <td width="100%">{rval data/CATEGORY_SELECTED}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right">人数：<span id="LEFT_PART_NUM"></span>&nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td width="*%" class="no_search">
+                                                {rval button/btn_lefts}<br />
+                                                {rval button/btn_left1}<br />
+                                                {rval button/btn_right1}<br />
+                                                {rval button/btn_rights}
+                                            </td>
+                                            <td width="40%">
+                                                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                    <tr class="no_search_line">
+                                                        <td width="100%">{rval data/CATEGORY_NAME}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right">人数：<span id="RIGHT_PART_NUM"></span>&nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr class="no_search_line">
+                                <th>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr>
+                                            <td height="30" class="no_search" align="right" colspan="2">{rval button/btn_upd}{rval button/btn_end}</td>
+                                        </tr>
+                                    </table>
+                                </th>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<script language="JavaScript">
+    {rval closeCheck}
+</script>
+<script language="JavaScript">
+    document.getElementById("LEFT_PART_NUM").innerHTML = document.forms[0].category_selected.options.length;
+    document.getElementById("RIGHT_PART_NUM").innerHTML = document.forms[0].category_name.options.length;
+</script>
+{rval finish}

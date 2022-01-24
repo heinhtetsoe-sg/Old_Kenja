@@ -1,0 +1,27 @@
+-- $Id$
+
+DROP TABLE HEXAM_ENTREMARK_DAT
+CREATE TABLE HEXAM_ENTREMARK_DAT( \
+    YEAR                        VARCHAR(4)    NOT NULL, \
+    SCHREGNO                    VARCHAR(8)    NOT NULL, \
+    ANNUAL                      VARCHAR(2)    NOT NULL, \
+    ATTENDREC_REMARK            VARCHAR(238), \
+    SPECIALACTREC               VARCHAR(700), \
+    TRAIN_REF                   VARCHAR(1248), \
+    TRAIN_REF1                  VARCHAR(1740), \
+    TRAIN_REF2                  VARCHAR(520), \
+    TRAIN_REF3                  VARCHAR(800), \
+    TOTALSTUDYACT               VARCHAR(746), \
+    TOTALSTUDYVAL               VARCHAR(746), \
+    CALSSACT                    VARCHAR(300), \
+    STUDENTACT                  VARCHAR(218), \
+    CLUBACT                     VARCHAR(300), \
+    SCHOOLEVENT                 VARCHAR(218), \
+    TOTALSTUDYACT_SLASH_FLG     VARCHAR(1), \
+    TOTALSTUDYVAL_SLASH_FLG     VARCHAR(1), \
+    ATTENDREC_REMARK_SLASH_FLG  VARCHAR(1), \
+    REGISTERCD                  VARCHAR(10), \
+    UPDATED                     TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE HEXAM_ENTREMARK_DAT ADD CONSTRAINT PK_HEXAM_ENT_DAT PRIMARY KEY (YEAR,SCHREGNO)

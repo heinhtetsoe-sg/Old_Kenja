@@ -1,0 +1,135 @@
+{rval start}
+<style type="text/css">
+</style>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="70%">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <hr width="70%" align="left">
+                &nbsp;&nbsp;{rval SCHREGNO}&nbsp;&nbsp;{val NAME}
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<BR>
+
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="box">
+                    <tr class="no_search">
+                      <th>部/クラブ</th>
+                      <th>入部日付</th>
+                      <th>退部日付</th>
+                      <th>備考</th>
+                    </tr>
+                    <!--{each data}-->
+                    <tr>
+                      <td bgcolor="#ffffff">{val data/CLUBNAME}</td>
+                      <td bgcolor="#ffffff">{rval data/SDATE}</td>
+                      <td bgcolor="#ffffff">{rval data/EDATE}</td>
+                      <td bgcolor="#ffffff">{rval data/REMARK}</td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<BR>
+
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="box">
+                    <tr class="no_search">
+                      <th>部/クラブ</th>
+                      <th>日付</th>
+                      <th>大会名称</th>
+                      <th>区分</th>
+                      <th>開催地域</th>
+                      <th>種目</th>
+                      <th>種目種類</th>
+                      <th>成績</th>
+                      <th>記録</th>
+                      <th>備考</th>
+                    </tr>
+                    <!--{each data2}-->
+                    <tr>
+                      <td bgcolor="#ffffff" nowrap>{rval data2/CLUBCD} {rval data2/CLUBNAME}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data2/DETAIL_DATE}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data2/MEET_NAME}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data2/DIV_SHOW}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data2/HOSTCD}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data2/ITEMCD}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data2/KINDCD}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data2/RECORDCD}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data2/DOCUMENT}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data2/DETAIL_REMARK}</td>
+                    </tr>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<BR>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
+                    <tr class="no_search">
+                      <td align="center">
+                        {rval button/btn_back}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

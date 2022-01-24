@@ -1,0 +1,70 @@
+{rval start}
+<br>
+<table style="width: 700px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+    <table style="width: 700px" border="0" cellspacing="5" cellpadding="1">
+    <tr>
+    <td>
+        <table style="width: 700px" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 700px" border="0" cellpadding="0" cellspacing="1">
+                <tr class="no_search" height="30">
+                    <td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;対象年度：{rval data/YEAR}</td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+    <tr>
+    <td>
+        <div style="width: 100%; height=400; overflow: auto">
+        <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+                <!--結果一覧-->
+                <!--{def data}-->
+                <tr>
+                    <th width="30%" colspan="2" height="*" align="left" bgcolor="#ffffff" nowrap>実施回数</th>
+                    <td bgcolor="#ffffff">{rval data/NUMBER_OF_TIMES}</td>
+                </tr>
+                <tr>
+                    <th width="30%" colspan="2" height="*" align="left" bgcolor="#ffffff" nowrap>名称</th>
+                    <td bgcolor="#ffffff">{rval data/EVENT_NAME}</td>
+                </tr>
+                <tr>
+                    <th width="30%" colspan="2" height="*" align="left" bgcolor="#ffffff" nowrap>実施日</th>
+                    <td bgcolor="#ffffff">{rval data/EVENT_DATE}</td>
+                </tr>
+                <tr>
+                    <th width="15%" rowspan="2" height="*" align="center" bgcolor="#ffffff" nowrap>距離</th>
+                    <td width="15%" bgcolor="#ffffff" align="center">男子</td>
+                    <td bgcolor="#ffffff">{rval data/MAN_METERS}&nbsp;km</td>
+                </tr>
+                <tr>
+                    <td width="15%" bgcolor="#ffffff" align="center">女子</td>
+                    <td bgcolor="#ffffff">{rval data/WOMEN_METERS}&nbsp;km</td>
+                </tr>
+                <!--{/def}-->
+                <!--{def button}-->
+                <tr>
+                    <th colspan="3" align="left" class="no_search" nowrap>&nbsp;{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}　　{rval button/btn_detail}{rval button/btn_batch}</th>
+                </tr>
+                <!--{/def}-->
+            </table>
+        </td>
+        </tr>
+        </table>
+        </div>
+    </td>
+    </tr>
+    </table>
+</td>
+</tr>
+</table>
+<script language="JavaScript">{rval close}</script>
+{rval finish} 

@@ -1,0 +1,104 @@
+{rval start} 
+
+<style type="text/css">
+<!--
+    .listcolor { background-color:red }
+-->
+</style>
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR>
+
+<table width="40%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <td align="center" nowrap><b>
+                        {rval data/YEAR}年度　　{rval data/SEMESTER}　　{rval data/TESTCD}　　{rval data/GRADE_HR_CLASS}
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff" height="70">
+                      <td><br>
+                            　　順位/平均対象<br>
+                                  　　{rval data/MODE11}<LABEL for="MODE11">学年</LABEL>　　{rval data/MODE12}<LABEL for="MODE12">コース</LABEL><br><br>
+                            　　度数分布の種類<br>
+                                  　　{rval data/MODE21}<LABEL for="MODE21">講座別</LABEL>　{rval data/MODE22}<LABEL for="MODE22">学年別</LABEL>　{rval data/MODE23}<LABEL for="MODE23">コース別</LABEL><br><br>
+                            　　模試データ出力<br>
+                                  　　{rval data/DISABLE_MOSI2}<LABEL for="DISABLE_MOSI2">有り</LABEL>　　{rval data/DISABLE_MOSI1}<LABEL for="DISABLE_MOSI1">無し</LABEL><br><br>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD align="left"  bgcolor="#ffffff">
+                        <TABLE cellspacing="5">
+                          <TR>
+                            <TD>　　●&nbsp;異動生徒（留学・休学・出停・編入・退学・転学）
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>　　　&nbsp;異動対象日、及び欠課の累積集計日付&nbsp;{rval data/DATE}</TD>
+                          </TR>
+                        </TABLE>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap>{rval button/btn_print}<!--{rval button/btn_csv}-->{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

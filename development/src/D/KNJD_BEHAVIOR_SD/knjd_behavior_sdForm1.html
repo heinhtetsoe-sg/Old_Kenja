@@ -1,0 +1,94 @@
+{rval start}
+
+<style type="text/css">
+<!--
+A.menuTitle:link    { color:#FF0000; text-decoration:none; }
+A.menuTitle:visited { color:#FF0000; text-decoration:none; }
+A.menuTitle:active  { color:#FF0000; text-decoration:none; }
+A.menuTitle:hover   { color:#ff99cc; text-decoration:none; }
+A.menuTitle { padding-left:10px}
+
+A.menu:link    { color:#008b8b; text-decoration:none; }
+A.menu:visited { color:#008b8b; text-decoration:none; }
+A.menu:active  { color:#008b8b; text-decoration:none; }
+A.menu:hover   { color:#ff99cc; background-color:#FFFFFF; text-decoration:none; }
+A.menu { padding-left:10px}
+.topman {vertical-align:top;}
+.id_css {font:bold;}
+-->
+</style>
+
+<!--{def button}-->
+<!-- Edit by HPA for PC-talker 読み start 2020/02/03  -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id = "screen_id" aria-label="{rval NAME_SHOW}の行動の記録情報画面">
+ <!-- Edit by HPA for PC-talker 読み end 2020/02/20 -->
+  <tr>
+    <td valign="top">
+      <table width="90%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                <hr width="55%" align="left">
+                    &nbsp;{rval NAME_SHOW}
+                <hr width="55%" align="left">
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th colspan="2">
+                        行　動　の　記　録　　{rval SEMESTER}　<font size=2>{rval TEXT_TITLE}</font>
+                      </th>
+                    </tr>
+
+                    <!--{each data}-->
+                    <tr align="center" height="30">
+                      <th width="15%" align="center" class="no_search" nowrap><LABEL for={rval data/RECORD_LABEL}>{rval data/RECORD_NAME}</LABEL></th>
+                      <td width="15%" bgcolor="#ffffff">{rval data/RECORD_VAL}</td>
+                    </tr>
+                    <!--{/each}-->
+
+                    <tr>
+                      <td class="no_search" colspan="4" align="right" nowrap>
+                        {rval button/btn_update}{rval button/btn_reset}{rval button/btn_back}
+                      </td>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<div id="myID_Menu" style="position:absolute; visibility:hidden;">
+<table width=180 border="1" cellpadding="1" cellspacing="0" bgcolor="#C0C0C0">
+
+<tr class="no_search_line">
+  <td class="no_search" align="right">
+    <span style="float:left;"><font color="#FFFFFF"><strong>　入力項目　</span><a class="menuTitle" href={rval menuTitle/CLICK_VAL}>{rval menuTitle/CLICK_NAME}</a></strong><br></font>
+  </td>
+</tr>
+
+<tr class="no_search_line">
+  <td bgcolor="#FFFFFF">
+    <!--{each menu}-->
+    <a class="menu" href={rval menu/CLICK_VAL}>{rval menu/CLICK_NAME}</a><br>
+    <!--{/each}-->
+  </td>
+</tr>
+
+</table>
+</div>
+
+<!--{/def}-->
+{rval finish}
+{rval javascript}
+<script language="javascript">{rval reload}</script>

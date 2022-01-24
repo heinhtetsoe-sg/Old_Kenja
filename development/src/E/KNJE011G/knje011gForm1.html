@@ -1,0 +1,126 @@
+<!-- knje011gForm1.html -->
+{rval start}
+{rval IFRAME}
+<style>
+#id_remark {
+    {rval REMARK_HEIGHT}
+    overflow-x:auto;
+    border: 1px solid gray;
+}
+
+.red {
+  color: red;
+  font-size: 0.9em;
+}
+
+.btn_torikomi {
+    color: #1E90FF;
+    /* font-weight: bold; */
+}
+
+</style>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td nowrap>
+      <table width="100%" border="0" cellspacing="10" cellpadding="0">
+        <tbody>
+          <tr>
+           <td width="50%">
+            <hr>{rval NAME_SHOW}<hr>
+           </td>
+           <td align="left" width="50%">
+           </td>
+          </tr>
+          <tr class="no_search_line">
+            <td colspan="2">
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <th width="30%">
+<!--{def tyousasyoSougouHyoukaNentani_for_title}-->
+                    ５．総合的な学習の時間<br>
+<!--{/def}-->
+                    ６．特別活動の記録<br>
+                    ７．指導上参考となる諸事項<br>
+                    ９．{rval ATTEND_TITLE}
+                  </th>
+                  <td bgcolor="#ffffff" colspan="4">{rval btn_form2}</td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+
+          <tr class="no_search_line">
+            <td colspan="2">
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+<!--{def tyousasyoSougouHyoukaNentani}-->
+                <tr>
+                  <th rowspan="2" width="10%" class="no_search">
+                      ５．<br>総合的な<br>学習の時<br>間の内容<br>・評価<br>
+                      <div style="margin-top: 1em;">{rval button/btn_sogo_yomikomi}</div>
+                      <div>{rval btn_formYorokuSanshou}</div>
+                  </th>
+                  <th width="6%" class="no_search">活動<br>内容</th>
+                  <td bgcolor="#ffffff">
+                    {rval TOTALSTUDYACT}
+                    <div class="red">{rval TOTALSTUDYACT_TYUI}</div>
+<!--{def useTotalstudySlashFlg}-->
+                    <div>{rval TOTALSTUDYACT_SLASH_FLG}<LABEL for="TOTALSTUDYACT_SLASH_FLG">斜線を入れる</LABEL></div>
+<!--{/def}-->
+                  </td>
+                </tr>
+                <tr>
+                  <th width="6%" class="no_search">評価</th>
+                  <td bgcolor="#ffffff">
+                    {rval TOTALSTUDYVAL}
+                    <div class="red">{rval TOTALSTUDYVAL_TYUI}</div><!-- 　　　　　　　　　　　　　　　　　　{rval btn_reload3} -->
+<!--{def useTotalstudySlashFlg}-->
+                    <div>{rval TOTALSTUDYVAL_SLASH_FLG}<LABEL for="TOTALSTUDYVAL_SLASH_FLG">斜線を入れる</LABEL><div>
+<!--{/def}-->
+                  </td>
+                </tr>
+<!--{/def}-->
+                <tr>
+                  <th class="no_search" colspan="2" rowspan="1" width="10%">
+                      ８．備考
+                  </th>
+                  <td bgcolor="#ffffff">
+                      <div id="id_remark" >
+                    {rval REMARK}
+                        </div>
+                      <div class="red">{rval REMARK_TYUI}</div>
+                      <div>{rval REMARK_NO_COMMENTS}<LABEL for="REMARK_NO_COMMENTS">{rval NO_COMMENTS_LABEL}</LABEL>
+                    <!--{def UseMaruA_avg}-->
+                    　　　　　学習成績概評のマルＡ評定平均値（{rval MARU_A_AVG}）
+                    <!--{/def}-->
+                    <!--{def UnUseMaruA_avg}-->
+                    　　　　　{rval COMMENTEX_A_CD}<label for="comment">学習成績概評のマルＡ表示対象者</label>
+                    <!--{/def}-->
+                    </div>
+                    <div>
+                        {rval button/btn_formBikouTori}
+                    </div>
+                  </td>
+                </tr>
+                <tr class="no_search">
+                  <td colspan="3" bgcolor="#ffffff">{rval button/btn_remark_all}　<!--{def tyousasyoSougouHyoukaNentani_for_title}-->{rval btn_formYorokuSanshou}<!--{/def}-->{rval btn_formSeiseki}　{rval btn_update}{rval btn_up_pre}{rval btn_up_next}{rval btn_reset}{rval btn_back}
+                  <br>{rval button/btn_check1}{rval button/btn_check2} {rval button/btn_homeRoomShojikouTori} {rval button/btn_print}</td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->
+<script language="javascript">{rval reload}</script>

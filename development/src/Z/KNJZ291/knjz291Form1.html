@@ -1,0 +1,87 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                    <tr class="no_search" height="35">
+                      <th nowrap align="left">　年度：{rval YEAR}　{rval button/btn_copy}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>　
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th nowrap width="5%">職員コード</th>
+                      <th nowrap width="8%">職員氏名</th>
+                      <th nowrap width="8%">職員氏名かな</th>
+                      <th nowrap width="5%">表示用</th>
+                      <th nowrap width="8%">職員氏名英字</th>
+                      <th nowrap width="8%">職名</th>
+                      <th nowrap width="8%">所属</th>
+                      <th nowrap width="8%">校務分掌部</th>
+                      <th nowrap width="8%">授業受持ち</th>
+                      <th nowrap width="8%">肩書き1</th>
+                      <th nowrap width="8%">肩書き2</th>
+                      <th nowrap width="8%">肩書き3</th>
+                      <th nowrap width="8%">職員性別</th>
+                      <th nowrap width="8%">職員生年月日</th>
+                      <th nowrap width="8%">郵便番号</th>
+                      <th nowrap width="8%">住所1</th>
+                      <th nowrap width="8%">住所2</th>
+                      <th nowrap width="8%">電話番号</th>
+                      <th nowrap width="8%">FAX番号</th>
+                      <th nowrap width="8%">E-Mailアドレス</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap align="center" width="5%" bgcolor="#ffffff"><a href="knjz291index.php?cmd=edit&STAFFCD={rval data/STAFFCD}" target="right_frame">{rval data/STAFFCD}</a></td>
+                      <td nowrap width="8%" bgcolor="#ffffff">{rval data/STAFFNAME}</td>
+                      <td nowrap width="8%" bgcolor="#ffffff">{rval data/STAFFNAME_KANA}</td>
+                      <td nowrap width="8%" bgcolor="#ffffff">{rval data/STAFFNAME_SHOW}</td>
+                      <td nowrap width="8%" bgcolor="#ffffff">{rval data/STAFFNAME_ENG}</td>
+                      <td nowrap width="8%" bgcolor="#ffffff">{rval data/JOBCD}&nbsp&nbsp{rval data/JOBNAME}</td>
+                      <td nowrap width="8%" bgcolor="#ffffff">{rval data/SECTIONCD}&nbsp&nbsp{rval data/SECTIONABBV}</td>
+                      <td nowrap width="8%" bgcolor="#ffffff">{rval data/DUTYSHARECD}&nbsp&nbsp{rval data/SHARENAME}</td>
+                      <td nowrap width="8%" bgcolor="#ffffff">{rval data/CHARGECLASSCD}</td>
+                      <td nowrap width="8%" bgcolor="#ffffff">{rval data/POSITIONNAME1}&nbsp{rval data/POSITIONCD1_MANAGER_NAME}</td>
+                      <td nowrap width="8%" bgcolor="#ffffff">{rval data/POSITIONNAME2}&nbsp{rval data/POSITIONCD2_MANAGER_NAME}</td>
+                      <td nowrap width="8%" bgcolor="#ffffff">{rval data/POSITIONNAME3}&nbsp{rval data/POSITIONCD3_MANAGER_NAME}</td>
+                      <td nowrap width="8%" bgcolor="#ffffff">{rval data/STAFFSEX}&nbsp&nbsp{rval data/NAME2}</td>
+                      <td nowrap align="center" width="8%" bgcolor="#ffffff">{rval data/STAFFBIRTHDAY}</td>
+                      <td nowrap width="8%" bgcolor="#ffffff">{rval data/STAFFZIPCD}</td>
+                      <td nowrap width="8%" bgcolor="#ffffff">{rval data/STAFFADDR1}</td>
+                      <td nowrap width="8%" bgcolor="#ffffff">{rval data/STAFFADDR2}</td>
+                      <td nowrap width="8%" bgcolor="#ffffff">{rval data/STAFFTELNO}</td>
+                      <td nowrap width="8%" bgcolor="#ffffff">{rval data/STAFFFAXNO}</td>
+                      <td nowrap width="8%" bgcolor="#ffffff">{rval data/STAFFE_MAIL}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

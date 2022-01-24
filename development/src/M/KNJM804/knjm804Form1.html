@@ -1,0 +1,116 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR>
+
+<table width="60%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                    <tr align="center" class="no_search">
+                      <td><b>
+                      年度&nbsp;{rval data/YEAR}　　クラス&nbsp;{rval data/GRADE_HR_CLASS}　　会計グループCD&nbsp;{rval data/COLLECT_GRP_CD}
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspaceing="1">
+                    <tr>
+                      <td width="100%" bgcolor="#ffffff">
+                          <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                            <tr>
+                              <td width="25%" colspan="3">
+                                  <b>　　　帳票種類</b>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td width="25%"></td>
+                              <td width="*">
+                                  {rval data/OUTPUT_NO1}<LABEL for="OUTPUT_NO1">&nbsp;受講料の不徴収について</LABEL>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td width="25%"></td>
+                              <td width=*">
+                                  {rval data/OUTPUT_NO2}<LABEL for="OUTPUT_NO2">&nbsp;授業料減免承認決定通知書</LABEL>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td width="25%"></td>
+                              <td width="*">
+                                  {rval data/OUTPUT_NO3}<LABEL for="OUTPUT_NO3">&nbsp;授業料徴収期間変更承認通知書</LABEL>
+                              </td>
+                            </tr>
+                          </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象</b></th>
+                      <th class="no_search"></th>
+                      <th><b>対象者一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_left2}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_right2}
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD height="70" align="left"  bgcolor="#ffffff">
+                        <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                          <TR>
+                            <TD width="25%" colspan="2">
+                                <b>　　　発行日&nbsp&nbsp</b>
+                            </TD>
+                            <TD width="*">
+                                {rval data/OUTPUTDATE}</LABEL>
+                            </TD>
+                          </TR>
+                        </TABLE>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

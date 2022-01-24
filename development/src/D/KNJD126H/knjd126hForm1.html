@@ -1,0 +1,159 @@
+{rval start}
+<table width="1150" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+              <tr class="no_search">
+                <td>
+                  <table width="100%">
+                    <tr class="no_search">
+                      <td width="150" nowrap align="center">{rval YEAR}年度　{rval LOGIN_SEMESTER}</td>
+                      <td width="250" nowrap>年組：{rval GRADE_HR_CLASS}<br>{rval SUBCLASS_TITLE}：{rval SUBCLASSCD}</td>
+                      <td width="*" nowrap>処理学期：{rval SEMESTER}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <tr class="no_search" align="center" nowrap height="25">
+                <td colspan="2" nowrap>テスト実施順</td>
+              </tr>
+              <tr class="no_search" align="center" nowrap height="25">
+                <td colspan="2" nowrap>テスト単元名</td>
+              </tr>
+              <tr class="no_search" align="center" nowrap height="40">
+                <td colspan="2" nowrap>観点略称</td>
+              </tr>
+              <tr class="no_search" align="center" nowrap height="25">
+                <td width="80" rowspan="3" nowrap>出席番号</td>
+                <td width="200" rowspan="3" nowrap>氏名／配点</td>
+              </tr>
+            </table>
+          </td>
+          <td>
+            <div id="trow" style="overflow:hidden; width: 900px; ">
+            <div style="width: {rval widthHeader}px;">
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <tr class="no_search" align="center" nowrap height="25">
+                {rval HEAD1}
+                <td width="#" nowrap></td>
+              </tr>
+              <tr class="no_search" align="center" nowrap height="25">
+                {rval HEAD2}
+                <td width="#" nowrap></td>
+              </tr>
+              <tr class="no_search" align="center" nowrap height="40">
+                {rval HEAD3}
+                <td width="#" nowrap></td>
+              </tr>
+              <tr class="no_search" align="center" nowrap height="25">
+                {rval HEAD4}
+                <td width="#" nowrap></td>
+              </tr>
+            </table>
+            </div>
+            </div>
+          </td>
+        </tr>
+
+        <tr valign="TOP">
+          <td>
+            <div id="tcol" style="overflow: hidden; height: 383px;">
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <!--{each main_data}-->
+              <tr bgcolor="{rval main_data/BGCOLOR_ROW}" align="center" nowrap height="25">
+                <td width="80">{rval main_data/ATTENDNO}</td>
+                <td width="200" align="left">{rval main_data/NAME_SHOW}</td>
+              </tr>
+              <!--{/each}-->
+            </table>
+            </div>
+          </td>
+          <td>
+            <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 900px; height: 400px;">
+            <div style="width: {rval widthMeisai}px;">
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <!--{each main_data}-->
+              <tr bgcolor="{rval main_data/BGCOLOR_ROW}" align="center" nowrap height="25">
+                {rval main_data/MAIN_DATA}
+                <td width="#" nowrap></td>
+              </tr>
+              <!--{/each}-->
+            </table>
+            </div>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <tr class="no_search" align="center" nowrap height="25">
+                <td width="280" nowrap>クラス合計</td>
+              </tr>
+              <tr class="no_search" align="center" nowrap height="25">
+                <td width="280" nowrap>クラス平均</td>
+              </tr>
+            </table>
+          </td>
+          <td>
+            <div id="trowFoot" style="overflow:hidden; width: 900px; ">
+            <div style="width: {rval widthHeader}px;">
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <tr class="no_search" align="center" nowrap height="25">
+                {rval FOOT1}
+                <td width="#" nowrap></td>
+              </tr>
+              <tr class="no_search" align="center" nowrap height="25">
+                {rval FOOT2}
+                <td width="#" nowrap></td>
+              </tr>
+            </table>
+            </div>
+            </div>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+              <tr class="no_search" align="left" nowrap>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td align="left">{rval btn_calc}</td>
+                      <td align="right">{rval btn_update}{rval btn_reset}{rval btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}

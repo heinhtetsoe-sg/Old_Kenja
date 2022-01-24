@@ -1,0 +1,50 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th nowrap width="5%">資格コード</th>
+                <!--{def useQualifiedManagementFlg}-->
+                <th nowrap width="5%">学校管理</th>
+                <!--{/def}-->
+                <th nowrap width="5%">級・段位</th>
+                <th nowrap width="8%">資格名称</th>
+                <th nowrap width="8%">資格略称</th>
+                <th nowrap width="8%">設定区分</th>
+                <th nowrap width="8%">主催</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+            <!--{each data}-->
+            <tr>
+                <td nowrap align="center" width="5%" bgcolor="#ffffff"><a href="knjz450index.php?cmd=edit&QUALIFIED_CD={val data/QUALIFIED_CD}" target="right_frame">{val data/QUALIFIED_CD}</a></td>
+                <!--{def useQualifiedManagementFlg}-->
+                <th nowrap width="5%" bgcolor="#ffffff">{val data/MANAGEMENT_FLG}</th>
+                <!--{/def}-->
+                <td nowrap align="center" width="5%" bgcolor="#ffffff">{val data/link}</td>
+                <td nowrap width="8%" bgcolor="#ffffff">{val data/QUALIFIED_NAME}</td>
+                <td nowrap width="8%" bgcolor="#ffffff">{val data/QUALIFIED_ABBV}</td>
+                <td nowrap width="8%" bgcolor="#ffffff">{val data/CONDITION_NAME}</td>
+                <td nowrap width="8%" bgcolor="#ffffff">{val data/PROMOTER}</td>
+            </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

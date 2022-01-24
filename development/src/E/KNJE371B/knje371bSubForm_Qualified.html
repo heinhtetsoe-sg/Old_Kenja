@@ -1,0 +1,134 @@
+{rval start}
+{rval IFRAME}
+<BR><BR>
+<table width="1150px" border="0" cellpadding="0" cellspacing="10" align="center">
+    <tr>
+        <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                <tr>
+                    <td height="50">
+                        <hr width="40%" align="left">
+                        &nbsp;対象年度：{rval YEAR_SHOW}&nbsp;&nbsp;&nbsp;{rval SCHOOLNAME_SHOW}
+                        <hr width="40%" align="left">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr class="no_search_line">
+                                <td>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search">
+                                            <th width="120">取得有効開始日</th>
+                                            <th width="200">区分</th>
+                                            <th width="260">名称</th>
+                                            <th width="150">級・段位</th>
+                                            <th width="260">主催</th>
+                                            <th width="*">得点</th>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div onScroll="scrollRC()" style="overflow:scroll; width: 100%; height: 170;">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr class="no_search_line">
+                                    <td>
+                                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                            <!--{def list}-->
+                                            <!--結果一覧-->
+                                            <!--{each list}-->
+                                            <tr>
+                                                <td nowrap align="center" width="120" bgcolor="#ffffff">{rval list/VALID_S_DATE}</td>
+                                                <td nowrap align="left"   width="200" bgcolor="#ffffff">{rval list/CONDITION_DIV}</td>
+                                                <td nowrap align="leftr"  width="260" bgcolor="#ffffff">{rval list/QUALIFIED_NAME}</td>
+                                                <td nowrap align="leftr"  width="150" bgcolor="#ffffff">{rval list/RANK_NAME}</td>
+                                                <td nowrap align="leftr"  width="260" bgcolor="#ffffff">{rval list/PROMOTER}</td>
+                                                <td nowrap align="leftr"  width="*" bgcolor="#ffffff">{rval list/CONDITION_SCORE}</td>
+                                            </tr>
+                                            <!--{/each}-->
+                                            <!--{/def}-->
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr height="20px"></tr>
+
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr class="no_search_line">
+                                <td>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search">
+                                            <th width="20%">項 目</th>
+                                            <th width="80%">値</th>
+                                        </tr>
+                                        <!--{def data}-->
+                                        <tr>
+                                            <td class="no_search">
+                                                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                                    <tr class="no_search">
+                                                        <th align="left" nowrap>※</th>
+                                                        <th align="right" nowrap>取得有効開始日</th>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td bgcolor="#ffffff">{rval data/VALID_S_DATE}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="no_search">
+                                                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                                    <tr class="no_search">
+                                                        <th align="left" nowrap>※</th>
+                                                        <th align="right" nowrap>設定区分</th>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td bgcolor="#ffffff">
+                                            {rval data/CONDITION_DIV1}<label for="CONDITION_DIV1">国家資格</label><span style="padding-left:60px;">
+                                            {rval data/CONDITION_DIV2}<label for="CONDITION_DIV2">公的資格(検定等)</label></span><span style="padding-left:60px;">
+                                            {rval data/CONDITION_DIV3}<label for="CONDITION_DIV3">民間資格(TOEIC等)</label></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="no_search">
+                                                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                                    <tr class="no_search">
+                                                        <th align="left" nowrap>※</th>
+                                                        <th align="right" class="no_search" nowrap>資格名称</th>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td bgcolor="#ffffff">{rval data/QUALIFIED_CD}　　級・段位{rval data/CONDITION_RANK}　　得点{rval data/CONDITION_SCORE}以上</td>
+                                        </tr>
+                                        <tr>
+                                            <th align="right" class="no_search" nowrap>主催</th>
+                                            <td bgcolor="#ffffff">{rval data/PROMOTER}</td>
+                                        </tr>
+                                        <!--{/def}-->
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#ffffff">{rval button/btn_insert}{rval button/btn_update}{rval button/btn_delete}{rval button/btn_reset}{rval button/btn_end}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+{rval finish}

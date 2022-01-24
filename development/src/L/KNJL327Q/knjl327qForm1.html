@@ -1,0 +1,72 @@
+{rval start} 
+<!--{def button}-->
+<!--{def data}-->
+<br><br><br><br><br><br><br><br>
+<table width="450" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="5">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr class="no_search" height="30">
+                <td colspan="2" align="center"><B>入試年度：{rval data/YEAR}</B></td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" width="25%" align="right">入試制度&nbsp;</td>
+                <td bgcolor="#ffffff" width="75%">{rval data/APPLICANTDIV}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" align="right">入試区分&nbsp;</td>
+                <td bgcolor="#ffffff">{rval data/TESTDIV}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" align="right">通知日付&nbsp;</td>
+                <td bgcolor="#ffffff" nowrap>{rval data/NOTICEDATE}</td>
+              </tr>
+              <tr>
+                <td class="no_search" align="right">帳票種類&nbsp;</td>
+                <td bgcolor="#ffffff">
+                  <table width="100%">
+                    <tr>
+                      <td bgcolor="#ffffff" nowrap>{rval data/TAISYOU1}<LABEL for="TAISYOU1">合格通知書</LABEL>（{rval data/JIZEN}<LABEL for="JIZEN">事前印刷</LABEL>）</td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff" nowrap>{rval data/TAISYOU2}<LABEL for="TAISYOU2">不合格通知書</LABEL></td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff">
+                        <table width="100%">
+                          <tr>
+                            <td bgcolor="#ffffff" nowrap>　　　調査書提出期限</td>
+                            <td bgcolor="#ffffff" nowrap>{rval data/TEISHUTSUDATE}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    <tr>
+                      <td bgcolor="#ffffff" nowrap>{rval data/TAISYOU3}<LABEL for="TAISYOU3">スカラー採用通知書</LABEL></td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff" nowrap>{rval data/TAISYOU4}<LABEL for="TAISYOU4">スカラー不採用通知書</LABEL></td>
+                    </tr>
+                  </table>
+                </td>
+              <tr height="30">
+                <td class="no_search" align="right">出力対象&nbsp;</td>
+                <td bgcolor="#ffffff" nowrap>&nbsp;{rval data/OUTPUT1}<LABEL for="OUTPUT1">全員</LABEL>　{rval data/OUTPUT2}<LABEL for="OUTPUT2">受験番号指定</LABEL>&nbsp;{rval data/EXAMNO}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search"></td>
+                <td bgcolor="#ffffff">{rval button/btn_print}{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}

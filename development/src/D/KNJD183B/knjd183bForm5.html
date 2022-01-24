@@ -1,0 +1,193 @@
+{rval start}
+<!--{def button}-->
+<!--{def data}-->
+
+<table width="850" border="0" cellpadding="0" cellspacing="10" align="center" style="margin-top:50px;">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="10">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr class="no_search">
+                <td>
+                  <div style="width:80%;float:left">　　　　対象年度：{rval data/YEAR}　　　　　　{rval button/btn_copy}
+                  <!--{def schkind}-->　　校種：{rval data/SCHOOL_KIND}<!--{/def}-->
+                  </div>
+                  <div style="width:20%;float:left;text-align:right">Pattern:{rval pattern}</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr class="no_search">
+                <th width="25%">項目</th>
+                <th width="75%">値</th>
+              </tr>
+              <tr>
+                <td class="no_search" nowrap>&nbsp;帳票パターン</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="20%" nowrap>{rval data/SEQ0011}<LABEL for="SEQ0011">A</LABEL></td>
+                      <td width="20%" nowrap>{rval data/SEQ0012}<LABEL for="SEQ0012">B</LABEL></td>
+                      <td width="20%" nowrap>{rval data/SEQ0013}<LABEL for="SEQ0013">C</LABEL></td>
+                      <td width="20%" nowrap>{rval data/SEQ0014}<LABEL for="SEQ0014">D</LABEL></td>
+                      <td width="*"   nowrap>{rval data/SEQ0015}<LABEL for="SEQ0015">E</LABEL></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="no_search" nowrap>&nbsp;成績の表示項目<br>&nbsp;(パターンA・Bのみ)</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <!--{def data/SEQ002}-->
+                      <!--{each data/SEQ002}-->
+                      <td width="*" nowrap>{rval data/SEQ002/VALUE}{rval data/SEQ002/LABEL}</td>
+                      <!--{/each}-->
+                      <!--{/def}-->
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="no_search" nowrap>&nbsp;合計点<br>&nbsp;(パターンD・E以外)</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="100%" nowrap>{rval data/SEQ003}<LABEL for="SEQ003">表記なし</LABEL></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="no_search" nowrap>&nbsp;平均点</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="50%" nowrap>{rval data/SEQ0041}<LABEL for="SEQ0041">表記なし</LABEL></td>
+                      <td width="*" nowrap>{rval data/SEQ0042}<LABEL for="SEQ0042">表記あり</LABEL></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="no_search" nowrap>&nbsp;修得単位合計<br>&nbsp;(パターンA・Bのみ)</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="100%" nowrap>{rval data/SEQ005}<LABEL for="SEQ005">表記なし</LABEL></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="no_search" nowrap>&nbsp;出欠の記録の表示項目<br>&nbsp;(パターンC・E以外)</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <!--{def data/SEQ006}-->
+                      <!--{each data/SEQ006}-->
+                      <td width="*" nowrap>{rval data/SEQ006/VALUE}{rval data/SEQ006/LABEL}</td>
+                      <!--{/each}-->
+                      <!--{/def}-->
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="no_search" nowrap>&nbsp;留学中の授業日数<br>&nbsp;(パターンC・E以外)</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="100%" nowrap>{rval data/SEQ007}<LABEL for="SEQ007">表記なし</LABEL></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="no_search" nowrap>&nbsp;LHR欠課時数<br>&nbsp;(パターンC・E以外)</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="100%" nowrap>{rval data/SEQ008}<LABEL for="SEQ008">表記なし</LABEL></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="no_search" nowrap>&nbsp;行事欠課時数<br>&nbsp;(パターンC・E以外)</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="100%" nowrap>{rval data/SEQ009}<LABEL for="SEQ009">表記なし</LABEL></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="no_search" nowrap>&nbsp;総合学習の時間<br>&nbsp;(パターンD以外)</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="100%" nowrap>{rval data/SEQ010}<LABEL for="SEQ010">表記なし</LABEL></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="no_search" nowrap>&nbsp;各教科の観点<br>&nbsp;(パターンD・Eのみ)</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="100%" nowrap>{rval data/SEQ011}<LABEL for="SEQ011">表記なし</LABEL></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="no_search" nowrap>&nbsp;担任項目名</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="50%" nowrap>{rval data/SEQ0121}<LABEL for="SEQ0121">担任</LABEL></td>
+                      <td width="*" nowrap>{rval data/SEQ0122}<LABEL for="SEQ0122">チューター</LABEL></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="no_search" nowrap>&nbsp;教科名</td>
+                <td bgcolor="#ffffff" nowrap>
+                  <table width="100%">
+                    <tr>
+                      <td width="50%" nowrap>{rval data/SEQ0131}<LABEL for="SEQ0131">総合的な学習(探究)の時間</LABEL></td>
+                      <td width="*" nowrap>{rval data/SEQ0132}<LABEL for="SEQ0132">課題研究</LABEL></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="no_search" nowrap colspan="2" align="right">
+                  &nbsp;{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}
+
+<script>setPattern();</script>

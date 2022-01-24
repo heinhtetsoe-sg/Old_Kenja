@@ -1,0 +1,48 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="50" nowrap>課程<br>コード</th>
+                      <th width="50" nowrap>学科<br>コード</th>
+                      <th width="26%" nowrap>学科名称</th>
+                      <th width="20%" nowrap>学科略称</th>
+                      <th width="30%" nowrap>学科英字</th>
+                      <th width="10%" nowrap>学科銀行<br>コード</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap align="center" width="50" bgcolor="#ffffff">{val data/COURSECD}</td> 
+                      <td nowrap align="center" width="50" bgcolor="#ffffff"><a href="knjz051index.php?cmd=edit&MAJORCD={val data/MAJORCD}&COURSECD={val data/COURSECD}" target="right_frame">{val data/MAJORCD}</a></td>
+                      <td nowrap width="26%" bgcolor="#ffffff">{val data/MAJORNAME}</td>
+                      <td nowrap width="20%" bgcolor="#ffffff">{val data/MAJORABBV}</td>
+                      <td nowrap width="30%" bgcolor="#ffffff">{val data/MAJORENG}</td>
+                      <td nowrap align="center" width="10%" bgcolor="#ffffff">{val data/MAJORBANKCD}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                    </table>
+                  </td>
+                </tr>
+              </td>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

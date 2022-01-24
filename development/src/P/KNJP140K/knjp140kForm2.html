@@ -1,0 +1,92 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr > 
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th align="center" width="50" nowrap>分納<BR>回数</th>
+                      <th align="center" width="75" nowrap>分納期限</th>
+                      <th align="center" width="70" nowrap>納入必要<BR>金額</th>
+                      <th align="center" width="70" nowrap>入金<BR>金額</th>
+                      <th align="center" width="45" nowrap>入金<BR>区分</th>
+                      <th align="center" width="75" nowrap>入金日</th>
+                      <th align="center" width="70" nowrap>返金<BR>金額</th>
+                      <th align="center" width="75" nowrap>返金日</th>
+                      <th align="center" width="*" nowrap>備考</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                <div style="width:100%;height:130;overflow:auto">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                      <table id="list" width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tbody>
+                        <!--結果一覧-->
+                        <!--{def data}-->
+                        <!--{each data}--> 
+                                  <tr> 
+                                     <td width="50" align="center" bgcolor="#ffffff">{rval data/INST_SEQ}</td>
+                                     <td width="75" align="center" bgcolor="#ffffff">{rval data/INST_DUE_DATE}</td>
+                                     <td width="70" align="right" bgcolor="#ffffff">{rval data/INST_MONEY_DUE}</td>
+                                     <td width="70" align="right" bgcolor="#ffffff">{rval data/PAID_MONEY}</td>
+                                     <td width="45" align="center" bgcolor="#ffffff">{rval data/PAID_MONEY_DIV}</td>
+                                     <td width="75" align="center" bgcolor="#ffffff">{rval data/PAID_MONEY_DATE}</td>
+                                     <td width="70" align="right" bgcolor="#ffffff">{rval data/REPAY_MONEY}</td>
+                                     <td width="75" align="center" bgcolor="#ffffff">{rval data/REPAY_DATE}</td>
+                                     <td width="*" bgcolor="#ffffff">{rval data/REMARK}</td>
+                                   </tr> 
+                        <!--{/each}--> 
+                        <!--{/def}--> 
+                       </tbody>
+                      </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tbody>
+                          <tr class="no_search">
+                            <th align="center" nowrap width="132">合計</th>
+                            <th align="right" nowrap width="70">{rval SUM}</th>
+                            <th align="right" nowrap width="70">{rval SUM2}</th>
+                            <th align="right" nowrap width="45"></th>
+                            <th align="right" nowrap width="75"></th>
+                            <th align="right" nowrap width="70">{rval SUM3}</th>
+                            <th align="center" nowrap width="*"></th>
+                          </tr>
+                        </tbody>
+                      </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table><script language="JavaScript">{rval close}</script>
+{rval finish}

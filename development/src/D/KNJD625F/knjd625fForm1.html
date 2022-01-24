@@ -1,0 +1,119 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR>
+
+<table width="60%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td align="center">
+                        卒業年度&nbsp;{rval data/STRT_YEAR}年度&nbsp～&nbsp{rval data/END_YEAR}年度&nbsp;&nbsp;{rval data/PASS_ONLY}<LABEL for ="PASS_ONLY">合格者のみ出力</LABEL>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象</b></th>
+                      <th class="no_search"></th>
+                      <th><b>大学一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/COLLEGE_SELECTED}</td>
+                      <td width="*%"  class="no_search">
+                        {rval college/btn_lefts}<BR>
+                        {rval college/btn_left1}<BR>
+                        {rval college/btn_right1}<BR>
+                        {rval college/btn_rights}
+                      </td>
+                      <td width="45%">{rval data/COLLEGE_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <td>{rval data/TESTTYPE1}<LABEL for="TESTTYPE1">考査</LABEL>{rval data/TESTTYPE2}<LABEL for="TESTTYPE2">模試</LABEL><td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <!--{def dispSelMockCd}-->
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象</b></th>
+                      <th class="no_search"></th>
+                      <th><b>{rval testTypeStr}一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/TESTINFO_SELECTED}</td>
+                      <td width="*%"  class="no_search">
+                        {rval test/btn_lefts}<BR>
+                        {rval test/btn_left1}<BR>
+                        {rval test/btn_right1}<BR>
+                        {rval test/btn_rights}
+                      </td>
+                      <td width="45%">{rval data/TESTINFO_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象</b></th>
+                      <th class="no_search"></th>
+                      <th><b>科目一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/SUBCLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">
+                        {rval subclassButton/btn_lefts}<BR>
+                        {rval subclassButton/btn_left1}<BR>
+                        {rval subclassButton/btn_right1}<BR>
+                        {rval subclassButton/btn_rights}
+                      </td>
+                      <td width="45%">{rval data/SUBCLASS_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!--{/def}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

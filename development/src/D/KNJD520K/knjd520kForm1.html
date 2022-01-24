@@ -1,0 +1,220 @@
+{rval start}
+<style type="text/css">
+<!--
+    .tablespace {color:black; background-color:white; text-align:left }
+    .subtitle {color:white; background-color:#316F9B; font-size:13pt }
+    .stfn {color:black; background-color:white; text-align:left }
+    .rstfn {color:black; background-color:#FFFFCC; text-align:left; font-weight:bold}
+-->
+</style>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="9">
+      <tr> 
+         <td width="100%" > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="9">
+              <tr class="no_search"> 
+                <td width="65%">&nbsp;&nbsp;
+                    処理年度：{rval TOP/CONFIRMATION}&nbsp;&nbsp;&nbsp;
+                    学年：{rval TOP/GK_CMB}&nbsp;&nbsp;&nbsp;
+                    科目：{rval TOP/SUB_CMB}
+                </td>
+                <td width="35%">
+                    <table width="100%" border="0" cellspacing="1" cellpadding="2" bgcolor="black">
+                      <tr class="no_search">
+                        <th width="61%" colspan="2">欠席</th>
+                        <th width="*%" colspan="3">類型パターン</th>
+                      </tr>
+                      <tr class="no_search">
+                        <th width="31%" BGCOLOR="#3399ff"><font color="#000000">公欠(KK)</font></th>
+                        <th width="30%" BGCOLOR="#ff0099"><font color="#000000">欠席(KS)</font></th>
+                        <th width="13%" BGCOLOR="#ffff00"><font color="#000000">A</font></th>
+                        <th width="13%" BGCOLOR="#00ff00"><font color="#000000">B</font></th>
+                        <th width="13%" BGCOLOR="#ff00ff"><font color="#000000">C</font></th>
+                      </tr>
+                    </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+      </tr>
+    </table>
+
+  </td>
+  </tr>
+  <!--{def schregno}-->
+  <!--表示画面-->
+  <tr> 
+  <td valign="top">
+    <table align="left" {rval data/width} border="0" cellspacing="0" cellpadding="9">
+      <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+          <td {rval data/colspan} bgcolor="#000066">
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search" nowrap align="center">
+                <th width="75" rowspan="2" nowrap height="40">学級-番</th>
+                <th width="178" rowspan="2" nowrap height="40">氏名</th>
+                <th {rval data/width2} {rval data/colspan2} nowrap height="20">履修科目</th>
+                <th width="73" rowspan="2" nowrap height="40">合計<BR>科目数</th>
+              </tr>
+              <tr class="no_search" nowrap align="center">
+                <!--{each disp}-->
+                <th {rval data/width3} {rval disp/ELECT_COLOR} nowrap height="20">{rval disp/NAME}</th>
+                <!--{/each}--> 
+              </tr>
+            </table>
+          </td>
+          </tr>
+          <tr>
+          <td {rval data/colspan}>
+            <div style="width:100%; height:480; overflow-x:visible; overflow-y:scroll;">
+              <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="silver">
+              <!--結果一覧-->
+              <!--{each schregno}-->
+                <tr style="height:27;" class="tablespace" nowrap>
+                  <td nowrap width="69" align="center">{rval schregno/CLASSNO}</td>
+                  <td nowrap width="172" align="left">{rval schregno/NAME_SHOW}</td>
+                  <!--{def schregno/SUBCLASSCD}-->
+                  <!--{each schregno/SUBCLASSCD}-->
+                  <td nowrap {rval data/width4} {rval schregno/SUBCLASSCD/BGCOLOR}  align="right">{rval schregno/SUBCLASSCD/VALUE}</td>
+                  <!--{/each}-->
+                  <td nowrap width="*" align="right">{rval schregno/SUB_CNT}{rval schregno/ELE_CNT}</td>
+                </tr>
+              <!--{/each}-->
+              <!--{/def}-->
+              </table>
+            </div>
+          </td>
+          </tr>
+          <tr class="no_search" style="height:25;">
+            <th align="left">&nbsp;{rval hash1}<font color="#ffffff"><<前へ</font>{rval end_link1}</th>
+            <th align="right">{rval hash2}<font color="#ffffff">次へ>></font>{rval end_link2}&nbsp;</th>
+          </tr>
+        </table>
+      </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+  <!--{/def}-->
+
+  <!--{def virtual}-->
+  <tr>
+  <td valign="top">
+    <table align="left" width="100%" border="0" cellspacing="0" cellpadding="9">
+      <tr>
+      <td>
+        <div style="width:100%; height:548; overflow-x:hidden; overflow-y:hidden;">
+        </div>
+      </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+  <!--{/def}-->
+
+  <!--{def edit}-->
+  <!--編集画面-->
+  <tr> 
+  <td valign="top">
+    <table align="left" width="500" border="0" cellspacing="0" cellpadding="9">
+      <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+          <td bgcolor="#000066">
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search" nowrap align="center">
+                <th width="75" rowspan="2" nowrap height="40">学級-番</th>
+                <th width="178" rowspan="2" nowrap height="40">氏名</th>
+                <th width="80" nowrap height="20">履修科目</th>
+                <th width="*" rowspan="2" nowrap height="40">合計<BR>科目数</th>
+              </tr>
+              <tr class="no_search" nowrap>
+                <th width="15%" nowrap height="20" {rval ELECT_COLOR} align="center">{rval EDIT_NAME}</th>
+              </tr>
+            </table>
+          </td>
+          </tr>
+          <tr>
+          <td>
+            <div style="width:100%; height:480; overflow-x:visible; overflow-y:scroll;">
+              <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="silver">
+              <!--{def edit}-->
+              <!--編集一覧-->
+              <!--{each edit}-->
+                <tr style="height:27;" class="tablespace" nowrap>
+                  <td nowrap width="69" align="center">{rval edit/CLASSNO}</td>
+                  <td nowrap width="172" align="left">{rval edit/NAME_SHOW}</td>
+                  <td nowrap width="74" {rval edit/BGCOLOR}  align="right">{rval edit/EDIT_TEXT}</td>
+                  <td nowrap width="*" align="right">{rval edit/SUB_CNT}{rval edit/ELE_CNT}</td>
+                </tr>
+              <!--{/each}-->
+              <!--{/def}-->
+              </table>
+            </div>
+          </td>
+          </tr>
+          <tr class="no_search" style="height:25;">
+            <th></th>
+          </tr>
+          <tr style="height:2;">
+            <th></th>
+          </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+          <td class="no_search">
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr bgcolor="#ffffff" nowrap style="height:28;">
+                <th width="330"></th>
+                <th width="*" nowrap class="no_search">{rval BUTTON2/BTN_PRE}&nbsp;{rval BUTTON2/BTN_CANCEL}&nbsp;{rval BUTTON2/BTN_BACK}</th>
+              </tr>
+            </table>
+          </td>
+          </tr>
+        </table>
+      </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+  <!--{/def}-->
+
+
+  <!--{def BUTTON1}-->
+  <tr>
+  <td valign="top">
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="9">
+      <tr>
+         <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                  <tr class="no_search" style="height:28;">
+                  <td width="70%" bgcolor="#ffffff"></td> 
+                  <td width="15%">
+                    &nbsp;{rval BUTTON1/BTN_END}&nbsp;{rval BUTTON1/BTN_REFLECT}&nbsp;
+                  </td>
+                  <td width="*" bgcolor="#ffffff"></td>
+                </table>
+                </td>
+              </tr>
+            </table>
+         </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+  <!--{/def}-->
+
+</table>
+{rval finish}
+<script language="JavaScript">{rval Closing}{rval jumping}{rval update_chk}</script>
+

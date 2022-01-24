@@ -1,0 +1,83 @@
+{rval start}
+<BR>
+&nbsp;&nbsp;「※」のある項目は必須入力
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--結果一覧-->
+<!--{def data}-->
+
+          <tr>
+                      <th align="right" class="no_search" nowrap>
+                      &nbsp;※&nbsp;異動区分
+                      </th>
+                      <td bgcolor="#ffffff">{rval data/TRANSFERCD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>
+                      &nbsp;※&nbsp;異動期間
+                      </th>
+                      <td bgcolor="#ffffff">{rval data/TRANSFER_SDATE}&nbsp;～&nbsp;{rval data/TRANSFER_EDATE}&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>{rval label/TRANSFERREASON}</th>
+                      <td bgcolor="#ffffff">{rval data/TRANSFERREASON}　　<font size=1, color="red">(全角25文字まで)<font></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>{rval label/TRANSFERPLACE}</th>
+                      <td bgcolor="#ffffff">{rval data/TRANSFERPLACE}　　<font size=1, color="red">(全角20文字まで)<font></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>{rval label/TRANSFERADDR}</th>
+                      <td bgcolor="#ffffff">{rval data/TRANSFERADDR}　　<font size=1, color="red">(全角{rval data/ADDR_SLEN}文字まで)<font></td>
+                    </tr>
+<!--{def kyoto}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>備考</th>
+                      <td bgcolor="#ffffff">{rval data/REMARK1}　　<font size=2, color="red">(全角30文字まで)<font></td>
+                    </tr>
+<!--{/def}-->
+                    <tr class="no_search">
+                      <th width="100%" colspan="2">留学に関する情報</th>
+                    </tr>
+
+                    <tr>
+                      <th align="right" class="no_search" nowrap>修得単位</th>
+                      <td bgcolor="#ffffff">{rval data/ABROAD_CREDITS}</td>
+                    </tr>
+<!--{def showABROAD_PRINT_DROP_REGD}-->
+                    <tr>
+                        <th align="right" class="no_search" nowrap>
+                            指導要録に仮在籍を印字する<br>
+                            （年度をまたぐ留学の場合）
+                        </th>
+                      <td bgcolor="#ffffff">{rval data/ABROAD_PRINT_DROP_REGD}</td>
+                    </tr>
+<!--{/def}-->
+
+<!--{/def}-->
+<!--{def button}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}</td>
+                    </tr>
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval check}</script>

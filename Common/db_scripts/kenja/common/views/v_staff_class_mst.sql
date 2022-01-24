@@ -1,0 +1,18 @@
+-- $Id: 85cd4bf6e40c0e682b8382777ae851ab3dda9696 $
+
+drop view V_STAFF_CLASS_MST
+
+-- create view V_STAFF_CLASS_MST \
+--     (YEAR, STAFFCD, CLASSCD, SUBCLASSCD, GET_DATE) as \
+-- SELECT \
+--     T1.YEAR, \
+--     T1.STAFFCD, \
+--     T1.CLASSCD, \
+--     T1.SUBCLASSCD, \
+--     L1.GET_DATE \
+-- FROM \
+--     STAFF_CLASS_YDAT T1 \
+--     LEFT JOIN STAFF_CLASS_MST L1 ON T1.STAFFCD = L1.STAFFCD \
+--          AND T1.STAFFCD = L1.STAFFCD \
+--          AND T1.CLASSCD = L1.CLASSCD \
+--          AND T1.SUBCLASSCD = L1.SUBCLASSCD

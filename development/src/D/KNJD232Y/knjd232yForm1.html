@@ -1,0 +1,205 @@
+{rval start} 
+
+<!--{def button}--> 
+<!--{def data}-->
+
+<table style="width: 620px" border="0" cellpadding="10" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table style="width: 620px" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <td>
+            <table style="width: 620px" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table style="width: 620px"    border="0" cellspacing="1" cellpadding="4">
+                    <tr class="no_search" height="35">
+                      <td style="text-align:center;">
+                        <b>{rval data/YEAR}年度　　　{rval data/GAKKI}</b>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="180" valign="bottom">
+                      <td style="text-align:center;">
+                        <table style="width: 620px" >
+                          <tr>
+                            <td align="center">
+                              <b>学年</b>
+                               {rval data/GRADE}
+                              <b>　　学期</b>
+                               {rval data/GAKKI2}
+                              <b>　　{rval data/TESTKIND_KOUMOKU}</b>
+                               {rval data/TESTKIND}<br><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <table width="100%">
+                                <tr>
+                                  <td width="45%" align="right" nowrap>
+                                    出欠集計範囲
+                                  </td>
+                                  <td colspan="2" nowrap>
+                                    　{rval data/SYUKKETU_SYUKEI1}<LABEL for="SYUKKETU_SYUKEI1">学期</LABEL>　　{rval data/SYUKKETU_SYUKEI2}<LABEL for="SYUKKETU_SYUKEI2">累計</LABEL>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td align="right" nowrap>
+                                    異動対象日付、及び出欠集計日付
+                                  </td>
+                                  <td colspan="2" nowrap>
+                                    　{rval el/DATE}
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td align="right" nowrap>
+                                    {rval data/ATTEND_SUBCLASSCD}<LABEL for="ATTEND_SUBCLASSCD">合併元科目を表示する</LABEL>
+                                  </td>
+                                  <td colspan="2" nowrap>
+                                    　{rval data/COMBINED_SUBCLASSCD}<LABEL for="COMBINED_SUBCLASSCD">合併先科目を表示する</LABEL>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td align="right" nowrap>
+                                    {rval data/SYUTURYOKU_HOU1}<LABEL for="SYUTURYOKU_HOU1">1行/1人</LABEL>
+                                  </td>
+                                  <td nowrap>
+                                    　{rval data/SYUTURYOKU_HOU2}<LABEL for="SYUTURYOKU_HOU2">複数行/1人</LABEL>
+                                  </td>
+                                  <td align="right" width="*" nowrap>
+                                    {rval button/btn_end}<br><br>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="900">
+                      <td>
+                            <b>　　　出力する生徒</b><BR><BR>
+                        <table>
+                          <tr>
+                            <td>
+                              <table>
+                                <tr>
+                                  <td valign="top">
+                                    　　１．成績優良者
+                                  </td>
+                                  <td>
+                                    　{rval data/HYOUTEI_OR_HYOUKA}平均が{rval data/SEISEKI_YURYOU_HYOUTEI}以上の生徒<br>
+                                    　　{rval data/SEISEKI_YURYO_ATTEND}<LABEL for="SEISEKI_YURYO_ATTEND">「欠席、遅刻、早退日数」も出力する</LABEL><br><br>
+                                  </td>
+                                  <td valign="top">
+                                    　　　{rval button/btn_csv1}
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td valign="top">
+                                    　　２．成績不振者<br>　　(履修・修得条件)
+                                  </td>
+                                  <td>
+                                    　{rval data/KYOUKA_SOUGOU1}<LABEL for="KYOUKA_SOUGOU1">教科・科目</LABEL>　　　{rval data/KYOUKA_SOUGOU2}<LABEL for="KYOUKA_SOUGOU2">総合的な時間</LABEL><br>
+                                    　　{rval data/SEISEKI_HUSIN1}<LABEL for="SEISEKI_HUSIN1">{rval data/HYOUTEI_OR_HYOUKA}</LABEL>{rval data/SEISEKI_HUSIN_HYOUTEI_FROM} ～ {rval data/SEISEKI_HUSIN_HYOUTEI_TO}<br><br>
+
+                                    　　{rval data/SEISEKI_HUSIN2}<LABEL for="SEISEKI_HUSIN2">欠課時数が修得上限値{rval data/SYUTOKU_JOUGENTI}を超えて</LABEL><br>
+                                    　　　 履修上限値{rval data/RISYU_JOUGENTI}以下の者<br><br>
+
+                                    　　{rval data/SEISEKI_HUSIN3}<LABEL for="SEISEKI_HUSIN3">欠課時数が履修上限値{rval data/RISYU_JOUGENTI}を超えた者</LABEL><br><br>
+                                  </td>
+                                  <td valign="top">
+                                    　　　{rval button/btn_csv2}
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td></td>
+                                  <td>　特別活動の上限値{rval data/RISYU_JOUGENTI_SPECIAL}をこえた<br><br><br></td>
+                                  <td>　　　{rval button/btn_csv2_1}<br><br><br></td>
+                                <tr>
+                                <tr>
+                                  <td valign="top">
+                                    　　３．成績不振者
+                                  </td>
+                                  <td>
+                                    　(過去の不認定科目)<br><br>
+                                  </td>
+                                  <td valign="top">
+                                    　　　{rval button/btn_csv3}
+                                  </td>
+                                </tr>
+                                </tr>
+                                  <td valign="top">
+                                    　　４．出欠状況
+                                  </td>
+                                  <td>
+                                    {rval data/SYUKKETU_JOUKYOU1}<LABEL for="SYUKKETU_JOUKYOU1">出欠状況</LABEL><br>
+                                    　　　　遅刻{rval data/SYUKKETU_SYUKKETU_TIKOKU}回以上<br>
+                                    　　又は早退{rval data/SYUKKETU_SYUKKETU_SOUTAI}回以上<br>
+                                    　　又は欠席{rval data/SYUKKETU_SYUKKETU_KESSEKI}回以上<br>
+                                    {rval data/SYUKKETU_JOUKYOU2}<LABEL for="SYUKKETU_JOUKYOU2">教科・科目</LABEL><br>
+                                    　　　　遅刻{rval data/SYUKKETU_KYOUKA_TIKOKU}回以上<br>
+                                    　　又は早退{rval data/SYUKKETU_KYOUKA_SOUTAI}回以上<br>
+                                    　　又は欠課{rval data/SYUKKETU_KYOUKA_KEKKA}回以上<br>
+                                    {rval data/SYUKKETU_JOUKYOU3}<LABEL for="SYUKKETU_JOUKYOU3">教科以外</LABEL><br>
+                                    　　　　遅刻{rval data/SYUKKETU_IGAI_TIKOKU}回以上<br>
+                                    　　又は早退{rval data/SYUKKETU_IGAI_SOUTAI}回以上<br>
+                                    　　又は欠課{rval data/SYUKKETU_IGAI_KEKKA}回以上<br><br>
+                                  </td>
+                                  <td valign="top">
+                                    　　　{rval button/btn_csv4}
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td valign="top">
+                                    　　５．皆勤者
+                                  </td>
+                                  <td>
+                                    {rval data/ZAISEKI_ALL}<LABEL for="ZAISEKI_ALL">在籍期間全て</LABEL><br>
+                                    {rval data/KAIKINSYA1}<LABEL for="KAIKINSYA1">皆勤者</LABEL><br>
+                                    　　　　遅刻{rval data/KAIKIN_KAIKIN_TIKOKU}回以下<br>
+                                    　　かつ早退{rval data/KAIKIN_KAIKIN_SOUTAI}回以下<br>
+                                    　　かつ欠席{rval data/KAIKIN_KAIKIN_KESSEKI}回以下<br>
+                                    　　かつ欠課{rval data/KAIKIN_KAIKIN_KEKKA}回以下<br>
+                                    　　かつ授業遅刻{rval data/KAIKIN_KAIKIN_JUGYO_TIKOKU}回以下<br>
+                                    　　かつ授業早退{rval data/KAIKIN_KAIKIN_JUGYO_SOUTAI}回以下<br>
+                                    {rval data/KAIKINSYA2}<LABEL for="KAIKINSYA2">精勤者</LABEL><br>
+                                    　　　　遅刻{rval data/KAIKIN_SEIKIN_TIKOKU}回以下<br>
+                                    　　かつ早退{rval data/KAIKIN_SEIKIN_SOUTAI}回以下<br>
+                                    　　かつ欠席{rval data/KAIKIN_SEIKIN_KESSEKI}回以下<br>
+                                    　　かつ欠課{rval data/KAIKIN_SEIKIN_KEKKA}回以下<br>
+                                    　　かつ授業遅刻{rval data/KAIKIN_SEIKIN_JUGYO_TIKOKU}回以下<br>
+                                    　　かつ授業早退{rval data/KAIKIN_SEIKIN_JUGYO_SOUTAI}回以下<br>
+                                    　　かつSHR　遅刻{rval data/KAIKIN_SEIKIN_SHR_TIKOKU}回以下<br>
+                                    　　　　　　 早退{rval data/KAIKIN_SEIKIN_SHR_SOUTAI}回以下<br>
+                                  </td>
+                                  <td valign="top">
+                                    　　　{rval button/btn_csv5}
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right">
+                        {rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 
+<script language="JavaScript">{rval jscript}</script>

@@ -1,0 +1,108 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR>
+
+<table width="75%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr>
+  <td>
+    <table width="100%" border="0" cellspacing="0" cellpadding="1">
+     <tr>
+        <td>
+        <hr width="40%" align="left">
+            NO.{rval data/NO}&nbsp;&nbsp;{rval data/OUTGO_M_NAME}
+        <hr width="40%" align="left">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tr>
+                      <th width="15%" align="right" class="no_search" nowrap>品名等</th>
+                      <td width="*" bgcolor="#ffffff" colspan="6">{rval data/OUTGO_L_M_S_CD}　　{rval data/WARIHURI_DIV1}<LABEL for="WARIHURI_DIV1">生徒</LABEL><!--{def TSUJYOU_HYOUJI}-->　{rval data/WARIHURI_DIV2}<LABEL for="WARIHURI_DIV2">生徒以外</LABEL><!--{/def}--><!--{def WARIHURI_OK}-->　{rval data/HR_CLASS_HYOUJI_FLG}<LABEL for="HR_CLASS_HYOUJI_FLG">年組表示</LABEL><!--{/def}--></td>
+                  </tr>
+                  <tr>
+                      <th width="15%" align="right" class="no_search" nowrap>単価</th>
+                      <td width="18%" bgcolor="#ffffff">{rval data/COMMODITY_PRICE}</td>
+                      <th width="15%" align="right" class="no_search" nowrap>数量</th>
+                      <td width="18%" bgcolor="#ffffff">{rval data/COMMODITY_CNT}</td>
+                      <th width="15%" align="right" class="no_search" nowrap>{rval data/GOUKEI_GK_NAME}</th>
+                      <td width="*%" bgcolor="#ffffff">{rval data/TOTAL_PRICE_ZEINUKI}</td>
+                  </tr>
+                  <!--{def TSUJYOU_HYOUJI}-->
+                  <tr>
+                      <th width="15%" align="right" class="no_search" nowrap>単価(税込)</th>
+                      <td width="18%" bgcolor="#ffffff">{rval data/PRICE_TAX}</td>
+                      <th width="15%" align="right" class="no_search" nowrap>消費税</th>
+                      <td width="18%" bgcolor="#ffffff">{rval data/TOTAL_TAX}</td>
+                      <th width="15%" align="right" class="no_search" nowrap>合計額(税込み)</th>
+                      <td width="*%" bgcolor="#ffffff">{rval data/TOTAL_PRICE}</td>
+                  </tr>
+                  <!--{/def}-->
+                  <!--{def WARIHURI_NG}-->
+                  <tr>
+                      <th width="15%" align="right" class="no_search" nowrap>請求番号</th>
+                      <td width="*" bgcolor="#ffffff">{rval data/TRADER_SEIKYU_NO}</td>
+                      <th width="15%" align="right" class="no_search" nowrap>請求月</th>
+                      <td width="*" bgcolor="#ffffff" colspan="5">{rval data/SEIKYU_MONTH}</td>
+                  </tr>
+                  <!--{/def}-->
+                  <tr>
+                      <th width="15%" align="right" class="no_search" nowrap>摘要</th>
+                      <td width="*" bgcolor="#ffffff" colspan="6">{rval data/REMARK}</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+     </tr>
+    </table>
+  </td>
+  </tr>
+<!--{def WARIHURI_OK}-->
+  <tr height="10"></tr>
+
+  <tr class="no_search_line"> 
+  <td nowrap> 
+    <table width="100%" border="0" cellpadding="5" cellspacing="1">
+    <tr bgcolor="#ffffff"> 
+      <td> 
+      <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+        <tr class="no_search_line"> 
+        <td width="100%"> 
+          <table width="100%" border="0" cellpadding="5" cellspacing="1">
+          <tr align="center" class="no_search"> 
+            <th><b>対象生徒</b></th>
+            <th class="no_search"></th>
+            <th><b>生徒一覧</b></th>
+          </tr>
+          <tr align="center" bgcolor="#ffffff">
+            <td width="40%">{rval data/CATEGORY_SELECTED}</td>
+            <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                                              {rval button/btn_left1}<BR>
+                                              {rval button/btn_right1}<BR>
+                                              {rval button/btn_rights}
+            <td width="40%">{rval data/CATEGORY_NAME}</td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+<!--{/def}-->
+  <tr>
+    <td nowrap> {rval button/btn_update}{rval button/btn_delete}{rval button/btn_back}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 
+

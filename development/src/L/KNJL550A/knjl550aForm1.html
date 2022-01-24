@@ -1,0 +1,133 @@
+{rval start}
+
+<br>
+<table width="1240" border="0" cellspacing="0" cellpadding="5" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="30">
+                      <td width="100" class="no_search" align="center">入試年度</td>
+                      <td width="120" bgcolor="#ffffff" align="center">&nbsp;{rval TOP/YEAR}</td>
+                      <td width="100" class="no_search" align="center">入試区分</td>
+                      <td width="120" bgcolor="#ffffff" align="left">&nbsp;{rval TOP/TESTDIV}</td>
+                      <td width="100" class="no_search" align="center">志望区分</td>
+                      <td width="*" bgcolor="#ffffff" align="left">&nbsp;{rval TOP/DESIREDIV}</td>
+                    </tr>
+                    <tr height="30">
+                      <td width="100" class="no_search" align="center">受験番号</td>
+                      <td width="*" bgcolor="#ffffff" align="left" colspan="5">
+                        {rval TOP/S_EXAMNO}　～　{rval TOP/E_EXAMNO}
+                        &nbsp;{rval btn_search}&nbsp;{rval btn_back}&nbsp;{rval btn_next}
+                      </td>
+                    </tr>
+                    <tr height="30">
+                      <td width="100" class="no_search" align="center">表示順</td>
+                      <td width="*" bgcolor="#ffffff" align="left" colspan="5">
+                        {rval TOP/SORT1}<LABEL for="SORT1">受験番号順</LABEL>　
+                        {rval TOP/SORT2}<LABEL for="SORT2">名前順</LABEL>　
+                      </td>
+                    </tr>
+                    <tr height="30">
+                      <td width="100" class="no_search" align="center">入力教科</td>
+                      <td width="*" bgcolor="#ffffff" align="left" colspan="5">
+                        {rval TOP/DIV}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" align="center" height="50">
+                            <td nowrap>受験番号</td>
+                            <td nowrap>氏名</td>
+                            {rval HEAD/SCORE_NAME}
+                            <td colspan="2" >公立1</td>
+                            <td colspan="2" >公立2</td>
+                            <td colspan="2" >私立1</td>
+                            <td colspan="2" >私立2</td>
+                          </tr>
+                          <!--結果一覧-->
+                          <!--{def data}-->
+                          <!--{each data}-->
+                          <tr bgcolor="#ffffff" id="ROWID{rval data/EXAMNO}" nowrap>
+                            <td>{rval data/EXAMNO}</td>
+                            <td>{rval data/NAME}</td>
+                            {rval data/SCORE}
+                            <td>{rval data/REMARK1}</td>
+                            <td><span id="{rval data/FINSCHOOL_NAME1}">{rval data/FINSCHOOL_DISP1}</span></td>
+                            <td>{rval data/REMARK2}</td>
+                            <td><span id="{rval data/FINSCHOOL_NAME2}">{rval data/FINSCHOOL_DISP2}</span></td>
+                            <td>{rval data/REMARK3}</td>
+                            <td><span id="{rval data/FINSCHOOL_NAME3}">{rval data/FINSCHOOL_DISP3}</span></td>
+                            <td>{rval data/REMARK4}</td>
+                            <td><span id="{rval data/FINSCHOOL_NAME4}">{rval data/FINSCHOOL_DISP4}</span></td>
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr>
+                            <th class="no_search" nowrap>&nbsp;</th>
+                            <td width="15%" bgcolor="#ffffff" nowrap>
+                                {rval btn_update}{rval btn_reset}{rval btn_end}
+                            </td>
+                            <td width="58%" bgcolor="#ffffff" nowrap align="right">
+                              <b>{rval csv/OUTPUT2}<LABEL for="OUTPUT2">ヘッダー</LABEL></b>&nbsp;
+                              <b>{rval csv/OUTPUT1}<LABEL for="OUTPUT1">取込</LABEL></b>&nbsp;
+                              <b>{rval csv/OUTPUT3}<LABEL for="OUTPUT3">エラー</LABEL></b>&nbsp;
+                              {rval csv/FILE}
+                              {rval csv/btn_exec}&nbsp;{rval csv/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">
+    {rval reload}
+</script>
+{rval finish}

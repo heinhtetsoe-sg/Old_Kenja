@@ -1,0 +1,103 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR>
+
+<table border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td colspan="3">　　{rval YEAR}　　{rval data/SEMESTER}　　{rval TEST_FLG1}<LABEL for="TEST_FLG1">考査</LABEL>　{rval TEST_FLG2}<LABEL for="TEST_FLG2">学期成績</LABEL>　　{rval data/TESTKIND}</td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="45">
+                      <td colspan="3">　　学年：{rval data/GRADE}　　課程学科コース：{rval data/COURSE}</td>
+                    </tr>
+                    <tr align="center" class="no_search"> 
+                      <th><b>処理対象科目</b></th>
+                      <th class="no_search"></th>
+                      <th><b>先科目一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="right" colspan="3">{rval button/btn_exec}{rval button/btn_end}&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+
+        <tr>
+          <td><BR>
+            <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+                    <tr>
+                      <td bgcolor="#cccccc">&nbsp;&nbsp;●&nbsp;<B>実行履歴</B></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+                    <tr class="no_search" >
+                      <td align="center" width="150">処理日付</td>
+                      <td align="center" width="150">処理時間</td>
+                      <td align="center" width="*">先科目名</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <div style="width: 100%; height:200; overflow: auto">
+            <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+                    <!--{def data2}-->
+                    <!--{each data2}-->
+                    <tr class="no_search_line" >
+                      <td bgcolor='#ffffff' align="center" width="150">{rval data2/CALC_DATE}</td>
+                      <td bgcolor='#ffffff' align="center" width="150">{rval data2/CALC_TIME}</td>
+                      <td bgcolor='#ffffff' align="left" width="*">{rval data2/SUBCLASSNAME}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

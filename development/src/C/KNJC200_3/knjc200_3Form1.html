@@ -1,0 +1,124 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<table width="700" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr> 
+	<td nowrap> 
+	  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+		<tr> 
+		  <td> 
+			<table width="100%" border="0" cellpadding="0" cellspacing="10" >
+			  <tr class="no_search_line"> 
+				<td width="100%"> 
+				  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+					<tr class="no_search">
+					  <th height="50" colspan="2"><B>出欠届け履歴画面</B></th>
+					</tr>
+					<tr class="no_search">
+					  <td width="35%" align="right">クラス／担任</td>
+					  <td width="*%" bgcolor="#ffffff"><font color="black">{rval data/HR_NAME}</font></td>
+					</tr>
+					<tr class="no_search">
+					  <td align="right">並び替え</td>
+					  <td bgcolor="#ffffff">
+                        <font color="black">
+                        <input type='radio' id='sort1' name='SORT' value='1' {rval data/SORT1}><label for='sort1'>更新日時(降順)</label>&nbsp;
+                        <input type='radio' id='sort2' name='SORT' value='2' {rval data/SORT2}><label for='sort2'>欠席開始日、受付番号(降順)</label>
+                        </font>
+                      </td>
+					</tr>
+					<tr class="no_search">
+					  <td align="right">絞込み</td>
+					  <td bgcolor="#ffffff"><font color="black">{rval data/REGISTER}</font></td>
+					</tr>
+				  </table>
+				</td>
+			  </tr>
+			  <tr class="no_search_line"> 
+				<td width="100%"> 
+				  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+					<tr class="no_search">
+					  <th width="35%">項目</th>
+					  <th width="*%">値</th>
+					</tr>
+					<tr class="no_search">
+					  <td align="right">受付番号／最終更新日時</td>
+					  <td bgcolor="#ffffff"><font color="black" size="2">{rval data/SHOW_SEQNO}</font></td>
+					</tr>
+					<tr class="no_search">
+					  <td align="right">連絡元</td>
+					  <td bgcolor="#ffffff">
+                        <font color="black">
+                        <input type='radio' id='CONTACT9' name='CONTACTER' value='9' {rval data/CONTACTER9}><label for='CONTACT9'>保護者</label>&nbsp;
+                        <input type='radio' id='CONTACT1' name='CONTACTER' value='1' {rval data/CONTACTER1}><label for='CONTACT1'>生徒</label>
+                        </font>
+                      </td>
+					</tr>
+					<tr class="no_search">
+					  <td align="right">欠席／遅刻／早退</td>
+					  <td bgcolor="#ffffff">
+                        <font color="black">開始：{rval data/FROMDATE}&nbsp;校時：{rval data/FROMPERIOD}<BR>
+                                            終了：&nbsp;{rval data/TODATE}&nbsp;校時：{rval data/TOPERIOD}<BR>
+                        </font>
+                        <font color="red" size="2">(校時を空白にすると、その日全てとなります)</font>
+                      </td>
+					</tr>
+					<tr class="no_search">
+					  <td align="right">勤怠</td>
+					  <td bgcolor="#ffffff">{rval data/DI_CD}</td>
+					</tr>
+					<tr class="no_search">
+					  <td align="right">理由(備考)</td>
+					  <td bgcolor="#ffffff">{rval data/DI_REMARK}<BR>
+                        <font color="black">その他：{rval data/SONOTA}</font><BR>
+                        <font color="red" size="2">(全角10文字以内。その他が入力されていると、その他を優先します)</font>
+                      </td>
+					</tr>
+					<tr class="no_search">
+					  <td align="right">返電(担任から保護者への電話)</td>
+					  <td bgcolor="#ffffff">
+                        <font color="black">
+                        <input type='radio' id='CALL1' name='CALLBACK' value='1' {rval data/CALLBACK1}><label for='CALL1'>必要</label>&nbsp;
+                        <input type='radio' id='CALL9' name='CALLBACK' value='9' {rval data/CALLBACK9}><label for='CALL9'>不要</label>
+                        </font>
+                      </td>
+					</tr>
+					<tr class="no_search">
+					  <td></td>
+					  <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_del}{rval button/btn_end}</td>
+					</tr>
+				  </table>
+				</td>
+			  </tr>
+			</table>
+		  </td>
+		</tr>
+	  </table>
+	</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 
+<script language="JavaScript">
+function is_opener() {
+
+    var ua = navigator.userAgent
+    if(!!top.window.opener)
+        if( ua.indexOf('MSIE 4')!=-1 && ua.indexOf('Win')!=-1) 
+             return !top.window.opener.closed
+        else return typeof top.window.opener.document  == 'object'
+    else return false
+
+}
+function observeDisp(){
+    if (!is_opener()){
+        top.window.close();
+    }
+}
+setInterval('observeDisp()',2000);
+</script>

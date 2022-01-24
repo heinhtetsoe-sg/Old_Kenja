@@ -1,0 +1,139 @@
+<!--kanji=漢字-->
+<!-- <?php # $Id: knje311Form1.html 56587 2017-10-22 12:54:51Z maeshiro $ ?> -->
+
+{rval start}
+<table width="100%" height="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="1">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#cccccc">
+                    <tr>
+                        <td height="60"><B>&nbsp;{rval YEAR}年度　　校内選考結果入力　　分類&nbsp;{rval SCHOOL_SORT}</B><br><br>
+                        &nbsp;{val btn_csv}{val btn_update}{val btn_reset}{val btn_end}　　<span style="color:red">選考結果　（１：通過　２：不可　９：その他　）</span></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                        <th width="3%" height="25">No.</th>
+                        <th width="10%">受験方法</th>
+                        <th width="7%">{rval BANGO}</th>
+                        <th width="*%">進路先</th>
+                        <th width="7%">クラス</th>
+                        <th width="4%">番</th>
+                        <th width="15%">生徒氏名</th>
+                        <th width="4%">欠席</th>
+                        <th width="4%">平均</th>
+                        <th width="4%">総合</th>
+                        <th width="9%">選考会</th>
+                        <th width="5%">結果</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td valign="top">
+<!--{def data}-->
+            <table width="100%" border="0" cellspacing="0" cellpadding="10">
+              <tr>
+                <td >
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--結果一覧-->
+<!--{each data}-->
+                <tr>
+                      <td width="3%" align="center" bgcolor="#ffffff">{val data/KENSU}</td>
+                      <td width="10%" align="center" bgcolor="#ffffff">{val data/NM_JUKEN_HOWTO}</td>
+                      <td width="7%" align="center" bgcolor="#ffffff">{val data/SHINRO_NO}</td>
+                      <td width="*%" bgcolor="#ffffff">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td align="left">{val data/STAT_NAME}</td>
+                            <td align="right">{val data/SW_SEQ}</td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td width="7%" bgcolor="#ffffff">{val data/HR_NAME}</td>
+                      <td width="4%" align="center" bgcolor="#ffffff">{val data/ATTENDNO}</td>
+                      <td width="15%" bgcolor="#ffffff">{val data/NAME_SHOW}</td>
+                      <td width="4%" align="center" bgcolor="#ffffff">{val data/ATTEND_SUM}</td>
+                      <td width="4%" align="center" bgcolor="#ffffff">{val data/AVG}</td>
+                      <td width="4%" align="center" bgcolor="#ffffff">{val data/SEISEKI}</td>
+                      <td width="9%" bgcolor="#ffffff">{val data/NM_SENKOU_KAI}</td>
+                      <td width="5%" bgcolor="#ffffff">{val data/SW_SENKOU_FIN}</td>
+                </tr>
+<!--{/each}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+<!--{/def}-->
+          </td>
+        </tr>
+      </table>
+        </td>
+  </tr>
+  <tr>
+         <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                          <td>　　　</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

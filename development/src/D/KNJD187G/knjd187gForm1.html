@@ -1,0 +1,209 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR>
+
+<table width="40%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <td><b>
+                  　　　　{rval data/YEAR}年度　　{rval data/SEMESTER}　{rval data/TESTKINDCD}　{rval data/GRADE_HR_CLASS}
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD align="left"  bgcolor="#ffffff">
+                        <TABLE cellspacing="5">
+                          <TR>
+                            <TD>　　●&nbsp;異動生徒（留学・休学・転入・編入・退学・転学）
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>　　　&nbsp;異動対象日付及び出欠集計日付&nbsp;{rval data/DATE}</TD>
+                          </TR>
+
+                          <TR>
+                            <TD>　　●&nbsp;順位の基準点
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>　　　　&nbsp;{rval data/RANK_DIV1}<LABEL for="RANK_DIV1">総合点</LABEL>
+                                　{rval data/RANK_DIV2}<LABEL for="RANK_DIV2">平均点</LABEL>
+                            </TD>
+                          </TR>
+
+                          <TR>
+                            <TD>　　●&nbsp;席次
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>　　　　&nbsp;{rval data/GROUP_DIV1}<LABEL for="GROUP_DIV1">学年</LABEL>
+                                　　{rval data/GROUP_DIV4}<LABEL for="GROUP_DIV4">学科</LABEL>
+                                　　{rval data/GROUP_DIV3}<LABEL for="GROUP_DIV3">コース</LABEL>
+                            </TD>
+                          </TR>
+
+                          <TR>
+                            <TD>　　●&nbsp;追指導表示
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>　　　　&nbsp;{rval data/PRINT_TUISHIDOU}<LABEL for="PRINT_TUISHIDOU">網掛けして()表示</LABEL>
+                            </TD>
+                          </TR>
+
+                          <TR>
+                            <TD>　　●&nbsp;出欠の記録
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>　　　　&nbsp;{rval data/CHIKOKU_SOUTAI_NASI}<LABEL for="CHIKOKU_SOUTAI_NASI">遅刻・早退回数 表記なし</LABEL>
+                            </TD>
+                          </TR>
+
+                          <TR>
+                            <TD>　　●&nbsp;合併元科目の学年評価・学年評定・出欠時数
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>　　　　&nbsp;{rval data/NOT_PRINT_GAKUNEN_HYOKA_HYOTEI}<LABEL for="NOT_PRINT_GAKUNEN_HYOKA_HYOTEI">表記なし</LABEL>
+                            </TD>
+                          </TR>
+
+                          <TR>
+                            <TD>　　●&nbsp;最終考査表記
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>　　　　&nbsp;{rval data/NOT_PRINT_LASTEXAM}<LABEL for="NOT_PRINT_LASTEXAM">表記なし</LABEL>　　　&nbsp;{rval data/NOT_PRINT_LASTEXAM_SCORE}<LABEL for="NOT_PRINT_LASTEXAM_SCORE">成績のみ表記なし</LABEL>
+                            </TD>
+                          </TR>
+
+                          <TR>
+                            <TD>　　●&nbsp;LHR、生徒会活動、学校行事欠課時数
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>　　　　&nbsp;{rval data/NO_ATTEND_SUBCLASS_SP}<LABEL for="NO_ATTEND_SUBCLASS_SP"> 表記なし</LABEL>
+                            </TD>
+                          </TR>
+
+                          <TR>
+                            <TD>　　●&nbsp;考査名
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>　　　　&nbsp;{rval data/NO_PRINT_SEMENAME_IN_TESTNAME}<LABEL for="NO_PRINT_SEMENAME_IN_TESTNAME"> 学期名表記なし</LABEL>
+                            </TD>
+                          </TR>
+
+                          <TR>
+                            <TD>　　●&nbsp;修得単位数
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>　　　　&nbsp;{rval data/ADD_PAST_CREDIT}<LABEL for="ADD_PAST_CREDIT"> 前年度までの修得単位数を加算する</LABEL>
+                            </TD>
+                          </TR>
+
+                          <TR>
+                            <TD>　　●&nbsp;順位表記
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>　　　　&nbsp;{rval data/NO_PRINT_RANK}<LABEL for="NO_PRINT_RANK"> 表記なし</LABEL>
+                            </TD>
+                          </TR>
+
+                          <TR>
+                            <TD>　　●&nbsp;欠点科目数表記
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>　　　　&nbsp;{rval data/KETTEN_KAMOKU_NO_SUBTRACT}<LABEL for="KETTEN_KAMOKU_NO_SUBTRACT">追指導合格した科目数を減算しない</LABEL>
+                            </TD>
+                          </TR>
+
+                          <TR>
+                            <TD>　　●&nbsp;増加単位
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>　　　　&nbsp;{rval data/ZOUKA}<LABEL for="ZOUKA">加算する</LABEL>
+                            </TD>
+                          </TR>
+
+                          <TR>
+                            <TD>　　●&nbsp;保護者欄
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>　　　　&nbsp;{rval data/NO_PRINT_HOGOSHA}<LABEL for="NO_PRINT_HOGOSHA">表記なし</LABEL>
+                            </TD>
+                          </TR>
+
+                          <TR>
+                            <TD>　　●&nbsp;通信欄
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>　　　　&nbsp;{rval data/NO_PRINT_COMMUNICATION}<LABEL for="NO_PRINT_COMMUNICATION">表記なし</LABEL>
+                            </TD>
+                          </TR>
+
+                        </TABLE>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

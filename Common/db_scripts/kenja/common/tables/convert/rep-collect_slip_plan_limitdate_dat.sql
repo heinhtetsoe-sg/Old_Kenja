@@ -1,0 +1,16 @@
+-- kanji=漢字
+-- $Id: 533dd9205bbe738b2317d242836927520106db2b $
+
+-- 注意:このファイルは EUC/LFのみ でなければならない。
+-- 適用方法:
+--    1.データベース接続
+--    2.db2 +c -f <このファイル>
+--    3.コミットするなら、db2 +c commit。やり直すなら、db2 +c rollback
+--入金予定中分類データ
+
+ALTER TABLE COLLECT_SLIP_PLAN_LIMITDATE_DAT ADD COLUMN PAID_LIMIT_MONTH_CALC varchar(2)
+ALTER TABLE COLLECT_SLIP_PLAN_LIMITDATE_DAT ADD COLUMN PAID_LIMIT_DATE_CALC  date
+
+update COLLECT_SLIP_PLAN_LIMITDATE_DAT set PAID_LIMIT_MONTH_CALC = PAID_LIMIT_MONTH, PAID_LIMIT_DATE_CALC = PAID_LIMIT_DATE
+
+reorg table COLLECT_SLIP_PLAN_LIMITDATE_DAT

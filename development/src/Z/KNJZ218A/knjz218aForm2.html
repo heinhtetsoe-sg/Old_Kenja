@@ -1,0 +1,68 @@
+{rval start}
+<br>
+<table width="100%" border="0" cellpadding="0" cellspacing="10" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="center" class="no_search">
+                <th width="35%">項目</th>
+                <th width="65%">値</th>
+              </tr>
+              <tr class="no_search">
+                <th align="right">※学年</th>
+                <td align="left" bgcolor="#ffffff">{rval data/GRADE}</td>
+              </tr>
+              <tr class="no_search">
+                <th align="right">※コースグループコード</th>
+                <td align="left" bgcolor="#ffffff">{rval data/GROUP_CD}</td>
+              </tr>
+              <tr class="no_search">
+                <th align="right">※コースグループ名称</th>
+                <td align="left" bgcolor="#ffffff">{rval data/GROUP_NAME}</td>
+              </tr>
+              <tr class="no_search">
+                <th align="right">※コースグループ略称</th>
+                <td align="left" bgcolor="#ffffff">{rval data/GROUP_ABBV}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="center" class="no_search">
+                <th><font color="white"><b>{rval info/LEFT_LIST}</b></font></th>
+                <th class="no_search">&nbsp;</th>
+                <th><font color="white"><b>{rval info/RIGHT_LIST}</b></font></th>
+              </tr>
+              <tr align="center" class="no_search">
+              <!--{def main_part}-->
+                <td width="32%" bgcolor="#ffffff"><div style="width:200px; overflow:scroll">{rval main_part/COURSELEFT_PART}</div></td>
+                <td width="5%" bgcolor="#ffffff" class="no_search">{rval main_part/COURSESEL_ADD_ALL}
+                {rval main_part/COURSESEL_ADD}
+                {rval main_part/COURSESEL_DEL}
+                {rval main_part/COURSESEL_DEL_ALL}
+                <td width="32%" bgcolor="#ffffff"><div style="width:200px; overflow:scroll">{rval main_part/COURSERIGHT_PART}</div></td>
+              <!--{/def}-->
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr align="left">
+          <td><br>{rval button/btn_insert}{rval button/btn_update}{rval button/btn_delete}{rval button/btn_clear}{rval button/btn_end} </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish} 
+<script language="javascript">{rval reload}</script>

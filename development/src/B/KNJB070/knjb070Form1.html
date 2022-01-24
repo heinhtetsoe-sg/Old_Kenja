@@ -1,0 +1,177 @@
+{rval start} 
+<INPUT type="hidden" name="selectdata" size="70"><br>
+
+<!--{def button}-->
+<!--{def data}-->
+
+<br><br><br>
+<table style="width: 550px" border="0" cellpadding="10" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table style="width: 550px" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <td>
+            <tablestyle="width: 550px" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table style="width: 550px"  border="0" cellspacing="1" cellpadding="0">
+                    <tr class="no_search" height="30">
+                      <td>
+                      　　　　<b>{rval data/YEAR}年度</b>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="110">
+                      <td>
+                        <table>
+                          <tr>
+                            <td>
+                            <b>　　時間割種別・指定日付</b><BR>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <table>
+                                <tr>
+                                  <td>
+                                  　　　{rval data/RADIO1}<LABEL for="RADIO1">基本時間割</LABEL>
+                                  </td>
+                                  <td>
+                                  　{rval data/TITLE}
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                  　　　{rval data/RADIO2}<LABEL for="RADIO2">通常時間割</LABEL>
+                                  </td>
+                                  <td>
+                                  　{rval data/DATE1}　～　{rval data/DATE2}
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                                <tr class="no_search">
+                                  <th align="center" nowrap width="50%" height="30"><b>帳票区分</b></th>
+                                  <th align="center" nowrap width="50%" height="30"><b>出力項目</b></th>
+                                </tr>
+                                <tr bgcolor="#ffffff">
+                                  <td>
+                                    <table>
+                                      <tr>
+                                        <td>{rval data/KUBUN1}<LABEL for="KUBUN1">学級別</LABEL></td>
+                                        <td>　　{rval data/NEN}</td>
+                                      </tr>
+                                    </table>
+                                  <td>
+                                    <table>
+                                      <tr>
+                                        <td>　　(上段)</td>
+                                      </tr>
+                                      <tr>
+                                        <td>　　　　{rval data/SUBCLASS_CHAIR_DIV1}<LABEL for="SUBCLASS_CHAIR_DIV1">科目名</LABEL>　　{rval data/SUBCLASS_CHAIR_DIV2}<LABEL for="SUBCLASS_CHAIR_DIV2">講座名</LABEL></td>
+                                      </tr>
+                                      <tr>
+                                        <td>　　(下段)</td>
+                                      </tr>
+                                      <tr>
+                                        <td>　　　　{rval data/STAFF_SISETU_DIV1}<LABEL for="STAFF_SISETU_DIV1">職員名</LABEL>　　{rval data/STAFF_SISETU_DIV2}<LABEL for="STAFF_SISETU_DIV2">施設名</LABEL></td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                                <tr bgcolor="#ffffff">
+                                  <td>
+                                    <table>
+                                      <tr>
+                                        <td>{rval data/KUBUN2}<LABEL for="KUBUN2">職員別</LABEL></td>
+                                      </tr>
+                                      <tr>
+                                        <td>　　所属{rval data/SECTION_CD_NAME1}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>　　　　　　　～{rval data/SECTION_CD_NAME2}</td>
+                                      </tr>
+                                    </table>
+                                  <td>
+                                    <table>
+                                      <tr>
+                                        <td>　　(上段)</td>
+                                      </tr>
+                                      <tr>
+                                        <td>　　　　{rval data/K2SUBCLASS_CHAIR_DIV1}<LABEL for="K2SUBCLASS_CHAIR_DIV1">科目名</LABEL>　　{rval data/K2SUBCLASS_CHAIR_DIV2}<LABEL for="K2SUBCLASS_CHAIR_DIV2">講座名</LABEL></td>
+                                      </tr>
+                                      <tr>
+                                        <td>　　(下段)</td>
+                                      </tr>
+                                      <tr>
+                                        <td>　　　　{rval data/SISETU_CLASS_DIV1}<LABEL for="SISETU_CLASS_DIV1">施設名</LABEL>　　{rval data/SISETU_CLASS_DIV2}<LABEL for="SISETU_CLASS_DIV2">受講クラス</LABEL></td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                                <tr bgcolor="#ffffff">
+                                  <td>
+                                    <table>
+                                      <tr>
+                                        <td>{rval data/KUBUN3}<LABEL for="KUBUN3">施設別</LABEL></td>
+                                      </tr>
+                                      <tr>
+                                        <td>　　施設{rval data/FACCD_NAME1}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>　　　　～{rval data/FACCD_NAME2}</td>
+                                      </tr>
+                                    </table>
+                                  <td>
+                                    <table>
+                                      <tr>
+                                        <td>　　(上段)</td>
+                                      </tr>
+                                      <tr>
+                                        <td>　　　　{rval data/K3SUBCLASS_CHAIR_DIV1}<LABEL for="K3SUBCLASS_CHAIR_DIV1">科目名</LABEL>　　{rval data/K3SUBCLASS_CHAIR_DIV2}<LABEL for="K3SUBCLASS_CHAIR_DIV2">講座名</LABEL></td>
+                                      </tr>
+                                      <tr>
+                                        <td>　　(下段)</td>
+                                      </tr>
+                                      <tr>
+                                        <td>　　　　{rval data/STAFF_CLASS_DIV1}<LABEL for="STAFF_CLASS_DIV1">職員名</LABEL>　　{rval data/STAFF_CLASS_DIV2}<LABEL for="STAFF_CLASS_DIV2">受講クラス</LABEL></td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <td colspan="2" align="left">
+                        {rval button/btn_print}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 
+<script language="JavaScript">{rval Dis_Date}</script>

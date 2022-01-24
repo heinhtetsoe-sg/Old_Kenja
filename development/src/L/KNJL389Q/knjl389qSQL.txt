@@ -1,0 +1,68 @@
+//ヘッダー(申込数、試験日)
+SELECT
+    t1.YEAR,
+    EXAM_DATE,                          //試験日
+    CNT                                 //申し込み数
+FROM
+    SAT_INFO_MST t1 
+    left join (SELECT
+                   YEAR,
+                   COUNT(*) as CNT
+               FROM
+                   SAT_APP_FORM_MST
+               //条件を絞るなら
+               WHERE
+                   PLACECD = '/*$model->field["PLACE"]*/' 
+               AND
+                   INPUT_DATE BETWEEN '/*$model->field["FROM"]*/' AND '/*$model->field["TO"]*/'     //FROM・TO両方
+                   INPUT_DATE = '/*$model->field["FROM"]*/'     //FROMのみ
+               ////////////////
+               GROUP BY
+                   YEAR
+               ) t2 on t1.YEAR = t2.YEAR
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/'
+
+
+//出力データ取得
+SELECT
+    ROW_NUMBER() OVER(ORDER BY t1.SAT_NO) as ROW_NUM,           //通番
+    t1.SAT_NO,                                                  //受験番号
+    t1.NAME1,                                                   //氏名
+    t1.KANA1,                                                   //フリガナ(姓)
+    t1.KANA2,                                                   //フリガナ(名)
+    SUBSTR(t1.SCHOOLCD, 3, 5) as SCHOOLCD,                      //中学コード
+    t2.FINSCHOOL_NAME,                                          //中学校名
+    SUBSTR(REPLACE(t1.BIRTHDAY, '-', ''), 3, 6) as BIRTHDAY,    //生年月日
+    t3.NAME2 as SEX,                                            //性別
+    t4.NAME1 as GRADE,                                          //卒業(学年)
+    REPLACE(t1.ZIPCODE, '-', '') as ZIPCODE,                    //郵便番号
+    t1.ADDR1,                                                   //住所1
+    t1.ADDR2,                                                   //住所2
+    t1.TELNO1,                                                  //電話番号
+    t1.INSIDERNO,                                               //校内生番号
+    t5.PREF_NAME,                                               //出身県
+    t1.GROUPCD,                                                 //団体コード
+    t6.GROUPNAME,                                               //団体名
+    t7.PLACEAREA,                                               //会場名
+    t1.PLACECD,                                                 //会場コード
+    REPLACE(t1.INPUT_DATE, '-', '/') as INPUT_DATE              //入力日
+FROM
+    SAT_APP_FORM_MST t1
+    left join FINSCHOOL_MST t2 on t1.SCHOOLCD = t2.FINSCHOOLCD and t2.FINSCHOOL_TYPE = '3'
+    left join NAME_MST t3 on t1.SEX = t3.NAMECD2 and t3.NAMECD1 = 'Z002'
+    left join NAME_MST t4 on t1.GRADUATION = t4.NAMECD2 and t4.NAMECD1 = 'L205'
+    left join PREF_MST t5 on t2.FINSCHOOL_PREF_CD = t5.PREF_CD
+    left join SAT_GROUP_DAT t6 on t1.GROUPCD = t6.GROUPCD and t6.YEAR = '/*CTRL_YEAR*/'
+    left join SAT_EXAM_PLACE_DAT t7 on t1.PLACECD = t7.PLACECD and t7.YEAR = '/*CTRL_YEAR*/'
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/'
+//出力対象絞るなら
+AND
+    t1.PLACECD = '/*$model->field["PLACE"]*/'
+AND 
+    t1.INPUT_DATE BETWEEN '/*$model->field["FROM"]*/' AND '/*$model->field["TO"]*/'     //FROM/TO両方入力
+    t1.INPUT_DATE = '/*$model->field["FROM"]*/'                                       //FROMのみ入力
+//////////////////
+ORDER BY
+    SAT_NO

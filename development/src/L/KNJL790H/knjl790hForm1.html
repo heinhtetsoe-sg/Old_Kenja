@@ -1,0 +1,197 @@
+{rval start} {rval IFRAME}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<br /><br /><br />
+
+<table width="80%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5">
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table
+                    width="100%"
+                    border="0"
+                    cellpadding="5"
+                    cellspacing="1"
+                  >
+                    <tr class="no_search" height="45">
+                      <td width="8%">入試年度</td>
+                        <td width="8%" align="center" bgcolor="#ffffff">
+                        <span style="color: #000000">{rval data/YEAR}</span>
+                      </td>
+                      <td width="8%">学校種別</td>
+                        <td width="8%" align="left" bgcolor="#ffffff">
+                        {rval data/APPLICANTDIV}
+                      </td>
+                      <td width="8%">入試区分</td>
+                        <td width="12%" align="left" bgcolor="#ffffff">
+                        {rval data/TESTDIV}
+                      </td>
+                      <td width="8%">受験番号</td>
+                        <td width="*" bgcolor="#ffffff" style="color: blue">
+                        {rval data/EXAMNO} {rval button/btn_reference} {rval button/btn_kana_reference} {rval button/btn_back_next}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table
+                    width="100%"
+                    border="0"
+                    cellpadding="5"
+                    cellspacing="1"
+                  >
+                    <tr class="no_search" height="30">
+                      <td width="8%">氏名</td>
+                      <td width="24%" align="left" bgcolor="#ffffff" colspan="3" >
+                        <span style="color: #000000">{rval data/NAME}</span>
+                      </td>
+                      <td width="8%">氏名カナ</td>
+                      <td width="*" align="left" bgcolor="#ffffff" colspan="3" >
+                        <span style="color: #000000"
+                          >{rval data/NAME_KANA}
+                        </span>
+                      </td>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <td width="8%">入試種別</td>
+                      <td width="24" align="left" bgcolor="#ffffff" colspan="3" style="color: #000000" >
+                        {rval data/KINDDIV}
+                      </td>
+                      <td width="8%">性別</td>
+                      <td width="*" align="left" bgcolor="#ffffff" colspan="3" style="color: #000000" >
+                        {rval data/SEX}
+                      </td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td width="8%">合否</td>
+                      <td width="*" align="left" bgcolor="#ffffff" colspan="7" style="color: #000000" >
+                        {rval data/JUDGEMENT}&nbsp;&nbsp;
+                        繰上順位{rval data/SUB_ORDER}&nbsp;&nbsp;
+                        <label for="UNPASS">面接不合格</label>{rval data/UNPASS}
+                      </td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td width="8%">手続</td>
+                      <td width="*" align="left" bgcolor="#ffffff" colspan="7" style="color: #000000" >
+                        手続き区分 {rval data/PROCEDUREDIV}&nbsp;&nbsp;
+                        手続日付{rval data/PROCEDUREDATE}&nbsp;&nbsp;
+                        入辞区分{rval data/ENTDIV}&nbsp;&nbsp;
+                        学籍番号{rval data/STUDENTNO}&nbsp;&nbsp;
+                      </td>
+                    </tr>
+                    
+                  </table>
+                </td>
+              </tr>
+              <!--{def data2}-->
+              <tr>
+                <td valign="top" align="center">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td>
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr class="no_search_line">
+                                  <td>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                      <tr class="no_search" align="center" height="30">
+                                        <th width="8%">&nbsp;&nbsp;</th>
+                                        <!--{def headerKyoka}-->
+                                        <!--{each headerKyoka}-->
+                                        <td width="5%" >{rval headerKyoka/TITLE}</td>
+                                        <!--{/each}-->
+                                        <!--{/def}-->
+                                        <!--{def suisenFlg}-->
+                                        <th width="5%">作文<br>平均点</th>
+                                        <th width="5%">内申<br>合計</th>
+                                        <th width="5%">加点</th>
+                                        <!--{/def}-->
+                                        <!--{def ippanFlg}-->
+                                        <th width="5%">試験<br>合計点</th>
+                                        <th width="5%">加点</th>
+                                        <th width="5%">重複<br>加点</th>
+                                        <!--{/def}-->
+                                        <th width="5%">合計</th>
+                                        <th width="5%">順位</th>
+                                        <th width="*" align="left">備考</th>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr class="no_search_line">
+                                  <td>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                      <!--結果一覧-->
+                                      <!--{each data2}-->
+                                      <tr bgcolor="#ffffff" height="25" id="ROWID{rval data2/EXAMNO}">
+                                        <td class="no_search" width="8%"  align="left">成績</td>
+                                        <!--{def data2/textboxKyoka}-->
+                                        <!--{each data2/textboxKyoka}-->
+                                        <td width="5%" align="center">{rval data2/textboxKyoka/FORM}</td>
+                                        <!--{/each}-->
+                                        <!--{/def}-->
+                                        <!--{def suisenFlg}-->
+                                        <td width="5%" align="center">{rval data2/SAKUBUN_AVG}</td>
+                                        <td width="5%" align="center">{rval data2/NAISHIN_TOTAL}</td>
+                                        <td width="5%" align="center">{rval data2/KATEN}</td>
+                                        <!--{/def}-->
+                                        <!--{def ippanFlg}-->
+                                        <td width="5%" align="center">{rval data2/SHIKEN_TOTAL}</td>
+                                        <td width="5%" align="center">{rval data2/KATEN}</td>
+                                        <td width="5%" align="center">{rval data2/TYOFUKU_KATEN}</td>
+                                        <!--{/def}-->
+                                        <td width="5%" align="center">{rval data2/TOTAL}</td>
+                                        <td width="5%" align="center">{rval data2/RANK}</td>
+                                        <td width="*"  align="left">{rval data2/RECOM_EXAMNO}</td>
+                                      </tr>
+                                      <!--{/def}-->
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!--{/def}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap>
+      &nbsp;&nbsp;{rval button/btn_udpate}{rval button/btn_up_pre}{rval button/btn_up_next} {rval button/btn_reset}{rval button/btn_end}
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

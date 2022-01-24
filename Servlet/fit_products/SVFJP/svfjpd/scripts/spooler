@@ -1,0 +1,102 @@
+#!/bin/sh
+##############################################################################
+# SVF JPD's Print Spooler startup script  Copyright(C) by FIT.
+##############################################################################
+
+SCRIPT_NAME="spooler"
+
+if [ "$FIT_PRODUCTS_BASE" = "" ]; then
+    echo "FIT_PRODUCTS_BASE not found!"
+    echo "please set 'FIT_PRODUCTS_BASE' environment variable and try again."
+    exit 1
+fi
+
+PRODUCT_NAME="SVF's Print Spooler"
+PRODUCT_PID="$FIT_PRODUCTS_BASE/var/run/spooler.pid"
+
+##############################################################################
+# subroutines
+##############################################################################
+
+# --- Set JPD's PrintSpooler CLASSPATH ---
+set_spooler_classpath() {
+# start define section
+    CLASSPATH="$CLASSPATH:$FIT_PRODUCTS_BASE/svfjpd/lib/svf.jar"
+# end define section
+    export CLASSPATH
+}
+
+# --- Stop if running JPD's PrintSpooler  ---
+stop_if_running_spooler() {
+    if [ -f $PRODUCT_PID ]; then
+      echo "$PRODUCT_NAME is running. Shutting down $PRODUCT_NAME services"
+      kill `cat $PRODUCT_PID` > /dev/null 2>&1
+      while [ 1 ]; do
+          ps -p `cat $PRODUCT_PID` > /dev/null
+          RETVAL=$?
+          if [ $RETVAL = 1 ]; then
+              break;
+          fi
+          sleep 1
+      done
+      rm -f $PRODUCT_PID
+      sleep 1
+    fi
+}
+
+##############################################################################
+# main
+##############################################################################
+
+RETVAL=0
+
+case "$1" in
+  start | restart)
+    # Check servers are running
+    stop_if_running_spooler
+
+    # Start daemons.
+    echo "Starting $PRODUCT_NAME services"
+    set_spooler_classpath
+    java -Djp.co.fit.vfreport.home="$FIT_PRODUCTS_BASE/svfjpd/lib" jp.co.fit.PrintSpooler.Daemon &
+    RETVAL=$?
+    if [ $RETVAL = 0 ]; then
+        echo $! > $PRODUCT_PID
+    fi
+    ;;
+
+  stop)
+    # Stop daemons.
+    if [ -f $PRODUCT_PID ]; then
+        echo "Shutting down $PRODUCT_NAME services"
+        kill `cat $PRODUCT_PID` > /dev/null 2>&1
+        rm -f $PRODUCT_PID
+    else
+        echo "$PRODUCT_NAME is not running."
+    fi
+    ;;
+
+  status)
+    # Check running daemon.
+    if [ -f $PRODUCT_PID ]; then
+        LANG=C ps -aef | grep `cat $PRODUCT_PID` | grep "java" > /dev/null 2>&1
+        if [ $? = 0 ];then
+            echo "$PRODUCT_NAME (`cat $PRODUCT_PID`) is running."
+            RETVAL=2
+        else
+            echo "uum... $PRODUCT_NAME (`cat $PRODUCT_PID`) was started."
+            echo "But $PRODUCT_NAME was DONE."
+            RETVAL=3
+        fi
+    fi
+    ;;
+
+  *)
+    echo "Usage: $SCRIPT_NAME {start|restart|stop|status}"
+    exit 1
+esac
+
+exit 0
+##############################################################################
+# end of script
+##############################################################################

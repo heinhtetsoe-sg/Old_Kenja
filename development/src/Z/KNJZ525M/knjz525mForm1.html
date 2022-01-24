@@ -1,0 +1,105 @@
+{rval start}
+<!--{def button}-->
+
+<table height="50"><tr><td></td></tr></table>
+<table width="600" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="25">
+                      <td width="30%" class="no_search" align="right" nowrap>対象年度&nbsp;</td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval YEAR}年度　　{rval button/btn_copy}</td>
+                    </tr>
+                    <tr height="30">
+                      <td class="no_search" align="right" nowrap>帳票パターン&nbsp;</td>
+                      <td bgcolor="#ffffff" nowrap>&nbsp;{rval SHEET_PATTERN1}<label for="SHEET_PATTERN1">1枠</label>{rval SHEET_PATTERN2}<label for="SHEET_PATTERN2">2枠</label></td>
+                    </tr>
+
+                    <tr height="30">
+                      <td class="no_search" align="right" nowrap>横項目<!--{def PTRN2FLG}-->（左）<!--{/def}-->&nbsp;</td>
+                      <td bgcolor="#ffffff" nowrap>
+                        &nbsp;{rval STATUS_NAME}<br>
+                        <font size=2 color="red">&nbsp;{rval STATUS_NAME_COMMENT}</font>
+                      </td>
+                    </tr>
+                    <!--{def PTRN2FLG}-->
+                    <tr height="30">
+                      <td class="no_search" align="right" nowrap>横項目（右）&nbsp;</td>
+                      <td bgcolor="#ffffff" nowrap>
+                        &nbsp;{rval GROWUP_NAME}<br>
+                        <font size=2 color="red">&nbsp;{rval GROWUP_NAME_COMMENT}</font>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+
+                  </table>
+                </td>
+              </tr>
+              <tr height="20"><td></td></tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="25">
+                      <td width="30%" class="no_search" align="right" nowrap>縦項目数&nbsp;</td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval MAX_DATA_DIV}&nbsp;{rval button/btn_kakutei}
+                        <font size=2 color="red">&nbsp;{rval MAX_DATA_DIV_COMMENT}</font>
+                      </td>
+                    </tr>
+                    <!--{def data}--><!--{each data}-->
+                    <tr  height="30">
+                      <td class="no_search" align="right" nowrap>{rval data/DATA_DIV}&nbsp;</td>
+                      <td bgcolor="#ffffff">
+                        &nbsp;{rval data/DATA_DIV_NAME}<br>
+                        <font size=2 color="red">&nbsp;{rval data/DATA_DIV_NAME_COMMENT}</font>
+                      </td>
+                    </tr>
+                    <!--{/each}--><!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+              <tr height="20"><td></td></tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="25">
+                      <td width="100%" class="no_search" align="conter" nowrap>コメント</td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff">
+                        {rval COMMENTS}<br>
+                        <font size=2 color="red">&nbsp;{rval COMMENTS_COMMENT}</font>
+                      </td>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+              <tr height="20"><td></td></tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <td align="center">
+                          {rval button/btn_update}&nbsp;{rval button/btn_delete}&nbsp;{rval button/btn_reset}&nbsp;{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br><br>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+{rval finish}

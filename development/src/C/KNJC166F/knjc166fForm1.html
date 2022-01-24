@@ -1,0 +1,141 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR><BR><BR><BR><BR>
+<table style="width: 600px" border="0" cellpadding="10" cellspacing="10" align="center">
+    <tr>
+        <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr class="no_search_line">
+                                <td>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                                        <tr class="no_search" height="35">
+                                            <td align="center">
+                                                <b>{rval data/YEAR}年度　　{rval data/SEMESTER}
+                                                </b>
+                                            </td>
+                                        </tr>
+                                        <tr bgcolor="#ffffff" height="80">
+                                            <td>
+                                                <table width="100%">
+                                                    <tr>
+                                                        <td>
+                                                            <table>
+                                                                <tr>
+                                                                    <td align="center">
+                                                                        {rval data/OUTPUT_KAIKIN1}<LABEL for="OUTPUT_KAIKIN1">皆勤者</LABEL>
+                                                                        　　{rval data/OUTPUT_KAIKIN2}<LABEL for="OUTPUT_KAIKIN2">精勤者</LABEL>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr bgcolor="#ffffff" height="80">
+                                                                    <td>
+                                                                        　　　　　異動対象日付、及び出欠集計日付　{rval data/DATE}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        　　　　　出力対象
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                            <!--{def DISP_TYPECHKBOX}-->
+                                                                        　　　　　　　{rval data/OUTPUT1}<LABEL for="OUTPUT1">当年度{rval data/TEXT_KAIKIN}者</LABEL>
+                                                                        {rval data/OUTPUT1_RUIKEI}<LABEL for="OUTPUT1_RUIKEI">累計{rval data/TEXT_KAIKIN}者除く</LABEL>
+                                                                        　　{rval data/OUTPUT2}<LABEL for="OUTPUT2">累計{rval data/TEXT_KAIKIN}者</LABEL><br><br>
+                                                            <!--{/def}-->
+                                                            <!--{def NODISP_TYPECHKBOX}-->
+                                                                        　　　　　　　　　{rval data/OUTPUT1}<LABEL for="OUTPUT1">当年度{rval data/TEXT_KAIKIN}者</LABEL>
+                                                                        　{rval data/OUTPUT2}<LABEL for="OUTPUT2">３年間{rval data/TEXT_KAIKIN}者</LABEL><br><br>
+                                                            <!--{/def}-->
+                                                                    </td>
+                                                                </tr>
+                                                            <!--{def DISP_CONDITION}-->
+                                                                <tr>
+                                                                    <td>
+                                                                        　　　　　条件
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <table width="100%">
+                                                                            <tr>
+                                                                                <td align="center">遅刻・早退{rval bunkyoKansanCount}回で欠席１日として {rval data/BUNKYO_KANSAN_KESSEKI}回以下<td>
+                                                                            </tr>
+                                                                            <!--{def nozoku}-->
+                                                                            <tr>
+                                                                                <td align="right">（{rval data/BUNKYO_KANSAN_KESSEKI_NOZOKU}回以下除く）
+                                                                                <td>
+                                                                            </tr>
+                                                                            <!--{/def}-->
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            <!--{/def}-->
+                                                            <!--{def DISP_CONDITION_T1}-->
+                                                                <tr>
+                                                                    <td>
+                                                                        　　　　　条件
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <table width="100%">
+                                                                            <tr>
+                                                                                <td align="center">欠席・遅刻・早退・欠課を{rval data/KEKKA_KESSEKI_CNT}回以下<td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            <!--{/def}-->
+                                                            <!--{def DISP_CONDITION_T2}-->
+                                                                <tr>
+                                                                    <td>
+                                                                        　　　　　条件
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <table width="100%">
+                                                                            <tr>
+                                                                                <td align="center">欠席・遅刻・早退・欠課を{rval data/KEKKA_KESSEKI_CNT}回以下かつ<td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td align="center">　　　　　　過年度は皆勤または精勤のいずれかの資格を連続して有している者<td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            <!--{/def}-->
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr class="no_search">
+                                            <td>
+                                                {rval button/btn_print}{rval button/btn_csv}{rval button/btn_end}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}
+<script language="JavaScript">{ rval jscript }</script>

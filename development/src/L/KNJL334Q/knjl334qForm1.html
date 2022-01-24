@@ -1,0 +1,70 @@
+{rval start} 
+<!--{def button}-->
+<!--{def data}-->
+
+<table width="450" border="0" cellpadding="0" cellspacing="5" align="center" style="margin-top:{rval stylePoint}px;">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="5">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr class="no_search" height="30">
+                <td colspan="2" align="center"><B>入試年度：{rval data/YEAR}</B></td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" width="25%" align="right">入試制度&nbsp;</td>
+                <td bgcolor="#ffffff" width="75%">{rval data/APPLICANTDIV}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" align="right">入試区分&nbsp;</td>
+                <td bgcolor="#ffffff">{rval data/TESTDIV}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" align="right">送付先選択&nbsp;</td>
+                <!--{def disabled_J}-->
+                <td bgcolor="#ffffff">
+                  {rval data/TAISYOU1}<LABEL for="TAISYOU1">出身校</LABEL><br>
+                  {rval data/TAISYOU2}<LABEL for="TAISYOU2">塾</LABEL><br>
+                  {rval data/TAISYOU3}<LABEL for="TAISYOU3">個人</LABEL>　受験番号{rval data/F_EXAMNO}&nbsp～&nbsp{rval data/T_EXAMNO}<br>
+                  　　{rval data/KOJIN_SHITEI1}<LABEL for="KOJIN_SHITEI1">合格者</LABEL><br>
+                  　　{rval data/KOJIN_SHITEI2}<LABEL for="KOJIN_SHITEI2">不合格者</LABEL><br>
+                  　　{rval data/KOJIN_SHITEI3}<LABEL for="KOJIN_SHITEI3">スカラーシップ希望者</LABEL><br>
+                  　　{rval data/KOJIN_SHITEI4}<LABEL for="KOJIN_SHITEI4">スカラーシップ採用者</LABEL><br>
+                  　　{rval data/KOJIN_SHITEI5}<LABEL for="KOJIN_SHITEI5">保護者</LABEL>
+                </td>
+                <!--{/def}-->
+                <!--{def only_J}-->
+                <td bgcolor="#ffffff" nowrap>
+                  {rval data/TAISYOU1}<LABEL for="TAISYOU1">出身校</LABEL>
+                  {rval data/TAISYOU3}<LABEL for="TAISYOU3">個人</LABEL>　受験番号{rval data/F_EXAMNO}&nbsp～&nbsp{rval data/T_EXAMNO}
+                </td>
+                <!--{/def}-->
+                <!--{def only_P}-->
+                <td bgcolor="#ffffff" nowrap>
+                  {rval data/TAISYOU1}<LABEL for="TAISYOU1">出身園</LABEL>
+                  {rval data/TAISYOU3}<LABEL for="TAISYOU3">個人</LABEL>　受験番号{rval data/F_EXAMNO}&nbsp～&nbsp{rval data/T_EXAMNO}
+                </td>
+                <!--{/def}-->
+              </tr>
+              <tr height="30">
+                <td class="no_search" align="right">開始位置&nbsp;</td>
+                <td bgcolor="#ffffff">行 {rval data/POROW}　　列 {rval data/POCOL}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search"></td>
+                <td bgcolor="#ffffff">{rval button/btn_print}{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+　　　　　　　　<font color="red" size="2">※PDF印字する場合は、ページの拡大／縮小は</font><br>
+　　　　　　　　<font color="red" size="2">"なし"を選択してください。</font>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}

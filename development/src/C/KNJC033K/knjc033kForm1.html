@@ -1,0 +1,150 @@
+<style>
+td {
+    margin-left:0;
+    margin-right:0;
+    padding-left:0;
+    padding-right:0;
+}
+.nomsclear::-ms-clear {
+    visibility: hidden;
+}
+</style>
+
+{rval start}
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" c ellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="10%" align="left" nowrap>&nbsp;&nbsp;<font color="red">■&nbsp;</font>累積警告&nbsp;&nbsp;</th>
+                        <th width="20%" align="left" nowrap>処理年度：{rval YEAR}年度&nbsp;{rval semester}</th>
+                        <!--{def COURSE_MAJOR}--><th width="20%" align="left" nowrap>課程学科：{rval COURSE_MAJOR}</th><!--{/def}-->
+                        <th width="20%" align="left" nowrap>科目：{rval SUBCLASSCD}&nbsp;</th>
+                        <th width="25%" align="left" nowrap>講座：{rval CHAIRCD}&nbsp;</th>
+                        <th width="25%" align="left" nowrap>対象月：{rval MONTHCD}&nbsp;</th>
+                      </tr>
+                      <tr class="no_search">
+                        <th width="10%" align="left" nowrap>&nbsp;&nbsp;<font color="yellow">■&nbsp;</font>累積注意&nbsp;&nbsp;</th>
+                        <th width="20%" align="left" nowrap>欠課種別：{rval SICK}</th>
+                        <th width="20%" align="left" nowrap></th>
+                        <th width="25%" align="left" nowrap>※締め日：{rval APPOINTED_DAY}&nbsp;&nbsp;</th>
+                        <th width="25%" align="left" nowrap>※授業時数：{rval LESSON_SET}</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr>
+                  <td>
+                  <div style="width:100%; height:580; overflow:auto">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                      <tr class="no_search_line">
+                        <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                          <tbody>
+                            <!--{def data}-->
+                            <!--{each data}-->
+                            <tr {rval data/TR_CLASS}>
+                            {rval data/ATTENDLINK}
+                            {rval data/NAME_SHOW}
+                            {rval data/MONTH1}
+                            {rval data/MONTH2}
+                            {rval data/MONTH3}
+                            {rval data/MONTH4}
+                            {rval data/MONTH5}
+                            {rval data/MONTH6}
+                            {rval data/MONTH7}
+                            {rval data/MONTH8}
+                            {rval data/MONTH9}
+                            {rval data/MONTH10}
+                            {rval data/MONTH11}
+                            {rval data/MONTH12}
+                            {rval data/MONTH13}
+                            {rval data/MONTH14}
+                            {rval data/TOTAL_SEM1}
+                            {rval data/TOTAL_SEM2}
+                            {rval data/TOTAL_SEM3}
+                            {rval data/TOTAL}
+                            {rval data/LESSON}
+                            {rval data/T_NOTICE}
+                            {rval data/T_LATEEARLY}
+                            {rval data/NOTICE_LATE}
+                            </tr>
+                            <!--{/each}-->
+                            <!--{/def}-->
+                          </tbody>
+                        </table>
+                      </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" align="right" nowrap>
+                        <th>
+                        ※'0'データは、空白で表示します。
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        {rval btn_update}
+                        {rval btn_reset}
+                        {rval btn_end}
+                        {rval btn_print}
+                        {rval btn_csv}
+                        </th>
+                      </tr>
+                  </table>
+                  </td>
+                </tr>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish} 
+<script language="JavaScript">{rval close_win}</script>

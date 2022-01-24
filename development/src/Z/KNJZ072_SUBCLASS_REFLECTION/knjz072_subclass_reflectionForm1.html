@@ -1,0 +1,58 @@
+{rval start}
+
+<BR><BR><BR><BR>
+<table width="{val SEL_WIDTH}" border="0" cellpadding="0" cellspacing="10" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="0" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="10" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <td height="30" align="center"><b>教育委員会科目取込</b></td>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td height="50" align="center">
+                        学校種別：{rval data/BOARD_SCHOOL_KIND}　　教育課程：{rval data/BOARD_CURRICULUM_CD}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>{rval info/LEFT_LIST}</b></th>
+                      <th>&nbsp;</th>
+                      <th><b>{rval info/RIGHT_LIST}</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff"> <!--{def main_part}--> 
+                      <td width="45%">{rval main_part/LEFT_PART}</td>
+                      <td width="*%" class="no_search">{rval main_part/SEL_ADD_ALL}<br>
+                        {rval main_part/SEL_ADD} <br></td>
+                      <td width="45%">{rval main_part/RIGHT_PART}</td>
+                      <!--{/def}--> </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <!--{def button}--> 
+  <tr>
+    <td nowrap>
+        {rval button/BTN_OK}&nbsp{rval button/BTN_CLEAR}&nbsp{rval button/BTN_END}　　　
+        <font color="red" size="2">※取込後の削除は、マスタメンテで行ってください。</font>
+    </td>
+  </tr>
+  <!--{/def}--> 
+</table>
+<script language="JavaScript">{rval jscript}</script>
+{rval finish} 

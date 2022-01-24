@@ -1,0 +1,57 @@
+-- $Id: rep-reduction_dat.sql 69871 2019-09-25 09:05:58Z yamashiro $
+
+DROP TABLE REDUCTION_DAT_OLD
+RENAME TABLE REDUCTION_DAT TO REDUCTION_DAT_OLD
+CREATE TABLE REDUCTION_DAT( \
+    YEAR                 VARCHAR(4)    NOT NULL, \
+    SCHREGNO             VARCHAR(8)    NOT NULL, \
+    PREFECTURESCD        VARCHAR(2), \
+    GRADE                VARCHAR(2), \
+    OFFSET_FLG           VARCHAR(1), \
+    LOCK_FLG             VARCHAR(1), \
+    REDUCTION_SEQ_1      INTEGER, \
+    REDUCTIONMONEY_1     INTEGER, \
+    REDUC_DEC_FLG_1      VARCHAR(1), \
+    REDUC_INCOME_1       INTEGER, \
+    INCOME_SIBLINGS1     smallint, \
+    REDUC_RANK_1         VARCHAR(2), \
+    REDUCTION_SEQ_2      INTEGER, \
+    REDUCTIONMONEY_2     INTEGER, \
+    REDUC_DEC_FLG_2      VARCHAR(1), \
+    REDUC_INCOME_2       INTEGER, \
+    INCOME_SIBLINGS2     smallint, \
+    REDUC_RANK_2         VARCHAR(2), \
+    REDUC_RARE_CASE_CD   VARCHAR(2), \
+    REDUC_REMARK         VARCHAR(30), \
+    REGISTERCD           VARCHAR(8), \
+    UPDATED              TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+) IN USR1DMS INDEX IN IDX1DMS
+
+INSERT INTO REDUCTION_DAT \
+    SELECT \
+        YEAR, \
+        SCHREGNO, \
+        PREFECTURESCD, \
+        GRADE, \
+        OFFSET_FLG, \
+        LOCK_FLG, \
+        REDUCTION_SEQ_1, \
+        REDUCTIONMONEY_1, \
+        REDUC_DEC_FLG_1, \
+        REDUC_INCOME_1, \
+        cast(null as smallint) as INCOME_SIBLINGS1, \
+        REDUC_RANK_1, \
+        REDUCTION_SEQ_2, \
+        REDUCTIONMONEY_2, \
+        REDUC_DEC_FLG_2, \
+        REDUC_INCOME_2, \
+        cast(null as smallint) as INCOME_SIBLINGS2, \
+        REDUC_RANK_2, \
+        REDUC_RARE_CASE_CD, \
+        REDUC_REMARK, \
+        REGISTERCD, \
+        UPDATED \
+    FROM \
+        REDUCTION_DAT_OLD
+
+ALTER TABLE REDUCTION_DAT ADD CONSTRAINT PK_REDUCTION_DAT PRIMARY KEY (YEAR,SCHREGNO)

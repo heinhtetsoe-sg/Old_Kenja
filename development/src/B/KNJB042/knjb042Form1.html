@@ -1,0 +1,115 @@
+{rval start}
+<INPUT type="hidden" name="selectdata" size="70"><br>
+
+<!--{def button}-->
+<!--{def data}-->
+
+<br><br>
+
+
+<table width="45%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td align="center">
+                          <b>{rval data/YEAR}年度</b>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff"> 
+                      <td align="center">
+                        <table>
+                          <tr>
+                            <td>
+                              <b>　　時間割種別・指定日付</b>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              　　　　{rval data/JIKANWARI_SYUBETU1}<LABEL for="JIKANWARI_SYUBETU1">基本時間割</LABEL>　  {rval data/TITLE}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              　　　　{rval data/JIKANWARI_SYUBETU2}<LABEL for="JIKANWARI_SYUBETU2">通常時間割</LABEL>　{rval data/SDATE}　～　{rval data/EDATE}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td>
+                        <b>
+                          　　　　　　　　　　　　　　　　　　　学年　{rval data/GRADE}
+                        </b>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象クラス</b></th>
+                      <th class="no_search"></th>
+                      <th><b>クラス一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr>
+                      <td align="left"  bgcolor="#ffffff">
+                        <table>
+                          <tr>
+                            <td>
+                                　　出力項目(上段)<br>
+                                　　　　　{rval data/SUBCLASS_CHAIR_DIV1}<LABEL for="SUBCLASS_CHAIR_DIV1">科目名</LABEL>　　{rval data/SUBCLASS_CHAIR_DIV2}<LABEL for="SUBCLASS_CHAIR_DIV2">講座名</LABEL><br><br>
+                                　　出力項目(下段)<br>
+                                　　　　　{rval data/SYUTURYOKU_KOUMOKU1}<LABEL for="SYUTURYOKU_KOUMOKU1">職員名</LABEL>　　{rval data/SYUTURYOKU_KOUMOKU2}<LABEL for="SYUTURYOKU_KOUMOKU2">施設名</LABEL>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}
+<script language="JavaScript">{rval Dis_Date}</script>

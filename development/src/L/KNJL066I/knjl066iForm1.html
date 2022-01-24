@@ -1,0 +1,64 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap align="left" colspan="6">　対象年度：{rval ENTEXAMYEAR}　{rval button/btn_copy}</th>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap align="left" colspan="6">　班種別：{rval SIKAKUCD}　　{rval GROUPDIV1}<LABEL for="GROUPDIV1">受験班</LABEL>　{rval GROUPDIV2}<LABEL for="GROUPDIV2">面接班</LABEL></th>
+                    </tr>
+<!--{def jyuken}-->
+                    <tr class="no_search"> 
+                      <th nowrap width="10%">入試制度</th>
+                      <th nowrap width="15%">入試区分</th>
+                      <th nowrap width="15%">受験班コード</th>
+                      <th nowrap width="25%">受験班名</th>
+                      <th nowrap width="20%">略称</th>
+                      <th nowrap width="*%" >人数</th>
+                    </tr>
+<!--{/def}-->
+
+<!--{def mensetu}-->
+                    <tr class="no_search"> 
+                      <th nowrap width="10%">入試制度</th>
+                      <th nowrap width="15%">入試区分</th>
+                      <th nowrap width="15%">面接班コード</th>
+                      <th nowrap width="25%">面接班名</th>
+                      <th nowrap width="20%">略称</th>
+                      <th nowrap width="*%" >人数</th>
+                    </tr>
+<!--{/def}-->
+
+<!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}--> 
+                    <tr> 
+                      <td nowrap align="center" bgcolor="#ffffff">{rval data/APPLICANTDIV_NAME}</a></td>
+                      <td nowrap align="center" bgcolor="#ffffff">{rval data/TESTDIV_NAME}</td>
+                      <td nowrap align="center" bgcolor="#ffffff">{rval data/GROUPCD}</td>
+                      <td nowrap bgcolor="#ffffff">{rval data/GROUPNAME}</td>
+                      <td nowrap bgcolor="#ffffff">{rval data/GROUPNAME_ABBV}</td>
+                      <td nowrap align="center" bgcolor="#ffffff">{rval data/GROUPPEOPLE}</td>
+                    </tr> 
+                    <!--{/each}--> 
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

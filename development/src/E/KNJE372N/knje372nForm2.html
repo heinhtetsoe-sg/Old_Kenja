@@ -1,0 +1,89 @@
+{rval start}
+<table width="100%" border="0" cellpadding="0" cellspacing="10" align="center">
+
+  <tr class="no_search_line">
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="1">
+        <tr> 
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="2">
+              <tr class="no_search">
+                <th width="15%">項 目</th>
+                <th width="85%">値</th>
+              </tr>
+              <tr class="no_search">
+                <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tr class="no_search">
+                    <th align="right" nowrap>※推薦枠番号</th>
+                  </tr>
+                </table>
+                </td>
+                <td bgcolor="#ffffff">{rval data/RECOMMENDATION_CD}</td>
+              </tr>
+
+              <tr class="no_search">
+                <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tr class="no_search">
+                    <th align="right" nowrap>※平均点</th>
+                  </tr>
+                </table>
+                </td>
+                <td bgcolor="#ffffff">{rval data/ASSESS_AVG}&nbsp;<font color="black">以上</font></td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr class="no_search_line"> 
+  <td nowrap> 
+    <table width="100%" border="0" cellpadding="0" cellspacing="1">
+    <tr bgcolor="#ffffff"> 
+      <td> 
+      <table width="100%" border="0" cellpadding="0" cellspacing="10" >
+        <tr class="no_search_line"> 
+        <td width="100%"> 
+          <table width="100%" border="0" cellpadding="2" cellspacing="1">
+            <tr align="center" class="no_search">
+              <td width="45%" align="left">　　　教科:{rval data/CLASSCD}</td>
+              <td width="*%"></td>
+              <td width="45%"></td>
+            </tr>
+            <tr align="center" class="no_search"> 
+              <th><font color="white">{rval main_part/LEFT_LIST}</font></th>
+              <th class="no_search">&nbsp;</th>
+              <th><font color="white">{rval main_part/RIGHT_LIST}</font></th>
+            </tr>
+            <tr align="center" bgcolor="#ffffff">
+          <!--{def main_part}-->
+            <td width="45%">{rval main_part/LEFT_PART}</td>
+            <td width="*%" class="no_search">
+                {rval main_part/SEL_ADD_ALL}<br>
+                {rval main_part/SEL_ADD}<br>
+                {rval main_part/SEL_DEL}<br>
+                {rval main_part/SEL_DEL_ALL}<br>
+            </td>
+            <td width="45%">{rval main_part/RIGHT_PART}</td>
+          <!--{/def}-->
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+  <!--{def button}--> 
+  <tr>
+  <td nowrap>{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end} </td>
+  </tr>
+  <!--{/def}--> 
+</table>
+<script language="javascript">{rval jmsg}{rval jscript}</script>
+{rval finish}

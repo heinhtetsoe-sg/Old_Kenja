@@ -1,0 +1,66 @@
+{rval start} 
+
+<BR><BR><BR><BR><BR><BR>
+<table width="{val SEL_WIDTH}" border="0" cellpadding="0" cellspacing="10" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="0" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="10" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search" align="center"> 
+                      <td nowrap><b>
+                        入試年度:{rval TOP/YEAR}　　入試制度:{rval data/APDIV}　　入試区分:{rval data/TESTDIV}
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><font color="white"><b>出力対象一覧</b></font></th>
+                      <th class="no_search">&nbsp;</th>
+                      <th><font color="white"><b>試験科目一覧</b></font></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff"> <!--{def data}--><!--{def button}-->
+                      <td width="45%">{rval data/category_name}</td>
+                      <td width="*%" class="no_search" nowrap> 
+                        {rval button/sel_add_all}    <br> 
+                        {rval button/sel_add}        <br>
+                        {rval button/sel_del}        <br>
+                        {rval button/sel_del_all}    </td>
+                      <td width="45%">{rval data/category_selected}</td>
+                      <!--{/def}--><!--{/def}--> </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="left" height="50"> 
+                      <td bgcolor="#ffffff"><font color="#ff0000" size="2">
+                        　　●選択した科目の並び順が表示順となります。</font>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <!--{def button}--> 
+  <tr>
+    <td nowrap>{rval button/BTN_OK}{rval button/BTN_CLEAR}{rval button/BTN_END} </td>
+  </tr>
+  <!--{/def}--> 
+</table>
+<script language="JavaScript">{rval jscript}</script>
+{rval finish} 

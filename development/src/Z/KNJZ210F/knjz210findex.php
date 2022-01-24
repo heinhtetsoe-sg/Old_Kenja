@@ -1,0 +1,51 @@
+<?php
+
+require_once('for_php7.php');
+
+require_once('knjz210fModel.inc');
+require_once('knjz210fQuery.inc');
+
+class knjz210fController extends Controller {
+    var $ModelClassName = "knjz210fModel";
+    var $ProgramID      = "KNJZ210F";
+    function main()
+    {
+        $sessionInstance =& Model::getModel($this);
+        while ( true ) {
+            switch (trim($sessionInstance->cmd)) {
+                case "kakutei":
+                case "edit":
+                case "reset":
+                case "main":
+                case "chenge_cd":
+                    $this->callView("knjz210fForm2");
+                    break 2;
+                case "list":
+                    $this->callView("knjz210fForm1");
+                    break 2;
+                case "update":
+                    $sessionInstance->getUpdateModel();
+                    //変更済みの場合は詳細画面に戻る
+                    $sessionInstance->setCmd("chenge_cd");
+                    break 1;
+                case "error":
+                    $this->callView("error");
+                    break 2;
+                case "":
+                    //分割フレーム作成
+                    $args["left_src"] = "knjz210findex.php?cmd=list";
+                    $args["right_src"] = "knjz210findex.php?cmd=edit";
+                    $args["cols"] = "50%,50%";
+                    View::frame($args);
+                    exit;
+                default:
+                    $sessionInstance->setError(new PEAR_Error("未対応のアクション{$sessionInstance->cmd}です"));
+                    $this->callView("error");
+                    break 2;
+            }
+        }
+    }
+}
+$knjz210fCtl = new knjz210fController;
+//var_dump($_REQUEST);
+?>

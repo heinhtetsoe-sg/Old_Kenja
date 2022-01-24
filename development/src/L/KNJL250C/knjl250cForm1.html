@@ -1,0 +1,55 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR><BR><BR><BR><BR>
+
+<table width="40%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr > 
+    <td > 
+      <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+        <tr class="no_search_line"> 
+          <td width="100%"> 
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="center" class="no_search" height="30">
+                <td><b>
+                  年度:{rval data/YEAR}
+                </b></td>
+              </tr>
+              <tr bgcolor="#ffffff" height="110" align="center">
+                <td><b>
+                  プ レ テ ス ト<br><br>
+                  入試制度：{rval data/APPLICANTDIV}
+                </b></td>
+              </tr>
+              <tr bgcolor="#ffffff" height="160">
+                  <td nowrap>
+                    　　　　<b>プレテスト区分</b><br><br>
+                    　　　　　　{rval data/PRE_TESTDIV}<br><br>
+                    　　　　<b>印刷順序</b><br><br>
+<!--{def isGojo}-->
+                    　　　　　　{rval data/SORT1}<LABEL for="SORT1">成績順</LABEL>（{rval data/GOKEI1}<LABEL for="GOKEI1">国算理</LABEL>　{rval data/GOKEI2}<LABEL for="GOKEI2">４教科</LABEL>　{rval data/GOKEI3}<LABEL for="GOKEI3">国算英</LABEL>）<br><br>
+<!--{/def}-->
+<!--{def isCollege}-->
+                    　　　　　　{rval data/SORT1}<LABEL for="SORT1">成績順</LABEL>（{rval data/GOKEI1}<LABEL for="GOKEI1">２科計</LABEL>　{rval data/GOKEI2}<LABEL for="GOKEI2">３科計</LABEL>）<br><br>
+<!--{/def}-->
+                    　　　　　　{rval data/SORT2}<LABEL for="SORT2">受験番号順</LABEL><br><br>
+                    　　　　　　{rval data/OUTPUT}<LABEL for="OUTPUT">氏名を出力しない</LABEL>
+                  </td>
+              </tr>
+              <tr align="left" class="no_search" height="30">
+                <td nowrap>&nbsp;{rval button/btn_print}{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

@@ -1,0 +1,57 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr > 
+    
+      <td >
+    <hr width="30%" align="left">
+      &nbsp;{rval SCHREGNO}&nbsp;&nbsp;{val NAME}
+    <hr width="30%" align="left">
+      
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+        <td> 
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search"> 
+            <th nowrap width="20%" height="30">部/クラブ</th>
+            <th nowrap width="15%" height="30">入部日付</th>
+            <th nowrap width="15%" height="30">退部日付</th>
+	        <th nowrap width="20%" height="30">役職名</th>
+            <th nowrap width="30%" height="30">備考</th>
+            
+          </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}--> 
+          <tr> 
+             <td nowrap bgcolor="#ffffff">
+<!--{def data/adlink}-->
+             <a href="knjj030index.php?cmd=edit&SDATE={val data/SDATE}&CLUBCD={val data/CLUBCD}&SCHREGNO={rval SCHREGNO}" target="edit_frame">{val data/CLUBNAME}</a>
+<!--{/def}--> 
+<!--{def data/nolink}-->
+             {val data/CLUBNAME}
+<!--{/def}--> 
+             </td>
+             <td nowrap bgcolor="#ffffff">{val data/SDATE}</td>
+	         <td nowrap bgcolor="#ffffff">{val data/EDATE}</td>
+             <td nowrap bgcolor="#ffffff">{val data/EXECUTIVECD}</td>
+             <td nowrap bgcolor="#ffffff">{val data/REMARK}</td>
+             
+          </tr> 
+<!--{/each}--> 
+<!--{/def}--> 
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval reload}{rval close}</script>
+{rval finish}

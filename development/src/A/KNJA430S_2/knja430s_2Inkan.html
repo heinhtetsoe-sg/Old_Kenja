@@ -1,0 +1,58 @@
+{rval start}
+<BR><BR><BR>
+<APPLET CODE="QueStamp.class" codebase={rval header/APPHOST}
+              archive="iApplet.jar"
+         <!-- archive="iApplet.jar,../lib/plugin.jar" クライアント側を使用 -->
+              <!-- WIDTH="" HEIGHT=""> -->
+<param name=inkan_no value={rval header/inkan_no}>
+<param name=returnurl value={rval header/returnurl}>
+</APPLET>
+<BR><BR><BR>
+<table align="center" width="50%" border="0" cellspacing="0" cellpadding="0">
+<tr> 
+    <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" style="height:30px;"> 
+                <th width="100">印影</th>
+                <th colspan="2" width="*%">ファイル取込画面</font></th>
+            </tr>
+            <tr style="height:30px;">
+                <td bgcolor="#ffffff" align="center" rowspan="4">{rval data/IMAGE}</td>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+
+            <tr style="height:30px;">
+                <th align="right" class="no_search" nowrap>印鑑番号</th>
+                <td bgcolor="#ffffff">{rval data/INKAN_NO}</td>
+            </tr>
+
+            <!--{/def}--> 
+            <!--{def button}--> 
+            <tr style="height:30px;">
+                <th align="right" class="no_search" nowrap>印影ファイル取込</th>
+                <td bgcolor="#ffffff">{rval button/BTN_FILE}</td>
+            </tr>
+
+            <tr style="height:30px;">
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td bgcolor="#ffffff">{rval button/BTN_END}</td>
+            </tr>
+            <!--{/def}--> 
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+{rval finish}

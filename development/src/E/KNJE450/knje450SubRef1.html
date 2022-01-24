@@ -1,0 +1,79 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td>
+          <hr width="120" align="left">
+            &nbsp;&nbsp;&nbsp;障害名一覧&nbsp;
+          <hr width="120" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" valign="top">
+        {rval button/btn_select}{rval button/btn_back}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" nowrap align="center">
+                      <th class="no_search" width="30">選択</th>
+                      <th width="150">名称</th>
+                      <th width="100">略称</th>
+                      <th width="150">俗称</th>
+                      <th width="*">備考</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width: 100%; height=400; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="list" onclick="selectRowList()">
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td nowrap width="30" align="center">{rval data/CHECK}</td>
+                      <td width="150" align="left">{rval data/NAME}</td>
+                      <td width="100" align="left">{rval data/ABBV}</td>
+                      <td width="150" align="left">{rval data/POPULAR_NAME}</td>
+                      <td width="*" align="left">{rval data/REMARK}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" valign="top">
+        {rval button/btn_select}{rval button/btn_back}
+    </td>
+  </tr>
+</table>
+
+{rval finish} 

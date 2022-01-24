@@ -1,0 +1,59 @@
+{rval start}
+
+<table width="450" border="0" cellpadding="0" cellspacing="5" align="center" style="margin-top:140px;">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="5">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr class="no_search" height="30">
+                <td colspan="2" align="center"><B>志願者情報(ＣＳＶ入出力)</B></td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" width="30%" align="right">入試年度&nbsp;</td>
+                <td bgcolor="#ffffff" width="70%">{rval data/YEAR}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" width="30%" align="right">志願区分&nbsp;</td>
+                <td bgcolor="#ffffff" width="70%">{rval data/DESIREDIV}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" width="30%" align="right">入試区分&nbsp;</td>
+                <td bgcolor="#ffffff" width="70%">{rval data/TESTDIV}</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td colspan="2">
+                  <table width="90%" align="right" style="line-height: 230%;">
+                    <tr>
+                      <td><b>{rval data/OUTPUT1}<LABEL for="OUTPUT1">ヘッダ出力</LABEL></b>（見本）</b></td>
+                    </tr>
+                    <tr>
+                      <td><b>{rval data/OUTPUT2}<LABEL for="OUTPUT2">データ取込</LABEL></b>（処理名：{rval data/SHORI_MEI}）</b><br>
+                          　　　　　　&nbsp;{rval FILE}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><b>{rval data/OUTPUT3}<LABEL for="OUTPUT3">エラー出力</LABEL></b>（データ取込後のエラー確認：必須）</td>
+                    </tr>
+                    <tr>
+                      <td><b>{rval data/OUTPUT4}<LABEL for="OUTPUT4">データ出力</LABEL></b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search" height="30">
+                <td align="center" colspan="2">
+                  {val btn_exec}&nbsp;{rval data/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL>&nbsp;{val btn_end}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval jscript}</script>
+{rval finish}

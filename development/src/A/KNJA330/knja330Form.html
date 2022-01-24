@@ -1,0 +1,119 @@
+{rval start}
+<table width="550" border="0" cellspacing="0" cellpadding="10" align="center">
+  <tbody>
+    <br>
+    <br>
+    <br>
+    <br>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <td>
+                      <!--コピー--><!--{def ADDVIEW}-->
+                            {rval YEAR}年度&nbsp&nbsp{rval SEMENAME}
+                      <!--{/def}-->
+                      <!--コピー--><!--{def DELVIEW}-->
+                            {rval YEAR}年度
+                      <!--{/def}-->
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr bgcolor="#FFFFFF">
+                        <td>
+                          <br>
+                          {rval data/OUTPUT1}<LABEL for="OUTPUT1">コピー</LABEL>&nbsp&nbsp&nbsp&nbsp{rval data/OUTPUT2}<LABEL for="OUTPUT2">削除</LABEL><br>
+              <!--コピー--><!--{def ADDVIEW}-->
+                          <br>
+                          ※{rval YEAR}年度{rval SEMENAME}の在籍データと在籍ヘッダデータを{rval YEAR_ADD}年度{rval SEMENAME2}にコピー
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th align="center" nowrap width="20%" height="30">作成対象</th>
+                        <th align="center" nowrap width="40%" height="30">対象学年</th>
+                        <th align="center" nowrap width="*%" height="30">備考</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table id="list" width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <!--結果一覧--><!--{each ADDdata}-->
+                      <tr  bgcolor="#ffffff">
+                        <td align="center" width="20%" nowrap>{rval ADDdata/ADD_CHECKED}</td>
+                        <td align="left"   width="40%" nowrap>{rval ADDdata/ADD_GRADENAME}</td>
+                        <td align="left"  width="*%"  nowrap>{rval ADDdata/ADD_REMARK}</td>
+                      </tr>
+                      <!--{/each}-->
+                    </tbody>
+                  </table>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <td height="30">{rval btn_execute}{rval btn_end}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+              <!--{/def}-->
+              <!--削除--><!--{def DELVIEW}-->
+                          <br>
+                          ※{rval YEAR}年度の在籍データと在籍ヘッダデータを削除
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th align="center" nowrap width="20%" height="30">削除対象</th>
+                        <th align="center" nowrap width="40%" height="30">対象学年</th>
+                        <th align="center" nowrap width="*%" height="30">備考</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table id="list" width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <!--結果一覧--><!--{each DELdata}-->
+                      <tr  bgcolor="#ffffff">
+                        <td align="center" width="20%" nowrap>{rval DELdata/DEL_CHECKED}</td>
+                        <td align="left"   width="40%" nowrap>{rval DELdata/DEL_GRADENAME}</td>
+                        <td align="left"  width="*%"  nowrap>{rval DELdata/DEL_REMARK}</td>
+                      </tr>
+                      <!--{/each}-->
+                    </tbody>
+                  </table>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <td height="30">{rval btn_del}{rval btn_end}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+              <!--{/def}-->
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<script language="JavaScript">{rval reload}</script> 
+{rval finish}

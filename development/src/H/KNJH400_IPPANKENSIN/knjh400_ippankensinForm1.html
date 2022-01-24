@@ -1,0 +1,2845 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" >
+            <tr class="no_search">
+                <th width="50%" height="30" nowrap>定期健康診断情報（詳細）</th>
+                <th width="50%" nowrap>
+                    {rval header/SCHREGNO}&nbsp;：&nbsp;
+                    {rval header/NAME_SHOW}&nbsp;&nbsp;
+                    {rval header/BIRTHDAY}&nbsp;&nbsp生まれ
+                </th>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+
+<table width="100%" border="0" cellspacing="1" cellpadding="0">
+<tr class="no_search_line">
+  <th class="no_search">{rval setYear1}年度</th>
+  <th class="no_search">{rval setYear2}年度</th>
+  <th class="no_search">{rval setYear3}年度</th>
+</tr>
+<tr>
+    <td>
+<!--{def base}-->
+
+<!-- グループ１ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan="5">１</th>
+                <th width="150" nowrap align="right" colspan="2">★ 健康診断実施日</th>
+                <td width="*" bgcolor="#ffffff" colspan="5">&nbsp;{rval data1/DATE}</td>
+            </tr>
+            <tr>
+                <th width="150" class="no_search" nowrap align="right" colspan="2">身長(cm)</th>
+                <td width="150" bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/HEIGHT}</td>
+                <th width="130" class="no_search" nowrap>体重(kg)</th>
+                <td width="160" bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/WEIGHT}　<!--{def sapporo}--><font color="red"><!--{/def}--><span id="std_weight">{rval data1/STD_WEIGHT}</span><!--{def sapporo}--></font><!--{/def}--></td>
+                <!--{def is_sitheight}-->
+                <th width="130" class="no_search" nowrap>座高(cm)</th>
+                <td width="*" bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/SITHEIGHT}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(小数第１位)</font></td>
+                <!--{/def}-->
+            </tr>
+            <tr class="no_search" align="left">
+                <th width="50" nowrap align="right" rowspan="2">★ 視力</th>
+                <th width="100" align="right" nowrap>数字<font style="font-size:0.8em">(半角4文字)</font></th>
+                <td bgcolor="#ffffff" colspan="5">
+                    <font color="black">
+                    &nbsp;右&nbsp;&nbsp;裸眼：&nbsp;{rval data1/R_BAREVISION}&nbsp;&nbsp;矯正：&nbsp;{rval data1/R_VISION}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="font-size:7pt">&nbsp;&nbsp;</font>
+                    左&nbsp;&nbsp;裸眼：&nbsp;{rval data1/L_BAREVISION}&nbsp;&nbsp;矯正：&nbsp;{rval data1/L_VISION}</font>
+                    <!-- (Ａ：1.0以上; Ｂ：1.0未満0.7以上; Ｃ：0.7未満0.3以上; Ｄ：0.3未満)-->
+                        </font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th width="100" align="right" nowrap>文字</th>
+                <td bgcolor="#ffffff" colspan="5">
+                    <font color="black">
+                    &nbsp;右&nbsp;&nbsp;裸眼：&nbsp;{rval data1/R_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;
+                                  矯正：&nbsp;{rval data1/R_VISION_MARK}&nbsp;&nbsp;{rval data1/R_VISION_CANTMEASURE}<LABEL for="R_VISION_CANTMEASURE">測定困難</LABEL>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    左&nbsp;&nbsp;裸眼：&nbsp;{rval data1/L_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;矯正：&nbsp;{rval data1/L_VISION_MARK}&nbsp;{rval data1/L_VISION_CANTMEASURE}<LABEL for="L_VISION_CANTMEASURE">測定困難</LABEL></font>
+                </td>
+            </tr>
+            <tr class="no_search" align="left">
+                <th nowrap align="right" colspan="2">★ 聴力</th>
+                <td bgcolor="#ffffff" colspan="5">
+                    &nbsp;<font color="black">右　　平均dB：&nbsp;{rval data1/R_EAR_DB}　{rval data1/R_EAR_DB_4000}　状態：&nbsp;{rval data1/R_EAR}&nbsp;{rval data1/R_EAR_CANTMEASURE}<LABEL for="R_EAR_CANTMEASURE">測定困難</LABEL><br>
+                                              <!--{def useSpecial_Support_School}-->
+                                              装用時&nbsp;平均dB：&nbsp;{rval data1/R_EAR_DB_IN}　{rval data1/R_EAR_DB_4000_IN}　状態：&nbsp;{rval data1/R_EAR_IN}&nbsp;<br>
+                                              <!--{/def}-->
+                                        &nbsp;左　　平均dB：&nbsp;{rval data1/L_EAR_DB}　{rval data1/L_EAR_DB_4000}　状態：&nbsp;{rval data1/L_EAR}&nbsp;{rval data1/L_EAR_CANTMEASURE}<LABEL for="L_EAR_CANTMEASURE">測定困難</LABEL>
+                                              <!--{def useSpecial_Support_School}-->
+                                              <br>装用時&nbsp;平均dB：&nbsp;{rval data1/L_EAR_DB_IN}　{rval data1/L_EAR_DB_4000_IN}　状態：&nbsp;{rval data1/L_EAR_IN}&nbsp;
+                                              <!--{/def}--></font>
+                    <BR>&nbsp;&nbsp;<font color="red" style="font-size:10pt">(半角で3文字)</font>
+                </td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ２ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan={rval rowspan2}>２</th>
+                <th width="50" nowrap rowspan="3">★ 尿</th>
+                <th width="100" align="right" nowrap>１次</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;<font color="black">蛋白：&nbsp;{rval data1/ALBUMINURIA1CD}&nbsp;&nbsp;&nbsp;&nbsp;糖：&nbsp;{rval data1/URICSUGAR1CD}&nbsp;&nbsp;&nbsp;&nbsp;潜血：</font>&nbsp;{rval data1/URICBLEED1CD}</td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">２次</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;<font color="black">蛋白：&nbsp;{rval data1/ALBUMINURIA2CD}&nbsp;&nbsp;&nbsp;&nbsp;糖：&nbsp;{rval data1/URICSUGAR2CD}&nbsp;&nbsp;&nbsp;&nbsp;潜血：</font>&nbsp;{rval data1/URICBLEED2CD}</td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">その他の検査</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/URICOTHERTEST}<font color="red" style="font-size:10pt">(全角で20文字)</font>&nbsp;&nbsp;<font color="black">指導区分：&nbsp;{rval data1/URI_ADVISECD}</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 栄養状態</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/NUTRITIONCD}</td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 目の疾病及び異常</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/EYEDISEASECD} {rval data1/EYE_TEST_RESULT}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 脊柱・胸郭・四肢</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/SPINERIBCD} {rval data1/SPINERIBCD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 耳鼻咽頭疾患</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/NOSEDISEASECD} {rval data1/NOSEDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 皮膚疾患</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/SKINDISEASECD}</td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap rowspan="3">★ 心臓</th>
+                <th align="right" nowrap>臨床医学的検査</th>
+                <td nowrap bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/HEART_MEDEXAM} {rval data1/HEART_MEDEXAM_REMARK}<font color="red" style="font-size:10pt">(全角で40文字)</font>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">疾病及び異常</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/HEARTDISEASECD} {rval data1/HEARTDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">管理区分</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/MANAGEMENT_DIV}</td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ３ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <!--{def tbFilmShow}-->
+            <tr class="no_search">
+                <th width="5" nowrap rowspan={rval rowspan3}>３</th>
+                <th width="50" nowrap rowspan="3">結<BR>核</th>
+                <th width="100" nowrap align="right">★ X線撮影</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;<font color="black">
+                    撮影日付：{rval data1/TB_FILMDATE}&nbsp;&nbsp;
+                    画像番号：{rval data1/TB_FILMNO}<font color="red" style="font-size:10pt">(半角で{rval data1/TB_FILMNO_SIZE}文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">所見</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data1/TB_REMARKCD} {rval data1/TB_X_RAY}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                </td>
+            </tr>
+            <!--{/def}-->
+            <tr class="no_search">
+                <!--{def tbFilmUnShow}-->
+                <th width="5" nowrap rowspan={rval rowspan3}>３</th>
+                <th width="50" nowrap>★ 結核</th>
+                <th width="100" nowrap align="right">その他検査</th>
+                <!--{/def}-->
+                <!--{def tbFilmShow}-->
+                <th nowrap align="right">その他検査</th>
+                <!--{/def}-->
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;&nbsp;<!--{def tbFilmShow}-->{rval data1/TB_OTHERTESTCD}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--{/def}-->
+                    <font color="black">{rval data1/TB_NAMECD_LABEL}：&nbsp;{rval data1/TB_NAMECD}&nbsp;{rval data1/TB_NAME_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font>&nbsp;
+                    指導区分：</font>&nbsp;{rval data1/TB_ADVISECD}
+                </td>
+            </tr>
+            <!--{def para}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 寄生虫卵</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data1/PARASITE}</td>
+            </tr>
+            <!--{/def}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ その他疾病及び異常</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data1/OTHERDISEASECD}<br>
+                                                  &nbsp;&nbsp;{rval data1/OTHER_REMARK2}<font color="red" style="font-size:10pt">(全角で{rval data1/OTHER_REMARK2_MOJI}文字)</font><br>
+                                                  &nbsp;&nbsp;<font color="black">指導区分：&nbsp;{rval data1/OTHER_ADVISECD}</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap rowspan="2">学校医</th>
+                <th nowrap align="right">★ 日付</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;&nbsp;{rval data1/DOC_DATE}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">★ 所見</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;&nbsp;{rval data1/DOC_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 備考</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data1/REMARK}&nbsp;&nbsp;<br><font color="red" style="font-size:10pt">(全角で{rval data1/REMARK_MOJI}文字)</font></td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ４ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan="4">４</th>
+                <th width="150" nowrap align="right" colspan="2">★ 既往症</th>
+                <td width="*" bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data1/MEDICAL_HISTORY1} {rval data1/MEDICAL_HISTORY2} {rval data1/MEDICAL_HISTORY3}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 診断名</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data1/DIAGNOSIS_NAME}<font color="red" style="font-size:10pt">(全角で50文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th width="50" nowrap rowspan="2">運<BR>動</th>
+                <th width="100" nowrap align="right">★ 指導区分</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data1/GUIDE_DIV}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">★ 部活動</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data1/JOINING_SPORTS_CLUB}
+                </td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!------------------------------------------------------------------------------>
+
+<!--{/def}-->
+<!--{def new}-->
+
+<!-- グループ１ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan="5">１</th>
+                <th width="158" nowrap align="right">★ 健康診断実施日</th>
+                <td width="*" bgcolor="#ffffff" colspan="6">&nbsp;{rval data1/DATE}</td>
+            </tr>
+            <tr>
+                <th width="158" class="no_search" nowrap align="right">身長(cm)</th>
+                <td width="150" bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/HEIGHT}</td>
+                <th width="130" class="no_search" nowrap>体重(kg)</th>
+                <td width="160" bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/WEIGHT}　<!--{def sapporo}--><font color="red"><!--{/def}--><span id="std_weight">{rval data1/STD_WEIGHT}</span><!--{def sapporo}--></font><!--{/def}--></td>
+                <!--{def is_fukui_saga_koma}-->
+                <th width="130" class="no_search" nowrap>肥満度</th>
+                <td width="*" bgcolor="#ffffff" colspan="2"><span id="OBESITY_INDEX">{rval data1/OBESITY_INDEX}</span>&nbsp;&nbsp;{rval data1/NO_PRINT_OBESITY_INDEX}<LABEL for="NO_PRINT_OBESITY_INDEX">帳票印字無し</LABEL></td>
+                <!--{/def}-->
+                <!--{def unHyouji_SITHEIGHT}-->
+                <th width="130" class="no_search" nowrap>肥満度</th>
+                <td width="*" bgcolor="#ffffff" colspan="2"><span id="OBESITY_INDEX">{rval data1/OBESITY_INDEX}</span></td>
+                <!--{/def}-->
+                <!--{def is_sitheight}-->
+                <th width="130" class="no_search" nowrap>座高(cm)</th>
+                <td width="*" bgcolor="#ffffff" colspan="2">&nbsp;&nbsp;{rval data1/SITHEIGHT}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(小数第１位)</font></td>
+                <!--{/def}-->
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">★ 視力</th>
+                <!--{def is_fukui_koma}-->
+                <td bgcolor="#ffffff" colspan="6">
+                    <font color="black">
+                    &nbsp;右（文字）　裸眼：&nbsp;{rval data1/R_BAREVISION_MARK}　　矯正：&nbsp;{rval data1/R_VISION_MARK}
+                        　　（数字）　裸眼：&nbsp;{rval data1/R_BAREVISION}　　矯正：&nbsp;{rval data1/R_VISION}　<LABEL for="R_VISION_CANTMEASURE">{rval data1/R_VISION_CANTMEASURE}測定困難</LABEL><br>
+                    &nbsp;左（文字）　裸眼：&nbsp;{rval data1/L_BAREVISION_MARK}　　矯正：&nbsp;{rval data1/L_VISION_MARK}
+                        　　（数字）　裸眼：&nbsp;{rval data1/L_BAREVISION}　　矯正：&nbsp;{rval data1/L_VISION}　<LABEL for="L_VISION_CANTMEASURE">{rval data1/L_VISION_CANTMEASURE}測定困難</LABEL>
+                </td>
+                <!--{/def}-->
+                <!--{def is_Hirokoudai}-->
+                <td bgcolor="#ffffff" colspan="6">
+                    <font color="black">
+                    &nbsp;右（数字）　裸眼：&nbsp;{rval data1/R_BAREVISION}　　矯正：&nbsp;{rval data1/R_VISION}　<LABEL for="R_VISION_CANTMEASURE">{rval data1/R_VISION_CANTMEASURE}測定困難</LABEL><br>
+                    &nbsp;左（数字）　裸眼：&nbsp;{rval data1/L_BAREVISION}　　矯正：&nbsp;{rval data1/L_VISION}　<LABEL for="L_VISION_CANTMEASURE">{rval data1/L_VISION_CANTMEASURE}測定困難</LABEL>
+                </td>
+                <!--{/def}-->
+                <!--{def no_fukui}-->
+                <td bgcolor="#ffffff" colspan="6">
+                    <font color="black">
+                    &nbsp;右&nbsp;&nbsp;裸眼：&nbsp;{rval data1/R_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;
+                                  矯正：&nbsp;{rval data1/R_VISION_MARK}&nbsp;&nbsp;{rval data1/R_VISION_CANTMEASURE}<LABEL for="R_VISION_CANTMEASURE">測定困難</LABEL>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    左&nbsp;&nbsp;裸眼：&nbsp;{rval data1/L_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;矯正：&nbsp;{rval data1/L_VISION_MARK}&nbsp;&nbsp;{rval data1/L_VISION_CANTMEASURE}<LABEL for="L_VISION_CANTMEASURE">測定困難</LABEL></font>
+                </td>
+                <!--{/def}-->
+            </tr>
+            <tr class="no_search" align="left">
+                <th nowrap align="right">★ 聴力</th>
+                <!--{def is_ear_otherType}-->
+                <td bgcolor="#ffffff" colspan="6">
+                    &nbsp;<font color="black">右&nbsp;{rval EAR_TITLE}&nbsp;{rval data1/R_EAR_DB_1000}　{rval data1/R_EAR_DB_4000}　&nbsp;{rval data1/R_EAR_CANTMEASURE}<LABEL for="R_EAR_CANTMEASURE">測定困難</LABEL><br>
+                                              <!--{def useSpecial_Support_School}-->
+                                              装用時&nbsp;&nbsp;平均dB：&nbsp;{rval data1/R_EAR_DB_IN}　{rval data1/R_EAR_DB_4000_IN}　状態：&nbsp;{rval data1/R_EAR_IN}<br>
+                                              <!--{/def}-->
+                                        &nbsp;左&nbsp;{rval EAR_TITLE}&nbsp;{rval data1/L_EAR_DB_1000}　{rval data1/L_EAR_DB_4000}　&nbsp;{rval data1/L_EAR_CANTMEASURE}<LABEL for="L_EAR_CANTMEASURE">測定困難</LABEL>
+                                              <!--{def useSpecial_Support_School}-->
+                                              <br>装用時&nbsp;<!--{def no_fukui_ear}-->&nbsp;平均dB：&nbsp;{rval data1/L_EAR_DB_IN}　{rval data1/L_EAR_DB_4000_IN}　<!--{/def}-->状態：&nbsp;{rval data1/L_EAR_IN}
+                                              <!--{/def}--></font>
+                                              <!--{def useEarInput}--><BR>&nbsp;&nbsp;<font color="red" style="font-size:10pt">(半角で3文字)</font><!--{/def}-->
+                </td>
+                <!--{/def}-->
+                <!--{def no_koma}-->
+                <td bgcolor="#ffffff" colspan="6">
+                    &nbsp;<font color="black">右　　<!--{def no_fukui_ear}-->&nbsp;{rval EAR_TITLE}：&nbsp;{rval data1/R_EAR_DB}　{rval data1/R_EAR_DB_4000}　<!--{/def}-->状態：&nbsp;{rval data1/R_EAR}&nbsp;{rval data1/R_EAR_CANTMEASURE}<LABEL for="R_EAR_CANTMEASURE">測定困難</LABEL><br>
+                                              <!--{def useSpecial_Support_School}-->
+                                              装用時&nbsp;<!--{def no_fukui_ear}-->&nbsp;平均dB：&nbsp;{rval data1/R_EAR_DB_IN}　{rval data1/R_EAR_DB_4000_IN}　<!--{/def}-->状態：&nbsp;{rval data1/R_EAR_IN}<br>
+                                              <!--{/def}-->
+                                        &nbsp;左　　<!--{def no_fukui_ear}-->&nbsp;{rval EAR_TITLE}：&nbsp;{rval data1/L_EAR_DB}　{rval data1/L_EAR_DB_4000}　<!--{/def}-->状態：&nbsp;{rval data1/L_EAR}&nbsp;{rval data1/L_EAR_CANTMEASURE}<LABEL for="L_EAR_CANTMEASURE">測定困難</LABEL>
+                                              <!--{def useSpecial_Support_School}-->
+                                              <br>装用時&nbsp;<!--{def no_fukui_ear}-->&nbsp;平均dB：&nbsp;{rval data1/L_EAR_DB_IN}　{rval data1/L_EAR_DB_4000_IN}　<!--{/def}-->状態：&nbsp;{rval data1/L_EAR_IN}
+                                              <!--{/def}--></font>
+                    <!--{def no_fukui_ear}--><BR>&nbsp;&nbsp;<font color="red" style="font-size:10pt">(半角で3文字)<!--{/def}--></font>
+                </td>
+                <!--{/def}-->
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ２ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan={rval rowspan2}>２</th>
+                <th width="150" nowrap align="right" colspan="2">★ 栄養状態</th>
+                <td width="*" bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/NUTRITIONCD} {rval data1/NUTRITIONCD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 脊柱・胸郭・四肢</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/SPINERIBCD} {rval data1/SPINERIBCD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 目の疾病及び異常</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/EYEDISEASECD} {rval data1/EYE_TEST_RESULT}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                                      <!--{def not_miyagiken}-->
+                                      <BR>&nbsp;&nbsp;<font color="black">色覚異常：&nbsp;{rval data1/EYEDISEASECD5}</font>
+                                      <!--{/def}--></td>
+            </tr>
+            <tr>
+                <th class="no_search" nowrap align="right" colspan="2">★ 耳鼻咽頭疾患</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data1/NOSEDISEASECD} {rval data1/NOSEDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                    &nbsp;&nbsp;耳疾患：&nbsp;{rval data1/NOSEDISEASECD5} {rval data1/NOSEDISEASECD_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                    &nbsp;&nbsp;鼻・副鼻腔疾患：&nbsp;{rval data1/NOSEDISEASECD6} {rval data1/NOSEDISEASECD_REMARK2}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                    &nbsp;&nbsp;口腔咽頭疾患・異常：&nbsp;{rval data1/NOSEDISEASECD7} {rval data1/NOSEDISEASECD_REMARK3}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 皮膚疾患</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/SKINDISEASECD} {rval data1/SKINDISEASECD_REMARK}</td>
+            </tr>
+            <!--{def DISPORDERCHG_OTHERDISEASE}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ その他疾病及び異常</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/OTHERDISEASECD}<br>
+                                                 <!--{def is_not_mie}--> &nbsp;&nbsp;{rval data1/OTHER_REMARK2}<font color="red" style="font-size:10pt">(全角で{rval data1/OTHER_REMARK2_MOJI}文字)</font><BR><!--{/def}-->
+                                                  &nbsp;&nbsp;<font color="black">指導区分：</font>&nbsp;{rval data1/OTHER_ADVISECD}&nbsp;{rval data1/OTHER_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                </td>
+            </tr>
+            <!--{/def}-->
+            <!--{def tbFilmShow}-->
+            <tr class="no_search">
+                <th width="50" nowrap rowspan="3">★ 結核</th>
+                <th width="100" nowrap align="right">X線撮影</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;<font color="black">
+                    撮影日付：{rval data1/TB_FILMDATE}&nbsp;&nbsp;
+                    画像番号：{rval data1/TB_FILMNO}<font color="red" style="font-size:10pt">(半角で{rval data1/TB_FILMNO_SIZE}文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">所見</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data1/TB_REMARKCD} {rval data1/TB_X_RAY}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                </td>
+            </tr>
+            <!--{/def}-->
+            <tr class="no_search">
+                <!--{def tbFilmUnShow}-->
+                <th width="50" nowrap>★ 結核</th>
+                <th width="100" nowrap align="right">その他検査</th>
+                <!--{/def}-->
+                <!--{def tbFilmShow}-->
+                <th nowrap align="right">その他検査</th>
+                <!--{/def}-->
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;&nbsp;<!--{def tbFilmShow}-->{rval data1/TB_OTHERTESTCD}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--{/def}-->
+                    <font color="black">{rval data1/TB_NAMECD_LABEL}：&nbsp;{rval data1/TB_NAMECD}&nbsp;<!--{def is_not_mie}-->{rval data1/TB_NAME_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font>&nbsp;<!--{/def}-->
+                    指導区分：</font>&nbsp;{rval data1/TB_ADVISECD}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap rowspan="3">★ 心臓</th>
+                <th align="right" nowrap>臨床医学的検査<br>（心電図）&nbsp;&nbsp;</th>
+                <td nowrap bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/HEART_MEDEXAM} {rval data1/HEART_MEDEXAM_REMARK}<font color="red" style="font-size:10pt">(全角で40文字)</font>
+                <!--{def is_koma}--><br>&nbsp;&nbsp;<font color="black" style="font-size:10pt">心電図No:</font>{rval data1/HEART_GRAPH_NO}<font color="red" style="font-size:10pt">(半角で12文字)</font><!--{/def}-->
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">疾病及び異常</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/HEARTDISEASECD} {rval data1/HEARTDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">管理区分</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/MANAGEMENT_DIV} {rval data1/MANAGEMENT_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ３ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan={rval rowspan3}>３</th>
+                <th width="50" nowrap rowspan="3">★ 尿</th>
+                <th width="100" align="right" nowrap>１次</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;<font color="black">蛋白：&nbsp;{rval data1/ALBUMINURIA1CD}&nbsp;&nbsp;&nbsp;&nbsp;糖：&nbsp;{rval data1/URICSUGAR1CD}&nbsp;&nbsp;&nbsp;&nbsp;潜血：&nbsp;{rval data1/URICBLEED1CD}<!--{def DISP_PH}-->&nbsp;&nbsp;&nbsp;&nbsp;ＰＨ：&nbsp;{rval data1/URICPH1}<!--{/def}--></font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">２次</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;<font color="black">蛋白：&nbsp;{rval data1/ALBUMINURIA2CD}&nbsp;&nbsp;&nbsp;&nbsp;糖：&nbsp;{rval data1/URICSUGAR2CD}&nbsp;&nbsp;&nbsp;&nbsp;潜血：&nbsp;{rval data1/URICBLEED2CD}<!--{def DISP_PH}-->&nbsp;&nbsp;&nbsp;&nbsp;ＰＨ：&nbsp;{rval data1/URICPH2}<!--{/def}--></font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">その他の検査</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/URICOTHERTEST}<font color="red" style="font-size:10pt">(全角で20文字)</font>&nbsp;&nbsp;<font color="black">指導区分：&nbsp;{rval data1/URI_ADVISECD}</font></td>
+            </tr>
+            <!--{def para}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 寄生虫卵</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data1/PARASITE}</td>
+            </tr>
+            <!--{/def}-->
+            <!--{def NO_DISPORDERCHG_OTHERDISEASE}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ その他疾病及び異常</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data1/OTHERDISEASECD}<br>
+                                                 <!--{def is_not_mie}--> &nbsp;&nbsp;{rval data1/OTHER_REMARK2}<font color="red" style="font-size:10pt">(全角で{rval data1/OTHER_REMARK2_MOJI}文字)</font><BR><!--{/def}-->
+                                                  &nbsp;&nbsp;<font color="black">指導区分：</font>&nbsp;{rval data1/OTHER_ADVISECD}&nbsp;{rval data1/OTHER_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</td>
+            </tr>
+            <!--{/def}-->
+            <!--{def is_fukui_koma}-->
+            <tr class="no_search">
+                <th nowrap>★ 貧血</th>
+                <th nowrap align="right">所見</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data1/ANEMIA_REMARK}<font color="red" style="font-size:10pt">(全角で10文字)</font>&nbsp;<font color="black">ヘモグロビン値：{rval data1/HEMOGLOBIN}</font><font color="red" style="font-size:10pt">(小数第1位)</font></td>
+            </tr>
+            <!--{/def}-->
+            <tr class="no_search">
+                <th nowrap rowspan="2">学校医</th>
+                <th nowrap align="right">★ 日付</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;&nbsp;{rval data1/DOC_DATE}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">★ 所見</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;&nbsp;<!--{def is_mie}-->{rval data1/DOC_CD} <!--{/def}-->{rval data1/DOC_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                    <!--{def is_mie}-->
+                    <font color="black">&nbsp;&nbsp;学校医&nbsp;：&nbsp;{rval data1/DOC_NAME}</font>
+                    <!--{/def}-->
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">事後措置</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data1/TREATCD}<!--{def is_not_mie}-->&nbsp;{rval data1/TREATCD2}&nbsp;{rval data1/TREAT_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font><!--{/def}--></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 備考</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data1/REMARK}&nbsp;&nbsp;<br><font color="red" style="font-size:10pt">(全角で{rval data1/REMARK_MOJI}文字)</font></td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ４ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan="4">４</th>
+                <th width="150" nowrap align="right" colspan="2">★ 既往症</th>
+                <td width="*" bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data1/MEDICAL_HISTORY1} {rval data1/MEDICAL_HISTORY2} {rval data1/MEDICAL_HISTORY3}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 診断名</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data1/DIAGNOSIS_NAME}<font color="red" style="font-size:10pt">(全角で50文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th width="50" nowrap rowspan="2">運<BR>動</th>
+                <th width="100" nowrap align="right">★ 指導区分</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data1/GUIDE_DIV}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">★ 部活動</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data1/JOINING_SPORTS_CLUB}
+                </td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!------------------------------------------------------------------------------>
+
+<!--{/def}-->
+<!--{def new2}-->
+
+<!-- グループ１ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan="4">１</th>
+                <th width="158" nowrap align="right">★ 健康診断実施日</th>
+                <td width="*" bgcolor="#ffffff" colspan="5">&nbsp;{rval data1/DATE}</td>
+            </tr>
+            <tr>
+                <th width="158" class="no_search" nowrap align="right">身長(cm)</th>
+                <td width="150" bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/HEIGHT}</td>
+                <th width="130" class="no_search" nowrap>体重(kg)</th>
+                <td width="160" bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/WEIGHT}　<!--{def sapporo}--><font color="red"><!--{/def}--><span id="std_weight">{rval data1/STD_WEIGHT}</span><!--{def sapporo}--></font><!--{/def}--></td>
+                <!--{def is_sitheight}-->
+                <th width="130" class="no_search" nowrap>座高(cm)</th>
+                <td width="*" bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/SITHEIGHT}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(小数第１位)</font></td>
+                <!--{/def}-->
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">★ 視力</th>
+                <td bgcolor="#ffffff" colspan="5">
+                    <font color="black">
+                    &nbsp;右&nbsp;&nbsp;裸眼：&nbsp;{rval data1/R_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;
+                                  矯正：&nbsp;{rval data1/R_VISION_MARK}&nbsp;&nbsp;{rval data1/R_VISION_CANTMEASURE}<LABEL for="R_VISION_CANTMEASURE">測定困難</LABEL>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    左&nbsp;&nbsp;裸眼：&nbsp;{rval data1/L_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;矯正：&nbsp;{rval data1/L_VISION_MARK}&nbsp;&nbsp;{rval data1/L_VISION_CANTMEASURE}<LABEL for="L_VISION_CANTMEASURE">測定困難</LABEL></font>
+                </td>
+            </tr>
+            <tr class="no_search" align="left">
+                <th nowrap align="right">★ 聴力</th>
+                <td bgcolor="#ffffff" colspan="5">
+                    &nbsp;<font color="black">右　　平均dB：&nbsp;{rval data1/R_EAR_DB}　{rval data1/R_EAR_DB_4000}　状態：&nbsp;{rval data1/R_EAR}&nbsp;{rval data1/R_EAR_CANTMEASURE}<LABEL for="R_EAR_CANTMEASURE">測定困難</LABEL><br>
+                    <!--{def useSpecial_Support_School}-->
+                    装用時&nbsp;平均dB：&nbsp;{rval data1/R_EAR_DB_IN}　{rval data1/R_EAR_DB_4000_IN}　状態：&nbsp;{rval data1/R_EAR_IN}&nbsp;<br>
+                    <!--{/def}-->
+                    &nbsp;左　　平均dB：&nbsp;{rval data1/L_EAR_DB}　{rval data1/L_EAR_DB_4000}　状態：&nbsp;{rval data1/L_EAR}&nbsp;{rval data1/L_EAR_CANTMEASURE}<LABEL for="L_EAR_CANTMEASURE">測定困難</LABEL>
+                    <!--{def useSpecial_Support_School}-->
+                    <br>装用時&nbsp;平均dB：&nbsp;{rval data1/L_EAR_DB_IN}　{rval data1/L_EAR_DB_4000_IN}　状態：&nbsp;{rval data1/L_EAR_IN}&nbsp;
+                    <!--{/def}--></font>
+                    <BR>&nbsp;&nbsp;<font color="red" style="font-size:10pt">(半角で3文字)</font>
+                </td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ２ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan={rval rowspan2}>２</th>
+                <th width="150" nowrap align="right" colspan="2">★ 栄養状態</th>
+                <td width="*" bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/NUTRITIONCD}</td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 脊柱・胸郭・四肢</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/SPINERIBCD} {rval data1/SPINERIBCD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 目の疾病及び異常</th>
+                <!--{def Ippan2}-->
+                <td bgcolor="#ffffff"><font color="black">&nbsp;&nbsp;{rval data1/EYEDISEASECD}&nbsp;{rval data1/EYEDISEASECD2}&nbsp;{rval data1/EYEDISEASECD3}&nbsp;{rval data1/EYEDISEASECD4}</font><BR>
+                &nbsp;&nbsp;<font color="black">1：</font>{rval data1/EYE_TEST_RESULT}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                &nbsp;&nbsp;<font color="black">2：</font>{rval data1/EYE_TEST_RESULT2}&nbsp;<font color="black">3：</font>{rval data1/EYE_TEST_RESULT3}
+                <!--{/def}-->
+                <!--{def Ippan3}-->
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/EYEDISEASECD} {rval data1/EYE_TEST_RESULT}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                <!--{/def}-->
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 耳鼻咽頭疾患</th>
+                <!--{def Ippan2}-->
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/NOSEDISEASECD}&nbsp;{rval data1/NOSEDISEASECD2}&nbsp;{rval data1/NOSEDISEASECD3}&nbsp;{rval data1/NOSEDISEASECD4}<BR>
+                &nbsp;&nbsp;<font color="black">1：</font>{rval data1/NOSEDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                &nbsp;&nbsp;<font color="black">2：</font>{rval data1/NOSEDISEASECD_REMARK2}&nbsp;<font color="black">3：</font>{rval data1/NOSEDISEASECD_REMARK3}
+                <!--{/def}-->
+                <!--{def Ippan3}-->
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/NOSEDISEASECD} {rval data1/NOSEDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                <!--{/def}-->
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 皮膚疾患</th>
+                <!--{def Ippan2}-->
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/SKINDISEASECD} {rval data1/SKINDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                <!--{/def}-->
+                <!--{def Ippan3}-->
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/SKINDISEASECD}</td>
+                <!--{/def}-->
+            </tr>
+            <!--{def tbFilmShow}-->
+            <tr class="no_search">
+                <th width="50" nowrap rowspan="3">★ 結核</th>
+                <th width="100" nowrap align="right">X線撮影</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;<font color="black">
+                    撮影日付：{rval data1/TB_FILMDATE}&nbsp;&nbsp;
+                    画像番号：{rval data1/TB_FILMNO}<font color="red" style="font-size:10pt">(半角で{rval data1/TB_FILMNO_SIZE}文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">所見</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data1/TB_REMARKCD} {rval data1/TB_X_RAY}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                </td>
+            </tr>
+            <!--{/def}-->
+            <tr class="no_search">
+                <!--{def tbFilmUnShow}-->
+                <th width="50" nowrap>★ 結核</th>
+                <th width="100" nowrap align="right">その他検査</th>
+                <!--{/def}-->
+                <!--{def tbFilmShow}-->
+                <th nowrap align="right">その他検査</th>
+                <!--{/def}-->
+                <td bgcolor="#ffffff" colspan="4">
+                    <!--{def Ippan2}-->
+                    <font color="black"><!--{def tbFilmShow}-->その他検査：&nbsp;{rval data1/TB_OTHERTESTCD}&nbsp;{rval data1/TB_OTHERTEST_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR><!--{/def}-->
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data1/TB_NAMECD_LABEL}：&nbsp;{rval data1/TB_NAMECD}&nbsp;{rval data1/TB_NAME_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                    &nbsp;&nbsp;指導区分：</font>&nbsp;{rval data1/TB_ADVISECD}&nbsp;{rval data1/TB_ADVISE_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                    <!--{/def}-->
+                    <!--{def Ippan3}-->
+                    &nbsp;&nbsp;<!--{def tbFilmShow}-->{rval data1/TB_OTHERTESTCD}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--{/def}-->
+                    <font color="black">{rval data1/TB_NAMECD_LABEL}：&nbsp;{rval data1/TB_NAMECD}&nbsp;{rval data1/TB_NAME_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font>&nbsp;
+                    &nbsp;&nbsp;指導区分：</font>&nbsp;{rval data1/TB_ADVISECD}
+                    <!--{/def}-->
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap rowspan="2">★ 心臓</th>
+                <th align="right" nowrap>臨床医学的検査<br>（心電図）&nbsp;&nbsp;</th>
+                <td nowrap bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/HEART_MEDEXAM} {rval data1/HEART_MEDEXAM_REMARK}<font color="red" style="font-size:10pt">(全角で40文字)</font>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">疾病及び異常</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/HEARTDISEASECD} {rval data1/HEARTDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ３ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan={rval rowspan3}>３</th>
+                <th width="50" nowrap rowspan="3">★ 尿</th>
+                <th width="100" align="right" nowrap>１次</th>
+                <td width="*" bgcolor="#ffffff">&nbsp;&nbsp;<font color="black">蛋白：&nbsp;{rval data1/ALBUMINURIA1CD}&nbsp;&nbsp;&nbsp;&nbsp;糖：&nbsp;{rval data1/URICSUGAR1CD}&nbsp;&nbsp;&nbsp;&nbsp;潜血：</font>&nbsp;{rval data1/URICBLEED1CD}</td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">２次</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;<font color="black">蛋白：&nbsp;{rval data1/ALBUMINURIA2CD}&nbsp;&nbsp;&nbsp;&nbsp;糖：&nbsp;{rval data1/URICSUGAR2CD}&nbsp;&nbsp;&nbsp;&nbsp;潜血：</font>&nbsp;{rval data1/URICBLEED2CD}</td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">その他検査</th>
+                <!--{def Ippan2}-->
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/URICOTHERTESTCD}</font></td>
+                <!--{/def}-->
+                <!--{def Ippan3}-->
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data1/URICOTHERTEST}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                <!--{/def}-->
+            </tr>
+            <!--{def para}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 寄生虫卵</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data1/PARASITE}</td>
+            </tr>
+            <!--{/def}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ その他疾病<BR>及び異常</th>
+                <!--{def Ippan2}-->
+                <td bgcolor="#ffffff" colspan="4">
+                &nbsp;&nbsp;{rval data1/OTHERDISEASECD}<BR>
+                &nbsp;&nbsp;<font color="black">1：</font>{rval data1/OTHER_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                &nbsp;&nbsp;<font color="black">2：</font>{rval data1/OTHER_REMARK2}<font color="red" style="font-size:10pt">(全角で{rval data1/OTHER_REMARK2_MOJI}文字)</font><BR>
+                &nbsp;&nbsp;<font color="black">3：</font>{rval data1/OTHER_REMARK3}
+                </td>
+                <!--{/def}-->
+                <!--{def Ippan3}-->
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data1/OTHERDISEASECD}<br>
+                                                  &nbsp;&nbsp;{rval data1/OTHER_REMARK2}<font color="red" style="font-size:10pt">(全角で{rval data1/OTHER_REMARK2_MOJI}文字)</font></td>
+                <!--{/def}-->
+            </tr>
+            <tr class="no_search">
+                <th nowrap>学校医</th>
+                <th nowrap align="right">★ 日付</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;&nbsp;{rval data1/DOC_DATE}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">事後措置</th>
+                <!--{def Ippan2}-->
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data1/TREATCD}<BR>
+                &nbsp;&nbsp;<font color="black">1：</font>{rval data1/TREAT_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                &nbsp;&nbsp;<font color="black">2：</font>{rval data1/TREAT_REMARK2}&nbsp;<font color="black">3：</font>{rval data1/TREAT_REMARK3}
+                <!--{/def}-->
+                <!--{def Ippan3}-->
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data1/TREATCD}&nbsp;{rval data1/TREATCD2}&nbsp;{rval data1/TREAT_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                <!--{/def}-->
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 備考</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data1/REMARK}&nbsp;&nbsp;<br><font color="red" style="font-size:10pt">(全角で{rval data1/REMARK_MOJI}文字)</font></td>
+            </tr>
+            <!--{def Ippan2}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">メッセージ</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data1/MESSAGE}&nbsp;&nbsp;<br><font color="red" style="font-size:10pt">(全角21文字X4行まで)</font></td>
+            </tr>
+            <!--{/def}-->
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ４ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan="4">４</th>
+                <th width="150" nowrap align="right" colspan="2">★ 既往症</th>
+                <td width="*" bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data1/MEDICAL_HISTORY1} {rval data1/MEDICAL_HISTORY2} {rval data1/MEDICAL_HISTORY3}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 診断名</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data1/DIAGNOSIS_NAME}<font color="red" style="font-size:10pt">(全角で50文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th width="50" nowrap rowspan="2">運<BR>動</th>
+                <th width="100" nowrap align="right">★ 指導区分</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data1/GUIDE_DIV}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">★ 部活動</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data1/JOINING_SPORTS_CLUB}
+                </td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!------------------------------------------------------------------------------>
+
+<!--{/def}-->
+
+    </td>
+    <td>
+    <!--二列目-->
+<!--{def base}-->
+
+<!-- グループ１ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan="5">１</th>
+                <th width="150" nowrap align="right" colspan="2">★ 健康診断実施日</th>
+                <td width="*" bgcolor="#ffffff" colspan="5">&nbsp;{rval data2/DATE}</td>
+            </tr>
+            <tr>
+                <th width="150" class="no_search" nowrap align="right" colspan="2">身長(cm)</th>
+                <td width="150" bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/HEIGHT}</td>
+                <th width="130" class="no_search" nowrap>体重(kg)</th>
+                <td width="160" bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/WEIGHT}　<!--{def sapporo}--><font color="red"><!--{/def}--><span id="std_weight">{rval data2/STD_WEIGHT}</span><!--{def sapporo}--></font><!--{/def}--></td>
+                <!--{def is_sitheight}-->
+                <th width="130" class="no_search" nowrap>座高(cm)</th>
+                <td width="*" bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/SITHEIGHT}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(小数第１位)</font></td>
+                <!--{/def}-->
+            </tr>
+            <tr class="no_search" align="left">
+                <th width="50" nowrap align="right" rowspan="2">★ 視力</th>
+                <th width="100" align="right" nowrap>数字<font style="font-size:0.8em">(半角4文字)</font></th>
+                <td bgcolor="#ffffff" colspan="5">
+                    <font color="black">
+                    &nbsp;右&nbsp;&nbsp;裸眼：&nbsp;{rval data2/R_BAREVISION}&nbsp;&nbsp;矯正：&nbsp;{rval data2/R_VISION}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="font-size:7pt">&nbsp;&nbsp;</font>
+                    左&nbsp;&nbsp;裸眼：&nbsp;{rval data2/L_BAREVISION}&nbsp;&nbsp;矯正：&nbsp;{rval data2/L_VISION}</font>
+                    <!-- (Ａ：1.0以上; Ｂ：1.0未満0.7以上; Ｃ：0.7未満0.3以上; Ｄ：0.3未満)-->
+                        </font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th width="100" align="right" nowrap>文字</th>
+                <td bgcolor="#ffffff" colspan="5">
+                    <font color="black">
+                    &nbsp;右&nbsp;&nbsp;裸眼：&nbsp;{rval data2/R_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;
+                                  矯正：&nbsp;{rval data2/R_VISION_MARK}&nbsp;&nbsp;{rval data2/R_VISION_CANTMEASURE}<LABEL for="R_VISION_CANTMEASURE">測定困難</LABEL>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    左&nbsp;&nbsp;裸眼：&nbsp;{rval data2/L_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;矯正：&nbsp;{rval data2/L_VISION_MARK}&nbsp;{rval data2/L_VISION_CANTMEASURE}<LABEL for="L_VISION_CANTMEASURE">測定困難</LABEL></font>
+                </td>
+            </tr>
+            <tr class="no_search" align="left">
+                <th nowrap align="right" colspan="2">★ 聴力</th>
+                <td bgcolor="#ffffff" colspan="5">
+                    &nbsp;<font color="black">右　　平均dB：&nbsp;{rval data2/R_EAR_DB}　{rval data2/R_EAR_DB_4000}　状態：&nbsp;{rval data2/R_EAR}&nbsp;{rval data2/R_EAR_CANTMEASURE}<LABEL for="R_EAR_CANTMEASURE">測定困難</LABEL><br>
+                                              <!--{def useSpecial_Support_School}-->
+                                              装用時&nbsp;平均dB：&nbsp;{rval data2/R_EAR_DB_IN}　{rval data2/R_EAR_DB_4000_IN}　状態：&nbsp;{rval data2/R_EAR_IN}&nbsp;<br>
+                                              <!--{/def}-->
+                                        &nbsp;左　　平均dB：&nbsp;{rval data2/L_EAR_DB}　{rval data2/L_EAR_DB_4000}　状態：&nbsp;{rval data2/L_EAR}&nbsp;{rval data2/L_EAR_CANTMEASURE}<LABEL for="L_EAR_CANTMEASURE">測定困難</LABEL>
+                                              <!--{def useSpecial_Support_School}-->
+                                              <br>装用時&nbsp;平均dB：&nbsp;{rval data2/L_EAR_DB_IN}　{rval data2/L_EAR_DB_4000_IN}　状態：&nbsp;{rval data2/L_EAR_IN}&nbsp;
+                                              <!--{/def}--></font>
+                    <BR>&nbsp;&nbsp;<font color="red" style="font-size:10pt">(半角で3文字)</font>
+                </td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ２ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan={rval rowspan2}>２</th>
+                <th width="50" nowrap rowspan="3">★ 尿</th>
+                <th width="100" align="right" nowrap>１次</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;<font color="black">蛋白：&nbsp;{rval data2/ALBUMINURIA1CD}&nbsp;&nbsp;&nbsp;&nbsp;糖：&nbsp;{rval data2/URICSUGAR1CD}&nbsp;&nbsp;&nbsp;&nbsp;潜血：</font>&nbsp;{rval data2/URICBLEED1CD}</td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">２次</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;<font color="black">蛋白：&nbsp;{rval data2/ALBUMINURIA2CD}&nbsp;&nbsp;&nbsp;&nbsp;糖：&nbsp;{rval data2/URICSUGAR2CD}&nbsp;&nbsp;&nbsp;&nbsp;潜血：</font>&nbsp;{rval data2/URICBLEED2CD}</td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">その他の検査</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/URICOTHERTEST}<font color="red" style="font-size:10pt">(全角で20文字)</font>&nbsp;&nbsp;<font color="black">指導区分：&nbsp;{rval data2/URI_ADVISECD}</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 栄養状態</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/NUTRITIONCD}</td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 目の疾病及び異常</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/EYEDISEASECD} {rval data2/EYE_TEST_RESULT}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 脊柱・胸郭・四肢</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/SPINERIBCD} {rval data2/SPINERIBCD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 耳鼻咽頭疾患</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/NOSEDISEASECD} {rval data2/NOSEDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 皮膚疾患</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/SKINDISEASECD}</td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap rowspan="3">★ 心臓</th>
+                <th align="right" nowrap>臨床医学的検査</th>
+                <td nowrap bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/HEART_MEDEXAM} {rval data2/HEART_MEDEXAM_REMARK}<font color="red" style="font-size:10pt">(全角で40文字)</font>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">疾病及び異常</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/HEARTDISEASECD} {rval data2/HEARTDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">管理区分</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/MANAGEMENT_DIV}</td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ３ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <!--{def tbFilmShow}-->
+            <tr class="no_search">
+                <th width="5" nowrap rowspan={rval rowspan3}>３</th>
+                <th width="50" nowrap rowspan="3">結<BR>核</th>
+                <th width="100" nowrap align="right">★ X線撮影</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;<font color="black">
+                    撮影日付：{rval data2/TB_FILMDATE}&nbsp;&nbsp;
+                    画像番号：{rval data2/TB_FILMNO}<font color="red" style="font-size:10pt">(半角で{rval data2/TB_FILMNO_SIZE}文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">所見</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data2/TB_REMARKCD} {rval data2/TB_X_RAY}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                </td>
+            </tr>
+            <!--{/def}-->
+            <tr class="no_search">
+                <!--{def tbFilmUnShow}-->
+                <th width="5" nowrap rowspan={rval rowspan3}>３</th>
+                <th width="50" nowrap>★ 結核</th>
+                <th width="100" nowrap align="right">その他検査</th>
+                <!--{/def}-->
+                <!--{def tbFilmShow}-->
+                <th nowrap align="right">その他検査</th>
+                <!--{/def}-->
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;&nbsp;<!--{def tbFilmShow}-->{rval data2/TB_OTHERTESTCD}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--{/def}-->
+                    <font color="black">{rval data2/TB_NAMECD_LABEL}：&nbsp;{rval data2/TB_NAMECD}&nbsp;{rval data2/TB_NAME_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font>&nbsp;
+                    指導区分：</font>&nbsp;{rval data2/TB_ADVISECD}
+                </td>
+            </tr>
+            <!--{def para}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 寄生虫卵</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data2/PARASITE}</td>
+            </tr>
+            <!--{/def}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ その他疾病及び異常</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data2/OTHERDISEASECD}<br>
+                                                  &nbsp;&nbsp;{rval data2/OTHER_REMARK2}<font color="red" style="font-size:10pt">(全角で{rval data2/OTHER_REMARK2_MOJI}文字)</font><br>
+                                                  &nbsp;&nbsp;<font color="black">指導区分：&nbsp;{rval data2/OTHER_ADVISECD}</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap rowspan="2">学校医</th>
+                <th nowrap align="right">★ 日付</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;&nbsp;{rval data2/DOC_DATE}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">★ 所見</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;&nbsp;{rval data2/DOC_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 備考</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data2/REMARK}&nbsp;&nbsp;<br><font color="red" style="font-size:10pt">(全角で{rval data2/REMARK_MOJI}文字)</font></td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ４ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan="4">４</th>
+                <th width="150" nowrap align="right" colspan="2">★ 既往症</th>
+                <td width="*" bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data2/MEDICAL_HISTORY1} {rval data2/MEDICAL_HISTORY2} {rval data2/MEDICAL_HISTORY3}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 診断名</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data2/DIAGNOSIS_NAME}<font color="red" style="font-size:10pt">(全角で50文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th width="50" nowrap rowspan="2">運<BR>動</th>
+                <th width="100" nowrap align="right">★ 指導区分</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data2/GUIDE_DIV}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">★ 部活動</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data2/JOINING_SPORTS_CLUB}
+                </td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!------------------------------------------------------------------------------>
+
+<!--{/def}-->
+<!--{def new}-->
+
+<!-- グループ１ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan="5">１</th>
+                <th width="158" nowrap align="right">★ 健康診断実施日</th>
+                <td width="*" bgcolor="#ffffff" colspan="6">&nbsp;{rval data2/DATE}</td>
+            </tr>
+            <tr>
+                <th width="158" class="no_search" nowrap align="right">身長(cm)</th>
+                <td width="150" bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/HEIGHT}</td>
+                <th width="130" class="no_search" nowrap>体重(kg)</th>
+                <td width="160" bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/WEIGHT}　<!--{def sapporo}--><font color="red"><!--{/def}--><span id="std_weight">{rval data2/STD_WEIGHT}</span><!--{def sapporo}--></font><!--{/def}--></td>
+                <!--{def is_fukui_saga_koma}-->
+                <th width="130" class="no_search" nowrap>肥満度</th>
+                <td width="*" bgcolor="#ffffff" colspan="2"><span id="OBESITY_INDEX">{rval data2/OBESITY_INDEX}</span>&nbsp;&nbsp;{rval data2/NO_PRINT_OBESITY_INDEX}<LABEL for="NO_PRINT_OBESITY_INDEX">帳票印字無し</LABEL></td>
+                <!--{/def}-->
+                <!--{def unHyouji_SITHEIGHT}-->
+                <th width="130" class="no_search" nowrap>肥満度</th>
+                <td width="*" bgcolor="#ffffff" colspan="2"><span id="OBESITY_INDEX">{rval data2/OBESITY_INDEX}</span></td>
+                <!--{/def}-->
+                <!--{def is_sitheight}-->
+                <th width="130" class="no_search" nowrap>座高(cm)</th>
+                <td width="*" bgcolor="#ffffff" colspan="2">&nbsp;&nbsp;{rval data2/SITHEIGHT}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(小数第１位)</font></td>
+                <!--{/def}-->
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">★ 視力</th>
+                <!--{def is_fukui_koma}-->
+                <td bgcolor="#ffffff" colspan="6">
+                    <font color="black">
+                    &nbsp;右（文字）　裸眼：&nbsp;{rval data2/R_BAREVISION_MARK}　　矯正：&nbsp;{rval data2/R_VISION_MARK}
+                        　　（数字）　裸眼：&nbsp;{rval data2/R_BAREVISION}　　矯正：&nbsp;{rval data2/R_VISION}　<LABEL for="R_VISION_CANTMEASURE">{rval data2/R_VISION_CANTMEASURE}測定困難</LABEL><br>
+                    &nbsp;左（文字）　裸眼：&nbsp;{rval data2/L_BAREVISION_MARK}　　矯正：&nbsp;{rval data2/L_VISION_MARK}
+                        　　（数字）　裸眼：&nbsp;{rval data2/L_BAREVISION}　　矯正：&nbsp;{rval data2/L_VISION}　<LABEL for="L_VISION_CANTMEASURE">{rval data2/L_VISION_CANTMEASURE}測定困難</LABEL>
+                </td>
+                <!--{/def}-->
+                <!--{def is_Hirokoudai}-->
+                <td bgcolor="#ffffff" colspan="6">
+                    <font color="black">
+                    &nbsp;右（数字）　裸眼：&nbsp;{rval data2/R_BAREVISION}　　矯正：&nbsp;{rval data2/R_VISION}　<LABEL for="R_VISION_CANTMEASURE">{rval data2/R_VISION_CANTMEASURE}測定困難</LABEL><br>
+                    &nbsp;左（数字）　裸眼：&nbsp;{rval data2/L_BAREVISION}　　矯正：&nbsp;{rval data2/L_VISION}　<LABEL for="L_VISION_CANTMEASURE">{rval data2/L_VISION_CANTMEASURE}測定困難</LABEL>
+                </td>
+                <!--{/def}-->
+                <!--{def no_fukui}-->
+                <td bgcolor="#ffffff" colspan="6">
+                    <font color="black">
+                    &nbsp;右&nbsp;&nbsp;裸眼：&nbsp;{rval data2/R_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;
+                                  矯正：&nbsp;{rval data2/R_VISION_MARK}&nbsp;&nbsp;{rval data2/R_VISION_CANTMEASURE}<LABEL for="R_VISION_CANTMEASURE">測定困難</LABEL>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    左&nbsp;&nbsp;裸眼：&nbsp;{rval data2/L_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;矯正：&nbsp;{rval data2/L_VISION_MARK}&nbsp;&nbsp;{rval data2/L_VISION_CANTMEASURE}<LABEL for="L_VISION_CANTMEASURE">測定困難</LABEL></font>
+                </td>
+                <!--{/def}-->
+            </tr>
+            <tr class="no_search" align="left">
+                <th nowrap align="right">★ 聴力</th>
+                <!--{def is_ear_otherType}-->
+                <td bgcolor="#ffffff" colspan="6">
+                    &nbsp;<font color="black">右&nbsp;{rval EAR_TITLE}&nbsp;{rval data2/R_EAR_DB_1000}　{rval data2/R_EAR_DB_4000}　&nbsp;{rval data2/R_EAR_CANTMEASURE}<LABEL for="R_EAR_CANTMEASURE">測定困難</LABEL><br>
+                                              <!--{def useSpecial_Support_School}-->
+                                              装用時&nbsp;&nbsp;平均dB：&nbsp;{rval data2/R_EAR_DB_IN}　{rval data2/R_EAR_DB_4000_IN}　状態：&nbsp;{rval data2/R_EAR_IN}<br>
+                                              <!--{/def}-->
+                                        &nbsp;左&nbsp;{rval EAR_TITLE}&nbsp;{rval data2/L_EAR_DB_1000}　{rval data2/L_EAR_DB_4000}　&nbsp;{rval data2/L_EAR_CANTMEASURE}<LABEL for="L_EAR_CANTMEASURE">測定困難</LABEL>
+                                              <!--{def useSpecial_Support_School}-->
+                                              <br>装用時&nbsp;<!--{def no_fukui_ear}-->&nbsp;平均dB：&nbsp;{rval data2/L_EAR_DB_IN}　{rval data2/L_EAR_DB_4000_IN}　<!--{/def}-->状態：&nbsp;{rval data2/L_EAR_IN}
+                                              <!--{/def}--></font>
+                                              <!--{def useEarInput}--><BR>&nbsp;&nbsp;<font color="red" style="font-size:10pt">(半角で3文字)</font><!--{/def}-->
+                </td>
+                <!--{/def}-->
+                <!--{def no_koma}-->
+                <td bgcolor="#ffffff" colspan="6">
+                    &nbsp;<font color="black">右　　<!--{def no_fukui_ear}-->&nbsp;{rval EAR_TITLE}：&nbsp;{rval data2/R_EAR_DB}　{rval data2/R_EAR_DB_4000}　<!--{/def}-->状態：&nbsp;{rval data2/R_EAR}&nbsp;{rval data2/R_EAR_CANTMEASURE}<LABEL for="R_EAR_CANTMEASURE">測定困難</LABEL><br>
+                                              <!--{def useSpecial_Support_School}-->
+                                              装用時&nbsp;<!--{def no_fukui_ear}-->&nbsp;平均dB：&nbsp;{rval data2/R_EAR_DB_IN}　{rval data2/R_EAR_DB_4000_IN}　<!--{/def}-->状態：&nbsp;{rval data2/R_EAR_IN}<br>
+                                              <!--{/def}-->
+                                        &nbsp;左　　<!--{def no_fukui_ear}-->&nbsp;{rval EAR_TITLE}：&nbsp;{rval data2/L_EAR_DB}　{rval data2/L_EAR_DB_4000}　<!--{/def}-->状態：&nbsp;{rval data2/L_EAR}&nbsp;{rval data2/L_EAR_CANTMEASURE}<LABEL for="L_EAR_CANTMEASURE">測定困難</LABEL>
+                                              <!--{def useSpecial_Support_School}-->
+                                              <br>装用時&nbsp;<!--{def no_fukui_ear}-->&nbsp;平均dB：&nbsp;{rval data2/L_EAR_DB_IN}　{rval data2/L_EAR_DB_4000_IN}　<!--{/def}-->状態：&nbsp;{rval data2/L_EAR_IN}
+                                              <!--{/def}--></font>
+                    <!--{def no_fukui_ear}--><BR>&nbsp;&nbsp;<font color="red" style="font-size:10pt">(半角で3文字)<!--{/def}--></font>
+                </td>
+                <!--{/def}-->
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ２ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan={rval rowspan2}>２</th>
+                <th width="150" nowrap align="right" colspan="2">★ 栄養状態</th>
+                <td width="*" bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/NUTRITIONCD} {rval data2/NUTRITIONCD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 脊柱・胸郭・四肢</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/SPINERIBCD} {rval data2/SPINERIBCD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 目の疾病及び異常</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/EYEDISEASECD} {rval data2/EYE_TEST_RESULT}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                                      <!--{def not_miyagiken}-->
+                                      <BR>&nbsp;&nbsp;<font color="black">色覚異常：&nbsp;{rval data2/EYEDISEASECD5}</font>
+                                      <!--{/def}--></td>
+            </tr>
+            <tr>
+                <th class="no_search" nowrap align="right" colspan="2">★ 耳鼻咽頭疾患</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data2/NOSEDISEASECD} {rval data2/NOSEDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                    &nbsp;&nbsp;耳疾患：&nbsp;{rval data2/NOSEDISEASECD5} {rval data2/NOSEDISEASECD_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                    &nbsp;&nbsp;鼻・副鼻腔疾患：&nbsp;{rval data2/NOSEDISEASECD6} {rval data2/NOSEDISEASECD_REMARK2}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                    &nbsp;&nbsp;口腔咽頭疾患・異常：&nbsp;{rval data2/NOSEDISEASECD7} {rval data2/NOSEDISEASECD_REMARK3}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 皮膚疾患</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/SKINDISEASECD} {rval data2/SKINDISEASECD_REMARK}</td>
+            </tr>
+            <!--{def DISPORDERCHG_OTHERDISEASE}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ その他疾病及び異常</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/OTHERDISEASECD}<br>
+                                                 <!--{def is_not_mie}--> &nbsp;&nbsp;{rval data2/OTHER_REMARK2}<font color="red" style="font-size:10pt">(全角で{rval data2/OTHER_REMARK2_MOJI}文字)</font><BR><!--{/def}-->
+                                                  &nbsp;&nbsp;<font color="black">指導区分：</font>&nbsp;{rval data2/OTHER_ADVISECD}&nbsp;{rval data2/OTHER_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                </td>
+            </tr>
+            <!--{/def}-->
+            <!--{def tbFilmShow}-->
+            <tr class="no_search">
+                <th width="50" nowrap rowspan="3">★ 結核</th>
+                <th width="100" nowrap align="right">X線撮影</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;<font color="black">
+                    撮影日付：{rval data2/TB_FILMDATE}&nbsp;&nbsp;
+                    画像番号：{rval data2/TB_FILMNO}<font color="red" style="font-size:10pt">(半角で{rval data2/TB_FILMNO_SIZE}文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">所見</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data2/TB_REMARKCD} {rval data2/TB_X_RAY}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                </td>
+            </tr>
+            <!--{/def}-->
+            <tr class="no_search">
+                <!--{def tbFilmUnShow}-->
+                <th width="50" nowrap>★ 結核</th>
+                <th width="100" nowrap align="right">その他検査</th>
+                <!--{/def}-->
+                <!--{def tbFilmShow}-->
+                <th nowrap align="right">その他検査</th>
+                <!--{/def}-->
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;&nbsp;<!--{def tbFilmShow}-->{rval data2/TB_OTHERTESTCD}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--{/def}-->
+                    <font color="black">{rval data2/TB_NAMECD_LABEL}：&nbsp;{rval data2/TB_NAMECD}&nbsp;<!--{def is_not_mie}-->{rval data2/TB_NAME_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font>&nbsp;<!--{/def}-->
+                    指導区分：</font>&nbsp;{rval data2/TB_ADVISECD}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap rowspan="3">★ 心臓</th>
+                <th align="right" nowrap>臨床医学的検査<br>（心電図）&nbsp;&nbsp;</th>
+                <td nowrap bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/HEART_MEDEXAM} {rval data2/HEART_MEDEXAM_REMARK}<font color="red" style="font-size:10pt">(全角で40文字)</font>
+                <!--{def is_koma}--><br>&nbsp;&nbsp;<font color="black" style="font-size:10pt">心電図No:</font>{rval data2/HEART_GRAPH_NO}<font color="red" style="font-size:10pt">(半角で12文字)</font><!--{/def}-->
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">疾病及び異常</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/HEARTDISEASECD} {rval data2/HEARTDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">管理区分</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/MANAGEMENT_DIV} {rval data2/MANAGEMENT_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ３ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan={rval rowspan3}>３</th>
+                <th width="50" nowrap rowspan="3">★ 尿</th>
+                <th width="100" align="right" nowrap>１次</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;<font color="black">蛋白：&nbsp;{rval data2/ALBUMINURIA1CD}&nbsp;&nbsp;&nbsp;&nbsp;糖：&nbsp;{rval data2/URICSUGAR1CD}&nbsp;&nbsp;&nbsp;&nbsp;潜血：&nbsp;{rval data2/URICBLEED1CD}<!--{def DISP_PH}-->&nbsp;&nbsp;&nbsp;&nbsp;ＰＨ：&nbsp;{rval data2/URICPH1}<!--{/def}--></font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">２次</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;<font color="black">蛋白：&nbsp;{rval data2/ALBUMINURIA2CD}&nbsp;&nbsp;&nbsp;&nbsp;糖：&nbsp;{rval data2/URICSUGAR2CD}&nbsp;&nbsp;&nbsp;&nbsp;潜血：&nbsp;{rval data2/URICBLEED2CD}<!--{def DISP_PH}-->&nbsp;&nbsp;&nbsp;&nbsp;ＰＨ：&nbsp;{rval data2/URICPH2}<!--{/def}--></font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">その他の検査</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/URICOTHERTEST}<font color="red" style="font-size:10pt">(全角で20文字)</font>&nbsp;&nbsp;<font color="black">指導区分：&nbsp;{rval data2/URI_ADVISECD}</font></td>
+            </tr>
+            <!--{def para}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 寄生虫卵</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data2/PARASITE}</td>
+            </tr>
+            <!--{/def}-->
+            <!--{def NO_DISPORDERCHG_OTHERDISEASE}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ その他疾病及び異常</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data2/OTHERDISEASECD}<br>
+                                                 <!--{def is_not_mie}--> &nbsp;&nbsp;{rval data2/OTHER_REMARK2}<font color="red" style="font-size:10pt">(全角で{rval data2/OTHER_REMARK2_MOJI}文字)</font><BR><!--{/def}-->
+                                                  &nbsp;&nbsp;<font color="black">指導区分：</font>&nbsp;{rval data2/OTHER_ADVISECD}&nbsp;{rval data2/OTHER_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</td>
+            </tr>
+            <!--{/def}-->
+            <!--{def is_fukui_koma}-->
+            <tr class="no_search">
+                <th nowrap>★ 貧血</th>
+                <th nowrap align="right">所見</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data2/ANEMIA_REMARK}<font color="red" style="font-size:10pt">(全角で10文字)</font>&nbsp;<font color="black">ヘモグロビン値：{rval data2/HEMOGLOBIN}</font><font color="red" style="font-size:10pt">(小数第1位)</font></td>
+            </tr>
+            <!--{/def}-->
+            <tr class="no_search">
+                <th nowrap rowspan="2">学校医</th>
+                <th nowrap align="right">★ 日付</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;&nbsp;{rval data2/DOC_DATE}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">★ 所見</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;&nbsp;<!--{def is_mie}-->{rval data2/DOC_CD} <!--{/def}-->{rval data2/DOC_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                    <!--{def is_mie}-->
+                    <font color="black">&nbsp;&nbsp;学校医&nbsp;：&nbsp;{rval data2/DOC_NAME}</font>
+                    <!--{/def}-->
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">事後措置</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data2/TREATCD}<!--{def is_not_mie}-->&nbsp;{rval data2/TREATCD2}&nbsp;{rval data2/TREAT_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font><!--{/def}--></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 備考</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data2/REMARK}&nbsp;&nbsp;<br><font color="red" style="font-size:10pt">(全角で{rval data2/REMARK_MOJI}文字)</font></td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ４ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan="4">４</th>
+                <th width="150" nowrap align="right" colspan="2">★ 既往症</th>
+                <td width="*" bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data2/MEDICAL_HISTORY1} {rval data2/MEDICAL_HISTORY2} {rval data2/MEDICAL_HISTORY3}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 診断名</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data2/DIAGNOSIS_NAME}<font color="red" style="font-size:10pt">(全角で50文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th width="50" nowrap rowspan="2">運<BR>動</th>
+                <th width="100" nowrap align="right">★ 指導区分</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data2/GUIDE_DIV}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">★ 部活動</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data2/JOINING_SPORTS_CLUB}
+                </td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!------------------------------------------------------------------------------>
+
+<!--{/def}-->
+<!--{def new2}-->
+
+<!-- グループ１ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan="4">１</th>
+                <th width="158" nowrap align="right">★ 健康診断実施日</th>
+                <td width="*" bgcolor="#ffffff" colspan="5">&nbsp;{rval data2/DATE}</td>
+            </tr>
+            <tr>
+                <th width="158" class="no_search" nowrap align="right">身長(cm)</th>
+                <td width="150" bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/HEIGHT}</td>
+                <th width="130" class="no_search" nowrap>体重(kg)</th>
+                <td width="160" bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/WEIGHT}　<!--{def sapporo}--><font color="red"><!--{/def}--><span id="std_weight">{rval data2/STD_WEIGHT}</span><!--{def sapporo}--></font><!--{/def}--></td>
+                <!--{def is_sitheight}-->
+                <th width="130" class="no_search" nowrap>座高(cm)</th>
+                <td width="*" bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/SITHEIGHT}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(小数第１位)</font></td>
+                <!--{/def}-->
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">★ 視力</th>
+                <td bgcolor="#ffffff" colspan="5">
+                    <font color="black">
+                    &nbsp;右&nbsp;&nbsp;裸眼：&nbsp;{rval data2/R_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;
+                                  矯正：&nbsp;{rval data2/R_VISION_MARK}&nbsp;&nbsp;{rval data2/R_VISION_CANTMEASURE}<LABEL for="R_VISION_CANTMEASURE">測定困難</LABEL>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    左&nbsp;&nbsp;裸眼：&nbsp;{rval data2/L_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;矯正：&nbsp;{rval data2/L_VISION_MARK}&nbsp;&nbsp;{rval data2/L_VISION_CANTMEASURE}<LABEL for="L_VISION_CANTMEASURE">測定困難</LABEL></font>
+                </td>
+            </tr>
+            <tr class="no_search" align="left">
+                <th nowrap align="right">★ 聴力</th>
+                <td bgcolor="#ffffff" colspan="5">
+                    &nbsp;<font color="black">右　　平均dB：&nbsp;{rval data2/R_EAR_DB}　{rval data2/R_EAR_DB_4000}　状態：&nbsp;{rval data2/R_EAR}&nbsp;{rval data2/R_EAR_CANTMEASURE}<LABEL for="R_EAR_CANTMEASURE">測定困難</LABEL><br>
+                    <!--{def useSpecial_Support_School}-->
+                    装用時&nbsp;平均dB：&nbsp;{rval data2/R_EAR_DB_IN}　{rval data2/R_EAR_DB_4000_IN}　状態：&nbsp;{rval data2/R_EAR_IN}&nbsp;<br>
+                    <!--{/def}-->
+                    &nbsp;左　　平均dB：&nbsp;{rval data2/L_EAR_DB}　{rval data2/L_EAR_DB_4000}　状態：&nbsp;{rval data2/L_EAR}&nbsp;{rval data2/L_EAR_CANTMEASURE}<LABEL for="L_EAR_CANTMEASURE">測定困難</LABEL>
+                    <!--{def useSpecial_Support_School}-->
+                    <br>装用時&nbsp;平均dB：&nbsp;{rval data2/L_EAR_DB_IN}　{rval data2/L_EAR_DB_4000_IN}　状態：&nbsp;{rval data2/L_EAR_IN}&nbsp;
+                    <!--{/def}--></font>
+                    <BR>&nbsp;&nbsp;<font color="red" style="font-size:10pt">(半角で3文字)</font>
+                </td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ２ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan={rval rowspan2}>２</th>
+                <th width="150" nowrap align="right" colspan="2">★ 栄養状態</th>
+                <td width="*" bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/NUTRITIONCD}</td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 脊柱・胸郭・四肢</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/SPINERIBCD} {rval data2/SPINERIBCD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 目の疾病及び異常</th>
+                <!--{def Ippan2}-->
+                <td bgcolor="#ffffff"><font color="black">&nbsp;&nbsp;{rval data2/EYEDISEASECD}&nbsp;{rval data2/EYEDISEASECD2}&nbsp;{rval data2/EYEDISEASECD3}&nbsp;{rval data2/EYEDISEASECD4}</font><BR>
+                &nbsp;&nbsp;<font color="black">1：</font>{rval data2/EYE_TEST_RESULT}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                &nbsp;&nbsp;<font color="black">2：</font>{rval data2/EYE_TEST_RESULT2}&nbsp;<font color="black">3：</font>{rval data2/EYE_TEST_RESULT3}
+                <!--{/def}-->
+                <!--{def Ippan3}-->
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/EYEDISEASECD} {rval data2/EYE_TEST_RESULT}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                <!--{/def}-->
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 耳鼻咽頭疾患</th>
+                <!--{def Ippan2}-->
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/NOSEDISEASECD}&nbsp;{rval data2/NOSEDISEASECD2}&nbsp;{rval data2/NOSEDISEASECD3}&nbsp;{rval data2/NOSEDISEASECD4}<BR>
+                &nbsp;&nbsp;<font color="black">1：</font>{rval data2/NOSEDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                &nbsp;&nbsp;<font color="black">2：</font>{rval data2/NOSEDISEASECD_REMARK2}&nbsp;<font color="black">3：</font>{rval data2/NOSEDISEASECD_REMARK3}
+                <!--{/def}-->
+                <!--{def Ippan3}-->
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/NOSEDISEASECD} {rval data2/NOSEDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                <!--{/def}-->
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 皮膚疾患</th>
+                <!--{def Ippan2}-->
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/SKINDISEASECD} {rval data2/SKINDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                <!--{/def}-->
+                <!--{def Ippan3}-->
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/SKINDISEASECD}</td>
+                <!--{/def}-->
+            </tr>
+            <!--{def tbFilmShow}-->
+            <tr class="no_search">
+                <th width="50" nowrap rowspan="3">★ 結核</th>
+                <th width="100" nowrap align="right">X線撮影</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;<font color="black">
+                    撮影日付：{rval data2/TB_FILMDATE}&nbsp;&nbsp;
+                    画像番号：{rval data2/TB_FILMNO}<font color="red" style="font-size:10pt">(半角で{rval data2/TB_FILMNO_SIZE}文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">所見</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data2/TB_REMARKCD} {rval data2/TB_X_RAY}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                </td>
+            </tr>
+            <!--{/def}-->
+            <tr class="no_search">
+                <!--{def tbFilmUnShow}-->
+                <th width="50" nowrap>★ 結核</th>
+                <th width="100" nowrap align="right">その他検査</th>
+                <!--{/def}-->
+                <!--{def tbFilmShow}-->
+                <th nowrap align="right">その他検査</th>
+                <!--{/def}-->
+                <td bgcolor="#ffffff" colspan="4">
+                    <!--{def Ippan2}-->
+                    <font color="black"><!--{def tbFilmShow}-->その他検査：&nbsp;{rval data2/TB_OTHERTESTCD}&nbsp;{rval data2/TB_OTHERTEST_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR><!--{/def}-->
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data2/TB_NAMECD_LABEL}：&nbsp;{rval data2/TB_NAMECD}&nbsp;{rval data2/TB_NAME_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                    &nbsp;&nbsp;指導区分：</font>&nbsp;{rval data2/TB_ADVISECD}&nbsp;{rval data2/TB_ADVISE_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                    <!--{/def}-->
+                    <!--{def Ippan3}-->
+                    &nbsp;&nbsp;<!--{def tbFilmShow}-->{rval data2/TB_OTHERTESTCD}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--{/def}-->
+                    <font color="black">{rval data2/TB_NAMECD_LABEL}：&nbsp;{rval data2/TB_NAMECD}&nbsp;{rval data2/TB_NAME_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font>&nbsp;
+                    &nbsp;&nbsp;指導区分：</font>&nbsp;{rval data2/TB_ADVISECD}
+                    <!--{/def}-->
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap rowspan="2">★ 心臓</th>
+                <th align="right" nowrap>臨床医学的検査<br>（心電図）&nbsp;&nbsp;</th>
+                <td nowrap bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/HEART_MEDEXAM} {rval data2/HEART_MEDEXAM_REMARK}<font color="red" style="font-size:10pt">(全角で40文字)</font>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">疾病及び異常</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/HEARTDISEASECD} {rval data2/HEARTDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ３ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan={rval rowspan3}>３</th>
+                <th width="50" nowrap rowspan="3">★ 尿</th>
+                <th width="100" align="right" nowrap>１次</th>
+                <td width="*" bgcolor="#ffffff">&nbsp;&nbsp;<font color="black">蛋白：&nbsp;{rval data2/ALBUMINURIA1CD}&nbsp;&nbsp;&nbsp;&nbsp;糖：&nbsp;{rval data2/URICSUGAR1CD}&nbsp;&nbsp;&nbsp;&nbsp;潜血：</font>&nbsp;{rval data2/URICBLEED1CD}</td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">２次</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;<font color="black">蛋白：&nbsp;{rval data2/ALBUMINURIA2CD}&nbsp;&nbsp;&nbsp;&nbsp;糖：&nbsp;{rval data2/URICSUGAR2CD}&nbsp;&nbsp;&nbsp;&nbsp;潜血：</font>&nbsp;{rval data2/URICBLEED2CD}</td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">その他検査</th>
+                <!--{def Ippan2}-->
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/URICOTHERTESTCD}</font></td>
+                <!--{/def}-->
+                <!--{def Ippan3}-->
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data2/URICOTHERTEST}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                <!--{/def}-->
+            </tr>
+            <!--{def para}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 寄生虫卵</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data2/PARASITE}</td>
+            </tr>
+            <!--{/def}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ その他疾病<BR>及び異常</th>
+                <!--{def Ippan2}-->
+                <td bgcolor="#ffffff" colspan="4">
+                &nbsp;&nbsp;{rval data2/OTHERDISEASECD}<BR>
+                &nbsp;&nbsp;<font color="black">1：</font>{rval data2/OTHER_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                &nbsp;&nbsp;<font color="black">2：</font>{rval data2/OTHER_REMARK2}<font color="red" style="font-size:10pt">(全角で{rval data2/OTHER_REMARK2_MOJI}文字)</font><BR>
+                &nbsp;&nbsp;<font color="black">3：</font>{rval data2/OTHER_REMARK3}
+                </td>
+                <!--{/def}-->
+                <!--{def Ippan3}-->
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data2/OTHERDISEASECD}<br>
+                                                  &nbsp;&nbsp;{rval data2/OTHER_REMARK2}<font color="red" style="font-size:10pt">(全角で{rval data2/OTHER_REMARK2_MOJI}文字)</font></td>
+                <!--{/def}-->
+            </tr>
+            <tr class="no_search">
+                <th nowrap>学校医</th>
+                <th nowrap align="right">★ 日付</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;&nbsp;{rval data2/DOC_DATE}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">事後措置</th>
+                <!--{def Ippan2}-->
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data2/TREATCD}<BR>
+                &nbsp;&nbsp;<font color="black">1：</font>{rval data2/TREAT_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                &nbsp;&nbsp;<font color="black">2：</font>{rval data2/TREAT_REMARK2}&nbsp;<font color="black">3：</font>{rval data2/TREAT_REMARK3}
+                <!--{/def}-->
+                <!--{def Ippan3}-->
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data2/TREATCD}&nbsp;{rval data2/TREATCD2}&nbsp;{rval data2/TREAT_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                <!--{/def}-->
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 備考</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data2/REMARK}&nbsp;&nbsp;<br><font color="red" style="font-size:10pt">(全角で{rval data2/REMARK_MOJI}文字)</font></td>
+            </tr>
+            <!--{def Ippan2}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">メッセージ</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data2/MESSAGE}&nbsp;&nbsp;<br><font color="red" style="font-size:10pt">(全角21文字X4行まで)</font></td>
+            </tr>
+            <!--{/def}-->
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ４ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan="4">４</th>
+                <th width="150" nowrap align="right" colspan="2">★ 既往症</th>
+                <td width="*" bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data2/MEDICAL_HISTORY1} {rval data2/MEDICAL_HISTORY2} {rval data2/MEDICAL_HISTORY3}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 診断名</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data2/DIAGNOSIS_NAME}<font color="red" style="font-size:10pt">(全角で50文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th width="50" nowrap rowspan="2">運<BR>動</th>
+                <th width="100" nowrap align="right">★ 指導区分</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data2/GUIDE_DIV}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">★ 部活動</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data2/JOINING_SPORTS_CLUB}
+                </td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!------------------------------------------------------------------------------>
+
+<!--{/def}-->
+    </td>
+    <td>
+    <!--三列目-->
+<!--{def base}-->
+
+<!-- グループ１ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan="5">１</th>
+                <th width="150" nowrap align="right" colspan="2">★ 健康診断実施日</th>
+                <td width="*" bgcolor="#ffffff" colspan="5">&nbsp;{rval data3/DATE}</td>
+            </tr>
+            <tr>
+                <th width="150" class="no_search" nowrap align="right" colspan="2">身長(cm)</th>
+                <td width="150" bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/HEIGHT}</td>
+                <th width="130" class="no_search" nowrap>体重(kg)</th>
+                <td width="160" bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/WEIGHT}　<!--{def sapporo}--><font color="red"><!--{/def}--><span id="std_weight">{rval data3/STD_WEIGHT}</span><!--{def sapporo}--></font><!--{/def}--></td>
+                <!--{def is_sitheight}-->
+                <th width="130" class="no_search" nowrap>座高(cm)</th>
+                <td width="*" bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/SITHEIGHT}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(小数第１位)</font></td>
+                <!--{/def}-->
+            </tr>
+            <tr class="no_search" align="left">
+                <th width="50" nowrap align="right" rowspan="2">★ 視力</th>
+                <th width="100" align="right" nowrap>数字<font style="font-size:0.8em">(半角4文字)</font></th>
+                <td bgcolor="#ffffff" colspan="5">
+                    <font color="black">
+                    &nbsp;右&nbsp;&nbsp;裸眼：&nbsp;{rval data3/R_BAREVISION}&nbsp;&nbsp;矯正：&nbsp;{rval data3/R_VISION}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="font-size:7pt">&nbsp;&nbsp;</font>
+                    左&nbsp;&nbsp;裸眼：&nbsp;{rval data3/L_BAREVISION}&nbsp;&nbsp;矯正：&nbsp;{rval data3/L_VISION}</font>
+                    <!-- (Ａ：1.0以上; Ｂ：1.0未満0.7以上; Ｃ：0.7未満0.3以上; Ｄ：0.3未満)-->
+                        </font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th width="100" align="right" nowrap>文字</th>
+                <td bgcolor="#ffffff" colspan="5">
+                    <font color="black">
+                    &nbsp;右&nbsp;&nbsp;裸眼：&nbsp;{rval data3/R_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;
+                                  矯正：&nbsp;{rval data3/R_VISION_MARK}&nbsp;&nbsp;{rval data3/R_VISION_CANTMEASURE}<LABEL for="R_VISION_CANTMEASURE">測定困難</LABEL>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    左&nbsp;&nbsp;裸眼：&nbsp;{rval data3/L_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;矯正：&nbsp;{rval data3/L_VISION_MARK}&nbsp;{rval data3/L_VISION_CANTMEASURE}<LABEL for="L_VISION_CANTMEASURE">測定困難</LABEL></font>
+                </td>
+            </tr>
+            <tr class="no_search" align="left">
+                <th nowrap align="right" colspan="2">★ 聴力</th>
+                <td bgcolor="#ffffff" colspan="5">
+                    &nbsp;<font color="black">右　　平均dB：&nbsp;{rval data3/R_EAR_DB}　{rval data3/R_EAR_DB_4000}　状態：&nbsp;{rval data3/R_EAR}&nbsp;{rval data3/R_EAR_CANTMEASURE}<LABEL for="R_EAR_CANTMEASURE">測定困難</LABEL><br>
+                                              <!--{def useSpecial_Support_School}-->
+                                              装用時&nbsp;平均dB：&nbsp;{rval data3/R_EAR_DB_IN}　{rval data3/R_EAR_DB_4000_IN}　状態：&nbsp;{rval data3/R_EAR_IN}&nbsp;<br>
+                                              <!--{/def}-->
+                                        &nbsp;左　　平均dB：&nbsp;{rval data3/L_EAR_DB}　{rval data3/L_EAR_DB_4000}　状態：&nbsp;{rval data3/L_EAR}&nbsp;{rval data3/L_EAR_CANTMEASURE}<LABEL for="L_EAR_CANTMEASURE">測定困難</LABEL>
+                                              <!--{def useSpecial_Support_School}-->
+                                              <br>装用時&nbsp;平均dB：&nbsp;{rval data3/L_EAR_DB_IN}　{rval data3/L_EAR_DB_4000_IN}　状態：&nbsp;{rval data3/L_EAR_IN}&nbsp;
+                                              <!--{/def}--></font>
+                    <BR>&nbsp;&nbsp;<font color="red" style="font-size:10pt">(半角で3文字)</font>
+                </td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ２ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan={rval rowspan2}>２</th>
+                <th width="50" nowrap rowspan="3">★ 尿</th>
+                <th width="100" align="right" nowrap>１次</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;<font color="black">蛋白：&nbsp;{rval data3/ALBUMINURIA1CD}&nbsp;&nbsp;&nbsp;&nbsp;糖：&nbsp;{rval data3/URICSUGAR1CD}&nbsp;&nbsp;&nbsp;&nbsp;潜血：</font>&nbsp;{rval data3/URICBLEED1CD}</td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">２次</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;<font color="black">蛋白：&nbsp;{rval data3/ALBUMINURIA2CD}&nbsp;&nbsp;&nbsp;&nbsp;糖：&nbsp;{rval data3/URICSUGAR2CD}&nbsp;&nbsp;&nbsp;&nbsp;潜血：</font>&nbsp;{rval data3/URICBLEED2CD}</td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">その他の検査</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/URICOTHERTEST}<font color="red" style="font-size:10pt">(全角で20文字)</font>&nbsp;&nbsp;<font color="black">指導区分：&nbsp;{rval data3/URI_ADVISECD}</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 栄養状態</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/NUTRITIONCD}</td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 目の疾病及び異常</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/EYEDISEASECD} {rval data3/EYE_TEST_RESULT}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 脊柱・胸郭・四肢</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/SPINERIBCD} {rval data3/SPINERIBCD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 耳鼻咽頭疾患</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/NOSEDISEASECD} {rval data3/NOSEDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 皮膚疾患</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/SKINDISEASECD}</td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap rowspan="3">★ 心臓</th>
+                <th align="right" nowrap>臨床医学的検査</th>
+                <td nowrap bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/HEART_MEDEXAM} {rval data3/HEART_MEDEXAM_REMARK}<font color="red" style="font-size:10pt">(全角で40文字)</font>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">疾病及び異常</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/HEARTDISEASECD} {rval data3/HEARTDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">管理区分</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/MANAGEMENT_DIV}</td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ３ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <!--{def tbFilmShow}-->
+            <tr class="no_search">
+                <th width="5" nowrap rowspan={rval rowspan3}>３</th>
+                <th width="50" nowrap rowspan="3">結<BR>核</th>
+                <th width="100" nowrap align="right">★ X線撮影</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;<font color="black">
+                    撮影日付：{rval data3/TB_FILMDATE}&nbsp;&nbsp;
+                    画像番号：{rval data3/TB_FILMNO}<font color="red" style="font-size:10pt">(半角で{rval data3/TB_FILMNO_SIZE}文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">所見</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data3/TB_REMARKCD} {rval data3/TB_X_RAY}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                </td>
+            </tr>
+            <!--{/def}-->
+            <tr class="no_search">
+                <!--{def tbFilmUnShow}-->
+                <th width="5" nowrap rowspan={rval rowspan3}>３</th>
+                <th width="50" nowrap>★ 結核</th>
+                <th width="100" nowrap align="right">その他検査</th>
+                <!--{/def}-->
+                <!--{def tbFilmShow}-->
+                <th nowrap align="right">その他検査</th>
+                <!--{/def}-->
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;&nbsp;<!--{def tbFilmShow}-->{rval data3/TB_OTHERTESTCD}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--{/def}-->
+                    <font color="black">{rval data3/TB_NAMECD_LABEL}：&nbsp;{rval data3/TB_NAMECD}&nbsp;{rval data3/TB_NAME_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font>&nbsp;
+                    指導区分：</font>&nbsp;{rval data3/TB_ADVISECD}
+                </td>
+            </tr>
+            <!--{def para}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 寄生虫卵</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data3/PARASITE}</td>
+            </tr>
+            <!--{/def}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ その他疾病及び異常</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data3/OTHERDISEASECD}<br>
+                                                  &nbsp;&nbsp;{rval data3/OTHER_REMARK2}<font color="red" style="font-size:10pt">(全角で{rval data3/OTHER_REMARK2_MOJI}文字)</font><br>
+                                                  &nbsp;&nbsp;<font color="black">指導区分：&nbsp;{rval data3/OTHER_ADVISECD}</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap rowspan="2">学校医</th>
+                <th nowrap align="right">★ 日付</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;&nbsp;{rval data3/DOC_DATE}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">★ 所見</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;&nbsp;{rval data3/DOC_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 備考</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data3/REMARK}&nbsp;&nbsp;<br><font color="red" style="font-size:10pt">(全角で{rval data3/REMARK_MOJI}文字)</font></td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ４ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan="4">４</th>
+                <th width="150" nowrap align="right" colspan="2">★ 既往症</th>
+                <td width="*" bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data3/MEDICAL_HISTORY1} {rval data3/MEDICAL_HISTORY2} {rval data3/MEDICAL_HISTORY3}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 診断名</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data3/DIAGNOSIS_NAME}<font color="red" style="font-size:10pt">(全角で50文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th width="50" nowrap rowspan="2">運<BR>動</th>
+                <th width="100" nowrap align="right">★ 指導区分</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data3/GUIDE_DIV}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">★ 部活動</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data3/JOINING_SPORTS_CLUB}
+                </td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!------------------------------------------------------------------------------>
+
+<!--{/def}-->
+<!--{def new}-->
+
+<!-- グループ１ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan="5">１</th>
+                <th width="158" nowrap align="right">★ 健康診断実施日</th>
+                <td width="*" bgcolor="#ffffff" colspan="6">&nbsp;{rval data3/DATE}</td>
+            </tr>
+            <tr>
+                <th width="158" class="no_search" nowrap align="right">身長(cm)</th>
+                <td width="150" bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/HEIGHT}</td>
+                <th width="130" class="no_search" nowrap>体重(kg)</th>
+                <td width="160" bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/WEIGHT}　<!--{def sapporo}--><font color="red"><!--{/def}--><span id="std_weight">{rval data3/STD_WEIGHT}</span><!--{def sapporo}--></font><!--{/def}--></td>
+                <!--{def is_fukui_saga_koma}-->
+                <th width="130" class="no_search" nowrap>肥満度</th>
+                <td width="*" bgcolor="#ffffff" colspan="2"><span id="OBESITY_INDEX">{rval data3/OBESITY_INDEX}</span>&nbsp;&nbsp;{rval data3/NO_PRINT_OBESITY_INDEX}<LABEL for="NO_PRINT_OBESITY_INDEX">帳票印字無し</LABEL></td>
+                <!--{/def}-->
+                <!--{def unHyouji_SITHEIGHT}-->
+                <th width="130" class="no_search" nowrap>肥満度</th>
+                <td width="*" bgcolor="#ffffff" colspan="2"><span id="OBESITY_INDEX">{rval data3/OBESITY_INDEX}</span></td>
+                <!--{/def}-->
+                <!--{def is_sitheight}-->
+                <th width="130" class="no_search" nowrap>座高(cm)</th>
+                <td width="*" bgcolor="#ffffff" colspan="2">&nbsp;&nbsp;{rval data3/SITHEIGHT}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(小数第１位)</font></td>
+                <!--{/def}-->
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">★ 視力</th>
+                <!--{def is_fukui_koma}-->
+                <td bgcolor="#ffffff" colspan="6">
+                    <font color="black">
+                    &nbsp;右（文字）　裸眼：&nbsp;{rval data3/R_BAREVISION_MARK}　　矯正：&nbsp;{rval data3/R_VISION_MARK}
+                        　　（数字）　裸眼：&nbsp;{rval data3/R_BAREVISION}　　矯正：&nbsp;{rval data3/R_VISION}　<LABEL for="R_VISION_CANTMEASURE">{rval data3/R_VISION_CANTMEASURE}測定困難</LABEL><br>
+                    &nbsp;左（文字）　裸眼：&nbsp;{rval data3/L_BAREVISION_MARK}　　矯正：&nbsp;{rval data3/L_VISION_MARK}
+                        　　（数字）　裸眼：&nbsp;{rval data3/L_BAREVISION}　　矯正：&nbsp;{rval data3/L_VISION}　<LABEL for="L_VISION_CANTMEASURE">{rval data3/L_VISION_CANTMEASURE}測定困難</LABEL>
+                </td>
+                <!--{/def}-->
+                <!--{def is_Hirokoudai}-->
+                <td bgcolor="#ffffff" colspan="6">
+                    <font color="black">
+                    &nbsp;右（数字）　裸眼：&nbsp;{rval data3/R_BAREVISION}　　矯正：&nbsp;{rval data3/R_VISION}　<LABEL for="R_VISION_CANTMEASURE">{rval data3/R_VISION_CANTMEASURE}測定困難</LABEL><br>
+                    &nbsp;左（数字）　裸眼：&nbsp;{rval data3/L_BAREVISION}　　矯正：&nbsp;{rval data3/L_VISION}　<LABEL for="L_VISION_CANTMEASURE">{rval data3/L_VISION_CANTMEASURE}測定困難</LABEL>
+                </td>
+                <!--{/def}-->
+                <!--{def no_fukui}-->
+                <td bgcolor="#ffffff" colspan="6">
+                    <font color="black">
+                    &nbsp;右&nbsp;&nbsp;裸眼：&nbsp;{rval data3/R_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;
+                                  矯正：&nbsp;{rval data3/R_VISION_MARK}&nbsp;&nbsp;{rval data3/R_VISION_CANTMEASURE}<LABEL for="R_VISION_CANTMEASURE">測定困難</LABEL>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    左&nbsp;&nbsp;裸眼：&nbsp;{rval data3/L_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;矯正：&nbsp;{rval data3/L_VISION_MARK}&nbsp;&nbsp;{rval data3/L_VISION_CANTMEASURE}<LABEL for="L_VISION_CANTMEASURE">測定困難</LABEL></font>
+                </td>
+                <!--{/def}-->
+            </tr>
+            <tr class="no_search" align="left">
+                <th nowrap align="right">★ 聴力</th>
+                <!--{def is_ear_otherType}-->
+                <td bgcolor="#ffffff" colspan="6">
+                    &nbsp;<font color="black">右&nbsp;{rval EAR_TITLE}&nbsp;{rval data3/R_EAR_DB_1000}　{rval data3/R_EAR_DB_4000}　&nbsp;{rval data3/R_EAR_CANTMEASURE}<LABEL for="R_EAR_CANTMEASURE">測定困難</LABEL><br>
+                                              <!--{def useSpecial_Support_School}-->
+                                              装用時&nbsp;&nbsp;平均dB：&nbsp;{rval data3/R_EAR_DB_IN}　{rval data3/R_EAR_DB_4000_IN}　状態：&nbsp;{rval data3/R_EAR_IN}<br>
+                                              <!--{/def}-->
+                                        &nbsp;左&nbsp;{rval EAR_TITLE}&nbsp;{rval data3/L_EAR_DB_1000}　{rval data3/L_EAR_DB_4000}　&nbsp;{rval data3/L_EAR_CANTMEASURE}<LABEL for="L_EAR_CANTMEASURE">測定困難</LABEL>
+                                              <!--{def useSpecial_Support_School}-->
+                                              <br>装用時&nbsp;<!--{def no_fukui_ear}-->&nbsp;平均dB：&nbsp;{rval data3/L_EAR_DB_IN}　{rval data3/L_EAR_DB_4000_IN}　<!--{/def}-->状態：&nbsp;{rval data3/L_EAR_IN}
+                                              <!--{/def}--></font>
+                                              <!--{def useEarInput}--><BR>&nbsp;&nbsp;<font color="red" style="font-size:10pt">(半角で3文字)</font><!--{/def}-->
+                </td>
+                <!--{/def}-->
+                <!--{def no_koma}-->
+                <td bgcolor="#ffffff" colspan="6">
+                    &nbsp;<font color="black">右　　<!--{def no_fukui_ear}-->&nbsp;{rval EAR_TITLE}：&nbsp;{rval data3/R_EAR_DB}　{rval data3/R_EAR_DB_4000}　<!--{/def}-->状態：&nbsp;{rval data3/R_EAR}&nbsp;{rval data3/R_EAR_CANTMEASURE}<LABEL for="R_EAR_CANTMEASURE">測定困難</LABEL><br>
+                                              <!--{def useSpecial_Support_School}-->
+                                              装用時&nbsp;<!--{def no_fukui_ear}-->&nbsp;平均dB：&nbsp;{rval data3/R_EAR_DB_IN}　{rval data3/R_EAR_DB_4000_IN}　<!--{/def}-->状態：&nbsp;{rval data3/R_EAR_IN}<br>
+                                              <!--{/def}-->
+                                        &nbsp;左　　<!--{def no_fukui_ear}-->&nbsp;{rval EAR_TITLE}：&nbsp;{rval data3/L_EAR_DB}　{rval data3/L_EAR_DB_4000}　<!--{/def}-->状態：&nbsp;{rval data3/L_EAR}&nbsp;{rval data3/L_EAR_CANTMEASURE}<LABEL for="L_EAR_CANTMEASURE">測定困難</LABEL>
+                                              <!--{def useSpecial_Support_School}-->
+                                              <br>装用時&nbsp;<!--{def no_fukui_ear}-->&nbsp;平均dB：&nbsp;{rval data3/L_EAR_DB_IN}　{rval data3/L_EAR_DB_4000_IN}　<!--{/def}-->状態：&nbsp;{rval data3/L_EAR_IN}
+                                              <!--{/def}--></font>
+                    <!--{def no_fukui_ear}--><BR>&nbsp;&nbsp;<font color="red" style="font-size:10pt">(半角で3文字)<!--{/def}--></font>
+                </td>
+                <!--{/def}-->
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ２ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan={rval rowspan2}>２</th>
+                <th width="150" nowrap align="right" colspan="2">★ 栄養状態</th>
+                <td width="*" bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/NUTRITIONCD} {rval data3/NUTRITIONCD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 脊柱・胸郭・四肢</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/SPINERIBCD} {rval data3/SPINERIBCD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 目の疾病及び異常</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/EYEDISEASECD} {rval data3/EYE_TEST_RESULT}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                                      <!--{def not_miyagiken}-->
+                                      <BR>&nbsp;&nbsp;<font color="black">色覚異常：&nbsp;{rval data3/EYEDISEASECD5}</font>
+                                      <!--{/def}--></td>
+            </tr>
+            <tr>
+                <th class="no_search" nowrap align="right" colspan="2">★ 耳鼻咽頭疾患</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data3/NOSEDISEASECD} {rval data3/NOSEDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                    &nbsp;&nbsp;耳疾患：&nbsp;{rval data3/NOSEDISEASECD5} {rval data3/NOSEDISEASECD_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                    &nbsp;&nbsp;鼻・副鼻腔疾患：&nbsp;{rval data3/NOSEDISEASECD6} {rval data3/NOSEDISEASECD_REMARK2}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                    &nbsp;&nbsp;口腔咽頭疾患・異常：&nbsp;{rval data3/NOSEDISEASECD7} {rval data3/NOSEDISEASECD_REMARK3}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 皮膚疾患</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/SKINDISEASECD} {rval data3/SKINDISEASECD_REMARK}</td>
+            </tr>
+            <!--{def DISPORDERCHG_OTHERDISEASE}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ その他疾病及び異常</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/OTHERDISEASECD}<br>
+                                                 <!--{def is_not_mie}--> &nbsp;&nbsp;{rval data3/OTHER_REMARK2}<font color="red" style="font-size:10pt">(全角で{rval data3/OTHER_REMARK2_MOJI}文字)</font><BR><!--{/def}-->
+                                                  &nbsp;&nbsp;<font color="black">指導区分：</font>&nbsp;{rval data3/OTHER_ADVISECD}&nbsp;{rval data3/OTHER_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                </td>
+            </tr>
+            <!--{/def}-->
+            <!--{def tbFilmShow}-->
+            <tr class="no_search">
+                <th width="50" nowrap rowspan="3">★ 結核</th>
+                <th width="100" nowrap align="right">X線撮影</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;<font color="black">
+                    撮影日付：{rval data3/TB_FILMDATE}&nbsp;&nbsp;
+                    画像番号：{rval data3/TB_FILMNO}<font color="red" style="font-size:10pt">(半角で{rval data3/TB_FILMNO_SIZE}文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">所見</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data3/TB_REMARKCD} {rval data3/TB_X_RAY}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                </td>
+            </tr>
+            <!--{/def}-->
+            <tr class="no_search">
+                <!--{def tbFilmUnShow}-->
+                <th width="50" nowrap>★ 結核</th>
+                <th width="100" nowrap align="right">その他検査</th>
+                <!--{/def}-->
+                <!--{def tbFilmShow}-->
+                <th nowrap align="right">その他検査</th>
+                <!--{/def}-->
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;&nbsp;<!--{def tbFilmShow}-->{rval data3/TB_OTHERTESTCD}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--{/def}-->
+                    <font color="black">{rval data3/TB_NAMECD_LABEL}：&nbsp;{rval data3/TB_NAMECD}&nbsp;<!--{def is_not_mie}-->{rval data3/TB_NAME_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font>&nbsp;<!--{/def}-->
+                    指導区分：</font>&nbsp;{rval data3/TB_ADVISECD}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap rowspan="3">★ 心臓</th>
+                <th align="right" nowrap>臨床医学的検査<br>（心電図）&nbsp;&nbsp;</th>
+                <td nowrap bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/HEART_MEDEXAM} {rval data3/HEART_MEDEXAM_REMARK}<font color="red" style="font-size:10pt">(全角で40文字)</font>
+                <!--{def is_koma}--><br>&nbsp;&nbsp;<font color="black" style="font-size:10pt">心電図No:</font>{rval data3/HEART_GRAPH_NO}<font color="red" style="font-size:10pt">(半角で12文字)</font><!--{/def}-->
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">疾病及び異常</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/HEARTDISEASECD} {rval data3/HEARTDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">管理区分</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/MANAGEMENT_DIV} {rval data3/MANAGEMENT_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ３ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan={rval rowspan3}>３</th>
+                <th width="50" nowrap rowspan="3">★ 尿</th>
+                <th width="100" align="right" nowrap>１次</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;<font color="black">蛋白：&nbsp;{rval data3/ALBUMINURIA1CD}&nbsp;&nbsp;&nbsp;&nbsp;糖：&nbsp;{rval data3/URICSUGAR1CD}&nbsp;&nbsp;&nbsp;&nbsp;潜血：&nbsp;{rval data3/URICBLEED1CD}<!--{def DISP_PH}-->&nbsp;&nbsp;&nbsp;&nbsp;ＰＨ：&nbsp;{rval data3/URICPH1}<!--{/def}--></font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">２次</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;<font color="black">蛋白：&nbsp;{rval data3/ALBUMINURIA2CD}&nbsp;&nbsp;&nbsp;&nbsp;糖：&nbsp;{rval data3/URICSUGAR2CD}&nbsp;&nbsp;&nbsp;&nbsp;潜血：&nbsp;{rval data3/URICBLEED2CD}<!--{def DISP_PH}-->&nbsp;&nbsp;&nbsp;&nbsp;ＰＨ：&nbsp;{rval data3/URICPH2}<!--{/def}--></font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">その他の検査</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/URICOTHERTEST}<font color="red" style="font-size:10pt">(全角で20文字)</font>&nbsp;&nbsp;<font color="black">指導区分：&nbsp;{rval data3/URI_ADVISECD}</font></td>
+            </tr>
+            <!--{def para}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 寄生虫卵</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data3/PARASITE}</td>
+            </tr>
+            <!--{/def}-->
+            <!--{def NO_DISPORDERCHG_OTHERDISEASE}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ その他疾病及び異常</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data3/OTHERDISEASECD}<br>
+                                                 <!--{def is_not_mie}--> &nbsp;&nbsp;{rval data3/OTHER_REMARK2}<font color="red" style="font-size:10pt">(全角で{rval data3/OTHER_REMARK2_MOJI}文字)</font><BR><!--{/def}-->
+                                                  &nbsp;&nbsp;<font color="black">指導区分：</font>&nbsp;{rval data3/OTHER_ADVISECD}&nbsp;{rval data3/OTHER_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</td>
+            </tr>
+            <!--{/def}-->
+            <!--{def is_fukui_koma}-->
+            <tr class="no_search">
+                <th nowrap>★ 貧血</th>
+                <th nowrap align="right">所見</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data3/ANEMIA_REMARK}<font color="red" style="font-size:10pt">(全角で10文字)</font>&nbsp;<font color="black">ヘモグロビン値：{rval data3/HEMOGLOBIN}</font><font color="red" style="font-size:10pt">(小数第1位)</font></td>
+            </tr>
+            <!--{/def}-->
+            <tr class="no_search">
+                <th nowrap rowspan="2">学校医</th>
+                <th nowrap align="right">★ 日付</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;&nbsp;{rval data3/DOC_DATE}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">★ 所見</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;&nbsp;<!--{def is_mie}-->{rval data3/DOC_CD} <!--{/def}-->{rval data3/DOC_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                    <!--{def is_mie}-->
+                    <font color="black">&nbsp;&nbsp;学校医&nbsp;：&nbsp;{rval data3/DOC_NAME}</font>
+                    <!--{/def}-->
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">事後措置</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data3/TREATCD}<!--{def is_not_mie}-->&nbsp;{rval data3/TREATCD2}&nbsp;{rval data3/TREAT_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font><!--{/def}--></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 備考</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data3/REMARK}&nbsp;&nbsp;<br><font color="red" style="font-size:10pt">(全角で{rval data3/REMARK_MOJI}文字)</font></td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ４ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan="4">４</th>
+                <th width="150" nowrap align="right" colspan="2">★ 既往症</th>
+                <td width="*" bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data3/MEDICAL_HISTORY1} {rval data3/MEDICAL_HISTORY2} {rval data3/MEDICAL_HISTORY3}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 診断名</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data3/DIAGNOSIS_NAME}<font color="red" style="font-size:10pt">(全角で50文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th width="50" nowrap rowspan="2">運<BR>動</th>
+                <th width="100" nowrap align="right">★ 指導区分</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data3/GUIDE_DIV}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">★ 部活動</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data3/JOINING_SPORTS_CLUB}
+                </td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!------------------------------------------------------------------------------>
+
+<!--{/def}-->
+<!--{def new2}-->
+
+<!-- グループ１ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan="4">１</th>
+                <th width="158" nowrap align="right">★ 健康診断実施日</th>
+                <td width="*" bgcolor="#ffffff" colspan="5">&nbsp;{rval data3/DATE}</td>
+            </tr>
+            <tr>
+                <th width="158" class="no_search" nowrap align="right">身長(cm)</th>
+                <td width="150" bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/HEIGHT}</td>
+                <th width="130" class="no_search" nowrap>体重(kg)</th>
+                <td width="160" bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/WEIGHT}　<!--{def sapporo}--><font color="red"><!--{/def}--><span id="std_weight">{rval data3/STD_WEIGHT}</span><!--{def sapporo}--></font><!--{/def}--></td>
+                <!--{def is_sitheight}-->
+                <th width="130" class="no_search" nowrap>座高(cm)</th>
+                <td width="*" bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/SITHEIGHT}&nbsp;&nbsp;<font color="red" style="font-size:10pt">(小数第１位)</font></td>
+                <!--{/def}-->
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">★ 視力</th>
+                <td bgcolor="#ffffff" colspan="5">
+                    <font color="black">
+                    &nbsp;右&nbsp;&nbsp;裸眼：&nbsp;{rval data3/R_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;
+                                  矯正：&nbsp;{rval data3/R_VISION_MARK}&nbsp;&nbsp;{rval data3/R_VISION_CANTMEASURE}<LABEL for="R_VISION_CANTMEASURE">測定困難</LABEL>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    左&nbsp;&nbsp;裸眼：&nbsp;{rval data3/L_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;矯正：&nbsp;{rval data3/L_VISION_MARK}&nbsp;&nbsp;{rval data3/L_VISION_CANTMEASURE}<LABEL for="L_VISION_CANTMEASURE">測定困難</LABEL></font>
+                </td>
+            </tr>
+            <tr class="no_search" align="left">
+                <th nowrap align="right">★ 聴力</th>
+                <td bgcolor="#ffffff" colspan="5">
+                    &nbsp;<font color="black">右　　平均dB：&nbsp;{rval data3/R_EAR_DB}　{rval data3/R_EAR_DB_4000}　状態：&nbsp;{rval data3/R_EAR}&nbsp;{rval data3/R_EAR_CANTMEASURE}<LABEL for="R_EAR_CANTMEASURE">測定困難</LABEL><br>
+                    <!--{def useSpecial_Support_School}-->
+                    装用時&nbsp;平均dB：&nbsp;{rval data3/R_EAR_DB_IN}　{rval data3/R_EAR_DB_4000_IN}　状態：&nbsp;{rval data3/R_EAR_IN}&nbsp;<br>
+                    <!--{/def}-->
+                    &nbsp;左　　平均dB：&nbsp;{rval data3/L_EAR_DB}　{rval data3/L_EAR_DB_4000}　状態：&nbsp;{rval data3/L_EAR}&nbsp;{rval data3/L_EAR_CANTMEASURE}<LABEL for="L_EAR_CANTMEASURE">測定困難</LABEL>
+                    <!--{def useSpecial_Support_School}-->
+                    <br>装用時&nbsp;平均dB：&nbsp;{rval data3/L_EAR_DB_IN}　{rval data3/L_EAR_DB_4000_IN}　状態：&nbsp;{rval data3/L_EAR_IN}&nbsp;
+                    <!--{/def}--></font>
+                    <BR>&nbsp;&nbsp;<font color="red" style="font-size:10pt">(半角で3文字)</font>
+                </td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ２ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan={rval rowspan2}>２</th>
+                <th width="150" nowrap align="right" colspan="2">★ 栄養状態</th>
+                <td width="*" bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/NUTRITIONCD}</td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 脊柱・胸郭・四肢</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/SPINERIBCD} {rval data3/SPINERIBCD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 目の疾病及び異常</th>
+                <!--{def Ippan2}-->
+                <td bgcolor="#ffffff"><font color="black">&nbsp;&nbsp;{rval data3/EYEDISEASECD}&nbsp;{rval data3/EYEDISEASECD2}&nbsp;{rval data3/EYEDISEASECD3}&nbsp;{rval data3/EYEDISEASECD4}</font><BR>
+                &nbsp;&nbsp;<font color="black">1：</font>{rval data3/EYE_TEST_RESULT}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                &nbsp;&nbsp;<font color="black">2：</font>{rval data3/EYE_TEST_RESULT2}&nbsp;<font color="black">3：</font>{rval data3/EYE_TEST_RESULT3}
+                <!--{/def}-->
+                <!--{def Ippan3}-->
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/EYEDISEASECD} {rval data3/EYE_TEST_RESULT}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                <!--{/def}-->
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 耳鼻咽頭疾患</th>
+                <!--{def Ippan2}-->
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/NOSEDISEASECD}&nbsp;{rval data3/NOSEDISEASECD2}&nbsp;{rval data3/NOSEDISEASECD3}&nbsp;{rval data3/NOSEDISEASECD4}<BR>
+                &nbsp;&nbsp;<font color="black">1：</font>{rval data3/NOSEDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                &nbsp;&nbsp;<font color="black">2：</font>{rval data3/NOSEDISEASECD_REMARK2}&nbsp;<font color="black">3：</font>{rval data3/NOSEDISEASECD_REMARK3}
+                <!--{/def}-->
+                <!--{def Ippan3}-->
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/NOSEDISEASECD} {rval data3/NOSEDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                <!--{/def}-->
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 皮膚疾患</th>
+                <!--{def Ippan2}-->
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/SKINDISEASECD} {rval data3/SKINDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                <!--{/def}-->
+                <!--{def Ippan3}-->
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/SKINDISEASECD}</td>
+                <!--{/def}-->
+            </tr>
+            <!--{def tbFilmShow}-->
+            <tr class="no_search">
+                <th width="50" nowrap rowspan="3">★ 結核</th>
+                <th width="100" nowrap align="right">X線撮影</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;<font color="black">
+                    撮影日付：{rval data3/TB_FILMDATE}&nbsp;&nbsp;
+                    画像番号：{rval data3/TB_FILMNO}<font color="red" style="font-size:10pt">(半角で{rval data3/TB_FILMNO_SIZE}文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">所見</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data3/TB_REMARKCD} {rval data3/TB_X_RAY}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                </td>
+            </tr>
+            <!--{/def}-->
+            <tr class="no_search">
+                <!--{def tbFilmUnShow}-->
+                <th width="50" nowrap>★ 結核</th>
+                <th width="100" nowrap align="right">その他検査</th>
+                <!--{/def}-->
+                <!--{def tbFilmShow}-->
+                <th nowrap align="right">その他検査</th>
+                <!--{/def}-->
+                <td bgcolor="#ffffff" colspan="4">
+                    <!--{def Ippan2}-->
+                    <font color="black"><!--{def tbFilmShow}-->その他検査：&nbsp;{rval data3/TB_OTHERTESTCD}&nbsp;{rval data3/TB_OTHERTEST_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR><!--{/def}-->
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data3/TB_NAMECD_LABEL}：&nbsp;{rval data3/TB_NAMECD}&nbsp;{rval data3/TB_NAME_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                    &nbsp;&nbsp;指導区分：</font>&nbsp;{rval data3/TB_ADVISECD}&nbsp;{rval data3/TB_ADVISE_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                    <!--{/def}-->
+                    <!--{def Ippan3}-->
+                    &nbsp;&nbsp;<!--{def tbFilmShow}-->{rval data3/TB_OTHERTESTCD}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--{/def}-->
+                    <font color="black">{rval data3/TB_NAMECD_LABEL}：&nbsp;{rval data3/TB_NAMECD}&nbsp;{rval data3/TB_NAME_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font>&nbsp;
+                    &nbsp;&nbsp;指導区分：</font>&nbsp;{rval data3/TB_ADVISECD}
+                    <!--{/def}-->
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap rowspan="2">★ 心臓</th>
+                <th align="right" nowrap>臨床医学的検査<br>（心電図）&nbsp;&nbsp;</th>
+                <td nowrap bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/HEART_MEDEXAM} {rval data3/HEART_MEDEXAM_REMARK}<font color="red" style="font-size:10pt">(全角で40文字)</font>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">疾病及び異常</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/HEARTDISEASECD} {rval data3/HEARTDISEASECD_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ３ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan={rval rowspan3}>３</th>
+                <th width="50" nowrap rowspan="3">★ 尿</th>
+                <th width="100" align="right" nowrap>１次</th>
+                <td width="*" bgcolor="#ffffff">&nbsp;&nbsp;<font color="black">蛋白：&nbsp;{rval data3/ALBUMINURIA1CD}&nbsp;&nbsp;&nbsp;&nbsp;糖：&nbsp;{rval data3/URICSUGAR1CD}&nbsp;&nbsp;&nbsp;&nbsp;潜血：</font>&nbsp;{rval data3/URICBLEED1CD}</td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">２次</th>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;<font color="black">蛋白：&nbsp;{rval data3/ALBUMINURIA2CD}&nbsp;&nbsp;&nbsp;&nbsp;糖：&nbsp;{rval data3/URICSUGAR2CD}&nbsp;&nbsp;&nbsp;&nbsp;潜血：</font>&nbsp;{rval data3/URICBLEED2CD}</td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">その他検査</th>
+                <!--{def Ippan2}-->
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/URICOTHERTESTCD}</font></td>
+                <!--{/def}-->
+                <!--{def Ippan3}-->
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data3/URICOTHERTEST}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                <!--{/def}-->
+            </tr>
+            <!--{def para}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 寄生虫卵</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data3/PARASITE}</td>
+            </tr>
+            <!--{/def}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ その他疾病<BR>及び異常</th>
+                <!--{def Ippan2}-->
+                <td bgcolor="#ffffff" colspan="4">
+                &nbsp;&nbsp;{rval data3/OTHERDISEASECD}<BR>
+                &nbsp;&nbsp;<font color="black">1：</font>{rval data3/OTHER_REMARK}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                &nbsp;&nbsp;<font color="black">2：</font>{rval data3/OTHER_REMARK2}<font color="red" style="font-size:10pt">(全角で{rval data3/OTHER_REMARK2_MOJI}文字)</font><BR>
+                &nbsp;&nbsp;<font color="black">3：</font>{rval data3/OTHER_REMARK3}
+                </td>
+                <!--{/def}-->
+                <!--{def Ippan3}-->
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data3/OTHERDISEASECD}<br>
+                                                  &nbsp;&nbsp;{rval data3/OTHER_REMARK2}<font color="red" style="font-size:10pt">(全角で{rval data3/OTHER_REMARK2_MOJI}文字)</font></td>
+                <!--{/def}-->
+            </tr>
+            <tr class="no_search">
+                <th nowrap>学校医</th>
+                <th nowrap align="right">★ 日付</th>
+                <td bgcolor="#ffffff" colspan="4">
+                    &nbsp;&nbsp;{rval data3/DOC_DATE}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">事後措置</th>
+                <!--{def Ippan2}-->
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data3/TREATCD}<BR>
+                &nbsp;&nbsp;<font color="black">1：</font>{rval data3/TREAT_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font><BR>
+                &nbsp;&nbsp;<font color="black">2：</font>{rval data3/TREAT_REMARK2}&nbsp;<font color="black">3：</font>{rval data3/TREAT_REMARK3}
+                <!--{/def}-->
+                <!--{def Ippan3}-->
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data3/TREATCD}&nbsp;{rval data3/TREATCD2}&nbsp;{rval data3/TREAT_REMARK1}<font color="red" style="font-size:10pt">(全角で20文字)</font></td>
+                <!--{/def}-->
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 備考</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data3/REMARK}&nbsp;&nbsp;<br><font color="red" style="font-size:10pt">(全角で{rval data3/REMARK_MOJI}文字)</font></td>
+            </tr>
+            <!--{def Ippan2}-->
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">メッセージ</th>
+                <td bgcolor="#ffffff" colspan="4">&nbsp;&nbsp;{rval data3/MESSAGE}&nbsp;&nbsp;<br><font color="red" style="font-size:10pt">(全角21文字X4行まで)</font></td>
+            </tr>
+            <!--{/def}-->
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!-- グループ４ ---------------------------------------------------------------------------->
+<table width="98%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; width:1200px;">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line" >
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="5" nowrap rowspan="4">４</th>
+                <th width="150" nowrap align="right" colspan="2">★ 既往症</th>
+                <td width="*" bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data3/MEDICAL_HISTORY1} {rval data3/MEDICAL_HISTORY2} {rval data3/MEDICAL_HISTORY3}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right" colspan="2">★ 診断名</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data3/DIAGNOSIS_NAME}<font color="red" style="font-size:10pt">(全角で50文字)</font>
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th width="50" nowrap rowspan="2">運<BR>動</th>
+                <th width="100" nowrap align="right">★ 指導区分</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data3/GUIDE_DIV}
+                </td>
+            </tr>
+            <tr class="no_search">
+                <th nowrap align="right">★ 部活動</th>
+                <td bgcolor="#ffffff">
+                    &nbsp;&nbsp;{rval data3/JOINING_SPORTS_CLUB}
+                </td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+<!------------------------------------------------------------------------------>
+
+<!--{/def}-->
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" >
+            <tr class="no_search">
+                <td align="center">
+                {rval button/btn_back}
+                </td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval setNotExamined}</script>
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->

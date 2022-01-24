@@ -1,0 +1,66 @@
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="1">
+  <tr class="no_search_line"> 
+    <td> 
+      <table border="0" cellpadding="3" cellspacing="0" width="100%">
+        <tr class="no_search" align="left"> 
+          <td nowrap><b>&nbsp;{rval YEAR}</b>&nbsp;対象学期：{rval TARGET_SEME}&nbsp;&nbsp;参照学期：{rval REFER_SEME}{rval button/btn_copy}</td>
+        </tr>
+        <tr class="no_search" align="right"> 
+          <td nowrap>コース名：{rval COURSENAME}</td>
+        </tr>
+        <!--{def useRegistCreditSubclass}-->
+        <tr class="no_search" align="right"> 
+          <td nowrap>考査種別：{rval TEST_CD}</td>
+        </tr>
+         <!--{/def}-->
+      </table>
+    </td>
+  </tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th align="center" nowrap>科目</th>
+                      <th align="center" nowrap>講座グループ<BR>コード</th>
+                      <th align="center" nowrap>講座グループ<BR>名称</th>
+                      <th align="center" nowrap>講座グループ<BR>略称</th>
+                      <th align="center" nowrap>講座</th>
+                    </tr>
+                    
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/ROWSPAN1}-->
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN1}><a href="knjz234aindex.php?cmd=sel&TARGET_SEME={val data/SEMESTER}&COURSECD_SET={val data/COURSECD_SET}&CHAIR_GROUP_CD={val data/CHAIR_GROUP_CD}&TEST_CD={val data/TEST_CD}&CLASSCD={val data/CLASSCD}&SCHOOL_KIND={val data/SCHOOL_KIND}&CURRICULUM_CD={val data/CURRICULUM_CD}&SUBCLASSCD={val data/SUBCLASSCD}&sendDiv=ALL" target="right_frame">{val data/SUBCLASS_SET}　{val data/SUBCLASSNAME}</a></td>
+                      <!--{/def}-->
+                      <!--{def data/ROWSPAN2}-->
+                      <td align="center" nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN2}><a href="knjz234aindex.php?cmd=sel&TARGET_SEME={val data/SEMESTER}&COURSECD_SET={val data/COURSECD_SET}&CHAIR_GROUP_CD={val data/CHAIR_GROUP_CD}&TEST_CD={val data/TEST_CD}&CLASSCD={val data/CLASSCD}&SCHOOL_KIND={val data/SCHOOL_KIND}&CURRICULUM_CD={val data/CURRICULUM_CD}&SUBCLASSCD={val data/SUBCLASSCD}&sendDiv=GROUP" target="right_frame">{val data/CHAIR_GROUP_CD_HYOUJI}</a></td>
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN2}>{val data/CHAIR_GROUP_NAME}</td>
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN2}>{val data/CHAIR_GROUP_ABBV}</td>
+                      <!--{/def}-->
+                      {val data/CHAIRNAME}
+                    </tr>
+                    <!--{/each}-->
+
+                  </table>  
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="javascript">{rval reload}{rval jscript}</script>

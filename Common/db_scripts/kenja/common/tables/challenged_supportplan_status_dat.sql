@@ -1,0 +1,16 @@
+-- $Id: 9361749f23468f745d534005eddea758d22344ac $
+
+DROP TABLE CHALLENGED_SUPPORTPLAN_STATUS_DAT
+CREATE TABLE CHALLENGED_SUPPORTPLAN_STATUS_DAT( \
+    YEAR                                VARCHAR(4)    NOT NULL, \
+    DATA_DIV                            VARCHAR(2)    NOT NULL, \
+    DATA_DIV_NAME                       VARCHAR(120), \
+    STATUS_NAME                         VARCHAR(120), \
+    STATUS2_NAME                        VARCHAR(120), \
+    STATUS3_NAME                        VARCHAR(120), \
+    STATUS4_NAME                        VARCHAR(120), \
+    REGISTERCD                          VARCHAR(10), \
+    UPDATED                             TIMESTAMP DEFAULT CURRENT TIMESTAMP \ 
+) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE CHALLENGED_SUPPORTPLAN_STATUS_DAT ADD CONSTRAINT PK_CHA_SP_ST_D PRIMARY KEY (YEAR, DATA_DIV)

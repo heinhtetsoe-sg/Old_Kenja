@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="Shift_JIS" ?>
+<!-- kanji=漢字 -->
+<!-- $Id: otr_build.xml 56574 2017-10-22 11:21:06Z maeshiro $ -->
+<project name="otr" default="deploy" basedir=".">
+	<property name="src"				location="otr_src"/>
+	<property name="build"				location="otr_build"/>
+	<property name="kenja_common_path"	location="http://tokio/development/common/java"/>
+	<property name="pkg.version"		value="1"/>
+
+	<path id="project.classpath">
+		<pathelement location="${build}"/>
+		<pathelement location="D:\0-ALP\CVS_EXTLIB_WORK\java_extlib\JAKARTA\commons-lang-2.0\commons-lang-2.0.jar" />
+		<pathelement location="D:\0-ALP\CVS_EXTLIB_WORK\java_extlib\JAKARTA\commons-logging-1.0.3\commons-logging.jar" />
+		<pathelement location="D:\0-ALP\CVS_EXTLIB_WORK\java_extlib\JAKARTA\commons-dbutils-1.0\commons-dbutils-1.0.jar" />
+		<pathelement location="D:\0-ALP\CVS_EXTLIB_WORK\java_extlib\JAKARTA\jakarta-log4j-1.2.8\log4j-1.2.8.jar" />
+		<pathelement location="D:\0-ALP\CVS_WORK\nao_package\dist\nao_package.jar" />
+	</path>
+
+	<!-- **** 初期化 -->
+	<target name="init" depends="clean">
+		<tstamp/>
+		<mkdir dir="${build}"/>
+	</target>
+
+	<!-- **** コンパイル -->
+	<target name="compile" description="compile java" depends="init">
+		<!-- MEMO:javacタスクのencodingは、"SJIS"または"EUCJIS"または"EUC-JP" -->
+		<javac
+				encoding="SJIS"
+				target="1.3"
+				source="1.3"
+				deprecation="true"
+				srcdir="${src}"
+				destdir="${build}"
+				classpathref="project.classpath"
+				debug="on">
+			<include name="**/otr/**/*.java"/>
+			<exclude name="**/test/*.java"/>
+		</javac>
+	</target>
+
+	<!-- **** .classファイルを削除 -->
+	<target name="clean" description="clean up" >
+		<delete dir="${build}"/>
+	</target>
+
+	<!-- **** 配布ファイル作成 -->
+	<target name="dist" description="generate the distribution" depends="compile">
+		<buildnumber file="${src}/build.number"/>
+		<jar index="true" destfile="${build}/OtrRead.${pkg.version}.${build.number}.jar" filesonly="false">
+			<fileset dir="${build}">
+				<include name="**/otr/**/*.class"/>
+				<exclude name="**/test/*.class"/>
+			</fileset>
+			<manifest>
+				<attribute name="Main-Class" value="jp.co.alp.kenja.batch.otr.Main"/>
+				<attribute name="Implementation-Version" value="${pkg.version}.${build.number}" />
+			</manifest>
+		</jar>
+	</target>
+
+	<!-- **** deploy -->
+	<target name="deploy" description="deployment" depends="dist">
+		<copy overwrite="true" file="${src}/log4j.properties.skel" tofile="${build}/log4j.properties"/>
+		<copy overwrite="true" file="${src}/OtrRead.properties" tofile="${build}/OtrRead.properties"/>
+		<copy overwrite="true" file="${src}/PeriodTimeTable.properties" tofile="${build}/PeriodTimeTable.properties"/>
+		<copy overwrite="true" file="${src}/readme.txt" tofile="${build}/readme.txt"/>
+		<copy overwrite="true" file="${src}/otr_TAG_HISTORY.txt" tofile="${build}/otr_TAG_HISTORY.txt"/>
+		<mkdir dir="${build}/otr_html_spec"/>
+		<copy overwrite="true" file="D:\0-ALP\CVS_WORK_OTHERS\kenja_hiro_docs\spec\other\OtrRead.html" tofile="${build}/otr_html_spec/OtrRead.html"/>
+		<copy overwrite="true" todir="${build}/otr_html_spec/OtrRead">
+			<fileset dir="D:\0-ALP\CVS_WORK_OTHERS\kenja_hiro_docs\spec\other\OtrRead"/>
+		</copy>
+
+		<fixcrlf srcdir="${src}" includes="otr_read.sh.DB2v7" eol="lf" destdir="${build}" eof="remove" encoding="utf8"/>
+		<fixcrlf srcdir="${src}" includes="otr_read.sh.DB2v8" eol="lf" destdir="${build}" eof="remove" encoding="utf8"/>
+		<chmod file="otr_read.sh.DB2v7" perm="+x" />
+		<chmod file="otr_read.sh.DB2v8" perm="+x" />
+	</target>
+</project>

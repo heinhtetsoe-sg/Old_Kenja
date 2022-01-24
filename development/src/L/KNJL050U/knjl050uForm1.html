@@ -1,0 +1,119 @@
+{rval start}
+
+<table width="95%" border="0" cellspacing="0" cellpadding="5" align="center" style="margin-top:15px;">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="30">
+                      <td width="14%" class="no_search" align="center">※ 入試年度</td>
+                      <td width="18%" bgcolor="#ffffff" align="center">{rval TOP/YEAR}</td>
+                      <td width="14%" class="no_search" align="center">※ 入試制度</td>
+                      <td width="18%" bgcolor="#ffffff">{rval TOP/APPLICANTDIV}</td>
+                      <td width="13%" class="no_search" align="center">※ 入試区分</td>
+                      <td width="*" bgcolor="#ffffff">{rval TOP/TESTDIV}</td>
+                    </tr>
+                    <tr height="30">
+                      <td width="14%" class="no_search" align="center">※ 試験科目</td>
+                      <td width="18%" bgcolor="#ffffff">{rval TOP/TESTSUBCLASSCD}</td>
+                      <td width="14%" class="no_search" align="center"> 受験番号</td>
+                      <td width="*" bgcolor="#ffffff" colspan="3">{rval TOP/S_RECEPTNO}　{rval btn_back}{rval btn_next}&nbsp;</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" align="center" height="30">
+                            <td width="150" nowrap>受験番号</td>
+                            <td width="150" nowrap>得点</td>
+                            <td width="300" nowrap>氏名</td>
+                            <td width="*" nowrap>氏名かな</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <div style="height: 500px; overflow: auto;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--結果一覧-->
+                          <!--{def data}-->
+                          <!--{each data}-->
+                          <tr bgcolor="#ffffff" id="ROWID{rval data/RECEPTNO}" nowrap>
+                            <td width="150" align="center" nowrap>{rval data/RECEPTNO}</td>
+                            <td width="150" align="center" nowrap>{rval data/SCORE}</td>
+                            <td width="300" align="left" nowrap>{rval data/NAME}</td>
+                            <td width="*" align="left" nowrap>{rval data/NAME_KANA}</td>
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align = "right" nowrap>{rval csv/FILE}{rval csv/btn_input}&nbsp;{rval csv/btn_output}&nbsp;{rval csv/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL></th>
+                            <td width="30%" bgcolor="#ffffff" nowrap>{rval btn_update}{rval btn_reset}{rval btn_end}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">
+    change_flg = false;
+    var aPerfect = new Array();
+    <!--{def data2}-->
+    <!--{each data2}-->
+        aPerfect['{rval data2/key}'] = '{rval data2/perf}';
+    <!--{/each}-->
+    <!--{/def}-->
+</script>
+{rval finish}

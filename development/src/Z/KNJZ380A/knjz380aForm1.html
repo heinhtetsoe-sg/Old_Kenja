@@ -1,0 +1,70 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr class="no_search_line">
+           <th>
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search">
+          <th nowrap width="120" align="center">対象年度：{rval header}</th>
+          <th nowrap align = "right">{rval btn_copy}&nbsp;&nbsp;&nbsp;&nbsp;</th>
+          </tr>
+        </table>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th>学期</th>
+                      <th>テスト種別</th>
+<!--{def Test_Period_Hyouji}-->
+                      <th>テスト期間</th>
+<!--{/def}-->
+                      <th>テスト項目名</th>
+                      <th>集計フラグ</th>
+<!--{def sem_detail}-->
+                      <th>出欠集計範囲</th>
+<!--{/def}-->
+                    </tr>
+
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{val data/SEMESTERNAME}</td>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{val data/TESTKIND_SHOW}</td>
+<!--{def Test_Period_Hyouji}-->
+                      <td nowrap bgcolor="#ffffff">&nbsp;{val data/TEST_START_DATE}&nbsp;～&nbsp;{val data/TEST_END_DATE}</td>
+<!--{/def}-->
+                      
+                      <td nowrap bgcolor="#ffffff">&nbsp;{val data/TESTITEM_SHOW}</td>
+                      <td nowrap bgcolor="#ffffff">&nbsp;{val data/COUNTFLG_SHOW}</td>
+<!--{def sem_detail}-->
+                      <td nowrap bgcolor="#ffffff">&nbsp;{val data/DETAIL_NAME}</td>
+<!--{/def}-->
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval Closing}</script>

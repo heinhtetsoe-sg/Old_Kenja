@@ -1,0 +1,138 @@
+{rval start}
+{rval IFRAME}
+<script language="JavaScript">
+//画面のリサイズ
+var timer = 0;
+window.onresize = function () {
+    if (timer > 0) {
+        clearTimeout(timer);
+    }
+
+    timer = setTimeout(function () {
+        bodyHeight = (window.innerHeight || document.body.clientHeight || 0);
+        document.getElementById("tbody").style.height = bodyHeight - 200;
+    }, 200);
+};
+
+</script>
+<br>
+<table width="900px" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search_line" height="25">
+                <td colspan="2" class="no_search" >　{rval YEAR}年　　{rval SCHREGNO}&nbsp;&nbsp;{rval NAME_SHOW}&nbsp;{rval HENKIN_ZUMI}</td>
+                <td colspan="2" class="no_search" align="right">給付金上限額</td>
+                <td bgcolor="#ffffff" width="100" align="right">{rval MAX_BENE}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top">
+      <div id="tbody" style="width: 100%; height:{rval valWindowHeight}px; overflow: auto">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3"> 
+              <!--{each data}--> 
+
+              <!--{def data/TITLE}-->
+              <tr class="no_search_line">
+                <th class="no_search" width="680" align="right" colspan="3">{rval data/LEVY_M_NAME}</th>
+                <th class="no_search" width="50"  align="center">対象<br>選択</th>
+                <th class="no_search" width="100" align="right">金額</th>
+              </tr>
+              <tr class="no_search_line">
+                <th class="no_search" width="80"  align="right">日付</th>
+                <th class="no_search" width="500" align="right">細目給付上限額</th>
+                <th bgcolor="#ffffff" width="100" align="right">{rval data/OUTGO_TOTAL}</th>
+                <th bgcolor="#ffffff" width="50"  align="center">全て<br>{rval data/CHECK_ALL}</th>
+                <th bgcolor="#ffffff" width="100" align="right" id="{rval data/KYUFU_LM_TOTAL_ID}">{rval data/KYUFU_LM_TOTAL}</th>
+              </tr>
+              <!--{/def}-->
+
+              <tr bgcolor="#ffffff" >
+                <td width="80"  align="right">{rval data/OUTGO_DATE}</td>
+                <td width="500" align="right">{rval data/LEVY_S_NAME}</td>
+                <td width="100" align="right" id="{rval data/OUTGO_MONEY_ID}">{rval data/OUTGO_MONEY}</td>
+                <td width="50" align="center" class="changeColor" data-name="{rval data/CHECK_BOX_NAME}">{rval data/CHECK_BOX}</td>
+                <td width="100" align="right">{rval data/KYUFU_MONEY}</td>
+              </tr> 
+
+              <!--{/each}-->
+              <tr class="no_search_line" height="25">
+                <th class="no_search" width="500" align="right" colspan="4">合計金額</th>
+                <th bgcolor="#ffffff" width="100" align="right" id ="KYUFU_TOTAL">{rval data2/KYUFU_TOTAL}</th>
+              </tr> 
+              <tr class="no_search_line" height="25">
+                <th class="no_search" width="500" align="right" colspan="4">差引金額</th>
+                <th bgcolor="#ffffff" width="100" align="right" id ="KYUFU_SAGAKU"><font color="{rval data2/COLOR}">{rval data2/KYUFU_SAGAKU}</font></th>
+              </tr> 
+            </table>
+          </td>
+        </tr>
+      </table>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <td align="right" bgcolor="#ffffff">返金日付：{rval OUTGO_DATE}　　　{rval button/btn_update}{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top"><br>　お知らせ印刷<br>　出力日{rval PRINT_DATE}　{rval button/btn_print}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<input type='hidden' name='windowHeight' value=''>
+<script language="JavaScript">{rval reload}</script>
+{rval finish}
+<script language="JavaScript">
+    document.addEventListener('click', function(e) {tdChangeColor(e)});
+    document.addEventListener('mouseover', function(e) {tdChangeColor(e)});
+    document.addEventListener('mouseout', function(e) {tdChangeColor(e)});
+
+    function tdChangeColor(e) {
+        var t = e.target;
+        if (t.className == "changeColor") {
+            var objName = e.target.getAttribute('data-name');
+            targetCheckBox = document.getElementById(objName);
+            switch (e.type) {
+                case "mouseover":
+                    targetCheckBox.parentNode.style.backgroundColor = "pink";
+                    break;
+                case "mouseout":
+                    targetCheckBox.parentNode.style.backgroundColor = "white";
+                    break;
+                case "click":
+                    if (e.target.type != "checkbox") {
+                        targetCheckBox.checked = targetCheckBox.checked ? false: true;
+                    }
+                    if (targetCheckBox != '') {
+                        textOpen(t, '');
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+</script>

@@ -1,0 +1,200 @@
+SELECT
+    t1.YEAR,                                                                //
+    t1.SAT_NO,                                                              //受験番号
+    t1.NAME1,                                                               //氏名
+    SUBSTR(t1.ZIPCODE,1,3) || '-' || SUBSTR(t1.ZIPCODE, 4,4) as ZIPCODE,    //郵便番号
+    t1.ADDR1,                                                               //住所
+    t1.ADDR2                                                                //住所2
+FROM
+    SAT_APP_FORM_MST t1
+    left join SAT_EXAM_DAT t2 on t1.YEAR = t2.YEAR and t1.SAT_NO = t2.SAT_NO
+    left join SAT_EXAM_DAT t5 on t1.YEAR = t5.YEAR and t1.SAT_NO = t5.SAT_NO
+    left join FINSCHOOL_MST t6 on t1.SCHOOLCD = t6.FINSCHOOLCD and t6.FINSCHOOL_TYPE = '3'
+    /*国内欠席者住所シール*/
+    WHERE
+        t1.YEAR = '2015' AND
+        t1.SCHOOLCD != '2008005' AND
+        t1.ABSENCE = '0' AND
+        t1.INOUT_KUBUN != '4'
+    /*************************/
+    ORDER BY
+        t1.SAT_NO
+
+//WHEREの条件////////////////////////////////////////////////
+/*海外受験者シール*/
+WHERE
+    t1.YEAR = '2015' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.INOUT_KUBUN = '4'
+
+/*国内校内生シール*/
+WHERE
+    t1.YEAR = '2015' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.INOUT_KUBUN != '4' AND
+    t1.IND_KUBUN = '3'
+
+
+/*1.県外会場受験の県内生*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD = '19' AND
+    t1.PLACECD not in ('01','02','03')
+
+/*2.県外会場受験の長野県中学校生*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t6.FINSCHOOL_PREF_CD = '20' AND
+    t1.PLACECD not in ('01','02','03')
+
+/*3.県内会場受験の長野除く県外生*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD not in ('19','20') AND
+    t1.PLACECD in ('01','02','03')
+
+/*4.すべての長野県中学校生*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t6.FINSCHOOL_PREF_CD = '20' 
+
+/*5.県内の中2以下*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD = '19' AND
+    t1.GRADUATION < '09'
+
+/*6.県内の特奨生*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD = '19' AND
+    t1.GRADUATION > '08' AND
+    t2.JUDGE_SAT = '1'
+
+/*7.長野の特奨生*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD = '20' AND
+    t1.GRADUATION > '08' AND
+    t2.JUDGE_SAT = '1'
+
+/*8.長野の特奨生除くA・準A現役*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD = '20' AND
+    t1.GRADUATION = '09' AND
+    t2.JUDGE_SAT in ('2','3')
+
+/*9.長野のB～Dの現役*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD = '20' AND
+    t1.GRADUATION = '09' AND
+    t2.JUDGE_SAT > '3'
+
+/*10.長野除く県外の中2以下*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD not in ('19', '20', '48') AND
+    t1.GRADUATION < '09'
+
+/*11.長野除く県外の特奨生*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD not in ('19', '20', '48') AND
+    t1.GRADUATION > '08' AND
+    t2.JUDGE_SAT = '1'
+
+/*12.長野除く県外の特奨生外A現役*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD not in ('19', '20', '48') AND
+    t1.GRADUATION = '09' AND
+    t2.JUDGE_SAT = '2'
+
+/*13.長野県除く県外のB現役*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD not in ('19', '20', '48') AND
+    t1.GRADUATION = '09' AND
+    t2.JUDGE_SAT = '4'
+
+/*14.長野除く県外のC・Dまたは現役以外*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD not in ('19', '20', '48') AND
+    (t1.GRADUATION = '99' OR t2.JUDGE_SAT > '4')
+
+/*15.海外の特奨生*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD = '48' AND
+    t2.JUDGE_SAT = '1'
+
+/*16.海外の特奨生除くA・B現役*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD = '48' AND
+    t2.JUDGE_SAT in ('2','4')
+
+
+/*17.県内の欠席者リスト*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.ABSENCE = '0' AND
+    t1.PREFCD = '19'
+
+
+/*18.長野県の欠席者リスト*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.ABSENCE = '0' AND
+    t1.PREFCD = '20'
+
+/*19.県外の欠席者リスト*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.ABSENCE = '0' AND
+    t1.PREFCD not in ('19','20','48')
+
+/*20.海外の欠席者リスト*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.ABSENCE = '0' AND
+    t1.PREFCD = '48'
+
+/*21.浪人リスト*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.GRADUATION = '99'
+
+
+/*22.欠科目者リスト*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.ABSENCE != '0' AND
+    (t5.ABSENCE_ENGLISH = '0' OR t5.ABSENCE_MATH = '0' OR t5.ABSENCE_JAPANESE = '0')
+
+

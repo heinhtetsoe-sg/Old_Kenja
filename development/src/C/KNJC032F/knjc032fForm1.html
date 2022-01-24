@@ -1,0 +1,72 @@
+{rval start}
+
+<br>
+<table width={rval useAllWidth} border="0" cellspacing="0" cellpadding="10" align="center">
+  <tr>
+    <th valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+              <!--{def upperline}-->
+              <tr class="no_search" nowrap>
+                <td>
+                    　　　　　　　　　　<!--{def COURSE_MAJOR}-->課程学科：{rval COURSE_MAJOR}<!--{/def}-->　　　　
+                    <!--{def class_type}-->
+                    {rval SELECT_CLASS_TYPE1}<LABEL for="SELECT_CLASS_TYPE1">HRクラス</LABEL>　　
+                    {rval SELECT_CLASS_TYPE2}<LABEL for="SELECT_CLASS_TYPE2">実クラス</LABEL>
+                    <!--{/def}-->
+                </td>
+              </tr>
+              <!--{/def}-->
+              <tr class="no_search">
+                <td nowrap>
+                    　　処理年度：{rval year}年度
+                    　{rval semester}
+                    　　学級：{rval hr_class}{rval GROUP_HR_CLASS}
+                    　　生徒：{rval schregno}
+                    　　移動方向({rval MOVE_ENTER1}<LABEL for="MOVE_ENTER1">縦</LABEL>　{rval MOVE_ENTER2}<LABEL for="MOVE_ENTER2">横</LABEL>)&nbsp;
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </th>
+  </tr>
+  <tr>
+    <th valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <th>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <tr class="no_search" align="center" nowrap>
+                <td width="100">対<br>象<br>月</td>
+                <td width="45">締<br>め<br>日</td>
+                {rval TITLE}
+                {rval REMARK_TITLE}
+              </tr>
+              <!--{each attend_data}-->
+              <tr {rval attend_data/STYLE_ROW} align="center" nowrap height="30">
+                <td width="100" align="left" {rval attend_data/BGCOLOR_MONTH_NAME}>{rval attend_data/MONTHNAME}</td>
+                <td width="45" {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/APPOINTED_DAY}</td>
+                {rval attend_data/ATTEND_DATA}
+                {rval attend_data/REMARK_DATA}
+              </tr>
+              <!--{/each}-->
+              <tr class="no_search" align="right" nowrap>
+                <td colspan="{rval useGedanCol}">
+                    {rval ZERO_HYOJI_COMMENT}　　　　　　　　　　　　　　
+                    {rval btn_update} {rval btn_reset} {rval btn_end}
+                </td>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </table>
+    </th>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

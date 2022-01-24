@@ -1,0 +1,59 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="1">
+              <tr class="no_search_line">
+                <th>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                    <tr> 
+                      <th height="30" align="left" class="no_search">年度　{rval top/YEAR}</th>
+                    </tr>
+                  </table>
+                </th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+  
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap>求人番号</th>
+                      <th nowrap>会社名</th>
+                      <th nowrap>産業分類</th>
+                      <th nowrap>職業分類</th>
+                      <th nowrap>雇用形態</th>
+                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff"><a href="knjz421index.php?cmd=edit&YEAR={val data/YEAR}&SENKOU_NO={val data/SENKOU_NO}" target="right_frame">{val data/SENKOU_NO}</a></td>
+                      <td nowrap bgcolor="#ffffff">{val data/COMPANY_NAME}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/INDUSTRY_SNAME}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/JOBTYPE_SNAME}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/EMPLOYMENT_STATUS}</td>
+                    </tr>
+<!--{/each}-->
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

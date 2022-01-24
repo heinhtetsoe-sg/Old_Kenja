@@ -1,0 +1,194 @@
+{rval start}
+<br>
+<br>
+<!-- <table width="40%" border="0" cellspacing="0" cellpadding="0" align="center" height="65%">-->
+<table width="40%" border="0" cellspacing="0" cellpadding="0" align="center" height="30%">
+  <tbody>
+    <tr >
+      <td valign="middle"><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr bgcolor="#006633">
+            <td align="right">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <tbody>
+                        <tr class="no_search">
+                          <th colspan="2" align="left">&nbsp;&nbsp;通知発行No.採番処理</th>
+                        </tr>
+                        <tr class="no_search">
+                          <th width="30%" >入試年度</th>
+                          <td bgcolor="#ffffff"><span style="color:#000000">{rval CTRL_YEAR}</span></td>
+                        </tr>
+                        <tr class="no_search">
+                          <th >試験区分</th>
+                          <td bgcolor="#ffffff">{rval TESTDIV}</td>
+                        </tr>
+                        <tr class="no_search">
+                          <th rowspan="2" >合否区分</th>
+                          <td bgcolor="#ffffff">
+
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tbody>
+                                <tr>
+                                  <td width="45%" nowrap>
+                                    {rval OUTPUT1}&nbsp;合格者
+                                    <BR>
+                                    &nbsp;&nbsp;{rval SUC_RADIO1}&nbsp;一般
+                                    <BR>
+                                    &nbsp;&nbsp;{rval SUC_RADIO2}&nbsp;追加繰上
+                                    {rval PASSCOUNT}<span style="color:#000000">回目</span>
+                                    <BR>
+                                    &nbsp;&nbsp;{rval SUC_RADIO3}&nbsp;{rval TITLE3}
+                                  </td>
+<!--2005/12/29
+                                  <td width="15%" nowrap>
+                                    (&nbsp;最終番号：
+                                  </td>
+                                  <td width="*" nowrap>
+                                    <div id="success">{rval MAX_SUCCESS_NOTICENO}</div>
+                                  </td>
+                                  <td width="20%" nowrap>)
+                                  </td>
+-->
+                                </tr>
+                              </tbody>
+                             </table>
+
+                          </td>
+                        </tr>
+                        <tr class="no_search">
+                          <td bgcolor="#ffffff" nowrap>
+
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tbody>
+                                <tr>
+                                  <td width="45%" nowrap>
+                                    {rval OUTPUT2}&nbsp;不合格者
+                                  </td>
+<!--2005/12/29
+                                  <td width="15%" nowrap>
+                                    (&nbsp;最終番号：
+                                  </td>
+                                  <td width="*" nowrap>
+                                    <div id="failure">{rval MAX_FAILURE_NOTICENO}</div>
+                                  </td>
+                                  <td width="20%" nowrap>)</td>
+-->
+                                </tr>
+                              </tbody>
+                             </table>
+
+                          </td>
+                        </tr>
+<!--2005/12/29
+                        <tr class="no_search">
+                          <th >追加合格者回数</th>
+                          <td bgcolor="#ffffff">{rval PASSCOUNT}
+                          <span style="color:#000000">回目</span></td>
+                        </tr>
+-->
+                        <tr class="no_search">
+                          <th >開始番号</th>
+                          <td bgcolor="#ffffff">{rval STARTNUMBER}</td>
+                        </tr>
+                        <tr class="no_search">
+                          <th ></th>
+                          <td bgcolor="#ffffff">{rval btn_doit}{rval btn_clear}{rval btn_end}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<BR>
+<table align="center" width="75%" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="70"  align="center" nowrap>開始番号</th>
+                        <th width="70"  align="center" nowrap>終了番号</th>
+                        <th width="70"  align="center" nowrap>人数</th>
+                        <th width="70"  align="center" nowrap>試験区分</th>
+                        <th width="180" align="center" nowrap>合否区分</th>
+                        <th width="*"  align="center" nowrap>処理日付</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <!--<div style="border-style:solid;border-width:0.15pt;border-color:#255476;width:100%;height:115;overflow:auto">-->
+            <div style="border-style:solid;border-width:0.15pt;border-color:#255476;width:100%;height:178;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <!--{each data}-->
+                      <tr nowrap>
+                        <td bgcolor="#ffffff" width="70"  align="right"nowrap>{rval data/S_NO}</td>
+                        <td bgcolor="#ffffff" width="70"  align="right" nowrap>{rval data/E_NO}</td>
+                        <td bgcolor="#ffffff" width="70"  align="right" nowrap>{rval data/PERSONS}</td>
+                        <td bgcolor="#ffffff" width="70"  align="center" nowrap>{rval data/TESTDIV_NAME}</td>
+                        <td bgcolor="#ffffff" width="180" align="left" nowrap>{rval data/DIVISION}</td>
+                        <td bgcolor="#ffffff" width="*"   align="center" nowrap>{rval data/TRNCEDATE}</td>
+                      </tr>
+                      <!--{/each}-->
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+{rval finish}
+<script language="JavaScript">
+  if (document.forms[0].msg != undefined) {
+      if (document.forms[0].msg.value != '') {
+          alert(document.forms[0].msg.value);
+      }
+      closeWin();
+  }
+
+</script>

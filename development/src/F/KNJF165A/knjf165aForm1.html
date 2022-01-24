@@ -1,0 +1,64 @@
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="5">
+  <tbody>
+    <tr>
+      <td nowrap>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr class="no_search" height="30">
+              <th nowrap><b>
+                {rval YEAR}年度　　{rval SEMESTER}
+              </b></th>
+            </tr>
+            <tr align="center">
+              <th nowrap><b>
+                　　来客日付範囲　　{rval SDATE}　～　{rval EDATE}<br><br>
+              </b></th>
+            </tr>
+            <tr >
+              <td>
+                <table width="100%" border="1" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td align="center">処理</td>
+                      <td >種別</td>
+                      <td >年-組-番</td>
+                      <td >氏名</td>
+                      <td >災害発生日</td>
+                      <td >転帰</td>
+                      <td >申請日</td>
+                      <td >支給日</td>
+                      <td >医療点数</td>
+                      <td >支給額</td>
+                      <td >受給日数</td>
+                      <td >備考</td>
+                    </tr>
+      <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td align="center">{rval data/CHECKED}</td>
+                      <td >{rval data/TYPE}</td>
+                      <td >{rval data/GRADE}</td>
+                      <td >{rval data/NAME}</td>
+                      <td >{rval data/VISIT_DATE}</td>
+                      <td >{rval data/REMARK2}</td>
+                      <td >{rval data/REMARK3}</td>
+                      <td >{rval data/REMARK4}</td>
+                      <td >{rval data/REMARK5}</td>
+                      <td >{rval data/REMARK6}</td>
+                      <td >{rval data/REMARK7}</td>
+                      <td >{rval data/REMARK8}</td>
+                    </tr>
+      <!--{/each}-->
+                    <tr class="no_search" >
+                      <td colspan="5" align="right">{rval btn_update}{rval btn_reset}{rval btn_end}</td>
+                      <td colspan="7" align="right">{rval btn_print}</td>
+                    </tr>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}

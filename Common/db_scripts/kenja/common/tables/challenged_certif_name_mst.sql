@@ -1,0 +1,13 @@
+-- $Id: 18e2cc6ce186968bbfe5254dcfe4530870ec8ebd $
+
+drop table CHALLENGED_CERTIF_NAME_MST
+
+create table CHALLENGED_CERTIF_NAME_MST ( \
+    CERTIFNAME_CD   VARCHAR(2)    NOT NULL, \
+    CERTIFNAME      VARCHAR(90) , \
+    REGISTERCD    VARCHAR(10)  , \
+    UPDATED       TIMESTAMP     DEFAULT CURRENT TIMESTAMP \
+ ) in usr1dms index in idx1dms
+
+alter table CHALLENGED_CERTIF_NAME_MST add constraint PK_CHA_CENAME_MST primary key (CERTIFNAME_CD)
+

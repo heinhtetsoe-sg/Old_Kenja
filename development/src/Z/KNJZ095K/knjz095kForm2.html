@@ -1,0 +1,66 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr> 
+      <td > 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" height="28"> 
+              <th width="30%">項 目</th>
+              <th width="70%">値</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+
+            <tr class="no_search" height="28">
+              <th align="right" nowrap>※ 都道府県コード</th>
+              <td bgcolor="#ffffff">{rval data/PREFECTURESCD}</td>
+            </tr>
+
+            <tr height="28">
+              <th align="right" class="no_search" nowrap>※ 学年</th>
+              <td bgcolor="#ffffff">{rval data/GRADE}</td>
+            </tr>
+            <tr height="28">
+              <th align="right"  class="no_search"nowrap>入学年度使用</th>
+              <td bgcolor="#ffffff"><LABEL for="CURRICULUM_FLG">{rval data/CURRICULUM_FLG}</LABEL></td>
+            </tr>
+            <tr height="28">
+              <th align="right" class="no_search" nowrap>今年度使用</th>
+              <td bgcolor="#ffffff"><LABEL for="THIS_YEAR_FLG">{rval data/THIS_YEAR_FLG}</LABEL></td>
+            </tr>
+            <tr height="28">
+              <th align="right" class="no_search" nowrap>ランク使用</th>
+              <td bgcolor="#ffffff"><LABEL for="USE_RANK">{rval data/USE_RANK}</LABEL></td>
+            </tr>
+            <tr height="28">
+              <th align="right" class="no_search" nowrap>前期開始年度</th>
+              <td bgcolor="#ffffff">{rval data/ZENKI_KAISI_YEAR}</td>
+            </tr>
+            <tr height="28">
+              <th align="right" class="no_search" nowrap>後期開始年度</th>
+              <td bgcolor="#ffffff">{rval data/KOUKI_KAISI_YEAR}</td>
+            </tr>
+            <!--{/def}--> 
+            <!--{def button}--> 
+            <tr height="28"> 
+              <th align="right" class="no_search" nowrap>&nbsp;</th>
+              <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+            </tr>
+            <!--{/def}--> 
+            </table>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

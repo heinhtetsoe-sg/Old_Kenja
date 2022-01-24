@@ -1,0 +1,196 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="25%">項 目</th>
+                      <th width="75%">値</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="center"" nowrap>入試区分コード</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/TESTDIV}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="center" nowrap>入試区分</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/TESTDIV_NAME}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="center" nowrap>略称</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/TESTDIV_ABBV}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="center" nowrap>入学試験日</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/TEST_DATE}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="center" nowrap>合格発表日</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/ANNOUNCEMENT_DATE}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="center" nowrap>入学申込金納入締切日・時</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td style="padding-right: 4px;">{rval data/ENTRY_FEE}</td>
+                            <td style="padding-right: 4px;">円 </td>
+                            <td style="padding-right: 4px;">{rval data/ENTRY_FEE_CLOSING_DATE}</td>
+                            <td>{rval data/ENTRY_FEE_CLOSING_TIME}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="center" nowrap>施設設備費納入締切日・時</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td style="padding-right: 4px;">{rval data/EQUIPMENT_COST}</td>
+                            <td style="padding-right: 4px;">円 </td>
+                            <td style="padding-right: 4px;">{rval data/EQUIPMENT_COST_CLOSING_DATE}</td>
+                            <td>{rval data/EQUIPMENT_COST_CLOSING_TIME}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="center" nowrap>授業料等納入締切日</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/PAYMENT_CLOSING_DATE}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="center" nowrap>入試科目</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">
+                        <table border="0" cellspacing="0" cellpadding="0"><tr>
+<!--{def classes}-->
+                          <!--{each classes}--> 
+                          <td style="padding-right: 4px;">
+                            <table border="0" cellspacing="0" cellpadding="0"><tr>
+                              <td>{rval classes/TEST_CLASS_CHECKBOX}</td><td><label for="{rval classes/TEST_CLASS_ID}">{rval classes/TEST_CLASS_LABEL}</label></td>
+                            </tr></table>
+                          </td>
+                          <!--{/each}--> 
+<!--{/def}-->
+                        </tr></table>
+                      </td>
+                    </tr>
+<!--{def schedules}-->
+                    <!--{each schedules}--> 
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="center" nowrap>入学式までのスケジュール{rval schedules/ENTRY_SCHDL_EVNT_INDEX}<div>会場　対象者</div></th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td style="padding-right: 4px;">{rval schedules/ENTRY_SCHDL_EVNT_NAME}</td>
+                            <td style="padding-right: 4px;">{rval schedules/ENTRY_SCHDL_EVNT_OPEN_DATE}</td>
+                            <td>
+                              <table border="0" cellspacing="0" cellpadding="0"><tr>
+                                <td>{rval schedules/ENTRY_SCHDL_EVNT_OPEN_TIME}</td>
+                                <td>&nbsp;～&nbsp;</td>
+                                <td>{rval schedules/ENTRY_SCHDL_EVNT_CLOSE_TIME}</td>
+                                <td>&nbsp;頃</td>
+                              </tr></table>
+                          </tr>
+                          <tr>
+                            <td colspan="3" style="padding-top: 4px;">
+                              <table border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td style="padding-right: 4px;">{rval schedules/ENTRY_SCHDL_EVNT_PLACE}</td>
+                                  <td style="padding-right: 4px;">{rval schedules/ENTRY_SCHDL_EVNT_MAIN}</td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <!--{/each}--> 
+<!--{/def}-->
+                    
+                    <!--{/def}-->
+
+                    <!--{def button}--> 
+                    <tr> 
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}
+                    </tr>
+                    <!--{/def}--> 
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

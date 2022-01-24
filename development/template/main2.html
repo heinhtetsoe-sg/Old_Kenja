@@ -1,0 +1,67 @@
+<html>
+<head><title>{rval TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={rval CHARSET}">
+<link rel="stylesheet" href="{rval CSS_FILE}">
+<link rel="stylesheet" href="{rval CSS_FILE2}">
+<script language="JavaScript" src="{rval COMMON_JS_FILE}"></script>
+<script language="JavaScript" src="{rval JQUERY}"></script>
+<script language="JavaScript" src="{rval UI_CORE}"></script>
+<script language="JavaScript" src="{rval UI_DIALOG}"></script>
+<script language="JavaScript">
+{rval JAVASCRIPT}
+</script>
+</head>
+<body bgcolor="#ffffff" text="#000000" leftmargin="0" topmargin="0" marginwidth="5" marginheight="5"
+link="#666699" vlink="#666699" alink="#666699">
+<style>
+#lockScreen {
+    z-index:500;
+    position:absolute;
+    top:0px;
+    left:0px;
+    background-color:#000000;
+    display:none;
+}
+#lockScreen #lockScreenInner{
+    display: table-cell;
+    text-align:center;
+    vertical-align: middle;
+    color:red;
+    font-size:3em;
+}
+#lockScreenPopUp {
+    z-index:999;
+    position:absolute;
+    top:0px;
+    left:0px;
+    background-color:transparent;
+    display:none;
+}
+#lockScreenPopUp #lockScreenPopInner{
+    display: table-cell;
+    text-align:center;
+    vertical-align: middle;
+    color:gray;
+    font-size:3em;
+}
+</style>
+{rval BODY}
+<!--•`‰æ’†‚É‰æ–Ê‚ðG‚ê‚È‚¢‚æ‚¤‚É‚·‚é-->
+<div id="lockScreen">
+    <div id="lockScreenInner">
+    </div>
+</div>
+<!--•`‰æ’†‚É‰æ–Ê‚ðG‚ê‚È‚¢‚æ‚¤‚É‚·‚é-->
+<div id="lockScreenPopUp">
+    <div id="lockScreenPopInner">
+    <br><br><progress max="100"></progress>
+    </div>
+</div>
+</body>
+</html>
+<script language="JavaScript">
+var msg = '{rval ERROR_MESSAGE}';
+if (msg != ''){
+    alert(msg);
+}
+</script>

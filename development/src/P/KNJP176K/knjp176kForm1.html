@@ -1,0 +1,162 @@
+{rval start}
+<style>
+td,th {
+    font-size:12px;
+}
+
+#button_td {
+    padding-right : 500px;
+}
+
+</style>
+<DIV id="TipLayer"  style="visibility:hidden;position:absolute;z-index:1000;top:-100"></DIV>
+<script language="JavaScript" src="<?php
+
+require_once('for_php7.php');
+ echo REQUESTROOT ?>/common/popMsg.js"></script>
+
+<script language="JavaScript">
+var Style =["white","black","#3399cc","#FFFFFF","","","","","","","left","","","",250,"",2,2,10,10,"","","","",""];
+var Style2=["white","black","#3399cc","#FFFFFF","","","","","","","left","","","",500,"",2,2,10,10,"","","","",""];
+var FiltersEnabled = 1;
+applyCssFilter();
+</script>
+<div id='debug'></div>
+<table cellspacing="0" cellpadding="10" width="1380" border="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tbody>
+          <tr>
+            <td>
+            <table cellspacing="0" cellpadding="0" width="100%" border="0">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table cellspacing="1" cellpadding="3" width="100%" border="0">
+                    <tbody>
+                      <tr class="no_search">
+                        <td nowrap width="900" align="left">&nbsp;対象年度&nbsp;{rval CTRL_YEAR}
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {rval CHANG_PRG1}<LABEL for="CHANG_PRG1">就学支援金</LABEL>&nbsp;{rval CHANG_PRG2}<LABEL for="CHANG_PRG2">府県補助金</LABEL>&nbsp;{rval CHANG_PRG3}<LABEL for="CHANG_PRG3">全体表示</LABEL></td>
+                      </tr>
+                      <tr class="no_search">
+                        <td nowrap>&nbsp;学年 ：{rval GRADE}&nbsp;年-組 ：{rval HR_CLASS}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table cellspacing="3" cellpadding="1" width="1380" border="0">
+  <tbody>
+    <tr>
+      <td nowrap>
+      <table cellspacing="5" cellpadding="0" width="100%" border="0">
+        <tbody>
+          <tr>
+            <td valign="top">
+            <table cellspacing="0" cellpadding="0" width="100%" border="0">
+              <tbody>
+                <tr>
+                  <td>
+                  <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                    <tbody>
+                      <tr class="no_search_line">
+                        <td>
+                        <table cellspacing="1" cellpadding="3" width="100%" border="0">
+                          <tbody>
+                            <tr class="no_search">
+                              <th nowrap width="60" rowspan="2">年-組-番</th>
+                              <th nowrap width="30" rowspan="2">相殺{rval OFFSET_ALL}</th>
+                              <th nowrap width="120" rowspan="2">生徒氏名</th>
+                              <th nowrap width="55" rowspan="2">特殊<br>フラグ</th>
+                              <th nowrap width="40" rowspan="2">兄弟<br>姉妹</th>
+                              <th nowrap width="90" rowspan="2">{rval HEISEI_2}<br>所得割額1</th>
+                              <th nowrap width="60" rowspan="2">基準額1<br></th>
+                              <th nowrap width="90" rowspan="2">加算額1{rval CHACKALL_1}<br></th>
+                              <th nowrap width="40" rowspan="2">兄弟<br>姉妹</th>
+                              <th nowrap width="90" rowspan="2">{rval HEISEI_1}<br>所得割額2</th>
+                              <th nowrap width="60" rowspan="2">基準額2</th>
+                              <th nowrap width="90" rowspan="2">加算額2{rval CHACKALL_2}</th>
+                              <th nowrap width="60" rowspan="2">支援額合計</th>
+                              <th nowrap width="60" rowspan="2">開始年月</th>
+                              <th nowrap width="100" rowspan="2">交付情報</th>
+                              <th nowrap width="*" rowspan="2">備考</th>
+                            </tr>
+                          </tbody>
+                        </table>
+                        </td>
+                      </tr>
+                      <!--結果一覧-->
+                      <tr>
+                        <th align="right">
+                        <div style="height:465;overflow:auto">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+                          <tbody>
+<!--{each data}-->
+                            <tr bgcolor="#ffffff">
+                              <td nowrap align="center" width="60">{rval data/HR_NAMEABBV}</td>
+                              <th nowrap align="center" width="30">{rval data/OFFSET_FLG}</th>
+                              <td nowrap align="left" width="120">{rval data/NAME_SHOW}</td>
+                              <th nowrap align="center" width="55" style="background-color: #EEEEEE">{rval data/REDUC_RARE_CASE_CD_1}</th>
+
+                              <td bgcolor="#ffffff" align="center" width="40" style="background-color: #EEEEEE">{rval data/INCOME_SIBLINGS1}</td>
+                              <td bgcolor="#ffffff" align="center" width="90" style="background-color: #EEEEEE">{rval data/REDUCTION_SEQ_1}{rval data/REDUC_INCOME_1}</td>
+                              <th nowrap align="center" width="60" style="background-color: #EEEEEE"><span id="BASE_MONEY_12_{rval data/SCHREGNO}">{rval data/BASE_DISP_1}</span>{rval data/BASE_MONEY_1}</th>
+                              <td nowrap align="right" width="90" style="background-color: #EEEEEE"><span id="REDUCTION_ADD_MONEY_12_{rval data/SCHREGNO}">{rval data/REDUCTIONMONEY_DISP_1}</span>{rval data/REDUCTION_ADD_MONEY_1}</span>{rval data/REDUC_ADD_FLG_1}</td>
+
+                              <td bgcolor="#ffffff" align="center" width="40" style="background-color: #EEEEEE">{rval data/INCOME_SIBLINGS2}</td>
+                              <td bgcolor="#ffffff" align="center" width="90" style="background-color: #EEEEEE">{rval data/REDUCTION_SEQ_2}{rval data/REDUC_INCOME_2}</td>
+                              <th nowrap align="center" width="60" style="background-color: #EEEEEE"><span id="BASE_MONEY_22_{rval data/SCHREGNO}">{rval data/BASE_DISP_2}</span>{rval data/BASE_MONEY_2}</th>
+                              <td nowrap align="right" width="90" style="background-color: #EEEEEE"><span id="REDUCTION_ADD_MONEY_22_{rval data/SCHREGNO}">{rval data/REDUCTIONMONEY_DISP_2}</span>{rval data/REDUCTION_ADD_MONEY_2}</span>{rval data/REDUC_ADD_FLG_2}</td>
+
+                              <td nowrap align="middle" width="60" style="background-color: #EEEEEE"><span id="total_money_{rval data/SCHREGNO}">{rval data/TOTAL_MONEY}</span></td>
+                              <td nowrap align="center" width="60" style="background-color: #EEEEEE">{rval data/BEGIN_YEARMONTH}</td>
+                              <td nowrap align="center" width="100">{rval data/GRANT_TRANSFER_MARK}</td>
+                              <td nowrap align="middle" width="*">{rval data/REDUC_REMARK}</td>
+<!--{/each}-->
+                            </tr>
+                          </tbody>
+                        </table>
+                        </div>
+                        </th>
+                      </tr>
+                      <tr class="no_search_line">
+                        <td>
+                        <table cellspacing="1" cellpadding="3" width="100%" border="0">
+                          <tbody>
+                            <tr class="no_search"><th nowrap align="right" width="*" id='button_td'>{rval btn_update}{rval btn_cancel}{rval btn_close}</th>
+                            </tr>
+                          </tbody>
+                        </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}

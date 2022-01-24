@@ -1,0 +1,62 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr> 
+      <td > 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" height="28"> 
+              <th width="30%">項 目</th>
+              <th width="70%">値</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+
+            <tr height="28">
+              <th align="right" class="no_search" nowrap>※ 学年</th>
+              <td bgcolor="#ffffff">{rval data/GRADE}</td>
+            </tr>
+            <tr height="28">
+              <th align="right"  class="no_search"nowrap>※ 基準額</th>
+              <td bgcolor="#ffffff">{rval data/REDUCTIONMONEY}円</td>
+            </tr>
+            <tr height="28">
+              <th align="right"  class="no_search"nowrap>※ 支援加算額</th>
+              <td bgcolor="#ffffff">{rval data/REDUCTION_ADD_MONEY}円</td>
+            </tr>
+            <tr height="28">
+              <th align="right" class="no_search" nowrap>所得割下限額</th>
+              <td bgcolor="#ffffff">{rval data/INCOME_LOW}円</td>
+            </tr>
+            <tr height="28">
+              <th align="right" class="no_search" nowrap>所得割上限額</th>
+              <td bgcolor="#ffffff">{rval data/INCOME_HIGH}円</td>
+            </tr>
+
+            <tr height="28">
+              <th align="right" class="no_search" nowrap>備考</th>
+              <td bgcolor="#ffffff">{rval data/REDUCTIONREMARK}</td>
+            </tr>
+            <!--{/def}--> 
+            <!--{def button}--> 
+            <tr height="28"> 
+              <th align="right" class="no_search" nowrap>&nbsp;</th>
+              <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+            </tr>
+            <!--{/def}--> 
+            </table>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

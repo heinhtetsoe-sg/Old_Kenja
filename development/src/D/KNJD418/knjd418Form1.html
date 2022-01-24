@@ -1,0 +1,68 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th width="30%" class="no_search" nowrap><b>年度</b></td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval YEAR}　　{rval button/btn_copy}</td>
+                    </tr>
+                    <!--{def useGradeKindCompGroupSemester}-->
+                    <tr>
+                      <th class="no_search" nowrap><b>学期</b></td>
+                      <td bgcolor="#ffffff" nowrap>&nbsp;{rval SEMESTER}</td>
+                    </tr>
+                    <!--{/def}-->
+                    <tr>
+                      <th class="no_search" nowrap><b>学部</b></td>
+                      <td bgcolor="#ffffff" nowrap>&nbsp;{rval GAKUBU_SCHOOL_KIND}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="10"></td>
+        </tr>
+        <tr>
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="50%" nowrap><b>状態区分</b></th>
+                      <th width="50%" nowrap><b>指導計画<br>帳票パターン</b></th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff">{val data/CONDITION_SHOW}</td>
+                      <td nowrap bgcolor="#ffffff"><a href="knjd418index.php?cmd=edit2&YEAR={val data/YEAR}&SEMESTER={val data/SEMESTER}&GAKUBU_SCHOOL_KIND={val data/GAKUBU_SCHOOL_KIND}&CONDITION={val data/CONDITION}&GUIDANCE_PATTERN={val data/GUIDANCE_PATTERN}" target="right_frame">{val data/GUIDANCE_PATTERN_SHOW}</a></td>
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+   </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

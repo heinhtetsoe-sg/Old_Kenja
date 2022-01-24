@@ -1,0 +1,207 @@
+{rval start}
+{rval IFRAME}
+
+<table width="95%" border="0" cellspacing="10" cellpadding="0" align="center">
+<tbody>
+  <tr>
+    <td valign="top">
+    
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tbody>
+              <tr class="no_search">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                  <tbody>
+                    <tr class="no_search" height="30">
+                      <td width="100%" align="left" nowrap>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;処理年度：{rval data/YEAR}年度　　　　　　　<B>{rval TITLE}</B>　　　　　　　　&nbsp;作成日：{rval data/EXECUTE_DATE}
+                    <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新規/作成済みの修正：{rval data/DATA_DIV}　&nbsp;&nbsp;出席停止を指示した日：{rval data/SUSPEND_DIRECT_DATE}
+                      </td>
+                    </tr>
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+              
+            </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+      </table>
+      
+    </td>
+  </tr>
+              <tr>
+                <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                        <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tr class="no_search">
+                            <th  width="20%" nowrap align="right" colspan="2">※集計区分</th>
+                            <td bgcolor="#ffffff">&nbsp;{rval data/TOTAL_DIV1}<LABEL for="TOTAL_DIV1"><font color="#000000">出席停止</font></LABEL>
+                                              <BR>&nbsp;{rval data/TOTAL_DIV2}<LABEL for="TOTAL_DIV2"><font color="#000000">欠席（診断されているが出席停止ではない場合）</font></LABEL>
+                                              <BR>&nbsp;{rval data/TOTAL_DIV3}<LABEL for="TOTAL_DIV3"><font color="#000000">登校（診断されているが登校している場合）</font></LABEL>
+                            </td>
+                        </tr>
+                        <tr class="no_search">
+                            <th nowrap align="right" colspan="2">※理由</th>
+                            <td bgcolor="#ffffff">&nbsp;{rval data/DISEASECD}&nbsp;{rval data/DISEASECD_REMARK}</td>
+                        </tr>
+                        <tr class="no_search">
+                            <th nowrap align="right" colspan="2">出席停止期間</th>
+                            <td bgcolor="#ffffff">&nbsp;<font color="#000000">{rval data/SUSPEND_S_DATE}&nbsp;～</font>&nbsp;{rval data/SUSPEND_E_DATE}</td>
+                        </tr>
+                        <tr class="no_search">
+                            <th nowrap align="right" colspan="2">理由備考</th>
+                            <td bgcolor="#ffffff">&nbsp;{rval data/SUSPEND_REMARK}</td>
+                        </tr>
+                        </table>
+                        </td>
+                    </tr>
+                    </table>
+                </td>
+              </tr>
+  </tr>
+  <tr>
+    <td>
+    
+      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+<th class="no_search" width="20%" nowrap>{val btn_settei}</th>
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tbody>
+                    <tr class="no_search" height="20">
+                      <th width="170" align="center">クラス</th>
+                      <th width="130" align="center">在籍数</th>
+                      <th width="130" align="center">出席停止</th>
+                      <th width="130" align="center">罹患欠席</th>
+                      <th width="*" align="center">罹患出席</th>
+                    </tr>
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+        
+          <td>
+            <div style="width:100%;height:200;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+<th class="no_search" width="20%" nowrap></th>
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                  <tbody>
+  <!--{each data2}-->
+                    <tr bgcolor="#ffffff">
+                      <td width="170"  height="40" align="center">{rval data2/HR_NAME}</td>
+                      <td width="130" height="40" align="center">{rval data2/ZAISEKI_COUNT}</td>
+                      <td width="130" height="40" align="center">{rval data2/TEISHI_COUNT}</td>
+                      <td width="130" height="40" align="center">{rval data2/KESSEKI_COUNT}</td>
+                      <td width="*" height="40" align="center">{rval data2/TOUKOU_COUNT}</td>
+                    </tr>
+  <!--{/each}-->
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      </table>
+      
+    </td>
+  </tr>
+  
+  
+  <tr>
+    <td>
+    
+              <tr>
+                <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                        <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tr class="no_search">
+                            <th width="20%" nowrap align="right" colspan="2">備考1(学校医の意見)</th>
+                            <td bgcolor="#ffffff">&nbsp;{rval data/REMARK1}</td>
+                        </tr>
+                        <tr class="no_search">
+                            <th nowrap align="right" colspan="2">備考2(今後の処置)</th>
+                            <td bgcolor="#ffffff">&nbsp;{rval data/REMARK2}</td>
+                        </tr>
+                        <tr class="no_search">
+                            <th nowrap align="right" colspan="2">備考3(その他)</th>
+                            <td bgcolor="#ffffff">&nbsp;{rval data/REMARK3}</td>
+                        </tr>
+                        </table>
+                        </td>
+                    </tr>
+                    </table>
+                </td>
+              </tr>
+  
+    </td>
+  </tr>
+  <tr>
+    <td>
+          
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tbody>
+                    <tr class="no_search">
+                      <td>
+                        <table cellpadding="0" cellspacing="0">
+                          <tr class="no_search" height="30">
+                            <td width="90%" align="left">
+                                {val btn_houkoku}{rval data/REPORT}
+                            </td>
+                            <td width="10%" align="right" nowrap>
+                                {val btn_update}{val btn_reset}{val btn_end}　{val btn_print}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+          
+        </tr>
+      </tbody>
+      </table>
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval close_win}</script>

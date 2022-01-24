@@ -1,0 +1,158 @@
+<?php
+class knjl740hForm1
+{
+    public function main(&$model)
+    {
+        $objForm = new form;
+
+        $arg["start"] = $objForm->get_start("main", "POST", "knjl740hindex.php", "", "main");
+
+        $db = Query::dbCheckOut();
+
+        //入試年度
+        $arg["data"]["YEAR"] = $model->ObjYear . "年度";
+
+        //入試制度
+        $extra = "onChange=\"return btn_submit('change');\"";
+        $query = knjl740hQuery::getNameMst($model, "L003");
+        makeCmb($objForm, $arg, $db, $query, $model->field["APPLICANTDIV"], "APPLICANTDIV", $extra, 1);
+
+        //入試区分
+        $extra = "onChange=\"return btn_submit('changeTestDiv');\"";
+        $query = knjl740hQuery::getTestDiv($model);
+        if ($model->cmd == "change") {
+            $model->field["TESTDIV"] = "";
+        }
+        makeCmb($objForm, $arg, $db, $query, $model->field["TESTDIV"], "TESTDIV", $extra, 1);
+
+        //会場コンボ
+        $query = knjl740hQuery::getExamHall($model);
+        $extra = "onChange=\"return btn_submit('main');\"";
+        if ($model->cmd != "main" && $model->cmd != "edit") {
+            $model->field["EXAMHALLCD"] = "";
+        }
+        makeCmb($objForm, $arg, $db, $query, $model->field["EXAMHALLCD"], "EXAMHALLCD", $extra, 1);
+
+        //リストToリスト
+        makeListToList($objForm, $arg, $db, $model);
+
+        //ボタン作成
+        makeBtn($objForm, $arg, $model);
+
+        //hidden作成
+        makeHidden($objForm);
+
+        Query::dbCheckIn($db);
+
+        $arg["finish"]  = $objForm->get_finish();
+        $arg["IFRAME"] = View::setIframeJs();
+
+        View::toHTML($model, "knjl740hForm1.html", $arg);
+    }
+}
+
+//makeCmb
+function makeCmb(&$objForm, &$arg, $db, $query, &$value, $name, $extra, $size, $blank = "")
+{
+    $opt = array();
+    if ($blank) {
+        $opt[] = array("label" => "", "value" => "");
+    }
+    $result = $db->query($query);
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+        $opt[] = array('label' => $row["LABEL"],
+                       'value' => $row["VALUE"]);
+        if ($name == "APPLICANTDIV") {
+            if ($value == "" && $row["NAMESPARE2"] == '1') {
+                $value = $row["VALUE"];
+            }
+        }
+    }
+    $value = ($value != "") ? $value : $opt[0]["value"];
+    $arg["data"][$name] = knjCreateCombo($objForm, $name, $value, $opt, $extra, $size);
+    $result->free();
+}
+
+function makeListToList(&$objForm, &$arg, $db, $model)
+{
+    //初期化
+    $opt_right = $opt_left = array();
+    $selectLeft = $selectLeftText = array();
+
+    //タイトル
+    $arg["data"]["TITLE_LEFT"]  = "欠席者一覧";
+    $arg["data"]["TITLE_RIGHT"] = "受験者一覧（受験番号順）";
+
+    //対象外の受験者取得（既に欠席の受験者）
+    $opt = array();
+    $query = knjl740hQuery::getSelectQueryLeft($model, $seme);
+    $result = $db->query($query);
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+        $opt[] = $row["RECEPTNO"];
+    }
+    $result->free();
+
+    //対象者リストを作成する
+    $result = $db->query(knjl740hQuery::getSelectQuery($model));
+    while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+        if (!in_array($row["VALUE"], $opt)) {
+            $opt_right[] = array("label" => $row["LABEL"],
+                                 "value" => $row["VALUE"]);
+        } else {
+            $opt_left[] = array("label" => $row["LABEL"],
+                                "value" => $row["VALUE"]);
+        }
+    }
+    $result->free();
+
+    //一覧リスト（右）
+    $extra = "multiple style=\"width:500px\" width:\"500px\" ondblclick=\"move1('left')\"";
+    $arg["data"]["CATEGORY_NAME"] = knjCreateCombo($objForm, "CATEGORY_NAME", "", $opt_right, $extra, 40);
+        
+    //一覧リスト（左）
+    $extra = "multiple style=\"width:500px\" width:\"500px\" ondblclick=\"move1('right')\"";
+    $arg["data"]["CATEGORY_SELECTED"] = knjCreateCombo($objForm, "CATEGORY_SELECTED", "", $opt_left, $extra, 40);
+
+    //対象選択ボタンを作成する
+    $extra = "style=\"height:20px;width:40px\" onclick=\"moves('right');\"";
+    $arg["button"]["btn_rights"] = knjCreateBtn($objForm, "btn_rights", ">>", $extra);
+    //対象取消ボタンを作成する
+    $extra = "style=\"height:20px;width:40px\" onclick=\"moves('left');\"";
+    $arg["button"]["btn_lefts"] = knjCreateBtn($objForm, "btn_lefts", "<<", $extra);
+    //対象選択ボタンを作成する
+    $extra = "style=\"height:20px;width:40px\" onclick=\"move1('right');\"";
+    $arg["button"]["btn_right1"] = knjCreateBtn($objForm, "btn_right1", "＞", $extra);
+    //対象取消ボタンを作成する
+    $extra = "style=\"height:20px;width:40px\" onclick=\"move1('left');\"";
+    $arg["button"]["btn_left1"] = knjCreateBtn($objForm, "btn_left1", "＜", $extra);
+}
+
+//ボタン作成
+function makeBtn(&$objForm, &$arg, $model)
+{
+    $disabled = ($model->field["APPLICANTDIV"] && $model->field["TESTDIV"] && $model->field["EXAMHALLCD"]) ? "" : " disabled ";
+
+    //更新ボタン
+    $extra = $disabled . "onclick=\"return btn_submit('update');\"";
+    $arg["button"]["btn_update"] = knjCreateBtn($objForm, "btn_update", "更 新", $extra);
+
+    //取消ボタン
+    $extra = "onclick=\"return btn_submit('clear');\"";
+    $arg["button"]["btn_reset"] = knjCreateBtn($objForm, "btn_reset", "取 消", $extra);
+
+    //終了ボタン
+    $extra = "onclick=\"closeWin();\"";
+    $arg["button"]["btn_end"] = knjCreateBtn($objForm, "btn_end", "終 了", $extra);
+}
+
+//hidden作成
+function makeHidden(&$objForm)
+{
+    knjCreateHidden($objForm, "cmd");
+    knjCreateHidden($objForm, "selectLeft");
+    knjCreateHidden($objForm, "selectLeftText");
+    knjCreateHidden($objForm, "selectRight");
+    knjCreateHidden($objForm, "selectRightText");
+}
+?>
+

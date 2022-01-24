@@ -1,0 +1,143 @@
+//表紙
+//PLACECDが19以上のデータで80でないデータが今のところ海外の会場
+SELECT
+    t1.YEAR,        //年度
+    t4.EXAM_DATE,   //試験日
+    t1.PLACECD,     
+    t1.PLACE_CNT,   //会場別人数
+    t2.ALL_CNT,     //合計人数
+    t3.PLACEAREA    //会場名
+FROM
+    (SELECT
+        YEAR,
+        PLACECD,
+        SUM(PLACE_CNT) as PLACE_CNT
+    FROM
+        (SELECT
+            YEAR,
+            case when PLACECD >= '19' AND PLACECD != '80' then '99' else PLACECD end as PLACECD,
+            COUNT(SAT_NO) as PLACE_CNT
+        FROM
+            SAT_APP_FORM_MST
+        WHERE
+            YEAR = '/*CTRL_YEAR*/'   
+        GROUP BY
+            YEAR,
+            PLACECD
+        )
+    GROUP BY
+        YEAR,
+        PLACECD
+    ) t1
+    left join (SELECT
+                    YEAR,
+                    COUNT(*) as ALL_CNT
+                FROM
+                    SAT_APP_FORM_MST
+                WHERE
+                    YEAR = '/*CTRL_YEAR*/'
+                GROUP BY
+                    YEAR
+                ) t2 on t1.YEAR = t2.YEAR
+    left join (SELECT
+                    PLACECD,
+                    PLACEAREA
+                FROM
+                    SAT_EXAM_PLACE_DAT
+                WHERE
+                    YEAR = '/*CTRL_YEAR*/'
+                AND
+                    PLACECD < '19' OR PLACECD = '80'
+                UNION
+                SELECT
+                    '99',
+                    '海外'
+                FROM
+                    SAT_EXAM_PLACE_DAT
+                ) t3 on t1.PLACECD = t3.PLACECD
+    left join SAT_INFO_MST t4 on t1.YEAR = t4.YEAR
+ORDER BY
+    t1.PLACECD
+
+
+//会場別受験者名簿
+//$model->field["CHECK"]////////
+    1→受験番号順
+    2→氏名順    
+    3→会場別未徴収受付名簿(個人)
+    4→会場別未徴収受付名簿(団体)
+    5→会場別申込団体一覧   //2017/09/13→廃止！！！//2017/09/13
+    5→会場別未徴収受付名簿（校内生）   //2017/09/13→追加//2017/09/13 かつINOUT_KUBUN != '4' という条件を追加して海外を除く
+    SAT_APP_FORM_MSTのIND_KUBUNが1が個人、2が団体になります。(3もあるので、１以外はダメ)    //2017/09/13→3が校内生//2017/09/13
+    SAT_INFO_MSTのEXAM_AMOUNT1が団体、EXAM_AMOUNT2が個人の金額が入っていますので    //2017/09/13→EXAM_AMAOUNT3が校内生の金額//2017/09/13
+    SAT_APP_FORM_MSTのSEND_KUBUNが1が郵送、2が窓口になります。 (郵送受付名簿は母集団がSEND_KUBUN='1')   //2017/09/13→ここはそのまま//2017/09/13
+////////////////////////////////
+
+SELECT 
+    /*ROW_NUMBER() OVER(PARTITION BY t1.PLACECD ORDER BY /*受験番号順t1.SAT_NO*///+氏名順t1.KANA1, t1.KANA2+/),       //通し番号取得するなら(会場の中の通し番号ならPARTITIONあり、全体の通し番号ならなし)*/
+    t1.YEAR,                    //年度
+    t1.SAT_NO,                  //受験番号
+    t1.NAME1,                   //氏名
+    t1.KANA1,                   //かな姓
+    t1.KANA2,                   //かな名
+    t4.NAME2 as SEX,            //性別名称
+    t1.BIRTHDAY,                //生年月日(YYmmdd)
+    t1.TELNO1,                  //電話番号(ハイフン有)
+    t1.SCHOOLCD,                //出身学校コード
+    t2.FINSCHOOL_NAME_ABBV,     //出身学校名称
+    t1.GROUPCD,                 //団体コード
+    t3.GROUPNAME,               //団体名称
+    t1.PLACECD,                 //会場コード
+    t5.PLACEAREA,               //会場名
+    t6.CNT                      //会場毎の受験者数
+FROM
+    (
+    SELECT
+        YEAR,
+        SAT_NO,
+        NAME1,
+        KANA1,
+        KANA2,
+        SEX,
+        substr(replace(BIRTHDAY, '-', ''), 3, 6) as BIRTHDAY,
+        TELNO1,
+        PREFCD,
+        PLACECD,
+        SCHOOLCD,
+        GROUPCD
+    FROM
+        SAT_APP_FORM_MST
+    WHERE
+        YEAR = '/*CTRL_YEAR*/'
+    //会場指定時//////
+    AND
+        PLACECD = '/*$model->field["PLACE_COMB"]*/'
+    //////////////////
+    ) t1
+    left join FINSCHOOL_MST t2 on t1.SCHOOLCD = t2.FINSCHOOLCD and t2.FINSCHOOL_TYPE = '3'
+    left join SAT_GROUP_DAT t3 on t1.GROUPCD = t3.GROUPCD and t3.YEAR = '/*CTRL_YEAR*/'
+    left join NAME_MST t4 on t1.SEX = t4.NAMECD2 and t4.NAMECD1 = 'Z002'
+    left join SAT_EXAM_PLACE_DAT t5 on t1.PLACECD = t5.PLACECD and t5.YEAR = '/*CTRL_YEAR*/'
+    left join (
+                SELECT
+                    YEAR,
+                    PLACECD,
+                    COUNT(*) as CNT
+                FROM
+                    SAT_APP_FORM_MST
+                WHERE
+                    YEAR = '/*CTRL_YEAR*/'
+                GROUP BY
+                    YEAR,
+                    PLACECD
+                ) t6 on t1.YEAR = t6.YEAR and t1.PLACECD = t6.PLACECD
+ORDER BY
+    PLACECD,
+    //受験番号順
+    SAT_NO
+    //氏名50音順
+    KANA1,
+    KANA2
+    ////////////
+
+

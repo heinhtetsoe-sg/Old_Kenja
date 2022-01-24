@@ -1,0 +1,142 @@
+{rval start}
+<br>
+<table width="1000" border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td valign="top" align="center">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="1" >
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                    <tr class="no_search">
+                      <td width="200">　{rval YEAR}年度　　学期：{rval SEMESTER}</td>
+                      <td width="*">　科目：{rval TOP/SUBCLASSCD}<br>
+                                    　講座：{rval TOP/CHAIRCD}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th nowrap rowspan="2" align="center" width="100">学籍番号</th>
+                      <th nowrap rowspan="2" align="center" width="100">クラス</th>
+                      <th nowrap rowspan="2" align="center" width="250">氏名</th>
+                      <th nowrap rowspan="2" align="center" width="60">単位数</th>
+                      <th nowrap rowspan="2" align="center" width="60">レポート<br>回数</th>
+                      <th nowrap colspan="3" align="center" width="150">レポート提出</th>
+                      <th nowrap rowspan="2" align="center" width="50">評価</th>
+                      <th nowrap colspan="2" align="center" width="*">DVD</th>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th nowrap align="center" width="50">合格</th>
+                      <th nowrap align="center" width="50">再提出</th>
+                      <th nowrap align="center" width="50">不合格</th>
+                      <th nowrap align="center" width="70">DVDあり</th>
+                      <th nowrap align="center" width="*">視聴報告</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div style="width:100%;height:500;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{each testdata}--> 
+                    <tr bgcolor="#ffffff">
+                      <input type="hidden" name="SCHREGNO[]" value="{rval testdata/SCHREGNO}">
+                      <td nowrap align="center" width="100">{rval testdata/SCHREGNO}</td>
+                      <td nowrap align="left"   width="100">{rval testdata/HR_NAME}</td>
+                      <td nowrap align="left"   width="250">{rval testdata/NAME}</td>
+                      <td nowrap align="center" width="60">{rval testdata/CREDITS}</td>
+                      <td nowrap align="center" width="60">{rval testdata/REPO_MAX_CNT}</td>
+                      <td nowrap align="center" width="50">{rval testdata/R_VAL1}</td>
+                      <td nowrap align="center" width="50">{rval testdata/R_VAL2}</td>
+                      <td nowrap align="center" width="50">{rval testdata/R_VAL3}</td>
+                      <td nowrap align="center" width="50">{rval testdata/T_VAL1}</td>
+                      <td nowrap align="center" width="70">{rval testdata/IS_DVD}</td>
+                      <td nowrap class="changeColor" data-name="S_VAL1_{rval testdata/SCHREGNO}" align="center" width="*"> {rval testdata/S_VAL1}</td>
+                    </tr>
+<!--{/each}--> 
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="20" nowrap>
+                      <th nowrap align="left">{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">
+    document.addEventListener('click', function(e) {tdChangeColor(e)});
+    document.addEventListener('mouseover', function(e) {tdChangeColor(e)});
+    document.addEventListener('mouseout', function(e) {tdChangeColor(e)});
+
+    function tdChangeColor(e) {
+        var t = e.target;
+        if (t.className == "changeColor") {
+            var objName = e.target.getAttribute('data-name');
+            targetCheckBox = document.getElementById(objName);
+
+            switch (e.type) {
+                case "mouseover":
+                    targetCheckBox.parentNode.style.backgroundColor = "pink";
+                    break;
+                case "mouseout":
+                    targetCheckBox.parentNode.style.backgroundColor = "white";
+                    break;
+                case "click":
+                    if (e.target.type != "checkbox") {
+                        targetCheckBox.checked = targetCheckBox.checked ? false: true;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+</script>
+<script language="JavaScript">{rval jscript}</script>

@@ -1,0 +1,133 @@
+{rval start}
+
+<br>
+<table style="width: 800px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+    <table align="center" style="width: 800px" border="0" cellspacing="5" cellpadding="1">
+    <tr>
+    <td>
+        <table style="width: 800px" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 800px" border="0" cellpadding="0" cellspacing="1">
+                <tr class="no_search" height="30">
+                    <td align="left" colspan="4">&nbsp;&nbsp;&nbsp;<B>所属履歴　{rval TOP/STAFFCD}：{rval TOP/STAFFNAME}</B></td>
+                </tr>
+
+                <tr class="no_search" height="20">
+                    <td align="center" width="60">SEQ</td>
+                    <td align="center" width="310">免許・資格選択</td>
+                    <td align="center" width="310">免許・資格入力</td>
+                    <td align="center" width="*">取得日</td>
+                </tr>
+
+            </table>
+
+        </td>
+        </tr>
+        </table>
+
+        <div style="width: 100%; height=186; overflow: auto">
+        <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+            <!--{def data}-->
+            <!--結果一覧-->
+            <!--{each data}-->
+                <tr class="no_search_line" >
+                    <td bgcolor='#ffffff' align="center" width="52">{rval data/SEQ}</td>
+                    <td bgcolor='#ffffff' align="left" width="302">{rval data/QUALIFIED_CD_NAME}</td>
+                    <td bgcolor='#ffffff' align="left" width="302">{rval data/QUALIFIED_NAME}</td>
+                    <td bgcolor='#ffffff' align="left" width="*">{rval data/GET_DATE}</td>
+                </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+        </td>
+        </tr>
+        </table>
+        </div>
+
+    </td>
+    </tr>
+
+    </table>
+
+    <table style="width: 800px" border="0" cellspacing="5" cellpadding="1">
+
+    <tr>
+    <td>
+        <BR><BR><BR><BR>
+        <table style="width: 800px" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 800px" border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search" >
+                    <td align="center" width="160">項目</td>
+                    <td align="center" width="*">値</td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+
+        <div style="width: 100%; ">
+        <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+
+                <tr class="no_search" >
+                    <td align="left" width="160">　　 SEQ</td>
+                    <td bgcolor='#ffffff' align="left" width="*"><font color="black">{rval data2/SEQ}</font></td>
+                </tr>
+
+                <tr class="no_search" >
+                    <td align="left" width="160">　　 免許・資格選択</td>
+                    <td bgcolor='#ffffff' align="left" width="*">{rval data2/QUALIFIED_CD}</td>
+                </tr>
+
+                <tr class="no_search" >
+                    <td align="left" width="160">　　 免許・資格入力</td>
+                    <td bgcolor='#ffffff' align="left" width="*">{rval data2/QUALIFIED_NAME}<br><font color="red">(全角50文字まで)</font></td>
+                </tr>
+
+                <tr class="no_search" >
+                    <td align="left" width="160">　　 取得日</td>
+                    <td bgcolor='#ffffff' align="left" width="*">{rval data2/GET_DATE}</td>
+                </tr>
+
+            </table>
+        </td>
+        </tr>
+        </table>
+        </div>
+
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+        <table style="width: 800px" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 800px" border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search" >
+                    <td>&nbsp;&nbsp;&nbsp;{rval button/btn_insert}{rval button/btn_updte}{rval button/btn_delete}{rval button/btn_end}</td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+
+    </table>
+</td>
+</tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

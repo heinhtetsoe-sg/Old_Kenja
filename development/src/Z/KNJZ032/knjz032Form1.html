@@ -1,0 +1,108 @@
+{rval start}
+<BR><BR>
+<table width="60%" border="0" cellpadding="0" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      
+        <tr>
+          <td height="50">
+            <hr width="20%" align="left">
+                &nbsp;対象年度：{rval YEAR_SHOW}&nbsp;
+            <hr width="20%" align="left">
+          </td>
+        </tr>
+      
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="150">学年</th>
+              <th width="150">学期コード</th>
+              <th width="150">学期名称</th>
+              <th width="150">学期開始日付</th>
+              <th width="*">学期終了日付</th>
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <div onScroll="scrollRC()" style="overflow:scroll; width: 100%; height: 170;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def data2}-->
+                <!--{each data2}-->
+                  <tr bgcolor="#ffffff">
+                    <!--{def data2/ROWSPAN}-->
+                    <td width="150" align="left" rowspan={rval data2/ROWSPAN}><a href="knjz032index.php?cmd=edit&UPD_FLG=1&GRADE={val data2/GRADE}">{rval data2/GRADE_NAME1}</a></td>
+                    <!--{/def}-->
+                    <td width="150" align="center">{rval data2/SEMESTER}</td>
+                    <td width="150" align="left">{rval data2/SEMESTERNAME}</td>
+                    <td width="150" align="left">{rval data2/SDATE}</td>
+                    <td width="*" align="left">{rval data2/EDATE}</td>
+                  </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+        
+        <tr>
+          <td height="100">
+            <hr width="40%" align="left">
+                &nbsp;{rval GRADE}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_hanei}
+            <hr width="40%" align="left">
+          </td>
+        </tr>
+
+        <tr>
+        <td>
+            <table width="80%" border="0" cellspacing="0" cellpadding="0">
+            <tr class="no_search_line">
+            <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search" >
+                    <td align="center" width="150">学期コード</td>
+                    <td align="center" width="150">学期名称</td>
+                    <td align="center" width="150">学期開始日付</td>
+                    <td align="center" width="*">学期終了日付</td>
+                </tr>
+                <!--{def data}-->
+                <!--結果一覧-->
+                <!--{each data}-->
+                <tr class="no_search_line" >
+                    <td align="center"class="no_search" width="150">{val data/SEMESTER}</td>
+                    <td align="center" bgcolor="#ffffff" width="150">{rval data/SEMESTERNAME}</td>
+                    <td bgcolor="#ffffff" width="150">{rval data/SDATE}</td>
+                    <td bgcolor="#ffffff" width="*">{rval data/EDATE}</td>
+                </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+            </td>
+            </tr>
+            </table>
+        </td>
+        </tr>
+        <tr>
+            <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish} 

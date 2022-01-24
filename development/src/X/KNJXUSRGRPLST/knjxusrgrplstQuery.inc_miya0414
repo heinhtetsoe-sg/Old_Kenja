@@ -1,0 +1,39 @@
+<?php
+class knjxusrgrplstQuery extends Query {
+    //MENUデータ取得
+    function selectQuery($model)
+    {
+        $order = array("desc", "asc");
+
+        $query  = "SELECT distinct";
+        $query .= " T1.STAFFCD,";
+        $query .= " T1.STAFFNAME_SHOW,";
+        $query .= " T1.STAFFNAME_KANA,";
+        $query .= " T2.GROUPCD,";
+        $query .= " T2.GROUPNAME";
+        $query .= " FROM";
+        $query .= " STAFF_MST T1,USERGROUP_MST T2,USERGROUP_DAT T3,V_STAFF_MST T4 ";
+        $query .= " WHERE";
+        $query .= " T1.STAFFCD=T3.STAFFCD AND";
+        $query .= " T1.STAFFCD=T4.STAFFCD AND";
+        //$query .= " T4.YEAR ='".$model->ctrl["年度"]."' AND";
+        $query .= " T4.YEAR ='".CTRL_YEAR."' AND";
+        $query .= " T2.GROUPCD=T3.GROUPCD";
+
+        switch ($model->s_id)
+        {
+        case "1";
+        $query .= " ORDER BY  T1.STAFFCD ".$order[$model->sort[$model->s_id]].", T2.GROUPCD asc"; break;
+        case "2":
+        $query .= " ORDER BY  T1.STAFFNAME_KANA ".$order[$model->sort[$model->s_id]].", T2.GROUPCD asc"; break;
+        case "3":
+        $query .= " ORDER BY  T2.GROUPCD ".$order[$model->sort[$model->s_id]].", T1.STAFFCD asc"; break;
+        case "4":
+        $query .= " ORDER BY  T2.GROUPCD ".$order[$model->sort[$model->s_id]].", T1.STAFFNAME_KANA asc"; break;
+        default:
+        $query .= " ORDER BY  T1.STAFFCD ".$order[$model->sort[$model->s_id]].", T2.GROUPCD asc"; break;
+        }
+       return $query;
+    }
+}
+?>

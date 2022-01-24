@@ -1,0 +1,73 @@
+{rval start}
+{rval IFRAME}
+<!--{def button}-->
+<!--{def data}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <hr width="60%" align="left">
+              &nbsp;{rval data/SCHREGNO}&nbsp;&nbsp;{val data/NAME}
+            <hr width="60%" align="left">
+            <br>
+              &nbsp;学期：{rval data/SEMESTER}
+            <br><br>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line">
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <tr class="no_search">
+                        <th width="20%">項 目</th>
+                        <th width="80%">値</th>
+                      </tr>
+                      <tr>
+                        <th align="right" class="no_search" nowrap Valign="top">生徒会／HR役員／係など</th>
+                        <td bgcolor="#ffffff">
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/REMARK1}<br>
+                          <font size="2" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/REMARK1_COMMENT}</font>
+                          <span id="statusarea_REMARK1" style="color:blue"></span>
+                          {rval button/btn_committee}
+                        </td>
+                      </tr>
+                      <tr>
+                        <th align="right" class="no_search" nowrap Valign="top">所属クラブ</th>
+                        <td bgcolor="#ffffff">
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/REMARK2}<br>
+                          <font size="2" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/REMARK2_COMMENT}</font>
+                          <span id="statusarea_REMARK2" style="color:blue"></span>
+                          {rval button/btn_club}{rval button/btn_kirokubikou}
+                        </td>
+                      </tr>
+                      <tr>
+                        <th align="right" class="no_search" nowrap Valign="top">備考</th>
+                        <td bgcolor="#ffffff">
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/REMARK3}<br>
+                          <font size="2" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/REMARK3_COMMENT}</font>
+                          <span id="statusarea_REMARK3" style="color:blue"></span>
+                        </td>
+                      </tr>
+                      <tr> 
+                        <th align="right" class="no_search" nowrap>&nbsp;</th>
+                        <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_end}<br>{rval button/btn_csv}</td>
+                      </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}--> 
+<!--{/def}-->
+
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval reload}{rval next}</script>
+<!--{/def}-->

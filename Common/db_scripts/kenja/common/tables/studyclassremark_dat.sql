@@ -1,0 +1,20 @@
+-- $Id: 6ff3eda00a152911a23225e01e52d742afdb38f0 $
+
+drop table STUDYCLASSREMARK_DAT
+
+create table STUDYCLASSREMARK_DAT( \
+     YEAR           VARCHAR(4)  NOT NULL, \
+     SCHREGNO       VARCHAR(8)  NOT NULL, \
+     CLASSCD        VARCHAR(2)  NOT NULL, \
+     SCHOOL_KIND    VARCHAR(2)  NOT NULL, \
+     CURRICULUM_CD  VARCHAR(2)  NOT NULL, \
+     SUBCLASSCD     VARCHAR(6)  NOT NULL, \
+     REMARK         VARCHAR(60), \
+     REGISTERCD     VARCHAR(8), \
+     UPDATED        TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+ ) in usr1dms index in idx1dms
+
+alter table STUDYCLASSREMARK_DAT add constraint pk_studyclassremar primary key \
+  (YEAR, SCHREGNO, CLASSCD, SCHOOL_KIND, CURRICULUM_CD, SUBCLASSCD)
+
+

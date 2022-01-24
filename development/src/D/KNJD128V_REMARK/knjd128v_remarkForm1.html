@@ -1,0 +1,174 @@
+{rval start} 
+{rval IFRAME}
+<style type="text/css">
+<!--
+a{
+color:#ffffff;
+font-size: 3.3mm;
+}
+a:hover{
+color:#ffffff;
+font-weight:bold;
+font-size: 3.3mm;
+}
+-->
+</style>
+
+<table width={rval ALL_WIDTH} border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="7%" nowrap>処理年度：{rval YEAR}年度</th>
+                        <th width="33%" nowrap>
+<!--{def use_school_detail_gcm_dat}-->
+&nbsp;　課程学科：{rval COURSE_MAJOR}&nbsp;
+<!--{/def}-->
+科目：{rval SUBCLASSCD}
+                        </th>
+                        <td width="36%" nowrap>学級・講座：{rval CHAIRCD}</td>
+                        <td width="24%">
+                            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                              <tr class="no_search">
+                                <th width="6%" bgcolor="#3399ff" nowrap><font color="#000000" size="2">公欠</font></th>
+                                <th width="6%" bgcolor="#66cc33" nowrap><font color="#000000" size="2">特別<BR>欠席</font></th>
+                                <th width="6%" bgcolor="#ff0099" nowrap><font color="#000000" size="2">病欠<BR>欠課</font></th>
+                                <th width="6%" bgcolor="#ffff00" nowrap><font color="#000000" size="2">異動<BR>生徒</font></th>
+                              </tr>
+                            </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th rowspan="2" width="88"><font size="2">クラス-<br>出席番号</font></th>
+                        <th rowspan="2" width="180"><font size="2">氏名</font></th>
+                        {rval HEAD1}
+                        <th rowspan="2" width="*"><font size="2">備考(全角50文字)</font></th>
+                      </tr>
+                      <tr class="no_search">
+                        {rval HEAD2}
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <div style="width:100%;height:350;overflow:auto">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr height="28">
+                          <td width="88" align="center" bgcolor="{rval data/COLOR}">{rval data/ATTENDNO}</td>
+                          <td width="180" align="left" bgcolor="{rval data/COLOR}">{rval data/SCHREGNO_SHOW}{rval data/NAME_SHOW}</td>
+                          {rval data/MEISAI}
+                          <td width="*" align="center" bgcolor="{rval data/COLOR}">{rval data/REMARK}</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="275">合計</th>
+                        {rval SCORE_SUM}
+                        <th width="*" rowspan="4">{rval CUR_DATE}</th>
+                      </tr>
+                      <tr class="no_search">
+                        <th>平均</th>
+                        {rval SCORE_AVG}
+                      </tr>
+                      <tr class="no_search">
+                        <th>最高点</th>
+                        {rval SCORE_MAX}
+                      </tr>
+                      <tr class="no_search">
+                        <th>最低点</th>
+                        {rval SCORE_MIN}
+                      </tr>
+                      <tr class="no_search">
+                        <td colspan={rval FOOT_COLSPAN} align="right">
+                          <table cellpadding="0" cellspacing="0">
+                            <tr class="no_search">
+                              <td width="*%" align="right">
+                              {rval btn_update}{rval btn_reset}{rval btn_end}
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                  </table>
+                  </td>
+                </tr>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish} 
+<script language="JavaScript">
+ var a_mark = new Array();
+<!--{def data2}-->
+<!--{each data2}--> 
+ a_mark[{rval data2/ASSESSLEVEL}] = '{rval data2/ASSESSMARK}';
+<!--{/each}-->
+<!--{/def}-->
+{rval close_win}</script>

@@ -1,0 +1,37 @@
+-- $Id: ab0d9aa5cc733cb465c22b14a001165579fff0e7 $
+
+DROP TABLE REC_SUBCLASS_GROUP_DAT_OLD
+RENAME TABLE REC_SUBCLASS_GROUP_DAT TO REC_SUBCLASS_GROUP_DAT_OLD
+CREATE TABLE REC_SUBCLASS_GROUP_DAT( \
+     YEAR               VARCHAR(4) NOT NULL, \
+     GROUP_DIV          VARCHAR(2) NOT NULL, \
+     GRADE              VARCHAR(2) NOT NULL, \
+     COURSECD           VARCHAR(1) NOT NULL, \
+     MAJORCD            VARCHAR(3) NOT NULL, \
+     COURSECODE         VARCHAR(4) NOT NULL, \
+     CLASSCD            VARCHAR(2) NOT NULL, \
+     SCHOOL_KIND        VARCHAR(2) NOT NULL, \
+     CURRICULUM_CD      VARCHAR(2) NOT NULL, \
+     SUBCLASSCD         VARCHAR(6) NOT NULL, \
+     REGISTERCD         VARCHAR(8), \
+     UPDATED            timestamp default current timestamp \
+    ) in usr1dms index in idx1dms
+
+INSERT INTO REC_SUBCLASS_GROUP_DAT \
+    SELECT \
+        YEAR, \
+        GROUP_DIV, \
+        GRADE, \
+        COURSECD, \
+        MAJORCD, \
+        COURSECODE, \
+        CLASSCD, \
+        'H' AS SCHOOL_KIND, \
+        '2' AS CURRICULUM_CD, \
+        SUBCLASSCD, \
+        REGISTERCD, \
+        UPDATED \
+    FROM \
+        REC_SUBCLASS_GROUP_DAT_OLD
+
+alter table REC_SUBCLASS_GROUP_DAT add constraint PK_REC_SUBCLASS_G primary key (YEAR, GROUP_DIV, GRADE, COURSECD, MAJORCD, COURSECODE, CLASSCD, SCHOOL_KIND, CURRICULUM_CD, SUBCLASSCD)

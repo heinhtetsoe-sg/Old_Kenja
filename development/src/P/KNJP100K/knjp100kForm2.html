@@ -1,0 +1,82 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+
+
+
+  <tr>
+    <td>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="3">
+          <tr class="no_search_line" height="24">
+            <td colspan="2" class="no_search" >&nbsp;
+            {rval TARGET_APPLI}
+            </td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+
+
+
+      <tr>
+        <td>
+<!--
+        <hr width="35%" align="left">
+        {rval TARGET_APPLI}
+        <hr width="35%" align="left">
+-->
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search_line">
+                <th class="no_search" width="20%">項目</th>
+                <th class="no_search" >値</th>
+              </tr>
+              <!--結果一覧-->
+              <!--{def data}-->
+              <tr>
+                <th align="right" class="no_search" nowrap>※申込コード</th>
+                <td bgcolor="#ffffff">{rval data/APPLICATIONCD}
+                &nbsp;&nbsp;&nbsp;金額：{rval data/APPLI_MONEY_DUE}&nbsp;円</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>申込日</th>
+                <td bgcolor="#ffffff">{rval data/APPLIED_DATE}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>納入金額</th>
+                <td bgcolor="#ffffff">{rval data/APPLI_PAID_MONEY}&nbsp;円&nbsp;&nbsp;&nbsp;&nbsp;
+                                      入金区分：{rval data/APPLI_PAID_DIV}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>納入日</th>
+                <td bgcolor="#ffffff">{rval data/APPLI_PAID_DATE}</td>
+              </tr>
+              <!--{/def}-->
+              <!--{def button}-->
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}&nbsp;&nbsp;{rval button/btn_allupdate}</td>
+              </tr>
+              <!--{/def}-->
+            </table>
+            </td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

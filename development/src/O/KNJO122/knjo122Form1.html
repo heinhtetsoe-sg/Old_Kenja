@@ -1,0 +1,171 @@
+{rval start}
+
+<style>
+  .title{
+    text-align: left;
+  }
+  .big_title{
+    text-align: center;
+  }
+  .btn{
+    text-align: right;
+    background-color: #7379ae;
+    padding: 8px;
+  }
+</style>
+
+<br><br><br><br><br>
+<table align="center" width="25%" border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr class="no_search_line">
+        <td >
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr height="30" class="no_search_line">
+              <th class="no_search" align="center" colspan="2">
+              <font color="#ffffff"><b>学習者情報出力</b></font>
+              </th>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title" width="20%">学籍番号</td>
+              <td>{rval SCHREGNO}&nbsp;&nbsp;{rval button/btn_zaigaku}</td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title"width="20%" nowrap>送付先入力</td>
+              <td>{rval SEND1}　{rval SEND2}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+</table>
+
+<br><br><br>
+<!--{def SENDDATA}-->
+<table align="center" width="50%" border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr class="no_search_line">
+        <td >
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr height="30" class="no_search_line">
+              <th align="center" class="no_search" colspan="4">
+              <font color="#ffffff"><b>送信先情報入力</b></font>
+              </th>
+            </tr>
+            <!--{def KYOUIKU}-->
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search big_title" width="5%" rowspan="9">教<br>育<br>委<br>員<br>会</td>
+              <td class="no_search title" width="15%" colspan="2">教育委員会ID</td>
+              <td>{rval data/K_ID}</td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title" width="10%" colspan="2">教育委員会名</td>
+              <td>{rval data/K_NAME}</td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title" width="10%" colspan="2">部課係</td>
+              <td>{rval data/K_BKK}</td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search big_title" width="5%" rowspan="4">住所</td>
+              <td class="no_search title" width="10%" nowrap>住所コード</td>
+              <td>{rval data/K_ADDRCD}</td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title" width="10%">郵便番号</td>
+              <td bgcolor="#ffffff" nowrap>〒{rval data/K_ZIPCD}&nbsp;&nbsp;<nobr style="color:red;">※123-45677</nobr></td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title" width="10%">住所</td>
+              <td>{rval data/K_ADDRESS}</td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title" width="10%">方書</td>
+              <td>{rval data/K_KATAGAKI}</td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title" width="10%" colspan="2">電話番号</td>
+              <td>{rval data/K_TELNO}</td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title" width="10%" colspan="2">職</td>
+              <td>{rval data/K_SYOKU}</td>
+            </tr>
+            <!--{/def}-->
+            
+            <!--{def SCHOOL}-->
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search big_title" width="5%" rowspan="15">学<br>校</td>
+              <td class="no_search title" width="15%" colspan="2">学校ID</td>
+              <td>{rval data2/G_ID}</td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title" width="10%" colspan="2">学校名</td>
+              <td>{rval data2/G_NAME}</td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search big_title" width="5%" rowspan="4">所在地</td>
+              <td class="no_search title" width="10%" nowrap>住所コード</td>
+              <td>{rval data2/G_ADDRCD}</td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title" width="10%">郵便番号</td>
+              <td bgcolor="#ffffff" nowrap>〒{rval data2/G_ZIPCD}&nbsp;&nbsp;<nobr style="color:red;">※123-4567</nobr></td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title" width="10%">住所</td>
+              <td>{rval data2/G_ADDRESS}</td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title" width="10%">方書</td>
+              <td>{rval data2/G_KATAGAKI}</td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title" width="10%" colspan="2">電話番号</td>
+              <td>{rval data2/G_TELNO}</td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title" width="10%" colspan="2">職</td>
+              <td>{rval data2/G_SYOKU}</td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title" width="10%" colspan="2">備考</td>
+              <td>{rval data2/G_BIKOU}&nbsp;&nbsp;<nobr style="color:red;">※全角30文字まで</nobr></td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title" width="10%" colspan="2">分校ID</td>
+              <td>{rval data2/G_BUNID}</td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title" width="10%" colspan="2">分校名</td>
+              <td>{rval data2/G_BUNNAME}</td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title" width="5%" rowspan="4">分校住所</td>
+              <td class="no_search title" width="10%" nowrap>住所コード</td>
+              <td>{rval data2/G_BUNADDRCD}</td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title" width="10%">郵便番号</td>
+              <td>〒{rval data2/G_ZIPCD2}&nbsp;&nbsp;<nobr style="color:red;">※123-4567</nobr></td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title" width="10%">住所</td>
+              <td>{rval data2/G_BUNADDRESS}</td>
+            </tr>
+            <tr height="30" bgcolor="#ffffff">
+              <td class="no_search title" width="10%">方書</td>
+              <td>{rval data2/G_BUNKATAGAKI}</td>
+            </tr>
+            <!--{/def}-->
+          </table>
+          <tr height="30" bgcolor="#ffffff">
+            <td class="btn" colspan="10">{rval btn_read}&nbsp;{rval btn_end}</td>
+          </tr>
+        </td>
+      </tr>
+    </tbody>
+</table>
+<!--{/def}-->
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

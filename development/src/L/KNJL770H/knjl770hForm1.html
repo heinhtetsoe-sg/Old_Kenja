@@ -1,0 +1,165 @@
+{rval start}
+<br />
+<br />
+<table width="600" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tbody>
+        <tr>
+            <td valign="top">
+                <br />
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                        <tr bgcolor="#006633">
+                            <td align="right">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr class="no_search_line">
+                                            <td>
+                                                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                                    <tbody>
+                                                        <tr class="no_search">
+                                                            <th width="30%">項目</th>
+                                                            <th>値</th>
+                                                        </tr>
+                                                        <tr class="no_search">
+                                                            <th align="right">入試年度</th>
+                                                            <td bgcolor="#ffffff" style="color: #000000">{rval CTRL_YEAR}</td>
+                                                        </tr>
+                                                        <tr class="no_search">
+                                                            <th align="right">※ 学校種別</th>
+                                                            <td bgcolor="#ffffff">{rval APPLICANTDIV}</td>
+                                                        </tr>
+                                                        <tr class="no_search">
+                                                            <th align="right">※ 入試区分</th>
+                                                            <td bgcolor="#ffffff">{rval TESTDIV}</td>
+                                                        </tr>
+                                                        <tr class="no_search">
+                                                            <th align="right">性別</th>
+                                                            <td bgcolor="#ffffff">
+                                                                <font color="black">
+                                                                    {rval SEX_OPT1}<label for="SEX_OPT1">共通</label> 
+                                                                    {rval SEX_OPT2}<label for="SEX_OPT2">男</label> 
+                                                                    {rval SEX_OPT3}<label for="SEX_OPT3">女</label>
+                                                                </font>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="no_search">
+                                                            <th align="right">※ 合格点</th>
+                                                            <td bgcolor="#ffffff" style="color: #000000">{rval data/BORDER_SCORE}点</td>
+                                                        </tr>
+                                                        <tr class="no_search">
+                                                            <th align="right">合格者数</th>
+                                                            <td bgcolor="#ffffff" style="color: #000000">　{rval dataCnt/GOUKAKU_CNT}　名</td>
+                                                        </tr>
+                                                        <tr class="no_search">
+                                                            <th align="right">繰上合格点</th>
+                                                            <td bgcolor="#ffffff" style="color: #000000">{rval data/BORDER_SCORE_CANDI}点</td>
+                                                        </tr>
+                                                        <tr class="no_search">
+                                                            <th align="right">繰上合格者数</th>
+                                                            <td bgcolor="#ffffff" style="color: #000000">　{rval dataCnt/SUCCESS_CNT_CANDI}　名</td>
+                                                        </tr>
+                                                        <tr class="no_search">
+                                                            <th></th>
+                                                            <th bgcolor="#ffffff" align="left">{rval btn_sim}&nbsp;&nbsp;&nbsp;{rval btn_decision}{rval btn_clear}{rval btn_delete}{rval btn_end}</th>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br />
+<br />
+<table align="center" width="950" border="0" cellspacing="0" cellpadding="5">
+    <tbody>
+        <tr>
+            <td>確定結果一覧</td>
+        </tr>
+        <tr>
+            <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr class="no_search_line">
+                                            <td>
+                                                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                                    <tbody>
+                                                        <tr class="no_search">
+                                                            <th width="90" nowrap>入試区分</th>
+                                                            <th width="90" nowrap>性別</th>
+                                                            <th width="90" nowrap>合格点</th>
+                                                            <th width="90" nowrap>合格者数</th>
+                                                            <th width="90" nowrap>繰上合格点</th>
+                                                            <th width="90" nowrap>繰上合格者数</th>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="width: 100%; height: 160; overflow: auto">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                            <tr class="no_search_line">
+                                                <td>
+                                                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                                        <tbody>
+                                                            <!--結果一覧-->
+                                                            <!--{def dataD}-->
+                                                            <!--{each dataD}-->
+                                                            <tr bgcolor="#ffffff" nowrap>
+                                                                <!--{def dataD/rowspan}-->
+                                                                <!--{/def}-->
+                                                                <td width="90" align="center" nowrap>{rval dataD/TESTDIV_NAME}</td>
+                                                                <td width="90" align="right" nowrap>{rval dataD/SEX_NAME}</td>
+                                                                <td width="90" align="right" nowrap>{rval dataD/BORDER_SCORE}</td>
+                                                                <td width="90" align="right" nowrap>{rval dataD/GOUKAKU_CNT}</td>
+                                                                <td width="90" align="right" nowrap>{rval dataD/BORDER_SCORE_CANDI}</td>
+                                                                <td width="90" align="right" nowrap>{rval dataD/SUCCESS_CNT_CANDI}</td>
+                                                            </tr>
+                                                            <!--{/each}-->
+                                                            <!--{/def}-->
+
+                                                            <!--合計-->
+                                                            <!--{def dataSum}-->
+                                                            <tr bgcolor="#ffffff" nowrap>
+                                                                <th width="90" class="no_search" nowrap>合計</th>
+                                                                <td width="90" align="right" nowrap></td>
+                                                                <td width="90" align="right" nowrap></td>
+                                                                <td width="90" align="right" nowrap>{rval dataSum/GOUKAKU_CNT}</td>
+                                                                <td width="90" align="right" nowrap></td>
+                                                                <td width="90" align="right" nowrap>{rval dataSum/SUCCESS_CNT_CANDI}</td>
+                                                            </tr>
+                                                            <!--{/def}-->
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{rval finish}

@@ -1,0 +1,50 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table  width="100%" border="0" cellspacing="1" cellpadding="0" >
+        <tr class="no_search_line">
+          <th>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search">
+                <th nowrap width="50%">{val current_year}</th>
+                <th nowrap width="*%">{rval button/copy_year}</th>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search"> 
+                <th nowrap width="20%">類型評定<br>パターン</th>
+                <th nowrap width="40%">類型平均<br>上限値</th>
+                <th nowrap width="40%">類型平均<br>下限値</th>
+              </tr>
+              <!--結果一覧-->
+              <!--{def data}-->
+              <!--{each data}--> 
+              <tr> 
+                <td nowrap align="center" bgcolor="#ffffff">{val data/TYPE_ASSES_CD}</td>
+                <td nowrap bgcolor="#ffffff">{val data/TYPE_GROUP_AVE_HIGH}</td>
+                <td nowrap align="right" bgcolor="#ffffff">{val data/TYPE_GROUP_AVE_LOW}</td>
+              </tr> 
+              <!--{/each}--> 
+              <!--{/def}--> 
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval Closing}</script>

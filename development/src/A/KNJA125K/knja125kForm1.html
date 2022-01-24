@@ -1,0 +1,114 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+{rval IFRAME}
+<table width="680" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <hr width="40%" align="left">
+                &nbsp;{rval SCHREGNO}　{val NAME}
+            <hr width="40%" align="left">
+            <br>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td width="240" height="900" valign="top">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr class="no_search" height="25">
+                                  <th width="40">項目</th>
+                                  <th>値</th>
+                                </tr>
+                                <tr class="no_search" height="25">
+                                  <th colspan="2">ねらい</th>
+                                </tr>
+                                <!--{def view}-->
+                                <!--{each view}-->
+                                  <tr height="60">
+                                    <!--{def view/ROWSPAN}--><th class="no_search" nowrap rowspan="{rval view/ROWSPAN}">{rval view/REMARK_L}</th><!--{/def}-->
+                                    <td bgcolor="#ffffff" Valign="top">{rval view/REMARK_M}</td>
+                                  </tr>
+                                <!--{/each}-->
+                                <!--{/def}-->
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td width="280" height="900" valign="top">
+                        <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" height="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr class="no_search" height="25">
+                                  <th width="100" colspan="2">項目</th>
+                                  <th>値</th>
+                                </tr>
+                                <tr>
+                                  <th width="40" class="no_search" rowspan="{rval data/JUTEN_ROWSPAN}">指<br>導<br>の<br>重<br>点<br>等</th>
+                                  <th width="60" align="right" class="no_search" nowrap Valign="top">学年<br>{rval button/btn_kinyuuryoku1}</th>
+                                  <td bgcolor="#ffffff" Valign="top">{rval data/TOTALSTUDYACT}<br><font size=2, color="red">{rval data/TOTALSTUDYACT_COMMENT}</font></td>
+                                </tr>
+                                <tr>
+                                  <th align="right" class="no_search" nowrap Valign="top">個人<br>{rval button/btn_kinyuuryoku2}</th>
+                                  <td bgcolor="#ffffff" Valign="top">{rval data/TOTALSTUDYVAL}<br><font size=2, color="red">{rval data/TOTALSTUDYVAL_COMMENT}</font></td>
+                                </tr>
+                                <!--{def data/INDEPENDENCE_REMARK}-->
+                                <tr>
+                                  <th align="right" colspan="{rval data/INDEPENDENCE_ROWSPAN}" class="no_search" nowrap Valign="top">自立活動に重点<br>を置いた指導<br>{rval button/btn_kinyuuryoku3}</th>
+                                  <td bgcolor="#ffffff" Valign="top">{rval data/INDEPENDENCE_REMARK}<br><font size=2, color="red">{rval data/INDEPENDENCE_REMARK_COMMENT}</font></td>
+                                </tr>
+                                <!--{/def}-->
+                                <!--{def data/FIELD1}-->
+                                <tr>
+                                  <th align="right" class="no_search" nowrap Valign="top" colspan="2" >入学時の障害<br>の状態等</th>
+                                  <td bgcolor="#ffffff" Valign="top">{rval data/FIELD1}{rval button/btn_sienkeikaku}<br><font size=2, color="red">{rval data/FIELD1_COMMENT}</font></td>
+                                </tr>
+                                <!--{/def}-->
+                                <tr height="*">
+                                  <th class="no_search" colspan="2">指<br>　<br>導<br>　<br>上<br>　<br>参<br>　<br>考<br>　<br>と<br>　<br>な<br>　<br>る<br>　<br>事<br>　<br>項<br>{rval button/btn_kinyuuryoku4}</th>
+                                  <td bgcolor="#ffffff" Valign="top">{rval data/TOTALREMARK}<br><font size=2, color="red">{rval data/TOTALREMARK_COMMENT}</font></td>
+                                </tr>
+                                <tr>
+                                  <th class="no_search" colspan="2">{rval data/ATTENDREC_REMARK_TITLE}</th>
+                                  <td bgcolor="#ffffff" Valign="top">{rval data/ATTENDREC_REMARK}<br><font size=2, color="red">{rval data/ATTENDREC_REMARK_COMMENT}</font></td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr class="no_search" height="25">
+                      <td colspan="2">
+                          &nbsp;{rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_end}<br>
+                          &nbsp;{rval button/btn_csv}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->

@@ -1,0 +1,128 @@
+{rval start}
+
+<table width="900" border="0" cellspacing="0" cellpadding="10" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <td width="12%" class="no_search" nowrap align="center">入試年度</td>
+                      <td width="12%" bgcolor="#ffffff" align="center">{rval TOP/YEAR}</td>
+                      <td width="12%" class="no_search" nowrap align="center">※ 入試制度</td>
+                      <td width="12%" bgcolor="#ffffff">{rval TOP/APPLICANTDIV}</td>
+                      <td width="12%" class="no_search" nowrap align="center">※ 入試区分</td>
+                      <td width="*" bgcolor="#ffffff">{rval TOP/TESTDIV}　　{rval TOP/SPECIAL_REASON_DIV}<label for="SPECIAL_REASON_DIV">特別措置者のみ</label></td>
+                    </tr>
+                    <!--{def applicantdiv2}-->
+                    <tr>
+                      <td class="no_search" nowrap align="center">※ 入試回数</td>
+                      <td bgcolor="#ffffff" colspan="3">{rval TOP/TESTDIV0}</td>
+                      <td class="no_search" nowrap align="center">※ 志望区分</td>
+                      <td bgcolor="#ffffff" style="color:black">{rval TOP/TOTALCD}</td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{def applicantdiv1}-->
+                    <tr>
+                      <td class="no_search" nowrap align="center">※ 受験型</td>
+                      <td bgcolor="#ffffff" colspan="5">{rval TOP/EXAM_TYPE}</td>
+                    </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" align="center">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" align="center" height="30">
+                            <th width="80">受験番号</th>
+                            <th width="180">氏名</th>
+                            <th width="240">{rval TOP/HEADER_FINSCHOOL}</th>
+                            <th width="80">面接評定</th>
+                            <th width="*">面接</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <div style="height: 500px; overflow: auto; ">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--{def data}-->
+                          <!--結果一覧-->
+                          <!--{each data}-->
+                          <tr bgcolor="#ffffff" height="25" id="ROWID{rval data/RECEPTNO}">
+                            <td width="80"  align="center">{rval data/RECEPTNO}</td>
+                            <td width="180" align="left">{rval data/NAME}</td>
+                            <td width="240" align="left">{rval data/FINSCHOOL_NAME}</td>
+                            <td width="80"  align="center">{rval data/INTERVIEW_VALUE}</td>
+                            <td width="*"   align="left">{rval data/INTERVIEW_REMARK}</td>
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <td width="70%"></td>
+                            <td width="30%" align="left" bgcolor="#ffffff">{rval btn_update}{rval btn_reset}{rval btn_end}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">
+  change_flg = false;
+ var aPerfect = new Array();
+<!--{def data2}-->
+<!--{each data2}-->
+ aPerfect['{rval data2/key}'] = '{rval data2/perf}';
+<!--{/each}-->
+<!--{/def}-->
+</script>
+{rval finish}

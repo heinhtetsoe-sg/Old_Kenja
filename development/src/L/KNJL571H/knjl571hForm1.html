@@ -1,0 +1,90 @@
+{rval start}
+
+<br>
+<table width="1000" border="0" cellspacing="0" cellpadding="5" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="30">
+                      <td width="15%" class="no_search" align="center" nowrap>入試年度</td>
+                      <td width="15%" bgcolor="#ffffff" align="center" nowrap>&nbsp;{rval TOP/YEAR}</td>
+                      <td width="15%" class="no_search" align="center" nowrap>※ 学校種別</td>
+                      <td width="15%" bgcolor="#ffffff" nowrap>&nbsp;{rval TOP/APPLICANTDIV}</td>
+                      <td width="15%" class="no_search" align="center" nowrap>※ 入試判別</td>
+                      <td width="*"  bgcolor="#ffffff" nowrap>&nbsp;{rval TOP/DISTINCT_ID}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th>合格者一覧</th>
+                      <th class="no_search"></th>
+                      <th>志願者一覧（受験番号順）</th>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}<br>人数：{rval data/leftCount}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                                                        {rval button/btn_left1}<BR>
+                                                        {rval button/btn_right1}<BR>
+                                                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CATEGORY_NAME}<br>人数：{rval data/rgihtCount}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align = "right" nowrap>{rval csv/FILE}{rval csv/btn_input}&nbsp;{rval csv/btn_output}&nbsp;{rval csv/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL></th>
+                            <td width="40%" bgcolor="#ffffff" nowrap>
+                                {rval btn_update}{rval btn_reset}{rval btn_end}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">
+    change_flg = false;
+    var aPerfect = new Array();
+    <!--{def data2}-->
+    <!--{each data2}-->
+        aPerfect['{rval data2/key}'] = '{rval data2/perf}';
+    <!--{/each}-->
+    <!--{/def}-->
+</script>
+{rval finish}

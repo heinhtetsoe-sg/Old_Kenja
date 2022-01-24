@@ -1,0 +1,219 @@
+{rval start} 
+{rval IFRAME}
+<style type="text/css">
+#tyousei {
+    height : 66px;
+}
+</style>
+
+<!--[if IE 6]>
+<style type="text/css">
+#tyousei {
+    height : 69px;
+}
+</style>
+<![endif]-->
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search">
+                          <th width="*%" align="left" nowrap>
+                                &nbsp;&nbsp;処理年度：{rval YEAR}年度　　{rval TITLE}<BR>
+<!--{def Z010ABBV1}-->
+                                &nbsp;&nbsp;報告データ：{rval FIXED_DATA}　報告日：{rval EXECUTE_DATE}&nbsp;{rval btn_houkoku}　{rval EXE_DATES}
+<!--{/def}-->
+                          </th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+
+          <tr>
+
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" id="tyousei">
+                        <th rowspan="2" width="150" height="111">年齢・性別</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+
+            <td>
+            <div id="trow" style="overflow:hidden; width: 1113px; height; 113;">
+                <div style="width: 1500px; height:113;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+
+                    <tr class="no_search" align="center">
+                      <th colspan="9">アレルギー疾患</th>
+                      <th rowspan="2" width="160">身体的疾患</th>
+                      <th rowspan="2" width="160">精神的疾患</th>
+                      <th rowspan="2" width="160" height="113">心身症<BR>及び<BR>その関連<BR>疾患</th>
+                    </tr>
+
+                    <tr class="no_search" align="center">
+                      <th width="160">ぜん息</th>
+                      <th width="160">ｱﾄﾋﾟｰ<BR>性皮膚炎</th>
+                      <th width="160">ｱﾚﾙｷﾞｰ<BR>性鼻炎</th>
+                      <th width="160">ｱﾚﾙｷﾞｰ<BR>性結膜炎</th>
+                      <th width="160">化学物質<BR>過敏症</th>
+                      <th width="160">食物<BR>ｱﾚﾙｷﾞｰ</th>
+                      <th width="160">ｱﾅﾌｨﾗ<BR>ｷｼｰ</th>
+                      <th width="160">エピペン<BR>保持者</th>
+                      <th width="160">その他</th>
+                    </tr>
+
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+          <tr valign="TOP">
+
+            <td>
+            <div id="tcol" style="overflow: hidden; height: 313px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr height="30" class="no_search">
+                          <!--{def data/ROWSPAN}-->
+                          <td width="100" align="center" rowspan={rval data/ROWSPAN}>{rval data/AGE_NAME}</td>
+                          <!--{/def}-->
+                          <td width="*" align="center">{rval data/SEX_NAME}</td>
+
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </td>
+
+            <td>
+            <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 1130px; height: 330px;">
+                <div style="width: 1500px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr height="30" align="center">
+                            <td bgcolor="#ffffff" width="160">{rval data/DATA001_01}</td>
+                            <td bgcolor="#ffffff" width="160">{rval data/DATA001_02}</td>
+                            <td bgcolor="#ffffff" width="165">{rval data/DATA001_03}</td>
+                            <td bgcolor="#ffffff" width="162">{rval data/DATA001_04}</td>
+                            <td bgcolor="#ffffff" width="160">{rval data/DATA001_05}</td>
+                            <td bgcolor="#ffffff" width="163">{rval data/DATA001_06}</td>
+                            <td bgcolor="#ffffff" width="160">{rval data/DATA001_07}</td>
+                            <td bgcolor="#ffffff" width="160">{rval data/DATA001_08}</td>
+                            <td bgcolor="#ffffff" width="160">{rval data/DATA001_09}</td>
+
+                            <td bgcolor="#ffffff" width="160">{rval data/DATA002_01}</td>
+
+                            <td bgcolor="#ffffff" width="160">{rval data/DATA003_01}</td>
+
+                            <td bgcolor="#ffffff" width="160">{rval data/DATA004_01}</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <td>
+                          <table cellpadding="0" cellspacing="0">
+                            <tr class="no_search">
+                              <td align="left">
+                              　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+                              　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+                              {rval btn_recalc}　{rval btn_update}{rval btn_can}{rval btn_end}　{rval btn_print}{rval btn_csv}
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                  </table>
+                  </td>
+                </tr>
+            </table>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish} 
+<script language="JavaScript">{rval jscript}{rval Closing}{rval reload}</script>

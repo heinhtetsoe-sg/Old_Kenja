@@ -1,0 +1,62 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+<table width="50%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr > 
+    <td > 
+      <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+        <tr class="no_search_line"> 
+          <td width="100%"> 
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="left" class="no_search">
+                <td>&nbsp&nbsp&nbsp&nbsp<b>認証</b></td>
+              </tr>
+              <tr align="left" bgcolor="#ffffff" height="100">
+                  <td>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbspパスワード:{rval data/PASSWD}<BR>
+                </td>
+              </tr>
+              <tr align="right" class="no_search" height="20"> 
+                <td nowrap> <div style="float:left;">&nbsp{rval button/btn_upd}{rval button/btn_end}</div>{rval button/btn_syoken}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td style="font-weight: 700; color:{rval marpColor}">
+      <marquee><span id="marq_msg">認証中です...しばらくおまちください</span></marquee>
+    </td>
+  </tr>
+
+</table>
+<!--{def useApplet}-->
+<APPLET CODE="attest.JePass.class" codebase={rval APP/APPHOST}
+        name=signatureApplet
+        ARCHIVE="jApplet.jar"
+   <!-- ARCHIVE="jApplet.jar, -->
+            <!-- ../lib/commons-logging-1.1.1.jar, ロギング不使用 -->
+            <!-- ../lib/log4j-1.2.15.jar, ログ不使用 -->
+            <!-- ../lib/plugin.jar" クライアント側を使用 -->
+        ALT="SSL"
+        WIDTH="256"
+        HEIGHT="256">
+
+    <param name="PASS" value={rval APP/PASS}>
+    <param name="RANDM" value={rval APP/RANDM}>
+    <param name="STAFF" value={rval APP/STAFF}>
+    <param name="EXEDIV" value="ATTEST">
+
+</APPLET>
+<!--{/def}-->
+<!--{/def}-->
+<!--{/def}-->
+
+<script language="JavaScript">{rval jscript}</script>
+{rval finish}

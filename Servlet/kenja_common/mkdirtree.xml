@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="Shift_JIS" ?>
+<!-- kanji=漢字 -->
+<!-- $Id: mkdirtree.xml 56573 2017-10-22 11:14:13Z maeshiro $ -->
+<!--
+// 使用方法:
+// ant -f mkdirtree.xml
+
+
+// 作成するディレクトリの例:
+//   dist/
+//     └─deve/
+//         └─src/
+//             ├─B/
+//             │  ├─KNJB0040/
+//             │  ├─KNJB0050/
+//             │  ├─KNJB0056/
+//             │  └─KNJB0060/
+//             ├─C/
+//             │  └─KNJC010/
+//             └─common/
+//                 └─java/
+-->
+ 
+<project name="mkdirtree" default="deploy" basedir=".">
+	<property name="dist"				location="dist"/>
+	<property name="deve"				location="${dist}/deve/"/>
+
+	<!-- **** applet配備用のディレクトリ・ツリーを作成する -->
+	<target name="mkdirtree" description="make dir tree" depends="clean">
+		<mkdir dir="${deve}"/>
+		<mkdir dir="${deve}/src/common/java"/>
+		<mkdir dir="${deve}/src/B/KNJB0040"/>
+		<mkdir dir="${deve}/src/B/KNJB0050"/>
+		<mkdir dir="${deve}/src/B/KNJB0056"/>
+		<mkdir dir="${deve}/src/B/KNJB0060"/>
+		<mkdir dir="${deve}/src/C/KNJC010"/>
+	</target>
+
+	<!-- **** コンテンツを配備用のディレクトリ・ツリーにコピーする -->
+	<target name="deploy" description="deployment" depends="mkdirtree">
+		<copy file="${dist}/kenja_common.jar" todir="${deve}/src/common/java" />
+		<copy file="../kenja/dist/kenja.jar" todir="${deve}/src/common/java" />
+
+		<copy todir="${deve}/src/B/KNJB0040">
+			<fileset dir="../kenja_hiro/KNJB0040/dist/" includes="*" />
+		</copy>
+		<copy todir="${deve}/src/B/KNJB0050">
+			<fileset dir="../kenja_hiro/KNJB0050/dist/" includes="*" />
+		</copy>
+		<copy todir="${deve}/src/B/KNJB0056">
+			<fileset dir="../kenja_hiro/KNJB0056/dist/" includes="*" />
+		</copy>
+		<copy todir="${deve}/src/B/KNJB0060">
+			<fileset dir="../kenja_hiro/KNJB0060/dist/" includes="*" />
+		</copy>
+		<copy todir="${deve}/src/C/KNJC010">
+			<fileset dir="../kenja_hiro/KNJC010/dist/" includes="*" />
+		</copy>
+	</target>
+
+	<!-- **** clean -->
+	<target name="clean">
+		<delete dir="${deve}" />
+	</target>
+
+</project>

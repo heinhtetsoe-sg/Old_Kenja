@@ -1,0 +1,60 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+        <td valign="top"> 
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr > 
+                  <td > 
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line"> 
+                                <td> 
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search"> 
+                                          <th nowrap width="10%">科目<br>コード</th>
+                                          <th nowrap width="20%">科目名称</th>
+                                          <th nowrap width="7%">科目<br>略称</th>
+                                          <th nowrap width="20%">科目名称英字</th>
+                                          <th nowrap width="10%">科目略称英字</th>
+                                          <th nowrap width="10%">調査書用科目名</th>
+                                          <th nowrap width="10%">通知票用科目名</th>
+                                          <th nowrap width="10%">科目名その他３</th>
+                                          <th nowrap width="5%">表<br>示<br>順</th>
+                                          <th nowrap width="5%">(調)<br>表<br>示<br>順</th>
+                                          <th nowrap width="5%">(通)<br>表<br>示<br>順</th>
+                                          <th nowrap width="5%">選<br>択</th>
+                                        </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+          <tr>
+<!--{def useCurriculumcd}-->
+             <td nowrap align="center" bgcolor="#ffffff"><a href="knjz072index.php?cmd=edit&CLASSCD={val data/CLASSCD}&SCHOOL_KIND={val data/SCHOOL_KIND}&CURRICULUM_CD={val data/CURRICULUM_CD}&SUBCLASSCD={val data/SUBCLASSCD}&year_code={val year}" target="right_frame">{val data/CLASSCD}-{val data/SCHOOL_KIND}-{val data/CURRICULUM_CD}-{val data/SUBCLASSCD}</td>
+<!--{/def}-->
+<!--{def NoCurriculumcd}-->
+             <td nowrap align="center" bgcolor="#ffffff"><a href="knjz072index.php?cmd=edit&SUBCLASSCD={val data/SUBCLASSCD}&year_code={val year}" target="right_frame">{val data/SUBCLASSCD}</td>
+<!--{/def}-->
+             <td nowrap bgcolor="#ffffff">{val data/SUBCLASSNAME}</a></td>
+             <td nowrap bgcolor="#ffffff">{val data/SUBCLASSABBV}</td>
+             <td nowrap bgcolor="#ffffff">{val data/SUBCLASSNAME_ENG}</td>
+             <td nowrap bgcolor="#ffffff">{val data/SUBCLASSABBV_ENG}</td>
+             <td nowrap bgcolor="#ffffff">{val data/SUBCLASSORDERNAME1}</td>
+             <td nowrap bgcolor="#ffffff">{val data/SUBCLASSORDERNAME2}</td>
+             <td nowrap bgcolor="#ffffff">{val data/SUBCLASSORDERNAME3}</td>
+             <td nowrap bgcolor="#ffffff">{val data/SHOWORDER}</td>
+             <td nowrap bgcolor="#ffffff">{val data/SHOWORDER2}</td>
+             <td nowrap bgcolor="#ffffff">{val data/SHOWORDER3}</td>
+             <td nowrap bgcolor="#ffffff">{val data/ELECTDIV}</td>
+          </tr>
+<!--{/each}-->
+<!--{/def}-->
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+</table>
+{rval finish}

@@ -1,0 +1,265 @@
+{rval start}
+{rval IFRAME}
+
+<br>
+<table width="60%" border="0" cellspacing="10" cellpadding="0" align="center">
+<tbody>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tbody>
+              <tr class="no_search">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                  <tbody>
+                    <tr class="no_search" height="30">
+                      <th align="left" nowrap>　　　{rval YEAR}年度　　　年組：{rval GRADE_HR_CLASS}</th>
+                    </tr>
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tbody>
+                    <tr class="no_search">
+                      <th width="150">出席番号</th>
+                      <th width="250">氏名</th>
+                      <th width="*">調査書発行枚数</th>
+                    </tr>
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width:100%;height:300;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                  <tbody>
+  <!--{each data}-->
+                    <tr>
+                      <td width="150" align="center" bgcolor="{rval data/COLOR}">{rval data/ATTENDNO}</td>
+                      <td width="250" align="left" bgcolor="{rval data/COLOR}">{rval data/NAME}</td>
+                      <td width="*" align="center" bgcolor="{rval data/COLOR}">{rval data/PRINT_CNT}</td>
+                    </tr>
+  <!--{/each}-->
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tbody>
+                    <tr class="no_search">
+                      <td>
+                        <table cellpadding="0" cellspacing="0">
+                          <tr class="no_search" height="30">
+                            <td width="90%" align="center">
+                                &nbsp;
+                            </td>
+                            <td align="right">
+                                {val btn_csv}{val btn_update}{val btn_reset}{val btn_end}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </td>
+        </tr>
+        <br>
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr bgcolor="#ffffff">
+                <td>
+                  <table>
+                    <tr>
+                      <td width="190"><b>　　　調査書種類</b></td>
+                      <td width="10"></td>
+                      <td>
+                          <!--{def hanki}-->
+                          {rval el/OUTPUT1}<LABEL for="OUTPUT1">進学用（通年）</LABEL>
+                          　　　{rval el/OUTPUT1h}<LABEL for="OUTPUT1h">進学用（半期認定）</LABEL>
+                          　　　{rval el/OUTPUTfuto}<LABEL for="OUTPUTfuto">封筒</LABEL>
+                          <!--{/def}-->
+                          <!--{def notHanki}-->
+                          {rval el/OUTPUT1}<LABEL for="OUTPUT1">進学用</LABEL>
+                          　　　{rval el/OUTPUTfuto}<LABEL for="OUTPUTfuto">封筒</LABEL>
+                          <!--{/def}-->
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td>
+                  <table>
+                    <tr>
+                      <td width="170"><b>　　　漢字氏名印刷</b></td>
+                      <td width="10"></td>
+                      <td>{rval el/KANJI1}<LABEL for="KANJI1">する</LABEL>　　　　{rval el/KANJI2}<LABEL for="KANJI2">しない</LABEL></td>
+                    </tr>
+                    <tr>
+                      <td width="170"><b>　　　住所</b></td>
+                      <td width="10"></td>
+                      <td>{rval el/SONOTAJUUSYO}<LABEL for="SONOTAJUUSYO">その他住所を優先して印字する。</LABEL></td>
+                    </tr>
+<!--{def hyoteiYomikae}-->
+                    <tr>
+                      <td width="170"><b>　　　評定読替</b></td>
+                      <td width="10"></td>
+                      <td>{rval el/HYOTEI}<LABEL for="HYOTEI">{rval el/HYOTEI_KARI}評定が１の場合は２で処理する。</LABEL></td>
+                    </tr>
+<!--{/def}-->
+                    <tr>
+                      <td width="170"><b>　　　学習成績概評</b></td>
+                      <td width="10"></td>
+                      <td>{rval el/COMMENT}<LABEL for="COMMENT">学年人数を印刷する。</LABEL></td>
+                    </tr>
+                    <tr>
+                      <td width="170"><b>　　　出欠日数</b></td>
+                      <td width="10"></td>
+                      <td>{rval el/tyousasyoNotPrintAnotherAttendrec}<LABEL for="tyousasyoNotPrintAnotherAttendrec">前籍校を含まない。</LABEL></td>
+                    </tr>
+<!--{def notKindai}-->
+                    <tr>
+                      <td width="170"><b>　　　未履修科目出力</b></td>
+                      <td width="10"></td>
+                      <td>{rval el/MIRISYU1}<LABEL for="MIRISYU1">する</LABEL>　　　　{rval el/MIRISYU2}<LABEL for="MIRISYU2">しない</LABEL></td>
+                    </tr>
+                    <tr>
+                      <td width="170"><b>　　　履修のみ科目出力</b></td>
+                      <td width="10"></td>
+                      <td>{rval el/RISYU1}<LABEL for="RISYU1">する</LABEL>　　　　{rval el/RISYU2}<LABEL for="RISYU2">しない</LABEL></td>
+                    </tr>
+<!--{/def}-->
+                    <tr>
+                      <td width="190"><b>　　　総合的な学習の時間<br>　　　の単位を０表示</b></td>
+                      <td width="10"></td>
+                      <td>{rval el/TANIPRINT_SOUGOU1}<LABEL for="TANIPRINT_SOUGOU1">する</LABEL>　　　　{rval el/TANIPRINT_SOUGOU2}<LABEL for="TANIPRINT_SOUGOU2">しない</LABEL></td>
+                    </tr>
+                    <tr>
+                      <td width="190"><b>　　　留学の単位を０表示</b></td>
+                      <td width="10"></td>
+                      <td>{rval el/TANIPRINT_RYUGAKU1}<LABEL for="TANIPRINT_RYUGAKU1">する</LABEL>　　　　{rval el/TANIPRINT_RYUGAKU2}<LABEL for="TANIPRINT_RYUGAKU2">しない</LABEL></td>
+                    </tr>
+                    <tr>
+                      <td width="170"><b>　　　フォーム選択</b></td>
+                      <td width="10"></td>
+                      <td>
+                        {rval el/FORM6}<LABEL for="FORM6">{rval el/FORM6NAME}</LABEL><br>
+                        {rval el/useSyojikou3}<LABEL for="useSyojikou3">指導上参考となる諸事欄、３分割フォーム</LABEL>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="170"><b>　　　校長印刷</b></td>
+                      <td width="10"></td>
+                      <td>{rval el/KOTYO1}<LABEL for="KOTYO1">する</LABEL>　　　　{rval el/KOTYO2}<LABEL for="KOTYO2">しない</LABEL></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td align="left" bgcolor="#ffffff">
+                  <table>
+                    <tr>
+                      <td width="170"><b>　　　記載（証明）日付</b></td>
+                      <td width="10"></td>
+                      <td>{rval el/DATE}</td>
+                    </tr>
+                    <tr>
+                      <td width="170"><b>　　　記載責任者</b></td>
+                      <td width="10"></td>
+                      <td>{rval el/SEKI}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tbody>
+                    <tr class="no_search">
+                      <td>
+                        <table cellpadding="0" cellspacing="0">
+                          <tr class="no_search" height="30">
+                            <td width="90%" align="center">
+                                &nbsp;
+                            </td>
+                            <td align="right">
+                                {val btn_print}{val btn_end2}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </td>
+        </tr>
+
+      </tbody>
+      </table>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+{rval finish}

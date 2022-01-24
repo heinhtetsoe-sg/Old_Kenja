@@ -1,0 +1,59 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                    <tr class="no_search" height="35">
+                      <th nowrap align="left">　{val YEAR}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>　
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th nowrap width="5%">職員コード</th>
+                      <th nowrap width="8%">職員氏名</th>
+                      <th nowrap width="8%">異動区分</th>
+                      <th nowrap width="8%">異動日</th>
+                      <th nowrap width="8%">転入日</th>
+                      <th nowrap width="*%">転出先学校</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap align="center" width="5%" bgcolor="#ffffff"><a href="knjz292index.php?cmd=edit&STAFFCD={val data/STAFFCD}" target="right_frame">{val data/STAFFCD}</a></td>
+                      <td nowrap width="5%" bgcolor="#ffffff">{val data/STAFFNAME}</td>
+                      <td nowrap width="8%" bgcolor="#ffffff">{val data/IDOU_DIV}</td>
+                      <td nowrap width="8%" bgcolor="#ffffff">{val data/IDOU_DATE}</td>
+                      <td nowrap width="8%" bgcolor="#ffffff">{val data/ASSIGNMENT_DATE}</td>
+                      <td nowrap width="*%" bgcolor="#ffffff">{val data/TO_EDBOARD_SCHOOLNAME}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

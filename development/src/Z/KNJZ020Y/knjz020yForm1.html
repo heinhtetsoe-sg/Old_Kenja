@@ -1,0 +1,72 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="10" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" height="25">
+                      <th norwarp width="17%">入試年度</th>
+                      <td norwarp width="*" bgcolor="#ffffff">{val year}&nbsp;&nbsp;{val btn_year_add}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" height="25">
+                      <th norwarp width="17%">入試制度</th>
+                      <td norwarp width="25%" bgcolor="#ffffff">{val APPLICANTDIV}</td>
+                      <th norwarp width="17%">入試区分</th>
+                      <td norwarp width="*" bgcolor="#ffffff">{val TESTDIV}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="40%">課程学科コース</th>
+                      <th nowrap width="30%">試験科目</th>
+                      <th nowrap width="15%">満点</th>
+                      <th nowrap width="15%">重み</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff">{val data/EXAMCOURSE_NAME}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/TESTSUBCLASSCD}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/PERFECT}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/RATE}</td>
+                    </tr> 
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+
+<script language="JavaScript">
+<!--{def reload}-->
+<!--{each reload}-->
+{rval reload}
+<!--{/each}-->
+<!--{/def}-->
+</script>

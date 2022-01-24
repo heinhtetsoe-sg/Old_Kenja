@@ -1,0 +1,233 @@
+{rval start} 
+
+<BR><BR>
+<table style="width: 1000" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr class="no_search_line"> 
+    <td> 
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+
+        <tr class="no_search" height="30"> 
+          <th>志望校データ結合</th>
+        </tr>
+        
+      </table>
+    </td>
+  </tr>
+</table>
+
+<BR><BR>
+<table style="width: 500" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr class="no_search_line"> 
+    <td> 
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+
+        <tr class="no_search"> 
+          <th width="30%"></th>
+          <th>件数</th>
+          <th>修正</th>
+        </tr>
+        <tr height="25"> 
+          <th class="no_search">取込データ件数</th>
+          <td bgcolor="#ffffff" align="right">{rval data/ALL_CNT}</td>
+          <td bgcolor="#ffffff" align="right"></td>
+        </tr>
+        <tr height="25"> 
+          <th class="no_search">受験番号重複</th>
+          <td bgcolor="#ffffff" align="right">{rval data/EXAM_CNT}</td>
+          <td bgcolor="#ffffff" align="center">{rval data/EXAM_BTN}</td>
+        </tr>
+        <tr height="25"> 
+          <th class="no_search">受験番号不一致</th>
+          <td bgcolor="#ffffff" align="right">{rval data/SAT_CNT}</td>
+          <td bgcolor="#ffffff" align="center">{rval data/SAT_BTN}</td>
+        </tr>
+        <tr height="25"> 
+          <th class="no_search">生年月日不一致</th>
+          <td bgcolor="#ffffff" align="right">{rval data/BIRTH_CNT}</td>
+          <td bgcolor="#ffffff" align="center">{rval data/BIRTH_BTN}</td>
+        </tr>
+        <tr height="25"> 
+          <th class="no_search">性別不一致</th>
+          <td bgcolor="#ffffff" align="right">{rval data/SEX_CNT}</td>
+          <td bgcolor="#ffffff" align="center">{rval data/SEX_BTN}</td>
+        </tr>
+        <tr height="25"> 
+          <th class="no_search">出身学校不一致</th>
+          <td bgcolor="#ffffff" align="right">{rval data/SCH_CNT}</td>
+          <td bgcolor="#ffffff" align="center">{rval data/SCH_BTN}</td>
+        </tr>
+        <tr height="25"> 
+          <th class="no_search" colspan="3">{rval button/btn_update}　　{rval button/btn_end}</th>
+        </tr>
+        
+      </table>
+    </td>
+  </tr>
+</table>
+
+<BR><BR>
+<table style="width: 500" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr class="no_search_line"> 
+    <td> 
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+
+        <tr> 
+          <th class="no_search">データ入出力</th>
+        </tr>
+        <tr> 
+          <td bgcolor="#ffffff" align="center"><br>{rval FILE}　　{rval button/btn_import}　　{rval button/btn_export}<br><br></td>
+        </tr>
+        
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{def exam}-->
+<BR><BR>
+<table style="width: 1000" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr class="no_search_line"> 
+    <td> 
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+
+        <tr class="no_search"> 
+          <th>No</th>
+          <th>受験番号</th>
+          <th>生年月日</th>
+          <th>性別</th>
+          <th>出身学校コード</th>
+          <th>出身学校名</th>
+        </tr>
+        <!--{each exam}-->
+        <tr bgcolor="{rval exam/color}"> 
+          <td align="center">{rval exam/RECNO}</td>
+          <td align="center">{rval exam/SAT_NO}</td>
+          <td align="center">{rval exam/BIRTHDAY}</td>
+          <td align="center">{rval exam/SEX}</td>
+          <td align="center">{rval exam/FINSCHOOLCD}</td>
+          <td align="center">{rval exam/FINSCHOOLNAME}</td>
+        </tr>
+        <!--{/each}-->
+        
+        <tr class="no_search"> 
+          <th colspan="6" align="center">{rval btn_wrkUpdate}</th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!--{/def}-->
+
+<!--{def ERROR}-->
+<BR><BR>
+<table style="width: 1000" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr class="no_search_line"> 
+    <td> 
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+
+        <tr class="no_search"> 
+          <th colspan="3" width="40%">取込データ</th>
+          <th colspan="3">願書データ</th>
+        </tr>
+        <tr class="no_search"> 
+          <th>No</th>
+          <th>受験番号</th>
+          <th>{rval ERROR}</th>
+          <th>生年月日</th>
+          <th>性別</th>
+          <th>出身学校</th>
+        </tr>
+        <!--{each otr}-->
+        <tr> 
+          <td bgcolor="#ffffff" align="center">{rval otr/RECNO}</td>
+          <td bgcolor="#ffffff" align="center">{rval otr/SAT_NO}</td>
+          <td bgcolor="#ffffff" align="center">{rval otr/ERROR}</td>
+          <td bgcolor="#ffffff" align="center">{rval otr/BIRTHDAY}</td>
+          <td bgcolor="#ffffff" align="center">{rval otr/SEX}</td>
+          <td bgcolor="#ffffff" align="left">　{rval otr/FINSCHOOL}</td>
+        </tr>
+        <!--{/each}-->
+        
+        <tr class="no_search"> 
+          <th colspan="6" align="center">{rval btn_wrkUpdate}</th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!--{/def}-->
+
+<!--{def sat}-->
+<BR><BR>
+<table style="width: 1000" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr class="no_search_line"> 
+    <td> 
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+
+        <tr class="no_search"> 
+          <th colspan="6">取込データ</th>
+        </tr>
+        <tr class="no_search"> 
+          <th width="55">No</th>
+          <th width="145">受験番号</th>
+          <th width="170">生年月日</th>
+          <th width="70">性別</th>
+          <th width="230">出身学校コード</th>
+          <th>出身学校名</th>
+        </tr>
+        <!--{each sat}-->
+        <tr bgcolor="#ffffff"> 
+          <td align="center">{rval sat/RECNO}</td>
+          <td align="center">{rval sat/SAT_NO}</td>
+          <td align="center">{rval sat/BIRTHDAY}</td>
+          <td align="center">{rval sat/SEX}</td>
+          <td align="center">{rval sat/FINSCHOOLCD}</td>
+          <td align="center">{rval sat/FINSCHOOLNAME}</td>
+        </tr>
+        <!--{/each}-->
+        
+        <tr class="no_search"> 
+          <th colspan="6" align="center">{rval btn_wrkUpdate}</th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<BR><BR>
+<table style="width: 1000" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr class="no_search_line"> 
+    <td> 
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+
+        <tr class="no_search"> 
+          <th colspan="6">願書データ</th>
+        </tr>
+        <tr class="no_search"> 
+          <th width="55">No</th>
+          <th width="145">受験番号</th>
+          <th width="170">生年月日</th>
+          <th width="70">性別</th>
+          <th width="230">出身学校コード</th>
+          <th>出身学校名</th>
+        </tr>
+        <!--{each app}-->
+        <tr bgcolor="#ffffff"> 
+          <td align="center">{rval app/RECNO}</td>
+          <td align="center">{rval app/SAT_NO}</td>
+          <td align="center">{rval app/BIRTHDAY}</td>
+          <td align="center">{rval app/SEX}</td>
+          <td align="center">{rval app/FINSCHOOLCD}</td>
+          <td align="center">{rval app/FINSCHOOLNAME}</td>
+        </tr>
+        <!--{/each}-->
+        
+      </table>
+    </td>
+  </tr>
+</table>
+<!--{/def}-->
+
+
+<script language="JavaScript">{rval jscript}</script>
+
+{rval finish} 

@@ -1,0 +1,57 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <!--{def schkind}-->
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap align="left" width="*%">&nbsp;校種：{rval SCHKIND}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!--{/def}-->
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th nowrap width="90%">科目</th>
+                      <th nowrap width="*">重み</th>
+                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+                    <tr>
+<!--{def useCurriculumcd}-->
+                      <td nowrap align="left" bgcolor="#ffffff"><a href="knjz402j_3index.php?cmd=edit&CLASSCD={val data/CLASSCD}&SCHOOL_KIND={val data/SCHOOL_KIND}&CURRICULUM_CD={val data/CURRICULUM_CD}&SUBCLASSCD={val data/SUBCLASSCD}&year_code={val year}" target="right_frame">{val data/SUBCLASS_SET}</a></td>
+<!--{/def}-->
+<!--{def NoCurriculumcd}-->
+                      <td nowrap align="left" bgcolor="#ffffff"><a href="knjz402j_3index.php?cmd=edit&SUBCLASSCD={val data/SUBCLASSCD}&year_code={val year}" target="right_frame">{val data/SUBCLASS_SET}</a></td>
+<!--{/def}-->
+                      <td nowrap align="center" bgcolor="#ffffff">{val data/WEIGHT_DATA}</td>
+                    </tr>
+<!--{/each}-->
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}

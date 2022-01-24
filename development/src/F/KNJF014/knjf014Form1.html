@@ -1,0 +1,185 @@
+{rval start}
+{rval IFRAME}
+<style type="text/css">
+#tyousei {
+    height : 50px;
+}
+#tyousei2 {
+    height : {rval tyousei2_height}px;
+}
+.header_width {
+    width : 240px;
+}
+.data_height {
+    height : 500px;
+}
+.data_width {
+    width : {rval data_width_width}px;
+}
+.data_view_width {
+    width : {rval data_width_width}px;
+}
+</style>
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td>
+       <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr class="no_search_line">
+          <th>
+            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+            <tr>
+              <th width="*" height="50" align="left" class="no_search">
+　　　　定期健康診断情報　　　　年度：{rval YEAR}　　学期：{rval SEMESTER}　　年組：{rval HR_CLASS}　　月：{rval MONTH}
+              </th>
+            </tr>
+            </table>
+          </th>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      <table class="header_width" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" id="tyousei">
+                        <th ><div>No.</div></th>
+                        <th width="150" ><div>氏名</div></th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+
+            <td>
+            <div id="trow" style="overflow:hidden;" class="data_width">
+                <div class="data_view_width">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" id="tyousei">
+                          <th width="100">身長(cm)<BR><font style="font-size:10pt">(小数第1位)</font></th>
+                          <th width="100">体重(kg)<BR><font style="font-size:10pt">(小数第1位)</font></th>
+                          <!--{def useSpecial_Support_School}-->
+                          <th width="350">視力</th>
+                          <!--{/def}-->
+
+                          <th width="*"></th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+          <tr valign="TOP">
+
+            <td>
+            <div id="tcol" style="overflow: hidden;" class="data_height header_width">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr bgcolor="#ffffff" id="tyousei2">
+                            <td align="center"><div>{rval data/ATTENDNO}</div></td>
+                            <td width="150" align="left"><div>{rval data/NAME_SHOW}</div></td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </td>
+
+            <td>
+            <div onScroll="scrollRC()" id="tbody" style="overflow-x: hidden; overflow-y: scroll;" class="data_height data_width">
+                <div class="data_view_width">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr  bgcolor="#ffffff" id="tyousei2">
+                            <td width="100" align="center">{rval data/HEIGHT}</td>
+                            <td width="100" align="center">{rval data/WEIGHT}</td>
+                            <!--{def useSpecial_Support_School}-->
+                            <td width="350" align="left">
+                              右&nbsp;&nbsp;裸眼：&nbsp;{rval data/R_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;矯正：&nbsp;{rval data/R_VISION_MARK}
+                              <BR>
+                              &nbsp;&nbsp;&nbsp;&nbsp;裸眼：&nbsp;{rval data/R_BAREVISION}&nbsp;&nbsp;矯正：&nbsp;{rval data/R_VISION}
+                              <BR>
+                              左&nbsp;&nbsp;裸眼：&nbsp;{rval data/L_BAREVISION_MARK}&nbsp;&nbsp;&nbsp;&nbsp;矯正：&nbsp;{rval data/L_VISION_MARK}
+                              <BR>
+                              &nbsp;&nbsp;&nbsp;&nbsp;裸眼：&nbsp;{rval data/L_BAREVISION}&nbsp;&nbsp;矯正：&nbsp;{rval data/L_VISION}
+                            </td>
+                            <!--{/def}-->
+                            <td width="*" align="left"></td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+          <tr class="no_search_line">
+            <th>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_reset}{rval button/btn_back}</td>
+                </tr>
+              </table>
+            </th>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+<div id="lay"></div>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

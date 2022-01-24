@@ -1,0 +1,70 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search">
+                <th nowrap width="40%" align="center">対象年度：{rval YEAR}</th>
+                <th nowrap align="right">{rval btn_copy}&nbsp;&nbsp;&nbsp;&nbsp;</th>
+              </tr>
+              <tr class="no_search">
+                <th nowrap colspan="2">
+                  {rval FLG1}<LABEL for="FLG1">&nbsp;考査</LABEL>　　　
+                  {rval FLG2}<LABEL for="FLG2">&nbsp;学期成績</LABEL>
+                </th>
+              </tr>
+              <tr class="no_search">
+                <th nowrap colspan="2">{rval GRADE_COURSE}</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>　
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th nowrap width="20%">読替先科目<br>コード</th>
+                      <th nowrap width="30%">読替先科目名</th>
+                      <th nowrap width="10%">ＳＥＱ</th>
+                      <th nowrap width="30%">読替元科目名</th>
+                      <th nowrap width="10%">重み</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/ROWSPAN1}-->
+                      <td nowrap align="center" bgcolor="#ffffff" rowspan={rval data/ROWSPAN1}>{val data/COMBINED_SUBCLASSCD_LINK}</td>
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN1}>{val data/COMBINED_SUBCLASS_NAME}</td>
+                      <!--{/def}-->
+                      <!--{def data/ROWSPAN2}-->
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN2} align="center">{val data/SEQ_LINK}</td>
+                      <!--{/def}-->
+                      <td nowrap bgcolor="#ffffff">{val data/ATTEND_SUBCLASSCD_NAME}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/WEIGHTING}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                    </table>
+                  </td>
+                </tr>
+              </td>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

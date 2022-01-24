@@ -1,0 +1,94 @@
+{rval start}
+<table style="width: 100%" border="0" cellpadding="10" cellspacing="5" align="center">
+  <tr> 
+    <td>
+     <table style="width: 100%" border="0" cellspacing="1" cellpadding="1">
+     
+      <tr>
+       <td>
+         <table width="100%" border="0" cellspacing="0" cellpadding="1" >
+          <tr class="no_search_line">
+           <th>
+            <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#87cefa">
+             <tr> 
+              <th align="center"><B>参　照　状　況　確　認</B></th>
+             </tr>
+            </table>
+           </th>
+          </tr>
+         </table>
+       </td>
+      </tr>
+      
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+           
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" nowrap align="center">
+                <th width="4%"><LABEL for=DELALL>削除</LABEL><BR>
+                               {rval DELALL}</th>
+                <th width="9%">発信日</th>
+                <th width="12%">発信者名</th>
+                <th width="7%">生徒番号</th>
+                <th width="12%">生徒氏名</th>
+                <th width="*%">内容</th>
+                <th width="9%">有効期限</th>
+                <th width="9%">読出日</th>
+                <th width="4%">未読</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        
+        <!--{def data}-->
+        <tr class="no_search_line">
+          <td width="100%">
+           <div style="width: 100%; {rval DATAHEIGHT}; overflow: auto">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <!--結果一覧-->
+              <!--{each data}--> 
+              <tr bgcolor="#ffffff" >
+                <input type="hidden" name="MESSAGENO[]" value="{val data/MESSAGENO}">
+                
+                <td width="4%" align="center">{rval data/DELCHK}</td>
+                <td width="9%" align="center"><LABEL for={rval data/CHECKLABEL}>{rval data/SENDDATE}</LABEL></td>
+                <td width="12%" align="left"><LABEL for={rval data/CHECKLABEL}>{rval data/STAFFNAME}</LABEL></td>
+                <td width="7%" align="center">{rval data/SCHREGNO}</td>
+                <td width="12%" align="left">{rval data/NAME}</td>
+                <td width="*%" align="left">{rval data/MESSAGE}</td>
+                <td width="9%" align="center">{rval data/TERMDATE}</td>
+                <td width="9%" align="center">{rval data/READDATE}</td>
+                <td width="4%" align="center">{rval data/NOTREAD}</td>
+              </tr> 
+              <!--{/each}--> 
+            </table>
+           </div>
+          </td>
+        </tr>
+        <!--{/def}-->
+      </table>
+        
+      <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr " bgcolor="#ffffff" height="20">
+                <th width="10%" align="center" class="no_search" nowrap>発信者選択</th>
+                <td width="18%" align="center" nowrap>{rval data2/C_STAFF}</td>
+                <td width="9%" align="center" nowrap>{rval button/btn_delete}</td>
+                <td width="*%" align="center" nowrap>{rval JOKEN1}<LABEL for="JOKEN1">すべて表示</LABEL>　{rval JOKEN2}<LABEL for="JOKEN2">既読のみ表示</LABEL>　{rval JOKEN3}<LABEL for="JOKEN3">未読のみ表示</LABEL></td>
+                <td width="9%" align="center" nowrap>{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    
+      </td>
+    </tr>
+  </table>
+ </td>
+</tr>
+</table>
+{rval finish}

@@ -1,0 +1,240 @@
+{rval IFRAME}
+{rval start}
+<style>
+.thVal {
+    text-align: right;
+    white-space: nowrap;
+}
+.thVa2 {
+    text-align: center;
+    white-space: nowrap;
+}
+.tdVal {
+    background-color:#ffffff;
+    height: 25px;
+    color:black;
+    white-space: nowrap;
+}
+.tdVa2 {
+    text-align: center;
+    height: 25px;
+    background-color:#ffffff;
+    color:black;
+    white-space: nowrap;
+}
+</style>
+<br>
+<table align="center" width="1000" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+  <tr>
+    <td>
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th width="15%" nowrap align="right">※ 入試年度</th>
+                            <td width="10%" bgcolor="#ffffff" style="color:black; text-align:center">{rval TOP/YEAR}</td>
+                            <th width="15%">※ 入試制度</th>
+                            <td width="10%" bgcolor="#ffffff">&nbsp;{rval data/APPLICANTDIV}</td>
+                            <th width="15%" nowrap>※ 管理番号</th>
+                            <td width="*" bgcolor="#ffffff" nowrap>&nbsp;{rval data/EXAMNO}&nbsp;{rval button/btn_reference}{rval button/btn_kana_reference}&nbsp;{rval button/btn_back}{rval button/btn_next}&nbsp;{rval button/btn_clear}</td>
+                          </tr>
+                          <tr class="no_search">
+                            <th class="thVal">氏名</th>
+                            <td class="tdVal" colspan="5">&nbsp;{rval data/NAME}</td>
+                          </tr>
+                          <tr class="no_search">
+                            <th class="thVal">氏名カナ</th>
+                            <td class="tdVal" colspan="5">&nbsp;{rval data/NAME_KANA}</td>
+                          </tr>
+                          <tr class="no_search">
+                            <th class="thVal">性別</th>
+                            <td class="tdVal" colspan="5">&nbsp;{rval data/SEX}</td>
+                          </tr>
+                          <tr class="no_search">
+                            <th class="thVal">生年月日</th>
+                            <td class="tdVal" colspan="5">&nbsp;{rval data/ERA_NAME}{rval data/BIRTH_Y}年{rval data/BIRTH_M}月{rval data/BIRTH_D}日生</td>
+                          </tr>
+
+                          <tr class="no_search" height="26">
+                            <th class="thVal">入学コース</th>
+                            <td class="tdVal" colspan="5">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  &nbsp;{rval data/ENTER_COURSEMAJOR}</td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+
+                          <tr class="no_search" height="26">
+                            <th class="thVal">合格コース</th>
+                            <td class="tdVal" colspan="5">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td class="tdVal" width="35%">&nbsp;{rval data/COURSEMAJOR}</td>
+                                  <td class="tdVal" width="20%">&nbsp;判定：{rval data/JUDGEMENT}</td>
+                                  <td class="tdVal" width="*">&nbsp;{rval data/PASS_ENTDIV}&nbsp;&nbsp;{rval data/PASS_EXAMNO}&nbsp;&nbsp;{rval data/PASS_JUDGEDIV}</td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr class="no_search" height="26">
+                            <th class="thVal">手続区分</th>
+                            <td class="tdVal" colspan="5">
+                              &nbsp;{rval data/PROCEDUREDIV}
+                              &nbsp;&nbsp;&nbsp;手続日:{rval data/PROCEDUREDATE}
+                              &nbsp;&nbsp;&nbsp;入学区分:{rval data/ENTDIV}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+<!--------- RECEPT_DATA ---------->
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line" >
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th class="thVa2" width="15%">入試区分</th>
+                            <td class="tdVal" width="*" colspan="3">&nbsp;{rval data/TESTDIV2}</td>
+                            <th class="thVa2" width="15%">試験会場名</th>
+                            <td class="tdVal" colspan="5">&nbsp;{rval data/EXAMHALL_NAME}</td>
+                          </tr>
+                          <tr class="no_search" height="26">
+                            <th class="thVa2">合否区分</th>
+                            <td class="tdVal">&nbsp;{rval data/JUDGEDIV}
+                            <th class="thVa2">手続日</th>
+                            <td class="tdVal">&nbsp;{rval data/PROCEDUREDATE1}</td>
+                            <th class="thVa2">受験番号</th>
+                            <td class="tdVal">&nbsp;{rval data/RECEPTNO}</td>
+                            <th class="thVa2">専併区分</th>
+                            <td class="tdVal">&nbsp;{rval data/SHDIV}</td>
+                            <th class="thVa2">内諾</th>
+                            <td class="tdVal">&nbsp;{rval data/INNER_PROMISE}</td>
+                          </tr>
+                          <tr class="no_search" height="26">
+                            <th class="thVa2">受験科目</th>
+                            <th class="thVa2" width="15%" colspan="2">出欠</th>
+                            <th class="thVa2" width="15%">得点</th>
+                            <th class="thVa2"></th>
+                            <th class="thVa2" width="*" colspan="5">全科目</th>
+                          </tr>
+                          <tr class="no_search" height="26">
+                            <th class="thVa2">{rval data/TESTSUBCLASSCD1}</th>
+                            <th class="tdVa2" colspan="2">{rval data/ATTEND1}</th>
+                            <th class="tdVa2">{rval data/SCORE1}</th>
+                            <th class="thVa2">加点１</th>
+                            <th class="tdVa2" colspan="5">{rval data/ADD_SCORE1}</th>
+                          </tr>
+                          <tr class="no_search" height="26">
+                            <th class="thVa2">{rval data/TESTSUBCLASSCD2}</th>
+                            <th class="tdVa2" colspan="2">{rval data/ATTEND2}</th>
+                            <th class="tdVa2">{rval data/SCORE2}</th>
+                            <th class="thVa2">加点２</th>
+                            <th class="tdVa2" colspan="5">{rval data/ADD_SCORE2}</th>
+                          </tr>
+                          <tr class="no_search" height="26">
+                            <th class="thVa2">{rval data/TESTSUBCLASSCD3}</th>
+                            <th class="tdVa2" colspan="2">{rval data/ATTEND3}</th>
+                            <th class="tdVa2">{rval data/SCORE3}</th>
+                            <th class="thVa2">合&nbsp;&nbsp;&nbsp;&nbsp;計</th>
+                            <th class="tdVa2" colspan="5">{rval data/TOTAL4}</th>
+                          </tr>
+                          <tr class="no_search" height="26">
+                            <th class="thVa2">{rval data/TESTSUBCLASSCD4}</th>
+                            <th class="tdVa2" colspan="2">{rval data/ATTEND4}</th>
+                            <th class="tdVa2">{rval data/SCORE4}</th>
+                            <th class="thVa2">平&nbsp;&nbsp;&nbsp;&nbsp;均</th>
+                            <th class="tdVa2" colspan="5">{rval data/AVARAGE4}</th>
+                          </tr>
+                          <tr class="no_search" height="26">
+                            <th class="thVa2">{rval data/TESTSUBCLASSCD5}</th>
+                            <th class="tdVa2" colspan="2">{rval data/ATTEND5}</th>
+                            <th class="tdVa2">{rval data/SCORE5}</th>
+                            <th class="thVa2">全体順位</th>
+                            <th class="tdVa2" colspan="5">{rval data/TOTAL_RANK4}</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line" >
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th width="15%"></th>
+                            <td width="*" bgcolor="#ffffff">
+                            &nbsp;{rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_end}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<script language="JavaScript">
+var vflg;
+{rval Closing}
+</script>
+{rval finish}
+<script language="JavaScript">
+    var auth = document.forms[0].auth_check.value;
+    if (auth == "1") {
+        document.forms[0].btn_update.disabled  = true;
+        document.forms[0].btn_up_pre.disabled  = true;
+        document.forms[0].btn_up_next.disabled = true;
+        document.forms[0].btn_reset.disabled   = true;
+    } else if (auth == "0"){
+        document.forms[0].btn_update.disabled   = true;
+        document.forms[0].btn_up_pre.disabled   = true;
+        document.forms[0].btn_up_next.disabled  = true;
+        document.forms[0].btn_reset.disabled    = true;
+        document.forms[0].COURSEMAJOR.disabled  = true;
+        document.forms[0].PROCEDUREDIV.disabled = true;
+        document.forms[0].ENTDIV.disabled       = true;
+        document.forms[0].APPLICANTDIV.disabled = true;
+    }
+</script>
+

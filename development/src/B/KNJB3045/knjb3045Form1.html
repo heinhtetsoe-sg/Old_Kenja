@@ -1,0 +1,200 @@
+{rval start} 
+{rval IFRAME}
+<style>
+.targetbox {
+  width: 70px;
+  min-width: 70px;
+}
+.trashbox {
+  height:30px;
+  background-color:#003366;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.week_mon {
+  color:#000000;
+  background-color:#98FB98;
+}
+.week_tue {
+  color:#000000;
+  background-color:#EE82EE;
+}
+.week_wed {
+  color:#000000;
+  background-color:#7FFFD4;
+}
+.week_thu {
+  color:#000000;
+  background-color:#FFB6C1;
+}
+.week_fri {
+  color:#000000;
+  background-color:#F0E68C;
+}
+.week_sat {
+  color:#FFFFFF;
+  background-color:#0000FF;
+}
+.week_sun {
+  color:#FFFFFF;
+  background-color:#FF0000;
+}
+</style>
+
+<table height="10px">
+  <tr><td></td></tr>
+</table>
+<table style="width:1000px" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr> 
+          <td align="center"> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30px"> 
+                      <th><b>基本時間割 自動生成</b></th>
+                    </tr>
+                    <tr bgcolor="#FFFFFF">
+                      <td>
+                        <table>
+                          <tr>
+                            <th width="150px" align="right">年度学期：</th>
+                            <td>{rval data/YEAR_SEME}</td>
+                          </tr>
+                          <tr>
+                            <th align="right">基本時間割SEQ：</th>
+                            <td>{rval data/BSCSEQ}　タイトル:{rval data/BSCTITLE}　{rval btn_prevRead}</td>
+                          </tr>
+                          <tr>
+                            <th align="right">講座展開表SEQ：</th>
+                            <td>{rval data/PRESEQ}　　　{rval btn_print}　　
+
+<!--{each data/WEEK}-->
+<label>{rval data/WEEK/label}{rval data/WEEK/weekCheck}</label>
+<!--{/each}-->
+                              （ {rval btn_seqInit}　{rval btn_seqAttach} )
+
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr height="20px"><td></td></tr>
+
+              <tr class="no_search_line">
+                <td>
+                  <div id="redips-drag">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                  <tr>
+                    <td>
+                      <div class="trashbox" ondragover="f_dragover(event,this)" ondragleave="f_dragleave(event,this)" ondrop="f_dropTrash(event, this)">ゴミ箱：枠内にドロップして下さい</div>
+                    </td>
+                    <td bgcolor="#FFFFFF" colspan="2"></td>
+                  </tr>
+                  <tr height="10px" bgcolor="#FFFFFF"><td colspan="3"></td></tr>
+                  <tr>
+                  <td>
+
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+<!--{each data/WEEK}-->
+                    <tr class="{rval data/WEEK/class}">
+                      <td align="center" colspan="2">曜日</td>
+                      <td align="center" colspan="{rval data/PERIOD_COUNT}">{rval data/WEEK/label}
+                        <span style="float: right;">{rval data/WEEK/weekSeqInit}　</span>
+                      </td>
+                    </tr>
+
+                    <tr class="{rval data/WEEK/class}">
+                      <td align="center" nowrap>時間割</td>
+                      <td align="center" nowrap>校時</td>
+<!--{each data/PERIOD}-->
+                      <td align="center" id="{rval data/PERIOD/value}" nowrap>{rval data/PERIOD/label}</td>
+<!--{/each}-->
+                    </tr>
+                    <tr bgcolor="#FFFFFF" height="30px">
+                      <td align="center" nowrap>展開表</td>
+                      <td align="center" nowrap>列番号</td>
+<!--{each data/WEEK/PTRN_PRE}-->
+                      <td class="targetbox" align="center" draggable="true" style="cursor:move;" id="{rval data/WEEK/PTRN_PRE/value}">{rval data/WEEK/PTRN_PRE/label}</td>
+<!--{/each}-->
+                    </tr>
+<!--{/each}-->
+                  </table>
+                </td>
+
+                <td width="30px" bgcolor="#FFFFFF" nowrap></td>
+                <td bgcolor="#FFFFFF" style="vertical-align: top;">
+                  <table class="no_search" width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search">
+                      <td align="center" nowrap>展開表<br>未設定列番号</td>
+                    </tr>
+                    <tr bgcolor="#FFFFFF" >
+                      <td align="center">
+                        <select name="NONE_SEQ" size="15" style="width:80px;" ondblclick="btn_seqSwap();">
+<!--{each data/CREDITS}-->
+                          <option class="noneSeqbox" style="height:25px;text-align:center;" id="{rval data/CREDITS/value}">{rval data/CREDITS/label}</option>
+<!--{/each}-->
+                        </select>
+                      </td>
+                    </tr>
+                    <tr class="no_search" >
+                      <td>{val btn_swap}</td>
+                    </tr>
+                  </table>
+                </td>
+
+              </tr>
+              </table>
+
+                 </div>
+                </td>
+              </tr>
+
+              <tr height="20px"><td></td></tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30px"> 
+                      <td width="*%" align="right">{val btn_update}&nbsp;{val btn_end}　</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">
+document.onkeydown = documentKyeDown;
+
+var elements = document.getElementsByClassName('targetbox');
+for( var i = 0; i < elements.length; i++ ) {
+    elements[i].onclick = f_click;
+    elements[i].ondblclick = f_dblclick;
+    elements[i].ondragover = f_dragover;
+    elements[i].ondragleave = f_dragleave;
+    elements[i].ondrop = f_drop;
+    elements[i].ondragenter = f_dragevent;
+    elements[i].ondragstart = f_dragstart;
+    elements[i].oncontextmenu = f_contextmenu;
+}
+displayInit();
+</script>
+<script language="JavaScript">{rval jscript}</script>
+{rval finish} 

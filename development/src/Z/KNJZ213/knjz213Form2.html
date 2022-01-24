@@ -1,0 +1,75 @@
+{rval start}
+<table width="70%" border="0" cellspacing="10" cellpadding="0">
+
+  <tr>
+    <td>
+      <hr>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+<!--{def useCurriculumcd}-->
+          <td bgcolor="#ffffff">読替先科目：{rval COMBINED_SUBCLASSCD_SHOW}</td>
+<!--{/def}--> 
+<!--{def NoCurriculumcd}-->
+          <td bgcolor="#ffffff">読替先科目：{rval COMBINED_SUBCLASSCD_SHOW}</td>
+<!--{/def}--> 
+        </tr>
+      </table>
+      <hr>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+             <th class="no_search" align=left>
+             　　教科：{rval CLASS_SHOW}
+             </th>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr >
+    <td >
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line">
+      <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+        <tr class="no_search">
+          <th width="*%">科目名</th>
+          <th width="30%">重み</th>
+        </tr>
+
+        <!--結果一覧-->
+        <!--{each data}-->
+        <tr bgcolor="#ffffff" >
+          <td bgcolor="#ffffff">{rval data/ATTEND_SUBCLASS_NAME}</td>
+          <td align=center bgcolor="#ffffff">{rval data/WEIGHTING}</td>
+          {rval data/KAKUSI}
+        </tr>
+        <!--{/each}-->
+
+        <tr class="no_search">
+          <td align=right colspan=2>{rval button/btn_update}{rval button/btn_del}{rval button/btn_end}</td>
+        </tr>
+
+        </table>
+      </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  </table>
+
+  </td>
+  </tr>
+
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

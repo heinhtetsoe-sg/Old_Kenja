@@ -1,0 +1,99 @@
+{rval start}
+<!--{def button}-->
+<!--{def data}-->
+
+<table style="line-height: 50px">
+    <tr>
+        <td></td>
+    </tr>
+</table>
+<table width="650" border="0" cellpadding="0" cellspacing="5" align="center">
+    <tr class="no_search_line">
+        <td nowrap>
+            <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                <tr bgcolor="#ffffff">
+                    <td>
+                        <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                            <tr bgcolor="#ffffff">
+                                <td>
+                                    <table width="100%" border="0" cellpadding="0" cellspacing="5">
+                                        <tr class="no_search_line">
+                                            <td width="100%">
+                                                <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                                                    <tr class="no_search" height="30" align="center">
+                                                        <th nowrap>
+                                                            <b>
+                                                                {rval data/YEAR}年度　 学年 {rval data/GRADE} 学期 {rval data/SEMESTER}　 {rval data/DISP1}<label for="DISP1">&nbsp;教科</label>　
+                                                                {rval data/DISP2}<label for="DISP2">&nbsp;科目</label>
+                                                            </b>
+                                                            <!--{def data/CLASSCD}-->
+                                                            　　教科 {rval data/CLASSCD}
+                                                            <!--{/def}-->
+                                                        </th>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr class="no_search_line">
+                                            <td width="100%">
+                                                <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                                                    <tr align="center" class="no_search" height="30">
+                                                        <th><b>出力対象</b></th>
+                                                        <th class="no_search"></th>
+                                                        <th><b>{rval data/TITLE_RIGHT}</b></th>
+                                                    </tr>
+                                                    <tr align="center" bgcolor="#ffffff">
+                                                        <td width="47%">{rval data/CATEGORY_SELECTED}</td>
+                                                        <td width="*" class="no_search">
+                                                            {rval button/btn_lefts}<br />
+                                                            {rval button/btn_left1}<br />
+                                                            {rval button/btn_right1}<br />
+                                                            {rval button/btn_rights}
+                                                        </td>
+
+                                                        <td width="47%">{rval data/CATEGORY_NAME}</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr class="no_search_line">
+                                            <td>
+                                                <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                                                    <tr>
+                                                        <td align="left" bgcolor="#ffffff">
+                                                            <table cellspacing="5">
+                                                                <tr>
+                                                                    <td><b>出力条件</b></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>　　&nbsp;{rval data/SEX}<label for="SEX">男女別に出力する</label></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>　　&nbsp;{rval data/TANTOU}<label for="TANTOU">担当者別に出力する</label></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>　　&nbsp;{rval data/S_CLASS}<label for="S_CLASS">(科目別出力のみ)スモールクラス名称を出力する</label></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td nowrap>{rval button/btn_print}{rval button/btn_end}</td>
+    </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}

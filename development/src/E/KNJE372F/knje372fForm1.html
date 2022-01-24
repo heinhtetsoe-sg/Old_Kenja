@@ -1,0 +1,151 @@
+{rval start}
+{rval IFRAME}
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0" align="center">
+
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="0">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                    <tr class="no_search" height="30">
+                      <th width="15%" nowrap align="left"><b>処理年度：{rval YEAR}年度</b></th>
+                      <th width="*" nowrap align="left"><b>クラス：</b>{rval HR_CLASS}</th>
+                    </tr>
+
+                    <tr class="no_search" height="30">
+                      <th nowrap></th>
+                      <th nowrap align="left">
+                        {rval SORT_ITEM1}<LABEL for="SORT_ITEM1">換算値順</LABEL>
+                        　　{rval SORT_ITEM2}<LABEL for="SORT_ITEM2">クラス順</LABEL>
+                      </th>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+
+              <tr><td><br></td></tr>
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th rowspan="2" width="100">クラス</th>
+
+                      <th colspan="3">換算値</th>
+                      <th colspan="3">調整点</th>
+                      <th colspan="4">校内学力1試験</th>
+                      <th colspan="4">校内学力2試験</th>
+                      <th colspan="4">総合成績</th>
+                      <th colspan="2">校友会活動</th>
+                    </tr>
+
+                    <tr align="center" class="no_search">
+                      <th width="40"><font size="2">換算値</font></th>
+                      <th width="40">合計</th>
+                      <th width="40">順位</th>
+                      <th width="35">出欠</th>
+                      <th width="35">入力</th>
+                      <th width="35">合計</th>
+                      <th width="40">{rval PROFICIENCY1_SUBCLASS_NAME1}</th>
+                      <th width="40">{rval PROFICIENCY1_SUBCLASS_NAME2}</th>
+                      <th width="40">選択</th>
+                      <th width="40"><font size="2">平均点</font></th>
+                      <th width="40">{rval PROFICIENCY2_SUBCLASS_NAME1}</th>
+                      <th width="40">{rval PROFICIENCY2_SUBCLASS_NAME2}</th>
+                      <th width="40">選択</th>
+                      <th width="40"><font size="2">平均点</font></th>
+                      <th width="40">１年</th>
+                      <th width="40">２年</th>
+                      <th width="40">３年</th>
+                      <th width="40"><font size="2">平均点</font></th>
+
+                      <th width="200">コード</th>
+                      <th width="*">内　　容</th>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td width="100%">
+
+                  <div id="tbody" style="overflow-y:scroll; width:100%; max-height:485px;">
+
+<!--{def data}-->
+
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+
+<!--{each data}-->
+                    <tr align="right" bgcolor="{rval data/ROW_COLOR}">
+                      <td width="100" align="left">{rval data/HR_NAME} {rval data/ATTENDNO}</td>
+
+                      <td id="SCORE_{rval data/SCHREGNO}" width="40" bgcolor="{rval data/COLOR}">{rval data/CONVERT_SCORE}</td>
+                      <td id="TOTAL_{rval data/SCHREGNO}" width="40" bgcolor="{rval data/COLOR}">{rval data/CONVERT_TOTAL}</td>
+                      <td id="RANK_{rval data/SCHREGNO}" width="40" bgcolor="{rval data/COLOR}">{rval data/CONVERT_RANK}</td>
+
+                      <td width="35">{rval data/ATTEND_ADJUSTMENT_SCORE}</td>
+                      <td width="35">{rval data/ADJUSTMENT_SCORE}</td>
+                      <td width="35">{rval data/ADJUST_TOTAL_SCORE}</td>
+
+                      <td width="40">{rval data/PROFICIENCY1_SCORE1}</td>
+                      <td width="40">{rval data/PROFICIENCY1_SCORE2}</td>
+                      <td width="40">{rval data/PROFICIENCY1_SCORE3}</td>
+                      <td width="40">{rval data/PROFICIENCY1_AVG}</td>
+
+                      <td width="40">{rval data/PROFICIENCY2_SCORE1}</td>
+                      <td width="40">{rval data/PROFICIENCY2_SCORE2}</td>
+                      <td width="40">{rval data/PROFICIENCY2_SCORE3}</td>
+                      <td width="40">{rval data/PROFICIENCY2_AVG}</td>
+
+                      <td width="40">{rval data/GRADE1_TOTAL_SCORE}</td>
+                      <td width="40">{rval data/GRADE2_TOTAL_SCORE}</td>
+                      <td width="40">{rval data/GRADE3_TOTAL_SCORE}</td>
+                      <td width="40">{rval data/TOTAL_AVG}</td>
+
+                      <td width="200" align="left">{rval data/ACTIVITY_NAME}</td>
+                      <td width="*" align="left">{rval data/ACTIVITY_CONTENT}</td>
+                    </tr>
+  
+<!--{/each}-->
+                    </div>
+
+
+                  </table>
+<!--{/def}-->
+
+                </td>
+              </tr>
+
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="right" class="no_search">
+                      <td colspan="22">
+
+                        {val btn_update} {val btn_reset} {val btn_end} {val btn_csv}　　
+
+                      </td>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

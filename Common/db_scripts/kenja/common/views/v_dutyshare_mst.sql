@@ -1,0 +1,21 @@
+-- $Id:
+
+DROP VIEW V_DUTYSHARE_MST
+
+CREATE VIEW V_DUTYSHARE_MST ( \
+    YEAR, \
+    DUTYSHARECD, \
+    SHARENAME, \
+    BASE_SHARENAME, \
+    UPDATED \
+) AS SELECT \
+        T1.YEAR, \
+        T2.DUTYSHARECD, \
+        T2.SHARENAME, \
+        T2.BASE_SHARENAME, \
+        T2.UPDATED \
+    FROM \
+        DUTYSHARE_YDAT T1, \
+        DUTYSHARE_MST T2 \
+    WHERE \
+        T1.DUTYSHARECD = T2.DUTYSHARECD

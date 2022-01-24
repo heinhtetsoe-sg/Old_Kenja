@@ -1,0 +1,146 @@
+{rval start}
+
+<br>
+<table style="width: 900px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+    <table style="width: 900px" border="0" cellspacing="5" cellpadding="1">
+    <tr>
+    <td>
+        <table style="width: 900px" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 900px" border="0" cellpadding="0" cellspacing="1">
+                <tr class="no_search" height="30">
+                    <td align="left" colspan="5">&nbsp;&nbsp;&nbsp;<B>所属履歴　{rval TOP/STAFFCD}：{rval TOP/STAFFNAME}</B></td>
+                </tr>
+
+                <tr class="no_search" >
+                    <td align="center" width="110">開始日付</td>
+                    <td align="center" width="110">終了日付</td>
+                    <td align="center" width="110">郵便番号</td>
+                    <td align="left" width="288">住所1</td>
+                    <td align="left" width="*">住所2</td>
+                </tr>
+
+            </table>
+
+        </td>
+        </tr>
+        </table>
+
+        <div style="width: 100%; height=186; overflow: auto">
+        <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+            <!--{def data}-->
+            <!--結果一覧-->
+            <!--{each data}-->
+                <tr class="no_search_line" >
+                    <td bgcolor='#ffffff' align="center" width="102">{rval data/SDATE}</td>
+                    <td bgcolor='#ffffff' align="center" width="102">{rval data/EDATE}</td>
+                    <td bgcolor='#ffffff' align="left" width="102">{rval data/STAFFZIPCD}</td>
+                    <td bgcolor='#ffffff' align="left" width="280">{rval data/STAFFADDR1}</td>
+                    <td bgcolor='#ffffff' align="left" width="*">{rval data/STAFFADDR2}</td>
+                </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+        </td>
+        </tr>
+        </table>
+        </div>
+
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+        <BR><BR><BR><BR>
+        <table style="width: 900px" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 900px" border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search" >
+                    <td align="center" width="160">項目</td>
+                    <td align="center" width="*">値</td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+
+        <div style="width: 100%; ">
+        <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+
+                <tr class="no_search" >
+                    <td align="left" width="160">&nbsp;&nbsp;&nbsp;&nbsp;※開始終了日付</td>
+                    <td bgcolor='#ffffff' align="left" width="*">{rval data2/SDATE}　<font color="black">～</font>　{rval data2/EDATE}</td>
+                </tr>
+
+                <tr class="no_search" >
+                    <td align="left" width="160">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;郵便番号</td>
+                    <td bgcolor='#ffffff' align="left" width="*">{rval data2/STAFFZIPCD}</td>
+                </tr>
+
+                <tr class="no_search" >
+                    <td align="left" width="160">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;住所1</td>
+                    <td bgcolor='#ffffff' align="left" width="*">{rval data2/STAFFADDR1}<font size=2, color="red">(※全角30文字)</font></td>
+                </tr>
+
+                <tr class="no_search" >
+                    <td align="left" width="160">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;住所2</td>
+                    <td bgcolor='#ffffff' align="left" width="*">{rval data2/STAFFADDR2}<font size=2, color="red">(※全角30文字)</font></td>
+                </tr>
+
+                <tr class="no_search" >
+                    <td align="left" width="160">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;電話番号</td>
+                    <td bgcolor='#ffffff' align="left" width="*">{rval data2/STAFFTELNO}</td>
+                </tr>
+
+                <tr class="no_search" >
+                    <td align="left" width="160">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FAX番号</td>
+                    <td bgcolor='#ffffff' align="left" width="*">{rval data2/STAFFFAXNO}</td>
+                </tr>
+
+                <tr class="no_search" >
+                    <td align="left" width="160">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E-Mail</td>
+                    <td bgcolor='#ffffff' align="left" width="*">{rval data2/STAFFE_MAIL}</td>
+                </tr>
+
+            </table>
+        </td>
+        </tr>
+        </table>
+        </div>
+
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+        <table style="width: 900px" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 900px" border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search" >
+                    <td>&nbsp;&nbsp;&nbsp;{rval button/btn_insert}{rval button/btn_updte}{rval button/btn_delete}{rval button/btn_end}</td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+
+    </table>
+</td>
+</tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

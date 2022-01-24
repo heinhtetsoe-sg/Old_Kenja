@@ -1,0 +1,103 @@
+{rval start}
+
+<BR>
+<table width="40%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td><b>
+                        　　　{rval data/YEAR}年度　　　{rval data/GAKKI}
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td><b>
+                        　　{rval data/OUTPUT1}<LABEL for="OUTPUT1">　個人</LABEL>　　　{rval data/OUTPUT2}<LABEL for="OUTPUT2">　クラス</LABEL>　　　　　　{rval data/GRADE_HR_CLASS}
+                      </b>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>{rval TARGET_NAME}一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="40%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">
+                        {rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="40%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff" height="80">
+                      <td align="left">
+                        <table>
+                          <!--{def show_BIRTHDAY_FORMAT}-->
+                          <tr>
+                            <td><B>　児童生年月日切替</B>　　{rval data/BIRTHDAY_FORMAT1}<LABEL FOR="BIRTHDAY_FORMAT1">和暦</LABEL>　{rval data/BIRTHDAY_FORMAT2}<LABEL FOR="BIRTHDAY_FORMAT2">西暦</LABEL> </td>
+                          </tr>
+                          <!--{/def}-->
+                          <tr>
+                            <td><B>　出力する帳票</B></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              　　１．　{rval data/SEITO}<LABEL for="SEITO">{rval FORM1_TITLE}</LABEL>
+                              <FONT style="font-size:0.8em">　　{rval data/SIMEI}<LABEL for="SIMEI">{rval ENJI_TITLE}・保護者氏名出力</LABEL></FONT><br>
+                              <!--　　　　　　　　　　　　　&nbsp<FONT style="font-size:0.8em">　　{rval data/SCHZIP}<LABEL for="SCHZIP">現住所の郵便番号出力</LABEL></FONT><br> -->
+                              <!--　　　　　　　　　　　　　&nbsp<FONT style="font-size:0.8em">　　{rval data/SCHOOLZIP}<LABEL for="SCHOOLZIP">学校所在地の郵便番号出力</LABEL></FONT> -->
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              　　２．　{rval data/SIDOU}<LABEL for="SIDOU">指導の記録</LABEL>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <!--{def button}--> 
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+  <!--{/def}--> 
+</table>
+
+{rval finish} 
+<script language="JavaScript">
+{rval printgo}
+</script>

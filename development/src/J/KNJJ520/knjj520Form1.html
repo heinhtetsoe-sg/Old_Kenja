@@ -1,0 +1,73 @@
+{rval start}
+
+{rval IFRAME}
+<table width="70%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <hr width="50%" align="left">
+                &nbsp;{rval SCHREGNO}　{val NAME}
+            <hr width="50%" align="left">
+            <br>
+            <table width="100%" border="0" cellspacing="10" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th width="30%" class="no_search">測定日付</th>
+                      <td width="70%" bgcolor="#ffffff">{rval DATE}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th>種目</th>
+                      <th>記録</th>
+                    </tr>
+
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <th width="65%" nowrap align="left">　{rval data/ITEMCD}:{rval data/ITEMNAME}</th>
+                      <td width="35%">　　{rval data/RECORD} {rval data/UNIT}</td>
+                    </tr>
+                    <!--{/each}-->
+
+                    <tr>
+                      <td bgcolor="#ffffff" colspan="2" align="right">
+                        <font color="red" size="2">整数3桁、小数点は第3位まで</font>
+                      </td>
+                    </tr>
+
+                    <tr bgcolor="#ffffff">
+                      <th width="65%" nowrap align="left">　999:総合判定</th>
+                      <td width="35%">　　{rval VALUE}　<font color="red" size="2">(A,B,C,D,E)</font></td>
+                    </tr>
+
+                    <!--{def button}-->
+                    <tr>
+                      <td class="no_search" colspan="2" align="right">
+                        {rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_end}
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->

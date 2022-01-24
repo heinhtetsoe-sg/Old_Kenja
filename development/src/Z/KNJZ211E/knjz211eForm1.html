@@ -1,0 +1,151 @@
+{rval start}
+{rval IFRAME}
+
+<table width="95%" border="0" cellspacing="10" cellpadding="0" align="center">
+<tbody>
+  <tr>
+    <td valign="top">
+    
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tbody>
+              <tr class="no_search">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                  <tbody>
+                    <tr class="no_search" height="30">
+                      <td width="100%" align="center" nowrap>
+                        {rval YEAR}年度　　学年：{rval GRADE}　　教科：{rval CLASSCD}　　科目：{rval SUBCLASSCD}
+                      </td>
+                    </tr>
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+      </table>
+      
+    </td>
+  </tr>
+  <tr></tr><tr></tr><tr></tr><tr></tr>
+  <tr>
+    <td>
+    
+      <table width="80%" align="center" border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tbody>
+                    <tr class="no_search" height="40">
+                      <th width="*" align="center" rowspan="2">観点</th>
+  <!--{each gakki}-->
+                      <th width="70" align="center" rowspan="2">{rval gakki/LABEL}</th>
+  <!--{/each}-->
+                      <th width="70" align="center" rowspan="2">満点</th>
+                      <th align="center" colspan="{rval gakki2_colspan}">観点の段階値</th>
+                      <th align="center" colspan="{rval gakki3_colspan}">評価・評定の段階値</th>
+                    </tr>
+                    <tr class="no_search" height="40">
+  <!--{each gakki2}-->
+                      <th width="70" align="center">{rval gakki2}</th>
+  <!--{/each}-->
+  <!--{each gakki3}-->
+                      <th width="70" align="center">{rval gakki3}</th>
+  <!--{/each}-->
+  <!--{def gakki3_9}-->
+                      <th width="70" align="center">{rval gakki3_9}</th>
+  <!--{/def}-->
+                    </tr>
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width:100%;height:350;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                  <tbody>
+  <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td width="*" height="40" align="left" bgcolor="{rval data/COLOR}" style="word-break:break-all;">{rval data/VIEWNAME}</td>
+                      <td width="70" height="40" align="center">{rval data/VIEWCHECK1}</td>
+                      <td width="70" height="40" align="center">{rval data/VIEWCHECK2}</td>
+  <!--{def 3gakki}-->
+                      <td width="70" height="40" align="center">{rval data/VIEWCHECK3}</td>
+  <!--{/def}-->
+                      <td width="70" height="40" align="center">{rval data/ASSESSHIGH}</td>
+                      {rval data/HYOUKA}
+                      {rval data/HYOUKAHYOUTEI}
+                    </tr>
+  <!--{/each}-->
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      </table>
+      
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tbody>
+                    <tr class="no_search">
+                      <td>
+                        <table cellpadding="0" cellspacing="0">
+                          <tr class="no_search" height="30">
+                            <td width="90%" align="center">
+                                &nbsp;
+                            </td>
+                            <td width="10%" align="right">
+                                {val btn_settei}{val btn_update}{val btn_reset}{val btn_end}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+          
+        </tr>
+      </tbody>
+      </table>
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval close_win}</script>

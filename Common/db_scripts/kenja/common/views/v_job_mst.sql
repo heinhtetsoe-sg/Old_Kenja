@@ -1,0 +1,22 @@
+-- $Id: 0c293f083b9e7b318560335d9beb540d05565828 $
+
+DROP VIEW V_JOB_MST
+
+CREATE VIEW V_JOB_MST ( \
+    YEAR, \
+    JOBCD, \
+    JOBNAME, \
+    BASE_JOBNAME, \
+    UPDATED \
+) AS \
+SELECT \
+    T1.YEAR, \
+    T2.JOBCD, \
+    T2.JOBNAME, \
+    T2.BASE_JOBNAME, \
+    T2.UPDATED \
+FROM \
+    JOB_YDAT T1, \
+    JOB_MST T2 \
+WHERE \
+    T1.JOBCD = T2.JOBCD

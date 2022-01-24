@@ -1,0 +1,75 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap align="left" colspan="6">　対象年度：{rval YEAR}　{rval button/btn_copy}</th>
+                    </tr>
+                    <tr class="no_search">
+                      <th nowrap align="left" colspan="6">　資格：{rval SIKAKUCD}　　{rval DIV1}<LABEL for="DIV1">受験結果</LABEL>　{rval DIV2}<LABEL for="DIV2">受験級</LABEL></th>
+                    </tr>
+<!--{def kekka}-->
+                    <tr class="no_search"> 
+                      <th nowrap width="15%">結果CD</th>
+                      <th nowrap width="20%">結果名称</th>
+                      <th nowrap width="15%">結果略称</th>
+                      <th nowrap width="15%">正式資格</th>
+                      <th nowrap width="20%">有効期間（月）</th>
+                      <th nowrap width="*%" >レベル</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}--> 
+                    <tr> 
+                      <td nowrap align="center" bgcolor="#ffffff"><a href="knjz452index.php?cmd=edit&RESULT_CD={rval data/RESULT_CD}" target="right_frame">{rval data/RESULT_CD}</a></td>
+                      <td nowrap bgcolor="#ffffff">{rval data/RESULT_NAME}</td>
+                      <td nowrap bgcolor="#ffffff">{rval data/RESULT_NAME_ABBV}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{rval data/CERT_FLG}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{rval data/LIMITED_PERIOD}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{rval data/RESULT_LEVEL}</td>
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}-->
+<!--{/def}-->
+<!--{def kyuu}-->
+                    <tr class="no_search"> 
+                      <th nowrap width="15%">テストCD</th>
+                      <th nowrap width="20%">受験級名称</th>
+                      <th nowrap width="15%">受験級略称</th>
+                      <th nowrap width="15%">受験料</th>
+                      <th nowrap width="20%">前提結果CD</th>
+                      <th nowrap width="*%" >レベル</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}--> 
+                    <tr> 
+                      <td nowrap align="center" bgcolor="#ffffff"><a href="knjz452index.php?cmd=edit&TEST_CD={rval data/TEST_CD}" target="right_frame">{rval data/TEST_CD}</a></td>
+                      <td nowrap bgcolor="#ffffff">{rval data/TEST_NAME}</td>
+                      <td nowrap bgcolor="#ffffff">{rval data/TEST_NAME_ABBV}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{rval data/TEST_FEE}円</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{rval data/PREREQ_RESALT_CD}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{rval data/TEST_LEVEL}</td>
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}-->
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

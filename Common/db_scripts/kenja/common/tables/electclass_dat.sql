@@ -1,0 +1,21 @@
+-- kanji=Š¿Žš
+-- $Id: 130a6e933ab6d60b575fbd8f133c12c38f0426d9 $
+
+drop table ELECTCLASS_DAT
+
+CREATE TABLE ELECTCLASS_DAT( \
+    YEAR       VARCHAR(4)  NOT NULL, \
+    GROUPCD    VARCHAR(4)    NOT NULL, \
+    GROUPNAME  VARCHAR(9), \
+    GROUPABBV  VARCHAR(6), \
+    REMARK     VARCHAR(90), \
+    SHOWORDER  SMALLINT, \
+    REGISTERCD VARCHAR(8), \
+    UPDATED    TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+) IN USR1DMS INDEX IN IDX1DMS
+
+
+alter table ELECTCLASS_DAT add constraint pk_esc_dat primary key \
+    (YEAR, GROUPCD)
+
+

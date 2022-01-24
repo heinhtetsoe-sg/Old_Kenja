@@ -1,0 +1,128 @@
+{rval start}
+<br><br><br><br>
+<table width="75%" border="0" cellspacing="0" cellpadding="5" align="center">
+<tr>
+<td>
+
+  <table style="width: 100%" border="0" cellspacing="1" cellpadding="1">
+  <tr> 
+  <td>
+
+    <br>
+
+    <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+    <tr class="no_search_line">
+      <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search">
+            <td width="120" align="center">対象年度</td>
+            <td width="300" bgcolor="#ffffff" style="color: black">
+                <!--{def YEAR}-->
+                {rval info/TOP}&nbsp;{rval YEAR/VAL}&nbsp;{rval YEAR/BUTTON}
+                <!--{/def}-->
+            </td>
+            <td width="120" align="center">学校校種</td>
+            <td width="300" bgcolor="#ffffff" style="color: black">
+             <div>&nbsp;{rval data/SCHOOL_KIND}</div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+    <br>
+    <br>
+    
+    <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+    <tr class="no_search_line">
+      <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="1">
+          <tr class="no_search">
+            <td width="5%" align="center" rowspan="6"><br><br><br>休<br><br><br><br><br><br>日<br><br><br><br</td>
+            <td width="30%" bgcolor="#ffffff" rowspan="6">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr class="no_search">
+                   <td bgcolor="#ffffff">
+                    {rval data/LEGAL_HOLIDAY_FLG}<LABEL for="LEGAL_HOLIDAY_FLG"><font color="#000000">法定休日・日曜日</font></LABEL></LABEL><br><br>
+                   </td>
+                  </tr>
+                  <tr class="no_search">
+                   <td bgcolor="#ffffff">
+                    {rval data/FIRST_SATURDAY_FLG}<LABEL for="FIRST_SATURDAY_FLG"><font color="#000000">第１土曜日</font></LABEL><br><br>
+                   </td>
+                  </tr>
+                  <tr class="no_search">
+                   <td bgcolor="#ffffff">
+                    {rval data/SECOND_SATURDAY_FLG}<LABEL for="SECOND_SATURDAY_FLG"><font color="#000000">第２土曜日</font></LABEL><br><br>
+                   </td>
+                  </tr>
+                  <tr class="no_search">
+                   <td bgcolor="#ffffff">
+                    {rval data/THIRD_SATURDAY_FLG}<LABEL for="THIRD_SATURDAY_FLG"><font color="#000000">第３土曜日</font></LABEL><br><br>
+                   </td>
+                  </tr>
+                  <tr class="no_search">
+                   <td bgcolor="#ffffff">
+                    {rval data/FOUR_SATURDAY_FLG}<LABEL for="FOUR_SATURDAY_FLG"><font color="#000000">第４土曜日</font></LABEL><br><br>
+                   </td>
+                  </tr>
+                  <tr class="no_search">
+                   <td bgcolor="#ffffff">
+                    {rval data/FIVE_SATURDAY_FLG}<LABEL for="FIVE_SATURDAY_FLG"><font color="#000000">第５土曜日</font></LABEL><br><br>
+                   </td>
+                  </tr>
+                </table>
+            </td>
+            <td width="5%" align="center" rowspan="6"><br><br>休<br><br>業<br><br>期<br><br>間<br><br></td>
+            <td width="20%" align="center">休　み</td>
+            <td width="20%" align="center">開始日</td>
+            <td width="20%" align="center">終了日</td>
+          </tr>
+          <tr class="no_search">
+          <td align="center">{rval data/VACATION_NAME01}</td>
+            <td bgcolor="#ffffff" style="color: black" align="center">{rval data/BEFORE_SPRING_VACATION_SDATE}</td>
+            <td bgcolor="#ffffff" style="color: black" align="center">{rval data/BEFORE_SPRING_VACATION_EDATE}</td>
+          </tr>
+          <tr class="no_search">
+            <td align="center">{rval data/VACATION_NAME02}</td>
+            <td bgcolor="#ffffff" style="color: black" align="center">{rval data/SUMMER_VACATION_SDATE}</td>
+            <td bgcolor="#ffffff" style="color: black" align="center">{rval data/SUMMER_VACATION_EDATE}</td>
+          </tr>
+<!--{def test}-->
+          <tr class="no_search">
+            <td align="center">{rval data/VACATION_NAME03}</td>
+            <td bgcolor="#ffffff" style="color: black" align="center">{rval data/AUTUMN_VACATION_SDATE}</td>
+            <td bgcolor="#ffffff" style="color: black" align="center">{rval data/AUTUMN_VACATION_EDATE}</td>
+          </tr>
+<!--{/def}-->
+          <tr class="no_search">
+            <td align="center">{rval data/VACATION_NAME04}</td>
+            <td bgcolor="#ffffff" style="color: black" align="center">{rval data/WINTER_VACATION_SDATE}</td>
+            <td bgcolor="#ffffff" style="color: black" align="center">{rval data/WINTER_VACATION_EDATE}</td>
+          </tr>
+          <tr class="no_search">
+            <td align="center">{rval data/VACATION_NAME05}</td>
+            <td bgcolor="#ffffff" style="color: black" align="center">{rval data/AFTER_SPRING_VACATION_SDATE}</td>
+            <td bgcolor="#ffffff" style="color: black" align="center">{rval data/AFTER_SPRING_VACATION_EDATE}</td>
+          </tr>
+        </table>
+        
+      </td>
+    </tr>
+    </table>
+    <br>
+    <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search" height="35" nowrap>
+          <td align="reft" bgcolor="#ffffff">
+          {rval button/btn_update}　{rval button/btn_yotei}　{rval button/btn_reset}　{rval button/btn_end}
+          </td>
+        </tr>
+    </table>
+
+  </td>
+  </tr>
+  </table>
+</td>
+</tr>
+</table>
+{rval finish}

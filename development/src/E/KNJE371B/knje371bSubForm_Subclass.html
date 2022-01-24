@@ -1,0 +1,120 @@
+{rval start}
+{rval IFRAME}
+<BR><BR>
+<table width="1000px" border="0" cellpadding="0" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      
+        <tr>
+          <td height="50">
+            <hr width="40%" align="left">
+                &nbsp;対象年度：{rval YEAR_SHOW}&nbsp;&nbsp;&nbsp;{rval SCHOOLNAME_SHOW}
+            <hr width="40%" align="left">
+          </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    必要科目数：{rval SUBCLASS_NUM}
+                  </tr>
+                    <tr class="no_search_line">
+                        <td>
+                            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr class="no_search">
+                                    <th width="250">履修科目名</th>
+                                    <th width="150">対象学年</th>
+                                    <th width="250">コース条件</th>
+                                    <th width="80">必須科目</th>
+                                    <th width="80">2年編入者</th>
+                                    <th width="*">長期復学者</th>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+        <td>
+          <div onScroll="scrollRC()" style="overflow:scroll; width: 100%; height: 170;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def list}-->
+                <!--結果一覧-->
+                <!--{each list}-->
+                <tr>
+                    <td nowrap align="left"   width="250" bgcolor="#ffffff">{rval list/SUBCLASSNAME}</td>
+                    <td nowrap align="left"   width="150" bgcolor="#ffffff">{rval list/GRADE_NAME}</td>
+                    <td nowrap align="left"   width="250" bgcolor="#ffffff">{rval list/COURSECODENAME}</td>
+                    <td nowrap align="center" width="80" bgcolor="#ffffff">{rval list/REQUIRED_FLG}</td>
+                    <td nowrap align="center" width="80" bgcolor="#ffffff">{rval list/TRANSFER_FLG}</td>
+                    <td nowrap align="center" width="*" bgcolor="#ffffff">{rval list/COMEBACK_FLG}</td>
+                </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+
+        <tr height="20px"></tr>
+
+        <tr>
+        <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr class="no_search_line">
+            <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                    <tr class="no_search" >
+                        <th align="right" width="20%">履修必要科目</td>
+                        <td align="left" bgcolor="#ffffff" width="80%">{rval data/SUBCLASSCD}</td>
+                    </tr>
+                    <tr class="no_search" >
+                        <th align="right" width="20%">学年</td>
+                        <td align="left" bgcolor="#ffffff" width="80%">
+                          {rval data/GRADE1_FLG}<label for="GRADE1_FLG"><font color="black">1年</font></label>
+                          {rval data/GRADE2_FLG}<label for="GRADE2_FLG"><font color="black">2年</font></f</label>
+                          {rval data/GRADE3_FLG}<label for="GRADE3_FLG"><font color="black">3年</font></label>
+                        </td>
+                    </tr>
+                    <tr class="no_search" >
+                        <th align="right" width="20%">コース条件</td>
+                        <td align="left" bgcolor="#ffffff" width="80%">{rval data/COURSECODE2}</td>
+                    </tr>
+                    <tr class="no_search" >
+                        <th align="right" width="20%">必須科目</td>
+                        <td align="left" bgcolor="#ffffff" width="80%">{rval data/REQUIRED_FLG}</td>
+                    </tr>
+                    <tr class="no_search" >
+                        <th align="right" width="20%">2年編入者</td>
+                        <td align="left" bgcolor="#ffffff" width="80%">{rval data/TRANSFER_FLG}</td>
+                    </tr>
+                    <tr class="no_search" >
+                        <th align="right" width="20%">長期復学者</td>
+                        <td align="left" bgcolor="#ffffff" width="80%">{rval data/COMEBACK_FLG}</td>
+                    </tr>
+                </table>
+            </td>
+            </tr>
+            </table>
+        </td>
+        </tr>
+        <tr>
+            <td bgcolor="#ffffff">{rval button/btn_insert}{rval button/btn_update}{rval button/btn_delete}{rval button/btn_reset}{rval button/btn_end}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish} 

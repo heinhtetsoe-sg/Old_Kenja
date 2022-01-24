@@ -1,0 +1,119 @@
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search" height="30">
+                        <th width="10%" nowrap>処理年度：{rval YEAR}年度</th>
+                        <th width="10%" nowrap>学期：{rval SEMESTER}</th>
+                        <th width="40%" nowrap>科目：{rval SUBCLASSCD}</th>
+                        <td width="*" nowrap>学級・講座：{rval CHAIRCD}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="100">クラス-<br>出席番号</th>
+                        <th width="200">氏名</th>
+                        <th width="80">項目名</th>
+                        <th width="*">値</th>
+                        <th width="56">{val SCORE_TITLE}</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <div style="width:100%;height:425;overflow:auto">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr>
+                          <td width="100"  align="center" bgcolor="{rval data/COLOR}" rowspan="2">{rval data/ATTENDNO}</td>
+                          <td width="200" align="left"   bgcolor="{rval data/COLOR}" rowspan="2">{rval data/SCHREGNO_SHOW}{rval data/NAME_SHOW}</td>
+                          <td class="no_search" align="center">実施の<br>内容</td>
+                          <td                   align="left" bgcolor="{rval data/COLOR}">{rval data/CONDUCT_CONTENTS}<br>
+                              <font size="2" color="red">(全角で {rval conduct_contents_moji}文字X{rval conduct_contents_gyo}行)</font></td>
+                          <td width="40"  align="center" bgcolor="{rval data/COLOR}" rowspan="2">{rval data/GRAD_VALUE}</td>
+                        </tr>
+                        <tr>
+                          <td class="no_search" width="80"   align="center">実施・<br>評価</td>
+                          <td width="*"   align="left"   bgcolor="{rval data/COLOR}">{rval data/CONDUCT_EVAL}<br>
+                              <font size="2" color="red">(全角で {rval conduct_eval_moji}文字X{rval conduct_eval_gyo}行)</font></td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <td align="right">
+                        {rval FILE}{val btn_input}&nbsp;{val btn_print}&nbsp;{val btn_output}　{val btn_replace}　　{val btn_update}{val btn_reset}{val btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                  </td>
+                </tr>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}
+<script language="JavaScript">{rval close_win}</script>

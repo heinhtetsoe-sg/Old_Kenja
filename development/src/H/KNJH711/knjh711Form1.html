@@ -1,0 +1,76 @@
+{rval start} 
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+          <tr class="no_search_line">
+            <th>
+              <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                <tr>
+                  <th align="center" class="no_search" height="35">
+                    {rval YEAR}年度&nbsp;
+                    学力テスト{rval data/TESTID}&nbsp;
+                    時限{rval data/PERIODID}&nbsp;
+                    科目{rval data/SUBCLASSCD}
+                  </th>
+                </tr>
+              </table>
+            </th>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr class="no_search_line">
+      <td nowrap>
+        <table width="100%" border="0" cellpadding="0" cellspacing="1">
+          <tr bgcolor="#ffffff">
+            <td>
+              <table width="100%" border="0" cellpadding="0" cellspacing="10" >
+                <tr class="no_search_line">
+                  <td width="100%">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                      <tr align="center" class="no_search">
+                        <th><font color="white">
+                            教室{rval data/FACCD}<br>
+                            {rval info/LEFT_LIST}</font>
+                        </th>
+                        <th class="no_search">&nbsp;</th>
+                        <th><font color="white">
+                            クラス{rval data/HR_CLASS}<br>
+                            {rval info/RIGHT_LIST}</font>
+                        </th>
+                      </tr>
+                      <tr align="center" bgcolor="#ffffff">
+                        <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                        <td width="*%" class="no_search">
+                          {rval SEL_ADD_ALL} <br>
+                          {rval SEL_ADD} <br>
+                          {rval SEL_DEL} <br>
+                          {rval SEL_DEL_ALL}</td>
+                        <td width="45%">{rval data/CATEGORY_NAME}</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td><b>
+        定員：{rval CAPACITY}名&nbsp;
+        人数：<span id = "count">{rval count}</span>名
+      </b></td>
+    </tr>
+    <!--{def button}-->
+    <tr>
+      <td nowrap align="right">{rval button/BTN_OK}&nbsp{rval button/BTN_CLEAR}&nbsp{rval button/BTN_END}</td>
+    </tr>
+    <!--{/def}-->
+  </tbody>
+</table>
+<script language="JavaScript">{rval jscript}</script>
+{rval finish}

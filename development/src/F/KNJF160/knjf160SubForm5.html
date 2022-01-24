@@ -1,0 +1,119 @@
+{rval start} 
+{rval IFRAME}
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="150" nowrap bgcolor="#C0FFFF" align="center">
+            <b><font size="3" color="#1E90FF">健康調査</font></b>
+          </td>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr colspan="2">
+    <td>
+      <div style="width:850;height:400;overflow-x:scroll;overflow-y:scroll">
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td align="left">
+            <b>８．健康調査</b>
+            　　　　　　　　　　　　　　　　　　　　　　　　　　　○＝ある、 △＝ときどきある、 無＝ない
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="260">記入日（年・月）</th>
+                      {rval date_html}
+                    </tr>
+                    <tr class="no_search">
+                      <th width="260">学　　年</th>
+                      {rval grade_html}
+                    </tr>
+                    <tr class="no_search">
+                      <th width="260">&nbsp;</th>
+                      {rval mark_html}
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+<!--{each data}-->
+                    <tr height="25">
+                      <td width="260" align="left" bgcolor="#ffffff">&nbsp;{rval data/CONTENTS}</td>
+                      <td width="75" align="center" bgcolor="{rval data/COLOR}">{rval data/ANSWER11}{rval data/ANSWER12}{rval data/ANSWER13}</td>
+                      <td width="75" align="center" bgcolor="{rval data/COLOR}">{rval data/ANSWER21}{rval data/ANSWER22}{rval data/ANSWER23}</td>
+                      <td width="75" align="center" bgcolor="{rval data/COLOR}">{rval data/ANSWER31}{rval data/ANSWER32}{rval data/ANSWER33}</td>
+                      <td width="75" align="center" bgcolor="{rval data/COLOR}">{rval data/ANSWER41}{rval data/ANSWER42}{rval data/ANSWER43}</td>
+                      <td width="75" align="center" bgcolor="{rval data/COLOR}">{rval data/ANSWER51}{rval data/ANSWER52}{rval data/ANSWER53}</td>
+                      <td width="75" align="center" bgcolor="{rval data/COLOR}">{rval data/ANSWER61}{rval data/ANSWER62}{rval data/ANSWER63}</td>
+                      <td width="*" align="center" bgcolor="{rval data/COLOR}">{rval data/ANSWER71}{rval data/ANSWER72}{rval data/ANSWER73}</td>
+                    </tr>
+<!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      </div>
+    </td>
+  </tr>
+
+<!--{def data1}-->
+  <tr>
+    <td>
+      <table width="90%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr height="25">
+                <th class="no_search" nowrap align="left">&nbsp;９．生活上注意すべき点</th>
+              </tr>
+              <tr height="75">
+                <td bgcolor="#ffffff" align="center">{rval data1/ATTENTION}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+<!--{/def}-->
+
+<!--{def button}-->
+  <tr>
+    <td>
+      　　　　{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}
+    </td>
+  </tr>
+<!--{/def}-->
+</table>
+<div id="lay"></div>
+
+{rval finish} 
+<script language="JavaScript">{rval close_win}</script>

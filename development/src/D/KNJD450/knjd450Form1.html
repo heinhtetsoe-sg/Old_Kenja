@@ -1,0 +1,115 @@
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval NAME_SHOW}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="200">項目</th>
+              <th width="150">授業中の様子</th>
+              <th width="150">学習目標、支援目標</th>
+              <th width="150">具体的支援の方略</th>
+              <th width="*">支援の評価</th>
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <div style="width: 100%; height=170; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def data2}-->
+                <!--{each data2}-->
+                  <tr bgcolor="#ffffff">
+                    <td width="200" align="left"><a href="knjd450index.php?cmd=set&UPD_FLG=1&SUBCLASSNAME={val data2/SUBCLASSNAME}&YEAR={val data2/YEAR}&SCHREGNO={val data2/SCHREGNO}&SEMESTER={val data2/SEMESTER}&DIV={val data2/DIV}&WRITING_DATE={val data2/WRITING_DATE}&CLASSCD={val data2/CLASSCD}&SCHOOL_KIND={val data2/SCHOOL_KIND}&CURRICULUM_CD={val data2/CURRICULUM_CD}&SUBCLASSCD={val data2/SUBCLASSCD}">{rval data2/SUBCLASSNAME}</a></td>
+                    <td width="150" align="left">{rval data2/REMARK1}</td>
+                    <td width="150" align="left">{rval data2/REMARK2}</td>
+                    <td width="150" align="left">{rval data2/REMARK3}</td>
+                    <td width="*" align="left">{rval data2/REMARK4}</td>
+                  </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+        
+        <tr><td height="20">{rval button/btn_print}</td></tr>
+
+<!--{def data}-->
+       <tr>
+        <td width="100%" valign="top">
+          <table width="100%" border="0" cellspacing="10" cellpadding="5">
+            <tr>
+              <td>
+                <hr width="50%" align="left">
+                  &nbsp;&nbsp;{rval KOUMOKU}&nbsp;
+                <hr width="50%" align="left">
+              </td>
+            </tr>
+          </table>
+        </td>
+       </tr>
+       <tr>
+        <td nowrap height="30">
+            &nbsp;作成年月日：{rval data/WRITING_DATE}
+        </td>
+       </tr>
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="90" align="center" class="no_search" nowrap>授業中の様子</th>
+                <th width="60" align="center" class="no_search" nowrap>支援目標</th>
+                <th width="100" align="center" class="no_search" nowrap>具体的支援の方略</th>
+                <th width="*" align="center" class="no_search" nowrap>支援の評価</th>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">{rval data/REMARK1}<BR>{rval data/REMARK1_SIZE}</td>
+                <td bgcolor="#ffffff">{rval data/REMARK2}<BR>{rval data/REMARK2_SIZE}</td>
+                <td bgcolor="#ffffff">{rval data/REMARK3}<BR>{rval data/REMARK3_SIZE}</td>
+                <td bgcolor="#ffffff">{rval data/REMARK4}<BR>{rval data/REMARK4_SIZE}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td align="left" bgcolor="#ffffff" height="30">
+            &nbsp;作成日：{rval data/WRT_DATE}　　{rval button/btn_add}{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}
+          </td>
+        </tr>
+<!--{/def}-->
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish} 

@@ -1,0 +1,111 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR>
+
+<table width="65%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td><b>　　　{rval data/YEAR}年度　　校種：{rval data/SCHOOL_KIND}　　在籍学期：{rval data/SEMESTER}</b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td nowrap> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff"> 
+                      <td>
+                        　　●更新種別<BR>
+                        　　　{rval data/UPDATE_DIV1}<LABEL for="UPDATE_DIV1">新規：認定番号がない生徒全員の通し番号を全て削除し<BR>
+                        　　　　　　　&nbsp;対象データの通し番号を、認定番号確定者の通し番号{rval data/RENBAN1}から振る</LABEL><BR>
+                        　　　{rval data/UPDATE_DIV2}<LABEL for="UPDATE_DIV2">追加：対象データの通し番号を、通し番号{rval data/RENBAN2}から振る</LABEL><BR>
+                        　　　{rval data/UPDATE_DIV3}<LABEL for="UPDATE_DIV3">出力：データ出力のみ、更新なし。</LABEL>　課程&nbsp;{rval data/COURSECD}　申請月：{rval data/MONTH}<BR>
+                        　　　　　　　&nbsp;({rval data/OUTPUT_DATA1}<LABEL for="OUTPUT_DATA1">認定番号あり</LABEL>{rval data/OUTPUT_DATA2}<LABEL for="OUTPUT_DATA2">認定番号なし</LABEL>)<BR>
+                        　　●表示設定<BR>
+                        　　　{rval data/KUBUN1}<LABEL for="KUBUN1">クラス指定</LABEL>&nbsp;{rval data/KUBUN2}<LABEL for="KUBUN2">個人指定</LABEL>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <!--{def clsno}-->
+                      <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<b>クラス選択</b>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {rval data/GRADE}
+                      </td>
+                      <!--{/def}-->
+
+                      <!--{def schno}-->
+                      <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<b>個人選択</b>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {rval data/GRADE_HR_CLASS}
+                      </td>
+                      <!--{/def}-->
+
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+<!--{def clsno}-->
+                      <th><b>出力対象クラス</b></th>
+                      <th class="no_search"></th>
+                      <th><b>クラス一覧</b></th>
+<!--{/def}-->
+<!--{def schno}-->
+                      <th><b>出力対象生徒</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b></th>
+<!--{/def}-->
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CLASS_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 
+<script language="JavaScript">{rval jscript}</script>

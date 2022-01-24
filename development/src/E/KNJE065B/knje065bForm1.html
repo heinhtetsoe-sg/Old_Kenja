@@ -1,0 +1,136 @@
+{rval start}
+<style type="text/css">
+</style>
+<BR><BR>
+<table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" nowrap>
+                      <th width="*%" align="left" nowrap>
+                            &nbsp;&nbsp;処理年度：{rval TOP/TRANSACTION}年度&nbsp;
+                            &nbsp;&nbsp;処理学期：{rval TOP/SEMESTER}&nbsp;
+                            &nbsp;&nbsp;処理学年：{rval gc_select}&nbsp;
+                            &nbsp;&nbsp;{rval GAKKA_BETU_HEAD}&nbsp;
+                            &nbsp;&nbsp;{rval electdiv}&nbsp;選択科目を除く&nbsp;
+                            &nbsp;&nbsp;異動基準日：{rval base_date}
+                            <!--{def showTajuHeikin}-->
+                            &nbsp;&nbsp;平均種別：{rval KINDCD}
+                            <!--{/def}-->
+                      </th>
+                    </tr>
+<!--{def hyoteiYomikaeFlg}-->
+                    <tr class="no_search" nowrap>
+                      <th width="*%" align="right" nowrap>
+                            &nbsp;&nbsp;{rval hyoteiYomikae}&nbsp;<LABEL for="hyoteiYomikae">評定1の場合は2で処理する</LABEL>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      </th>
+                    </tr>
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" nowrap align="center">
+                            <th width="*" align="center" nowrap>{rval SET_NAME}</th>
+<!--{def GAKKA_BETU_FLG}-->
+                            <th width="85" align="center" nowrap>コースコード</th>
+                            <th width="110" align="center" nowrap>コース名称</th>
+<!--{/def}-->
+                            <th width="70" align="center" nowrap>A</th>
+                            <th width="70" align="center" nowrap>B</th>
+                            <th width="70" align="center" nowrap>C</th>
+                            <th width="70" align="center" nowrap>D</th>
+                            <th width="70" align="center" nowrap>E</th>
+                            <th width="70" align="center" nowrap>{rval GAKKA_BETU_TITLE}</th>
+                            <th width="70" align="center" nowrap>学年人数</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="width: 100%; height=300; overflow: auto">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr class="no_search_line">
+                        <td>
+                          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--{def data}-->
+                          <!--結果一覧-->
+                          <!--{each data}-->
+                            <tr class="no_search" align="center" nowrap>
+                              <td width="*" nowrap>{rval data/NAME}</td>
+<!--{def GAKKA_BETU_FLG}-->
+                              <td width="85" nowrap>{rval data/COURSECODE}</td>
+                              <td width="110" align="left" nowrap>{rval data/COURSECODENAME}</td>
+<!--{/def}-->
+                              <td bgcolor="#ffffff" width="70" nowrap>{rval data/A_MEMBER}</td>
+                              <td bgcolor="#ffffff" width="70" nowrap>{rval data/B_MEMBER}</td>
+                              <td bgcolor="#ffffff" width="70" nowrap>{rval data/C_MEMBER}</td>
+                              <td bgcolor="#ffffff" width="70" nowrap>{rval data/D_MEMBER}</td>
+                              <td bgcolor="#ffffff" width="70" nowrap>{rval data/E_MEMBER}</td>
+                              <td bgcolor="#ffffff" style="color: black" width="70" nowrap><span id="{rval data/INDEX}">{rval data/COURSE_MEMBER}</span></td>
+                              <td bgcolor="#ffffff" width="70" nowrap>{rval data/GRADE_MEMBER}</td>
+                            </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <tr class="no_search">
+                                <td width="330"></td>
+                                <td bgcolor="#ffffff" width="*" align="right">{rval btn_recalc}&nbsp;{rval btn_update}&nbsp;{rval btn_can}&nbsp;{rval btn_end}<!--{def MARU_APARAM}--><br><br><font color="red">※マルA更新処理含む</font><!--{/def}--></td>
+                        
+                            </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}{rval Closing}</script>

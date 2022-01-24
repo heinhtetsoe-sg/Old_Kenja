@@ -1,0 +1,71 @@
+{rval start}
+
+<br>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="5" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td width="50%"> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search"> 
+                      <th><b>対象年度 : {rval YEAR}{rval CLUBINFO}</b></th>
+                    </tr>
+                  </table>
+                </td>
+                <td width="*" bgcolor="#ffffff"> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr>
+                      <th>　</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td colspan="2"> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th nowrap width="200"><b>部クラブ</b></th>
+                      <th nowrap width="85"><b>日付</b></th>
+                      <th nowrap width="150"><b>大会名称</b></th>
+                      <th nowrap width="150"><b>区分</b></th>
+                      <th nowrap width="150"><b>開催地域</b></th>
+                      <th nowrap width="150"><b>種目</b></th>
+                      <th nowrap width="150"><b>種目種類</b></th>
+                      <th nowrap width="150"><b>成績</b></th>
+                      <th nowrap width="150"><b>記録</b></th>
+                      <th nowrap width="150"><b>備考</b></th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}--> 
+                    <tr> 
+                      <td bgcolor="#ffffff" nowrap><a href="knjxclub_detailindex.php?cmd=edit&CLUBCD={rval data/CLUBCD}&DETAIL_DATE={rval data/DETAIL_DATE}&DETAIL_SEQ={rval data/DETAIL_SEQ}&DIV={rval data/DIV}&GROUPCD={rval data/GROUPCD}" target="right_frame">{rval data/CLUBCD} {rval data/CLUBNAME}</a></td>
+                      <td bgcolor="#ffffff" align="center" nowrap>{rval data/DETAIL_DATE}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data/MEET_NAME}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data/DIV_SHOW}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data/HOSTCD}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data/ITEMCD}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data/KINDCD}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data/RECORDCD}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data/DOCUMENT}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data/DETAIL_REMARK}</td>
+                    </tr>
+                    <!--{/each}--> 
+                    <!--{/def}--> 
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

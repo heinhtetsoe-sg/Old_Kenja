@@ -1,0 +1,69 @@
+{rval start} 
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td valign="top"> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="10">
+              <tr> 
+                <td > 
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line"> 
+                      <td> 
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search"> 
+                            <th>{rval HEADER}　{rval GRADE}{rval btn_read}</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr> 
+                <td > 
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line"> 
+                      <td> 
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--結果一覧--> 
+                          <tr class="no_search"> 
+                            <th nowrap width="5%">学年</th>
+                            <th nowrap width="*%">コース</th>
+                          </tr>
+                          <!--{def data}--> 
+                          <tr> 
+                            <td rowspan="{val ROWSPAN}" nowrap align="center" valign="top"  bgcolor="#ffffff">{val GRADE2}</td>
+                          <!--{each data}--> 
+                            <td nowrap bgcolor="#ffffff">{val data/NAME1}</td>
+                          </tr>
+                          <!--{/each}--> 
+                          <!--{/def}--> 
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table><script language="JavaScript">{rval jscript}</script>
+{rval finish} 
+<script language="JavaScript">
+var path = parent.right_frame.location.pathname;
+var cmd = document.forms[0].cmd.value;
+
+/* if (cmd == 'init'){
+  window.open(path+'?cmd=main','right_frame');
+} */
+
+if(cmd =="left"){
+    window.open(path+'?cmd=main','right_frame');
+}
+
+</script>

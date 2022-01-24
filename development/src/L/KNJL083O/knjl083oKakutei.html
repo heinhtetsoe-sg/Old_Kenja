@@ -1,0 +1,74 @@
+{rval start}
+{rval IFRAME}
+<table width="80%" border="0" cellspacing="0" cellpadding="5" align="center">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr bgcolor="#006633">
+            <td align="right">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+
+                <tr class="no_search_line">
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <tbody>
+                        <tr class="no_search">
+                          <th width="70">受験番号</th>
+                          <th width="220">氏名</th>
+                          <th width="*">入学クラス</th>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+
+                <!--{def data}-->
+                <tr class="no_search_line">
+                  <td >
+                    <div style="width: 100%; {rval height} overflow: auto">
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <tbody>
+
+
+                        <!--結果一覧-->
+                        <!--{each data}--> 
+
+                        <tr bgcolor="#ffffff" bgcolor="no_search" id="ROWID{rval data/RECEPTNO}" nowrap>
+                          <td width="70"  align="center" nowrap>{rval data/EXAMNO}</th>
+                          <td width="220" align="left"   nowrap>{rval data/NAME}</th>
+                          <td width="*" align="center" nowrap>{rval data/ENTCLASS}</th>
+                        </tr>
+
+                        <!--{/each}--> 
+
+                      </tbody>
+                    </table>
+                    </div>
+                  </td>
+                </tr>
+                <!--{/def}-->
+
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td nowrap>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td align="left">{rval button/btn_update}{rval button/btn_back}</td>
+                        </tr>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}

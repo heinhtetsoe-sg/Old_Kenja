@@ -1,0 +1,123 @@
+{rval start}
+
+<br>
+<table width="1100" border="0" cellspacing="0" cellpadding="5" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="30">
+                      <td width="120" class="no_search" align="center">入試年度</td>
+                      <td width="150" bgcolor="#ffffff" align="center">&nbsp;{rval TOP/YEAR}</td>
+                      <td width="120" class="no_search" align="center">※ 受験種別</td>
+                      <td width="*" bgcolor="#ffffff">&nbsp;{rval TOP/TESTDIV}</td>
+                    </tr>
+                    <tr height="30">
+                      <td class="no_search" align="center">表示</td>
+                      <td bgcolor="#ffffff" colspan="3">&nbsp;内部判定：{rval TOP/SUB_ORDER}　　志望類型：{rval TOP/DESIREDIV}　　合格類型：{rval TOP/JUDGEMENT}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" align="center" height="50">
+                            <td width="80" nowrap>受験番号</td>
+                            <td width="180" nowrap>氏名</td>
+                            <td width="190" nowrap>出身中学</td>
+                            <td width="50" nowrap>内部<br>判定</td>
+                            <td width="65" nowrap>専併<br>区分</td>
+                            <td width="65" nowrap>志望<br>類型</td>
+                            <td width="65" nowrap>合格<br>類型</td>
+                            <td width="122" nowrap>入学類型</td>
+                            <td width="142" nowrap>手続区分</td>
+                            <td width="*" nowrap>辞退</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <div style="height: 60vh; overflow: auto;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--結果一覧-->
+                          <!--{def data}-->
+                          <!--{each data}-->
+                          <tr bgcolor="#ffffff" id="ROWID{rval data/EXAMNO}" nowrap>
+                            <td width="80" align="center" nowrap>{rval data/EXAMNO}</td>
+                            <td width="180">&nbsp;{rval data/NAME}</td>
+                            <td width="190">&nbsp;{rval data/FINSCHOOL_NAME}</td>
+                            <td width="50" align="center">{rval data/SUB_ORDER}</td>
+                            <td width="65" align="center">{rval data/SHDIV_NAME}</td>
+                            <td width="65" align="center">{rval data/DESIREDIV_NAME}</td>
+                            <td width="65" align="center">{rval data/JUDGEMENT_NAME}</td>
+                            <td width="35" align="center">{rval data/ENTDIV}</td>
+                            <td width="80">&nbsp;<span id="ENTDIV_NAME{rval data/EXAMNO}">{rval data/ENTDIV_NAME}</span></td>
+                            <td width="35" align="center">{rval data/PROCEDUREDIV}</td>
+                            <td width="100">&nbsp;<span id="PROCEDUREDIV_NAME{rval data/EXAMNO}">{rval data/PROCEDUREDIV_NAME}</span></td>
+                            <td width="*" align="center">{rval data/JITAI}</td>
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th nowrap>&nbsp;</th>
+                            <td width="40%" bgcolor="#ffffff" nowrap>
+                                {rval btn_update}{rval btn_reset}{rval btn_end}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval pre_check}</script>
+{rval finish}

@@ -1,0 +1,136 @@
+﻿{rval start}
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="150" nowrap bgcolor="#00FFFF" align="center">
+            <b><font size="3" color="#000080">B&nbsp;プロフィール</font><font size="2" color="#000080"><BR>(教育歴)</font></b>
+          </td>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="100">校種</th>
+              <th width="200">教育機関名等</th>
+              <th width="250">在籍期間</th>
+              <th width="*">学部・学年・支援学級在籍等</th>
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <div style="width: 100%; height=170; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def data2}-->
+                <!--{each data2}-->
+                  <tr bgcolor="#ffffff">
+                    <!-- Edit by PP for current cursor 2020-02-03 start -->
+                    <td width="100" align="left"><a href="knje390index.php?cmd=subform1_educate_set&YEAR={val data2/YEAR}&SCHREGNO={val data2/SCHREGNO}&RECORD_DIV={val data2/RECORD_DIV}&RECORD_NO={val data2/RECORD_NO}&RECORD_SEQ={val data2/RECORD_SEQ}" onclick="current_cursor('RECORD_DIV')">{rval data2/RECORD_DIV_NAME}</a></td>
+                    <!-- Edit by PP for current cursor 2020-02-20 end -->
+                    <td width="200" align="left">{rval data2/SCHOOL_NAME}</td>
+                    <td width="250" align="left">{rval data2/S_E_YEAR_MONTH}</td>
+                    <td width="*" align="left">{rval data2/REMARK}</td>
+                  </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+        
+        <tr><td height="20"></td></tr>
+        
+<!--{def data}-->
+<!--{def button}-->
+        <tr class="no_search_line">
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <!-- Edit by PP for PC-Talker 2020-02-03 start -->
+                <th width="200" align="right" class="no_search" aria-label="" nowrap>校種</th>
+                <!-- Edit by PP for PC-Talker 2020-02-20 end -->
+                <td bgcolor="#ffffff">{rval data/RECORD_DIV}</td>
+              </tr>
+<!--{def RECORD_DIV123}-->
+              <tr>
+                <!-- Edit by PP for PC-Talker 2020-02-03 start -->
+                <th align="right" class="no_search" aria-label="" nowrap>教育機関名等</th>
+                <!-- Edit by PP for PC-Talker 2020-02-20 end -->
+                <td bgcolor="#ffffff">{rval data/SCHOOL_NAME}</td>
+              </tr>
+              <tr>
+                <!-- Edit by PP for PC-Talker 2020-02-03 start -->
+                <th align="right" class="no_search" aria-label="" nowrap>在籍期間</th>
+                <!-- Edit by PP for PC-Talker 2020-02-20 end -->
+                <td bgcolor="#ffffff">{rval data/S_YEAR_MONTH}　～　{rval data/E_YEAR_MONTH}</td>
+              </tr>
+              <tr>
+                <!-- Edit by PP for PC-Talker 2020-02-03 start -->
+                <th align="right" class="no_search" aria-label="" nowrap>学部・学年・支援学級在籍等</th>
+                <!-- Edit by PP for PC-Talker 2020-02-20 end -->
+                <td bgcolor="#ffffff">{rval data/REMARK}</td>
+              </tr>
+<!--{/def}-->
+<!--{def RECORD_DIV456}-->
+              <tr>
+                <!-- Edit by PP for PC-Talker 2020-02-03 start -->
+                <th align="right" class="no_search" aria-label="" nowrap>教育機関名等</th>
+                <!-- Edit by PP for PC-Talker 2020-02-20 end -->
+                <td bgcolor="#ffffff">{rval data/P_J_SCHOOL_CD}　<span id="P_J_SCHOOL_NAME">{rval data/P_J_SCHOOL_NAME}</span></td>
+              </tr>
+              <tr>
+                <!-- Edit by PP for PC-Talker 2020-02-03 start -->
+                <th align="right" class="no_search" aria-label="" nowrap>在籍期間</th>
+                <!-- Edit by PP for PC-Talker 2020-02-20 end -->
+                <td bgcolor="#ffffff">{rval data/S_YEAR_MONTH}　～　{rval data/E_YEAR_MONTH}</td>
+              </tr>
+              <tr>
+                <!-- Edit by PP for PC-Talker 2020-02-03 start -->
+                <th align="right" class="no_search" aria-label="" nowrap>学部・学年・支援学級在籍等</th>
+                <!-- Edit by PP for PC-Talker 2020-02-20 end -->
+                <td bgcolor="#ffffff">{rval data/REMARK}</td>
+              </tr>
+<!--{/def}-->
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td align="left" bgcolor="#ffffff">{rval button/btn_insert}{rval button/btn_update}{rval button/btn_delete}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish} 

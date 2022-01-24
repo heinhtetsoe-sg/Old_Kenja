@@ -1,0 +1,104 @@
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="10">
+<tr>
+    <td width="45%">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr class="no_search_line"> 
+        <td> 
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <!----島根---->
+        <tr>
+            <th class="no_search" width="10">{rval data/RCHECK5}</th>
+            <th width="15%" height="30" align="center" class="no_search" nowrap colspan="2">項目</th>
+            <th class="no_search">値</th>
+        </tr>
+        <tr>
+            <th class="no_search" width="10">{rval data/RCHECK1}</th>
+            <th height="30" align="center" class="no_search" nowrap colspan="2">既&nbsp;&nbsp;往&nbsp;&nbsp;症</th>
+            <td bgcolor="#ffffff">{rval data/MEDICAL_HISTORY1}</td>
+        </tr>
+        <tr>
+            <th class="no_search" width="10">{rval data/RCHECK2}</th>
+            <th height="30" align="center" class="no_search" nowrap colspan="2">既&nbsp;&nbsp;往&nbsp;&nbsp;症</th>
+            <td bgcolor="#ffffff">{rval data/MEDICAL_HISTORY2}</td>
+        </tr>
+        <tr>
+            <th class="no_search" width="10">{rval data/RCHECK3}</th>
+            <th height="30" align="center" class="no_search" nowrap colspan="2">既&nbsp;&nbsp;往&nbsp;&nbsp;症</th>
+            <td bgcolor="#ffffff">{rval data/MEDICAL_HISTORY3}</td>
+        </tr>
+        <tr>
+            <th class="no_search" width="10">{rval data/RCHECK4}</th>
+            <th height="30" align="center" class="no_search" nowrap colspan="2">診&nbsp;&nbsp;断&nbsp;&nbsp;名</th>
+            <td bgcolor="#ffffff">{rval data/DIAGNOSIS_NAME}<br><font color="red" style="font-size:10pt">(全角50文字まで)</font></td>
+        </tr>
+        <!----島根---->
+        <tr>
+            <th align="right" class="no_search" nowrap>&nbsp;</th>
+            <th class="no_search" nowrap colspan="2"></th>
+            <td align="center" bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_back}</td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    <tr>
+        <td><br><font color="red" style="font-size:10pt">
+            << 注意 >><br>※健康診断実施日の入力がない(又は登録されていない)場合は、<br>今日の日付を実施日として登録します。
+            </font>
+        </td>
+    </tr>
+    </table>
+    </td>
+    <td width="55%" valign="top">
+    <table width="100%" border="0" cellpadding="0" cellspacing="10" align="center">
+    <tr>
+        <td>
+        <hr>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <!--{def info}--> 
+        <tr>
+            <td bgcolor="#ffffff">{rval info/TOP}</td>
+        </tr>
+        <!--{/def}--> 
+        </table>
+        <hr>
+        </td>
+    </tr>
+    <tr class="no_search_line">
+        <td nowrap> 
+        <table width="100%" border="0" cellpadding="0" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+            <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="10" >
+            <tr class="no_search_line"> 
+                <td width="100%"> 
+                <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                <tr align="center" class="no_search"> 
+                    <th><font color="white">{rval info/LEFT_LIST}</font></th>
+                    <th class="no_search">&nbsp;</th>
+                    <th><font color="white">{rval info/RIGHT_LIST}</font></th>
+                </tr>
+                <tr align="center" bgcolor="#ffffff">
+                    <td width="45%">{rval data/left_select}</td>
+                    <td width="*%" class="no_search">
+                    {rval button/sel_add_all}<br>
+                    {rval button/sel_add}<br>
+                    {rval button/sel_del}<br>
+                    {rval button/sel_del_all}</td>
+                    <td width="45%">{rval data/right_select}</td>
+                </tr>
+                </table>
+                </td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval setNotExamined}</script>

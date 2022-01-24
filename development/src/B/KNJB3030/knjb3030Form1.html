@@ -1,0 +1,98 @@
+<script language="JavaScript">{rval jscript}</script>
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr >
+    <td>
+    <!--{def Show_control}-->
+      <table border="0" cellspacing="2" cellpadding="1">
+      <tr bgcolor="#006633">
+          <td bgcolor="#ffffff">
+              &nbsp;校種：{rval schoolKind}
+<!--{def useSpecial_Support_School}-->
+              <br>&nbsp;状態区分：{rval condition}
+<!--{/def}-->
+          </td>
+          <td bgcolor="#ffffff">
+              &nbsp;
+          </td>
+          <td>
+              <table border="0" cellpading="1" cellspacing="0">
+              <tr bgcolor="#cccccc">
+              <th align="left" nowrap>&nbsp;参照学期&nbsp;{rval term2}&nbsp;{rval btn_copy}&nbsp;</th>
+              </tr>
+              <tr bgcolor="#cccccc">
+              <th align="right" nowrap>{rval btn_check}<LABEL for="btn_check">生徒もコピー</LABEL>（{rval checkGrddiv}<LABEL for="checkGrddiv">卒業生・退学者・転学者も含む</LABEL>）</th>
+              </tr>
+              </table>
+          </td>
+      </tr>
+      </table>
+    <!--{/def}-->
+    </td>
+    </tr>
+    <tr > 
+      <td > 
+      <table border="0" cellspacing="0" cellpadding="0">
+      <tr bgcolor="#006633"> 
+      <td> 
+          <table border="0" cellpadding="1" cellspacing="1">
+          <tr bgcolor="#cccccc"> 
+          <th align="left" nowrap>&nbsp;対象年度&nbsp;{rval term}&nbsp;</th>
+          <th align="left" nowrap>&nbsp;{rval btn_group1}<LABEL for="btn_group1">教科</LABEL>&nbsp;{rval btn_group2}<LABEL for="btn_group2">群</LABEL>&nbsp;</th>
+          <th align="left" nowrap>&nbsp;{rval selectClass}</th>
+          </tr>
+          </table>
+      </td>
+      </tr>
+      </table>
+      </td>
+      </tr>
+      <BR>
+        <table width="100%" border="0" cellspacing="0" cellpadding="10">
+          <tr> 
+            <td valign="top"> 
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr > 
+                  <td > 
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr class="no_search_line"> 
+                        <td>
+                          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <tr class="no_search">
+                              <th width="15%" nowrap>{rval url_name}</th>
+                              <th width="%" nowrap>{rval group_name}</th>
+                              <th width="%" nowrap>{rval subclass_name}</th>
+                              <th width="%" nowrap>講座名称</th>
+                            </tr>
+                            <!--{def data}-->
+                            <!--結果一覧-->
+                            <!--{each data}--> 
+                            <tr bgcolor="{rval data/backcolor}"> 
+                              <td nowrap width="15%">{val data/URL}</td>
+                              <td nowrap width="%">{val data/GROUPNAME}</td>
+                              <td nowrap width="%">{val data/SUBCLASSNAME}</td>
+                              <td nowrap width="%">{val data/CHAIRNAME}</td>
+                            </tr> 
+                            <!--{/each}--> 
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        <!--{/def}-->
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+<script language="JavaScript">{rval combo}{rval reload}{rval datalimit}</script>
+{rval finish}

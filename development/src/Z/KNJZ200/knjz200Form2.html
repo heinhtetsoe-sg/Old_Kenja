@@ -1,0 +1,110 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr> 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="40%" colspan="2">項 目</th>
+                      <th width="60%">値</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap colspan="2">※科目名</th>
+                      <td bgcolor="#ffffff">{rval data/SUBCLASSCD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap colspan="2">※単位数</th>
+                      <td bgcolor="#ffffff">{rval data/CREDITS}</td>
+                    </tr>
+<!--{def show/ABSENCE_HIGH_SHOW}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap rowspan="2">法定欠課数上限値</th>
+                      <th align="right" class="no_search" nowrap>履修</th>
+                      <td bgcolor="#ffffff">{rval data/ABSENCE_HIGH}回</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>修得</th>
+                      <td bgcolor="#ffffff">{rval data/GET_ABSENCE_HIGH}回</td>
+                    </tr>
+<!--{/def}-->
+<!--{def data/ABSENCE_WARN}-->
+<!--{def title/ABSENCE_WARN}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap colspan="2">{rval title/ABSENCE_WARN}欠課数オーバ</th>
+                      <td bgcolor="#ffffff">{rval data/ABSENCE_WARN}{rval data/ABSENCE_WARN_KAI}前警告</td>
+                    </tr>
+<!--{/def}-->
+<!--{/def}-->
+<!--{def data/ABSENCE_WARN2}-->
+<!--{def title/ABSENCE_WARN2}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap colspan="2">{rval title/ABSENCE_WARN2}欠課数オーバ</th>
+                      <td bgcolor="#ffffff">{rval data/ABSENCE_WARN2}{rval data/ABSENCE_WARN_KAI}前警告</td>
+                    </tr>
+<!--{/def}-->
+<!--{/def}-->
+<!--{def data/ABSENCE_WARN3}-->
+<!--{def title/ABSENCE_WARN3}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap colspan="2">{rval title/ABSENCE_WARN3}欠課数オーバ</th>
+                      <td bgcolor="#ffffff">{rval data/ABSENCE_WARN3}{rval data/ABSENCE_WARN_KAI}前警告</td>
+                    </tr>
+<!--{/def}-->
+<!--{/def}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap colspan="2">必履修区分</th>
+                      <td bgcolor="#ffffff">{rval data/REQUIRE_FLG}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap colspan="2"><span id="check1_a">半期</span><span id="check2_a"></span>認定フラグ</th>
+                      <td bgcolor="#ffffff">{rval data/AUTHORIZE_FLG}<span id="check_a">{rval data/style_a}</span></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap colspan="2"><span id="check1_c">無条件</span><span id="check2_c"></span>履修修得フラグ</th>
+                      <td bgcolor="#ffffff">{rval data/COMP_UNCONDITION_FLG}<span id="check_c">{rval data/style_c}</span></td>
+                    </tr>
+<!--{def useTimeUnit}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap colspan="2">単位時間</th>
+                      <td bgcolor="#ffffff">{rval data/TIME_UNIT}</td>
+                    </tr>
+<!--{/def}-->
+<!--{def useRate}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap colspan="2">掛け率</th>
+                      <td bgcolor="#ffffff">{rval data/RATE}</td>
+                    </tr>
+<!--{/def}-->
+                    <!--{/def}-->
+                    <!--{def button}-->
+                    <tr> 
+                      <th align="right" class="no_search" nowrap colspan="2">&nbsp;</th>
+                      <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}<br>
+                                            {rval button/btn_replace}
+                                            <br>
+                                            {rval data/OUTPUT4}<LABEL for="OUTPUT4">ヘッダ出力(見本)</LABEL><br>
+                                            {rval data/OUTPUT1}<LABEL for="OUTPUT1">取込</LABEL>{rval data/OUTPUT2}<LABEL for="OUTPUT2">書出</LABEL>
+                                            ファイル：<span id="type_file">{rval FILE}</span>{val btn_exec}　{rval data/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL><br>
+                                            {rval data/OUTPUT3}<LABEL for="OUTPUT3">エラー出力</LABEL>
+                                            </td>
+                    </tr>
+                    <!--{/def}--> 
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

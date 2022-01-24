@@ -1,0 +1,16 @@
+-- $Id: 088d49d6430b89ff13050536dba743c18969b96c $
+
+DROP TABLE SCHREG_CHALLENGED_SUPPORTPLAN_STATUS_DAT
+CREATE TABLE SCHREG_CHALLENGED_SUPPORTPLAN_STATUS_DAT( \
+    YEAR                                VARCHAR(4)    NOT NULL, \
+    SCHREGNO                            VARCHAR(8)    NOT NULL, \
+    RECORD_DATE                         VARCHAR(10)   NOT NULL, \
+    DATA_DIV                            VARCHAR(2)    NOT NULL, \
+    STATUS                              VARCHAR(1800), \
+    STATUS2                             VARCHAR(800), \
+    STATUS3                             VARCHAR(800), \
+    REGISTERCD                          VARCHAR(10), \
+    UPDATED                             TIMESTAMP DEFAULT CURRENT TIMESTAMP \ 
+) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE SCHREG_CHALLENGED_SUPPORTPLAN_STATUS_DAT ADD CONSTRAINT PK_SCH_CHA_SP_S_D PRIMARY KEY (YEAR, SCHREGNO, RECORD_DATE, DATA_DIV)

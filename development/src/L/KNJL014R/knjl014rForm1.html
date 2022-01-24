@@ -1,0 +1,102 @@
+{rval start}
+<!--{def button}-->
+
+<br><br><br>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr height="20">
+                      <th class="no_search" align="left" nowrap>
+                        <b>入試年度：{rval TOP/YEAR}　　入試制度：{rval TOP/APPLICANTDIV}　　入試区分：{rval TOP/TESTDIV}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        ページ：{rval TOP/BEFORE_PAGE}</b>
+                      </th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="20"><br></td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th width="50">未受験</th>
+                      <th width="60">事前番号</th>
+                      <th width="100">中学校</th>
+                      <th width="60">受験番号</th>
+                      <th width="200">氏名</th>
+                      <th width="210">カナ</th>
+                      <th width="100">選抜Ⅰ学校</th>
+                      <th width="*">選抜Ⅰ科</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width:100%;height:450;overflow-y:scroll">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--結果一覧--><!--{def data}--><!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td width="50" align="center">{rval data/MIJUKEN}</td>
+                      <td width="60">{rval data/JIZEN}</td>
+                      <td width="100">{rval data/FINSCHOOL_NAME}</td>
+                      <td width="60">&nbsp;{rval data/EXAMNO}</td>
+                      <td width="200">&nbsp;{rval data/NAME}</td>
+                      <td width="210">{rval data/NAME_KANA}</td>
+                      <td width="100">{rval data/SENBATU1_SCHOOL}</td>
+                      <td width="*">{rval data/SENBATU1_MAJOR}</td>
+                    </tr>
+                    <!--{/each}--><!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" heignt="25">
+                      <th nowrap>{rval button/btn_update}　{rval button/btn_end}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<br>
+
+<!--{/def}-->
+{rval finish}

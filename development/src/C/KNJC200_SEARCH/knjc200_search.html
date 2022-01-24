@@ -1,0 +1,80 @@
+{rval start} 
+
+<table width="75%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+        <tr class="no_search_line"> 
+          <td width="100%"> 
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="center" class="no_search">
+                <th colspan=2 nowrap>生徒検索画面</th>
+              </tr>
+              <tr align="left" bgcolor="#ffffff">
+                <th class="no_search" width="150" align="right" nowrap>年組</th>
+                <td nowrap>
+                  {rval GRADE_HR_CLASS}
+                </td>
+              </tr>
+              <tr align="left" bgcolor="#ffffff">
+                <th class="no_search" width="150" align="right" nowrap>氏名漢字</th>
+                <td nowrap>
+                  {rval NAME}
+                </td>
+              </tr>
+              <tr align="left" bgcolor="#ffffff">
+                <th class="no_search" width="150" align="right" nowrap>氏名かな</th>
+                <td nowrap>
+                  {rval NAME_KANA}
+                </td>
+              </tr>
+<!--{def button}-->
+              <tr align="left" bgcolor="#ffffff">
+                <th class="no_search" width="150" align="right" nowrap>&nbsp;</th>
+                <td nowrap>{rval button/search}{rval button/btn_end}</td>
+              </tr>
+<!--{/def}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<table width="75%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+        <tr class="no_search_line"> 
+          <td width="100%"> 
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <th width="150">年組 - 番</th>
+                      <th width="175">氏名</th>
+                      <th width="200">氏名かな</th>
+                      <th width="50">性別</th>
+                      <th width="*">学籍番号</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <td align="center" bgcolor="#ffffff">{val data/HR_NAME}</td>
+                      <td bgcolor="#ffffff">
+                      <A href="javascript:GoWin('{val data/URL}','{val data/GRADE_HR_CLASS}','{val data/SCHREGNO}')">{val data/NAME}</A></td>
+                      <td bgcolor="#ffffff">{val data/NAME_KANA}</td>
+                      <td align="center" bgcolor="#ffffff">{val data/SEX_NAME}</td>
+                      <td align="center" bgcolor="#ffffff">{val data/SCHREGNO}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

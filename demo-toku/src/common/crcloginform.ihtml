@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<?php
+
+require_once('for_php7.php');
+
+    //menuInfo.propertiesを読み込む
+    $properties = array();
+    $properties["useSchool_KindMenu"] = "";
+    $properties["useMenuStaffDat"]  = "1";
+    $retVal = "";
+
+    /*
+     * configディレクトリ確認
+     */
+    if (file_exists(CONFDIR ."/menuInfo.properties")) {
+        $filename = CONFDIR ."/menuInfo.properties";
+    } else {
+        $filename = DOCUMENTROOT ."/menuInfo.properties";
+    }
+    
+    $fp = @fopen($filename, 'r');
+    while ($line = fgets($fp,1024)) {
+        foreach ($properties as $key => $value) {
+            $pos = strpos($line, $key);
+            if ($pos === false) {
+            } else {
+                $retVal = str_replace($key." = ", "", $line);
+                $properties[$key] = str_replace("\r\n", "", $retVal);
+            }
+        }
+    }
+    fclose($fp);
+    
+    $db = Query::dbCheckOut();
+    
+    $query  = " SELECT ";
+    $query .= "    * ";
+    $query .= " FROM ";
+    if($properties["useSchool_KindMenu"] == "1"){
+        $query .= "    OSHIRASE_TBL t1 left join OSHIRASE_GRP t2 on t1.OSHIRASE_NO = t2.OSHIRASE_NO and t1.SCHOOLCD = t2.SCHOOLCD and t1.SCHOOL_KIND = t2.SCHOOL_KIND";
+    }else{
+        $query .= "    OSHIRASE_TBL t1 left join OSHIRASE_GRP t2 on t1.OSHIRASE_NO = t2.OSHIRASE_NO ";
+    }
+    $query .= " WHERE ";
+    $query .= "    t1.START_DATE <= '".date("Y-m-d")."' ";
+    $query .= " AND ";
+    $query .= "    t1.END_DATE >= '".date("Y-m-d")."' ";
+    $query .= " AND ";
+    $query .= "    t2.GROUP_CD = 'log' ";
+    if($properties["useSchool_KindMenu"] == "1"){
+        $query .= " AND ";
+        $query .= "    t1.SCHOOLCD = '".SCHOOLCD."' ";
+        $query .= " AND ";
+        $query .= "    t1.SCHOOL_KIND = '".SCHOOLKIND."' ";
+    }
+    $query .= " ORDER BY ";
+    $query .= "    t1.END_DATE ";
+    
+    $result = $db->query($query);
+    
+    unset($anno);
+    
+    while($row = $result->fetchRow(DB_FETCHMODE_ASSOC)){
+        $announce["DAY"] = $row["END_DATE"];
+        $announce["DATE"] = $row["END_DATE"]." まで";
+        $announce["MESSAGE"] = $row["ANNOUNCE"];
+        
+        $anno[] = $announce;
+    }
+    
+    if(is_array($anno)){
+        $i = 0;
+        
+        $keepday = "";
+        
+        $antable = "<div class=\"col-sm-5 col-sm-offset-5\" style=\"margin-left:29.5%;width: 41.66666667%;\">\n";
+        $antable .= "  <div class=\"panel panel-primary\">\n";
+        $antable .= "    <div class=\"panel-heading\" style=\"background:#E23E57;\"><i class=\"fa fa-commenting fa-flip-horizontal\"></i> お知らせ</div>\n";
+        $antable .= "    <div class=\"panel-body\" style=\"min-height:25%; border: 1px solid #E23E57;\">\n";
+        $antable .= "     <form class=\"form-horizonal\">\n";
+            
+        for($i = 0; $i < get_count($anno); $i++){   //お知らせの中身のループ
+            if($keepday == ""){
+            
+                $antable .= "       <ul style=\"margin-left:30px;margin-bottom:10px;font-size:15px;\">\n";
+                $antable .= "          <font size=\"4\">{$anno[$i]["DATE"]}</font>\n";
+                $antable .= "           <li>{$anno[$i]["MESSAGE"]}</li>\n";
+                
+            }else if($keepday != "" && $keepday != $anno[$i]["DAY"]){
+            
+                $antable .= "       </ul>\n";
+                $antable .= "       <ul style=\"margin-left:30px;margin-bottom:10px;font-size:15px;\">\n";
+                $antable .= "          <font size=\"4\">{$anno[$i]["DATE"]}</font>\n";
+                $antable .= "           <li>{$anno[$i]["MESSAGE"]}</li>\n";
+
+            }else if($keepday != "" && $keepday == $anno[$i]["DAY"]){
+            
+                $antable .= "           <li>{$anno[$i]["MESSAGE"]}</li>\n";
+                
+            }
+            
+            $keepday = $anno[$i]["DAY"];
+        }
+        
+        $antable .= "       </ul>\n";
+        $antable .= "    </form>\n";
+        $antable .= "   </div>\n";
+        $antable .= "  </div>\n";
+        $antable .= "</div>";
+    }
+
+    Query::dbCheckIn($db);
+
+?>
+
+
+
+
+<html>
+	<head>
+		<title><?php echo TITLE ?></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=<?php echo CHARSET ?>">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <link href="<?php echo REQUESTROOT ?>/common/kenja-design-sample/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="<?php echo REQUESTROOT ?>/common/kenja-design-sample/login.css">
+        <link rel="stylesheet" href="<?php echo REQUESTROOT ?>/common/kenja-design-sample/css/font-awesome.min.css">
+        <script language="javascript" src="<?php echo REQUESTROOT ?>/common/md5.js"></script>
+        <script language="JavaScript">
+		<!--
+        function doChallengeResponse() {
+            str = document.login.username.value + ":" +
+            MD5(document.login.password.value) + ":" +
+            document.login.challenge.value;
+
+            document.login.response.value = MD5(str);
+            document.login.password.value = "";
+
+            document.login.user_platform.value = getUserPlatForm();
+            document.login.ScrX.value = screen.width;
+            document.login.ScrY.value = screen.height;
+
+            document.login.submit();
+        }
+
+        function getUserPlatForm() {
+            if (navigator.platform == "iPhone" ||               //iPhone  
+                navigator.platform == "iPad" ||                 // -iOS12以下 iPad  or iOS13 iPadOS(off)
+                (navigator.platform == "MacIntel" &&            // -iOS13 iPadOS(on) or MacOS
+                navigator.userAgent.indexOf("Safari") != -1 &&  //safari,firefoxなど
+                navigator.userAgent.indexOf("Chrome") == -1 &&  //chrome
+                navigator.standalone !== undefined)             // MacOSには存在しないようです..
+            ) {
+                return 'tablet'; 
+            } else {
+                return 'pc'; 
+            }
+        }
+
+		function loginformreset(){
+		    document.login.username.value="";
+		    document.login.password.value="";
+		    if(document.login.asp_group_id){
+		       document.login.asp_group_id.value="";
+		    }
+		}
+
+		function onload_func(){
+		  if (document.login.username.value == '') {
+		    document.login.username.focus();
+		  } else {
+		    document.login.password.focus();
+		  }
+
+		  var check='<?php echo ( $msg = $this->isWarning() ) ? $msg : "" ?>';
+
+		  if(check){alert(check);}
+
+		}
+		//-->
+
+		</script>
+	</head>
+<body class="login02" onload="onload_func()">
+		<script language="JavaScript">
+		if(navigator.appName.charAt(0) == "N") {
+		  if(navigator.appVersion.charAt(0) >= 5) document.writeln("");
+		}
+
+		</script>
+
+<div class="container-fluid">
+<div class="row login">
+<form  name="login" method="post" action='<?php print $_SERVER['PHP_SELF'] ?>'>
+<div class="col-sm-4 col-sm-offset-4" style="margin-left:33.33333333%;width:33.33333333%;">
+<form name="login" method="post">
+   <div class="panel panel-primary">
+    <div class="panel-heading" ><i class="fa fa-book"></i><?php echo NAME ?></div>
+      <div class="panel-body">
+         <form class="form-horizonal">
+
+<!--追加-->
+    <div style="float:left;width:50%;text-align:center;">
+        <img src="<?php echo REQUESTROOT ?>/common/emblem/emblem.png" style="width:90%; margin-bottom:5%;margin-top:5%;">
+    </div>
+<!---->
+
+              <div class="form-group" style="width:50%;float:left;margin-top:10px;">    <!--style追加-->
+                <label for="username" class="control-label">ログインID</label><br>
+                    <input type="tel" name="username" value='<?php print (isset($this->auth["uname"]) ? $this->auth["uname"] : "" ) ?>' size="17" maxlength="32" class="form-control"  placeholder="ログインID">
+              </div>
+              <div class="form-group" style="width:50%;float:right;margin-top:10px;">    <!--style追加-->
+                <label for="password" class="control-label">パスワード</label><br>
+                    <input type="password" id="password" name="password" size="17" maxlength="32" class="form-control" placeholder="パスワード">
+              </div>
+                        <button type="submit" class="btn btn-primary btn-block btn-lg" onclick="doChallengeResponse(); return false;"><i class="fa fa-sign-in"></i> ログイン</button>
+        </form>
+            <p class="text-center forgot"><i class="fa fa-info-circle"></i> パスワードを忘れた方は管理者へお問い合わせください</p>
+      </div>
+  </div>
+		<input type="hidden" name="challenge" value="<?php print $challenge ?>">
+		<input type="hidden" name="response" value="">
+		<input type="hidden" name="login" value="1">
+		<input type="hidden" name="ScrX" value="<?php echo $ScrX ?>">
+		<input type="hidden" name="ScrY" value="<?php echo $ScrY ?>">
+		<input type="hidden" name="user_platform" value="">
+		</form>
+		</div>
+</form>
+  </div>
+
+<!--追加-->
+<?php echo $antable ?>
+
+<!---->
+
+
+		<!-- <APPLET
+			CODE = "NullApplet.class"
+			WIDTH    = 0
+			HEIGHT   = 0>
+		</APPLET>
+		-->
+  </div>
+  </div>
+</html>
+

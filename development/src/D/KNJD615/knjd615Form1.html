@@ -1,0 +1,100 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR>
+
+<table width="45%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td align="center">
+                          {rval data/YEAR}年度　　{rval data/SEMESTER}　　{rval data/GRADE}　　{rval data/TESTKINDCD}
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="45">
+                      <td>
+                        <b>&nbsp&nbsp&nbsp出欠集計範囲</b>&nbsp;{rval el/SDATE} ～ &nbsp;{rval el/DATE}<br>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象クラス</b></th>
+                      <th class="no_search"></th>
+                      <th><b>クラス一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CLASS_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD align="left"  bgcolor="#ffffff">
+                        <TABLE>
+                          <TR>
+                            <TD>
+                              　　総合順位出力
+                              　　{rval data/OUTPUT_RANK2}<LABEL for="OUTPUT_RANK2">学年</LABEL>　　 {rval data/OUTPUT_RANK3}<LABEL for="OUTPUT_RANK3">コース</LABEL><br><br>
+                              　　順位の基準点
+                              　　{rval data/OUTPUT_KIJUN1}<LABEL for="OUTPUT_KIJUN1">総合点</LABEL>　 {rval data/OUTPUT_KIJUN2}<LABEL for="OUTPUT_KIJUN2">平均点</LABEL><!--{def KUMAMOTO_FLG}-->　 {rval data/OUTPUT_KIJUN3}<LABEL for="OUTPUT_KIJUN3">偏差値</LABEL><!--{/def}--><br><br>
+<!--{def KETTEN_HYOUJI}-->
+                              　　欠点{rval data/KETTEN}点未満<br><br>
+<!--{/def}-->
+                              　　{rval data/OUTPUT4}<LABEL for="OUTPUT4">単位保留の科目には＊を表示する</LABEL><br>
+                              　　{rval data/OUTPUT5}<LABEL for="OUTPUT5">空行を詰めて印字</LABEL><br>
+                              　　{rval data/OUTPUT_COURSE}<LABEL for="OUTPUT_COURSE">同一クラスでコース毎に改頁する</LABEL><br>
+                              　　{rval data/OUTPUT_SOUGOU}<LABEL for="OUTPUT_SOUGOU">総合的な学習の時間を表示しない</LABEL><br><br>
+                              　　最大科目数　　　
+                                  {rval data/SUBCLASS_MAX1}<LABEL for="SUBCLASS_MAX1">１５科目</LABEL>
+                                  {rval data/SUBCLASS_MAX2}<LABEL for="SUBCLASS_MAX2">２０科目</LABEL><br>
+                              　　フォーム選択　　
+                                  {rval data/FORM_SELECT1}<LABEL for="FORM_SELECT1">４５名用</LABEL>
+                                  {rval data/FORM_SELECT2}<LABEL for="FORM_SELECT2">５０名用</LABEL>
+                            </TD>
+                          </TR>
+                        </TABLE>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_csv}{rval button/btn_end}　<font color="red" size="2"> ※素点は序列確定処理時の得点です。</font></td>
+  </tr>
+  <tr>
+    <td nowrap></td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

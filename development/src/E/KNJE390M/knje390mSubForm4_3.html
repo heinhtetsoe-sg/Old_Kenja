@@ -1,0 +1,156 @@
+﻿{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="150" nowrap bgcolor="#FFE4E1" align="center">
+            <b><font size="3" color="#FF0000">移行支援計画</font><BR><font size="2" color="#FF0000">(スムーズな移行に向けての支援)</font></b>
+          </td>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            {rval data/DATA_DIV}
+        </tr>
+<!--{def DATA_DIV2}-->
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="50">項目</th>
+              <th width="150">会議名</th>
+              <th width="*">内容</th>
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <div style="width: 100%; height=85; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def data2}-->
+                <!--{each data2}-->
+                  <tr bgcolor="#ffffff">
+                    <td width="50" align="left"><a href="knje390mindex.php?cmd=subform4_smooth_set&YEAR={val data2/YEAR}&SCHREGNO={val data2/SCHREGNO}&DATA_DIV=2&RECORD_SEQ={val data2/RECORD_SEQ}">{rval data2/RECORD_DIV_NAME}</a></td>
+                    <td width="150" align="left">{rval data2/MEETING_NAME}</td>
+                    <td width="*" align="left">{rval data2/CONTENTS_NAIYOU}</td>
+                  </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+        
+        <tr><td height="20"></td></tr>
+
+<!--{def data}-->
+<!--{def button}-->
+        <tr class="no_search_line"> 
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="150" align="right" class="no_search" nowrap>会議名</th>
+                <td bgcolor="#ffffff">{rval data/MEETING_NAME}<BR>{rval data/MEETING_NAME_SIZE}</td>
+              </tr>
+              <tr>
+                <th width="150" align="right" class="no_search" nowrap>日時</th>
+                <td bgcolor="#ffffff">{rval data/MEETING_DATE}</td>
+              </tr>
+              <tr>
+                <th width="150" align="right" class="no_search" nowrap>構成員</th>
+                <td bgcolor="#ffffff">{rval data/TEAM_MEMBERS}　{rval button/btn_staff}<BR>{rval data/TEAM_MEMBERS_SIZE}</td>
+              </tr>
+              <tr>
+                <th width="150" align="right" class="no_search" nowrap>概要</th>
+                <td bgcolor="#ffffff">{rval data/MEETING_SUMMARY}<BR>{rval data/MEETING_SUMMARY_SIZE}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td align="left" bgcolor="#ffffff">{rval button/btn_insert}{rval button/btn_update}{rval button/btn_delete}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+<!--{/def}-->
+<!--{/def}-->
+<!--{/def}-->
+
+<!--{def DATA_DIV1}-->
+<!--{def data}-->
+<!--{def button}-->
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th align="center" class="no_search" nowrap ></th>
+                <th align="center" class="no_search" nowrap >卒業後の姿・目標</th>
+                <th align="center" class="no_search" nowrap >実態・課題</td>
+                <th align="center" class="no_search" nowrap >短期目標</td>
+                <th align="center" class="no_search" nowrap >具体的な支援・手立て</td>
+              </tr>
+              <tr>
+                <th align="center" class="no_search" nowrap >医療</th>
+                <td align="left" bgcolor="#ffffff">{rval data/MEDICAL_GOAL_AFTER_GRADUATION}<BR>{rval data/TEXT_SIZE}</td>
+                <td align="left" bgcolor="#ffffff">{rval data/MEDICAL_STATUS}<BR>{rval data/TEXT_SIZE}</td>
+                <td align="left" bgcolor="#ffffff">{rval data/MEDICAL_SHORT_TERM_GOAL}<BR>{rval data/TEXT_SIZE}</td>
+                <td align="left" bgcolor="#ffffff">{rval data/MEDICAL_TANGIBLE_SUPPORT}<BR>{rval data/TEXT_SIZE}</td>
+              </tr>
+              <tr>
+                <th align="center" class="no_search" nowrap >福祉</th>
+                <td align="left" bgcolor="#ffffff">{rval data/WELFARE_GOAL_AFTER_GRADUATION}<BR>{rval data/TEXT_SIZE}</td>
+                <td align="left" bgcolor="#ffffff">{rval data/WELFARE_STATUS}<BR>{rval data/TEXT_SIZE}</td>
+                <td align="left" bgcolor="#ffffff">{rval data/WELFARE_SHORT_TERM_GOAL}<BR>{rval data/TEXT_SIZE}</td>
+                <td align="left" bgcolor="#ffffff">{rval data/WELFARE_TANGIBLE_SUPPORT}<BR>{rval data/TEXT_SIZE}</td>
+              </tr>
+              <tr>
+                <th align="center" class="no_search" nowrap >労働</th>
+                <td align="left" bgcolor="#ffffff">{rval data/WORK_GOAL_AFTER_GRADUATION}<BR>{rval data/TEXT_SIZE}</td>
+                <td align="left" bgcolor="#ffffff">{rval data/WORK_STATUS}<BR>{rval data/TEXT_SIZE}</td>
+                <td align="left" bgcolor="#ffffff">{rval data/WORK_SHORT_TERM_GOAL}<BR>{rval data/TEXT_SIZE}</td>
+                <td align="left" bgcolor="#ffffff">{rval data/WORK_TANGIBLE_SUPPORT}<BR>{rval data/TEXT_SIZE}</td>
+              </tr>
+              <tr>
+                <th align="center" class="no_search" nowrap >家庭地域<BR>生活</th>
+                <td align="left" bgcolor="#ffffff">{rval data/COMMU_GOAL_AFTER_GRADUATION}<BR>{rval data/TEXT_SIZE}</td>
+                <td align="left" bgcolor="#ffffff">{rval data/COMMU_STATUS}<BR>{rval data/TEXT_SIZE}</td>
+                <td align="left" bgcolor="#ffffff">{rval data/COMMU_SHORT_TERM_GOAL}<BR>{rval data/TEXT_SIZE}</td>
+                <td align="left" bgcolor="#ffffff">{rval data/COMMU_TANGIBLE_SUPPORT}<BR>{rval data/TEXT_SIZE}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td align="left" bgcolor="#ffffff" colspan="4">{rval button/btn_updatemain}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+<!--{/def}-->
+<!--{/def}-->
+<!--{/def}-->
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish} 

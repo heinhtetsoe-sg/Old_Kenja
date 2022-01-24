@@ -1,0 +1,57 @@
+{rval start}
+<!--{def button}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                <hr width="55%" align="left">
+                    &nbsp;{rval NAME_SHOW}
+                <hr width="55%" align="left">
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th width="10%" align="center">学期</th>
+                      <td width="10%" align="center">授業日数</td>
+                      <td width="10%" align="center">出席停止忌引き等の日数</td>
+                      <td width="10%" align="center">出席すべき日数</td>
+                      <td width="10%" align="center">欠席日数</td>
+                      <td width="10%" align="center">出席日数</td>
+                      <td width="40%" align="center">備　考</td>
+                    </tr>
+                    <!--{each data}-->
+                    <tr align="center" height="30">
+                      <th align="center" class="no_search" nowrap>{rval data/SEM_NAME}</th>
+                      <td bgcolor="#ffffff">{rval data/LESSON}</td>
+                      <td bgcolor="#ffffff">{rval data/SUSPEND}</td>
+                      <td bgcolor="#ffffff">{rval data/ATTEND1}</td>
+                      <td bgcolor="#ffffff">{rval data/SICK}</td>
+                      <td bgcolor="#ffffff">{rval data/ATTEND2}</td>
+                      <td bgcolor="#ffffff" align="left">{rval data/ATTENDREC_REMARK}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <tr>
+                      <td class="no_search" colspan="7" align="right" nowrap>{rval button/btn_back}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+{rval finish}
+{rval javascript}

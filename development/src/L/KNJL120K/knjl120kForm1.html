@@ -1,0 +1,105 @@
+{rval start}
+<table width="100%" border="0" cellpadding="0" cellspacing="10" align="center">
+  <tbody>
+    <tr class="no_search_line">
+      <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tbody>
+          <tr class="no_search" nowrap>
+            <td width="10%" align="center">入試年度</td>
+            <td width="10%" bgcolor="#ffffff" style="color:black; text-align:center">{rval TOP/YEAR}</td>
+            <td width="10%" align="center">試験区分</td>
+            <td width="15%" bgcolor="#ffffff">{rval TOP/TESTDIV}</td>
+            <td width="10%" align="center">専併区分</td>
+            <td width="*"   bgcolor="#ffffff">{rval TOP/SHDIV}</td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr class="no_search_line">
+      <td nowrap>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tbody>
+                <tr align="center" class="no_search">
+                  <th><font color="white">{rval LEFT_TITLE}</font></th>
+                  <th class="no_search">&nbsp;</th>
+                  <th><font color="white">{rval CENTER_TITLE}</font></th>
+                  <th class="no_search">&nbsp;</th>
+                  <th><font color="white">{rval RIGHT_TITLE}</font></th>
+                </tr>
+                <tr align="center" bgcolor="#ffffff">
+                  <!--{def main_part}-->
+                  <td width="30%">
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                      <tr class="no_search_line">
+                        <td width="100%">{rval main_part/LEFT_PART}</td>
+                      </tr>
+                      <tr>
+                        <td style="color:black; text-align:right">人数：<span id="LEFTLIST_NUM"></span>&nbsp;</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                  <td width="*%" class="no_search">{rval main_part/SEL_ADD_ALL} <br>
+                  {rval main_part/SEL_ADD} <br>
+                  {rval main_part/SEL_DEL} <br>
+                  {rval main_part/SEL_DEL_ALL}</td>
+                  <td width="30%">
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                      <tr class="no_search_line">
+                        <td width="100%">{rval main_part/CENTER_PART}</td>
+                      </tr>
+                      <tr>
+                        <td style="color:black; text-align:right">人数：<span id="CENTERLIST_NUM"></span>&nbsp;</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                  <td width="*%" class="no_search">{rval main_part/SEL_ADD_ALL2} <br>
+                  {rval main_part/SEL_ADD2} <br>
+                  {rval main_part/SEL_DEL2} <br>
+                  {rval main_part/SEL_DEL_ALL2}</td>
+                  <td width="30%">
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                      <tr class="no_search_line">
+                        <td width="100%">{rval main_part/RIGHT_PART}</td>
+                      </tr>
+                      <tr>
+                        <td style="color:black; text-align:right">人数：<span id="RIGHTLIST_NUM"></span>&nbsp;</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+                <tr class="no_search">
+                  <td colspan="5" nowrap>対象者：{rval TOP/APPLI_TYPE}　<input type="radio" name="csv" value="1" id="csv1" onclick="clickRadio(1)" checked><label for="csv1">取込</label> <input type="radio" name="csv" value="2" id="csv2" onclick="clickRadio(2)"><label for="csv2">書出</label> {rval CSV_ITEM}ヘッダ有り</td>
+                </tr>
+                <!--{/def}--><!--{def button}-->
+                <tr bgcolor="#ffffff">
+                  <td colspan="5" nowrap>{rval button/BTN_CSV}{rval button/BTN_OK}{rval button/BTN_CLEAR}{rval button/BTN_END}</td>
+                </tr>
+                <!--{/def}-->
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<script language="JavaScript">
+    document.getElementById("LEFTLIST_NUM").innerHTML = document.forms[0].LEFTLIST.options.length;
+    document.getElementById("CENTERLIST_NUM").innerHTML = document.forms[0].CENTERLIST.options.length;
+    document.getElementById("RIGHTLIST_NUM").innerHTML = document.forms[0].RIGHTLIST.options.length;
+</script> 
+{rval finish}

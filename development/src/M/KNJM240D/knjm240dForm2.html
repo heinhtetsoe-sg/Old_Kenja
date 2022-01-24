@@ -1,0 +1,57 @@
+{rval start}
+<!--{def button}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <hr width="80%" align="left">
+              　{rval CHAIRCD}　{rval NAME}
+            <hr width="80%" align="left"><br>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                    <tr class="no_search" height="25" nowrap>
+                      <th width="10%" rowspan="2" nowrap>学期</th>
+                      <th width="50%" colspan="2" nowrap>レポート</th>
+                      <th width="*%"  colspan="2" nowrap>スクーリング</th>
+                    </tr>
+                    <tr class="no_search" height="25">
+                      <th width="25%" nowrap>回数</th>
+                      <th width="25%" nowrap>最低提出回数</th>
+                      <th width="25%" nowrap>回数</th>
+                      <th width="*%"  nowrap>最低出席回数</th>
+                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+                    <tr height="30">
+                      <td align="center" bgcolor="#ffffff">{rval data/SEMESTERNAME}</td>
+                      <td align="center" bgcolor="#ffffff">{rval data/REPO_MAX_CNT}</td>
+                      <td align="center" bgcolor="#ffffff">{rval data/REPO_LIMIT_CNT}</td>
+                      <td align="center" bgcolor="#ffffff">{rval data/SCHOOLING_MAX_CNT}</td>
+                      <td align="center" bgcolor="#ffffff">{rval data/SCHOOLING_LIMIT_CNT}</td>
+                    </tr>
+<!--{/each}-->
+<!--{/def}-->
+                    <tr>
+                      <th class="no_search" nowrap>&nbsp;</th>
+                      <td align="left" class="no_search" colspan="4" nowrap>{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

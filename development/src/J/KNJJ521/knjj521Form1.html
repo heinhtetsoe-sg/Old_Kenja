@@ -1,0 +1,127 @@
+{rval start}
+
+<br />
+<table width="100%" border="0" cellspacing="10" cellpadding="0" align="center">
+    <tr>
+        <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line">
+                    <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <tr class="no_search">
+                                <td>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                        <tr class="no_search" height="30">
+                                            <td width="100%" nowrap>　　{rval YEAR}年度　　年組：{rval GRADE_HR_CLASS}　　測定日付：{rval DATE}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr class="no_search_line">
+                                <td>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search">
+                                            <th width="40" rowspan="2">出席<br />番号</th>
+                                            <th width="140" rowspan="2">氏名</th>
+                                            {rval ITEMABBV}
+                                            <th width="60">
+                                                <font size="2">総合計</font>
+                                            </th>
+                                            <th width="*">
+                                                <font size="2">総合<br />判定</font>
+                                            </th>
+                                        </tr>
+                                        <tr class="no_search">
+                                            {rval UNIT}
+                                            <!--
+                      <th width="*">&nbsp;</th>
+-->
+                                            <th width="*"><font size="2">(点)</font></th>
+                                            <th width="*"><font size="2">(A,B,C,D,E)</font></th>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="width: 100%; height: 465; overflow: auto">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr class="no_search_line">
+                                    <td>
+                                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                            <!--{each data}-->
+                                            <tr height="30">
+                                                <td width="40" align="center" bgcolor="{rval data/COLOR}">{rval data/ATTENDNO}</td>
+                                                <td width="140" align="left" bgcolor="{rval data/COLOR}">{rval data/NAME_SHOW}</td>
+                                                <td width="{rval INQUIRY_WIDTH}" align="center" bgcolor="{rval data/COLOR}">{rval data/INQUIRY1}</td>
+                                                <td width="{rval INQUIRY_WIDTH}" align="center" bgcolor="{rval data/COLOR}">{rval data/INQUIRY2}</td>
+                                                <td width="{rval INQUIRY_WIDTH}" align="center" bgcolor="{rval data/COLOR}">{rval data/INQUIRY3}</td>
+                                                <td width="{rval INQUIRY_WIDTH}" align="center" bgcolor="{rval data/COLOR}">{rval data/INQUIRY4}</td>
+                                                <td width="{rval INQUIRY_WIDTH}" align="center" bgcolor="{rval data/COLOR}">{rval data/INQUIRY5}</td>
+                                                <td width="{rval INQUIRY_WIDTH}" align="center" bgcolor="{rval data/COLOR}">{rval data/INQUIRY6}</td>
+                                                <td width="70" align="center" bgcolor="{rval data/COLOR}">{rval data/RECORD1}</td>
+                                                <td width="70" align="center" bgcolor="{rval data/COLOR}">{rval data/RECORD2}</td>
+                                                <td width="70" align="center" bgcolor="{rval data/COLOR}">{rval data/RECORD3}</td>
+                                                <td width="70" align="center" bgcolor="{rval data/COLOR}">{rval data/RECORD4}</td>
+                                                <td width="70" align="center" bgcolor="{rval data/COLOR}">{rval data/RECORD5}</td>
+                                                <td width="70" align="center" bgcolor="{rval data/COLOR}">{rval data/RECORD6}</td>
+                                                <td width="70" align="center" bgcolor="{rval data/COLOR}">{rval data/RECORD7}</td>
+                                                <td width="70" align="center" bgcolor="{rval data/COLOR}">{rval data/RECORD8}</td>
+                                                <td width="70" align="center" bgcolor="{rval data/COLOR}">{rval data/RECORD9}</td>
+                                                <td width="60" align="center" bgcolor="{rval data/COLOR}">{rval data/TOTAL}</td>
+                                                <td width="*" align="center" bgcolor="{rval data/COLOR}">{rval data/VALUE}</td>
+                                            </tr>
+                                            <!--{/each}-->
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr class="no_search_line">
+                                <td>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search">
+                                            <td>
+                                                <table cellpadding="0" cellspacing="0">
+                                                    <tr class="no_search" height="30">
+                                                        <td width="10%" align="right">{val btn_calc}&nbsp;&nbsp;{val btn_update}{val btn_reset}{val btn_end}</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<div id="lay"></div>
+{rval finish}
+<script language="JavaScript">
+    {rval close_win}
+</script>

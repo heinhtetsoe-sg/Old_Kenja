@@ -1,0 +1,241 @@
+{rval start}
+{rval IFRAME}
+
+<!--{def button}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="0">
+        <tr>
+          <td>
+<!--{def schregno_is_not_selected}-->
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td align="center">{rval TITLE}<br><br></td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#ffffff">
+                    <!--{def dispseldate}-->
+                    <tr>
+                    <td><br>{rval data/UPDTITLE}{rval data/UPDDATE}<!--{def newdate}-->{rval data/SELNEWDATE}<!--{/def}--><br><br></td>
+                    </tr>
+                    <!--{/def}-->
+                    <tr>
+                      <td><br>{rval button/btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+<!--{/def}-->
+<!--{def schregno_is_selected}-->
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <hr width="40%" align="left">
+                      &nbsp;{rval TITLE}&nbsp;&nbsp;{rval SCHREGNO}&nbsp;:&nbsp;{val NAME}
+                  <hr width="40%" align="left">
+                </td>
+              </tr>
+              <tr><td><br></td></tr>
+              <tr>
+                <td>
+                  <table width=50%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" nowrap height="25" align="center">
+                            <th>{rval GOALS_TITLE}</th>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              {rval GOALS}<br>
+                              {rval EXTFMT_GOALS}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" nowrap height="25" align="center">
+                            <th>{rval ACCOMMODATION_TITLE}</th>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              {rval ACCOMMODATION}<br>
+                              {rval EXTFMT_ACCOMMODATION}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              {rval btn_update_1}{rval btn_reset_1}{rval button/btn_back}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr><td><br></td></tr>
+              <tr>
+                <td>
+                  <table width=70%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" nowrap height="25" align="center">
+                            <td align="center" width="14%" rowspan=2>
+                              {rval KEY_GOALS_TITLE}
+                            </td>
+                            <th width="43%"></th>
+                            <th width="43%">{rval GOALS_REASON_TITLE}</th>
+                          </tr>
+                          <tr class="no_search">
+                            <td bgcolor="#ffffff">
+                              {rval KEY_GOALS}<br>
+                              {rval EXTFMT_KEY_GOALS}
+                            </td>
+                            <td bgcolor="#ffffff">
+                              {rval GOALS_REASON}<br>
+                              {rval EXTFMT_GOALS_REASON}
+                            </td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td colspan=3>
+                              {rval btn_update_2}{rval btn_reset_2}{rval button/btn_back}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr><td><br></td></tr>
+              <tr>
+                <td>
+                  <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 100%; height: 200px;">
+                    <table width=100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr class="no_search_line">
+                        <td>
+                          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <thead>
+                              <tr class="no_search" id="list_header" nowrap align="center">
+                                <th style="display:none;">SORT_SEMESTER</th>
+                                <th style="display:none;">SORT_ITEM</th>
+                                <th width="5%">{rval typeSemester}</th>
+                                <th width="9%">項目</th>
+                                <th width="17%">{rval LONG_GOALS_TITLE}</th>
+                                <th width="23%">{rval SHORT_GOALS_TITLE}</th>
+                                <th width="23%">{rval MEANS_TITLE}</th>
+                                <th width="23%">{rval EVALUATION_TITLE}</th>
+                                </tr>
+                            </thead>
+                            <!--{def list}-->
+                            <tbody id="listTbody">
+                              <!--{each list}-->
+                              <tr class="listTr" bgcolor="#ffffff">
+                                <td style="display:none;">{rval list/SORT_SEMESTER}</td>
+                                <td style="display:none;">{rval list/SORT_ITEM}</td>
+                                <!--{def list/SEMESTERNAME}-->
+                                <td rowspan=4>{rval list/SEMESTERNAME}</td>
+                                <!--{/def}-->
+                                <td>{rval list/ITEM}</td>
+                                <td>{rval list/LONG_GOALS}</td>
+                                <td>{rval list/SHORT_GOALS}</td>
+                                <td>{rval list/MEANS}</td>
+                                <td>{rval list/EVALUATION}</td>
+                              </tr>
+                              <!--{/each}-->
+                            </tbody>
+                            <!--{/def}-->
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+              <tr><td><br></td></tr>
+              <tr>
+                <td>
+                  <table width=100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr>
+                            <th class="no_search" width="10%">学期</th>
+                            <td colspan="4" bgcolor="#ffffff" width="85%">{rval SEMESTER}</td>
+                          </tr>
+                          <tr class="no_search" height="25">
+                            <th width="14%"></th>
+                            <th width="17%">{rval LONG_GOALS_TITLE}</th>
+                            <th width="23%">{rval SHORT_GOALS_TITLE}</th>
+                            <th width="23%">{rval MEANS_TITLE}</th>
+                            <th width="23%">{rval EVALUATION_TITLE}</th>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td class="no_search" align="center">{rval REMARK_1_TITLE}</td>
+                            <td>{rval LONG_GOALS1}<br>{rval EXTFMT_LONG_GOALS1}</td>
+                            <td>{rval SHORT_GOALS1}<br>{rval EXTFMT_SHORT_GOALS1}</td>
+                            <td>{rval MEANS1}<br>{rval EXTFMT_MEANS1}</td>
+                            <td>{rval EVALUATION1}<br>{rval EXTFMT_EVALUATION1}</td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td class="no_search" align="center">{rval REMARK_2_TITLE}</td>
+                            <td>{rval LONG_GOALS2}<br>{rval EXTFMT_LONG_GOALS2}</td>
+                            <td>{rval SHORT_GOALS2}<br>{rval EXTFMT_SHORT_GOALS2}</td>
+                            <td>{rval MEANS2}<br>{rval EXTFMT_MEANS2}</td>
+                            <td>{rval EVALUATION2}<br>{rval EXTFMT_EVALUATION2}</td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td class="no_search" align="center">{rval REMARK_3_TITLE}</td>
+                            <td>{rval LONG_GOALS3}<br>{rval EXTFMT_LONG_GOALS3}</td>
+                            <td>{rval SHORT_GOALS3}<br>{rval EXTFMT_SHORT_GOALS3}</td>
+                            <td>{rval MEANS3}<br>{rval EXTFMT_MEANS3}</td>
+                            <td>{rval EVALUATION3}<br>{rval EXTFMT_EVALUATION3}</td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td class="no_search" align="center">{rval REMARK_4_TITLE}</td>
+                            <td>{rval LONG_GOALS4}<br>{rval EXTFMT_LONG_GOALS4}</td>
+                            <td>{rval SHORT_GOALS4}<br>{rval EXTFMT_SHORT_GOALS4}</td>
+                            <td>{rval MEANS4}<br>{rval EXTFMT_MEANS4}</td>
+                            <td>{rval EVALUATION4}<br>{rval EXTFMT_EVALUATION4}</td>
+                          </tr>
+                          <tr>
+                            <td align="left" bgcolor="#ffffff" colspan="5">
+                              {rval btn_update_3}{rval btn_reset_3}{rval button/btn_back}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+<!--{/def}-->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->

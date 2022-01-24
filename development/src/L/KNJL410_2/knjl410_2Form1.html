@@ -1,0 +1,152 @@
+{rval start}
+{rval IFRAME}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td width="100" nowrap align="center">
+            <b>来校者相談</b>
+          </td>
+          <td>
+            <hr width="50%" align="left">
+              &nbsp;&nbsp;{rval HEADER_INFO}&nbsp;
+            <hr width="50%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <div style="width:950;height:200;overflow-x:scroll;overflow-y:scroll">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" height="25">
+                            <th align="center" nowrap width="100">登録日付</th>
+                            <th align="center" nowrap width="100">相談者</th>
+                            <th align="center" nowrap width="100">方法</th>
+                            <th align="center" nowrap width="150">面談者</th>
+                            <th align="center" nowrap width="400">相談内容</th>
+                          </tr>
+                          <!--結果一覧--><!--{def data}--><!--{each data}-->
+                          <tr bgcolor="#ffffff">
+                            <td nowrap align="center"><a href="knjl410_2index.php?cmd=knjl410_2&TOUROKU_DATE={rval data/TOUROKU_DATE}" target="">{rval data/TOUROKU_DATE}</a></td>
+                            <td nowrap>{rval data/CONSULT_NAME}</td>
+                            <td nowrap>{rval data/METHOD_NAME}</td>
+                            <td nowrap>{rval data/STAFFNAME}</td>
+                            <td nowrap>{rval data/CONTENTS}</td>
+                          </tr>
+                          <!--{/each}--><!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="80%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--{def data1}-->
+                          <tr>
+                            <th align="right" class="no_search" nowrap width="120" height="30">来校者要約&nbsp;</th>
+                            <td bgcolor="#ffffff" nowrap>{rval data1/REMARK}　<font color="red" size=1>(全角20文字まで)</font></td>
+                          </tr>
+                          <!--{/def}-->
+                          <!--{def button}-->
+                          <tr>
+                            <th align="center" class="no_search" nowrap>　</th>
+                            <td bgcolor="#ffffff" nowrap>{rval button/btn_update2}</td>
+                          </tr>
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="80%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--{def data1}-->
+                          <tr>
+                            <th class="no_search">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td class="no_search" nowrap>&nbsp;※</td>
+                                  <td class="no_search" align="right" nowrap>登録日付&nbsp;</td>
+                                </tr>
+                              </table>
+                            </th>
+                            <td bgcolor="#ffffff">{rval data1/TOUROKU_DATE}</td>
+                          </tr>
+                          <tr>
+                            <th align="right" class="no_search" nowrap width="120">相談者&nbsp;</th>
+                            <td bgcolor="#ffffff" nowrap>{rval data1/CONSULT_CD}</td>
+                          </tr>
+                          <tr>
+                            <th align="right" class="no_search" nowrap width="120">方法&nbsp;</th>
+                            <td bgcolor="#ffffff" nowrap>{rval data1/METHOD_CD}</td>
+                          </tr>
+                          <tr>
+                            <th align="right" class="no_search" nowrap width="120">面談者&nbsp;</th>
+                            <td bgcolor="#ffffff" nowrap>{rval data1/STAFFCD}</td>
+                          </tr>
+                          <tr>
+                            <th align="right" class="no_search" nowrap>相談内容&nbsp;</th>
+                            <td bgcolor="#ffffff" nowrap>{rval data1/CONTENTS}<BR><font color="red" size="1">全角４０文字×７行<font></td>
+                          </tr>
+                          <!--{/def}-->
+                          <!--{def button}-->
+                          <tr>
+                            <th align="center" class="no_search" nowrap>　</th>
+                            <td bgcolor="#ffffff" nowrap>{rval button/btn_insert}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+                          </tr>
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

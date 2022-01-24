@@ -1,0 +1,109 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <hr width="40%" align="left">
+                &nbsp;印刷学期：{rval data/PRINT_SEMESTER}&nbsp;&nbsp;{rval SCHREGNO}　{val NAME}
+            <hr width="40%" align="left">
+            <br>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th width="40" class="no_search" nowrap rowspan="2">道<br>徳</th>
+                      <th width="*"  height="30" class="no_search" nowrap>学習の様子</th>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff">{rval data/REMARK1}<br><font size=2, color="red">{rval data/REMARK1_COMMENT}</font></td>
+                    </tr>
+                  </table>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{def ITEM_DIS}-->
+                    <!--{each data2}-->
+                    <tr>
+                      <!--{def data2/ROWSPAN}-->
+                      <th class="no_search" nowrap width="40" rowspan="{rval data2/ROWSPAN}">外<br>国<br>語</th>
+                      <th class="no_search" nowrap width="250" height="30">{rval data2/RECORD_NAME}</th>
+                      <th class="no_search" nowrap height="30">{rval data2/RECORD_VAL}</th>
+                      <!--{/def}-->
+                      <!--{def data2/NO_TITLE}-->
+                      <th class="no_search" width="250" nowrap>{rval data2/RECORD_NAME}</th>
+                      <td align="left" bgcolor="#ffffff">{rval data2/RECORD_VAL}<br><font size=2, color="red">{rval data2/RECORD_COMMENT}</font></td>
+                      <!--{/def}-->
+                    </tr>
+                    <!--{/each}-->
+<!--{/def}-->
+                    <tr>
+                      <th class="no_search" nowrap width="40" rowspan="2">自<br>立<br>活<br>動</th>
+                      <th class="no_search" nowrap width="250" height="30">学習内容</th>
+                      <th class="no_search" nowrap height="30">学習の様子</th>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff" width="250">{rval data/REMARK1_03_01}<br><font size=2, color="red">{rval data/REMARK1_03_01_COMMENT}</font></td>
+                      <td bgcolor="#ffffff">{rval data/REMARK3}<br><font size=2, color="red">{rval data/REMARK3_COMMENT}</font></td>
+                    </tr>
+<!--{def ITEM_DIS}-->
+                    <tr>
+                      <th class="no_search" nowrap width="40" rowspan="2">総<br>合<br>学<br>習</th>
+                      <th class="no_search" nowrap width="250" height="30">テーマ</th>
+                      <th class="no_search" nowrap height="30">活動の様子</th>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff" width="250">{rval data/REMARK1_04_01}<br><font size=2, color="red">{rval data/REMARK1_04_01_COMMENT}</font></td>
+                      <td bgcolor="#ffffff">{rval data/TOTALSTUDYTIME}<br><font size=2, color="red">{rval data/TOTALSTUDYTIME_COMMENT}</font></td>
+                    </tr>
+<!--{/def}-->
+                    <!--{each data3}-->
+                    <tr>
+                      <!--{def data3/ROWSPAN}-->
+                      <th class="no_search" nowrap width="40" rowspan="{rval data3/ROWSPAN}">特<br>別<br>活<br>動</th>
+                      <th class="no_search" nowrap width="250" height="30">{rval data3/RECORD_NAME}</th>
+                      <th class="no_search" nowrap height="30">{rval data3/RECORD_VAL}</th>
+                      <!--{/def}-->
+                      <!--{def data3/NO_TITLE}-->
+                      <th class="no_search" nowrap width="250">{rval data3/RECORD_NAME}</th>
+                      <td align="left" bgcolor="#ffffff">{rval data3/RECORD_VAL}<br><font size=2, color="red">{rval data3/RECORD_COMMENT}</font></td>
+                      <!--{/def}-->
+                    </tr>
+                    <!--{/each}-->
+                    <tr>
+                      <th class="no_search" nowrap colspan="2" height="30">行動の記録</th>
+                      <td bgcolor="#ffffff">{rval button/btn_form2}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" nowrap colspan="2" height="30">総合所見</th>
+                      <td bgcolor="#ffffff">{rval data/COMMUNICATION}<br><font size=2, color="red">{rval data/COMMUNICATION_COMMENT}</font></td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" nowrap colspan="2"></th>
+                      <td bgcolor="#ffffff">
+                        {rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval reload}{rval next}</script>
+<!--{/def}-->

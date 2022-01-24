@@ -1,0 +1,98 @@
+{rval start}
+
+<table height="100"><tr><td>　</td></tr></table>
+<table width="650" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr class="no_search" height="30">
+                <td colspan="2"></td>
+              </tr>
+              <tr height="40">
+                <th class="no_search" width="25%">入試年度</th>
+                <td bgcolor="#ffffff" width="75%">&nbsp;{rval data/YEAR}</td>
+              </tr>
+              <tr height="40">
+                <th class="no_search">受験校種</th>
+                <td bgcolor="#ffffff">&nbsp;{rval data/APPLICANTDIV}</td>
+              </tr>
+              <tr height="40">
+                <th class="no_search">試験区分</th>
+                <td bgcolor="#ffffff">&nbsp;{rval data/TESTDIV}</td>
+              </tr>
+              <tr height="40">
+                <th class="no_search">通知種別</th>
+                <td bgcolor="#ffffff">&nbsp;{rval data/NOTICE_TYPE}</td>
+              </tr>
+              <tr height="110">
+                <th class="no_search">受験番号範囲</th>
+                <td bgcolor="#ffffff">
+                  <table width="100%">
+                    <tr height="25">
+                      <td width="35%">&nbsp;専併区分<td>
+                      <td width="65%">{rval data/SHDIV}<td>
+                    </tr>
+                    <tr height="25">
+                      <td>&nbsp;志望コース<td>
+                      <td>{rval data/WISH_COURSE}　　{rval button/btn_read}<td>
+                    </tr>
+                    <tr height="25">
+                      <td>&nbsp;受験番号<td>
+                      <td>{rval data/RECEPTNO_FROM}&nbsp;～&nbsp;{rval data/RECEPTNO_TO}<td>
+                    </tr>
+                    <!--{def showPASS_COURSE}-->
+                    <tr height="25">
+                      <td>&nbsp;選択可能入学コース<td>
+                      <td>{rval data/PASS_COURSE}<td>
+                    </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+              <!--{def showHONORDIV}-->
+              <tr height="50">
+                <th class="no_search">特待区分</th>
+                <td bgcolor="#ffffff">&nbsp;{rval data/HONORDIV}<br>&nbsp;<span style="color:red; font-size:90%;">※仮決定は出力対象外です。</span></td>
+              </tr>
+              <!--{/def}-->
+              <tr height="{rval height}">
+                <th class="no_search">日付</th>
+                <td bgcolor="#ffffff">
+                  <table width="100%">
+                    <tr>
+                      <td width="35%">&nbsp;通知日付<td>
+                      <td width="65%">{rval data/NOTICE_DATE}<td>
+                    </tr>
+                    <!--{def showS_LIMIT_DATE}-->
+                    <tr>
+                      <td>&nbsp;専願切替手続期限<td>
+                      <td>{rval data/S_LIMIT_DATE}<td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{def showH_LIMIT_DATE}-->
+                    <tr>
+                      <td>&nbsp;併願手続期限<td>
+                      <td>{rval data/H_LIMIT_DATE}<td>
+                    </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search" height="20">
+                <td nowrap colspan="2">&nbsp;
+                  {rval button/btn_print}{rval button/btn_end}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

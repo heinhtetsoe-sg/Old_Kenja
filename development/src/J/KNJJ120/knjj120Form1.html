@@ -1,0 +1,83 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR>
+
+<table width="60%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td align="center">
+                          <b>{rval data/YEAR}年度　<!--{def schkind}-->校種：{rval data/SCHKIND}<!--{/def}-->　部クラブ : {rval data/CLUBCD}</b>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>対象者一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b><!--{def schkind2}-->　　{rval data/SCHKIND2}<!--{/def}--></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/STUDENT_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/STUDENT_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff" height="250">
+                      <td>
+                        <b>　　　　日付</b>　　{rval data/DETAIL_DATE}<br>
+                        <b>　　大会名称</b>　　 {rval data/MEETLIST}　{rval button/btn_refl}<br>
+                        　　　　　　　　 {rval data/MEET_NAME}<br>
+                        　　　　　　　　　<font color="red" style="font-size:10pt">(全角で30文字)</font><br>
+                        <b>　　　　区分</b>　　 {rval data/DIV1}<LABEL for="DIV1">個人</LABEL>　　{rval data/DIV2}<LABEL for="DIV2">団体</LABEL><br>
+                        <b>　　開催地域</b>　　 {rval data/HOSTCD}<br>
+                        <b>　　　　種目</b>　　 {rval data/ITEMCD}<br>
+                        <b>　　種目種類</b>　　 {rval data/KINDCD}<br>
+                        <b>　　　　成績</b>　　 {rval data/RECORDCD}<br>
+                        <b>　　　　記録</b>　　 {rval data/DOCUMENT}　<font color="red" style="font-size:10pt">(全角で20文字)</font><br>
+                        <b>　表彰状添付</b>　　 {rval data/FILESEL}<br>
+                        <b>　　　　備考</b>　　 {rval data/DETAIL_REMARK}　<font color="red" style="font-size:10pt">(全角で20文字)</font>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_update}{rval button/btn_clear}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

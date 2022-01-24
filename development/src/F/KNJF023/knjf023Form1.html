@@ -1,0 +1,310 @@
+{rval start}
+{rval IFRAME}
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+          <tr class="no_search_line">
+            <th>
+              <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                <tr>
+                  <th align="left" class="no_search" height="35">
+                    　　　　　　定期健康診断情報（{rval SUBTITLE}）　　　　
+                    年度：{rval YEAR}　　
+                    学期：{rval SEMESTER}　　
+                    年組：{rval GRADE_HR_CLASS}　　　　　　
+                    種類：{rval SCREEN}
+                  </th>
+                </tr>
+              </table>
+            </th>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tbody>
+                            <tr class="no_search" height="{rval heightHeader}">
+                              <th width="*" nowrap>No.</th>
+                              <th width="150" nowrap>氏　名</th>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td>
+                <div id="trow" style="overflow:hidden; width: 923px; ">
+                <div style="width: {rval WIDTH}; ">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tbody>
+                            <tr class="no_search" height="{rval heightHeader}">
+                              <th width="150" nowrap>健康診断実施日</th>
+<!--{def tooth}-->
+<!--{def NO_CHG_DISPORDER}-->
+<!--{def Ippan2Igai}-->
+                              <th width="300">顎関節</th>
+<!--{/def}-->
+                              <th width={rval JAWS_JOINTCD_WIDTH}>歯列・咬合</th>
+<!--{/def}-->
+<!--{def Ippan2}-->
+                              <th width="300">顎関節</th>
+<!--{/def}-->
+<!--{def CHG_DISPORDER}-->
+                              <th width={rval JAWS_JOINTCD_WIDTH}>歯列</th>
+                              <th width={rval JAWS_JOINTCD_WIDTH}>咬合</th>
+                              <th width="300">顎関節</th>
+<!--{/def}-->
+                              <th width="180"><!--{def SIKOU_STRTYPE1}-->歯垢の状態<!--{/def}--><!--{def SIKOU_STRTYPE2}-->歯垢の付着<!--{/def}--></th>
+                              <th width="300">歯肉の状態</th>
+<!--{def not_miyagiken}-->
+<!--{def NO_CHG_DISPORDER}-->
+                              <th width="180">歯石沈着</th>
+<!--{/def}-->
+                              <th width="70">矯正</th>
+<!--{/def}-->
+                              <th width="70">乳歯<BR>現在数<BR><font size="1">(半角で2文字)</font></th>
+                              <th width="70">乳歯<BR>未処置数<BR><font size="1">(半角で2文字)</font></th>
+                              <th width="70">乳歯<BR>処置数<BR><font size="1">(半角で2文字)</font></th>
+                              <th width="70">乳歯<BR>要注意<BR>乳歯数<BR><font size="1">(半角で2文字)</font></th>
+                              <th width="70">永久歯<BR>現在数<BR><font size="1">(半角で2文字)</font></th>
+                              <th width="70">永久歯<BR>未処置数<BR><font size="1">(半角で2文字)</font></th>
+                              <th width="70">永久歯<BR>処置数<BR><font size="1">(半角で2文字)</font></th>
+                              <th width="70">永久歯<BR>喪失数<BR><font size="1">(半角で2文字)</font></th>
+                              <th width="70">永久歯<BR>要観察<BR>歯数<BR><font size="1">(半角で2文字)</font></th>
+                              <th width="450">その他疾病及び異常<BR>(全角で20文字)</th>
+                              <th width="500">学校歯科医<BR>所見<!--{def is_not_mie}--><BR><font style="font-size:10pt">(全角で20文字)</font><!--{/def}--></th>
+                              <th width="150">学校歯科医<BR>所見日付</th>
+                              <th width="*">学校歯科医<BR>事後措置<!--{def is_not_mie}--><BR><font style="font-size:10pt">(全角で20文字)</font><!--{/def}--></th>
+<!--{/def}-->
+<!--{def shisiki}-->
+                              <!--{each label}-->
+                              <th width={rval label/WIDTH}>{rval label/NAME}</th>
+                              <!--{/each}-->
+<!--{/def}-->
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                </div>
+              </td>
+            </tr>
+
+            <tr valign="TOP">
+              <td>
+                <div id="tcol" style="overflow: hidden; height: 483px;">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                          <tbody>
+                            <!--{each data}-->
+                            <tr bgcolor="#ffffff" height="{rval heightMeisai}">
+                              <td width="*" align="center" nowrap>{rval data/ATTENDNO}</td>
+                              <td width="150" align="left" nowrap>{rval data/NAME_SHOW}</td>
+                            </tr>
+                            <!--{/each}-->
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                </div>
+              </td>
+
+              <td>
+                <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 940px; height: 500px;">
+                <div style="width: {rval WIDTH};">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                          <tbody>
+                            <!--{each data}-->
+                            <tr bgcolor="#ffffff" height="{rval heightMeisai}">
+                              <td width="150" align="center" nowrap>{rval data/TOOTH_DATE}</td>
+<!--{def tooth}-->
+<!--{def NO_CHG_DISPORDER}-->
+<!--{def Ippan2Igai}-->
+                              <td width="300" align="center">{rval data/JAWS_JOINTCD2}</td>
+<!--{/def}-->
+                              <td width={rval JAWS_JOINTCD_WIDTH}>&nbsp;{rval data/JAWS_JOINTCD}</td>
+<!--{/def}-->
+<!--{def Ippan2}-->
+                              <td width="300" align="center">{rval data/JAWS_JOINTCD2}</td>
+<!--{/def}-->
+<!--{def CHG_DISPORDER}-->
+                              <td width={rval JAWS_JOINTCD_WIDTH}>&nbsp;{rval data/JAWS_JOINTCD}</td>
+                              <td width={rval JAWS_JOINTCD_WIDTH}>&nbsp;{rval data/JAWS_JOINTCD3}</td>
+                              <td width="300" align="center">{rval data/JAWS_JOINTCD2}</td>
+<!--{/def}-->
+                              <td width="180" align="center">{rval data/PLAQUECD}</td>
+                              <td width="300" align="center">{rval data/GUMCD}</td>
+<!--{def not_miyagiken}-->
+<!--{def NO_CHG_DISPORDER}-->
+                              <td width="180" align="center">{rval data/CALCULUS}</td>
+<!--{/def}-->
+                              <td width="70" align="center">{rval data/ORTHODONTICS}</td>
+<!--{/def}-->
+                              <td width="70" align="center">{rval data/BABYTOOTH}</td>
+                              <td width="70" align="center">{rval data/REMAINBABYTOOTH}</td>
+                              <td width="70" align="center">{rval data/TREATEDBABYTOOTH}</td>
+                              <td width="70" align="center">{rval data/BRACK_BABYTOOTH}</td>
+                              <td width="70" align="center">{rval data/ADULTTOOTH}</td>
+                              <td width="70" align="center">{rval data/REMAINADULTTOOTH}</td>
+                              <td width="70" align="center">{rval data/TREATEDADULTTOOTH}</td>
+                              <td width="70" align="center">{rval data/LOSTADULTTOOTH}</td>
+                              <td width="70" align="center">{rval data/BRACK_ADULTTOOTH}</td>
+                              <td width="450" align="left">&nbsp;{rval data/OTHERDISEASECD}&nbsp;{rval data/OTHERDISEASE}
+                                                          <!--{def is_miyagiken}-->
+                                                          <br>&nbsp;{rval data/OTHERDISEASECD3}
+                                                          <br>&nbsp;{rval data/OTHERDISEASECD4}
+                                                          <!--{/def}-->
+                                                          <!--{def F020_OTHERDISESE_HYOUJI2}-->
+                                                          <br>&nbsp;{rval data/OTHERDISEASECD3}&nbsp;{rval data/OTHERDISEASE3}
+                                                          <br>&nbsp;{rval data/OTHERDISEASECD4}&nbsp;{rval data/OTHERDISEASE4}
+                                                          <!--{/def}-->
+<!--{def Ippan2Igai}-->
+                                                          <!--{def not_miyagiken}-->
+                                                          <br>&nbsp;口腔の疾病及び異常：
+                                                          <br>{rval data/OTHERDISEASECD2}&nbsp;<!--{/def}-->{rval data/OTHERDISEASE2}
+                                                          <!--{def F020_OTHERDISESE_HYOUJI}-->
+                                                          <br>{rval data/OTHERDISEASE_REMARK1}&nbsp;{rval data/OTHERDISEASE_REMARK2}
+                                                          <br>{rval data/OTHERDISEASE_REMARK3}&nbsp;{rval data/OTHERDISEASE_REMARK4}
+                                                          <!--{/def}-->
+<!--{/def}-->
+                                                          </td>
+                              <td width="500" align="center">
+                                {rval data/DENTISTREMARKCD}<!--{def is_not_mie}-->&nbsp;{rval data/DENTISTREMARK}<!--{/def}-->
+                                <!--{def F020_DENTISTREMARK_HYOUJI}-->
+                                <br>{rval data/DENTISTREMARK_REMARK1}&nbsp;{rval data/DENTISTREMARK_REMARK2}
+                                <br>{rval data/DENTISTREMARK_REMARK3}&nbsp;{rval data/DENTISTREMARK_REMARK4}
+                                <!--{/def}-->
+                              </td>
+                              <td width="150" align="center">{rval data/DENTISTREMARKDATE}</td>
+                              <td width="*" align="center">{rval data/DENTISTTREATCD}<!--{def is_not_mie}--><br>
+                                                           {rval data/DENTISTTREAT}<!--{/def}--></td>
+<!--{/def}-->
+<!--{def shisiki}-->
+                              <td width="70" align="center">{rval data/UP_R_BABY5}</td>
+                              <td width="70" align="center">{rval data/UP_R_BABY4}</td>
+                              <td width="70" align="center">{rval data/UP_R_BABY3}</td>
+                              <td width="70" align="center">{rval data/UP_R_BABY2}</td>
+                              <td width="70" align="center">{rval data/UP_R_BABY1}</td>
+                              <td width="70" align="center">{rval data/UP_L_BABY1}</td>
+                              <td width="70" align="center">{rval data/UP_L_BABY2}</td>
+                              <td width="70" align="center">{rval data/UP_L_BABY3}</td>
+                              <td width="70" align="center">{rval data/UP_L_BABY4}</td>
+                              <td width="70" align="center">{rval data/UP_L_BABY5}</td>
+                              <td width="70" align="center">{rval data/LW_R_BABY5}</td>
+                              <td width="70" align="center">{rval data/LW_R_BABY4}</td>
+                              <td width="70" align="center">{rval data/LW_R_BABY3}</td>
+                              <td width="70" align="center">{rval data/LW_R_BABY2}</td>
+                              <td width="70" align="center">{rval data/LW_R_BABY1}</td>
+                              <td width="70" align="center">{rval data/LW_L_BABY1}</td>
+                              <td width="70" align="center">{rval data/LW_L_BABY2}</td>
+                              <td width="70" align="center">{rval data/LW_L_BABY3}</td>
+                              <td width="70" align="center">{rval data/LW_L_BABY4}</td>
+                              <td width="70" align="center">{rval data/LW_L_BABY5}</td>
+                              <td width="70" align="center">{rval data/UP_R_ADULT8}</td>
+                              <td width="70" align="center">{rval data/UP_R_ADULT7}</td>
+                              <td width="70" align="center">{rval data/UP_R_ADULT6}</td>
+                              <td width="70" align="center">{rval data/UP_R_ADULT5}</td>
+                              <td width="70" align="center">{rval data/UP_R_ADULT4}</td>
+                              <td width="70" align="center">{rval data/UP_R_ADULT3}</td>
+                              <td width="70" align="center">{rval data/UP_R_ADULT2}</td>
+                              <td width="70" align="center">{rval data/UP_R_ADULT1}</td>
+                              <td width="70" align="center">{rval data/UP_L_ADULT1}</td>
+                              <td width="70" align="center">{rval data/UP_L_ADULT2}</td>
+                              <td width="70" align="center">{rval data/UP_L_ADULT3}</td>
+                              <td width="70" align="center">{rval data/UP_L_ADULT4}</td>
+                              <td width="70" align="center">{rval data/UP_L_ADULT5}</td>
+                              <td width="70" align="center">{rval data/UP_L_ADULT6}</td>
+                              <td width="70" align="center">{rval data/UP_L_ADULT7}</td>
+                              <td width="70" align="center">{rval data/UP_L_ADULT8}</td>
+                              <td width="70" align="center">{rval data/LW_R_ADULT8}</td>
+                              <td width="70" align="center">{rval data/LW_R_ADULT7}</td>
+                              <td width="70" align="center">{rval data/LW_R_ADULT6}</td>
+                              <td width="70" align="center">{rval data/LW_R_ADULT5}</td>
+                              <td width="70" align="center">{rval data/LW_R_ADULT4}</td>
+                              <td width="70" align="center">{rval data/LW_R_ADULT3}</td>
+                              <td width="70" align="center">{rval data/LW_R_ADULT2}</td>
+                              <td width="70" align="center">{rval data/LW_R_ADULT1}</td>
+                              <td width="70" align="center">{rval data/LW_L_ADULT1}</td>
+                              <td width="70" align="center">{rval data/LW_L_ADULT2}</td>
+                              <td width="70" align="center">{rval data/LW_L_ADULT3}</td>
+                              <td width="70" align="center">{rval data/LW_L_ADULT4}</td>
+                              <td width="70" align="center">{rval data/LW_L_ADULT5}</td>
+                              <td width="70" align="center">{rval data/LW_L_ADULT6}</td>
+                              <td width="70" align="center">{rval data/LW_L_ADULT7}</td>
+                              <td width="*"  align="center">{rval data/LW_L_ADULT8}</td>
+<!--{/def}-->
+                            </tr>
+                            <!--{/each}-->
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+          <tbody>
+            <tr class="no_search_line">
+              <th>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div id="lay"></div>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

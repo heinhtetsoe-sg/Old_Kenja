@@ -1,0 +1,962 @@
+{rval start}
+<table style="width: 100%" border="0" cellspacing="5" cellpadding="5" align="center">
+<tr>
+<td>
+  <table style="width: 100%" border="0" cellspacing="5" cellpadding="1">
+    <tr>
+      <td>
+       <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr class="no_search_line">
+           <th>
+          <table width="100%" border="0" cellspacing="0" cellpadding="3">
+          <tr> 
+          <th height="30" align="center" class="no_search"><B>個人情報入力画面（{rval data/SHINSEI_NAME}）</B></th>
+          </tr>
+          </table>
+          </th>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+              <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <tr>
+                          <th width="15%" align="center" class="no_search" nowrap>申請区分</th>
+                          <td width="40%" bgcolor="#ffffff"><B>{rval data/SHINSEI_DIV}</B></td>
+                          <th width="15%" align="center" class="no_search" nowrap>貸与予約番号</th>
+                          <td width="30%" bgcolor="#ffffff"><B>{rval data/YOYAKU_SHUUGAKU_NO}</B></td>
+                      </tr>
+                  </table>
+              </td>
+          </tr>
+      </table>
+    </td>
+    </tr>
+
+<!-- 個人情報 -->
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+              <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <tr>
+                          <th align="center" class="no_search" nowrap>個人番号</th>
+                          <td bgcolor="#ffffff" colspan="3"><B>{rval data/KOJIN_NO}　　　{rval button/btn_seito}　　　{rval button/btn_shinsei}</B></td>
+                      </tr>
+                      <tr>
+                          <th align="center" class="no_search" nowrap>☆1 氏名</th>
+                          <td bgcolor="#ffffff" colspan="3"><font size="2">　姓：</font>{rval data/FAMILY_NAME}<font size="2">　名：</font>{rval data/FIRST_NAME}&nbsp;<font size="1" color="red">(必須)</font></td>
+                      </tr>
+                      <tr>
+                          <th align="center" class="no_search" nowrap>☆1 フリガナ</th>
+                          <td bgcolor="#ffffff" colspan="3"><font size="2">セイ：</font>{rval data/FAMILY_NAME_KANA}<font size="2">メイ：</font>{rval data/FIRST_NAME_KANA}&nbsp;<font size="1" color="red">(必須)</font></td>
+                      </tr>
+                      <tr>
+                          <th width="15%" align="center" class="no_search" nowrap>☆1 生年月日</th>
+                          <td width="15%" bgcolor="#ffffff">{rval data/BIRTHDAY}</td>
+                          <th width="15%" align="center" class="no_search" nowrap>☆2 年齢</th>
+                          <td width="55%" bgcolor="#ffffff">{rval data/NENREI}　☆1 {rval data/KIKON_FLG1}<LABEL for="KIKON_FLG1">未婚</LABEL>　{rval data/KIKON_FLG2}<LABEL for="KIKON_FLG2">既婚</LABEL></td>
+                      </tr>
+                  </table>
+              </td>
+          </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+              <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <tr>
+                          <th width="15%" align="center" class="no_search" nowrap>☆1 郵便番号</th>
+                          <td width="45%" bgcolor="#ffffff">{rval data/ZIPCD}</td>
+                          <th width="15%" align="center" class="no_search" nowrap>☆1 市町村コード</th>
+                          <td width="25%" bgcolor="#ffffff">{rval data/CITYCD}</td>
+                      </tr>
+                      <tr>
+                          <th align="center" class="no_search" nowrap>☆1 住所1</th>
+                          <td bgcolor="#ffffff">{rval data/ADDR1}</td>
+                          <th align="center" class="no_search" nowrap>☆1 電話番号</th>
+                          <td bgcolor="#ffffff">{rval data/TELNO1}</td>
+                      </tr>
+                      <tr>
+                          <th align="center" class="no_search" nowrap>☆1 住所2</th>
+                          <td bgcolor="#ffffff">{rval data/ADDR2}</td>
+                          <th align="center" class="no_search" nowrap>☆1 携帯番号</th>
+                          <td bgcolor="#ffffff">{rval data/TELNO2}</td>
+                      </tr>
+                  </table>
+              </td>
+          </tr>
+      </table>
+    </td>
+    </tr>
+
+<!-- 修直 -->
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+              <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <tr>
+                          <td bgcolor="#cccccc" align="center"><B>処理状況1</B></td>
+                          <td bgcolor="#ffffff" align="center"><B>{rval data/SHORI_JOUKYOU1}</B></td>
+                          <td bgcolor="#cccccc" align="center"><B>異動情報</B></td>
+                          <td bgcolor="#ffffff" align="center"><B>{rval data/SHORI_JOUKYOU1_2}</B></td>
+                          <td bgcolor="#cccccc" align="center"><B>貸与計画情報</B></td>
+                          <td bgcolor="#ffffff" align="center"><B>{rval data/KARITEISHI}</B></td>
+                      </tr>
+                      <tr>
+                          <th width="15%" align="center" class="no_search" nowrap>☆2 申請年度</th>
+                          <td width="18%" bgcolor="#ffffff">{rval data/SHINSEI_G}{rval data/SHINSEI_YY}年度&nbsp;<font size="1" color="red">(必須)</font></td>
+                          <th width="12%" align="center" class="no_search" nowrap>☆2 受付番号</th>
+                          <td width="28%" bgcolor="#ffffff">{rval data/UKE_G}{rval data/UKE_YY}年{rval data/UKE_NO}号の{rval data/UKE_EDABAN}&nbsp;<font size="1" color="red">(必須)</font></td>
+                          <th width="12%" align="center" class="no_search" nowrap>☆2 申請日</th>
+                          <td width="*" bgcolor="#ffffff">{rval data/SHINSEI_DATE}&nbsp;<font size="1" color="red">(必須)</font></td>
+                      </tr>
+                  </table>
+              </td>
+          </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>修学生番号</th>
+                <td width="18%" bgcolor="#ffffff"><B>{rval data/SHUUGAKU_NO}</B></td>
+                <th width="12%" align="center" class="no_search" nowrap>資金区分</th>
+                <td width="*" bgcolor="#ffffff"><B>{rval data/SHIKIN_SHOUSAI_NAME}</B></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>☆2 高校</th>
+                <td width="85%" bgcolor="#ffffff" colspan="5">{rval data/H_SCHOOL_CD}　<span id="H_SCHOOL_RITSU">{rval data/H_SCHOOL_RITSU}</span>　<span id="H_SCHOOL_NAME">{rval data/H_SCHOOL_NAME}</span>&nbsp;<font size="1" color="red">(必須)</font></td>
+              </tr>
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>☆2 課程</th>
+                <td width="20%" bgcolor="#ffffff"><div id="KATEI_DIV">{rval data/KATEI}</div></td>
+                <th width="15%" align="center" class="no_search" nowrap>☆2 学年</th>
+                <td width="15%" bgcolor="#ffffff">{rval data/GRADE}</td>
+                <th width="15%" align="center" class="no_search" nowrap>☆2 卒業予定月</th>
+                <td width="20%" bgcolor="#ffffff">{rval data/H_GRAD_YM}&nbsp;<font size="1" color="red">(必須)</font></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>☆1 通学区分</th>
+                <td width="85%" bgcolor="#ffffff">{rval data/TSUUGAKU_DIV1}<LABEL for="TSUUGAKU_DIV1">自宅</LABEL>　{rval data/TSUUGAKU_DIV2}<LABEL for="TSUUGAKU_DIV2">自宅外</LABEL></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>☆2 貸与希望額</th>
+                <td width="35%" bgcolor="#ffffff">{rval data/YOYAKU_KIBOU_GK}&nbsp;<font size="1" color="red">(必須)</font></td>
+                <th width="15%" align="center" class="no_search" nowrap>☆2 貸与希望期間</th>
+                <td width="35%" bgcolor="#ffffff">{rval data/S_YOYAKU_KIBOU_YM}　～　{rval data/E_YOYAKU_KIBOU_YM}&nbsp;<font size="1" color="red">(必須)</font></td>
+              </tr>
+              <tr>
+                <th align="center" class="no_search" nowrap><!--{def Kyuhu_Hyouji_1}-->減額変更後<!--{/def}--></th>
+                <td bgcolor="#ffffff"><!--{def Kyuhu_Hyouji_1}--><span id="TAIYO_GENDO_GK">{rval data2/TAIYO_GENDO_GK}</span>　<B>{rval data2/GENGAKU_DOUI_STATUS}</B><!--{/def}--></td>
+                <th align="center" class="no_search" nowrap>☆2 本年度貸与期間</th>
+                <td bgcolor="#ffffff">{rval data/S_TAIYO_YM}　～　{rval data/E_TAIYO_YM}&nbsp;<font size="1" color="red">(必須)</font></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>☆2 他の奨学金<BR>と併給状況</th>
+                <td width="85%" bgcolor="#ffffff">
+{rval data/HEIKYUU_SHOUGAKU_STATUS1}<LABEL for="HEIKYUU_SHOUGAKU_STATUS1">受給していない</LABEL><BR>
+{rval data/HEIKYUU_SHOUGAKU_STATUS2}<LABEL for="HEIKYUU_SHOUGAKU_STATUS2">受給中</LABEL>&nbsp;{rval data/HEIKYUU_SHOUGAKU_GYOUMUCD2}{rval data/HEIKYUU_SHOUGAKU_REMARK2}<BR>
+{rval data/HEIKYUU_SHOUGAKU_STATUS3}<LABEL for="HEIKYUU_SHOUGAKU_STATUS3">申請中</LABEL>&nbsp;{rval data/HEIKYUU_SHOUGAKU_GYOUMUCD3}{rval data/HEIKYUU_SHOUGAKU_REMARK3}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>{rval button/btn_rentai}</th>
+                <td width="85%" bgcolor="#ffffff">{rval data/RENTAI_CD}</td>
+              </tr>
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>{rval button/btn_shinken1}</th>
+                <td width="85%" bgcolor="#ffffff">{rval data/SHINKEN1_CD}</td>
+              </tr>
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>{rval button/btn_shinken2}</th>
+                <td width="85%" bgcolor="#ffffff">{rval data/SHINKEN2_CD}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap></th>
+                <td width="85%" bgcolor="#ffffff">{rval data/SHITAKU_CANCEL_CHOKU_FLG}<LABEL for="SHITAKU_CANCEL_CHOKU_FLG">修学支度金貸与について、貸与予約をしていたが、貸与を希望しない</LABEL></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>☆2 入力完了</th>
+                <td width="85%" bgcolor="#ffffff">{rval data/SHINSEI_KANRYOU_FLG}<LABEL for="SHINSEI_KANRYOU_FLG">入力完了</LABEL></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+<!-- 支直 -->
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+              <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <tr>
+                          <td bgcolor="#cccccc" align="center"><B>処理状況2</B></td>
+                          <td bgcolor="#ffffff" align="center"><B>{rval data/STK_SHORI_JOUKYOU1}</B></td>
+                          <td bgcolor="#ffffff" align="center" colspan="4"></td>
+                      </tr>
+                      <tr>
+                          <th width="15%" align="center" class="no_search" nowrap>☆3 申請年度</th>
+                          <td width="18%" bgcolor="#ffffff">{rval data/STK_SHINSEI_G}{rval data/STK_SHINSEI_YY}年度&nbsp;<font size="1" color="red">(必須)</font></td>
+                          <th width="12%" align="center" class="no_search" nowrap>☆3 受付番号</th>
+                          <td width="28%" bgcolor="#ffffff">{rval data/STK_UKE_G}{rval data/STK_UKE_YY}年{rval data/STK_UKE_NO}号の{rval data/STK_UKE_EDABAN}&nbsp;<font size="1" color="red">(必須)</font></td>
+                          <th width="12%" align="center" class="no_search" nowrap>☆3 申請日</th>
+                          <td width="*" bgcolor="#ffffff">{rval data/STK_SHINSEI_DATE}&nbsp;<font size="1" color="red">(必須)</font></td>
+                      </tr>
+                  </table>
+              </td>
+          </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>修学生番号２</th>
+                <td width="15%" bgcolor="#ffffff"><B>{rval data/STK_SHUUGAKU_NO}</B></td>
+                <th width="15%" align="center" class="no_search" nowrap>資金区分</th>
+                <td width="55%" bgcolor="#ffffff"><B>{rval data/STK_SHIKIN_SHOUSAI_NAME}</B></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>☆3 高校</th>
+                <td width="85%" bgcolor="#ffffff" colspan="5">{rval data/STK_H_SCHOOL_CD}　<span id="STK_H_SCHOOL_RITSU">{rval data/STK_H_SCHOOL_RITSU}</span>　<span id="STK_H_SCHOOL_NAME">{rval data/STK_H_SCHOOL_NAME}</span>&nbsp;<font size="1" color="red">(必須)</font></td>
+              </tr>
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>☆3 課程</th>
+                <td width="20%" bgcolor="#ffffff"><div id="STK_KATEI_DIV">{rval data/STK_KATEI}</div></td>
+                <th width="15%" align="center" class="no_search" nowrap>☆3 学年</th>
+                <td width="15%" bgcolor="#ffffff">{rval data/STK_GRADE}</td>
+                <th width="15%" align="center" class="no_search" nowrap></th>
+                <td width="20%" bgcolor="#ffffff"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>☆3 支度金貸与区分</th>
+                <td width="85%" bgcolor="#ffffff">
+{rval data/STK_SHITAKUKIN_TAIYO_DIV1}<LABEL for="STK_SHITAKUKIN_TAIYO_DIV1">国公立の高等学校</LABEL>（50,000円）　
+{rval data/STK_SHITAKUKIN_TAIYO_DIV2}<LABEL for="STK_SHITAKUKIN_TAIYO_DIV2">私立の高等学校</LABEL>（250,000円）
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>☆3 他の入学支度金<BR>と併給状況</th>
+                <td width="85%" bgcolor="#ffffff">
+{rval data/STK_HEIKYUU_SHITAKU_STATUS1}<LABEL for="STK_HEIKYUU_SHITAKU_STATUS1">受給していない</LABEL><BR>
+{rval data/STK_HEIKYUU_SHITAKU_STATUS2}<LABEL for="STK_HEIKYUU_SHITAKU_STATUS2">受給中</LABEL>&nbsp;{rval data/STK_HEIKYUU_SHITAKU_GYOUMUCD2}{rval data/STK_HEIKYUU_SHITAKU_REMARK2}<BR>
+{rval data/STK_HEIKYUU_SHITAKU_STATUS3}<LABEL for="STK_HEIKYUU_SHITAKU_STATUS3">申請中</LABEL>&nbsp;{rval data/STK_HEIKYUU_SHITAKU_GYOUMUCD3}{rval data/STK_HEIKYUU_SHITAKU_REMARK3}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>{rval button/stk_btn_rentai}</th>
+                <td width="85%" bgcolor="#ffffff">{rval data/STK_RENTAI_CD}</td>
+              </tr>
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>{rval button/stk_btn_shinken1}</th>
+                <td width="85%" bgcolor="#ffffff">{rval data/STK_SHINKEN1_CD}</td>
+              </tr>
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>{rval button/stk_btn_shinken2}</th>
+                <td width="85%" bgcolor="#ffffff">{rval data/STK_SHINKEN2_CD}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>☆3 入力完了</th>
+                <td width="85%" bgcolor="#ffffff">{rval data/STK_SHINSEI_KANRYOU_FLG}<LABEL for="STK_SHINSEI_KANRYOU_FLG">入力完了</LABEL></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+<!-- フッター -->
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+              <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <tr>
+                          <th width="15%" align="center" class="no_search" nowrap>☆1 備考</th>
+                          <td width="85%" bgcolor="#ffffff" colspan="3">{rval data/REMARK}</td>
+                      </tr>
+                  </table>
+              </td>
+          </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>(支度金直)融資不成立</th>
+                <td width="85%" bgcolor="#ffffff">
+理由：{rval data/TAIYO_FAIL_DIV}<BR>
+備考：{rval data/TAIYO_FAIL_REMARK}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+              <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <!--{def button}-->
+                      <tr>
+                          <th width="15%" align="center" class="no_search" nowrap>&nbsp;世帯SEQ：{rval data/SETAI_SEQ_SHOW}</th>
+                          <td width="85%" bgcolor="#ffffff" colspan="3">{rval button/btn_setai}{rval button/btn_taiyo_shinsa}{rval button/btn_yushi_shinsa}{rval button/btn_furikomi}　　　{rval button/btn_upd}{rval button/btn_del}{rval button/btn_cancel}{rval button/btn_end}</td>
+                      </tr>
+                      <!--{/def}-->
+                  </table>
+              </td>
+          </tr>
+      </table>
+    </td>
+    </tr>
+
+<!--{def Kyuhu_Hyouji_1}-->
+<!-- 給付 -->
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+              <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <tr>
+                          <td bgcolor="#cccccc" align="center"><B>処理状況3</B></td>
+                          <td bgcolor="#ffffff" align="center"><B>{rval data2/SHORI_JOUKYOU3}</B></td>
+                          <td bgcolor="#ffffff" align="left" colspan="4"><B></B>　{rval button2/btn_shinsei}</td>
+                      </tr>
+                      <tr>
+                          <th width="15%" align="center" class="no_search" nowrap>☆4 申請年度</th>
+                          <td width="18%" bgcolor="#ffffff">{rval data2/KYUHU_SHINSEI_G}{rval data2/KYUHU_SHINSEI_YY}年度&nbsp;<font size="1" color="red">(必須)</font></td>
+                          <th width="12%" align="center" class="no_search" nowrap>☆4 受付番号</th>
+                          <td width="28%" bgcolor="#ffffff">{rval data2/KYUHU_UKE_G}{rval data2/KYUHU_UKE_YY}年{rval data2/KYUHU_UKE_NO}号の{rval data2/KYUHU_UKE_EDABAN}&nbsp;<font size="1" color="red">(必須)</font></td>
+                          <th width="12%" align="center" class="no_search" nowrap>☆4 申請日</th>
+                          <td width="*" bgcolor="#ffffff">{rval data2/KYUHU_SHINSEI_DATE}&nbsp;<font size="1" color="red">(必須)</font></td>
+                      </tr>
+                  </table>
+              </td>
+          </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>給付番号</th>
+                <td width="18%" bgcolor="#ffffff"><B>{rval data2/KYUHU_SHUUGAKU_NO}</B></td>
+                <th width="12%" align="center" class="no_search" nowrap>資金区分</th>
+                <td width="28%" bgcolor="#ffffff"><B>{rval data2/KYUHU_SHIKIN_SHOUSAI_NAME}</B></td>
+                <th width="12%" align="center" class="no_search" nowrap>家計急変{rval data2/KAKEI_KYUHEN_FLG}</th>
+                <td width="*" bgcolor="#ffffff">{rval data2/KAKEI_KYUHEN_DATE}</td>
+                
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>☆4 高校</th>
+                <td width="85%" bgcolor="#ffffff" colspan="5">{rval data2/KYUHU_H_SCHOOL_CD}　<span id="KYUHU_H_SCHOOL_RITSU">{rval data2/KYUHU_H_SCHOOL_RITSU}</span>　<span id="KYUHU_H_SCHOOL_NAME">{rval data2/KYUHU_H_SCHOOL_NAME}</span>&nbsp;<font size="1" color="red">(必須)</font></td>
+              </tr>
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>☆4 課程</th>
+                <td width="25%" bgcolor="#ffffff"><div id="KYUHU_KATEI_DIV">{rval data2/KYUHU_KATEI}</div>(全･定･通区分：{rval data2/KYUHU_KATEI_DIV_NAME})&nbsp;<font size="1" color="red">(必須)</font></td>
+                <th width="15%" align="center" class="no_search" nowrap>☆4 学年　組</th>
+                <td width="15%" bgcolor="#ffffff">{rval data2/KYUHU_GRADE}年&nbsp;{rval data2/KYUHU_HR_CLASS}組&nbsp;{rval data2/KYUHU_ATTENDNO}番</td>
+                <th width="15%" align="center" class="no_search" nowrap>☆4 給付回数</th>
+                <td width="15%" bgcolor="#ffffff">{rval data2/KYUHU_KAISUU}&nbsp;<font size="1" color="red">(必須)</font></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>{rval button2/btn_hogosha}</th>
+                <td width="85%" bgcolor="#ffffff">{rval data2/HOGOSHA_CD}　<B>{rval data2/HOGOSHA_KOUZA_INFO}</B></td>
+              </tr>
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>{rval button2/btn_hogosha2}</th>
+                <td width="85%" bgcolor="#ffffff">{rval data2/HOGOSHA2_CD}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>☆4 所得割額</th>
+                <td width="85%" bgcolor="#ffffff">{rval data2/SHOTOKUWARI_GK}円　{rval data2/SHOTOKUWARI_GK_CHECK_FLG}<LABEL for="SHOTOKUWARI_GK_CHECK_FLG">確認済み</LABEL></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>☆4 所得割区分</th>
+                <td width="85%" bgcolor="#ffffff">
+{rval data2/SHOTOKUWARI_DIV1}<LABEL for="SHOTOKUWARI_DIV1">{rval data2/SHOTOKUWARI_DIV_NAME1}</LABEL>&nbsp;<font size="1" color="red">(必須)</font><BR>
+{rval data2/SHOTOKUWARI_DIV2}<LABEL for="SHOTOKUWARI_DIV2">{rval data2/SHOTOKUWARI_DIV_NAME2}</LABEL>&nbsp;<BR>
+{rval data2/SHOTOKUWARI_DIV3}<LABEL for="SHOTOKUWARI_DIV3">{rval data2/SHOTOKUWARI_DIV_NAME3}で、23歳未満の扶養されている兄・姉がいる世帯</LABEL>&nbsp;<BR>
+                                                         &nbsp;　<font size="2">姓：</font>{rval data2/KYOUDAI_FAMILY_NAME}<font size="2">　名：</font>{rval data2/KYOUDAI_FIRST_NAME}<BR>
+                                                         &nbsp;<font size="2">セイ：</font>{rval data2/KYOUDAI_FAMILY_NAME_KANA}<font size="2">メイ：</font>{rval data2/KYOUDAI_FIRST_NAME_KANA}<BR>
+                                                         &nbsp;　年齢確認用生年月日：{rval data2/KYOUDAI_BIRTHDAY}　<span id="NENREI_HYOUJI_ID">{rval data2/KYUHU_NENREI_HYOUJI}才</span>　(申請年度の7月1日現在)　　続柄：{rval data2/KYOUDAI_TSUZUKIGARA_CD}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>☆4 その他併給区分</th>
+                <td width="85%" bgcolor="#ffffff">{rval data2/HEIKYUU_SHOUGAKU_FLG1}<LABEL for="HEIKYUU_SHOUGAKU_FLG1">高校生給付型奨学金</LABEL><BR>
+                                                  {rval data2/HEIKYUU_SHOUGAKU_FLG2}<LABEL for="HEIKYUU_SHOUGAKU_FLG2">母子家庭奨学金</LABEL>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>☆4 奨学給付金(年額)</th>
+                <td width="85%" bgcolor="#ffffff">{rval data2/KYUHU_GK}　({rval data2/KYUHU_GK_NAME}：<B>{rval data2/KYUHU_YOTEI_GK}</B>)<span id="MASTER_COMMENT">{rval data2/MASTER_COMMENT}</span>{rval data2/CANCEL_COMMENT}&nbsp;<font size="1" color="red">(必須)</font></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="15%" align="center" class="no_search" nowrap>☆4 入力完了</th>
+                <td width="85%" bgcolor="#ffffff">{rval data2/KANRYOU_FLG}<LABEL for="KANRYOU_FLG">入力完了</LABEL></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+              <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <tr>
+                          <th width="15%" align="center" class="no_search" nowrap>☆4 備考</th>
+                          <td width="85%" bgcolor="#ffffff" colspan="3">{rval data2/KYUHU_REMARK}</td>
+                      </tr>
+                  </table>
+              </td>
+          </tr>
+      </table>
+    </td>
+    </tr>
+
+<!--{/def}-->
+<!--{def Kyuhu_Hyouji_2}-->
+<!-- 給付 -->
+
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr class="no_search_line">
+                <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tr>
+                            <td bgcolor="#cccccc" align="center"><B>処理状況3 2回目</B></td>
+                            <td bgcolor="#ffffff" align="center"><B>{rval data2/SHORI_JOUKYOU3_2}</B></td>
+                            <td bgcolor="#ffffff" align="left" colspan="4"><B></B>　{rval button2/btn_shinsei_2}&nbsp;{rval button2/btn_copydata}</td>
+                        </tr>
+                        <tr>
+                            <th width="15%" align="center" class="no_search" nowrap>☆4 申請年度</th>
+                            <td width="18%" bgcolor="#ffffff">{rval data2/KYUHU_SHINSEI_G_2}{rval data2/KYUHU_SHINSEI_YY_2}年度&nbsp;<font size="1" color="red">(必須)</font></td>
+                            <th width="12%" align="center" class="no_search" nowrap>☆4 受付番号</th>
+                            <td width="28%" bgcolor="#ffffff">{rval data2/KYUHU_UKE_G_2}{rval data2/KYUHU_UKE_YY_2}年{rval data2/KYUHU_UKE_NO_2}号の{rval data2/KYUHU_UKE_EDABAN_2}&nbsp;<font size="1" color="red">(必須)</font></td>
+                            <th width="12%" align="center" class="no_search" nowrap>☆4 申請日</th>
+                            <td width="*" bgcolor="#ffffff">{rval data2/KYUHU_SHINSEI_DATE_2}&nbsp;<font size="1" color="red">(必須)</font></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+            <td>
+              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr>
+                  <th width="15%" align="center" class="no_search" nowrap>給付番号</th>
+                  <td width="18%" bgcolor="#ffffff"><B>{rval data2/KYUHU_SHUUGAKU_NO_2}</B></td>
+                  <th width="12%" align="center" class="no_search" nowrap>資金区分</th>
+                  <td width="28%" bgcolor="#ffffff"><B>{rval data2/KYUHU_SHIKIN_SHOUSAI_NAME_2}</B></td>
+                  <th width="12%" align="center" class="no_search" nowrap></th>
+                  <td width="*" bgcolor="#ffffff"></td>
+                  
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+            <td>
+              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr>
+                  <th width="15%" align="center" class="no_search" nowrap>☆4 高校</th>
+                  <td width="85%" bgcolor="#ffffff" colspan="5">{rval data2/KYUHU_H_SCHOOL_CD_2}　<span id="KYUHU_H_SCHOOL_RITSU_2">{rval data2/KYUHU_H_SCHOOL_RITSU_2}</span>　<span id="KYUHU_H_SCHOOL_NAME_2">{rval data2/KYUHU_H_SCHOOL_NAME_2}</span>&nbsp;<font size="1" color="red">(必須)</font></td>
+                </tr>
+                <tr>
+                  <th width="15%" align="center" class="no_search" nowrap>☆4 課程</th>
+                  <td width="25%" bgcolor="#ffffff"><div id="KYUHU_KATEI_DIV_2">{rval data2/KYUHU_KATEI_2}</div>(全･定･通区分：{rval data2/KYUHU_KATEI_DIV_NAME_2})&nbsp;<font size="1" color="red">(必須)</font></td>
+                  <th width="15%" align="center" class="no_search" nowrap>☆4 学年　組</th>
+                  <td width="15%" bgcolor="#ffffff">{rval data2/KYUHU_GRADE_2}年&nbsp;{rval data2/KYUHU_HR_CLASS_2}組&nbsp;{rval data2/KYUHU_ATTENDNO_2}番</td>
+                  <th width="15%" align="center" class="no_search" nowrap>☆4 給付回数</th>
+                  <td width="15%" bgcolor="#ffffff">{rval data2/KYUHU_KAISUU_2}&nbsp;<font size="1" color="red">(必須)</font></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+            <td>
+              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr>
+                  <th width="15%" align="center" class="no_search" nowrap>{rval button2/btn_hogosha_2}</th>
+                  <td width="85%" bgcolor="#ffffff">{rval data2/HOGOSHA_CD_2}　<B>{rval data2/HOGOSHA_KOUZA_INFO_2}</B></td>
+                </tr>
+                <tr>
+                  <th width="15%" align="center" class="no_search" nowrap>{rval button2/btn_hogosha2_2}</th>
+                  <td width="85%" bgcolor="#ffffff">{rval data2/HOGOSHA2_CD_2}</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+            <td>
+              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr>
+                  <th width="15%" align="center" class="no_search" nowrap>☆4 所得割額</th>
+                  <td width="85%" bgcolor="#ffffff">{rval data2/SHOTOKUWARI_GK_2}円　{rval data2/SHOTOKUWARI_GK_CHECK_FLG_2}<LABEL for="SHOTOKUWARI_GK_CHECK_FLG_2">確認済み</LABEL></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+            <td>
+              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr>
+                  <th width="15%" align="center" class="no_search" nowrap>☆4 所得割区分</th>
+                  <td width="85%" bgcolor="#ffffff">
+{rval data2/SHOTOKUWARI_DIV_21}<LABEL for="SHOTOKUWARI_DIV_21">{rval data2/SHOTOKUWARI_DIV_NAME_21}</LABEL>&nbsp;<font size="1" color="red">(必須)</font><BR>
+{rval data2/SHOTOKUWARI_DIV_22}<LABEL for="SHOTOKUWARI_DIV_22">{rval data2/SHOTOKUWARI_DIV_NAME_22}</LABEL>&nbsp;<BR>
+{rval data2/SHOTOKUWARI_DIV_23}<LABEL for="SHOTOKUWARI_DIV_23">{rval data2/SHOTOKUWARI_DIV_NAME_23}で、23歳未満の扶養されている兄・姉がいる世帯</LABEL>&nbsp;<BR>
+                                                           &nbsp;　<font size="2">姓：</font>{rval data2/KYOUDAI_FAMILY_NAME_2}<font size="2">　名：</font>{rval data2/KYOUDAI_FIRST_NAME_2}<BR>
+                                                           &nbsp;<font size="2">セイ：</font>{rval data2/KYOUDAI_FAMILY_NAME_KANA_2}<font size="2">メイ：</font>{rval data2/KYOUDAI_FIRST_NAME_KANA_2}<BR>
+                                                           &nbsp;　年齢確認用生年月日：{rval data2/KYOUDAI_BIRTHDAY_2}　<span id="NENREI_HYOUJI_ID_2">{rval data2/KYUHU_NENREI_HYOUJI_2}才</span>　(申請年度の7月1日現在)　　続柄：{rval data2/KYOUDAI_TSUZUKIGARA_CD_2}
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+            <td>
+              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr>
+                  <th width="15%" align="center" class="no_search" nowrap>☆4 その他併給区分</th>
+                  <td width="85%" bgcolor="#ffffff">{rval data2/HEIKYUU_SHOUGAKU_FLG1_2}<LABEL for="HEIKYUU_SHOUGAKU_FLG1_2">高校生給付型奨学金</LABEL><BR>
+                                                    {rval data2/HEIKYUU_SHOUGAKU_FLG2_2}<LABEL for="HEIKYUU_SHOUGAKU_FLG2_2">母子家庭奨学金</LABEL>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+            <td>
+              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr>
+                  <th width="15%" align="center" class="no_search" nowrap>☆4 奨学給付金(年額)</th>
+                  <td width="85%" bgcolor="#ffffff">{rval data2/KYUHU_GK_2}　({rval data2/KYUHU_GK_NAME_2}：<B>{rval data2/KYUHU_YOTEI_GK_2}</B>)<span id="MASTER_COMMENT_2">{rval data2/MASTER_COMMENT_2}</span>{rval data2/CANCEL_COMMENT_2}&nbsp;<font size="1" color="red">(必須)</font></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+            <td>
+              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr>
+                  <th width="15%" align="center" class="no_search" nowrap>☆4 入力完了</th>
+                  <td width="85%" bgcolor="#ffffff">{rval data2/KANRYOU_FLG_2}<LABEL for="KANRYOU_FLG_2">入力完了</LABEL></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr class="no_search_line">
+                <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tr>
+                            <th width="15%" align="center" class="no_search" nowrap>☆4 備考</th>
+                            <td width="85%" bgcolor="#ffffff" colspan="3">{rval data2/KYUHU_REMARK_2}</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+      </td>
+    </tr>
+
+<!--{/def}-->
+<!--{def Kyuhu_Hyouji_1}-->
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+              <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <!--{def button2}-->
+                      <tr>
+                          <th width="15%" align="center" class="no_search" nowrap></th>
+                          <td width="85%" bgcolor="#ffffff" colspan="3">{rval button2/btn_furikomi}　　　{rval button2/btn_upd}{rval button2/btn_del}{rval button2/btn_cancel}{rval button2/btn_end}</td>
+                      </tr>
+                      <!--{/def}-->
+                  </table>
+              </td>
+          </tr>
+      </table>
+    </td>
+    </tr>
+<!--{/def}-->
+<!-- 給付終わり -->
+
+    </table>
+  </td>
+  </tr>
+  </table>
+</td>
+</tr>
+</table>
+<div id="lay"></div>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

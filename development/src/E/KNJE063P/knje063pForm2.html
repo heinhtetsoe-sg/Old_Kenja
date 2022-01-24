@@ -1,0 +1,131 @@
+{rval start}
+<table width="700" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+        <td valign="top"> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr > 
+                    <td > 
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr class="no_search_line"> 
+                                <td> 
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search"> 
+                                            <th width="100" align="right">項目</th>
+                                            <th width="600" colspan="9">値</th>
+                                        </tr>
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap>※　　　　　年度</th>
+                                          <td bgcolor="#ffffff" colspan="9">{rval YEAR}</td>
+                                        </tr>
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap>※　　学年(年次)</th>
+                                          <td bgcolor="#ffffff" colspan="9">{rval ANNUAL}</td>
+                                        </tr>
+                                        <tr> 
+                                            <th align="right" class="no_search" nowrap>※　　　　教科名</th>
+                                            <td bgcolor="#ffffff" colspan="2" nowrap>&nbsp;{rval data/CLASSCD}</td>
+                                            <th align="right" class="no_search" nowrap>教科略称</th>
+                                            <td bgcolor="#ffffff" colspan="6">{rval data/CLASSABBV}</td>
+                                        </tr>
+                                        <tr> 
+                                            <th align="right" class="no_search" nowrap>教科名称英字</th>
+                                            <td bgcolor="#ffffff" colspan="2">{rval data/CLASSNAME_ENG}</td>
+                                            <th align="right" class="no_search" nowrap>教科略称英字</th>
+                                            <td bgcolor="#ffffff" colspan="6">{rval data/CLASSABBV_ENG}</td>
+                                        </tr>
+                                        <tr class="no_search">
+                                            <th align="right" class="no_search" nowrap>※　　教育課程</th>
+                                            <td bgcolor="#ffffff" colspan="7" nowrap>{rval data/CURRICULUM_CD}
+                                            </td>
+                                        </tr>
+                                        <tr class="no_search">
+                                            <th align="right" class="no_search" nowrap>※　　科目コード</th>
+                                            <td bgcolor="#ffffff" colspan="9" nowrap>{rval data/SUBCLASSCD}&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_sub}&nbsp;{rval data/SUBCLASS}
+                                            </td>
+                                        </tr>
+                                        <tr class="no_search"> 
+                                            <th align="right" class="no_search" nowrap>科目名</th>
+                                            <td bgcolor="#ffffff" colspan="9">{rval data/SUBCLASSNAME}</td>
+                                        </tr>
+                                        <tr class="no_search"> 
+                                            <th align="right" class="no_search" nowrap>科目略称</th>
+                                            <td bgcolor="#ffffff" colspan="9">{rval data/SUBCLASSABBV}</td>
+                                        </tr>
+                                        <tr class="no_search"> 
+                                            <th align="right" class="no_search" nowrap>科目名称英字(半角英字)</th>
+                                            <td bgcolor="#ffffff" colspan="9">{rval data/SUBCLASSNAME_ENG}</td>
+                                        </tr>
+                                        <tr class="no_search"> 
+                                            <th align="right" class="no_search" nowrap>科目略称英字(半角英字)</th>
+                                            <td bgcolor="#ffffff" colspan="9">{rval data/SUBCLASSABBV_ENG}</td>
+                                        </tr>
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap>備考</th>
+                                          <td bgcolor="#ffffff" colspan="9">{rval REMARK}</td>
+                                        </tr>
+                                        <tr class="no_search">
+                                            <th width="100" align="right" rowspan="{rval span}" nowrap>成　績</th>
+                                            <th width="40"  align="right">削除</th>
+                                            <th width="70"  align="center">データ種別</th>
+                                            <th width="*"   align="center">評定</th>
+                                            <th width="60"  align="center">①</th>
+                                            <th width="60"  align="center">②</th>
+                                            <th width="60"  align="center">③</th>
+                                            <th width="60"  align="center">④</th>
+                                            <th width="60"  align="center">⑤</th>
+                                        </tr> 
+                                        <!--参照一覧-->
+                                        <!--{def list_d}-->
+                                        <!--{each list_d}--> 
+                                        <tr>
+                                            <td bgcolor="#ffffff" align="center">{rval list_d/CHECKED2}</td>
+                                            <td bgcolor="#ffffff" align="left" {rval list_d/viewhelp}>{rval list_d/SCHOOLNAME}</td>
+                                            <td bgcolor="#ffffff" align="center">{rval list_d/VALUATION}</td>
+                                            <td bgcolor="#ffffff" align="center">{rval list_d/STATUS1}</td>
+                                            <td bgcolor="#ffffff" align="center">{rval list_d/STATUS2}</td>
+                                            <td bgcolor="#ffffff" align="center">{rval list_d/STATUS3}</td>
+                                            <td bgcolor="#ffffff" align="center">{rval list_d/STATUS4}</td>
+                                            <td bgcolor="#ffffff" align="center">{rval list_d/STATUS5}</td>
+                                        </tr>
+                                        <!--{/each}--> 
+                                        <!--{/def}--> 
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap></th>
+                                          <td bgcolor="#ffffff" colspan="9">{rval button/btn_update}{rval button/btn_del}{rval button/btn_063_2call}{rval button/btn_reset}{rval button/btn_end}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+</table>
+
+<div id="myID_Menu" style="position:absolute; visibility:hidden;">
+<table width=120 border="1" cellpadding="1" cellspacing="0" bgcolor="#C0C0C0">
+
+<tr class="no_search_line">
+  <td class="no_search" align="right">
+    <span style="float:left;"><font color="#FFFFFF"><strong>　入力項目　</span><a class="menuTitle" href={rval menuTitle/CLICK_VAL}>{rval menuTitle/CLICK_NAME}</a></strong><br></font>
+  </td>
+</tr>
+
+<tr class="no_search_line">
+  <td bgcolor="#FFFFFF">
+    <!--{each menu}-->
+    <a class="menu" href={rval menu/CLICK_VAL}>{rval menu/CLICK_NAME}</a><br>
+    <!--{/each}-->
+  </td>
+</tr>
+
+</table>
+</div>
+
+<div id="lay"></div>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

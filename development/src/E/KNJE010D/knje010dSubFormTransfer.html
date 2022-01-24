@@ -1,0 +1,84 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="10" cellpadding="5">
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <hr align="left" width="300">
+            &nbsp;&nbsp;&nbsp;{rval NAME_SHOW}
+            <hr align="left" width="300">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <td width="40" align="center"><LABEL for="CHECKALL">選択</LABEL><br>{rval CHECKALL}</td>
+                      <td width="70" align="center"><LABEL for="CHECK_TRANSFERNAME">異動区分</LABEL><br>{rval CHECK_TRANSFERNAME}</td>
+                      <td width="250" align="center"><LABEL for="CHECK_SDATE_TO_EDATE">異動期間</LABEL><br>{rval CHECK_SDATE_TO_EDATE}</td>
+                      <td width="250" align="center"><LABEL for="CHECK_TRANSFERREASON">事由</LABEL><br>{rval CHECK_TRANSFERREASON}</td>
+                      <td width="*" align="center"><LABEL for="CHECK_TRANSFERPLACE">異動先名称</LABEL><br>{rval CHECK_TRANSFERPLACE}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td width="40" align="center">{rval data/CHECKED}</td>
+                      <td width="70" align="center">{val data/TRANSFERNAME}</td>
+                      <td width="250" align="center">{val data/SDATE_TO_EDATE}</td>
+                      <td width="250" align="center">{val data/TRANSFERREASON}</td>
+                      <td width="*" align="center">{val data/TRANSFERPLACE}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td align="right" nowrap>{rval btn_torikomi}{rval btn_back}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

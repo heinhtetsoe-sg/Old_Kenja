@@ -1,0 +1,323 @@
+﻿{rval start}
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="150" nowrap bgcolor="#00FFFF" align="center">
+            <b><font size="3" color="#000080">基本情報</font><font size="2" color="#000080"><BR>(健康管理)</font></b>
+          </td>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+        <td>
+          ●服薬<br>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr>
+              <th align="center" class="no_search" nowrap colspan="4">服薬状況</th>
+            </tr>
+            <tr class="no_search" nowrap align="center">
+              <th width="100">項目</th>
+              <th width="150">薬品名</th>
+              <th width="*">病名・症状</th>
+              <th width="*">服用状況・留意点</th>
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <div style="width: 100%; height=85; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def data2}-->
+                <!--{each data2}-->
+                  <tr bgcolor="#ffffff">
+                    <td width="100" align="left"><a href="knje390mindex.php?cmd=subform1_healthcare_set&YEAR={val data2/YEAR}&SCHREGNO={val data2/SCHREGNO}&RECORD_DIV={val data2/RECORD_DIV}&RECORD_SEQ={val data2/RECORD_SEQ}">{rval data2/CONTENTS_NAME}</a></td>
+                    <td width="150" align="left">{rval data2/MEDICINE_NAME}</td>
+                    <td width="*" align="left">{rval data2/DISEASE_CONDITION_NAME}</td>
+                    <td width="*" align="left">{rval data2/CARE_WAY}</td>
+                  </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+        
+        <tr><td height="10"></td></tr>
+
+<!--{def data}-->
+<!--{def button}-->
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="150" align="right" class="no_search" nowrap>薬品名</th>
+                <td bgcolor="#ffffff">{rval data/MEDICINE_NAME} {rval data/MEDICINE_NAME_SIZE}</td>
+              </tr>
+              <tr>
+                <th width="150" align="right" class="no_search" nowrap>病名・症状</th>
+                <td bgcolor="#ffffff">{rval data/DISEASE_CONDITION_NAME}<BR>{rval data/DISEASE_CONDITION_NAME_SIZE}</td>
+              </tr>
+              <tr>
+                <th width="150" align="right" class="no_search" nowrap>服用状況・留意点</th>
+                <td bgcolor="#ffffff">{rval data/CARE_WAY}<BR>{rval data/CARE_WAY_SIZE}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td align="left" bgcolor="#ffffff">{rval button/btn_insert}{rval button/btn_update}{rval button/btn_delete}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+<!--{/def}-->
+<!--{/def}-->
+        
+        <tr><td height="20"></td></tr>
+        <tr>
+          <td>
+            ●医療ケア<br>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr class="no_search_line">
+            <td>
+              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th align="center" class="no_search" nowrap colspan="5">医療的ケア</th>
+              </tr>
+              <tr class="no_search" nowrap align="center">
+                <th width="100">項目</th>
+                <th width="*">ケアの種類</th>
+                <th width="90">学校</th>
+                <th width="90">家庭病院</th>
+                <th width="90">事業所</th>
+              </tr>
+              </table>
+            </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width: 100%; height=85; overflow: auto">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <!--{def data3}-->
+                  <!--{each data3}-->
+                    <tr bgcolor="#ffffff">
+                      <td width="100" align="left"><a href="knje390mindex.php?cmd=subform1_healthcare_set2&YEAR={val data3/YEAR}&SCHREGNO={val data3/SCHREGNO}&RECORD_DIV={val data3/RECORD_DIV}&RECORD_SEQ={val data3/RECORD_SEQ}">{rval data3/CONTENTS_NAME}</a></td>
+                      <td width="*" align="left">{rval data3/MEDICAL_NAMECD}</td>
+                      <td width="90" align="center">{rval data3/SCHOOL_CARE}</td>
+                      <td width="90" align="center">{rval data3/HOUSE_CARE}</td>
+                      <td width="90" align="center">{rval data3/CENTER_CARE}</td>
+                    </tr>
+                  <!--{/each}-->
+                  <!--{/def}-->
+                  </table>
+                </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        
+        <tr><td height="10"></td></tr>
+        
+<!--{def data}-->
+<!--{def button}-->
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="*">ケアの種類</th>
+              <th width="90">学校</th>
+              <th width="90">家庭病院</th>
+              <th width="90">事業所</th>
+            </tr>
+            <tr bgcolor="#ffffff">
+              <td width="*" align="left">{rval data/MEDICAL_NAMECD}</td>
+              <td width="90" align="center">{rval data/SCHOOL_CARE}</td>
+              <td width="90" align="center">{rval data/HOUSE_CARE}</td>
+              <td width="90" align="center">{rval data/CENTER_CARE}</td>
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+          <td>{rval button/btn_insertC}{rval button/btn_updateC}{rval button/btn_deleteC}{rval button/btn_back}</td>
+        </tr>
+
+        <tr><td height="20"></td></tr>
+
+        <tr>
+          <td>
+            ●アレルギー
+          </td>
+        </tr>
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th align="center" class="no_search" nowrap colspan="3">アレルギー</th>
+              </tr>
+              <tr>
+                <th width="120" align="right" class="no_search" nowrap rowspan="2">食物アレルギー</th>
+                <th width="120" align="right" class="no_search" nowrap>除去する食品</th>
+                <td bgcolor="#ffffff" nowrap>{rval data/ALLERGIA_FOOD_CAT}<br>{rval data/ALLERGIA_FOOD_CAT_SIZE}</td>
+              </tr>
+              <tr>
+                <th width="120" align="right" class="no_search" nowrap>取組プラン</th>
+                <td bgcolor="#ffffff" nowrap>{rval data/ALLERGIA_PLAN}<LABEL for="ALLERGIA_PLAN">有</LABEL><br>
+                  特記事項:&nbsp;{rval data/ALLERGIA_SPECIAL_REPORT}<br>
+                  　　　　　{rval data/ALLERGIA_SPECIAL_REPORT_SIZE}
+                </td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap colspan="2">その他のアレルギー</th>
+                <td bgcolor="#ffffff" nowrap>{rval data/ALLERGIA_REMARK}<br>{rval data/ALLERGIA_REMARK_SIZE}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap colspan="2">&nbsp;</th>
+                <td align="left" bgcolor="#ffffff" nowrap>{rval button/btn_update2}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+<!--{/def}-->
+<!--{/def}-->
+        <tr><td height="20"></td></tr>
+
+        <tr>
+          <td>
+            ●発作<br>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr class="no_search_line">
+            <td>
+              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th align="center" class="no_search" nowrap colspan="5">発作(最大3つまで登録可能)</th>
+              </tr>
+              <tr class="no_search" nowrap align="center">
+                <th width="100">項目</th>
+                <th width="250">頻度</th>
+                <th width="250">症状</th>
+                <th width="*">発作時の対応</th>
+              </tr>
+              </table>
+            </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width: 100%; height=85; overflow: auto">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <!--{def data4}-->
+                  <!--{each data4}-->
+                    <tr bgcolor="#ffffff">
+                      <td width="100" align="left"><a href="knje390mindex.php?cmd=subform1_healthcare_set3&YEAR={val data4/YEAR}&SCHREGNO={val data4/SCHREGNO}&RECORD_DIV={val data4/RECORD_DIV}&RECORD_SEQ={val data4/RECORD_SEQ}">{rval data4/CONTENTS_NAME}</a></td>
+                      <td width="250" align="left">{rval data4/VSPASM_FREQUENCY}</td>
+                      <td width="250" align="left">{rval data4/VSPASM_SYMPTOM}</td>
+                      <td width="*" align="left">{rval data4/VSPASM_SUPPORT}</td>
+                    </tr>
+                  <!--{/each}-->
+                  <!--{/def}-->
+                  </table>
+                </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+
+        <tr><td height="10"></td></tr>
+
+<!--{def data}-->
+<!--{def button}-->
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="150" align="right" class="no_search" nowrap>頻度</th>
+                <td bgcolor="#ffffff">{rval data/REMARK1}<BR>{rval data/REMARK1_SIZE}</td>
+              </tr>
+              <tr>
+                <th width="150" align="right" class="no_search" nowrap>症状</th>
+                <td bgcolor="#ffffff">{rval data/REMARK2}<BR>{rval data/REMARK2_SIZE}</td>
+              </tr>
+              <tr>
+                <th width="150" align="right" class="no_search" nowrap>発作時の対応</th>
+                <td bgcolor="#ffffff">{rval data/REMARK3}<BR>{rval data/REMARK3_SIZE}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td align="left" bgcolor="#ffffff">{rval button/btn_insertD}{rval button/btn_updateD}{rval button/btn_deleteD}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+<!--{/def}-->
+<!--{/def}-->
+<!--{def data}-->
+<!--{def button}-->
+          <tr><td height="20"></td></tr>
+          <tr><td>●配慮事項</td></tr>
+            <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="150" class="no_search" nowrap>配慮事項</th>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">{rval data/REMARK4}<BR>{rval data/REMARK4_SIZE}</td>
+              </tr>
+              <tr>
+                <td align="left" bgcolor="#ffffff">{rval button/btn_updateE}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+<!--{/def}-->
+<!--{/def}-->
+
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish} 

@@ -1,0 +1,165 @@
+{rval start}
+{rval IFRAME}
+<style type="text/css">
+<!--
+    a.LinkColorRed:link {color:#ff0000;}
+    a.LinkColorRed:visited{color:#ff0000;} 
+    a.LinkColorRed:hover{color:#ff0000;} 
+    a.LinkColorRed:active{color:#ff0000;} 
+-->
+</style>
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+    <th valign="top">
+    <table width="1000px" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+        <tr class="no_search" align="left" nowrap>
+            <td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年度：{rval IBYEAR}<BR>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学年：{rval IBGRADE}<BR>
+                &nbsp;IBコース：{rval IBPRG_COURSE}<BR>
+                &nbsp;&nbsp;&nbsp;IB科目：{rval IBSUBCLASSCD}<BR>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </th>
+</tr>
+<tr><td><br></td></tr>
+<tr>
+    <th valign="top">
+    <table width="1000px" border="0" cellspacing="0" cellpadding="0">
+
+    <tr>
+
+        <th>
+
+            <div style="width: 150px; height:110px;">
+            <table width="100%" border="0" cellspacing="1" cellpadding="6" bgcolor="#000066">
+
+            <tr class="no_search" align="center" nowrap>
+                <td width="100" height="20">学期</td>
+            </tr>
+            <tr class="no_search" align="center" nowrap>
+                <td width="100" height="20">観点(教科・科目)</td>
+            </tr>
+            <tr class="no_search" align="center" nowrap>
+                <td width="100" height="20">評価基準</td>
+            </tr>
+            <tr class="no_search" align="center" nowrap>
+                <td width="100" height="20">評価基準 ／ 観点</td>
+            </tr>
+
+            </table>
+            </div>
+
+        </th>
+
+        <th align="LEFT">
+
+            <div id="trow" style="overflow:hidden; width: 833px; height; 110px;">
+
+                <div style="width: {rval TITLE_TOTALWIDTH}px; height:110px;">
+
+                <table width="100%" border="0" cellspacing="1" cellpadding="6" bgcolor="#000066">
+                    {rval TITLE/SEMESTER}
+                    {rval TITLE/SUBCLASS}
+                    {rval TITLE/HYOUKA}
+                    {rval TITLE/VIEW}
+                </table>
+
+                </div>
+            </div>
+        </th>
+
+    </tr>
+
+
+    <tr valign="TOP">
+        <th>
+
+            <div id="tcol" style="overflow: hidden; width: 150px; height: 413px;">
+                <div style="width: 150px;">
+
+                <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+
+                <!--{each HYOUKA}-->
+                <tr bgcolor="#FFFFFF" align="center" nowrap>
+                    <td width="150px" height="40"><font size="3"><B>{rval HYOUKA/IBEVAL_MARK}</B></font></td>
+                </tr>
+                <!--{/each}-->
+
+                </table>
+                </div>
+            </div>
+
+        </th>
+
+        <th align="LEFT">
+            <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 850px; height: 430px;">
+
+                <div style="width: {rval TITLE_TOTALWIDTH}px;">
+
+                <table id="list" width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+                <!--{each unit_data}-->
+                <tr bgcolor="#FFFFFF" align="center" nowrap>
+                    {rval unit_data/SET_HYOUKA}
+                </tr>
+                <!--{/each}-->
+
+                </table>
+
+                </div>
+            </div>
+
+        </th>
+    </tr>
+
+    <tr>
+        <th align="right" colspan="2">
+        <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+        <tr class="no_search" align="right" nowrap>
+            <td>
+            {rval btn_allok}
+            {rval btn_update}
+            {rval btn_reset}
+            {rval btn_end}
+            　{rval btn_csv}
+            </td>
+        </tr>
+        </table>
+        </th>
+    </tr>
+    </table>
+    </th>
+</tr>
+</table>
+
+<div id="myID_Menu" style="position:absolute; visibility:hidden;">
+<table width=180 border="1" cellpadding="1" cellspacing="0" bgcolor="#C0C0C0">
+
+<tr class="no_search_line">
+  <td class="no_search" align="right">
+    <span style="float:left;"><font color="#FFFFFF"><strong>　入力項目　</span><a class="menuTitle" href={rval menuTitle/CLICK_VAL}>{rval menuTitle/CLICK_NAME}</a></strong><br></font>
+  </td>
+</tr>
+
+<tr class="no_search_line">
+  <td bgcolor="#FFFFFF">
+    <!--{each menu}-->
+    {rval menu/CLICK_NAME_KIGOU}<a class="menu" href={rval menu/CLICK_VAL}>{rval menu/CLICK_NAME}</a><br>
+    <!--{/each}-->
+  </td>
+</tr>
+
+</table>
+</div>
+
+<div id="lay"></div>
+{rval finish}
+

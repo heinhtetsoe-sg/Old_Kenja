@@ -1,0 +1,114 @@
+{rval start}
+
+<!--{def data}-->
+<!--{def button}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <hr width="70%" align="left">
+                &nbsp;{rval SCHREGNO}&nbsp;&nbsp;{val NAME}&nbsp;&nbsp;{val CONDITION_NAME}&nbsp;&nbsp;{val GROUP_NAME}
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="170">科目</th>
+                      <th width="170">単元</th>
+                      <th width="*">個別単元名</th>
+                    </tr>
+                  </table>
+               </td>
+              </tr>
+            </table>
+          
+          <div style="width: 100%; height=170; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def data2}-->
+                <!--{each data2}-->
+                  <tr bgcolor="#ffffff">
+                    <td width="170" align="left"><a href="knjd411index.php?cmd=edit2&YEAR={val data2/YEAR}&SCHREGNO={val data2/SCHREGNO}&SET_SUBCLASSCD={val data2/SET_SUBCLASSCD}&UNITCD={val data2/UNITCD}">{rval data2/SUBCLASS_NAME}</a></td>
+                    <td width="170" align="left">{rval data2/UNIT_NAME}</td>
+                    <td width="*" align="left">{rval data2/UNIT_NAME_ONLY}</td>
+                  </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+          
+          </td>
+        </tr>
+      </table>
+      
+      <table><tr><td></td></tr></table>
+      <table><tr><td></td></tr></table>
+      <table><tr><td></td></tr></table>
+      <table><tr><td></td></tr></table>
+      <table><tr><td></td></tr></table>
+      <table><tr><td></td></tr></table>
+      <table><tr><td></td></tr></table>
+      <table><tr><td></td></tr></table>
+      <table><tr><td></td></tr></table>
+      
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="20%">項 目</th>
+                      <th width="80%">値</th>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap Valign="top">科目</th>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/SUBCLASS_NAME}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap Valign="top">単元コード名</th>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/UNIT_NAME_SET}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap Valign="top">個別単元名</th>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/UNITNAME}</td>
+                    </tr>
+                    <tr> 
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_delete}{rval button/btn_reset}{rval button/btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}--> 
+<!--{/def}--> 
+
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->

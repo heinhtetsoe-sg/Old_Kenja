@@ -1,0 +1,163 @@
+{rval start}
+<table width="700" border="0" cellspacing="10" cellpadding="10">
+    <tr>
+
+      <hr width="15%" align="left">
+        {rval NO}&nbsp;&nbsp;{val NAME}
+      <hr width="15%" align="left">
+
+        <td valign="top">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+
+              <tr>
+              <td valign="top">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                  <tr class="no_search_line">
+                  <td valign="top">
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+                      <tr class="no_search" height="20">
+                        <th align="center" nowrap width="90" height="30"><font size="2">住所<br>有効期間開始</font></th>
+                        <th align="center" nowrap width="90" height="30"><font size="2">住所<br>有効期間終了</font></th>
+                        <th align="center" nowrap width="70" height="30"><font size="2">郵便番号</font></th>
+                        <th align="center" nowrap width="200" height="30">住所</th>
+                        <th align="center" nowrap width="200" height="30">方書き(アパート名等)</th>
+                        <th align="center" nowrap width="50" height="30"><font size="2">方書き<br>印刷可</font></th>
+                        <th align="center" nowrap width="100" height="30">電話番号</th>
+                      </tr>
+
+                    </table>
+                  </td>
+                  </tr>
+
+                  <tr>
+                  <td valign="top">
+                    <div style="width:100%;height:120px;overflow:auto">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                      <tr class="no_search_line">
+                      <td valign="top">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="0">
+
+                          <!--結果一覧-->
+<!--{def rereki_data}-->
+<!--{each rereki_data}-->
+                          <tr height="20">
+                            <td align="center" nowrap width="90" bgcolor="#ffffff">
+                            <a href="knjx_guarantor_addressindex.php?cmd=edit&SCHREGNO={val NO}&GUARANTOR_ISSUEDATE={val rereki_data/GUARANTOR_ISSUEDATE}">{val rereki_data/GUARANTOR_ISSUEDATE}
+                            </a></td>
+                            <td align="center" nowrap width="90"  bgcolor="#ffffff">{rval rereki_data/GUARANTOR_EXPIREDATE}</td>
+                            <td align="left"   nowrap width="70"  bgcolor="#ffffff">{rval rereki_data/GUARANTOR_ZIPCD}</td>
+                            <td align="left"   nowrap width="200" bgcolor="#ffffff">{rval rereki_data/GUARANTOR_ADDR1}</td>
+                            <td align="left"   nowrap width="200" bgcolor="#ffffff">{rval rereki_data/GUARANTOR_ADDR2}</td>
+                            <td align="center" nowrap width="50"  bgcolor="#ffffff">{rval rereki_data/GUARANTOR_ADDR_FLG}</td>
+                            <td align="left"   nowrap width="100" bgcolor="#ffffff">{rval rereki_data/GUARANTOR_TELNO}</td>
+                          </tr>
+<!--{/each}-->
+<!--{/def}-->
+                        </table>
+                      </td>
+                      </tr>
+
+                    </table>
+                    </div>
+                  </td>
+                  </tr>
+
+                  </table>
+                </td>
+              </tr>
+
+            </table>
+        </td>
+    </tr>
+
+    <tr>
+        <td valign="top">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+
+              <font color="red">　「※」のある項目は必須入力</font>
+
+              <tr class="no_search_line">
+                <td nowrap>
+                  <table width="100%" border="0" cellpadding="0" cellspacing="1">
+
+                  <!--結果一覧--> <!--{def data}-->
+                  <tr>
+                    <th width ="20%" align="left" colspan="2" class="no_search" nowrap>
+                      <font color="#CCFFCC"></font>&nbsp;保証人情報&nbsp;&nbsp;</th>
+                  </tr>
+                  </tr>
+                    <th width ="20%" align="right" class="no_search" nowrap>
+                      &nbsp;※&nbsp;住所有効期間</th>
+                    <td bgcolor="#ffffff" nowrap>&nbsp;{rval data/GUARANTOR_ISSUEDATE}&nbsp;&nbsp;～&nbsp;&nbsp;{rval data/GUARANTOR_EXPIREDATE}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>保証人氏名</th>
+                    <td bgcolor="#ffffff" nowrap>&nbsp;{rval data/GUARANTOR_NAME}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>保証人かな</th>
+                    <td bgcolor="#ffffff" nowrap>&nbsp;{rval data/GUARANTOR_KANA}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>戸籍氏名</th>
+                    <td bgcolor="#ffffff" nowrap>&nbsp;{rval data/GUARANTOR_REAL_NAME}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>戸籍氏名かな</th>
+                    <td bgcolor="#ffffff" nowrap>&nbsp;{rval data/GUARANTOR_REAL_KANA}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>性別</th>
+                    <td bgcolor="#ffffff" nowrap>&nbsp;{rval data/GUARANTOR_SEX}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>続柄</th>
+                    <td bgcolor="#ffffff" nowrap>&nbsp;{rval data/RELATIONSHIP}</td>
+                  </tr>
+
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>郵便番号</th>
+                    <td bgcolor="#ffffff" nowrap>&nbsp;{rval data/GUARANTOR_ZIPCD}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>住所</th>
+                    <td bgcolor="#ffffff" nowrap>&nbsp;{rval data/GUARANTOR_ADDR1}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>方書き</th>
+                    <td bgcolor="#ffffff" nowrap>&nbsp;{rval data/GUARANTOR_ADDR2}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>方書き印刷可</th>
+                    <td bgcolor="#ffffff" nowrap>&nbsp;{rval data/GUARANTOR_ADDR_FLG}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right"class="no_search" nowrap>電話番号</th>
+                    <td bgcolor="#ffffff" nowrap>&nbsp;{rval data/GUARANTOR_TELNO}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%"  align="right" class="no_search" nowrap>職種コード</th>
+                    <td bgcolor="#ffffff" nowrap>&nbsp;{rval data/GUARANTOR_JOBCD}</td>
+                  </tr>
+                  <tr>
+                    <th width="20%" height="16" align="right" class="no_search" nowrap>{rval data/PUBLIC_OFFICE_TITLE}</th>
+                    <td bgcolor="#ffffff" nowrap>&nbsp;{rval data/PUBLIC_OFFICE}</td>
+                  </tr>
+                  <tr>
+                    <td bgcolor="#ffffff" colspan="2" nowrap>{rval button/btn_add2}{rval button/btn_update2}{rval button/btn_up_next2}{rval button/btn_del2}{rval button/btn_reset2}{rval button/btn_end2}</td>
+                  </tr>
+                  <!--{/def}-->
+
+                  </table>
+                </td>
+              </tr>
+
+            </table>
+        </td>
+    </tr>
+</table>
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+{rval finish}

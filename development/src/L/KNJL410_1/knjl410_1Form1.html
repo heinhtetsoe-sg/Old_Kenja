@@ -1,0 +1,461 @@
+{rval start}
+{rval IFRAME}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td width="100" nowrap align="center">
+            <b>来校者情報</b>
+          </td>
+          <td>
+            <hr width="50%" align="left">
+              &nbsp;&nbsp;{rval HEADER_INFO}&nbsp;
+            <hr width="50%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+<!-- 更新ボタン -->
+
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--{def button}-->
+                          <tr>
+                            <th class="no_search" nowrap width="100">&nbsp;</th>
+                            <td bgcolor="#ffffff" nowrap>{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+                          </tr>
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <div style="height:550;overflow-y:scroll">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+
+<!-- 1_1.RECRUIT_VISIT_DAT -->
+
+        <tr>
+          <td>
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--{def data1}-->
+                          <tr>
+                            <th class="no_search" nowrap width="100">※　登録日付</th>
+                            <td bgcolor="#ffffff" nowrap width="200">{rval data1/TOUROKU_DATE}</td>
+                            <th class="no_search" nowrap width="100">確定日付</th>
+                            <td bgcolor="#ffffff" nowrap width="200">{rval data1/KAKUTEI_DATE}</td>
+                            <th class="no_search" nowrap width="50" rowspan="3">備考</th>
+                            <td bgcolor="#ffffff" nowrap rowspan="3" valign="top">{rval data1/REMARK1}<BR><font color="red" size="2">全角２０文字×３行<font></td>
+                          </tr>
+                          <tr>
+                            <th class="no_search" nowrap>希望コース</th>
+                            <td bgcolor="#ffffff" nowrap>{rval data1/HOPE_COURSE}</td>
+                            <th class="no_search" nowrap>担当</th>
+                            <td bgcolor="#ffffff" nowrap>{rval data1/STAFFCD}</td>
+                          </tr>
+                          <tr>
+                            <th class="no_search" nowrap>受験種別</th>
+                            <td bgcolor="#ffffff" nowrap colspan="3">{rval data1/TESTDIV}</td>
+                          </tr>
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+<!-- 2.RECRUIT_VISIT_SCORE_DAT -->
+
+        <tr>
+          <td>
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>通知票評定　　確認{rval data1/SCORE_CHK}
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--{def data1}-->
+                          <tr class="no_search">
+                            <th width="100">教科・科目</th>
+                            <th width="40">{rval data1/SUBCLASSNAME01_S_1}</th>
+                            <th width="40">{rval data1/SUBCLASSNAME02_S_1}</th>
+                            <th width="40">{rval data1/SUBCLASSNAME03_S_1}</th>
+                            <th width="40">{rval data1/SUBCLASSNAME04_S_1}</th>
+                            <th width="40">{rval data1/SUBCLASSNAME05_S_1}</th>
+                            <th width="40">{rval data1/SUBCLASSNAME06_S_1}</th>
+                            <th width="40">{rval data1/SUBCLASSNAME07_S_1}</th>
+                            <th width="40">{rval data1/SUBCLASSNAME08_S_1}</th>
+                            <th width="40">{rval data1/SUBCLASSNAME09_S_1}</th>
+                            <th width="60">３科計</th>
+                            <th width="60">５科計</th>
+                            <th width="60">９科計</th>
+                            <th width="60">算出</th>
+                            <th width="40">選択</th>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td align="center">{rval data1/SEMESTER_S_1}</td>
+                            <td align="center">{rval data1/SUBCLASSCD01_S_1}</td>
+                            <td align="center">{rval data1/SUBCLASSCD02_S_1}</td>
+                            <td align="center">{rval data1/SUBCLASSCD03_S_1}</td>
+                            <td align="center">{rval data1/SUBCLASSCD04_S_1}</td>
+                            <td align="center">{rval data1/SUBCLASSCD05_S_1}</td>
+                            <td align="center">{rval data1/SUBCLASSCD06_S_1}</td>
+                            <td align="center">{rval data1/SUBCLASSCD07_S_1}</td>
+                            <td align="center">{rval data1/SUBCLASSCD08_S_1}</td>
+                            <td align="center">{rval data1/SUBCLASSCD09_S_1}</td>
+                            <td align="center">{rval data1/TOTAL3_S_1}</td>
+                            <td align="center">{rval data1/TOTAL5_S_1}</td>
+                            <td align="center">{rval data1/TOTAL9_S_1}</td>
+                            <td align="center">{rval button/btn_keisanScore1}</td>
+                            <td align="center">{rval data1/SELECT_DIV_S_1}</td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td align="center">{rval data1/SEMESTER_S_2}</td>
+                            <td align="center">{rval data1/SUBCLASSCD01_S_2}</td>
+                            <td align="center">{rval data1/SUBCLASSCD02_S_2}</td>
+                            <td align="center">{rval data1/SUBCLASSCD03_S_2}</td>
+                            <td align="center">{rval data1/SUBCLASSCD04_S_2}</td>
+                            <td align="center">{rval data1/SUBCLASSCD05_S_2}</td>
+                            <td align="center">{rval data1/SUBCLASSCD06_S_2}</td>
+                            <td align="center">{rval data1/SUBCLASSCD07_S_2}</td>
+                            <td align="center">{rval data1/SUBCLASSCD08_S_2}</td>
+                            <td align="center">{rval data1/SUBCLASSCD09_S_2}</td>
+                            <td align="center">{rval data1/TOTAL3_S_2}</td>
+                            <td align="center">{rval data1/TOTAL5_S_2}</td>
+                            <td align="center">{rval data1/TOTAL9_S_2}</td>
+                            <td align="center">{rval button/btn_keisanScore2}</td>
+                            <td align="center">{rval data1/SELECT_DIV_S_2}</td>
+                          </tr>
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+<!-- 3.RECRUIT_VISIT_MOCK_DAT -->
+
+        <tr>
+          <td>
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>模試偏差値　　確認{rval data1/MOCK_CHK}
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--{def data1}-->
+                          <tr class="no_search">
+                            <th width="100">教科・科目</th>
+                            <th width="40">国語</th>
+                            <th width="40">数学</th>
+                            <th width="40">英語</th>
+                            <th width="40">社会</th>
+                            <th width="40">理科</th>
+                            <th width="60">３科</th>
+                            <th width="60">５科</th>
+                            <th width="200">模試名</th>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td align="center">{rval data1/MONTH_M_04}</td>
+                            <td align="center">{rval data1/SUBCLASSCD01_M_04}</td>
+                            <td align="center">{rval data1/SUBCLASSCD02_M_04}</td>
+                            <td align="center">{rval data1/SUBCLASSCD03_M_04}</td>
+                            <td align="center">{rval data1/SUBCLASSCD04_M_04}</td>
+                            <td align="center">{rval data1/SUBCLASSCD05_M_04}</td>
+                            <td align="center">{rval data1/AVG3_M_04}</td>
+                            <td align="center">{rval data1/AVG5_M_04}</td>
+                            <td align="center">{rval button/btn_keisanMock04}&nbsp;{rval data1/COMPANYCD_M_04}&nbsp;{rval data1/COMPANY_TEXT_M_04}</td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td align="center">{rval data1/MONTH_M_05}</td>
+                            <td align="center">{rval data1/SUBCLASSCD01_M_05}</td>
+                            <td align="center">{rval data1/SUBCLASSCD02_M_05}</td>
+                            <td align="center">{rval data1/SUBCLASSCD03_M_05}</td>
+                            <td align="center">{rval data1/SUBCLASSCD04_M_05}</td>
+                            <td align="center">{rval data1/SUBCLASSCD05_M_05}</td>
+                            <td align="center">{rval data1/AVG3_M_05}</td>
+                            <td align="center">{rval data1/AVG5_M_05}</td>
+                            <td align="center">{rval button/btn_keisanMock05}&nbsp;{rval data1/COMPANYCD_M_05}&nbsp;{rval data1/COMPANY_TEXT_M_05}</td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td align="center">{rval data1/MONTH_M_06}</td>
+                            <td align="center">{rval data1/SUBCLASSCD01_M_06}</td>
+                            <td align="center">{rval data1/SUBCLASSCD02_M_06}</td>
+                            <td align="center">{rval data1/SUBCLASSCD03_M_06}</td>
+                            <td align="center">{rval data1/SUBCLASSCD04_M_06}</td>
+                            <td align="center">{rval data1/SUBCLASSCD05_M_06}</td>
+                            <td align="center">{rval data1/AVG3_M_06}</td>
+                            <td align="center">{rval data1/AVG5_M_06}</td>
+                            <td align="center">{rval button/btn_keisanMock06}&nbsp;{rval data1/COMPANYCD_M_06}&nbsp;{rval data1/COMPANY_TEXT_M_06}</td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td align="center">{rval data1/MONTH_M_07}</td>
+                            <td align="center">{rval data1/SUBCLASSCD01_M_07}</td>
+                            <td align="center">{rval data1/SUBCLASSCD02_M_07}</td>
+                            <td align="center">{rval data1/SUBCLASSCD03_M_07}</td>
+                            <td align="center">{rval data1/SUBCLASSCD04_M_07}</td>
+                            <td align="center">{rval data1/SUBCLASSCD05_M_07}</td>
+                            <td align="center">{rval data1/AVG3_M_07}</td>
+                            <td align="center">{rval data1/AVG5_M_07}</td>
+                            <td align="center">{rval button/btn_keisanMock07}&nbsp;{rval data1/COMPANYCD_M_07}&nbsp;{rval data1/COMPANY_TEXT_M_07}</td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td align="center">{rval data1/MONTH_M_08}</td>
+                            <td align="center">{rval data1/SUBCLASSCD01_M_08}</td>
+                            <td align="center">{rval data1/SUBCLASSCD02_M_08}</td>
+                            <td align="center">{rval data1/SUBCLASSCD03_M_08}</td>
+                            <td align="center">{rval data1/SUBCLASSCD04_M_08}</td>
+                            <td align="center">{rval data1/SUBCLASSCD05_M_08}</td>
+                            <td align="center">{rval data1/AVG3_M_08}</td>
+                            <td align="center">{rval data1/AVG5_M_08}</td>
+                            <td align="center">{rval button/btn_keisanMock08}&nbsp;{rval data1/COMPANYCD_M_08}&nbsp;{rval data1/COMPANY_TEXT_M_08}</td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td align="center">{rval data1/MONTH_M_09}</td>
+                            <td align="center">{rval data1/SUBCLASSCD01_M_09}</td>
+                            <td align="center">{rval data1/SUBCLASSCD02_M_09}</td>
+                            <td align="center">{rval data1/SUBCLASSCD03_M_09}</td>
+                            <td align="center">{rval data1/SUBCLASSCD04_M_09}</td>
+                            <td align="center">{rval data1/SUBCLASSCD05_M_09}</td>
+                            <td align="center">{rval data1/AVG3_M_09}</td>
+                            <td align="center">{rval data1/AVG5_M_09}</td>
+                            <td align="center">{rval button/btn_keisanMock09}&nbsp;{rval data1/COMPANYCD_M_09}&nbsp;{rval data1/COMPANY_TEXT_M_09}</td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td align="center">{rval data1/MONTH_M_10}</td>
+                            <td align="center">{rval data1/SUBCLASSCD01_M_10}</td>
+                            <td align="center">{rval data1/SUBCLASSCD02_M_10}</td>
+                            <td align="center">{rval data1/SUBCLASSCD03_M_10}</td>
+                            <td align="center">{rval data1/SUBCLASSCD04_M_10}</td>
+                            <td align="center">{rval data1/SUBCLASSCD05_M_10}</td>
+                            <td align="center">{rval data1/AVG3_M_10}</td>
+                            <td align="center">{rval data1/AVG5_M_10}</td>
+                            <td align="center">{rval button/btn_keisanMock10}&nbsp;{rval data1/COMPANYCD_M_10}&nbsp;{rval data1/COMPANY_TEXT_M_10}</td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td align="center">{rval data1/MONTH_M_11}</td>
+                            <td align="center">{rval data1/SUBCLASSCD01_M_11}</td>
+                            <td align="center">{rval data1/SUBCLASSCD02_M_11}</td>
+                            <td align="center">{rval data1/SUBCLASSCD03_M_11}</td>
+                            <td align="center">{rval data1/SUBCLASSCD04_M_11}</td>
+                            <td align="center">{rval data1/SUBCLASSCD05_M_11}</td>
+                            <td align="center">{rval data1/AVG3_M_11}</td>
+                            <td align="center">{rval data1/AVG5_M_11}</td>
+                            <td align="center">{rval button/btn_keisanMock11}&nbsp;{rval data1/COMPANYCD_M_11}&nbsp;{rval data1/COMPANY_TEXT_M_11}</td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td align="center">{rval data1/MONTH_M_12}</td>
+                            <td align="center">{rval data1/SUBCLASSCD01_M_12}</td>
+                            <td align="center">{rval data1/SUBCLASSCD02_M_12}</td>
+                            <td align="center">{rval data1/SUBCLASSCD03_M_12}</td>
+                            <td align="center">{rval data1/SUBCLASSCD04_M_12}</td>
+                            <td align="center">{rval data1/SUBCLASSCD05_M_12}</td>
+                            <td align="center">{rval data1/AVG3_M_12}</td>
+                            <td align="center">{rval data1/AVG5_M_12}</td>
+                            <td align="center">{rval button/btn_keisanMock12}&nbsp;{rval data1/COMPANYCD_M_12}&nbsp;{rval data1/COMPANY_TEXT_M_12}</td>
+                          </tr>
+                          <tr>
+                            <th class="no_search" colspan="6" rowspan="2">TOP2（同一月不可）</th>
+                            <td bgcolor="#ffffff" align="center" id="ID_TOP1_AVG3_M_99">{rval data1/TOP1_AVG3_M_99}</td>
+                            <td bgcolor="#ffffff" align="center" id="ID_TOP1_AVG5_M_99">{rval data1/TOP1_AVG5_M_99}</td>
+                            <td bgcolor="#ffffff" align="center" height="30">{rval data1/TOP1_COMPANYCD_M_99}&nbsp;{rval data1/TOP1_COMPANY_TEXT_M_99}</td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff" align="center" id="ID_TOP2_AVG3_M_99">{rval data1/TOP2_AVG3_M_99}</td>
+                            <td bgcolor="#ffffff" align="center" id="ID_TOP2_AVG5_M_99">{rval data1/TOP2_AVG5_M_99}</td>
+                            <td bgcolor="#ffffff" align="center" height="30">{rval data1/TOP2_COMPANYCD_M_99}&nbsp;{rval data1/TOP2_COMPANY_TEXT_M_99}</td>
+                          </tr>
+                          <!--{def button}-->
+                          <tr>
+                            <th class="no_search" colspan="6">TOP2の偏差値平均</th>
+                            <td bgcolor="#ffffff" align="center" colspan="2" id="ID_TOP_AVG_M_99">ＳＳ&nbsp;{rval data1/TOP_AVG_M_99}</td>
+                            <th class="no_search" height="30">{rval button/btn_calcMock}</th>
+                          </tr>
+                          <!--{/def}-->
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+<!-- 1_2.RECRUIT_VISIT_DAT -->
+
+        <tr>
+          <td>
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--{def data1}-->
+                          <tr>
+                            <th class="no_search" nowrap width="100">特待生</th>
+                            <td bgcolor="#ffffff" nowrap width="100">{rval data1/JUDGE_KIND}</td>
+                            <th class="no_search" nowrap width="100">志望校</th>
+                            <td bgcolor="#ffffff" nowrap>{rval data1/SCHOOL_DIV}{rval data1/SCHOOL_NAME}</td>
+                          </tr>
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+<!-- 4.RECRUIT_VISIT_ACTIVE_DAT -->
+
+        <tr>
+          <td>
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--{def data1}-->
+                          <tr class="no_search">
+                            <th width="300">諸活動</th>
+                            <th width="40">選択</th>
+                            <th width="400">中学時代の部活動</th>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff" align="left">{rval data1/LABEL_A_1_001}</td>
+                            <td bgcolor="#ffffff" align="center">{rval data1/REMARK1_A_1_001}</td>
+                            <td bgcolor="#ffffff" align="left" rowspan="8" valign="top">{rval data1/REMARK1_A_2_001}<BR><font color="red" size="2">全角２０文字×８行<font></td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff" align="left">{rval data1/LABEL_A_1_002}</td>
+                            <td bgcolor="#ffffff" align="center">{rval data1/REMARK1_A_1_002}</td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff" align="left">{rval data1/LABEL_A_1_003}</td>
+                            <td bgcolor="#ffffff" align="center">{rval data1/REMARK1_A_1_003}</td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff" align="left">{rval data1/LABEL_A_1_004}</td>
+                            <td bgcolor="#ffffff" align="center">{rval data1/REMARK1_A_1_004}</td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff" align="left">{rval data1/LABEL_A_1_005}</td>
+                            <td bgcolor="#ffffff" align="center">{rval data1/REMARK1_A_1_005}</td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff" align="left">{rval data1/LABEL_A_1_006}</td>
+                            <td bgcolor="#ffffff" align="center">{rval data1/REMARK1_A_1_006}</td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff" align="left">{rval data1/LABEL_A_1_007}</td>
+                            <td bgcolor="#ffffff" align="center">{rval data1/REMARK1_A_1_007}</td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff" align="left">{rval data1/LABEL_A_1_008}</td>
+                            <td bgcolor="#ffffff" align="center">{rval data1/REMARK1_A_1_008}</td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff" align="left">{rval data1/LABEL_A_1_009}</td>
+                            <td bgcolor="#ffffff" align="center">{rval data1/REMARK1_A_1_009}</td>
+                            <th class="no_search">学校外での諸活動</th>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff" align="left">{rval data1/LABEL_A_1_010}</td>
+                            <td bgcolor="#ffffff" align="center">{rval data1/REMARK1_A_1_010}</td>
+                            <td bgcolor="#ffffff" align="left" rowspan="8" valign="top">{rval data1/REMARK1_A_2_002}<BR><font color="red" size="2">全角２０文字×８行<font></td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff" align="left">{rval data1/LABEL_A_1_011}</td>
+                            <td bgcolor="#ffffff" align="center">{rval data1/REMARK1_A_1_011}</td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff" align="left">{rval data1/LABEL_A_1_012}</td>
+                            <td bgcolor="#ffffff" align="center">{rval data1/REMARK1_A_1_012}</td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff" align="left">{rval data1/LABEL_A_1_013}</td>
+                            <td bgcolor="#ffffff" align="center">{rval data1/REMARK1_A_1_013}</td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff" align="left">{rval data1/LABEL_A_1_014}</td>
+                            <td bgcolor="#ffffff" align="center">{rval data1/REMARK1_A_1_014}</td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff" align="left">{rval data1/LABEL_A_1_015}</td>
+                            <td bgcolor="#ffffff" align="center">{rval data1/REMARK1_A_1_015}</td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff" align="left">{rval data1/LABEL_A_1_016}</td>
+                            <td bgcolor="#ffffff" align="center">{rval data1/REMARK1_A_1_016}</td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#ffffff" align="center"><B>合計</B></td>
+                            <td bgcolor="#ffffff" align="center"><B>{rval data1/TOTAL_POINT_A_1}</B></td>
+                          </tr>
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </table>
+      </div>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

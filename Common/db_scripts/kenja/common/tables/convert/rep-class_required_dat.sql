@@ -1,0 +1,33 @@
+-- $Id: 8fe74263f065a59cc36a44ee627d5abe0927a251 $
+
+DROP TABLE CLASS_REQUIRED_DAT_OLD
+RENAME TABLE CLASS_REQUIRED_DAT TO CLASS_REQUIRED_DAT_OLD
+CREATE TABLE CLASS_REQUIRED_DAT( \
+     SCHREGNO       VARCHAR(8) NOT NULL, \
+     CLASSCD        VARCHAR(2) NOT NULL, \
+     SCHOOL_KIND    VARCHAR(2) NOT NULL, \
+     ERR_FLG        VARCHAR(1), \
+     COURSECD       VARCHAR(1), \
+     MAJORCD        VARCHAR(3), \
+     SEQ            VARCHAR(2), \
+     REGISTERCD     VARCHAR(8), \
+     UPDATED        TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+    ) in usr1dms index in idx1dms
+
+INSERT INTO CLASS_REQUIRED_DAT \
+    SELECT \
+        SCHREGNO, \
+        CLASSCD, \
+        SCHOOL_KIND, \
+        ERR_FLG, \
+        COURSECD, \
+        MAJORCD, \
+        SEQ, \
+        REGISTERCD, \
+        UPDATED \
+    FROM \
+        CLASS_REQUIRED_DAT_OLD \
+    WHERE \
+        CURRICULUM_CD = '2'
+
+alter table CLASS_REQUIRED_DAT add constraint PK_CLASSREQUIRE primary key (SCHREGNO, CLASSCD, SCHOOL_KIND)

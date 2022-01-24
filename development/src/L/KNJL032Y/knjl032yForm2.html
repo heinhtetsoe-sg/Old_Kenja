@@ -1,0 +1,99 @@
+{rval start}
+{rval IFRAME}
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tbody>
+    <tr>
+      <td valign="top"><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr bgcolor="#006633">
+            <td align="right">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <tbody>
+                        <tr class="no_search" nowrap align="center">
+                          <th width="35%">項目</th>
+                          <th width="65%">値</th>
+                        </tr>
+                        <tr class="no_search">
+                          <th>試験時間割名</th>
+                          <td bgcolor="#ffffff">{rval PATTERN_NAME}</td>
+                        </tr>
+                        <tr class="no_search">
+                          <th>校時数</th>
+                          <td bgcolor="#ffffff">{rval PERIOD_CNT}&nbsp;{rval btn_detail}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td nowrap>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr><BR>
+                          <td align="left">{rval btn_update}{rval btn_back}</td>
+                        </tr>
+      </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td nowrap>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" nowrap align="center">
+                            <th width="40" align="center" nowrap>校時</th>
+                            <th width="95" align="center" nowrap>試験科目</th>
+                            <th width="*"  align="center" nowrap>時間</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--{def data2}-->
+                          <!--結果一覧-->
+                          <!--{each data2}-->
+                          <tr bgcolor="#ffffff" bgcolor="no_search" nowrap>
+                            <td width="40" align="center">{rval data2/PERIODCD}</th>
+                            <td width="95" align="center">{rval data2/TESTSUBCLASSCD}</th>
+                            <td width="*"  align="center" nowrap>{rval data2/S_HOUR}：{rval data2/S_MINUTE}　～　{rval data2/E_HOUR}：{rval data2/E_MINUTE}</th>
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}

@@ -1,0 +1,121 @@
+{rval start}
+{rval IFRAME}
+
+<table width="95%" border="0" cellspacing="10" cellpadding="0" align="center">
+<tbody>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tbody>
+              <tr class="no_search">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                  <tbody>
+                    <tr class="no_search" height="30">
+                      <th width="15%" nowrap>&nbsp;処理年度：{rval YEAR}年度</th>
+                      <th width="25%" nowrap>学期：{rval SEMESTER}</th>
+                      <th width="25%" nowrap>年組：{rval GRADE_HR_CLASS}</th>
+                      <th width="*"   nowrap>テスト種別：{rval TESTKINDCD}</th>
+                    </tr>
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tbody>
+                    <tr class="no_search">
+                      <th width="100">出席番号</th>
+                      <th width="210">氏名</th>
+                      <th width="*">備考<br><font size=2>(全角で 30文字)</font></th>
+                    </tr>
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width:100%;height:425;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                  <tbody>
+  <!--{each data}-->
+                    <tr>
+                      <td width="100" align="center" bgcolor="{rval data/COLOR}">{rval data/ATTENDNO}</td>
+                      <td width="210" align="left" bgcolor="{rval data/COLOR}">{rval data/NAME}</td>
+                      <td width="*" align="left" bgcolor="{rval data/COLOR}">{rval data/REMARK}　{rval data/SANSYO}</td>
+                    </tr>
+  <!--{/each}-->
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tbody>
+                    <tr class="no_search">
+                      <td>
+                        <table cellpadding="0" cellspacing="0">
+                          <tr class="no_search" height="30">
+                            <td width="90%" align="center">
+                                &nbsp;
+                            </td>
+                            <td width="10%" align="right">
+                                {val btn_update}{val btn_reset}{val btn_end}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+      </table>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+{rval finish}

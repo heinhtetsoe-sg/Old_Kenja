@@ -1,0 +1,52 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr class="no_search_line">
+          <th>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search">
+              <th nowrap width="20%" align="center">処理年度：{rval TAISYOU_YEAR}</th>
+              <th nowrap align = "left"><!--{def schkind}-->　{rval SCHOOL_KIND}<!--{/def}-->&nbsp;&nbsp;&nbsp;&nbsp;{rval copy_btn}</th>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+    <tr>
+  <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+        <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search">
+              <th nowrap width="40%">入金グループ</th>
+              <th nowrap width="60%">入金項目</th>
+          </tr>
+          <!--{def data}-->
+          <!--結果一覧-->
+          <!--{each data}-->
+          <tr bgcolor="#ffffff">
+              <td nowrap>{rval data/COLLECT_GRP_CD}</td>
+              <td nowrap>{rval data/COLLECT_M_CD}</td>
+          </tr>
+          <!--{/each}-->
+          <!--{/def}-->
+            </table>
+        </td>
+          </tr>
+      </table>
+        </td>
+    </tr>
+      </table>
+  </td>
+   </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

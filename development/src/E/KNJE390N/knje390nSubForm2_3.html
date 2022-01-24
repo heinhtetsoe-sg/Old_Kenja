@@ -1,0 +1,125 @@
+﻿{rval start}
+{rval IFRAME}
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="150" nowrap bgcolor="#ADFF2F" align="center">
+            <b><font size="3" color="#006400">アセスメント表</font><font size="2" color="#006400"><BR>(教科等の実態)</font></b>
+          </td>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="30%">教科・科目</th>
+              <th width="30%">{rval STATUS_NAME}</th>
+<!--{def isGroupColumn}-->
+              <th width="*">{rval GROWUP_NAME}</th>
+<!--{/def}-->
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <div style="width: 100%; height=120; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{def data2}-->
+<!--{each data2}-->
+                  <tr bgcolor="#ffffff">
+                    <th width="30%" align="left"><a href="knje390nindex.php?cmd=subform2_actual_set&YEAR={val data2/YEAR}&SCHREGNO={val data2/SCHREGNO}&SUBCLASS={val data2/SUBCLASS}">{rval data2/LABEL}</a></th>
+                    <td width="30%" align="left">{rval data2/STATUS}</td>
+<!--{def isGroupColumn}-->
+                    <td width="*" align="left">{rval data2/FUTURE_CARE}</td>
+<!--{/def}-->
+                  </tr>
+<!--{/each}-->
+<!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+        
+        <tr><td height="20px"></td></tr>
+
+<!--{def data}-->
+<!--{def button}-->
+
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr height="30px">
+                <th width="30%" class="no_search" nowrap>教科・科目</th>
+                <td width="*" bgcolor="#ffffff" nowrap>{rval data/SUBCLASS}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr><td height="20px"></td></tr>
+
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th width="50%" align="center" class="no_search" nowrap>{rval STATUS_NAME}</th>
+<!--{def isGroupColumn}-->
+                <th width="*" align="center" class="no_search" nowrap>{rval GROWUP_NAME}</th>
+<!--{/def}-->
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                  {rval data/SUBCLASS_STATUS}<br>
+                  <font size=2 color="red">&nbsp;{rval data/SUBCLASS_STATUS_COMMENT}</font>
+                </td>
+<!--{def isGroupColumn}-->
+                <td bgcolor="#ffffff">
+                  {rval data/SUBCLASS_FUTURE_CARE}<br>
+                  <font size=2 color="red">&nbsp;{rval data/SUBCLASS_FUTURE_CARE_COMMENT}</font>
+                </td>
+<!--{/def}-->
+              </tr>
+              <tr>
+                <td align="left" bgcolor="#ffffff" colspan="2">
+                  　{rval button/btn_insert}{rval button/btn_update}{rval button/btn_delete}{rval button/btn_back}
+                </td>
+
+              </tr>
+            </table>
+          </td>
+        </tr>
+<!--{/def}-->
+<!--{/def}-->
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish} 

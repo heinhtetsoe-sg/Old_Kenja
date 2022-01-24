@@ -1,0 +1,87 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr > 
+      <td > 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+        <td> 
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search"> 
+            <th width="25%">項 目</th>
+            <th width="75%">値</th>
+          </tr>
+<!--結果一覧-->
+<!--{def data}-->
+
+          <tr>
+            <th align="right" class="no_search" nowrap>※　年度</th>
+            <td bgcolor="#ffffff">{rval data/YEAR}</td>
+          </tr>
+
+          <tr>
+            <th align="right" class="no_search" nowrap>※　外部模試名称</th>
+            <td bgcolor="#ffffff">{rval data/MOCKCD}</td>
+          </tr>
+
+          <tr>
+            <th align="right" class="no_search" nowrap>※　学年</th>
+            <td bgcolor="#ffffff">{rval data/GRADE}</td>
+          </tr>
+
+<!--{def button}--> 
+          <tr>
+            <th align="right" class="no_search" nowrap>※　科目数</th>
+            <td bgcolor="#ffffff">{rval data/FIELD_CNT}　{rval button/btn_kakutei}</td>
+          </tr>
+<input type="text" name="dummy" style="display:none;">
+<!--{/def}--> 
+<!--{/def}--> 
+          </table>
+        </td>
+        </tr>
+      </table>
+<BR>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+        <td> 
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search"> 
+            <th width="5%">No.</th>
+            <th width="25%">模試科目</th>
+            <th width="70%" align="left">※　模試科目(賢者)　　{rval KCOPYYEAR}{rval button/btn_kcopy}</th>
+          </tr>
+<!--結果一覧-->
+<!--{def data2}-->
+<!--{each data2}-->
+          <tr>
+            <td align="center" bgcolor="#ffffff">{rval data2/FIELD_NO}</td>
+            <td align="left" bgcolor="#ffffff">{rval data2/MOSI_SUBCLASS_NAME}</td>
+            <td align="left" bgcolor="#ffffff">{rval data2/MOCK_SUBCLASS_CD}</td>
+          </tr>
+<!--{/each}--> 
+<!--{/def}--> 
+<!--{def button}--> 
+          <tr> 
+            <th align="right" class="no_search" colspan="2" rowspan="2" nowrap>&nbsp;</th>
+            <td bgcolor="#ffffff"><!--{rval button/btn_add}-->{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}</td>
+          </tr>
+          <tr> 
+            <td bgcolor="#ffffff">{rval button/btn_mock}</td>
+          </tr>
+<!--{/def}--> 
+          </table>
+        </td>
+        </tr>
+      </table>
+
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

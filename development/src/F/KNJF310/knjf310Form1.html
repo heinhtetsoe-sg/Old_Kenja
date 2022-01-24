@@ -1,0 +1,242 @@
+{rval start} 
+{rval IFRAME}
+<style type="text/css">
+#tyousei {
+    height : 66px;
+}
+</style>
+
+<!--[if IE 6]>
+<style type="text/css">
+#tyousei {
+    height : 69px;
+}
+</style>
+<![endif]-->
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search">
+                          <th width="*%" align="left" nowrap>
+                                &nbsp;&nbsp;処理年度：{rval YEAR}年度　　{rval TITLE}<BR>
+                                &nbsp;&nbsp;報告データ：{rval FIXED_DATA}　報告日：{rval EXECUTE_DATE}&nbsp;{rval btn_houkoku}　{rval EXE_DATES}
+                          </th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+
+          <tr>
+
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" id="tyousei">
+                        <th rowspan="2" width="150" height="111">学年・性別</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+
+            <td>
+            <div id="trow" style="overflow:hidden; width: 1113px; height; 113;">
+                <div style="width: 1075px; height:113;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+
+                    <tr class="no_search" align="center">
+                      <th rowspan="4" width="50">受験者数</th>
+                      <th rowspan="4" width="50">う歯のなし</th>
+                      <th colspan="6">検査結果</th>
+                      <th colspan="3">歯列・咬合</th>
+                      <th colspan="3">顎関節</th>
+                      <th colspan="3">歯垢の状態</th>
+                      <th colspan="3">歯肉の状態</th>
+                    </tr>
+
+                    <tr class="no_search" align="center">
+                      <th colspan="6">う歯の状況</th>
+                      <th rowspan="3" width="50">異常なし</th>
+                      <th rowspan="3" width="50">定期的観察が必要</th>
+                      <th rowspan="3" width="50">定期医による診断が必要</th>
+                      <th rowspan="3" width="50">異常なし</th>
+                      <th rowspan="3" width="50">定期的観察が必要</th>
+                      <th rowspan="3" width="50">定期医による診断が必要</th>
+                      <th rowspan="3" width="50">ほとんど付着なし</th>
+                      <th rowspan="3" width="50">若干の付着あり</th>
+                      <th rowspan="3" width="50">相当の付着あり</th>
+                      <th rowspan="3" width="50">異常なし</th>
+                      <th rowspan="3" width="50">定期的観察が必要</th>
+                      <th rowspan="3" width="50">定期医による診断が必要</th>
+                    </tr>
+
+                    <tr class="no_search" align="center">
+                      <th rowspan="2" width="50">う歯のあり</th>
+                      <th colspan="5">内訳</th>
+                    </tr>
+
+                    <tr class="no_search" align="center">
+                      <th width="50">要治療う歯あり</th>
+                      <th width="50">う歯処置完了</th>
+                      <th width="50">要注意乳歯あり</th>
+                      <th width="50">要観察歯あり</th>
+                      <th width="50">喪失歯あり</th>
+                    </tr>
+
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+          <tr valign="TOP">
+
+            <td>
+            <div id="tcol" style="overflow: hidden; height: 313px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr height="30" class="no_search">
+                          <!--{def data/ROWSPAN}-->
+                          <td width="100" align="center" rowspan={rval data/ROWSPAN}>{rval data/GRADE_NAME}</td>
+                          <!--{/def}-->
+                          <td width="*"  align="center">{rval data/SEX_NAME}</td>
+
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </td>
+
+            <td>
+            <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 1130px; height: 330px;">
+                <div style="width: 1075px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr height="30">
+                            <td bgcolor="#ffffff" width="50">{rval data/REMARK101}</td>
+                            <td bgcolor="#ffffff" width="50">{rval data/REMARK102}</td>
+                            <td bgcolor="#ffffff" width="50">{rval data/REMARK103}</td>
+                            <td bgcolor="#ffffff" width="50">{rval data/REMARK104}</td>
+                            <td bgcolor="#ffffff" width="50">{rval data/REMARK105}</td>
+                            <td bgcolor="#ffffff" width="50">{rval data/REMARK106}</td>
+                            <td bgcolor="#ffffff" width="50">{rval data/REMARK107}</td>
+                            <td bgcolor="#ffffff" width="50">{rval data/REMARK108}</td>
+                            <td bgcolor="#ffffff" width="50">{rval data/REMARK201}</td>
+                            <td bgcolor="#ffffff" width="50">{rval data/REMARK202}</td>
+                            <td bgcolor="#ffffff" width="50">{rval data/REMARK203}</td>
+                            <td bgcolor="#ffffff" width="50">{rval data/REMARK204}</td>
+                            <td bgcolor="#ffffff" width="50">{rval data/REMARK205}</td>
+                            <td bgcolor="#ffffff" width="50">{rval data/REMARK206}</td>
+                            <td bgcolor="#ffffff" width="50">{rval data/REMARK207}</td>
+                            <td bgcolor="#ffffff" width="50">{rval data/REMARK208}</td>
+                            <td bgcolor="#ffffff" width="50">{rval data/REMARK209}</td>
+                            <td bgcolor="#ffffff" width="50">{rval data/REMARK210}</td>
+                            <td bgcolor="#ffffff" width="50">{rval data/REMARK211}</td>
+                            <td bgcolor="#ffffff" width="50">{rval data/REMARK212}</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <td>
+                          <table cellpadding="0" cellspacing="0">
+                            <tr class="no_search">
+                              <td align="left">
+                              　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+                              　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+                              {rval btn_recalc}　{rval btn_update}{rval btn_can}{rval btn_end}　{rval btn_print}{rval btn_csv}
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                  </table>
+                  </td>
+                </tr>
+            </table>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish} 
+<script language="JavaScript">{rval jscript}{rval Closing}{rval reload}</script>

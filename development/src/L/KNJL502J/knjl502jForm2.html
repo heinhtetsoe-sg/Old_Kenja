@@ -1,0 +1,94 @@
+{rval start}
+
+<br><br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search">
+                      <th align="center" width="30%">項 目</th>
+                      <th align="center" width="70%">値</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>入試方式CD</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td align="left" bgcolor="#ffffff">　　　　{rval data/EXAM_TYPE}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>入試方式名称</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td align="left" bgcolor="#ffffff">　　　　{rval data/EXAMTYPE_NAME}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="center" nowrap>帳票出力略称</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td align="left" bgcolor="#ffffff">　　　　{rval data/EXAMTYPE_NAME_ABBV}</td>
+                    </tr>
+                    <tr>
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search">
+                            <th align="center" valign="top" nowrap>入試科目</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <th>　</th>
+                            <th>　</th>
+                          <tr>
+                            <th align="left" nowrap width="50%">科目選択</th>
+                            <th align="left" nowrap width="50%">判定集計</th>
+                          </tr>
+                          <tr>
+                            <td nowrap bgcolor="#ffffff">{rval data/SUBCLASS_SELECT}<LABEL for={data/SUBCLASS_CHK_LABELID}>{rval data/SUBCLASS_CHK_NAME}</LABEL></td>
+                            <td nowrap bgcolor="#ffffff">{rval data/JUDGE_SUMMARY}</td>
+                          </tr> 
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{def button}-->
+                    <tr>
+                      <th align="right">
+                        <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+                      </th>
+                    </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

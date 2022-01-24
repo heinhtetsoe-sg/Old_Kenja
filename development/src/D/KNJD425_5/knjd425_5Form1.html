@@ -1,0 +1,45 @@
+{rval start}
+<!-- Edit by HPA for PC-talker 読み start 2020/02/03 -->
+<table width="100%" border="0" cellspacing="10" cellpadding="5" id="rightscreen" aria-label="{rval data/NAME_SHOW}の{rval data/TITLE}の情報画面">
+<!-- Edit by HPA for PC-talker 読み end 2020/02/20 -->
+  <tbody>
+    <tr>
+      <td nowrap>
+      <table width="67%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+           <td>
+            <hr align="left" width="100%">&nbsp;&nbsp;&nbsp;{rval data/TITLE}&nbsp;&nbsp;&nbsp;{rval data/NAME_SHOW}&nbsp;&nbsp;&nbsp;{rval data/UPDDATE}</hr><hr align="left" width="100%"></hr><br>
+           </td>
+          </tr>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <!-- Edit by HPA for PC-talker 読み start 2020/02/03 -->
+                  <th colspan={rval data/MERGECEL} aria-label="">{rval data/TITLE}</th>
+                </tr>
+                <tr class="no_search">
+<!--{each headlist}-->
+                  <th aria-label="">{rval headlist/NAME}</th>
+                  <!-- Edit by HPA for PC-talker 読み end 2020/02/20 -->
+<!--{/each}-->
+                </tr>
+<!--{def list}-->
+<!--{each list}-->
+                {rval list/tr_td}
+<!--{/each}-->
+<!--{/def}-->
+                <tr class="no_search">
+                  <td colspan={rval data/MERGECEL} align="right">{rval btn_update5}{rval btn_back}</td>
+                </tr>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}

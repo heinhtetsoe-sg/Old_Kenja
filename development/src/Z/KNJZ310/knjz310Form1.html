@@ -1,0 +1,59 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+        <td valign="top"> 
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr > 
+                  <td > 
+<!--NO001↓ -->
+             <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line">
+               <th>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search"> 
+                <th width="*%" align="left">{rval auth_check}&nbsp;&nbsp;&nbsp;&nbsp;グループ一覧&nbsp対象年度： &nbsp{rval year/VAL}</th>
+                </tr>
+            </table>
+               </th>
+              </tr>
+             </table>
+            <BR>
+<!--NO001↑ -->
+<!--NO001
+                        {rval auth_check}<br><br>
+-->
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line"> 
+                                <td> 
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+                                        <tr class="no_search">
+                                          <th nowrap width="20%">所属職員</th>
+                                          <th nowrap width="30%">グループ<br>コード</th>
+                                          <th nowrap width="50%">グループ名</th>
+                                        </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}--> 
+          <tr>
+             <!--uchima(10/1)<td bgcolor="#ffffff"><a href="#" onclick="parent.location.href='{val link}?GROUPCD={val data/GROUPCD}&GROUPNAME={val data/GROUPNAME}';" target="right_frame">設定</a></td>-->
+             <td nowrap align="center" bgcolor="#ffffff">{val data/link}</td>
+             <td nowrap align="center" bgcolor="#ffffff"><a href="knjz310index.php?cmd=edit&GROUPCD={val data/GROUPCD}" target="right_frame">{val data/GROUPCD}</td>
+             <td nowrap bgcolor="#ffffff">{val data/GROUPNAME}</a></td>
+          </tr> 
+<!--{/each}--> 
+<!--{/def}--> 
+                                  </table>
+
+
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+
+</table>
+{rval finish}

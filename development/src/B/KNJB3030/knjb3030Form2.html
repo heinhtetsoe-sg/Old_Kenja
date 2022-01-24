@@ -1,0 +1,196 @@
+{rval start}
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr height="95%">
+      <td > 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+        <td> 
+          <table width="100%" border="0" cellspacing="1" cellpadding="5">
+          <tr>
+            <th width="30%" height="*" class="no_search" nowrap>項目</th>
+            <th class="no_search" height="25">値</th>
+          </tr>
+<!--結果一覧-->
+<!--{def data}-->
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+        <th align="left" class="no_search" nowrap>※</th>
+        <th align="right" class="no_search" nowrap>講座コード</th>
+        </tr>
+      </table>
+            </th>
+            <td height="*" bgcolor="#ffffff">{rval data/CHAIRCD}<font color="red">&nbsp;(半角数字7桁)</font></td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>講座名称</th>
+            <td height="*" bgcolor="#ffffff">
+              {rval data/CHAIRNAME}<font color="red">&nbsp;{rval data/CHAIRNAME_COMMENT}</font>
+              <span id="statusarea_CHAIRNAME" style="display:none;"></span>
+            </td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>講座略称</th>
+            <td height="*" bgcolor="#ffffff">
+              {rval data/CHAIRABBV}<font color="red">&nbsp;{rval data/CHAIRABBV_COMMENT}</font>
+              <span id="statusarea_CHAIRABBV" style="display:none;"></span>
+            </td>
+          </tr>
+<!--{def chairRetsuMeisho_Hyouji}-->
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>列名称</th>
+            <td height="*" bgcolor="#ffffff">{rval data/SEQ004_REMARK1}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>スモールクラス名称</th>
+            <td height="*" bgcolor="#ffffff">{rval data/SEQ004_REMARK2}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>習熟度クラス名称</th>
+            <td height="*" bgcolor="#ffffff">{rval data/SEQ004_REMARK3}</td>
+          </tr>
+<!--{/def}-->
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr> 
+                <th align="left" class="no_search" nowrap>※</th>
+                <th align="right" class="no_search" nowrap>科目コード</th>
+                </tr>
+              </table>
+            </th>
+            <td height="*" bgcolor="#ffffff">{rval data/SUBCLASSCD}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>履修期間区分</th>
+            <td height="*" bgcolor="#ffffff">{rval data/TAKESEMES}</td>
+          </tr>
+<!--{def useChairDatRisyuuCourse}-->
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>履修コース</th>
+            <td height="*" bgcolor="#ffffff">{rval data/RISYUU_COURSE}</td>
+          </tr>
+<!--{/def}-->
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>授業回数</th>
+            <td height="*" bgcolor="#ffffff">{rval data/LESSONCNT}&nbsp;回／週<BR>うち連続授業&nbsp;{rval data/FRAMECNT}&nbsp;時間が１つ</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>HRクラス</th>
+            <td height="*" bgcolor="#ffffff">{rval button/btn_hrSearch}<BR>{rval data/HR_NAMEABBV}</td>
+          </tr>
+<!--{def useLc_Hrclass}--> 
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>授業クラス</th>
+            <td height="*" bgcolor="#ffffff">{rval button/btn_lcSearch}<BR>{rval data/LC_NAMEABBV}</td>
+          </tr>
+<!--{/def}--> 
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+        <th align="right" class="no_search" nowrap>科目担任</th>
+        <th align="right" class="no_search" nowrap>[正]<BR>[副]</th>
+        </tr>
+      </table>
+            </th>
+            <td height="*" bgcolor="#ffffff">{rval button/btn_subformStaff}<BR>{rval data/STAFFNAME_SHOW1}<BR>{rval data/STAFFNAME_SHOW}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>使用施設</th>
+            <td height="*" bgcolor="#ffffff">{rval button/btn_subformFacility}<BR>{rval data/FACILITYABBV}</td>
+          </tr>
+          <!--{def useTestFacilityFlg}--> 
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>試験会場</th>
+            <td height="*" bgcolor="#ffffff">{rval button/btn_SikenKaizyou}<BR>{rval data/SIKEN_KAIZYOU}</td>
+          </tr>
+          <!--{/def}--> 
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>教科書</th>
+            <td height="*" bgcolor="#ffffff">{rval button/btn_subformTextBook}<BR>{rval data/TEXTBOOKABBV}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>群</th>
+            <td height="*" bgcolor="#ffffff">{rval data/GROUPCD}</td>
+          </tr>
+          <!-- 05/01/19Add 集計フラグ -->
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>集計フラグ</th>
+            <td height="*" class="changeColor" data-name="COUNTFLG"  bgcolor="#ffffff">{rval data/COUNTFLG}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>受講人数</th>
+            <td height="*" bgcolor="#ffffff">{rval data/STD_CNT}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>１日出欠対象外</th>
+            <td height="*" class="changeColor" data-name="NOT_DAY_ATTEND"  bgcolor="#ffffff">{rval data/NOT_DAY_ATTEND}</td>
+          </tr>
+<!--{def KEIKOKUTEN_FLAG}--> 
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>警告点(素点)</th>
+            <td height="*" class="changeColor" data-name="KEIKOKUTEN_SOTEN"  bgcolor="#ffffff">{rval data/KEIKOKUTEN_SOTEN}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>警告点(評価)</th>
+            <td height="*" class="changeColor" data-name="KEIKOKUTEN_HYOUKA"  bgcolor="#ffffff">{rval data/KEIKOKUTEN_HYOUKA}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>警告点(評定)</th>
+            <td height="*" class="changeColor" data-name="KEIKOKUTEN_HYOUTEI"  bgcolor="#ffffff">{rval data/KEIKOKUTEN_HYOUTEI}</td>
+          </tr>
+<!--{/def}--> 
+<!--{/def}--> 
+<!--{def button}--> 
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>{rval btn_jump}</th>
+            <td height="*" bgcolor="#ffffff">{rval button/btn_insert}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+          </tr>
+<!--{/def}--> 
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">
+    document.addEventListener('click', function(e) {tdChangeColor(e)});
+    document.addEventListener('mouseover', function(e) {tdChangeColor(e)});
+    document.addEventListener('mouseout', function(e) {tdChangeColor(e)});
+
+    function tdChangeColor(e) {
+        var t = e.target;
+        if (t.className == "changeColor") {
+            var objName = e.target.getAttribute('data-name');
+            targetCheckBox = document.getElementById(objName);
+
+            switch (e.type) {
+                case "mouseover":
+                    targetCheckBox.parentNode.style.backgroundColor = "pink";
+                    break;
+                case "mouseout":
+                    targetCheckBox.parentNode.style.backgroundColor = "white";
+                    break;
+                case "click":
+                    if (e.target.type != "checkbox") {
+                        targetCheckBox.checked = targetCheckBox.checked ? false: true;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+</script>
+<script language="JavaScript">{rval reload}</script>

@@ -1,0 +1,88 @@
+{rval start}
+{rval IFRAME}
+<BR><BR>
+<table width="1100px" border="0" cellpadding="0" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      
+        <tr>
+          <td height="50">
+            <hr width="40%" align="left">
+                &nbsp;対象年度：{rval YEAR_SHOW}&nbsp;&nbsp;&nbsp;{rval SCHOOLNAME_SHOW}
+            <hr width="40%" align="left">
+          </td>
+        </tr>
+<!--{def HORYU}-->
+        <tr>
+            <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                        <td>
+                            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr class="no_search">
+                                    <th width="250">履修コース</th>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+        <td>
+          <div onScroll="scrollRC()" style="overflow:scroll; width: 100%; height: 170;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def list}-->
+                <!--結果一覧-->
+                <!--{each list}-->
+                <tr>
+                    <td nowrap align="left" width="250" bgcolor="#ffffff">{rval list/COURSECODENAME}</td>
+                </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+<!--{/def}-->
+        <tr height="20px"></tr>
+
+        <tr>
+        <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr class="no_search_line">
+            <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                    <tr class="no_search"> 
+                      <th width="20%">項 目</th>
+                      <th width="80%">値</th>
+                    </tr>
+
+                    <tr class="no_search" height="45px">
+                        <th align="right" width="20%">履修コース</td>
+                        <td align="left" bgcolor="#ffffff" width="80%">{rval data/COURSECODE}</td>
+                    </tr>
+                </table>
+            </td>
+            </tr>
+            </table>
+        </td>
+        </tr>
+        <tr height="5px"></tr>
+        <tr>
+            <td bgcolor="#ffffff">{rval button/btn_insert}{rval button/btn_update}{rval button/btn_delete}{rval button/btn_reset}{rval button/btn_end}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish} 

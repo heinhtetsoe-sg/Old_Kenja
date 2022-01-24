@@ -1,0 +1,416 @@
+/*リストの1から16までのデータ取得*/
+/*データ取る前にデータ件数を別でカウント*/
+SELECT
+    COUNT(*)
+FROM
+    (
+/*************************/
+    SELECT
+        ROW_NUMBER() OVER(ORDER BY t1.SAT_NO) as NO,                        //通番
+        t1.YEAR,                                                            //
+        t1.SAT_NO,                                                          //受験番号
+        t1.NAME1,                                                           //氏名
+        t1.SCHOOLCD,                                                        //
+        t6.FINSCHOOL_NAME_ABBV,                                             //中学校名
+        t1.GRADUATION,                                                      //
+        t3.NAME1 as GRADE,                                                  //卒業
+        t2.SCORE_TOTAL,                                                     //合計
+        t2.JUDGE_SAT,                                                       //
+        t4.NAME1 as JUDGE,                                                  //判定
+        t1.PLACECD,                                                         //
+        t5.PLACEAREA,                                                       //会場地区名
+        case when t1.ABSENCE = '1' then NULL else '欠席' end as ABSENCE     //欠席
+    FROM
+        SAT_APP_FORM_MST t1
+        left join SAT_EXAM_DAT t2 on t1.YEAR = t2.YEAR and t1.SAT_NO = t2.SAT_NO
+        left join FINSCHOOL_MST t6 on t1.SCHOOLCD = t6.FINSCHOOLCD and t6.FINSCHOOL_TYPE = '3'
+        left join NAME_MST t3 on t1.GRADUATION = t3.NAMECD2 and t3.NAMECD1 = 'L205'
+        left join NAME_MST t4 on t2.JUDGE_SAT = t4.NAMECD2 and t4.NAMECD1 = 'L200'
+        left join SAT_EXAM_PLACE_DAT t5 on t1.PLACECD = t5.PLACECD and t1.YEAR = t5.YEAR
+    /*1.県外会場受験の県内生*/
+    WHERE
+        t1.YEAR = '/*CTRL_YEAR*/' AND
+        t1.SCHOOLCD != '2008005' AND
+        t1.PREFCD = '19' AND
+        t1.PLACECD not in ('01','02','03')
+    /*************************/
+    ORDER BY
+        t1.SAT_NO
+/*件数カウント時*/
+)
+/****************/
+
+
+
+//WHEREの中身/////////////////////////////////////////////
+/*2.県外会場受験の長野県中学校生*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t6.FINSCHOOL_PREF_CD = '20' AND
+    t1.PLACECD not in ('01','02','03')
+
+/*3.県内会場受験の長野除く県外生*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD not in ('19','20') AND
+    t1.PLACECD in ('01','02','03')
+
+/*4.すべての長野県中学校生*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t6.FINSCHOOL_PREF_CD = '20' 
+
+/*5.県内の中2以下*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD = '19' AND
+    t1.GRADUATION < '09'
+
+/*6.県内の特奨生*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD = '19' AND
+    t1.GRADUATION > '08' AND
+    t2.JUDGE_SAT = '1'
+
+/*25.県内の特奨生除くA・準A現役*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD = '19' AND
+    t1.GRADUATION = '09' AND
+    t2.JUDGE_SAT in ('2','3')
+
+/*26.県内のB～D現役*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD = '19' AND
+    t1.GRADUATION = '09' AND
+    t2.JUDGE_SAT > '3'
+
+/*7.長野の特奨生*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD = '20' AND
+    t1.GRADUATION > '08' AND
+    t2.JUDGE_SAT = '1'
+
+/*8.長野の特奨生除くA・準A現役*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD = '20' AND
+    t1.GRADUATION = '09' AND
+    t2.JUDGE_SAT in ('2','3')
+
+/*9.長野のB～Dの現役*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD = '20' AND
+    t1.GRADUATION = '09' AND
+    t2.JUDGE_SAT > '3'
+
+/*10.長野除く県外の中2以下*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD not in ('19', '20', '48') AND
+    t1.GRADUATION < '09'
+
+/*11.長野除く県外の特奨生*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD not in ('19', '20', '48') AND
+    t1.GRADUATION > '08' AND
+    t2.JUDGE_SAT = '1'
+
+/*12.長野除く県外の特奨生外A現役*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD not in ('19', '20', '48') AND
+    t1.GRADUATION = '09' AND
+    t2.JUDGE_SAT = '2'
+
+/*13.長野県除く県外のB現役*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD not in ('19', '20', '48') AND
+    t1.GRADUATION = '09' AND
+    t2.JUDGE_SAT = '4'
+
+/*14.長野除く県外のC・Dまたは現役以外*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD not in ('19', '20', '48') AND
+    (t1.GRADUATION = '99' OR t2.JUDGE_SAT > '4')
+
+/*27.海外の中2以下*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD = '48' AND
+    t1.GRADUATION < '09'
+
+/*15.海外の特奨生*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD = '48' AND
+    t2.JUDGE_SAT = '1'
+
+/*16.海外の特奨生除くA・B現役*/
+WHERE
+    t1.YEAR = '/*CTRL_YEAR*/' AND
+    t1.SCHOOLCD != '2008005' AND
+    t1.PREFCD = '48' AND
+    t2.JUDGE_SAT in ('2','4')
+
+
+
+/*17から21までのデータ取得**************************************************/
+/*総件数カウント*/
+SELECT
+    COUNT(*)
+FROM
+    (
+/*************/
+    SELECT
+        ROW_NUMBER() OVER(ORDER BY t1.SAT_NO) as NO,        //通番
+        t1.YEAR,                                            //
+        t1.SAT_NO,                                          //受験番号
+        t1.NAME1,                                           //氏名
+        t1.SCHOOLCD,                                        //
+        t2.FINSCHOOL_NAME_ABBV,                             //中学校名
+        t1.GRADUATION,                                      //
+        t3.NAME1 as GRADE,                                  //卒業
+        t1.PREFCD,                                          //
+        t4.PREF_NAME,                                       //県名
+        t1.GROUPCD,                                         //
+        t5.GROUPNAME                                        //団体名
+    FROM
+        SAT_APP_FORM_MST t1 
+        left join FINSCHOOL_MST t2 on t1.SCHOOLCD = t2.FINSCHOOLCD and t2.FINSCHOOL_TYPE = '3'
+        left join NAME_MST t3 on t1.GRADUATION = t3.NAMECD2 and t3.NAMECD1 = 'L205'
+        left join PREF_MST t4 on t1.PREFCD = t4.PREF_CD
+        left join SAT_GROUP_DAT t5 on t1.YEAR = t5.YEAR and t1.GROUPCD = t5.GROUPCD
+    /*17.県内の欠席者リスト*/
+    WHERE
+        t1.YEAR = '/*CTRL_YEAR*/' AND
+        t1.SCHOOLCD != '2008005' AND
+        t1.ABSENCE = '0' AND
+        t1.PREFCD = '19'
+    /***********************/
+    ORDER BY
+        t1.SAT_NO
+/*件数カウント時*/
+)
+/***********/
+
+//WHERE/////////////////////////////////////////////////////////
+/*18.長野県の欠席者リスト*/
+    WHERE
+        t1.YEAR = '/*CTRL_YEAR*/' AND
+        t1.SCHOOLCD != '2008005' AND
+        t1.ABSENCE = '0' AND
+        t1.PREFCD = '20'
+
+/*19.県外の欠席者リスト*/
+    WHERE
+        t1.YEAR = '/*CTRL_YEAR*/' AND
+        t1.SCHOOLCD != '2008005' AND
+        t1.ABSENCE = '0' AND
+        t1.PREFCD not in ('19','20','48')
+
+/*20.海外の欠席者リスト*/
+    WHERE
+        t1.YEAR = '/*CTRL_YEAR*/' AND
+        t1.SCHOOLCD != '2008005' AND
+        t1.ABSENCE = '0' AND
+        t1.PREFCD = '48'
+
+/*21.浪人リスト*/
+    WHERE
+        t1.YEAR = '/*CTRL_YEAR*/' AND
+        t1.SCHOOLCD != '2008005' AND
+        t1.GRADUATION = '99'
+
+
+
+
+
+/*22.欠科目者リスト*****************************************************/
+/*総件数カウント*/
+SELECT
+    COUNT(*)
+FROM
+    (
+/***********/
+    SELECT
+        ROW_NUMBER() OVER(ORDER BY t1.SAT_NO) as NO,                                        //通番
+        t1.YEAR,                                                                            //
+        t1.SAT_NO,                                                                          //受験番号
+        t1.NAME1,                                                                           //氏名
+        t1.SCHOOLCD,                                                                        //
+        t2.FINSCHOOL_NAME_ABBV,                                                             //中学校名
+        t1.GRADUATION,                                                                      //
+        t3.NAME1 as GRADE,                                                                  //卒業
+        t1.PLACECD,                                                                         //
+        t4.PLACEAREA,                                                                       //会場地区名
+        case when t5.ABSENCE_ENGLISH = '0' then '欠席' else NULL end as ABSENCE_ENGLISH,    //英語
+        case when t5.ABSENCE_MATH = '0' then '欠席' else NULL end as ABSENCE_MATH,          //数学
+        case when t5.ABSENCE_JAPANESE = '0' then '欠席' else NULL end as ABSENCE_JAPANESE   //国語
+    FROM
+        SAT_APP_FORM_MST t1 
+        left join FINSCHOOL_MST t2 on t1.SCHOOLCD = t2.FINSCHOOLCD and t2.FINSCHOOL_TYPE = '3'
+        left join NAME_MST t3 on t1.GRADUATION = t3.NAMECD2 and t3.NAMECD1 = 'L205'
+        left join SAT_EXAM_PLACE_DAT t4 on t1.YEAR = t4.YEAR and t1.PLACECD = t4.PLACECD
+        left join SAT_EXAM_DAT t5 on t1.YEAR = t5.YEAR and t1.SAT_NO = t5.SAT_NO
+    WHERE
+        t1.YEAR = '/*CTRL_YEAR*/' AND
+        t1.SCHOOLCD != '2008005' AND
+        t1.ABSENCE != '0' AND
+        (t5.ABSENCE_ENGLISH = '0' OR t5.ABSENCE_MATH = '0' OR t5.ABSENCE_JAPANESE = '0')
+    ORDER BY
+        t1.SAT_NO
+/*総件数カウント*/
+    )
+/***********/
+
+/*23.県外の特別出願対象生徒を持つ団体**************************************************/
+/*総件数カウント*/
+SELECT
+    COUNT(*)
+FROM
+    (
+/***********/
+    SELECT
+        ROW_NUMBER() OVER(ORDER BY a1.GROUPCD) as NO,   //通番
+        a1.YEAR,                                        //
+        a1.GROUPCD,                                     //
+        a2.GROUPNAME,                                   //団体名
+        a2.GROUPPREF,                                   //
+        a3.PREF_NAME,                                   //県名
+        a1.CNT                                          //人数
+    FROM
+        (
+        SELECT
+            YEAR,
+            GROUPCD,
+            COUNT(*) as CNT
+        FROM
+            (
+            SELECT
+                t1.YEAR,
+                t1.GROUPCD
+            FROM
+                SAT_APP_FORM_MST t1 
+                left join SAT_EXAM_DAT t2 on t1.YEAR = t2.YEAR and t1.SAT_NO = t2.SAT_NO
+            WHERE
+                t1.YEAR = '/*CTRL_YEAR*/'
+            AND
+                t2.JUDGE_SAT in ('1','2')
+            AND
+                t1.SCHOOLCD != '2008005'
+            AND
+                t1.PREFCD not in ('19','20', '48')
+            AND
+                t1.GROUPCD IS NOT NULL
+            AND
+                t1.IND_KUBUN = '2'
+            )
+        GROUP BY
+            YEAR,
+            GROUPCD
+        ) a1
+        left join SAT_GROUP_DAT a2 on a1.YEAR = a2.YEAR and a1.GROUPCD = a2.GROUPCD
+        left join PREF_MST a3 on a2.GROUPPREF = a3.PREF_CD
+    ORDER BY
+        a1.GROUPCD
+/*総件数カウント*/
+    )
+/***********/
+
+
+/*24.出願団体名リスト************************************************************************/
+/*総件数カウント*/
+SELECT
+    COUNT(*)
+FROM
+    (
+/***********/
+    SELECT
+        ROW_NUMBER() OVER(ORDER BY t1.GROUPCD) as NO,   //通番
+        t1.YEAR,                                        //
+        t1.GROUPCD,                                     //
+        t4.GROUPNAME,                                   //団体名
+        t4.GROUPPREF,                                   //
+        t5.PREF_NAME,                                   //県名
+        t1.ALL_CNT,                                     //志願者数
+        t2.TAKE_CNT,                                    //受験者数
+        t3.ABSENCE_CNT                                  //欠席数
+    FROM
+        (SELECT
+            YEAR,
+            GROUPCD,
+            COUNT(*) as ALL_CNT
+        FROM
+            SAT_APP_FORM_MST
+        WHERE
+            YEAR = '/*CTRL_YEAR*/' AND
+            GROUPCD IS NOT NULL AND
+            GROUPCD != '08005'
+        GROUP BY
+            YEAR,
+            GROUPCD
+        ) t1
+        left join (SELECT
+                        YEAR,
+                        GROUPCD,
+                        COUNT(*) as TAKE_CNT
+                    FROM
+                        SAT_APP_FORM_MST
+                    WHERE
+                        YEAR = '/*CTRL_YEAR*/' AND
+                        GROUPCD IS NOT NULL AND
+                        GROUPCD != '08005' AND
+                        ABSENCE != '0'
+                    GROUP BY
+                        YEAR,
+                        GROUPCD
+                    ) t2 on t1.YEAR = t2.YEAR and t1.GROUPCD = t2.GROUPCD
+        left join (SELECT
+                        YEAR,
+                        GROUPCD,
+                        COUNT(*) as ABSENCE_CNT
+                    FROM
+                        SAT_APP_FORM_MST
+                    WHERE
+                        YEAR = '/*CTRL_YEAR*/' AND
+                        GROUPCD IS NOT NULL AND
+                        GROUPCD != '08005' AND
+                        ABSENCE != '1'
+                    GROUP BY
+                        YEAR,
+                        GROUPCD
+                    ) t3 on t1.YEAR = t3.YEAR and t1.GROUPCD = t3.GROUPCD
+        left join SAT_GROUP_DAT t4 on t1.YEAR = t4.YEAR and t1.GROUPCD = t4.GROUPCD
+        left join PREF_MST t5 on t4.GROUPPREF = t5.PREF_CD
+    ORDER BY
+        t1.GROUPCD
+/*総件数カウント*/
+    )
+/***********/
+
+

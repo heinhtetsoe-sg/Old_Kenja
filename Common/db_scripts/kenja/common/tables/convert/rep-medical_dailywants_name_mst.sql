@@ -1,0 +1,25 @@
+-- $Id: 82e1ce06b3ab47fdd737331de4aff6f41d7ed800 $
+
+drop table MEDICAL_DAILYWANTS_NAME_MST_OLD
+
+rename table MEDICAL_DAILYWANTS_NAME_MST to MEDICAL_DAILYWANTS_NAME_MST_OLD
+
+create table MEDICAL_DAILYWANTS_NAME_MST( \
+    NAMECD      VARCHAR(3)   NOT NULL, \
+    NAME        VARCHAR(90) , \
+    DIV         VARCHAR(5)  , \
+    REGISTERCD  VARCHAR(10) , \
+    UPDATED     TIMESTAMP    DEFAULT CURRENT TIMESTAMP \
+ ) in usr1dms index in idx1dms
+
+alter table MEDICAL_DAILYWANTS_NAME_MST add constraint PK_MED_DA_NAME_MST primary key (NAMECD)
+
+insert into MEDICAL_DAILYWANTS_NAME_MST \
+  select  \
+    NAMECD, \
+    NAME, \
+    CAST(NULL AS VARCHAR(5)), \
+    REGISTERCD, \
+    UPDATED \
+ from MEDICAL_DAILYWANTS_NAME_MST_OLD
+

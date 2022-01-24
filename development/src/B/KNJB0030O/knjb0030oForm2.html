@@ -1,0 +1,107 @@
+{rval start}
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr height="95%">
+      <td > 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+        <td> 
+          <table width="100%" border="0" cellspacing="1" cellpadding="5">
+          <tr>
+            <th width="30%" height="*" class="no_search" nowrap>項目</th>
+            <th class="no_search" height="25">値</th>
+          </tr>
+<!--結果一覧-->
+<!--{def data}-->
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+        <th align="left" class="no_search" nowrap>※</th>
+        <th align="right" class="no_search" nowrap>講座コード</th>
+        </tr>
+      </table>
+			</th>
+            <td height="*" bgcolor="#ffffff">{rval data/CHAIRCD}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>講座名称</th>
+            <td height="*" bgcolor="#ffffff">{rval data/CHAIRNAME}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>講座略称</th>
+            <td height="*" bgcolor="#ffffff">{rval data/CHAIRABBV}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr> 
+                <th align="left" class="no_search" nowrap>※</th>
+                <th align="right" class="no_search" nowrap>科目コード</th>
+                </tr>
+              </table>
+            </th>
+            <td height="*" bgcolor="#ffffff">{rval data/SUBCLASSCD}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>履修期間区分</th>
+            <td height="*" bgcolor="#ffffff">{rval data/TAKESEMES}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>授業回数</th>
+            <td height="*" bgcolor="#ffffff">{rval data/LESSONCNT}&nbsp;回／週<BR>うち連続授業&nbsp;{rval data/FRAMECNT}&nbsp;時間が１つ</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>受講クラス</th>
+            <td height="*" bgcolor="#ffffff">{rval button/btn_subform1}<BR>{rval data/HR_NAMEABBV}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+        <th align="right" class="no_search" nowrap>科目担任</th>
+        <th align="right" class="no_search" nowrap>[正]<BR>[副]</th>
+        </tr>
+      </table>
+			</th>
+            <td height="*" bgcolor="#ffffff">{rval button/btn_subform2}<BR>{rval data/STAFFNAME_SHOW1}<BR>{rval data/STAFFNAME_SHOW}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>使用施設</th>
+            <td height="*" bgcolor="#ffffff">{rval button/btn_subform3}<BR>{rval data/FACILITYABBV}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>教科書</th>
+            <td height="*" bgcolor="#ffffff">{rval button/btn_subform4}<BR>{rval data/TEXTBOOKABBV}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>群</th>
+            <td height="*" bgcolor="#ffffff">{rval data/GROUPCD}</td>
+          </tr>
+		  <!-- 05/01/19Add 集計フラグ -->
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>集計フラグ</th>
+            <td height="*" bgcolor="#ffffff">{rval data/COUNTFLG}</td>
+          </tr>
+<!--{/def}--> 
+<!--{def button}--> 
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>{rval btn_jump}</th>
+            <td height="*" bgcolor="#ffffff">{rval button/btn_insert}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+          </tr>
+<!--{/def}--> 
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

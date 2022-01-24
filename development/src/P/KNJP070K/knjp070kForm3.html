@@ -1,0 +1,76 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search_line">
+              <th class="no_search" width="20%">項目</th>
+              <th class="no_search" >値</th>
+            </tr>
+<!--結果一覧-->
+<!--{def data}-->
+
+    <tr>
+                <th align="right" class="no_search" nowrap>
+                費目選択
+                </th>
+                <td bgcolor="#ffffff">費目中分類：<input type="radio" name="radiodiv" value="M" OnClick="ChgEdit('1');" {rval data/checked1}>
+                          &nbsp;&nbsp;費目小分類：<input type="radio" name="radiodiv" value="S" OnClick="ChgEdit('2');" {rval data/checked2}></td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>費目中分類</th>
+                <td bgcolor="#ffffff">
+                  {rval data/EXPENSE_M_CD}
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp1年生自動入金なし{rval data/UN_AUTO_PAYFLG}
+                </td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>納入必要金額</th>
+                <td bgcolor="#ffffff">{rval data/MONEY_DUE}&nbsp;円</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>減免事由</th>
+                <td bgcolor="#ffffff">{rval data/REDUCTION_REASON}</td>
+              </tr>
+<!--{/def}-->
+<!--{def button}-->
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}{rval button/btn_all_edit}</td>
+              </tr>
+<!--{/def}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<script language="JavaScript">
+var s_flg   = new Array();
+var m_money = new Array();
+var reason  = new Array();
+<!--{def data2}-->
+<!--{each data2}-->
+s_flg['{rval data2/idx}'] = '{rval data2/flg}';
+<!--{/each}-->
+<!--{/def}-->
+<!--{def data3}-->
+<!--{each data3}-->
+m_money['{rval data3/idx}'] = '{rval data3/money}';
+reason['{rval data3/idx}'] = '{rval data3/reason}';
+<!--{/each}-->
+<!--{/def}-->
+</script>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval check}
+<!--{def data2}-->
+EnableMoney();
+<!--{/def}-->
+<!--{def data3}-->
+SetMoney();
+<!--{/def}-->
+</script>

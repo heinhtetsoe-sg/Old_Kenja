@@ -1,0 +1,122 @@
+{rval start}
+<style type="text/css">
+<!--
+    .tablespace {color:white; background-color:white; text-align:left }
+    .subtitle {color:white; background-color:#316F9B; font-size:13pt }
+    .stfn {color:black; background-color:white; text-align:left }
+    .rstfn {color:black; background-color:#FFFFCC; text-align:left; font-weight:bold}
+-->
+</style>
+<BR>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10" >
+      <tr> 
+      <td width="70%" > 
+        <table width="100%" border="0" cellspacing="1" cellpadding="6">
+          <tr class="no_search"> 
+            <th colspan = "2">
+            {rval TOP/CONFIRMATION}&nbsp;
+            {rval btn_before} &nbsp;
+            {rval control/executedate} &nbsp;
+            {rval btn_next} &nbsp; {rval btn_end}
+            </th>
+          </tr>
+        </table>
+      </td>
+      <td width="30%" >
+        <table width="100%" border="0" cellspacing="1" cellpadding="10" bgcolor="black">
+          <tr class="no_search">
+            <th width="*%" BGCOLOR="#ffffff"><font color="silver"> 授業無 </font></th>
+            <th width="*%" BGCOLOR="#3399ff"><font color="#ffffff"> 出欠済 </font></th>
+            <th width="*%" BGCOLOR="#ff0099"><font color="#ffffff"> 出欠未 </font></th>
+          </tr>
+        </table>
+      </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+  <tr> 
+  <td valign="top"> 
+    <table align="center" width="998" border="0" cellspacing="0" cellpadding="10">
+      <tr> 
+      <td >
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+          <td colspan="12" bgcolor="#000066"> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search" nowrap align="center">
+                <th width="60" nowrap>クラス</th>
+                <th width="89" nowrap>０</th>
+                <th width="89" nowrap>SHR</th>
+                <th width="89" nowrap>１</th>
+                <th width="89" nowrap>２</th>
+                <th width="89" nowrap>３</th>
+                <th width="89" nowrap>４</th>
+                <th width="89" nowrap>５</th>
+                <th width="89" nowrap>６</th>
+                <th width="89" nowrap>７</th>
+                <th width="*" nowrap>SHR</th>
+              </tr>
+            </table>
+          </td>
+          </tr>
+          <tr>
+          <td colspan="12">
+            <div style="width:100%;height:500;overflow-x:visible;overflow-y:auto";>
+              <table  id="tbl" width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="silver">
+              <!--{def data}-->
+              <!--結果一覧-->
+              <!--{each data}--> 
+                <tr class="tablespace" nowrap>
+                 {rval data/Jumper}
+                 {rval data/Jump_target}
+                <td nowrap width="60" {rval data/backColor} align="center"><font color="#000000">{rval data/TARGETCLASS}</font></td>
+                {rval data/PERIODCD0}
+                {rval data/PERIODCD1}
+                {rval data/PERIODCD2}
+                {rval data/PERIODCD3}
+                {rval data/PERIODCD4}
+                {rval data/PERIODCD5}
+                {rval data/PERIODCD6}
+                {rval data/PERIODCD7}
+                {rval data/PERIODCD8}
+                {rval data/PERIODCD9}
+                </tr>
+                <!--{/each}--> 
+                <!--{/def}--> 
+              </table>
+            </div>
+          </td>
+          </tr>
+          <tr>
+          <td bgcolor="#000066">
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search">
+                <th width="60" nowrap>クラス</th>
+                <th width="89" nowrap>０</th>
+                <th width="89" nowrap>SHR</th>
+                <th width="89" nowrap>１</th>
+                <th width="89" nowrap>２</th>
+                <th width="89" nowrap>３</th>
+                <th width="89" nowrap>４</th>
+                <th width="89" nowrap>５</th>
+                <th width="89" nowrap>６</th>
+                <th width="89" nowrap>７</th>
+                <th width="*" nowrap>SHR</th>
+              </tr>
+            </table>
+          </td>
+          </tr>
+        </table>
+      </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval Closing}{rval jumping}{rval update_chk}</script>
+

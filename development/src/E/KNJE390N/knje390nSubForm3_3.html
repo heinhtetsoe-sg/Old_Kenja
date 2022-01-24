@@ -1,0 +1,130 @@
+﻿{rval start}
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="150" nowrap bgcolor="#FFFF00" align="center">
+            <b><font size="3" color="#FF8C00">B&nbsp;支援計画</font><font size="2" color="#FF8C00"><BR>(福祉)</font></b>
+          </td>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      
+        <tr>
+            {rval data/RECORD_DIV}
+        </tr>
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="100">項目</th>
+              <th width="*">内容</th>
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <div style="width: 100%; height=85; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def data2}-->
+                <!--{each data2}-->
+                  <tr bgcolor="#ffffff">
+                    <td width="100" align="left"><a href="knje390nindex.php?cmd=subform3_welfare_set&YEAR={val data2/YEAR}&SCHREGNO={val data2/SCHREGNO}&RECORD_DIV={val data2/RECORD_DIV}&RECORD_SEQ={val data2/RECORD_SEQ}">{rval data2/CONTENTS_NAME}</a></td>
+                    <td width="*" align="left">{rval data2/CONTENTS_NAIYOU}</td>
+                  </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+        
+        <tr><td height="20"></td></tr>
+
+<!--{def data}-->
+<!--{def button}-->
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{def RECORD_DIV1}-->
+              <tr>
+                <th align="center" class="no_search" nowrap colspan="2">現在の支援と課題、手立て、評価</th>
+              </tr>
+              <tr>
+                <th width="150" align="right" class="no_search" nowrap>現在の支援と課題</th>
+                <td bgcolor="#ffffff">{rval data/SUPPORT_PRESENT}<BR>{rval data/SUPPORT_SIZE}</td>
+              </tr>
+              <tr>
+                <th width="150" align="right" class="no_search" nowrap>手立て</th>
+                <td bgcolor="#ffffff">{rval data/SUPPORT_MEANS}<BR>{rval data/SUPPORT_SIZE}</td>
+              </tr>
+              <tr>
+                <th width="150" align="right" class="no_search" nowrap>評価</th>
+                <td bgcolor="#ffffff">{rval data/SUPPORT_ASSESS}<BR>{rval data/SUPPORT_SIZE}</td>
+              </tr>
+<!--{/def}-->
+<!--{def RECORD_DIV2}-->
+              <tr>
+                <th align="center" class="no_search" nowrap colspan="2">将来必要になると考えられるサービス</th>
+              </tr>
+              <tr>
+                <th width="150" align="right" class="no_search" nowrap>サービス名</th>
+                <td bgcolor="#ffffff">{rval data/SERVICE_NEED_FUTURE}　{rval button/btn_service}<BR>{rval data/SERVICE_NEED_FUTURE_SIZE}</td>
+              </tr>
+<!--{/def}-->
+<!--{def RECORD_DIV3}-->
+              <tr>
+                <th align="center" class="no_search" nowrap colspan="2">連携会議・ケース会議の記録</th>
+              </tr>
+              <tr>
+                <th width="150" align="right" class="no_search" nowrap>会議日</th>
+                <td bgcolor="#ffffff">{rval data/MEETING_DATE}</td>
+              </tr>
+              <tr>
+                <th width="150" align="right" class="no_search" nowrap>構成員</th>
+                <td bgcolor="#ffffff">{rval data/TEAM_MEMBERS}　{rval button/btn_staff}<BR>{rval data/TEAM_MEMBERS_SIZE}</td>
+              </tr>
+              <tr>
+                <th width="150" align="right" class="no_search" nowrap>概要</th>
+                <td bgcolor="#ffffff">{rval data/MEETING_SUMMARY}<BR>{rval data/MEETING_SUMMARY_SIZE}</td>
+              </tr>
+<!--{/def}-->
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td align="left" bgcolor="#ffffff">{rval button/btn_insert}{rval button/btn_update}{rval button/btn_delete}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+<!--{/def}-->
+<!--{/def}-->
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish} 

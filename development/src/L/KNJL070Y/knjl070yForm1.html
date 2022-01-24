@@ -1,0 +1,246 @@
+{rval start}
+<br>
+<br>
+<table width="60%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tbody>
+    <tr>
+      <td valign="top"><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr bgcolor="#006633">
+            <td align="right">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <tbody>
+                        <tr class="no_search">
+                          <th width="30%">項目</th>
+                          <th>値</th>
+                        </tr>
+                        <tr class="no_search">
+                          <th align="right">入試年度</th>
+                          <td bgcolor="#ffffff" style="color:#000000">{rval CTRL_YEAR}</td>
+                        </tr>
+                        <tr class="no_search">
+                          <th align="right">※ 入試制度</th>
+                          <td bgcolor="#ffffff">{rval APPLICANTDIV}</td>
+                        </tr>
+                        <tr class="no_search">
+                          <th align="right">※ 入試区分</th>
+                          <td bgcolor="#ffffff">{rval TESTDIV}</td>
+                        </tr>
+                        <tr class="no_search">
+                          <th align="right">※ 学科・コース</th>
+                          <td bgcolor="#ffffff">{rval COURSE}</td>
+                        </tr>
+                        <tr class="no_search">
+                          <th align="right">※ 専併区分</th>
+                          <td bgcolor="#ffffff">{rval SHDIV}</td>
+                        </tr>
+                        <tr class="no_search">
+                          <th align="right">※ 対象者</th>
+                          <td bgcolor="#ffffff" style="color:black">{rval KIKOKU1}<LABEL for="KIKOKU1">帰国生除く</LABEL>　{rval KIKOKU2}<LABEL for="KIKOKU2">帰国生のみ</LABEL></td>
+                        </tr>
+                        <tr class="no_search">
+                          <th align="right">※ 合格点</th>
+<!--{def isSlideNo}-->
+                          <td bgcolor="#ffffff" style="color:#000000">{rval BORDER_SCORE}点</td>
+<!--{/def}-->
+<!--{def isSlide}-->
+                          <td bgcolor="#ffffff" style="color:#000000">{rval BORDER_SCORE}点　　評定合計：{rval BORDER_DEVIATION}</td>
+<!--{/def}-->
+                        </tr>
+                        <tr class="no_search">
+                          <th align="right">※ 定着率</th>
+                          <td bgcolor="#ffffff" style="color:#000000">{rval BACK_RATE}%</td>
+                        </tr>
+                        <tr class="no_search">
+                          <th align="right">合格者数</th>
+<!--{def isSlideNo}-->
+                          <td bgcolor="#ffffff" style="color:#000000">　　{rval SUCCESS_CNT}　名　　特進ﾁｬﾚﾝｼﾞ： {rval SUCCESS_CNT_CHALLENGE} 名</td>
+<!--{/def}-->
+<!--{def isSlide}-->
+                          <td bgcolor="#ffffff" style="color:#000000">　　{rval SUCCESS_CNT}　名　　スライド： {rval SUCCESS_CNT_CANDI} 名　　特別判定： {rval SUCCESS_CNT_SPECIAL}（{rval SUCCESS_CNT_SPECIAL2}） 名</td>
+<!--{/def}-->
+                        </tr>
+                        <tr class="no_search">
+                          <th align="right">入学予想数</th>
+                          <td bgcolor="#ffffff" style="color:#000000">　　{rval PERCENT}　名</td>
+                        </tr>
+                        <tr class="no_search">
+                          <th></th>
+                          <th bgcolor="#ffffff" align="left" >{rval btn_sim}&nbsp;&nbsp;&nbsp;{rval btn_decision}{rval btn_end}</th>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<BR>
+<BR>
+<table align="center" width="1020" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>確定結果一覧</td>
+    </tr>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="210" rowspan="2">学科・コース</th>
+                        <th width="40"  rowspan="2" align="center" nowrap>入試<BR>区分</th>
+<!--{def isSlideNo}-->
+                        <th colspan="4" align="center" nowrap>専願</th>
+                        <th colspan="4" align="center" nowrap>併願</th>
+                        <th width="150" rowspan="2" align="center" nowrap>合計</th>
+                        <th width="*" rowspan="2" align="center" nowrap>特進ﾁｬﾚﾝｼﾞ</th>
+<!--{/def}-->
+<!--{def isSlide}-->
+                        <th colspan="5" align="center" nowrap>専願</th>
+                        <th colspan="5" align="center" nowrap>併願</th>
+                        <th width="50" rowspan="2" align="center" nowrap>合計</th>
+                        <th width="50" rowspan="2" align="center" nowrap>スラ<BR>イド</th>
+                        <th width="*"  rowspan="2" align="center" nowrap>特別<BR>判定</th>
+<!--{/def}-->
+                      </tr>
+                      <tr class="no_search">
+                        <th width="50" align="center" nowrap><font style="font-size:9pt">合格点</font></th>
+<!--{def isSlide}-->
+                        <th width="50" align="center" nowrap><font style="font-size:9pt">評定<BR>合計</font></th>
+<!--{/def}-->
+                        <th width="50" align="center" nowrap><font style="font-size:9pt">合格数</font></th>
+                        <th width="50" align="center" nowrap><font style="font-size:9pt">定着率</font></th>
+                        <th width="50" align="center" nowrap><font style="font-size:9pt">入学<BR>予想数</font></th>
+                        <th width="50" align="center" nowrap><font style="font-size:9pt">合格点</font></th>
+<!--{def isSlide}-->
+                        <th width="50" align="center" nowrap><font style="font-size:9pt">評定<BR>合計</font></th>
+<!--{/def}-->
+                        <th width="50" align="center" nowrap><font style="font-size:9pt">合格数</font></th>
+                        <th width="50" align="center" nowrap><font style="font-size:9pt">定着率</font></th>
+                        <th width="50" align="center" nowrap><font style="font-size:9pt">入学<BR>予想数</font></th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <div style="border-style:solid;border-width:0.15pt;border-color:#255476;width:100%;height:180;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <!--{each data}-->
+                      <tr bgcolor="#ffffff" nowrap>
+                        <td width="210" align="left">&nbsp;{rval data/COURSE}:{rval data/EXAMCOURSE_NAME}{rval data/KIKOKU_NAME}</td>
+                        <td width="40" align="right" >{rval data/TESTDIV}</td>
+                        <td width="50" align="right" >{rval data/BORDER_SCORE2_SHDIV1}</td>
+<!--{def isSlide}-->
+                        <td width="50" align="right" >{rval data/BORDER_DEVIATION_SHDIV1}</td>
+<!--{/def}-->
+                        <td width="50" align="right" >{rval data/SUCCESS_CNT2_SHDIV1}</td>
+                        <td width="50" align="right" >{rval data/BACK_RATE_SHDIV1}%</td>
+                        <td width="50" align="right" >{rval data/PERCENT_SHDIV1}</td>
+                        <td width="50" align="right" >{rval data/BORDER_SCORE2_SHDIV2}</td>
+<!--{def isSlide}-->
+                        <td width="50" align="right" >{rval data/BORDER_DEVIATION_SHDIV2}</td>
+<!--{/def}-->
+                        <td width="50" align="right" >{rval data/SUCCESS_CNT2_SHDIV2}</td>
+                        <td width="50" align="right" >{rval data/BACK_RATE_SHDIV2}%</td>
+                        <td width="50" align="right" >{rval data/PERCENT_SHDIV2}</td>
+<!--{def isSlideNo}-->
+                        <td width="150" align="right" >{rval data/SUCCESS_CNT2_TOTAL}</td>
+                        <td width="*" align="right" >{rval data/SUCCESS_CNT_CHALLENGE}</td>
+<!--{/def}-->
+<!--{def isSlide}-->
+                        <td width="50" align="right" >{rval data/SUCCESS_CNT2_TOTAL}</td>
+                        <td width="50" align="right" >{rval data/SUCCESS_CNT_CANDI2_TOTAL}</td>
+                        <td width="*"  align="right" >{rval data/SUCCESS_CNT_SPECIAL_TOTAL}</td>
+<!--{/def}-->
+                      </tr>
+                      <!--{/each}-->
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="210">合計</th>
+                        <td bgcolor="#ffffff" width="40">　</td>
+                        <td bgcolor="#ffffff" width="50">　</td>
+<!--{def isSlide}-->
+                        <td bgcolor="#ffffff" width="50">　</td>
+<!--{/def}-->
+                        <td bgcolor="#ffffff" width="50" align="right" style="color:#000000">{rval sum/SUCCESS_CNT2_SHDIV1}</td>
+                        <td bgcolor="#ffffff" width="50">　</td>
+                        <td bgcolor="#ffffff" width="50">　</td>
+                        <td bgcolor="#ffffff" width="50">　</td>
+<!--{def isSlide}-->
+                        <td bgcolor="#ffffff" width="50">　</td>
+<!--{/def}-->
+                        <td bgcolor="#ffffff" width="50" align="right" style="color:#000000">{rval sum/SUCCESS_CNT2_SHDIV2}</td>
+                        <td bgcolor="#ffffff" width="50">　</td>
+                        <td bgcolor="#ffffff" width="50">　</td>
+<!--{def isSlideNo}-->
+                        <td bgcolor="#ffffff" width="150" align="right" style="color:#000000">{rval sum/SUCCESS_CNT2_TOTAL}</td>
+                        <td bgcolor="#ffffff" width="*" align="right" style="color:#000000">{rval sum/SUCCESS_CNT_CHALLENGE}</td>
+<!--{/def}-->
+<!--{def isSlide}-->
+                        <td bgcolor="#ffffff" width="50" align="right" style="color:#000000">{rval sum/SUCCESS_CNT2_TOTAL}</td>
+                        <td bgcolor="#ffffff" width="50" align="right" style="color:#000000">{rval sum/SUCCESS_CNT_CANDI2_TOTAL}</td>
+                        <td bgcolor="#ffffff" width="*"  align="right" style="color:#000000">{rval sum/SUCCESS_CNT_SPECIAL_TOTAL}</td>
+<!--{/def}-->
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}

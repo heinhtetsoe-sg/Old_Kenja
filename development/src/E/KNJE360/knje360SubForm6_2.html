@@ -1,0 +1,134 @@
+{rval start}
+<style type="text/css"> 
+<!-- 
+#eisuFuka { 
+width: 200px; 
+ime-mode: disabled; 
+} 
+--> 
+</style> 
+<!--{def button}-->
+
+<br>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td>
+            <hr width="350" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="350" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td>
+            検索方法　{rval SEARCH_DIV1}<LABEL for="SEARCH_DIV1">学校名</LABEL>　{rval SEARCH_DIV2}<LABEL for="SEARCH_DIV2">学校コード</LABEL>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <!--{def SEARCH_DIV_1}-->
+            学校名　{rval SEARCH_TXT}　{rval button/btn_search}　　<span style="font-size: small;color: red;">（検索結果：{rval COUNTER}件）</span><br>
+            　<span style="font-size: small;">※ 学校名の一部を入力してください（頭文字でなくても可）</span><br>
+            　<span style="font-size: small;">※ 複数ワードで検索する場合は「東京大　早稲田　慶応」と全角スペースで区切ります</span><br>
+            　<span style="font-size: small;">※ </span><span style="background-color: yellow;">　</span><span style="font-size: small;">：選択済み</span>
+            <!--{/def}-->
+            <!--{def SEARCH_DIV_2}-->
+            学校コード　{rval SEARCH_NO}　{rval button/btn_search}　　<span style="font-size: small;color: red;">（検索結果：{rval COUNTER}件）</span><br>
+            　<span style="font-size: small;">※ 学校コード<span style="font-size: small;color: red;">4</span>桁を入力してください</span><br>
+            　<span style="font-size: small;">※ 複数コードで検索する場合は「0123&nbsp;1234&nbsp;8765」と半角スペースで区切ります</span><br>
+            　<span style="font-size: small;">※ </span><span style="background-color: yellow;">　</span><span style="font-size: small;">：選択済み</span>
+            <!--{/def}-->
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="1050" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line" height="30">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr class="no_search">
+                                  <th align="center" nowrap width="50"><LABEL for="CHECKALL">選択</LABEL><br>{rval CHECKALL}</th>
+                                  <th align="center" nowrap width="130">学校名</th>
+                                  <th align="center" nowrap width="130">学部名</th>
+                                  <th align="center" nowrap width="130">学科名</th>
+<!--{def useCollegeExamCalendar}-->
+                                  <th align="center" nowrap width="100">募集区分</th>
+                                  <th align="center" nowrap width="100">日程</th>
+                                  <th align="center" nowrap width="100">方式</th>
+                                  <th align="center" nowrap width="100">大分類</th>
+                                  <th align="center" nowrap width="*">小分類</th>
+<!--{/def}-->
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div style="{rval HEIGHT}overflow-y:scroll;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="3" id="list" onclick="selectRowList()">
+                                <!--結果一覧--><!--{def data}--><!--{each data}-->
+                                <tr bgcolor="{rval data/BGCOLOR}" height="25">
+                                  <td align="center" nowrap width="50">{rval data/CHECKED}</td>
+                                  <td nowrap width="130">{rval data/SCHOOL_NAME}</td>
+                                  <td nowrap width="130">{rval data/FACULTYNAME}</td>
+                                  <td nowrap width="130">{rval data/DEPARTMENTNAME}</td>
+<!--{def useCollegeExamCalendar}-->
+                                  <td nowrap width="100">{rval data/ADVERTISE_NAME}</td>
+                                  <td nowrap width="100">{rval data/PROGRAM_NAME}</td>
+                                  <td nowrap width="100">{rval data/FORM_NAME}</td>
+                                  <td nowrap width="100">{rval data/L_NAME}</td>
+                                  <td nowrap width="*">{rval data/S_NAME}</td>
+<!--{/def}-->
+                                </tr>
+                                <!--{/each}--><!--{/def}-->
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="no_search_line" height="30">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="center" nowrap>
+                              登録日　{rval TOROKU_DATE}　{rval button/btn_update}　　{rval button/btn_back}
+                            </th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+{rval finish} 

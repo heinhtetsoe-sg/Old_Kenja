@@ -1,0 +1,65 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="70%">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <hr width="70%" align="left">
+                    &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+                  <hr width="70%" align="left">
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="2">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table id="list" width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="center" nowrap width="140" height="25">来室日時</th>
+                            <th align="center" nowrap width="150" height="25">場所</th>
+                            <th align="center" nowrap width="150" height="25">原因</th>
+                            <th align="center" nowrap width="150" height="25">処置</th>
+                          </tr>
+                          <!--結果一覧--><!--{def data}--><!--{each data}-->
+                          <tr bgcolor="#ffffff">
+                            <td nowrap width="140" style="text-align: center;">{val data/VISIT_TIME}</td>
+                            <td nowrap width="150">{val data/OCCUR_PLACE}</td>
+                            <td nowrap width="150">{val data/OCCUR_CAUSE}</td>
+                            <td nowrap width="150">{val data/TREATMENT}</td>
+                          </tr>
+                          <!--{/each}--><!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<script language="JavaScript">{rval reload}{rval close}</script>
+
+{rval finish}

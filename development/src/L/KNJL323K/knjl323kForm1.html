@@ -1,0 +1,60 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR>
+
+<table width="40%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr > 
+    <td > 
+      <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+        <tr class="no_search_line"> 
+          <td width="100%"> 
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="left" class="no_search"> 
+                <td>&nbsp&nbsp&nbsp&nbsp<b>{rval data/YEAR}年度&nbsp&nbsp&nbsp&nbsp試験区分：{rval data/TESTDIV}
+                <div style="margin-left:92px;">特別理由区分：{rval data/SPECIAL_REASON_DIV}</div></b></td>
+              </tr>
+              <tr align="left" bgcolor="#ffffff" height="200">
+                <td >
+                  <FIELDSET style="height=20%;width=100%">&nbsp&nbsp&nbsp&nbsp<LEGEND>出力対象<BR></LEGEND>
+                  &nbsp&nbsp&nbsp&nbsp{rval data/OUTPUT2_1}一般受験者&nbsp&nbsp{rval data/OUTPUT2_2}附属推薦者<BR><BR>
+                  </FIELDSET>
+                  <FIELDSET style="height=50%;width=100%">&nbsp&nbsp&nbsp&nbsp<LEGEND>成績一覧<BR></LEGEND>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/SORT1}受験番号順<BR><BR>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/SORT2}成績順<BR>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/OUTTYPE1}理科型（R）<BR>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/OUTRIKA1}医薬進学者のみ<BR>
+<!-- NO001
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/OUTRIKA2}志願者全員<BR><BR>
+-->
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/OUTRIKA2}<BR><BR>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/OUTTYPE2}アラカルト型（A）<BR>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/OUTARAKALT1}志願者全員<BR>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/OUTARAKALT2}コース別<BR>
+                  </FIELDSET>
+                </td>
+              </tr>
+              <tr align="left" bgcolor="#ffffff" height="40">
+                <td>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/OUTPUT}名前・受験番号出力<BR>
+<!-- NO001 -->
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/OUTPUT3}コース別
+                </td>
+              </tr>
+              <tr align="left" class="no_search" height="20"> 
+                <td nowrap> &nbsp{rval button/btn_print}{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

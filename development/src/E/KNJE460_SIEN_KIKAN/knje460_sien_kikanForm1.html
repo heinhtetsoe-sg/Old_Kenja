@@ -1,0 +1,117 @@
+{rval IFRAME}
+{rval start}
+<!-- Edit by PP for start loading focus 2020-02-03 start -->
+<table width="100%" border="0" cellspacing="10" cellpadding="5" id="screen_id" aria-label="{rval TITLE}">
+<!-- Edit by PP for start loading focus 2020-02-20 end -->
+  <tbody>
+    <tr>
+      <td nowrap>
+        <table width="80%" border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td>
+                <hr align="left" width="100%">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td width="45%" align="left">&nbsp;&nbsp;&nbsp;{rval data/NAME_SHOW}</td>
+                      <td width="55%" align="left">{rval data/TITLE}</td>
+                    </tr>
+                  </table>
+                </hr>
+                <hr align="left" width="100%"></hr><br>
+              <td>
+            </tr>
+            <tr>
+             <td align="left" width="100%">
+               &nbsp;&nbsp;&nbsp;{rval data/YEAR}&nbsp;&nbsp;{rval data/PASTYEAR}&nbsp;{rval btn_pastload}&nbsp;記入者：{rval data/ENTRANT_NAME}<br>
+             </td>
+            </tr>
+            <tr height="20px" border="0">　</tr>
+            <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <td width="10%" align="center" class="no_search" nowrap >学校名</td>
+                      <td width="40%" align="left" bgcolor="#ffffff">{rval data/SCHOOL_NAME}</td>
+                      <td width="10%" align="center" class="no_search" nowrap >学部</td>
+                      <td width="20%" align="left" bgcolor="#ffffff" colspan="2">{rval data/FACULTY_NAME}</td>
+                      <td width="10%" align="center" class="no_search" nowrap >学年</td>
+                      <td width="10%" align="left" bgcolor="#ffffff">{rval data/GRADE}</td>
+                    </tr>
+                    <tr>
+                      <td width="10%" align="center" class="no_search" nowrap >よみがな</td>
+                      <td width="40%" align="left" bgcolor="#ffffff">{rval data/KANA}</td>
+                      <td width="10%" align="center" class="no_search" nowrap rowspan="2">性別</td>
+                      <td width="10%" align="left" bgcolor="#ffffff" rowspan="2">{rval data/SEX}</td>
+                      <td width="10%" align="center" class="no_search" nowrap rowspan="2">生年月日</td>
+                      <td width="20%" align="left" bgcolor="#ffffff" rowspan="2" colspan="2">{rval data/BIRTHDAY}</td>
+                    </tr>
+                    <tr>
+                      <td width="10%" align="center" class="no_search" nowrap >氏名</td>
+                      <td width="40%" align="left" bgcolor="#ffffff">{rval data/NAME}</td>
+                    </tr>
+                    <tr>
+                      <td width="10%" align="center" class="no_search" nowrap >住所</td>
+                      <td width="60%" align="left" bgcolor="#ffffff" colspan="3">{rval data/ADDR}</td>
+                      <td width="10%" align="center" class="no_search" nowrap >電話番号</td>
+                      <td width="20%" align="left" bgcolor="#ffffff" colspan="2">{rval data/TELNO}</td>
+                    </tr>
+                </table>
+              </td>
+            </tr>
+            <tr height="20px" border="0">　</tr>
+            <tr>
+             <td align="left">{rval btn_update}{rval btn_back}&nbsp;&nbsp;&nbsp;関係機関{rval data/SIEN_KIKAN}</td>
+            </tr>
+            </tr>
+            <tr height="20px" border="0">　</tr>
+            <!--{each shienKikan}-->
+            <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr border="0">
+                      <td width="10%" align="left" colspan="3" bgcolor="white" border="0"><b><font color="black">【{rval shienKikan/KIKAN_MEI}】</font></b></td>
+                    </tr>
+                    <tr class="no_search">
+                      <td width="10%" align="center"></td>
+                      <td width="80%" align="center">支援内容1{rval data/SIEN_TYUI}</td>
+                      <td width="10%"   align="center">次年度</td>
+                    </tr
+                    <!--{each shienKikan/list}-->
+                    <tr>
+                      <td width="10%" align="center" bgcolor="#ffffff">
+                        {rval shienKikan/list/KOUMOKU}
+                      </td>
+                      <td width="80%" align="left" bgcolor="#ffffff">
+                        {rval shienKikan/list/SIEN}
+                      </td>
+                      <td width="10%" align="left" bgcolor="#ffffff">
+                        {rval shienKikan/list/STATUS}
+                      </td>
+                    </tr>
+                    <!--{/each}-->
+                </table>
+              </td>
+            </tr>
+            <tr height="20px" border="0">　</tr>
+            <!--{/each}-->
+            <tr>
+              <td align="left" bgcolor="#ffffff">
+                <b>引継事項</b><br>
+                {rval data/HIKITSUGI}<br>
+                <font size=2 color="red">&nbsp;{rval data/HIKITSUGI_COMMENT}</font>
+                <!-- Edit by PP for delete comment 2020-02-03 start -->
+                <span id="statusarea_HIKITSUGI" style="color:blue"></span>
+                <!-- Edit by PP for delete comment 2020-02-20 end -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td align="left">{rval btn_update_1}{rval btn_back}</td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}

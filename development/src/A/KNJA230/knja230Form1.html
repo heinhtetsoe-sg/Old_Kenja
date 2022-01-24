@@ -1,0 +1,127 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+        <td valign="top">
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr class="no_search_line">
+                    <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                        <tr class="no_search">
+<!--                      <td nowrap width="34%">出力形式（名票）<BR>{rval OUTPUT1}全学年用&nbsp;{rval OUTPUT2}学級用枠あり&nbsp;{rval OUTPUT3}学級用枠無し</td>-->
+                          <td nowrap width="10%">&nbsp;出力件数：{rval KENSUU}件&nbsp;&nbsp;</td>
+                          <td>{rval YEAR_SEMESTER}&nbsp;{rval TITLE}&nbsp;　　<font size="1">(1.1)</font></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr class="no_search_line">
+                    <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--結果一覧-->
+                        <tr class="no_search">
+                      <th nowrap width="10">{rval explore}</th>
+                      <th nowrap width="15%">対象科目</th>
+                      <th nowrap width="15%">科目コード</th>
+                      <th nowrap></th>
+                        </tr>
+<!--{each data1}-->
+                <tr>
+                   <td align="center" bgcolor="#ffffff"></td>
+                   <td nowrap bgcolor="#ffffff">{val data1/SUBCLASSNAME}</td>
+<!--{def usecurriculumcd}-->
+                   <td nowrap bgcolor="#ffffff">{val data1/CLASSCD}-{val data1/SCHOOL_KIND}-{val data1/CURRICULUM_CD}-{val data1/SUBCLASSCD}</td>
+<!--{/def}-->
+<!--{def Nocurriculumcd}-->
+                   <td nowrap bgcolor="#ffffff">{val data1/SUBCLASSCD}</td>
+<!--{/def}-->
+                   <td nowrap bgcolor="#ffffff"></td>
+                </tr>
+<!--{/each}-->
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr class="no_search_line">
+                    <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tr class="no_search">
+                          <td>{rval btn_ok}{rval btn_can}</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr class="no_search_line">
+                    <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--結果一覧-->
+                        <tr class="no_search">
+                      <th nowrap width="10">{rval CHECK_ALL}</th>
+<!--2005.05.17
+                      <th nowrap>クラス</th>
+2005.05.17-->
+                      <th nowrap>科目担任</th>
+                      <th nowrap>正</th>
+                      <th nowrap>講座名称</th>
+                      <th nowrap>実施期間</th>
+                      <th nowrap>講座コード</th>
+                      <th nowrap>群コード</th>
+                      <th nowrap>適用開始日付</th>          <!-- 2004-08/07 naka -->
+<!--                      <th nowrap>群SEQ</th>-->
+                        </tr>
+<!--{each data}-->
+                <tr>
+                   <td align="center" bgcolor="{rval data/BGCOLOR}">{val data/CHECK}</td>
+<!--2005.05.17
+                   <td nowrap bgcolor="{rval data/BGCOLOR}">{val data/TARGETCLASS}</td>
+2005.05.17-->
+                   <td nowrap bgcolor="{rval data/BGCOLOR}">{val data/STAFFNAME_SHOW}</td>
+                   <td nowrap align="center" bgcolor="{rval data/BGCOLOR}">{val data/CHARGEDIV}</td>
+                   <td nowrap bgcolor="{rval data/BGCOLOR}">{val data/CLASSALIAS}</td>
+                   <td nowrap bgcolor="{rval data/BGCOLOR}">{val data/TERM}</td>
+                   <td nowrap bgcolor="{rval data/BGCOLOR}">{val data/ATTENDCLASSCD}</td>
+                   <td nowrap bgcolor="{rval data/BGCOLOR}">{val data/GROUPCD}</td>
+                   <td nowrap bgcolor="{rval data/BGCOLOR}">{val data/APPDATE}</td>     <!-- 2004-08/07 naka -->
+<!--                   <td nowrap bgcolor="{rval data/BGCOLOR}">{val data/GROUPSEQ}</td>-->
+                </tr>
+<!--{/each}-->
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">
+{rval ONLOAD}
+</script>

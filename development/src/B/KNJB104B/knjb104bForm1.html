@@ -1,0 +1,67 @@
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <th valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="6" bgcolor="#000066">
+              <tr class="no_search" nowrap style="text-align:left">
+                <th>
+                    年度：{rval YEAR}&nbsp;&nbsp;学期{rval SEMESTER}&nbsp;&nbsp;学年{rval GRADE}&nbsp;&nbsp;試験{rval KOUSA}
+                </th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </th>
+  </tr>
+  <tr>
+    <td>
+      <div id="box3" style="overflow:auto;max-height:834px">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+      <td id="box1" style="vertical-align:top">
+      <table width="100%" border="0" cellspacing="1" cellpadding="2" bgcolor="#000066">
+        <tr class="no_search" nowrap>
+          <th>実施日</th>
+          <th>試験名</th>
+          <th>校時</th>
+          <th>科目名</th>
+          <th>講座名</th>
+          <th>年組</th>
+          <th>教室名</th>
+        </tr>
+<!--{each data}-->
+        <tr bgcolor="#FFFFFF" style="height:51px">
+          <td>{rval data/EXECUTEDATE}</td>
+          <td>{rval data/TESTITEMNAME}</td>
+          <td>{rval data/PERIODNAME}</td>
+          <td>{rval data/SUBCLASSNAME}</td>
+          <td>{rval data/CHAIRNAME}</td>
+          <td>{rval data/HR_NAME}</td>
+          <td>{rval data/FACILITY}</td>
+        </tr>
+<!--{/each}-->
+      </table>
+      </td>
+      </table>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <table width="100%" border="0" cellspacing="0" cellpadding="3"  bgcolor="#000066"> 
+        <tr>
+          <th class="no_search" style="text-align:left">
+              {rval button/btn_update}&nbsp;&nbsp;{rval button/btn_reset}&nbsp;&nbsp;{rval button/btn_end}
+          </th>
+        </tr>
+      </table>
+    </th>
+  </tr>
+</table>
+{rval finish}
+
+

@@ -1,0 +1,189 @@
+{rval start} 
+
+<table width="100%" border="0" cellpadding="0" cellspacing="5" align="center">
+<tr>
+<td>
+  <table style="width: 100%" border="0" cellspacing="5" cellpadding="1">
+    <tr>
+      <td>
+       <table width="100%" border="0" cellspacing="0" cellpadding="1" >
+        <tr class="no_search_line">
+           <th>
+          <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#cccccc">
+          <tr> 
+          <th align="center"><B>伝言登録</B></th>
+          </tr>
+          </table>
+          </th>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    
+    <tr> 
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+              <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      
+                      <tr>
+                          <th width="20%" align="right" class="no_search" nowrap><b>発信者名</b></th>
+                          <td width="*%" bgcolor="#ffffff" colspan="2">{rval data/T_NAME}</td>
+                      </tr>
+                      <tr>
+                          <th width="20%" align="right" class="no_search" nowrap><b>有効期限</b></th>
+                          <td width="40%" bgcolor="#ffffff">{rval data/NUM_DAYS}</td>
+                          <td width="*%" bgcolor="#ffffff"><b>{rval data/TO_DATE}　　まで</b></td>
+                      </tr>
+                  </table>
+              </td>
+          </tr>
+      </table>
+    </td>
+    </tr>
+    
+    <tr> 
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+              <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      
+                      <tr>
+                          <th width="20%" align="right" class="no_search" nowrap><b>伝言内容</b></th>
+                          <td width="*%" bgcolor="#ffffff" colspan="2">{rval data/D_TEXT1}<BR>
+                                                                       {rval data/D_TEXT2}</td>
+                      </tr>
+                  </table>
+              </td>
+          </tr>
+      </table>
+    </td>
+    </tr>
+    
+</td>
+</tr>
+</table>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+
+  <td width="30%" valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+      <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="1" cellpadding="0">
+            <tr class="no_search_line">
+              <td align="center">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                
+                  <tr>
+                    <th class="no_search" align="left" nowrap><b>　課程</b></th>
+                  </tr>
+                
+                  <tr>
+                    <td bgcolor="#ffffff"><BR>
+                                          　{rval data/KATEI1}<LABEL for="KATEI1">定時制課程</LABEL><BR>
+                                          <BR>
+                                          　{rval data/KATEI2}<LABEL for="KATEI2">通信制課程</LABEL><BR>　
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <th class="no_search" align="left" nowrap><b>　抽出条件</b></th>
+                  </tr>
+                
+                  <tr>
+                    <td bgcolor="#ffffff"><BR>
+                                          　{rval data/JOKEN1}<LABEL for="JOKEN1">ＨＲクラス</LABEL><BR>
+                                          <BR>
+                                          　　{rval data/C_HMRM}<BR>
+                                          <BR>
+                                          　{rval data/JOKEN2}<LABEL for="JOKEN2">科目／講座</LABEL><BR>
+                                          <BR>
+                                          　　{rval data/C_KAMK}<BR>
+                                          <BR>
+                                          　　{rval data/C_KOZA}<BR>
+                                          <BR>
+                                          　{rval data/JOKEN3}<LABEL for="JOKEN3">クラブ／委員会</LABEL><BR>
+                                          <BR>
+                                          　　{rval data/C_CLII}<BR>　
+                                          <BR>　
+                    </td>
+                  </tr>
+                
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+
+
+  <td width="*%" valign="top">
+    <table width="100%" border="0" cellpadding="0" cellspacing="5" align="center">
+      <tr class="no_search_line">
+        <td nowrap>
+          <table width="100%" border="0" cellpadding="5" cellspacing="1">
+            <tr bgcolor="#ffffff">
+              <td>
+                <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+                  <tr class="no_search_line">
+                    <td width="100%">
+                      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                        <tr class="no_search">
+                          <td align="center"><B>
+                              {rval data/YEAR}年度　　　{rval data/GAKKI}学期</B>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="no_search_line">
+                    <td width="100%">
+                      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                        <tr align="center" class="no_search">
+                          <th><b>登録済生徒一覧</b></th>
+                          <th class="no_search"></th>
+                          <th><b>生徒一覧</b></th>
+                        </tr>
+                        <tr align="center" bgcolor="#ffffff">
+                          <td width="45%">{rval data/CATEGORY_SELECTED1}</td>
+                          <td width="*%"  class="no_search">{rval button/btn_rights}<BR>
+                            {rval button/btn_right1}
+                            {rval button/btn_left1}<BR>
+                            {rval button/btn_lefts}<BR>
+                          <td width="45%">{rval data/CATEGORY_NAME}</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="no_search_line">
+                    <td width="100%">
+                      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                        <tr align="right" bgcolor="#ffffff" height="20">
+                            <td nowrap>{rval button/btn_insert}{rval button/btn_reset}{rval button/btn_end}</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td nowrap></td>
+      </tr>
+    </table>
+  </td>
+
+</tr>
+</table>
+
+{rval finish} 

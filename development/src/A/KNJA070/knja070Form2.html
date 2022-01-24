@@ -1,0 +1,109 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:58px;">
+  <tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr>
+      <td > 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+        <td> 
+          <table width="100%" border="0" cellspacing="1" cellpadding="5">
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>項目</th>
+            <th class="no_search" height="25">値</th>
+          </tr>
+<!--結果一覧-->
+<!--{def data}-->
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>※学年</th>
+            <td height="*" bgcolor="#ffffff">{rval data/GRADE}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>※組</th>
+            <td height="*" bgcolor="#ffffff">{rval data/HR_CLASS}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>※年組名称</th>
+            <td height="*" bgcolor="#ffffff">{rval data/HR_NAME}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>※年組略称</th>
+            <td height="*" bgcolor="#ffffff">{rval data/HR_NAMEABBV}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>※組名称1</th>
+            <td height="*" bgcolor="#ffffff">{rval data/HR_CLASS_NAME1}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>{rval data/HR_CLASS_NAME2_KOME}組名称2</th>
+            <td height="*" bgcolor="#ffffff">{rval data/HR_CLASS_NAME2}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>{rval button/btn_staff}担任１</th>
+            <td height="*" bgcolor="#ffffff">{rval data/TR_CD1}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>担任２</th>
+            <td height="*" bgcolor="#ffffff">{rval data/TR_CD2}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>担任３</th>
+            <td height="*" bgcolor="#ffffff">{rval data/TR_CD3}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>副担任１</th>
+            <td height="*" bgcolor="#ffffff">{rval data/SUBTR_CD1}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>副担任２</th>
+            <td height="*" bgcolor="#ffffff">{rval data/SUBTR_CD2}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>副担任３</th>
+            <td height="*" bgcolor="#ffffff">{rval data/SUBTR_CD3}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>ＨＲ施設</th>
+            <td height="*" bgcolor="#ffffff">{rval data/HR_FACCD}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>学期授業週数</th>
+            <td height="*" bgcolor="#ffffff">{rval data/CLASSWEEKS}</td>
+          </tr>
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>学期授業日数</th>
+            <td height="*" bgcolor="#ffffff">{rval data/CLASSDAYS}</td>
+          </tr>
+<!--{/def}--> 
+<!--{def button}--> 
+          <tr>
+            <th width="30%" height="*" align="right" class="no_search" nowrap>{rval data/CSV_XLS_NAME}</th>
+            <td height="*" bgcolor="#ffffff">
+              {rval button/btn_add}
+              {rval button/btn_update}
+              {rval button/btn_del}
+              {rval button/btn_reset}
+              {rval button/btn_back}
+              <br>
+<!--{def show_csv}-->
+              {rval data/OUTPUT4}<LABEL for="OUTPUT4">ヘッダ出力(見本)</LABEL><br>
+              {rval data/OUTPUT1}<LABEL for="OUTPUT1">取込</LABEL>{rval data/OUTPUT2}<LABEL for="OUTPUT2">書出</LABEL>
+              ファイル：<span id="type_file">{rval FILE}</span>{val btn_exec}　{rval data/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL><br>
+              {rval data/OUTPUT3}<LABEL for="OUTPUT3">エラー出力</LABEL>
+<!--{/def}--> 
+            </td>
+          </tr>
+<!--{/def}--> 
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

@@ -1,0 +1,74 @@
+{rval start}
+<style>
+.tdVal{
+    background-color:#ffffff;
+    text-align: center;
+}
+.tdVa2{
+    background-color:#ffffff;
+}
+</style>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+  <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr >
+      <td >
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" height="25">
+                <th norwarp width="25%" align="left">　対象年度&nbsp;{rval year}　{rval btn_copy}</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr height="10">
+          <td></td>
+        </tr>
+
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" height="25">
+              <th nowrap width="40px">校種</th>
+              <th nowrap width="80px">{rval ITEM_7}</th>
+              <th nowrap width="150px">{rval ITEM_8}</th>
+              <th nowrap width="100px">フォーマット<br>区分</th>
+              <th nowrap width="50px">{rval ITEM_2}</th>
+              <th nowrap width="100px">{rval ITEM_4}</th>
+              <th nowrap width="200px">{rval ITEM_5}</th>
+              <th nowrap width="*">対象銀行</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+            <!--{each data}-->
+            <tr>
+              <!--{def data/ROWSPAN_KIND}-->
+              <td class="tdVal" rowspan="{val data/ROWSPAN_KIND}">{val data/SCHOOL_KIND_NAME}</td>
+              <!--{/def}-->
+              <!--{def data/ROWSPAN_BANK}-->
+              <td class="tdVal" rowspan="{val data/ROWSPAN_BANK}">{rval data/BANK_CD}</td>
+              <td class="tdVal" rowspan="{val data/ROWSPAN_BANK}">{rval data/BANKNAME_KANA}</td>
+              <!--{/def}-->
+              <td class="tdVal" nowrap>{rval data/FORMAT_DIV}</td>
+              <td class="tdVal" nowrap>{rval data/SHUBETSU_CD}</td>
+              <td class="tdVal" nowrap>{rval data/ACCOUNT_CD}</td>
+              <td class="tdVa2" nowrap>{rval data/ACCOUNTNAME_KANA}</td>
+              <td class="tdVa2" nowrap>{rval data/TARGET_BANK}</td>
+            </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<script language="JavaScript">{rval reload}</script>
+{rval finish}

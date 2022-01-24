@@ -1,0 +1,41 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="10%">証明書区分</th>
+                      <th nowrap width="40%">証明書区分名称</th>
+                      <th nowrap width="50%">証明書</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/PRI_DISPCD}-->
+                      <td nowrap align="center" bgcolor="#ffffff" rowspan="{rval data/PRI_ROWSPAN}">{val data/CERTIF_DIV}</td>
+                      <td nowrap align="left" bgcolor="#ffffff" rowspan="{rval data/PRI_ROWSPAN}"><a href="knjz250_3index.php?cmd=edit&CERTIF_DIV={val data/CERTIF_DIV}&SEND_FLG=1" target="right_frame">{val data/CERTIF_DIV_NAME}</a></td>
+                      <!--{/def}-->
+                      <td nowrap align="left" bgcolor="#ffffff">{val data/KINDNAME}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

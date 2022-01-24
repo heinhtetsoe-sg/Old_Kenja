@@ -1,0 +1,72 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="10" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td nowrap>　　　　{rval YEAR}年度　{rval button/btn_pre_copy}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="150">参照学年学期</th>
+                      <td nowrap width="*" bgcolor="#ffffff">{rval R_GRADE_SEMES}　{rval button/btn_copy}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="150">対象学年学期</th>
+                      <td nowrap width="*" bgcolor="#ffffff">{rval GRADE_SEMES}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="20%">教科</th>
+                      <th nowrap width="40%">観点</th>
+                      <th nowrap width="40%">めあて</th>
+                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <!--{def data/SUBCLASS_SHOW}-->
+                      <td nowrap rowspan="{rval data/ROWSPAN}"><a href="knjz401mindex.php?cmd=edit&SUBCLASSCD={rval data/SUBCLASSCD}" target="right_frame">{rval data/SUBCLASSNAME}</a></td>
+                      <!--{/def}-->
+                      <td>{rval data/VIEWABBV}</td>
+                      <td>{rval data/REMARK1}</td>
+                    </tr>
+<!--{/each}-->
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

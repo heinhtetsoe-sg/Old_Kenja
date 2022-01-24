@@ -1,0 +1,39 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+        <td valign="top"> 
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr > 
+                  <td > 
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line"> 
+                                <td> 
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search"> 
+                                          <th nowrap width="22%">教科</th>
+                                          <th nowrap width="10%">観点<br>コード</th>
+                                          <th nowrap width="*%">観点名称</th>
+                                          <th nowrap width="8%">表示<br>順</th>
+                                        </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+          <tr>
+             <td nowrap bgcolor="#ffffff">{val data/CLASSNAME}</td>
+             <td nowrap align="center" bgcolor="#ffffff"><a href="knjz400j_2index.php?cmd=edit&VIEWCD={val data/VIEWCD}&year_code={val year}" target="right_frame">{val data/VIEWCD}</a></td>
+             <td nowrap bgcolor="#ffffff">{val data/VIEWNAME}</td>
+             <td nowrap align="center" bgcolor="#ffffff">{val data/SHOWORDER}</td>
+          </tr>
+<!--{/each}-->
+<!--{/def}-->
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+</table>
+{rval finish}

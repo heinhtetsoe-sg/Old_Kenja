@@ -1,0 +1,138 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR>
+
+<table width="500px" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <th><b>{rval data/YEAR}年度　　　{rval data/GAKKI}</b></th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+
+                    <tr class="no_search">
+                      <td width="80px" align=right>年組</td>
+                      <td bgcolor="#ffffff">{rval data/GRADE_HR_CLASS}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td width="80px" align=right>生徒</td>
+                      <td bgcolor="#ffffff">{rval data/SCHREGNO}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td width="80px" align=right>宛名１</td>
+                      <td bgcolor="#ffffff">{rval data/SEND_TO1}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td width="80px" align=right>宛名２</td>
+                      <td bgcolor="#ffffff">{rval data/SEND_TO2}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td width="80px" align=right>発行日</td>
+                      <td bgcolor="#ffffff">{rval data/SEND_DATE}</td>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+
+</table>
+<BR>
+<table width="1000px" border="0" cellpadding="0" cellspacing="0" align="center">
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tbody>
+                    <tr class="no_search">
+                      <th width="50px">項番</th>
+                      <th width="100px">発行日</th>
+                      <th width="250px">生徒名</th>
+                      <th width="300px">宛名１</th>
+                      <th width="*">宛名２</th>
+                    </tr>
+                  </tbody>
+                  </table>
+                  </td>
+                </tr>
+
+            </tbody>
+            </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+            <div style="width:100%;height:300;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                    <tbody>
+  <!--{each data2}-->
+                       <tr height="25">
+                          <td width="50px" align="center" bgcolor=white>{rval data2/KOUBAN}</td>
+                          <td width="100px" align="center"   bgcolor=white>{rval data2/SEND_DATE}</td>
+                          <td width="250px" align="left"  bgcolor=white>{rval data2/NAME}</td>
+                          <td width="300px" align="left"  bgcolor=white>{rval data2/SEND_TO1}</td>
+                          <td width="*" align="left"  bgcolor=white>{rval data2/SEND_TO2}</td>
+                        </tr>
+  <!--{/each}-->
+                    </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+            </div>
+            </td>
+          </tr>
+
+      </tbody>
+      </table>
+      </td>
+    </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}
+<script language="JavaScript">{rval printOut}</script>

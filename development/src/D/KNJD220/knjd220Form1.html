@@ -1,0 +1,99 @@
+{rval start} 
+
+<!--{def button}--> 
+<!--{def data}-->
+
+<br><br>
+<table style="width: 440px" border="0" cellpadding="10" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table style="width: 440px" border="0" cellspacing="5" cellpadding="0">
+	    <tr>
+	      <td>
+		    <tablestyle="width: 440px" border="0" cellspacing="0" cellpadding="0">
+		      <tr class="no_search_line">
+		        <td>
+			      <table style="width: 440px"	 border="0" cellspacing="1" cellpadding="4">
+			        <tr class="no_search" height="35">
+			          <td>
+		            　  　　　<b>{rval data/YEAR}年度</b>　　　{rval data/GAKKI}
+			          </td>
+			        </tr>
+			        <tr bgcolor="#ffffff" height="70">
+			　        <td>
+					    <table>
+						  <tr>
+						    <td>
+			        　          <b>　　　　　　学年</b>
+			                </td>
+						    <td>
+			        　          　　{rval data/GAKUNEN}
+			                </td>
+			              </tr>
+						</table>
+			          </td>
+			        </tr>
+			        <tr bgcolor="#ffffff" height="230">
+			　        <td>
+			                <b>　　出力する生徒</b><BR>
+			            <table>
+				          <tr>
+				            <td valign="top">
+								　　　１．成績優良者
+				            </td>
+				            <td>
+								　※評定平均が{rval data/YURYO_OVER}以上の生徒<br>
+								　　　　　　（{rval data/YURYO_UNDER}未満は除く）
+				            </td>
+				          </tr>
+				          <tr>
+				            <td>
+								　　　２．成績不振者
+				            </td>
+				            <td>
+								　※科目が{rval data/FURYO_S}科目以上
+				            </td>
+				          </tr>
+				          <tr>
+				            <td>
+								　　　３．皆勤者
+				            </td>
+				            <td>
+								　※日付{rval el/DATE}&nbsp;現在まで
+				            </td>
+				          </tr>
+				          <tr>
+				            <td>
+		          				　　　４．出欠状況
+				            </td>
+				            <td>
+								　※遅刻が{rval data/KINTAI1_S}回以上の生徒<br>
+								　※早退が{rval data/KINTAI4_S}回以上の生徒<br>
+								　※欠席が{rval data/KINTAI2_S}日以上の生徒<br>
+								　※欠課が{rval data/KINTAI3_S}回以上の生徒
+				            </td>
+				          </tr>
+				        </table>
+			          </td>
+			        </tr>
+			        <tr class="no_search">
+			          <td align="left">
+			            {rval button/btn_print}{rval button/btn_end}
+			          </td>
+			        </tr>
+		          </table>
+		        </td>
+	          </tr>
+		    </table>
+	      </td>
+	    </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 
+<script language="JavaScript">{rval jscript}</script>

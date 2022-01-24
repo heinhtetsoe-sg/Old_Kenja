@@ -1,0 +1,76 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr >
+          <td >
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom:10px;>
+              <tr class="no_search_line">
+                <td>
+
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3"">
+                    <tr class="no_search">
+                      <th align=left>　{rval YEAR}　　{rval button/copy}</th>
+                    </tr>
+                    <tr class="no_search">
+                      <th align="left" style="padding-left:40px;">学年：{rval GRADE}　{rval GROUP_SELECT1}<LABEL for="GROUP_SELECT1">選択</LABEL>　{rval GROUP_SELECT2}<LABEL for="GROUP_SELECT2">選択以外</LABEL></th>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+            </table>
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="15%">学年</th>
+                      <th nowrap width="15%">コース名</th>
+                      <th nowrap width="34%">選択グループ名</th>
+                      <th nowrap width="5%">上限</th>
+                      <th nowrap width="5%">下限</th>
+                      <th nowrap width="15%">略称名</th>
+                      <th nowrap width="33%">科目名</th>
+                    </tr>
+
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/ROWSPAN}-->
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN}>{val data/GRADE_NAME1}</td>
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN}>{val data/COURSE_NAME}</td>
+                      <td nowrap align="center" bgcolor="#ffffff" rowspan={rval data/ROWSPAN}><a href="knjz239index.php?cmd=edit&SEND_FLG=1&GROUPCD={val data/GROUPCD}&GRADE={val data/GRADE}&COURSEMAJOR={val data/COURSEMAJOR}&COURSECODE={val data/COURSECODE}" target="right_frame">{val data/GROUPCD}:{val data/NAME}</a></td>
+                      <td nowrap align="center" bgcolor="#ffffff" rowspan={rval data/ROWSPAN}>{val data/JOUGEN}</td>
+                      <td nowrap align="center" bgcolor="#ffffff" rowspan={rval data/ROWSPAN}>{val data/KAGEN}</td>
+                      <!--{/def}-->
+                      <td nowrap bgcolor="#ffffff">{val data/ABBV}</td>
+<!--{def CURRICULUM_CD}-->
+                      <td nowrap bgcolor="#ffffff">{val data/CLASSCD}-{val data/SCHOOL_KIND}-{val data/CURRICULUM_CD}-{val data/SUBCLASSCD}:{val data/SUBCLASSNAME}</td>
+<!--{/def}-->
+<!--{def NO_CURRICULUM_CD}-->
+                      <td nowrap bgcolor="#ffffff">{val data/SUBCLASSCD}:{val data/SUBCLASSNAME}</td>
+<!--{/def}-->
+                    </tr>
+                    <!--{/each}-->
+
+                  </table>
+
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

@@ -1,0 +1,307 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR>
+
+<table width="45%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search" align="center">
+                      <td><b>
+                        {rval data/YEAR}年度　　{rval data/SEMESTER}　 {rval data/TESTCD}　 {rval data/GRADE}　 {rval data/HR_CLASS}
+                      </b></td>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff" height="40">
+                      <td><b>
+                      出欠集計日付　{rval data/DATE_FROM}　～　{rval data/DATE_TO}
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>{rval data/NAME_LIST1}</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED1}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts1}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights1}
+                      <td width="45%">{rval data/CATEGORY_NAME1}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD align="left"  bgcolor="#ffffff">
+                        <TABLE cellspacing="5">
+                          <TR>
+                            <TD>　{rval data/CATEGORY_IS_INNER}<LABEL for="CATEGORY_IS_INNER">学内成績</LABEL>
+                              <TABLE cellspacing="5">
+                                <TR>
+                                  <TD>　　{rval data/CATEGORY_IS_INNER_G1}<LABEL for="CATEGORY_IS_INNER_G1">高1</LABEL>　　（{rval data/CATEGORY_IS_INNER_G1S1}<LABEL for="CATEGORY_IS_INNER_G1S1">素点</LABEL>　　{rval data/CATEGORY_IS_INNER_G1SH}<LABEL for="CATEGORY_IS_INNER_G1SH">偏差値</LABEL>　　{rval data/CATEGORY_IS_INNER_G1S9}<LABEL for="CATEGORY_IS_INNER_G1S9">評定</LABEL>）
+                                  </TD>
+                                </TR>
+                                <TR>
+                                  <TD>　　{rval data/CATEGORY_IS_INNER_G2}<LABEL for="CATEGORY_IS_INNER_G2">高2</LABEL>　　（{rval data/CATEGORY_IS_INNER_G2S1}<LABEL for="CATEGORY_IS_INNER_G2S1">素点</LABEL>　　{rval data/CATEGORY_IS_INNER_G2SH}<LABEL for="CATEGORY_IS_INNER_G2SH">偏差値</LABEL>　　{rval data/CATEGORY_IS_INNER_G2S9}<LABEL for="CATEGORY_IS_INNER_G2S9">評定</LABEL>）
+                                  </TD>
+                                </TR>
+                                <TR>
+                                  <TD>　　{rval data/CATEGORY_IS_INNER_G3}<LABEL for="CATEGORY_IS_INNER_G3">高3</LABEL>　　（{rval data/CATEGORY_IS_INNER_G3S1}<LABEL for="CATEGORY_IS_INNER_G3S1">素点</LABEL>　　{rval data/CATEGORY_IS_INNER_G3SH}<LABEL for="CATEGORY_IS_INNER_G3SH">偏差値</LABEL>　　{rval data/CATEGORY_IS_INNER_G3S9}<LABEL for="CATEGORY_IS_INNER_G3S9">評定</LABEL>）
+                                  </TD>
+                                </TR>
+                                <TR>
+                                  <TD>　　{rval data/CATEGORY_IS_INNER_9_ALL}<LABEL for="CATEGORY_IS_INNER_9_ALL">評定合算</LABEL>　　({rval data/CATEGORY_IS_INNER_9_ALL12_1231}<LABEL for="CATEGORY_IS_INNER_9_ALL12">高1～高2</LABEL>　　{rval data/CATEGORY_IS_INNER_9_ALL12_1232}<LABEL for="CATEGORY_IS_INNER_9_ALL123">高1～高3</LABEL>)
+                                  </TD>
+                                </TR>
+                              </TABLE>
+                            </TD>
+                          </TR>
+                        </TABLE>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td nowrap>
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff">
+                      <td>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+                    <TR bgcolor="white">
+                      <TD>{rval data/CATEGORY_IS_PROF_TEST}<LABEL for="CATEGORY_IS_PROF_TEST">実力テスト</LABEL></TD>
+                    </TR>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD align="left"  bgcolor="#ffffff">
+                        <!--ここから-->
+                        <TABLE cellspacing="5">
+                          <TR>
+                            <TD>　{rval data/CATEGORY_IS_OUTER_COLLEGE}<LABEL for="CATEGORY_IS_OUTER_COLLEGE">日本大学基礎学力到達度テスト</LABEL>
+                            </TD>
+                          </TR>
+                        </TABLE>
+                        <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                          <tr align="center" class="no_search">
+                            <th><b>出力対象一覧</b></th>
+                            <th class="no_search"></th>
+                            <th><b>{rval data/NAME_LIST2}</b></th>
+                          </tr>
+                          <tr align="center" bgcolor="#ffffff">
+                            <td width="45%">{rval data/CATEGORY_SELECTED2}</td>
+                            <td width="*%"  class="no_search">{rval button/btn_lefts2}<BR>
+                              {rval button/btn_left2}<BR>
+                              {rval button/btn_right2}<BR>
+                              {rval button/btn_rights2}
+                            <td width="45%">{rval data/CATEGORY_NAME2}</td>
+                          </tr>
+                        </table>
+                        <!--ここまで -->
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </td>
+              </tr>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD align="left"  bgcolor="#ffffff">
+                        <!-- ここから-->
+                        <TABLE cellspacing="5">
+                          <TR>
+                            <TD>　{rval data/CATEGORY_IS_BENESSE_TEST}<LABEL for="CATEGORY_IS_BENESSE_TEST">ベネッセ</LABEL>
+                            </TD>
+                          </TR>
+                        </TABLE>
+                        <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                          <tr align="center" class="no_search">
+                            <th><b>出力対象一覧</b></th>
+                            <th class="no_search"></th>
+                            <th><b>{rval data/NAME_LIST3}</b></th>
+                          </tr>
+                          <tr align="center" bgcolor="#ffffff">
+                            <td width="45%">{rval data/CATEGORY_SELECTED3}</td>
+                            <td width="*%"  class="no_search">{rval button/btn_lefts3}<BR>
+                              {rval button/btn_left3}<BR>
+                              {rval button/btn_right3}<BR>
+                              {rval button/btn_rights3}
+                            <td width="45%">{rval data/CATEGORY_NAME3}</td>
+                          </tr>
+                        </table>
+                        <!--ここまで -->
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </td>
+              </tr>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD align="left"  bgcolor="#ffffff">
+                        <!-- ここから-->
+                        <TABLE cellspacing="5">
+                          <TR>
+                            <TD>　{rval data/CATEGORY_IS_STUDY_SUP}<LABEL for="CATEGORY_IS_STUDY_SUP">スタディサポート</LABEL>
+                            </TD>
+                          </TR>
+                        </TABLE>
+                        <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                          <tr align="center" class="no_search">
+                            <th><b>出力対象一覧</b></th>
+                            <th class="no_search"></th>
+                            <th><b>{rval data/NAME_LIST4}</b></th>
+                          </tr>
+                          <tr align="center" bgcolor="#ffffff">
+                            <td width="45%">{rval data/CATEGORY_SELECTED4}</td>
+                            <td width="*%"  class="no_search">{rval button/btn_lefts4}<BR>
+                              {rval button/btn_left4}<BR>
+                              {rval button/btn_right4}<BR>
+                              {rval button/btn_rights4}
+                            <td width="45%">{rval data/CATEGORY_NAME4}</td>
+                          </tr>
+                        </table>
+                        <!--ここまで -->
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </td>
+              </tr>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD align="left"  bgcolor="#ffffff">
+                        <!-- ここから-->
+                        <TABLE cellspacing="5">
+                          <TR>
+                            <TD>　{rval data/CATEGORY_IS_SUNDAI}<LABEL for="CATEGORY_IS_SUNDAI">駿台</LABEL>
+                            </TD>
+                          </TR>
+                        </TABLE>
+                        <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                          <tr align="center" class="no_search">
+                            <th><b>出力対象一覧</b></th>
+                            <th class="no_search"></th>
+                            <th><b>{rval data/NAME_LIST5}</b></th>
+                          </tr>
+                          <tr align="center" bgcolor="#ffffff">
+                            <td width="45%">{rval data/CATEGORY_SELECTED5}</td>
+                            <td width="*%"  class="no_search">{rval button/btn_lefts5}<BR>
+                              {rval button/btn_left5}<BR>
+                              {rval button/btn_right5}<BR>
+                              {rval button/btn_rights5}
+                            <td width="45%">{rval data/CATEGORY_NAME5}</td>
+                          </tr>
+                        </table>
+                        <!--ここまで -->
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </td>
+              </tr>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD align="left"  bgcolor="#ffffff">
+                        <!-- ここから-->
+                        <TABLE cellspacing="5">
+                          <TR>
+                            <TD>　{rval data/CATEGORY_IS_KAWAI}<LABEL for="CATEGORY_IS_KAWAI">河合塾</LABEL>
+                            </TD>
+                          </TR>
+                        </TABLE>
+                        <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                          <tr align="center" class="no_search">
+                            <th><b>出力対象一覧</b></th>
+                            <th class="no_search"></th>
+                            <th><b>{rval data/NAME_LIST6}</b></th>
+                          </tr>
+                          <tr align="center" bgcolor="#ffffff">
+                            <td width="45%">{rval data/CATEGORY_SELECTED6}</td>
+                            <td width="*%"  class="no_search">{rval button/btn_lefts6}<BR>
+                              {rval button/btn_left6}<BR>
+                              {rval button/btn_right6}<BR>
+                              {rval button/btn_rights6}
+                            <td width="45%">{rval data/CATEGORY_NAME6}</td>
+                          </tr>
+                        </table>
+                        <!--ここまで -->
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </td>
+              </tr>
+                        </TABLE>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR>
+                      <TD align="left"  bgcolor="#ffffff">
+                        <!-- ここから-->
+                        <TABLE cellspacing="5">
+                          <TR>
+                            <TD>　{rval data/CATEGORY_IS_QUALIFY}<LABEL for="CATEGORY_IS_QUALIFY">資格</LABEL>
+                            </TD>
+                          </TR>
+                          <TR>
+                            <TD>　{rval data/CATEGORY_IS_INNER_8020}<LABEL for="CATEGORY_IS_INNER_8020">学内成績(評定80実力20)</LABEL>
+                            </TD>
+                          </TR>
+                        </TABLE>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <TD>
+      <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+        <TR>
+          <td nowrap width="160px">{rval button/btn_print}{rval button/btn_csv}<br>{rval button/btn_end}</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval button/save_setting}&nbsp;&nbsp;{rval data/SETTING_NAME}&nbsp;&nbsp;&nbsp;&nbsp;<font color="red"><b>※序列確定処理時の得点です。</b></font><br>{rval button/del_setting}&nbsp;&nbsp;{rval button/load_setting}&nbsp;&nbsp;{rval data/SETTING_SEQ}&nbsp;&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

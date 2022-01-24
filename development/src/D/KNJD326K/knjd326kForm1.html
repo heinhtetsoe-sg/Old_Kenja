@@ -1,0 +1,284 @@
+{rval start}
+<style type="text/css">
+<!--
+    .tablespace {color:black; background-color:white; align:center }
+    .subtitle {color:white; background-color:#316F9B; font-size:13pt }
+    .stfn {color:black; background-color:white; text-align:left }
+    .rstfn {color:black; background-color:#FFFFCC; text-align:left; font-weight:bold}
+-->
+</style>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="9">
+      <tr> 
+         <td width="100%" > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="9">
+              <tr class="no_search"> 
+                <td width="65%">&nbsp;&nbsp;
+                    {rval TOP/YEAR}年度&nbsp;&nbsp;&nbsp;
+                    第{rval TOP/GRADE_SHOW}学年&nbsp;&nbsp;&nbsp;
+                    {rval TOP/CLASS_SHOW}組&nbsp;&nbsp;&nbsp;
+                    {rval TOP/ATTEND_SHOW}番&nbsp;&nbsp;&nbsp;
+                    氏名：{rval TOP/NAME_SHOW}
+                </td>
+              </tr>
+            </table>
+          </td>
+      </tr>
+    </table>
+
+  </td>
+  </tr>
+  <!--{def schregno}-->
+  <!--表示画面-->
+  <!--{def grddata}-->
+  <tr> 
+  <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="9">
+      <tr> 
+         <td width="100%" > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="9">
+              <tr class="tablespace"> 
+                <td width="65%" >
+                <!--{each grddata}-->
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                ※{rval grddata/YEAR}年{rval grddata/MONTH}月{rval grddata/DATE}日付けで{rval grddata/RESON}。<br>
+                <!--{/each}--> 
+                </td>
+              </tr>
+            </table>
+          </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+  <!--{/def}-->
+  <tr> 
+  <td valign="top">
+    <table align="left" {rval data/width} border="0" cellspacing="0" cellpadding="9">
+      <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+          <td {rval data/colspan} bgcolor="#000066">
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search" nowrap align="center">
+                <th width="100" rowspan="2" nowrap height="20">試験名</th>
+                <th width="324" colspan="9" nowrap height="20">各教科素点</th>
+                <th {rval data/width2} {rval data/colspan3} nowrap height="20">合計</th>
+                <th {rval data/width2} {rval data/colspan3} nowrap height="20">平均</th>
+                <th {rval data/width2} {rval data/colspan3} nowrap height="20">席次</th>
+                <th {rval data/width3} {rval data/colspan5} nowrap height="20">偏差値</th>
+<!--
+                <th width="15" rowspan="2" nowrap height="20"></th>
+-->
+              </tr>
+              <tr class="no_search" nowrap align="center">
+                <!--{each disp}-->
+                <th {rval data/width} {rval disp/ELECT_COLOR} nowrap height="20"><font size=2 >{rval disp/NAME}</font></th>
+                <!--{/each}--> 
+              </tr>
+            </table>
+          </td>
+          </tr>
+          <tr>
+          <td {rval data/colspan}>
+<!--
+            <div style="width:100%; height:480; overflow-x:visible; overflow-y:scroll;">
+-->
+            <div style="width:100%; height:480; overflow-x:visible; overflow-y:visible;">
+              <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="silver">
+                <tr class="no_search" nowrap align="center">
+                  <th width="20" rowspan="9" nowrap height="180">定期試験</th>
+                  <th width="20" rowspan="3" nowrap height="60">１学期</th>
+                  <th width="56" colspan="3" nowrap height="20">中間</th>
+                    <!--{each MIDDLE_TEST1}-->
+                  <th nowrap width="36" bgcolor="#ffffff" height="20"><font {rval MIDDLE_TEST1/ELECT_COLOR}>{rval MIDDLE_TEST1/NAME}</font></th>
+                    <!--{/each}-->
+                </tr>
+
+                <tr class="no_search" nowrap align="center">
+                  <th width="56" colspan="3" nowrap height="20">期末</th>
+                    <!--{each END_TERM_TEST1}-->
+                  <th nowrap width="36" bgcolor="#ffffff" height="20"><font {rval END_TERM_TEST1/ELECT_COLOR}>{rval END_TERM_TEST1/NAME}</font></th>
+                    <!--{/each}-->
+                </tr>
+
+                <tr class="no_search" nowrap align="center">
+                  <th width="56" colspan="3" nowrap height="20">学期</th>
+                    <!--{each SEME_TEST1}-->
+                  <th nowrap width="36" bgcolor="#ffffff" height="20"><font {rval SEME_TEST1/ELECT_COLOR}>{rval SEME_TEST1/NAME}</font></th>
+                    <!--{/each}-->
+                </tr>
+
+                <tr class="no_search" nowrap align="center">
+                  <th width="20" rowspan="3" nowrap height="60">２学期</th>
+                  <th width="56" colspan="3" nowrap height="20">中間</th>
+                    <!--{each MIDDLE_TEST2}-->
+                  <th nowrap width="36" bgcolor="#ffffff" height="20"><font {rval MIDDLE_TEST2/ELECT_COLOR}>{rval MIDDLE_TEST2/NAME}</font></th>
+                    <!--{/each}-->
+                </tr>
+
+                <tr class="no_search" nowrap align="center">
+                  <th width="56" colspan="3" nowrap height="20">期末</th>
+                    <!--{each END_TERM_TEST2}-->
+                  <th nowrap width="36" bgcolor="#ffffff" height="20"><font {rval END_TERM_TEST2/ELECT_COLOR}>{rval END_TERM_TEST2/NAME}</font></th>
+                    <!--{/each}-->
+                </tr>
+
+                <tr class="no_search" nowrap align="center">
+                  <th width="56" colspan="3" nowrap height="20">学期</th>
+                    <!--{each SEME_TEST2}-->
+                  <th nowrap width="36" bgcolor="#ffffff" height="20"><font {rval SEME_TEST2/ELECT_COLOR}>{rval SEME_TEST2/NAME}</font></th>
+                    <!--{/each}-->
+                </tr>
+
+                <tr class="no_search" nowrap align="center">
+                  <th width="20" rowspan="3" nowrap height="60">３学期</th>
+                  <th width="56" colspan="3" nowrap height="20">期末</th>
+                    <!--{each END_TERM_TEST3}-->
+                  <th nowrap width="36" bgcolor="#ffffff" height="20"><font {rval END_TERM_TEST3/ELECT_COLOR}>{rval END_TERM_TEST3/NAME}</font></th>
+                    <!--{/each}-->
+                </tr>
+
+                <tr class="no_search" nowrap align="center">
+                  <th width="56" colspan="3" nowrap height="20">学期</th>
+                    <!--{each SEME_TEST3}-->
+                  <th nowrap width="36" bgcolor="#ffffff" height="20"><font {rval SEME_TEST3/ELECT_COLOR}>{rval SEME_TEST3/NAME}</font></th>
+                    <!--{/each}-->
+                </tr>
+
+                <tr class="no_search" nowrap align="center">
+                  <th width="56" colspan="3" nowrap height="20">学年</th>
+                    <!--{each TOTAL_TEST3}-->
+                  <th nowrap width="36" bgcolor="#ffffff" height="20"><font {rval TOTAL_TEST3/ELECT_COLOR}>{rval TOTAL_TEST3/NAME}</font></th>
+                    <!--{/each}-->
+                </tr>
+
+              </table>
+              <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="silver">
+                <tr class="no_search" nowrap align="center">
+                  <th width="20" rowspan="9" nowrap height="180">実力試験</th>
+                  <th width="78" colspan="4" nowrap height="20">第１回</th>
+                  <!--{each ONCE_TEST}-->
+                  <th nowrap width="36" bgcolor="#ffffff" height="20"><font {rval ONCE_TEST/ELECT_COLOR}>{rval ONCE_TEST/NAME}</font></th>
+                  <!--{/each}-->
+                </tr>
+
+                <tr class="no_search" nowrap align="center">
+                  <th width="78" colspan="4" nowrap height="20">第２回</th>
+                  <!--{each TWO_TIMES_TEST}-->
+                  <th nowrap width="36" bgcolor="#ffffff" height="20"><font {rval TWO_TIMES_TEST/ELECT_COLOR}>{rval TWO_TIMES_TEST/NAME}</font></th>
+                  <!--{/each}-->
+                </tr>
+
+                <tr class="no_search" nowrap align="center">
+                  <th width="78" colspan="4" nowrap height="20">第３回</th>
+                  <!--{each THREE_TIMES_TEST}-->
+                  <th nowrap width="36" bgcolor="#ffffff" height="20"><font {rval THREE_TIMES_TEST/ELECT_COLOR}>{rval THREE_TIMES_TEST/NAME}</font></th>
+                  <!--{/each}-->
+                </tr>
+
+                <tr class="no_search" nowrap align="center">
+                  <th width="78" colspan="4" nowrap height="20">第４回</th>
+                  <!--{each FOUR_TIMES_TEST}-->
+                  <th nowrap width="36" bgcolor="#ffffff" height="20"><font {rval FOUR_TIMES_TEST/ELECT_COLOR}>{rval FOUR_TIMES_TEST/NAME}</font></th>
+                  <!--{/each}-->
+                </tr>
+
+                <tr class="no_search" nowrap align="center">
+                  <th width="78" colspan="4" nowrap height="20">第５回</th>
+                  <!--{each FIVE_TIMES_TEST}-->
+                  <th nowrap width="36" bgcolor="#ffffff" height="20"><font {rval FIVE_TIMES_TEST/ELECT_COLOR}>{rval FIVE_TIMES_TEST/NAME}</font></th>
+                  <!--{/each}-->
+                </tr>
+
+                <tr class="no_search" nowrap align="center">
+                  <th width="78" colspan="4" nowrap height="20">第６回</th>
+                  <!--{each SIX_TIMES_TEST}-->
+                  <th nowrap width="36" bgcolor="#ffffff" height="20"><font {rval SIX_TIMES_TEST/ELECT_COLOR}>{rval SIX_TIMES_TEST/NAME}</font></th>
+                  <!--{/each}-->
+                </tr>
+
+                <tr class="no_search" nowrap align="center">
+                  <th width="78" colspan="4" nowrap height="20">第７回</th>
+                  <!--{each SEVEN_TIMES_TEST}-->
+                  <th nowrap width="36" bgcolor="#ffffff" height="20"><font {rval SEVEN_TIMES_TEST/ELECT_COLOR}>{rval SEVEN_TIMES_TEST/NAME}</font></th>
+                  <!--{/each}-->
+                </tr>
+
+                <tr class="no_search" nowrap align="center">
+                  <th width="78" colspan="4" nowrap height="20">第８回</th>
+                  <!--{each EIGHT_TIMES_TEST}-->
+                  <th nowrap width="36" bgcolor="#ffffff" height="20"><font {rval EIGHT_TIMES_TEST/ELECT_COLOR}>{rval EIGHT_TIMES_TEST/NAME}</font></th>
+                  <!--{/each}-->
+                </tr>
+
+                <tr class="no_search" nowrap align="center">
+                  <th width="78" colspan="4" nowrap height="20">第９回</th>
+                  <!--{each NINE_TIMES_TEST}-->
+                  <th nowrap width="36" bgcolor="#ffffff" height="20"><font {rval NINE_TIMES_TEST/ELECT_COLOR}>{rval NINE_TIMES_TEST/NAME}</font></th>
+                  <!--{/each}-->
+                </tr>
+
+              </table>
+            </div>
+          </td>
+          </tr>
+          <tr class="no_search" style="height:25;">
+            <th align="left">&nbsp;{rval hash1}<font color="#ffffff"><<前へ</font>{rval end_link1}</th>
+            <th align="right">{rval hash2}<font color="#ffffff">次へ>></font>{rval end_link2}&nbsp;</th>
+          </tr>
+        </table>
+      </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+  <!--{/def}-->
+
+  <!--{def virtual}-->
+  <tr>
+  <td valign="top">
+    <table align="left" width="100%" border="0" cellspacing="0" cellpadding="9">
+      <tr>
+      <td>
+        <div style="width:100%; height:548; overflow-x:hidden; overflow-y:hidden;">
+        </div>
+      </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+  <!--{/def}-->
+
+  <tr>
+  <td valign="top">
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="9">
+      <tr>
+         <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                  <tr class="no_search" style="height:28;">
+                  <td align="center">
+                    &nbsp;{rval BUTTON1/BTN_KAKUDAI}{rval BUTTON1/BTN_END}&nbsp;{rval BUTTON1/BTN_REFLECT}&nbsp;
+                  </td>
+                </table>
+                </td>
+              </tr>
+            </table>
+         </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+
+</table>
+{rval finish}
+<script language="JavaScript">{rval Closing}{rval jumping}{rval update_chk}</script>
+

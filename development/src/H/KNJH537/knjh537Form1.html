@@ -1,0 +1,51 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th nowrap width="20%">実力科目コード</th>
+                      <th nowrap width="20%">実力科目略称</th>
+                      <th nowrap width="20%">教科コード</th>
+<!--{def CurriculumcdHyouji}--> 
+                             <th nowrap width="15%">教育課程コード</th>
+<!--{/def}-->
+<!--{def TourokuHyouji}--> 
+                      <th nowrap width="*%">県下実力科目</th>
+<!--{/def}-->
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}--> 
+                    <tr> 
+                      <td nowrap align="left" bgcolor="#ffffff"><a href="knjh537index.php?cmd=edit&PROFICIENCY_SUBCLASS_CD={val data/PROFICIENCY_SUBCLASS_CD}" target="right_frame">{val data/SUBCLASS_NAME}</a></td>
+                      <td nowrap bgcolor="#ffffff">{val data/SUBCLASS_ABBV}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/CLASSNAME}</td>
+<!--{def CurriculumcdHyouji}-->
+                      <td nowrap bgcolor="#ffffff">{val data/CURRICULUM_NAME}</td>
+<!--{/def}-->
+<!--{def TourokuHyouji}-->
+                      <td nowrap bgcolor="#ffffff">{val data/PREF_SUBCLASS_NAME}</td>
+<!--{/def}-->
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

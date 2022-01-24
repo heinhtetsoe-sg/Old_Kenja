@@ -1,0 +1,149 @@
+{rval start} 
+{rval IFRAME}
+<style type="text/css">
+#tyousei {
+  height : 66px;
+}
+#wrapper {
+  margin: 15px;
+}
+#report_date_header {
+  margin-bottom: 10px;
+  padding: 3px;
+}
+.youso th,
+.youso td {
+  width: 80px;
+}
+.youso.data th,
+.youso.data td {
+  background-color: #fff;
+}
+</style>
+<!--[if IE 6]>
+<style type="text/css">
+#tyousei {
+    height : 69px;
+}
+</style>
+<![endif]-->
+<div id="wrapper">
+  <!-- 画面タイトル、報告日付など -->
+  <table id="report_date_header" class="no_search" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr valign="top">
+      <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="1">
+        <tbody>
+          <tr class="no_search">
+            <th width="*%" align="left" nowrap>
+              &nbsp;&nbsp;処理年度：{rval YEAR}年度　　{rval TITLE}
+              <!--{def Z010ABBV1}-->
+              <br>&nbsp;&nbsp;報告データ：{rval FIXED_DATA}　報告日：{rval EXECUTE_DATE}&nbsp;{rval btn_houkoku}　{rval EXE_DATES}
+              <!--{/def}-->
+            </th>
+          </tr>
+        </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+  </table>
+
+  <!-- ヘッダー部分 -->
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <!-- (1行目) -->
+      <td>
+        <div id="trow" style="overflow:hidden; width: 1213px; height: 113px;">
+          <div style="width: 1200px; height: 113px;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tbody>
+                    <tr class="no_search youso" align="center">
+                      <th style="height: 113px; width: 10%;">クラス<br>出席番号</th>
+                      <th style="height: 113px; width: 30%;">氏名</th>
+                      <th style="height: 113px; width: 10%;">精密検査区分</th>
+                      <th style="height: 113px;"            >結果</th>
+                    </tr>
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <!-- (2行目以降) -->
+    <tr>
+      <td>
+        <div id="tcol" style="overflow: hidden; height: 313px;">
+          <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 1230px; height: 330px;">
+            <div style="width: 1200px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                    <tbody>
+                      <!--{each data}-->
+                      <tr class="youso data" height="30" align="center">
+                        <td style="width: 10%;">{rval data/ATTEND_NAME}</td>
+                        <td style="width: 30%;">{rval data/NAME}</td>
+                        <td style="width: 10%;">{rval data/DETAIL_RESULT}</td>
+                        <td                    >{rval data/DETAIL_REMARK}</td>
+                      </tr>
+                      <!--{/each}-->
+                    </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <!-- 再計算・更新ボタンなど -->
+    <tr>
+      <td colspan="2">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                    <table cellpadding="0" cellspacing="0">
+                      <tr class="no_search">
+                        <td align="left">
+                        　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+                        　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+                        {rval btn_recalc}　{rval btn_update}{rval btn_can}{rval btn_end}　{rval btn_csv}
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+  </tbody>
+  </table>
+</div>
+{rval finish}
+<script language="JavaScript">{rval jscript}{rval Closing}{rval reload}</script>

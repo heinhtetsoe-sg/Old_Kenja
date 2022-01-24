@@ -1,0 +1,62 @@
+{rval start} 
+
+<!--{def button}-->
+
+<BR><BR><BR><BR><BR><BR><BR>
+
+<table width="85%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr > 
+    <td > 
+      <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+        <tr class="no_search_line"> 
+          <td width="100%"> 
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="left" class="no_search">
+                <td>&nbsp&nbsp&nbsp&nbsp<b>データ送受信</b></td>
+              </tr>
+
+              <tr align="left" bgcolor="#ffffff">
+                <td>
+                  ●アップロード　{rval up/FILE}&nbsp;&nbsp;{rval radio/UPLOAD_DIV1}<LABEL for="UPLOAD_DIV1">アップロード</LABEL>　{rval radio/UPLOAD_DIV2}<LABEL for="UPLOAD_DIV2">マニュアル</LABEL>　{rval radio/UPLOAD_DIV3}<LABEL for="UPLOAD_DIV3">写真</LABEL>&nbsp;&nbsp;{rval button/BTN_OK}<BR>
+                  　<font color="red">※ファイル名は半角英数字のみとして下さい。</font>
+                </td>
+              </tr>
+
+              <tr align="left" bgcolor="#ffffff" height="100" >
+                 <td>
+                 <br>●ファイルダウンロード：<font color="red" size="2">一覧からファイル名をクリックすると取得できます。</font><br>
+                  　　ファイル名：{rval ZIP_PASS}&nbsp{rval button/btn_csvGet}{rval button/btn_delete}<br><br>
+                  　　　●学校用<br>
+                  <!--{each data}-->
+                  　　　<a href="#" onClick="clickPaste('{rval data/DOWNLOAD_FILE_NAME2}', '{rval data/DOWNLOAD_FILE_TYPE2}')">{rval data/DOWNLOAD_FILE_NAME2}<a><br>
+                  <!--{/each}-->
+                  <br>
+                  　　　●ALP用<br>
+                  <!--{each data3}-->
+                  　　　<a href="#" onClick="clickPaste('{rval data3/DOWNLOAD_FILE_NAME_ALP}', '{rval data3/DOWNLOAD_FILE_TYPE_ALP}')">{rval data3/DOWNLOAD_FILE_NAME_ALP}<a><br>
+                  <!--{/each}-->
+                  <br>
+
+                  ●画像ダウンロード：<font color="red" size="2">画像ファイルは、右クリックして。【対象をファイルに保存】を選択して下さい。</font><br><br>
+                  <!--{each data2}-->
+                  　　　<a href="{rval data2/DOWNLOAD_DATA}">{rval data2/DOWNLOAD_FILE_NAME}<a><br>
+                  <!--{/each}-->
+                  <br>
+                </td>
+              </tr>
+
+              <tr align="right" class="no_search" height="20"> 
+                <td nowrap>{rval button/btn_end}</td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+
+{rval finish} 

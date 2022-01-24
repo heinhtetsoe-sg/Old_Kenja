@@ -1,0 +1,115 @@
+{rval start}
+<br>
+<table width="1000" border="0" cellspacing="0" cellpadding="5" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="30">
+                      <th class="no_search">入試年度：{rval TOP/YEAR}　科目：{rval TOP/SUBCLASS_CD}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="3" cellpadding="0">
+        <tr><td>　エラー番号</td></tr>
+        <tr><td>　　１:欠席登録と矛盾する</td></tr>
+        <tr><td>　　２:重複受験番号</td></tr>
+        <tr><td>　　３:受験番号記入漏れ</td></tr>
+        <tr><td>　　４:欠席登録されていない欠番</td></tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr bgcolor="#006633">
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" height="30">
+                            <th width="100">エラー番号</th>
+                            <th width="100">CSV行番号</th>
+                            <th width="100">受験番号</th>
+                            <th width="400">氏名</th>
+                            <th width="*">訂正受験番号</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                <div style="width: 100%; height: 500; overflow: auto">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--{def data}-->
+                          <!--{each data}-->
+                          <tr bgcolor="#ffffff">
+                            <td width="100" align="center">{rval data/ERROR_NO}</td>
+                            <td width="100" align="center">{rval data/SEQ}</td>
+                            <td width="100" align="center">{rval data/EXAMNO}</td>
+                            <td width="400" align="left">{rval data/NAME}</td>
+                            <td width="*"   align="center">{rval data/CORRECT_EXAMNO}</td>
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left"></th>
+                            <th width="30%" align="left" bgcolor="#ffffff">{rval btn_update}{rval btn_reset}{rval btn_end}</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">
+change_flg = false;
+</script>
+{rval finish}

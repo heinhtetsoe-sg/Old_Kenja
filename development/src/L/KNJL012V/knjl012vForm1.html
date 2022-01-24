@@ -1,0 +1,72 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="3" align="center" >
+            <tr class="no_search">
+                <th width="50" nowrap style="text-align:left">年度:</th>
+                <th width="*" nowrap style="text-align:left">{rval header/YEAR}</th>
+            </tr>
+            <tr class="no_search">
+                <th width="50" nowrap style="text-align:left">校種:</th>
+                <th width="*" nowrap style="text-align:left">{rval header/EXAM_SCHOOL_KIND}</th>
+            </tr>
+            <tr class="no_search">
+                <th width="50" nowrap style="text-align:left">入試区分:</th>
+                <th width="*" nowrap style="text-align:left">{rval header/APPLICANT_DIV}</th>
+            </tr>
+            </tr>
+                <th class="no_search" colspan="2" nowrap style="text-align:right">
+                    {rval button/btn_search}
+                </th>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" >
+            <tr class="no_search">
+                <th width="50%" nowrap>統一志願者ID</th>
+                <th width="50%" nowrap>氏名</th>
+            </tr>
+            <!--{each data}-->
+            <tr>
+                <td bgcolor="#FFFFFF"><a href="knjl012vindex.php?cmd=edit&EXAMNO={rval data/EXAMNO}&EXP_YEAR={rval data/YEAR}" target='right_frame'>{rval data/EXAMNO}</a></td>
+                <td bgcolor="#FFFFFF">{rval data/NAME}</td>
+            </tr>
+            <!--{/each}-->
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+
+{rval finish}

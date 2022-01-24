@@ -1,0 +1,105 @@
+{rval start}
+<!--{def button}-->
+
+<br>
+<table width={rval FORMAT} border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr height="20">
+<!--{def 3gakki}-->
+                      <th class="no_search" align="left">
+                        <b>　　　　　　　　　　　　　　　　　　　　　　　　　{rval YEAR}　　{rval SEMESTER}　　クラス&nbsp;{rval GRADE_HR_CLASS}</b>
+                      </th>
+<!--{/def}-->
+<!--{def 2gakki}-->
+                      <th class="no_search" align="center">
+                        <b>{rval YEAR}　　{rval SEMESTER}　　クラス&nbsp;{rval GRADE_HR_CLASS}</b>
+                      </th>
+<!--{/def}-->
+
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="10"><br></td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th width="100">学籍番号</th>
+                      <th width="130">氏名</th>
+                      <th width="*">特別活動の記録<BR><font size=2, color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(全角で 10文字X10行)</font></th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width:100%;height:505;overflow-y:scroll">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--結果一覧--><!--{def data}--><!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td width="100" align="center">{rval data/SCHREGNO}</td>
+                      <td width="130">&nbsp;{rval data/NAME_SHOW}</td>
+                      <td width="*">{rval data/SPECIALACTREMARK}</td>
+                    </tr>
+                    <!--{/each}--><!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{def 3gakki}-->
+                    <tr class="no_search" heignt="25">
+                      <th nowrap align="left">　　　　　　　　　　　　　　　　　　　　　　　　　{rval button/btn_update}　{rval button/btn_clear}　{rval button/btn_end}　　{rval button/btn_csv}</th>
+                    </tr>
+<!--{/def}-->
+<!--{def 2gakki}-->
+                    <tr class="no_search" heignt="25">
+                      <th nowrap align="center">{rval button/btn_update}　{rval button/btn_clear}　{rval button/btn_end}　　{rval button/btn_csv}</th>
+                    </tr>
+<!--{/def}-->
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<br>
+
+<!--{/def}-->
+{rval finish}

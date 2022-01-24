@@ -1,0 +1,153 @@
+{rval start}
+<style>
+#kirokuKanten table{
+    margin-left: auto;
+    margin-right: auto;
+}
+.box{
+	width:40px;
+	text-align:center;
+	vertical-align:top;
+}
+.box div{
+	width:10px;
+	margin:auto;
+}
+</style>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <th valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="6" bgcolor="#000066">
+              <tr>
+                <th>&nbsp;</th>
+              </tr>
+              <tr class="no_search" nowrap style="text-align:left">
+                <th>{rval YEAR}年度&nbsp;&nbsp;&nbsp;{rval SEMESTERNAME}&nbsp;&nbsp;&nbsp;年組：{rval HR_CLASS}</th>
+              </tr>
+              <tr>
+                <th>&nbsp;</th>
+              </tr>
+              <tr class="no_search" nowrap>
+                <th id="kirokuKanten">
+                    <table border="0" cellspacing="0" cellpadding="6">
+                      <tr class="no_search">
+                        <td>特別活動の記録の観点</td>
+                      <tr> 
+                      <tr class="no_search">
+<!--{def SPECIALACTREMARK}-->
+                        <td>&nbsp;</td>
+<!--{/def}-->
+<!--{def CLASSACT}-->
+                        <td>学級活動</td>
+<!--{/def}-->
+<!--{def STUDENTACT}-->
+                        <td>生徒会活動</td>
+<!--{/def}-->
+<!--{def SCHOOLEVENT}-->
+                        <td>学校行事</td>
+<!--{/def}-->
+                      </tr>
+                      <tr>
+<!--{def SPECIALACTREMARK}-->
+                        <td>{rval SPECIALACTREMARK}</td>
+<!--{/def}-->
+<!--{def CLASSACT}-->
+                        <td>{rval CLASSACT}</td>
+<!--{/def}-->
+<!--{def STUDENTACT}-->
+                        <td>{rval STUDENTACT}</td>
+<!--{/def}-->
+<!--{def SCHOOLEVENT}-->
+                        <td>{rval SCHOOLEVENT}</td>
+<!--{/def}-->
+                      </tr>
+                    </table>
+                </th>
+              </tr>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </th>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+      <td id="box1" style="vertical-align:top">
+      <table width="100%" border="0" cellspacing="1" cellpadding="2" bgcolor="#000066">
+        <tr class="no_search" nowrap>
+          <td rowspan="2" width="200">クラス-出席番号</td>
+          <td rowspan="2">氏名</td>
+          <td colspan="10" style="text-align:center">行　動　の　記　録</td>
+          <td colspan="3" style="text-align:center">特別活動の記録</td>
+          <td style="width:11px">&nbsp;</td>
+        </tr>
+        <tr class="no_search">
+          <td class="box"><div>基本的な生活習慣</div></td>
+          <td class="box"><div>健康<br>・体力の向上</div></td>
+          <td class="box"><div>自主<br>・自律</div></td>
+          <td class="box"><div>責任感</div></td>
+          <td class="box"><div>創意工夫</div></td>
+          <td class="box"><div>思いやり<br>・協力</div></td>
+          <td class="box"><div>生命尊重<br>・自然愛護</div></td>
+          <td class="box"><div>勤労<br>・奉仕</div></td>
+          <td class="box"><div>公正<br>・公平</div></td>
+          <td class="box"><div>公共心<br>・公徳心</div></td>
+          <td class="box"><div>学級活動</div></td>
+          <td class="box"><div>生徒会活動</div></td>
+          <td class="box"><div>学校行事</div></td>
+          <td style="width:11px">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div id="box3" style="overflow:scroll;max-height:360px">
+      <table width="100%" border="0" cellspacing="1" cellpadding="2" bgcolor="#000066">
+<!--{each data}-->
+        <tr bgcolor="#FFFFFF">
+          <td width="200">{rval data/ATTEND}</td>
+          <td>{rval data/NAME}</td>
+          <td class="box">{rval data/REC1}</td>
+          <td class="box">{rval data/REC2}</td>
+          <td class="box">{rval data/REC3}</td>
+          <td class="box">{rval data/REC4}</td>
+          <td class="box">{rval data/REC5}</td>
+          <td class="box">{rval data/REC6}</td>
+          <td class="box">{rval data/REC7}</td>
+          <td class="box">{rval data/REC8}</td>
+          <td class="box">{rval data/REC9}</td>
+          <td class="box">{rval data/REC10}</td>
+          <td class="box">{rval data/REC11}</td>
+          <td class="box">{rval data/REC12}</td>
+          <td class="box">{rval data/REC13}</td>
+        </tr>
+<!--{/each}-->
+        </tr>
+      </table>
+      </div>
+      </td>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <table width="100%" border="0" cellspacing="0" cellpadding="3"  bgcolor="#000066"> 
+        <tr>
+          <th class="no_search" style="text-align:right">
+              {rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}
+          </th>
+        </tr>
+      </table>
+    </th>
+  </tr>
+</table>
+{rval finish}
+
+

@@ -1,0 +1,49 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <hr width="40%" align="left">
+            &nbsp;{rval SCHREGNO}　{val NAME}
+            <hr width="40%" align="left">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th align="center" nowrap height="30" width="10%">年度</th>
+                      <th align="center" nowrap height="30" width="10%">年組</th>
+                      <th align="center" nowrap height="30" width="20%">区分</th>
+                      <th align="center" nowrap height="30" width="20%">役職名</th>
+                      <th align="center" nowrap height="30" width="20%">保護者</th>
+                      <th align="center" nowrap height="30" width="20%">備考</th>
+                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td align="center" nowrap>{val data/YEAR}</td>
+                      <td align="left" nowrap>{val data/HR_NAME}</td>
+                      <td align="left" nowrap>{val data/DIV} {val data/DIV_NAME}</td>
+                      <td align="left" nowrap>{val data/EXECUTIVE}</td>
+                      <td align="left" nowrap>{val data/GUARD_NAME}</td>
+                      <td align="left" nowrap>{val data/REMARK}</td>
+                    </tr>
+<!--{/each}-->
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval reload}</script>
+{rval finish}

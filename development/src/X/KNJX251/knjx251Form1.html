@@ -1,0 +1,50 @@
+{rval start} 
+
+<!--{def button}-->
+
+<BR><BR><BR><BR><BR><BR><BR>
+
+<table width="85%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr > 
+    <td > 
+      <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+        <tr class="no_search_line"> 
+          <td width="100%"> 
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="left" class="no_search">
+                <td>&nbsp&nbsp&nbsp&nbsp<b>データ送受信</b></td>
+              </tr>
+
+              <tr align="left" bgcolor="#ffffff">
+                <td>
+                  ●アップロード　{rval up/FILE}&nbsp&nbsp{rval button/BTN_OK}
+                </td>
+              </tr>
+
+              <tr align="left" bgcolor="#ffffff" height="100" >
+                 <td>
+                 <br>●ファイルダウンロード({rval radio/DOWNLOAD_DIV1}<LABEL for="DOWNLOAD_DIV1">テンプレート</LABEL>　{rval radio/DOWNLOAD_DIV2}<LABEL for="DOWNLOAD_DIV2">実データ</LABEL>)：<font color="red" size="2">一覧からファイル名をクリックすると取得できます。</font><br>
+                  　　ファイル名：{rval ZIP_PASS}&nbsp{rval button/btn_csvGet}{rval button/btn_delete}<br><br>
+                  <!--{each data}-->
+                  　　　<a href="#" onClick="clickPaste('{rval data/DOWNLOAD_FILE_NAME2}', '{rval data/DOWNLOAD_FILE_TYPE2}')">{rval data/DOWNLOAD_FILE_NAME2}<a><br>
+                  <!--{/each}-->
+                  <br>
+
+                </td>
+              </tr>
+
+              <tr align="right" class="no_search" height="20"> 
+                <td nowrap>{rval button/btn_end}</td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+
+{rval finish} 

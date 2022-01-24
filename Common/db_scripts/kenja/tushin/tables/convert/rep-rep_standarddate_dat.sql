@@ -1,0 +1,49 @@
+-- kanji=漢字
+-- $Id: rep-rep_standarddate_dat.sql 67144 2019-04-23 09:37:36Z yamashiro $
+
+-- 注意:このファイルは EUC/LFのみ でなければならない。
+-- 適用方法:
+--    1.データベース接続
+--    2.db2 +c -f <このファイル>
+--    3.コミットするなら、db2 +c commit。やり直すなら、db2 +c rollback
+
+DROP TABLE REP_STANDARDDATE_DAT_OLD
+RENAME TABLE REP_STANDARDDATE_DAT TO REP_STANDARDDATE_DAT_OLD
+
+CREATE TABLE REP_STANDARDDATE_DAT \
+    ( YEAR           VARCHAR(4) NOT NULL, \
+      CLASSCD        VARCHAR(2) NOT NULL, \
+      SCHOOL_KIND    VARCHAR(2) NOT NULL, \
+      CURRICULUM_CD  VARCHAR(2) NOT NULL, \
+      SUBCLASSCD     VARCHAR(6) NOT NULL, \
+      STANDARD_SEQ   SMALLINT   NOT NULL, \
+      CHAIRCD        VARCHAR(7), \
+      REPORTDIV      VARCHAR(2), \
+      STANDARD_DATE  DATE, \
+      RETURN_DATE    DATE, \
+      DEADLINE_DATE  DATE, \
+      REMARK         VARCHAR(60), \
+      REGISTERCD     VARCHAR(8), \
+      UPDATED        TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+    ) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE REP_STANDARDDATE_DAT ADD CONSTRAINT PK_REP_STDATE_DAT PRIMARY KEY (YEAR, CLASSCD, SCHOOL_KIND, CURRICULUM_CD, SUBCLASSCD, STANDARD_SEQ)
+
+INSERT INTO REP_STANDARDDATE_DAT \
+     SELECT \
+         YEAR, \
+         SUBSTR(SUBCLASSCD, 1, 2) AS CLASSCD, \
+         'H' AS SCHOOL_KIND, \
+         '2' AS CURRICULUM_CD, \
+         SUBCLASSCD, \
+         STANDARD_SEQ, \
+         CHAIRCD, \
+         REPORTDIV, \
+         STANDARD_DATE, \
+         CAST(null as DATE) AS RETURN_DATE, \
+         DEADLINE_DATE, \
+         REMARK, \
+         REGISTERCD, \
+         UPDATED \
+     FROM \
+        REP_STANDARDDATE_DAT_OLD

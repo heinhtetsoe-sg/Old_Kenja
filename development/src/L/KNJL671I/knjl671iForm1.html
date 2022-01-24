@@ -1,0 +1,67 @@
+{rval IFRAME} 
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="1">
+              <tr class="no_search_line">
+                <th>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                    <tr class="no_search"> 
+                      <td height="30" align="left">
+                        {rval TOP/ENTEXAMYEAR}年度入試
+                        <br>
+                        中学校{rval TOP/FINSCHOOLCD}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_fin_kana_reference}
+                        <br>
+                        氏名{rval TOP/NAME}&nbsp;&nbsp;{rval button/btn_search}
+                        <br>
+                        {rval TOP/SORT1}<LABEL for="SORT1">番号順</LABEL>&nbsp;&nbsp;
+                        {rval TOP/SORT2}<LABEL for="SORT2">氏名順</LABEL>&nbsp;&nbsp;
+                        {rval TOP/SORT3}<LABEL for="SORT3">学校順</LABEL>
+                      </td>
+                    </tr>
+                  </table>
+                </th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+  
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap>番号</th>
+                      <th nowrap>氏名</th>
+                      <th nowrap>中学校</th>
+                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff"><a href="knjl671iindex.php?cmd=edit&EXAMNO={val data/EXAMNO}&HID_SORT={val HID_SORT}" target="right_frame">{val data/EXAMNO}</a></td>
+                      <td nowrap bgcolor="#ffffff">{val data/NAME}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/FINSCHOOL_NAME}</td>
+                    </tr>
+<!--{/each}-->
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

@@ -1,0 +1,152 @@
+{rval start}
+{rval IFRAME}
+<!--{def button}-->
+<!--{def data}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <div style="text-align:right">
+              <div style="float:left;width:300px;text-align:left;">
+                 <hr width="100%" align="left">
+                    {rval SCHREGNO}&nbsp;&nbsp;{val NAME}
+                 <hr width="100%" align="left">
+                <br>
+              </div>
+<!--{def useUpdownPDF}-->
+              <div style="float:left;width:30px;text-align:left;">
+                  &nbsp;
+              </div>
+              <div style="float:left;width:300px;text-align:left;">
+                <hr>
+                  ●添付書類PDF<br><br>
+                  <!--{each down}-->
+                  <a href="{rval down/PDF_URL}" target="_blank">{rval down/PDF_FILE_NAME}</a><br><br>
+                  <!--{/each}-->
+                <hr>
+              </div>
+<!--{/def}-->
+            </div>
+            <br>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th colspan="3" width="20%" style="text-align:left">年度：{rval YEAR_LIST}</th>
+                    </tr>
+                    <tr class="no_search"> 
+                      <th colspan="2" width="20%">項 目</th>
+                      <th width="80%">値</th>
+                    </tr>
+<!--{def not_meiji}-->
+                    <tr>
+                      <th rowspan="2" class="no_search" nowrap>{rval TOP/TOTAL_STUDY_TIME_TITLE}</th>
+                      <th align="right" class="no_search" nowrap Valign="top">活動内容<BR></th>
+                      <td bgcolor="#ffffff">{rval data/TOTALSTUDYACT}<br><font size=2, color="red">{rval data/TOTALSTUDYACT_TYUI}</font></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap Valign="top">評価<BR></th>
+                      <td bgcolor="#ffffff">{rval data/TOTALSTUDYVAL}<br><font size=2, color="red">{rval data/TOTALSTUDYVAL_TYUI}</font></td>
+                    </tr>
+<!--{/def}-->
+<!--{def meiji}-->
+                    <tr>
+                      <th colspan="2" align="right" class="no_search" nowrap Valign="top">Catholic Spirit<BR></th>
+                      <td bgcolor="#ffffff">{rval data/TOTALSTUDYVAL}<br><font size=2, color="red">{rval data/TOTALSTUDYVAL_TYUI}</font></td>
+                    </tr>
+<!--{/def}-->
+<!--{def seitoSidoYoroku_Totalstudyact2_val2_UseTextFlg}-->
+                    <tr>
+                      <th rowspan="2" class="no_search" nowrap>{rval data/ITEM_NAME}</th>
+                      <th align="right" class="no_search" nowrap Valign="top">活動内容<BR></th>
+                      <td bgcolor="#ffffff">{rval data/REMARK1_003}<br><font size=2, color="red">{rval data/REMARK1_003_TYUI}</font></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap Valign="top">評価<BR></th>
+                      <td bgcolor="#ffffff">{rval data/REMARK2_003}<br><font size=2, color="red">{rval data/REMARK2_003_TYUI}</font></td>
+                    </tr>
+<!--{/def}-->
+                    <tr>
+                      <th colspan="2" align="right" class="no_search" nowrap Valign="top">特別活動所見<BR></th>
+                      <td bgcolor="#ffffff">
+                      {rval data/SPECIALACTREMARK}<br><font size=2, color="red">{rval data/SPECIALACTREMARK_TYUI}</font>
+                      </td>
+                    </tr>
+                    
+                    <tr>
+                      <th colspan="2" align="right" class="no_search" nowrap Valign="top">総合所見</th>
+                      <td bgcolor="#ffffff">
+                          <table>
+                            <tr>
+                                <td colspan="2">{rval data/TOTALREMARK}</td>
+
+                                <!--{def TEIKEI_FLG2}-->
+                                <td></td>
+                                <!--{/def}-->
+                            </tr>
+                            <tr>
+                                <td valign="top"><font size=2, color="red">{rval data/TOTALREMARK_TYUI}</font></td>
+                                <td>
+                                </td>
+
+                                <!--{def TEIKEI_FLG2}-->
+                                <td></td>
+                                <!--{/def}-->
+                            </tr>
+                          </table>
+                      </td>
+                    </tr>
+                    <!--{def nara}-->
+                    <tr>
+                      <th colspan="2" align="right" class="no_search" nowrap Valign="top">奈良Time</th>
+                      <td bgcolor="#ffffff">{rval data/REMARK1_005}<br><font size=2, color="red">{rval data/REMARK1_005_TYUI}</font></td>
+                    </tr>
+                    <!--{/def}-->
+                    <tr>
+                      <th colspan="2" align="right" class="no_search" nowrap Valign="top">出欠の記録備考<BR></th>
+                      <td bgcolor="#ffffff">
+                        <table>
+                          <tr>
+                            <td>
+                              {rval data/ATTENDREC_REMARK}<br>
+                              <font size=2, color="red">{rval data/ATTENDREC_REMARK_TYUI}</font>
+                            </td>
+                            <td>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <!--{def data/REMARK1_008}-->
+                    <tr>
+                      <th colspan="2" align="right" class="no_search" nowrap Valign="top">中学で履修済み備考</th>
+                      <td bgcolor="#ffffff">{rval data/REMARK1_008}<br><font size=2, color="red">{rval data/REMARK1_008_TYUI}</font></td>
+                    </tr>
+                    <!--{/def}-->
+                    <tr>
+                      <th colspan="2" align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">{rval button/btn_back}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}
+<script language="javascript">{rval err_alert}</script>
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->
+<script language="javascript">{rval reload}</script>

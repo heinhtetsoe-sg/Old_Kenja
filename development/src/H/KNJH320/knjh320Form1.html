@@ -1,0 +1,159 @@
+{rval start}
+<style>
+
+div.holder {
+    display: block;
+    box-sizing: border-box;
+    float: left;
+    height: 300px;
+}
+div.holder2 {
+    display: block;
+    box-sizing: border-box;
+    float: left;
+    height: 500px;
+}
+.graphtable {
+    width:90%;
+}
+
+@media screen and (max-width: 1366px) {
+    .graphtable {
+        width:100%;
+    }
+}
+</style>
+
+<table width="90%" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+
+    <tr >
+      <td >
+        <hr width="40%" align="left">
+          {val NAME}
+        <hr width="40%" align="left">
+      </td>
+    </tr>
+
+    <tr >
+      <td>
+        <!--{rval TEST_ALL_CHECK}&nbsp全テスト選択-->&nbsp{rval RADAR}&nbsp{rval BAR}&nbsp{rval RADIO1}&nbsp{rval RADIO2}&nbsp{rval RADIO3}&nbsp{rval RADIO4}&nbsp{rval BTN_END}<br>
+      </td>
+    </tr>
+
+    <tr>
+      <table width={rval WIDTH} align="left" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+        <td>
+<!--{def over}-->
+        <div id="dbody" style="width:950px;height:{rval OVERWITH}; overflow-y:auto; overflow-x:scroll">
+<!--{/def}-->
+          <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="black">
+
+          <tr class="no_search">
+            {rval HEAD}
+          </tr>
+
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+            {rval data/MEISAI}
+<!--{/each}-->
+<!--{/def}-->
+
+          <tr class="no_search" style="height:25;">
+            <th align="left">&nbsp;{rval HEADER_LINKLAST}<font color="#ffffff"><<前へ</font>{rval FOOTER_LINKLAST}</th>
+            <th colspan={rval COL} align="right">{rval HEADER_LINKNEXT}<font color="#ffffff">次へ>></font>{rval FOOTER_LINKNEXT}&nbsp;</th>
+          </tr>
+
+          </table>
+<!--{def over}-->
+        </div>
+<!--{/def}-->
+        </td>
+        </tr>
+      </table>
+    </tr>
+
+    </table>
+  </td>
+  </tr>
+</table>
+
+<table class = "graphtable" align="center" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+  <td valign="top">
+    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+
+
+    <!--{def ONE}-->
+    <tr bgcolor="#ffffff">
+      <td nowrap>
+      <table width="100%" border="0" cellpadding="0" cellspacing="1">
+        <tbody>
+          <tr  bgcolor="#ffffff">
+            <td>
+                <table class="sunko_field" width={rval WIDTH} border="0" cellpadding="10" cellspacing="0">
+                    <tr bgcolor="#ffffff">
+                        <td>
+                            <div class="{rval cssclass}">
+                                <canvas id="{rval GRAPH_TYPE}0" height="{rval height}" width="1000"></canvas>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <!--{/def}-->
+    
+    <!--{def MLT}-->
+    <tr bgcolor="#ffffff">
+      <td nowrap>
+      <table width="100%" border="0" cellpadding="0" cellspacing="1">
+        <tbody>
+          <tr  bgcolor="#ffffff">
+            <td>
+          <!--{each MLT}-->
+          <div style="width:49%;float:left;min-width:605px;" class="sunko_field">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                    <tr bgcolor="#ffffff">
+                        <td>
+                            <div class="holder">
+                                <canvas id="{rval GRAPH_TYPE}{rval MLT/GRAPHNO}" height="300" width="595"></canvas>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+          </div>
+          <!--{/each}-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <!--{/def}-->
+
+    </table>
+  </td>
+  </tr>
+</table>
+
+<BR>
+
+<script language="JavaScript">{rval reload}{rval close}</script>
+{rval finish}
+<!-- actionは、Scriptで変更する。日本語データを送信する為、POST用formを作成 -->
+<form name=graph_applet method=post action="/~m-yama/m-yama.php" target=aa>
+<input type=hidden name=adpara value="">
+<input type=hidden name=cmbIndex value="">
+<input type=hidden name=year value="">
+<input type=hidden name=semester value="">
+<input type=hidden name=schregno value="">
+</form>

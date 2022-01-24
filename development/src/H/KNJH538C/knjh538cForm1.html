@@ -1,0 +1,126 @@
+{rval start}
+<br>
+<table align="center" width="80%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+    <th valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+        <tr class="no_search" nowrap>
+            <td width="30%">
+                &nbsp;&nbsp;&nbsp;&nbsp;処理年度：{rval YEAR}年度<br>
+                &nbsp;&nbsp;データ種別：{rval PROFICIENCYDIV}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;実力科目：{rval PROFICIENCY_SUBCLASS_CD}
+            </td>
+            <td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学期：{rval SEMESTER}&nbsp;&nbsp;学年：{rval GRADE}<br>
+                &nbsp;&nbsp;テスト名称：{rval PROFICIENCY_TARGET}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;講座：{rval CHAIRCD}
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </th>
+</tr>
+<tr><td><br></td></tr>
+<tr>
+    <th valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <th align="right">
+        <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+
+        <tr class="no_search" align="center" nowrap>
+            <td width="150">クラス-番号</td>
+            <td width="350">氏&nbsp;&nbsp;名</td>
+            <td width="80">得点</td>
+            <td width="80">席次</td>
+            <td width="*%">偏差値</td>
+        </tr>
+
+        </table>
+        </th>
+    </tr>
+    <tr>
+        <th align="right">
+        <div style="width:100%; height:500; overflow:auto">
+        <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+        <!--{each attend_data}-->
+        <tr bgcolor="#FFFFFF" align="center" nowrap>
+            <td width="150">{rval attend_data/ATTENDNO}</td>
+            <td width="350" align="left">{rval attend_data/NAME_SHOW}</td>
+            <td width="80">{rval attend_data/SCORE}</td>
+            <td width="80">{rval attend_data/RANK}</td>
+            <td width="*%">{rval attend_data/DEVIATION}{rval attend_data/SCHREGNO}</td>
+        </tr>
+        <!--{/each}-->
+        </table>
+        </div>
+        </th>
+    </tr>
+
+    <tr>
+        <th align="right">
+        <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+
+        <tr class="no_search" align="center" nowrap>
+            <td width="150"></td>
+            <td width="350">合計</td>
+            <td width="80">{rval data/TOTAL_SCORE}</td>
+            <td width="80"></td>
+            <td width="*%"></td>
+        </tr>
+
+        <tr class="no_search" align="center" nowrap>
+            <td width="150"></td>
+            <td width="350">人数</td>
+            <td width="80">{rval data/TOTAL_CNT}</td>
+            <td width="80"></td>
+            <td width="*%"></td>
+        </tr>
+
+        <tr class="no_search" align="center" nowrap>
+            <td width="150"></td>
+            <td width="350">平均点</td>
+            <td width="80">{rval data/AVG_SCORE}</td>
+            <td width="80"></td>
+            <td width="*%"></td>
+        </tr>
+
+        </table>
+        </th>
+    </tr>
+
+    </table>
+    </th>
+</tr>
+
+<tr>
+    <th valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+
+        <tr class="no_search" align="right" nowrap>
+            <td >
+            {rval FILE}
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            {rval btn_update}{rval btn_reset}{rval btn_print}{rval btn_end}
+            </td>
+        </tr>
+
+        </table>
+        </td>
+    </tr>
+    </table>
+    </th>
+</tr>
+
+
+</table>
+{rval finish}
+

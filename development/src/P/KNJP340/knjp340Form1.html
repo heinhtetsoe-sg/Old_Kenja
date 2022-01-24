@@ -1,0 +1,91 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR>
+
+<table width="45%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td><b>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/YEAR}年度
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <TR class="no_search_line">
+                <TD>
+                  <TABLE width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <TR bgcolor="#ffffff">
+                      <TD>
+                        &nbsp&nbsp&nbsp&nbsp{rval data/OUT_DIV1}<LABEL for="OUT_DIV1">国就学支援金</LABEL><BR>
+                        &nbsp&nbsp&nbsp&nbsp{rval data/OUT_DIV2}<LABEL for="OUT_DIV2">府県補助金</LABEL>&nbsp{rval data/FUKEN_BURDEN}<LABEL for="FUKEN_BURDEN">学校負担金を含める</LABEL><BR>
+                        &nbsp&nbsp&nbsp&nbsp{rval data/OUT_DIV3}<LABEL for="OUT_DIV3">国府県合計</LABEL>&nbsp{rval data/RYOHOU_BURDEN}<LABEL for="RYOHOU_BURDEN">学校負担金を含める</LABEL>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>クラス一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CLASS_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff"> 
+                      <td>
+                        &nbsp&nbsp&nbsp&nbsp<b>出力対象</b><BR>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/OUTPUT1}<LABEL for="OUTPUT1">軽減対象者</LABEL><BR>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/OUTPUT2}<LABEL for="OUTPUT2">軽減決定者のみ</LABEL><BR>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/OUTPUT3}<LABEL for="OUTPUT3">軽減相殺者のみ</LABEL><BR>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/OUTPUT4}<LABEL for="OUTPUT4">全て</LABEL><BR><BR>
+                        &nbsp&nbsp&nbsp&nbsp相殺年月：{rval data/PAID_YEARMONTH}<BR><BR>
+                        &nbsp&nbsp&nbsp&nbsp{rval data/PRINT_PREF}<LABEL for="PRINT_PREF">都道府県を印字する</LABEL><BR><BR>
+                        &nbsp&nbsp&nbsp&nbsp異動日付：{rval data/GRD_DATE}<BR><BR>
+                        &nbsp&nbsp&nbsp&nbsp調整金実行日付：&nbsp{rval data/ADJUSTMENT_DATE}<BR>
+                      </b>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td nowrap> &nbsp{rval button/btn_print}{rval button/btn_exec}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

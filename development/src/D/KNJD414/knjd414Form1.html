@@ -1,0 +1,66 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th width="100%" class="no_search" align="left" nowrap><b>　{rval YEAR}年度　{rval button/btn_copy}</b></td>
+                    </tr>
+                    <tr>
+                      <th width="100%" class="no_search" align="left" nowrap><b>校種：{rval SCHOOL_KIND}　教科：{rval CLASSCD_LEFT}　段階：{rval STEP_CD_LEFT}</b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="10"></td>
+        </tr>
+        <tr>
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="10%" nowrap><b>教科</b></th>
+                      <th width="10%" nowrap><b>段階</b></th>
+                      <th width="30%" nowrap><b>学習内容</b></th>
+                      <th width="*%" nowrap><b>指導内容</b></th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/ROWSPAN}-->
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN}>{val data/CLASSCD_NAME}</td>
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN}>{val data/NAME1}</td>
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN}><a href="knjd414index.php?cmd=edit2&YEAR={val data/YEAR}&CLASSCD={val data/CLASSCD}&STEP_CD={val data/STEP_CD}&LEARNING_CONTENT_CD={val data/LEARNING_CONTENT_CD}&LEFT=true" target="right_frame">{val data/LEARNING_CONTENT}</a></td>
+                      <!--{/def}-->
+                      <td nowrap bgcolor="#ffffff">{val data/GUIDANCE_CONTENT}</td>
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+   </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

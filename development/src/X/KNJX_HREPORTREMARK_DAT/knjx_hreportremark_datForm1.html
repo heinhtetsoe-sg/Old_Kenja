@@ -1,0 +1,88 @@
+{rval start} 
+
+<table height="17%">
+  <tr> 
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+<table style="width: 460px" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30"> 
+                      <th><b>&nbsp;{rval data/YEAR_SEMESTER}</b></th>
+                    </tr>
+<!--{def isKNJD138P}-->
+                    <tr bgcolor="#ffffff" height="70">
+                      <td>
+                        <table width="100%">
+                          <tr>
+                            <td align="right" width="40%">年度＆学期：</td>
+                            <td width="60%">{rval data/YEAR}</td>
+                          </tr>
+                          <tr>
+                            <td align="right">学年：</td>
+                            <td>{rval data/GRADE}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+<!--{/def}-->
+                    <tr bgcolor="#ffffff" height="50">
+                      <td>
+                        <b>　{rval data/OUTPUT1}<LABEL for="OUTPUT1">ヘッダ出力</LABEL></b>（見本）
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="120">
+                      <td>
+                        <b>　{rval data/OUTPUT2}<LABEL for="OUTPUT2">データ取込</LABEL></b>（処理名：{rval data/SHORI_MEI}）<BR>
+                        <table>
+                          <tr>
+                            <td>
+                    　　　ファイルから取り込み&nbsp;{rval FILE}
+                            </td>
+                          </tr>
+                        </table>
+                        <BR><b>　{rval data/OUTPUT3}<LABEL for="OUTPUT3">エラー出力</LABEL></b>（データ取込後のエラー確認：必須）<BR>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="80">
+                      <td>
+                        <b>　{rval data/OUTPUT4}<LABEL for="OUTPUT4">データ出力</LABEL></b>
+                        <table width="100%">
+<!--{def isNotKNJD138P}-->
+                          <tr>
+                            <td align="right" width="30%">年度＆学期：</td>
+                            <td width="70%">{rval data/YEAR}</td>
+                          </tr>
+<!--{/def}-->
+                          <tr>
+                            <td align="right">年組：</td>
+                            <td>{rval data/GRADE_HR_CLASS}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr class="no_search" height="30"> 
+                      <th width="*%">{val btn_exec}&nbsp;{rval data/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL>&nbsp;{val btn_end}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval jscript}</script>
+{rval finish} 

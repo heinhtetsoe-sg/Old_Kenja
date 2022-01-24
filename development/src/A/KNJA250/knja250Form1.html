@@ -1,0 +1,67 @@
+{rval start} 
+
+<br><br><br><br>
+<table style="width: 400px" border="0" cellpadding="10" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table style="width: 400px" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <td>
+            <tablestyle="width: 400px" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table style="width: 400px"    border="0" cellspacing="1" cellpadding="4">
+                    <tr class="no_search" height="35">
+                      <td><b>
+                        　　　{rval data/YEAR}年度
+                      </b></td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="90">
+                      <td>
+                      <table>
+                      <tr>
+                      <td width="30%">
+                                <b>　　対象学年</b>
+                      </td>
+                      <td width="*%">
+                        {rval data/GAKUNEN}
+                      </td>
+                      </tr>
+
+                      <tr>
+                        <td colspan="2">
+                        <br>
+                        　　{rval data/OUTPUT}<LABEL for="OUTPUT">異動終了日付</LABEL>{rval data/DATE}　の者のみ抽出
+                        </td>
+                      </tr>
+
+                      </table>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="80">
+                    <td>
+                        <b>　　異動区分</b>　{rval data/ALLCHECK}<LABEL for="ALLCHECK">全て</LABEL><br>
+                        　　　　{rval data/GRAD}<LABEL for="GRAD">卒　業　</LABEL>　　{rval data/MOVE}<LABEL for="MOVE">転　学　</LABEL>　　{rval data/DROP}<LABEL for="DROP">退　学　</LABEL><br>
+                        　　　　{rval data/REMOVE}<LABEL for="REMOVE">除　籍　</LABEL>　　{rval data/TENKA_O}<LABEL for="TENKA_O">転科(出)</LABEL><!--{def data/TENSEKI_O}-->　　{rval data/TENSEKI_O}<LABEL for="TENSEKI_O">転籍(出)</LABEL><!--{/def}--><br>
+                        　　　　{rval data/HOLI}<LABEL for="HOLI">休　学　</LABEL>　　{rval data/FOREIGN}<LABEL for="FOREIGN">留　学　</LABEL>　　{rval data/SUSPEND}<LABEL for="SUSPEND">出　停　</LABEL><br>
+                        　　　　{rval data/ADMISSION}<LABEL for="ADMISSION">編　入　</LABEL>　　{rval data/MOVINGIN}<LABEL for="MOVINGIN">転　入　</LABEL>　　{rval data/TENKA_I}<LABEL for="TENKA_I">転科(入)</LABEL><br>
+                        　　　　<!--{def data/TENSEKI_I}-->{rval data/TENSEKI_I}<LABEL for="TENSEKI_I">転籍(入)</LABEL><!--{/def}-->
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="left">
+                        {rval button/btn_print}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+                    
+{rval finish} 

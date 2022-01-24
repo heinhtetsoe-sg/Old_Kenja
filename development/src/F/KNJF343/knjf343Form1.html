@@ -1,0 +1,226 @@
+{rval start} 
+{rval IFRAME}
+<style type="text/css">
+#tyousei {
+  height : 66px;
+}
+#wrapper {
+  margin: 15px;
+}
+#report_date_header {
+  margin-bottom: 10px;
+  padding: 3px;
+}
+.youso th,
+.youso td {
+  width: 80px;
+}
+.youso.data th,
+.youso.data td {
+  background-color: #fff;
+}
+</style>
+<!--[if IE 6]>
+<style type="text/css">
+#tyousei {
+    height : 69px;
+}
+</style>
+<![endif]-->
+<div id="wrapper">
+  <!-- 画面タイトル、報告日付など -->
+  <table id="report_date_header" class="no_search" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr valign="top">
+      <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="1">
+        <tbody>
+          <tr class="no_search">
+            <th width="*%" align="left" nowrap>
+              &nbsp;&nbsp;処理年度：{rval YEAR}年度　　{rval TITLE}
+              <!--{def Z010ABBV1}-->
+              <br>&nbsp;&nbsp;報告データ：{rval FIXED_DATA}　報告日：{rval EXECUTE_DATE}&nbsp;{rval btn_houkoku}　{rval EXE_DATES}
+              <!--{/def}-->
+            </th>
+          </tr>
+        </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+  </table>
+
+  <!-- ヘッダー部分 -->
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <!-- (1列目) -->
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search" id="tyousei">
+                  <th rowspan="2" width="150" style="height: 112px;">集計項目</th>
+                </tr>
+              </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+        </table>
+      </td>
+
+      <!-- (2列目以降) -->
+      <td>
+        <div id="trow" style="overflow:hidden; width: 1113px; height: 113px;">
+          <div style="width: {rval maxPx}px; height: 113px;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tbody>
+                    <tr class="no_search" align="center" style="height: 50px;">
+                      <th colspan="9">1次検査</th>
+                      <th colspan="8">精密検査</th>
+                    </tr>
+
+                    <tr class="no_search youso" align="center">
+                      <th style="width: 75px;" height="60">対象者</th>
+                      <th style="width: 75px;">受検者</th>
+                      <th style="width: 75px;">受検率</th>
+                      <th style="width: 75px;">有所見</th>
+                      <th style="width: 75px;">要精検</th>
+                      <th style="width: 75px;">主治医<br>管理</th>
+                      <th style="width: 75px;">放置可</th>
+                      <th style="width: 75px;">その他</th>
+                      <th style="width: 75px;">有所見<br>率</th>
+
+                      <th style="width: 75px;">該当者</th>
+                      <th style="width: 75px;">受検者</th>
+                      <th style="width: 75px;">受検率</th>
+                      <th style="width: 75px;">異常なし</th>
+                      <th style="width: 75px;">要医療</th>
+                      <th style="width: 75px;">要観察</th>
+                      <th style="width: 75px;">放置可</th>
+                      <th style="width: 75px;">その他</th>
+                    </tr>
+
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr valign="TOP">
+      <!-- (1列目) -->
+      <td>
+        <div id="tcol" style="overflow: hidden; height: 313px;">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                <tbody>
+                  <!--{each data}-->
+                    <tr height="30" class="no_search">
+                      <td align="center">
+<!-- {rval data/AGE_NAME} -->
+                        合計
+                      </td>
+                    </tr>
+                  <!--{/each}-->
+                </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </td>
+
+      <!-- (2列目以降) -->
+      <td>
+        <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 1130px; height: 330px;">
+          <div style="width: {rval maxPx}px;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                  <tbody>
+                    <!--{each data}-->
+                    <tr class="youso data" height="30" align="center">
+                      <td style="width: 75px;">{rval data/TARGET1}</td>
+                      <td style="width: 75px;">{rval data/EXAMINEE1}</td>
+                      <td style="width: 75px;">{rval data/PERCENT1}</td>
+                      <td style="width: 75px;">{rval data/HAVE_REMARK1}</td>
+                      <td style="width: 75px;">{rval data/REMARK1_CNT1}</td>
+                      <td style="width: 75px;">{rval data/REMARK1_CNT2}</td>
+                      <td style="width: 75px;">{rval data/REMARK1_CNT3}</td>
+                      <td style="width: 75px;">{rval data/REMARK1_CNT4}</td>
+                      <td style="width: 75px;">{rval data/HAVE_REMARK_PERCENT}</td>
+
+                      <td style="width: 75px;">{rval data/TARGET2}</td>
+                      <td style="width: 75px;">{rval data/EXAMINEE2}</td>
+                      <td style="width: 75px;">{rval data/PERCENT2}</td>
+                      <td style="width: 75px;">{rval data/REMARK2_CNT1}</td>
+                      <td style="width: 75px;">{rval data/REMARK2_CNT2}</td>
+                      <td style="width: 75px;">{rval data/REMARK2_CNT3}</td>
+                      <td style="width: 75px;">{rval data/REMARK2_CNT4}</td>
+                      <td style="width: 75px;">{rval data/REMARK2_CNT5}</td>
+                    </tr>
+                    <!--{/each}-->
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <!-- 再計算・更新ボタンなど -->
+    <tr>
+      <td colspan="2">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                    <table cellpadding="0" cellspacing="0">
+                      <tr class="no_search">
+                        <td align="left">
+                        　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+                        　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+                        {rval btn_recalc}　{rval btn_update}{rval btn_can}{rval btn_end}　{rval btn_csv}
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+  </tbody>
+  </table>
+</div>
+{rval finish}
+<script language="JavaScript">{rval jscript}{rval Closing}{rval reload}</script>

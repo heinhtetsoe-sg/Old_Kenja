@@ -1,0 +1,63 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr > 
+      <td > 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" height="25"> 
+                <th norwarp width="17%">入試年度</th>
+                <td norwarp width="*" bgcolor="#ffffff">{val year}&nbsp;&nbsp;{val btn_year_add}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr height="5">
+          <td></td>
+        </tr>
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search"> 
+              <th nowrap width="20%">入試制度</th>
+              <th nowrap width="20%">入試区分</th>
+              <th nowrap width="35%">課程学科</th>
+              <th nowrap width="40%">コース</th>
+              <th nowrap width="5%">コース<br>記&nbsp;号</th>
+              <th nowrap width="5%">コース<br>定&nbsp;員</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+            <!--{each data}--> 
+            <tr> 
+             <td nowrap bgcolor="#ffffff">{val data/APPLICANTNAME}</td>
+             <td nowrap bgcolor="#ffffff">{val data/ABBV1}</td>
+             <td nowrap bgcolor="#ffffff">{val data/TOTALCDNAME}</td>
+             <td nowrap bgcolor="#ffffff">{val data/EXAMCOURSE}</td>
+             <td nowrap align="center" bgcolor="#ffffff">{val data/EXAMCOURSE_MARK}</td>
+             <td nowrap align="right" bgcolor="#ffffff">{val data/CAPACITY}</td>
+            </tr> 
+            <!--{/each}--> 
+            <!--{/def}--> 
+            </table>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">
+<!--{def reload}-->
+<!--{each reload}-->
+{rval reload}
+<!--{/each}-->
+<!--{/def}-->
+</script>

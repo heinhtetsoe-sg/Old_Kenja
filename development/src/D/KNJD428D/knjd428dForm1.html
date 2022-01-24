@@ -1,0 +1,139 @@
+{rval start}
+{rval IFRAME}
+
+<!--{def data}-->
+<!--{def button}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td valign="top">
+            <table width="100%" border="0" cellspacing="10" cellpadding="0">
+                <tr>
+                    <td>
+                        <hr width="40%" align="left">
+                        &nbsp;{rval data/SCHREGNO}&nbsp;&nbsp;{val data/NAME}
+                        <hr width="40%" align="left">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;学期：{rval data/SEMESTER}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="80%" border="0" cellspacing="0" cellpadding="0">
+                            <tr class="no_search_line">
+                                <td>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search">
+                                            <th colspan="2">担任名</th>
+                                        </tr>
+                                        <tr bgcolor="#ffffff">
+                                            <th align="left" colspan="2">{rval data/STAFFCD1} {rval data/STAFFCD2} {rval data/STAFFCD3} {rval data/STAFFCD4} {rval data/STAFFCD5} {rval data/STAFFCD6}</th>
+                                        </tr>
+                                        <tr class="no_search">
+                                            <th>各教科等</th>
+                                            <th>学習の様子</th>
+                                        </tr>
+                                        <!--{def DISP_ITEM1}-->
+                                        <tr>
+                                            <th nowrap class="no_search">特別の教科 道徳</th>
+                                            <td bgcolor="#ffffff">{rval data/REMARK1}<br>
+                                                <font size="2" , color="red">{rval data/REMARK1_COMMENT}</font>
+                                            </td>
+                                        </tr>
+                                        <!--{/def}-->
+                                        <!--{def DISP_ITEM2}-->
+                                        <tr>
+                                            <th nowrap class="no_search">外国語活動</th>
+                                            <td bgcolor="#ffffff">{rval data/REMARK2}<br>
+                                                <font size="2" , color="red">{rval data/REMARK2_COMMENT}</font>
+                                            </td>
+                                        </tr>
+                                        <!--{/def}-->
+                                        <!--{def DISP_ITEM3}-->
+                                        <tr>
+                                            <th nowrap class="no_search">総合的な<br>学習の時間</th>
+                                            <td bgcolor="#ffffff">{rval data/REMARK3}<br>
+                                                <font size="2" , color="red">{rval data/REMARK3_COMMENT}</font>
+                                            </td>
+                                        </tr>
+                                        <!--{/def}-->
+                                        <!--{def DISP_ITEM4}-->
+                                        <tr class="no_search">
+                                            <th nowrap>特別活動</th>
+                                            <td bgcolor="#ffffff">{rval data/REMARK4}<br>
+                                                <font size="2" , color="red">{rval data/REMARK4_COMMENT}</font>
+                                            </td>
+                                        </tr>
+                                        <!--{/def}-->
+                                        <!--{def DISP_ITEM5}-->
+                                        <tr class="no_search">
+                                            <th nowrap>自立活動</th>
+                                            <td bgcolor="#ffffff">{rval data/REMARK5}<br>
+                                                <font size="2" , color="red">{rval data/REMARK5_COMMENT}</font>
+                                            </td>
+                                        </tr>
+                                        <!--{/def}-->
+                                        <!--{def DISP_ITEM6}-->
+                                        <tr class="no_search">
+                                            <th nowrap>{rval data/TOTALREMARK_NAME}</th>
+                                            <td bgcolor="#ffffff">{rval data/REMARK6}<br>
+                                                <font size="2" , color="red">{rval data/REMARK6_COMMENT}</font>
+                                            </td>
+                                        </tr>
+                                        <!--{/def}-->
+                                        <!--{def DISP_ITEM7}-->
+                                        <tr class="no_search">
+                                            <th nowrap>行動の記録</th>
+                                            <td bgcolor="#ffffff">{rval button/btn_form1}</td>
+                                        </tr>
+                                        <!--{/def}-->
+                                        <!--{def DISP_ITEM8}-->
+                                        <tr class="no_search">
+                                            <th nowrap>出欠の備考</th>
+                                            <td bgcolor="#ffffff">{rval data/REMARK8}{rval btn_syukketsu_sansyo}<br>
+                                                <font size="2" , color="red">{rval data/REMARK8_COMMENT}</font>
+                                            </td>
+                                        </tr>
+                                        <!--{/def}-->
+                                        <!--{def DISP_ITEM9}-->
+                                        <tr class="no_search">
+                                            <th nowrap>学校より</th>
+                                            <td bgcolor="#ffffff">{rval data/REMARK9}<br>
+                                                <font size="2" , color="red">{rval data/REMARK9_COMMENT}</font>
+                                            </td>
+                                        </tr>
+                                        <!--{/def}-->
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr class="no_search_line">
+                                <td>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr>
+                                            <th class="no_search" align="left">
+                                                {rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}
+                                                {rval button/btn_end}
+                                            </th>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->

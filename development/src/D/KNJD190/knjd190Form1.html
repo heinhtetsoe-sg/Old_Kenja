@@ -1,0 +1,116 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+      	<td valign="top">
+      	  <table width="100%" border="0" cellspacing="0" cellpadding="10">
+            <tr>
+      		  <td>
+      			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+      			  <tr class="no_search_line">
+      				<td>
+      				  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+      					<tr class="no_search">
+            		      <td>{rval YEAR_SEMESTER}　{rval TITLE}　　<font size="1">(1.1)</font></td>
+                        </tr>
+      				  </table>
+      				</td>
+      			  </tr>
+      			</table>
+      		  </td>
+      		</tr>
+
+            <tr>
+      		  <td>
+      			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+      			  <tr class="no_search_line">
+      				<td>
+      				  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--結果一覧-->
+      				    <tr class="no_search">
+            		  <th nowrap width="10">{rval explore}</th>
+            		  <th nowrap width="15%">対象科目</th>
+            		  <th nowrap width="15%">科目コード</th>
+            		  <th nowrap></th>
+      					</tr>
+<!--{each data1}-->
+                <tr>
+                   <td align="center" bgcolor="#ffffff"></td>
+                   <td nowrap bgcolor="#ffffff">{val data1/SUBCLASSNAME}</td>
+                   <td nowrap bgcolor="#ffffff">{val data1/SUBCLASSCD}</td>
+                   <td nowrap bgcolor="#ffffff"></td>
+                </tr>
+<!--{/each}-->
+      				  </table>
+      				</td>
+      			  </tr>
+      			</table>
+      		  </td>
+      		</tr>
+            <tr>
+      		  <td>
+      			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+      			  <tr class="no_search_line">
+      				<td>
+      				  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+      					<tr class="no_search">
+            		      <td>{rval btn_ok}{rval btn_can}</td>
+                        </tr>
+      				  </table>
+      				</td>
+      			  </tr>
+      			</table>
+      		  </td>
+      		</tr>
+            <tr>
+      		  <td>
+      			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+      			  <tr class="no_search_line">
+      				<td>
+      				  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--結果一覧-->
+      					<tr class="no_search">
+            		  <th nowrap width="10">{rval CHECK_ALL}</th>
+            		  <th nowrap>　統計対象　</th>
+            		  <th nowrap>科目担任</th>
+            		  <th nowrap>正</th>
+            		  <th nowrap>講座名称</th>
+            		  <th nowrap>実施期間</th>
+            		  <th nowrap>講座コード</th>
+            		  <th nowrap>群コード</th>
+<!--            		  <th nowrap>群SEQ</th>-->
+      					</tr>
+<!--{each data}-->
+                <tr>
+                   <td align="center" bgcolor="{rval data/BGCOLOR}">{val data/CHECK}</td>
+                   <td nowrap bgcolor="{rval data/BGCOLOR}">{val data/TARGETCLASS}</td>
+                   <td nowrap bgcolor="{rval data/BGCOLOR}">{val data/STAFFNAME_SHOW}</td>
+                   <td nowrap align="center" bgcolor="{rval data/BGCOLOR}">{val data/CHARGEDIV}</td>
+                   <td nowrap bgcolor="{rval data/BGCOLOR}">{val data/CLASSALIAS}</td>
+                   <td nowrap bgcolor="{rval data/BGCOLOR}">{val data/TERM}</td>
+                   <td nowrap bgcolor="{rval data/BGCOLOR}">{val data/ATTENDCLASSCD}</td>
+                   <td nowrap bgcolor="{rval data/BGCOLOR}">{val data/GROUPCD}</td>
+<!--                   <td nowrap bgcolor="{rval data/BGCOLOR}">{val data/GROUPSEQ}</td>-->
+                </tr>
+<!--{/each}-->
+      				  </table>
+      				</td>
+      			  </tr>
+      			</table>
+      		  </td>
+      		</tr>
+      	  </table>
+      	</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">
+{rval ONLOAD}
+<!-- 2004/03/30 nakamoto add --> 
+window.onunload=function(){if (newWin) newWin.close();}
+</script>

@@ -1,0 +1,96 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR>
+
+<table width="50%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr class="no_search" height="30">
+          <td>
+            <b>　　　　{rval data/YEAR}年度&nbsp{rval data/SEMESTER}学期</b>
+          </td>
+        </tr>
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td>
+                        &nbsp;　<b>{rval data/OUTPUT1}<LABEL for="OUTPUT1">&nbsp;都道府県</LABEL>　{rval data/OUTPUT2}<LABEL for="OUTPUT2">&nbsp;クラス</LABEL>　{rval data/OUTPUT3}<LABEL for="OUTPUT3">&nbsp;個人</LABEL></b><br>
+<!--{def classno}-->
+                        &nbsp;&nbsp;　<b>都道府県:{rval data/TODOUFUKEN}
+<!--{/def}-->
+<!--{def schno}-->
+                        &nbsp;&nbsp;　<b>都道府県:{rval data/TODOUFUKEN}　クラス:{rval data/HRCLASS}
+<!--{/def}-->
+                        </b>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+<!--{def todouno}-->
+                      <th><b>出力対象都道府県</b></th>
+                      <th class="no_search"></th>
+                      <th><b>都道府県一覧</b></th>
+<!--{/def}-->
+<!--{def classno}-->
+                      <th><b>出力対象クラス</b></th>
+                      <th class="no_search"></th>
+                      <th><b>クラス一覧</b></th>
+<!--{/def}-->
+<!--{def schno}-->
+                      <th><b>出力対象個人</b></th>
+                      <th class="no_search"></th>
+                      <th><b>個人一覧</b></th>
+<!--{/def}-->
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/SELECT_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/select_lefts}<BR>
+                        {rval button/select_left1}<BR>
+                        {rval button/select_right1}<BR>
+                        {rval button/select_rights}
+                      <td width="45%">{rval data/SELECT_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="left" bgcolor="#ffffff">
+                      <td>
+                        &nbsp&nbsp&nbsp&nbsp印刷日：{rval data/DATE1}<br>
+                        &nbsp&nbsp&nbsp&nbsp引落日：&nbsp{rval data/DATE2}<br>
+                        &nbsp&nbsp&nbsp&nbsp様　式：&nbsp12月<br>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_exec}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

@@ -1,0 +1,131 @@
+{rval start}
+<!--{def useApplet}-->
+<APPLET CODE="attest.JePass.class" codebase={rval APP/APPHOST}
+        name=signatureApplet
+        ARCHIVE="jApplet.jar,
+                 ../lib/commons-logging-1.1.1.jar,
+                 ../lib/log4j-1.2.15.jar,
+                 ../lib/plugin.jar"
+        ALT="SSL"
+        WIDTH=""
+        HEIGHT="">
+
+    <param name="PASS" value={rval APP/PASS}>
+    <param name="SCHREGNO" value={rval APP/SCHREGNO}>
+    <param name="RANDM" value={rval APP/RANDM}>
+    <param name="STAFF" value={rval APP/STAFF}>
+    <param name="EXEDIV" value={rval APP/EXEDIV}>
+
+</APPLET>
+<!--{/def}-->
+
+<table width="60%" border="0" cellspacing="3" cellpadding="1" align="center">
+  <tr>
+    <td nowrap>
+    <table width="100%" border="0" cellspacing="5" cellpadding="0">
+      <tr>
+        <td valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tr class="no_search">
+                    <th align="center">&nbsp;年度：{rval TOP/YEAR}&nbsp;&nbsp;学期：{rval TOP/SEMESTER}&nbsp;&nbsp;年組：{rval TOP/HR_CLASS}</th>
+                  </tr>
+                </table>
+                </td>
+              </tr>
+            </table>
+            </td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap>
+    <table width="100%" border="0" cellspacing="5" cellpadding="0">
+      <tr>
+        <td valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tr class="no_search">
+                    <th width="20" align="center">{rval TOP/CHK_ALL}</th>
+                    <th width="100" align="center">年-組-番</th>
+                    <th width="200" align="center">氏名</th>
+                    <th width="50" align="center">担任</th>
+                    <th width="50" align="center">校長</th>
+                    <th width="*" align="center">不一致</th>
+                  </tr>
+                </table>
+                </td>
+              </tr>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <div style="width: 100%; height=400; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <!--{def data}-->
+                  <!--結果一覧-->
+                  <!--{each data}-->
+                  <tr bgcolor="#ffffff">
+                    <td width="20" align="center">{rval data/CHK_DATA}</td>
+                    <td width="100" align="center">{rval data/HR_NAMEABBV}-{rval data/ATTENDNO}</td>
+                    <td width="200" align="left">{rval data/SCHREGNO}&nbsp;{rval data/NAME_SHOW}</td>
+                    <td width="50" align="center">{rval data/IMAGE1}</td>
+                    <td width="50" align="center">{rval data/IMAGE2}</td>
+                    <td width="*" align="center">{rval data/MSG}</td>
+                  </tr>
+                  <!--{/each}-->
+                  <!--{/def}-->
+                </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tr class="no_search">
+                    <th align="right">{rval button/btn_shomei}{rval button/btn_end}</th>
+                  </tr>
+                </table>
+                </td>
+              </tr>
+            </table>
+            </td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td style="font-weight: 700; color:{rval marpColor}">
+      <marquee><span id="marq_msg">認証中です...しばらくおまちください</span></marquee>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="javascript">{rval jscript}</script>

@@ -1,0 +1,244 @@
+﻿{rval start}
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="150" nowrap bgcolor="#00FFFF" align="center">
+            <b><font size="3" color="#000080">B&nbsp;プロフィール</font><font size="2" color="#000080"><BR>(健康管理)</font></b>
+          </td>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr>
+              <th align="center" class="no_search" nowrap colspan="4">服薬状況</th>
+            </tr>
+            <tr class="no_search" nowrap align="center">
+              <th width="100">項目</th>
+              <th width="150">薬品名</th>
+              <th width="*">病名・症状</th>
+              <th width="*">服用状況・留意点</th>
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <div style="width: 100%; height=85; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def data2}-->
+                <!--{each data2}-->
+                  <tr bgcolor="#ffffff">
+                      <!-- Edit by PP for PC-Talker 2020-02-03 start -->
+                    <td width="100" align="left"><a href="knje390index.php?cmd=subform1_healthcare_set&YEAR={val data2/YEAR}&SCHREGNO={val data2/SCHREGNO}&RECORD_DIV={val data2/RECORD_DIV}&RECORD_SEQ={val data2/RECORD_SEQ}" onclick="current_cursor('MEDICINE_NAME')">{rval data2/CONTENTS_NAME}</a></td>
+                    <!-- Edit by PP for PC-Talker 2020-02-20 end -->
+                    <td width="150" align="left">{rval data2/MEDICINE_NAME}</td>
+                    <td width="*" align="left">{rval data2/DISEASE_CONDITION_NAME}</td>
+                    <td width="*" align="left">{rval data2/CARE_WAY}</td>
+                  </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+        
+        <tr><td height="10"></td></tr>
+
+<!--{def data}-->
+<!--{def button}-->
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                  <!-- Edit by PP for PC-Talker 2020-02-03 start -->
+                <th width="150" align="right" class="no_search" aria-label="" nowrap>薬品名</th>
+                <!-- Edit by PP for PC-Talker 2020-02-20 end -->
+                <td bgcolor="#ffffff">{rval data/MEDICINE_NAME}</td>
+              </tr>
+              <tr>
+                  <!-- Edit by PP for PC-Talker 2020-02-03 start -->
+                <th width="150" align="right" class="no_search" aria-label="" nowrap>病名・症状</th>
+                <!-- Edit by PP for PC-Talker 2020-02-20 end -->
+                <td bgcolor="#ffffff">{rval data/DISEASE_CONDITION_NAME}<BR>{rval data/DISEASE_CONDITION_NAME_SIZE}</td>
+              </tr>
+              <tr>
+                  <!-- Edit by PP for PC-Talker 2020-02-03 start -->
+                <th width="150" align="right" class="no_search" aria-label="" nowrap>服用状況・留意点</th>
+                <!-- Edit by PP for PC-Talker 2020-02-20 end -->
+                <td bgcolor="#ffffff">{rval data/CARE_WAY}<BR>{rval data/CARE_WAY_SIZE}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td align="left" bgcolor="#ffffff">{rval button/btn_insert}{rval button/btn_update}{rval button/btn_delete}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+<!--{/def}-->
+<!--{/def}-->
+        
+        <tr><td height="20"></td></tr>
+        
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr>
+              <th align="center" class="no_search" nowrap colspan="5">医療的ケア</th>
+            </tr>
+            <tr class="no_search" nowrap align="center">
+              <th width="100">項目</th>
+              <!-- Edit by PP for PC-Talker 2020-02-03 start -->
+              <th width="*" aria-label="">ケアの種類</th>
+              <!-- Edit by PP for PC-Talker 2020-02-20 end -->
+              <th width="90">学校</th>
+              <th width="90">家庭病院</th>
+              <th width="90">事業所</th>
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <div style="width: 100%; height=85; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def data3}-->
+                <!--{each data3}-->
+                  <tr bgcolor="#ffffff">
+                      <!-- Edit by PP for PC-Talker 2020-02-03 start -->
+                    <td width="100" align="left"><a href="knje390index.php?cmd=subform1_healthcare_set2&YEAR={val data3/YEAR}&SCHREGNO={val data3/SCHREGNO}&RECORD_DIV={val data3/RECORD_DIV}&RECORD_SEQ={val data3/RECORD_SEQ}" onclick="current_cursor('MEDICAL_NAMECD')">{rval data3/CONTENTS_NAME}</a></td>
+                    <!-- Edit by PP for PC-Talker 2020-02-20 end -->
+                    <td width="*" align="left">{rval data3/MEDICAL_NAMECD}</td>
+                    <td width="90" align="center">{rval data3/SCHOOL_CARE}</td>
+                    <td width="90" align="center">{rval data3/HOUSE_CARE}</td>
+                    <td width="90" align="center">{rval data3/CENTER_CARE}</td>
+                  </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+        
+        <tr><td height="10"></td></tr>
+        
+<!--{def data}-->
+<!--{def button}-->
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <!-- Edit by PP for PC-Talker 2020-02-03 start -->
+              <th width="*" aria-label="">ケアの種類</th>
+              <th width="90" aria-label="">学校</th>
+              <th width="90" aria-label="">家庭病院</th>
+              <th width="90" aria-label="">事業所</th>
+              <!-- Edit by PP for PC-Talker 2020-02-20 end -->
+            </tr>
+            <tr bgcolor="#ffffff">
+              <td width="*" align="left">{rval data/MEDICAL_NAMECD}</td>
+              <td width="90" align="center">{rval data/SCHOOL_CARE}</td>
+              <td width="90" align="center">{rval data/HOUSE_CARE}</td>
+              <td width="90" align="center">{rval data/CENTER_CARE}</td>
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+          <td>{rval button/btn_insertC}{rval button/btn_updateC}{rval button/btn_deleteC}{rval button/btn_back}</td>
+        </tr>
+        
+        <tr><td height="20"></td></tr>
+        
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <!-- Edit by PP for PC-Talker 2020-02-03 start -->
+                <th align="center" class="no_search" aria-label="" nowrap colspan="3">食物</th>
+                <!-- Edit by PP for PC-Talker 2020-02-20 end -->
+              </tr>
+              <tr>
+                  <!-- Edit by PP for PC-Talker 2020-02-03 start -->
+                <th width="120" align="right" class="no_search" aria-label="" nowrap rowspan="2">食物アレルギー</th>
+                <th width="120" align="right" class="no_search" aria-label="" nowrap>除去する食品</th>
+                <!-- Edit by PP for PC-Talker 2020-02-20 end -->
+                <td bgcolor="#ffffff" nowrap>{rval data/ALLERGIA_FOOD_CAT}</td>
+              </tr>
+              <tr>
+                  <!-- Edit by PP for PC-Talker 2020-02-03 start -->
+                <th width="120" align="right" class="no_search" aria-label="" nowrap>取組プラン</th>
+                <!-- Edit by PP for PC-Talker 2020-02-20 end -->
+                <td bgcolor="#ffffff" nowrap>{rval data/ALLERGIA_PLAN}<LABEL for="ALLERGIA_PLAN">有</LABEL>　特記事項:&nbsp;{rval data/ALLERGIA_SPECIAL_REPORT}</td>
+              </tr>
+              <tr>
+                  <!-- Edit by PP for PC-Talker 2020-02-03 start -->
+                <th align="right" class="no_search" aria-label="" nowrap colspan="2">食形態</th>
+                <!-- Edit by PP for PC-Talker 2020-02-20 end -->
+                <td bgcolor="#ffffff" nowrap>{rval data/ALLERGIA_FOOD_STYLE}</td>
+              </tr>
+              <tr>
+                  <!-- Edit by PP for PC-Talker 2020-02-03 start -->
+                <th align="right" class="no_search" aria-label="" nowrap colspan="2">その他のアレルギー</th>
+                <!-- Edit by PP for PC-Talker 2020-02-20 end -->
+                <td bgcolor="#ffffff" nowrap>{rval data/ALLERGIA_REMARK}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap colspan="2">&nbsp;</th>
+                <td align="left" bgcolor="#ffffff" nowrap>{rval button/btn_update2}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+<!--{/def}-->
+<!--{/def}-->
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish} 

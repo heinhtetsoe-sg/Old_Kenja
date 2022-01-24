@@ -1,0 +1,195 @@
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+
+    <tr>
+      <td>
+       <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr class="no_search_line">
+          <th>
+            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+            <tr class="no_search">
+
+              <td width="300"><b>　　{rval TOP/YEAR}年度<!--{def useTsushinSemesKonboHyoji}-->　　学期：{rval TOP/SEMECMB}<!--{/def}--></b></td>
+              <td width="*">{rval TOP/ORDER1}<label for="ORDER1"><b>学籍番号順</b></label>
+              <!--{def useSubclasscd}-->
+                  　<b>&nbsp;&nbsp;&nbsp;&nbsp;科目</b>　：{rval TOP/SUBCLASSCD}
+                  　<b>&nbsp;&nbsp;&nbsp;&nbsp;講座</b>　：{rval TOP/SELSUB}
+              <!--{/def}-->
+              <!--{def notUseSubclasscd}-->
+                  　<b>&nbsp;&nbsp;&nbsp;&nbsp;科目</b>　：{rval TOP/SELSUB}
+              <!--{/def}-->
+              <br>
+              {rval TOP/ORDER2}<label for="ORDER2"><b>クラス番号順</b></label>
+              </td>
+            </tr>
+            </table>
+          </th>
+        </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" height="51px">
+
+                        <th width="20" align="center">更新</th>
+                        <th width="76" align="center">学籍番号</th>
+                        <th width="120" align="center">クラス番号</th>
+                        <th width="*" align="center">氏　　名</th>
+
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+
+            <td>
+            <div id="trow" style="overflow:hidden; width: 853px; ">
+                <div style="width: {rval ALL_WIDTH}px; ">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+
+                      <tr class="no_search" align="center" height="25px">
+                        <td width=50 rowspan="2">単位</td>
+                        <td width=50 rowspan="2">Ｓ</td>
+                        {rval HEAD1}
+                        <td width=90 rowspan="2">評価</td>
+                        <td width=90 rowspan="2">評定</td>
+                        <td width=90 rowspan="2">修得単位</td>
+                        <td width=90 rowspan="2">履修単位</td>
+                        <!--{def useKeizokuRisyuu}-->
+                        <td width=90 rowspan="2">継続履修</td>
+                        <!--{/def}-->
+                        <td width=90 rowspan="2">印刷状況</td>
+                        <td width=* rowspan="2">印刷</td>
+                      </tr>
+                      <tr class="no_search" align="center" height="25px"> 
+                        {rval HEAD2}
+                      </tr>
+
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+          <tr valign="TOP">
+
+            <td>
+            <div id="tcol" style="overflow: hidden; height: 483px;">
+              <table width="460" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="0" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr style="height:30"; bgcolor="{rval data/COLOR} id="tyousei2"">
+                          <td width="26"  align="center">{rval data/NINTEI}</td>
+                          <td width="82"  align="center">{rval data/SCHREGNO}</td>
+                          <td width="126" align="center">{rval data/GRA_HR_ATTEND}</td>
+                          <td width="*" align="left">&nbsp;{rval data/NAME_SHOW}</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
+            </div>
+            </td>
+
+            <td>
+            <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 870px; height: 500px;">
+                <div style="width: {rval ALL_WIDTH}px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+
+                        <!--{def data}-->
+                        <!--結果一覧-->
+                        <!--{each data}-->
+                        <tr style="height:30"; bgcolor="{rval data/COLOR}">
+                          {rval data/MEISAI}
+                        </tr>
+                        <!--{/each}-->
+                        <!--{/def}-->
+
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      </td>
+    </tr>
+
+    <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line" >
+      <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr class="no_search">
+          <th>{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}</th>
+          <th colspan={rval FOOT_COLSPAN}>{rval page_count}　　　{rval button/btn_pre}{rval button/btn_next}</th>
+          <th align="right">{rval button/btn_print}</th>
+        </tr>
+        </table>
+      </td>
+      </tr>
+      </table>
+    </td>
+    </tr>
+
+  </tbody>
+</table>
+<font color="#ffffff">{rval PARA/CNT}</font>
+<font color="#ffffff">{rval PARA/PRGID}</font>
+<font color="#ffffff">{rval PARA/DBNAME}</font>
+<font color="#ffffff">{rval PARA/CTRL_YEAR}</font>
+<font color="#ffffff">{rval PARA/CTRL_SEMESTER}</font>
+<font color="#ffffff">{rval PARA/CTRL_DATE}</font>
+<font color="#ffffff">{rval PARA/certifNoSyudou}</font>
+<font color="#ffffff">{rval PARA/useSchool_KindField}</font>
+<font color="#ffffff">{rval PARA/useCurriculumcd}</font>
+<font color="#ffffff">{rval PARA/certif_no_8keta}</font>
+<font color="#ffffff">{rval PARA/printParam}</font>
+<script language="JavaScript">{rval printOut}</script>
+{rval finish}

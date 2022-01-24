@@ -1,0 +1,69 @@
+{rval start}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR>
+
+<table width="800" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <td align='left'>
+                        <b>
+                        　　　　　&nbsp;年度/学期：{rval data/YEAR_SEMESTER}　履修登録日：{rval data/RIREKI_CODE}<br>
+                        　　　　　　教育課程：{rval data/COURSECODE}<br>
+                        　　　　　　　　科目：{rval data/SUBCLASSCD}<br>
+                        　　　　　　　　　　　{rval data/SYORI1}<LABEL for="SYORI1">講座名簿クリア</LABEL>　{rval data/SYORI2}<LABEL for="SYORI2">講座作成</LABEL><br>
+                        </b>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+<!--{def CHAIR_DISP}-->
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th><b>講座：{rval data/CHAIRCD}</b></th>
+                      <th class="no_search"></th>
+                      <th><b>科目別履修登録名簿</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+<!--{/def}-->
+              <tr>
+                <td>
+                  {rval button/btn_update}{rval button/btn_end}　<font color="red">新しい履修登録日で講座名簿を作成しなおす場合は旧講座名簿をクリアして下さい。</font>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

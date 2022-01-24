@@ -1,0 +1,84 @@
+{rval start}
+<!--{def button}-->
+<!--{def data}-->
+
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <tr>
+              <td>
+                &nbsp;{rval data/NAME_SHOW}
+                <hr width="50%" align="left">
+                  &nbsp;学期：{rval data/SEMESTER}
+                <hr width="50%" align="left">
+              </td>
+            </tr>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="150">項 目</th>
+                      <th>値</th>
+                    </tr>
+                    <tr class="no_search">
+                      <th class="no_search" nowrap style="text-align:right;vertical-align:top">精勤フラグ<br></th>
+                      <td bgcolor="#ffffff">
+                        {rval data/SEIKIN_CHECK}</LABEL>{rval button/btn_shukketu_kiroku}
+                      </td>
+                    </tr>
+                    <!--{def SHUTOKUSIKAKU_VISIBLE_FLG}-->
+                    <tr class="no_search">
+                      <th class="no_search" nowrap style="text-align:right;vertical-align:top">取得資格・検定<br><div style="display:none">{rval button/btn_hyosyo}<br>{rval button/btn_kirokubikou}</div></th>
+                      <td bgcolor="#ffffff">
+                        {rval data/SHUTOKUSIKAKU}<br>
+                        {rval button/btn_sikaku_ansyo}
+                        <font size=2, color="red">{rval data/SHUTOKUSIKAKU_COMMENT}</font>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{def ZIRITUKATUDO_VISIBLE_FLG}-->
+                    <tr class="no_search">
+                      <th class="no_search" nowrap style="text-align:right;vertical-align:top">自立活動<br></th>
+                      <td bgcolor="#ffffff">
+                        {rval data/ZIRITUKATUDO}<br>
+                        <font size=2, color="red">{rval data/ZIRITUKATUDO_COMMENT}</font>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+                    <tr class="no_search">
+                      <th class="no_search" nowrap style="text-align:right;vertical-align:top">所見</th>
+                      <td bgcolor="#ffffff">
+                        {rval data/COMMUNICATION}<br>
+                        <font size=2, color="red">{rval data/COMMUNICATION_COMMENT}</font>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="no_search"></th>
+                      <td bgcolor="#ffffff">
+                        {rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_reset}{rval button/btn_end}<br>
+                        {rval button/btn_csv}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval reload}{rval next}</script>
+<!--{/def}-->

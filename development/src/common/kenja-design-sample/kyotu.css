@@ -1,0 +1,847 @@
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+body {
+    font-family:'Lucida Grande',
+    'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',
+    Meiryo, メイリオ, sans-serif;
+    color:#333;
+ }
+
+
+/*IE用のスクロールバーデザイン*/
+html,body {
+    scrollbar-face-color:#FFFFFF; 
+    scrollbar-track-color:#FFFFFF; 
+    scrollbar-arrow-color:#FFFFFF; 
+    scrollbar-highlight-color:#FFFFFF; 
+    scrollbar-shadow-color:#FFFFFF; 
+    scrollbar-3dlight-color:#FFFFFF; 
+    scrollbar-darkshadow-color:#FFFFFF; 
+}
+#scroll {
+    scrollbar-face-color:#ffffff; 
+    scrollbar-track-color:#ffffff; 
+    scrollbar-arrow-color:#a9a9a9; 
+    scrollbar-highlight-color:#ffffff; 
+    scrollbar-shadow-color:#ffffff; 
+    scrollbar-3dlight-color:#ffffff; 
+    scrollbar-darkshadow-color:#ffffff; 
+}
+/*chrome用のスクロールバーデザイン*/
+#left::-webkit-scrollbar
+{
+        overflow:hidden;
+        width:1px;
+        background:#ffffff;
+}
+#left::-webkit-scrollbar-button
+{
+       display:none;
+}
+#left::-webkit-scrollbar-piece
+{
+        background:#ffffff;
+}
+#left::-webkit-scrollbar-thumb
+{
+        background:#ffffff;
+}
+#left::-webkit-scrollbar-corner
+{
+        background:#ffffff;
+}
+
+
+#right::-webkit-scrollbar
+{
+        overflow:hidden;
+        width:1px;
+        background:#ffffff;
+}
+#right::-webkit-scrollbar-button
+{
+       display:none;
+}
+#right::-webkit-scrollbar-piece
+{
+        background:#ffffff;
+}
+#right::-webkit-scrollbar-thumb
+{
+        background:#ffffff;
+}
+#right::-webkit-scrollbar-corner
+{
+        background:#ffffff;
+}
+
+/*機能別メニュー*/
+#leftMenuMode {
+    border-top-left-radius: 20px !important;
+    border-bottom-left-radius: 20px !important;
+}
+
+/*目的別メニュー*/
+#rightMenuMode {
+    border-top-right-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
+}
+
+
+/***********アコーディオンメニュー全体***************/
+
+#accordion2 { 
+    position:relative; 
+    width: 100%; 
+    float: left;
+    font-size: 15px; 
+    line-height: 1;
+    text-align: left; 
+}
+#accordion2big { 
+    position:relative; 
+    width: 100%; 
+    float: left;
+    font-size: 20px; 
+    line-height: 1;
+    text-align: left; 
+}
+
+/**ラジオボタン非表示設定**/
+#accordion2 input, #accordion2big input{ 
+    position:absolute; 
+    height: 0; 
+    padding: 0; 
+} 
+/****************************親メニュー部分*********************************************/
+
+#accordion2 div div, #accordion2big div div{ 
+    position: relative; 
+    padding: 10px 10px 10px 30px; 
+} 
+
+
+/**親カテゴリーの最初と最後の段の余分なボーダー消す＋最後の段のリンク設定**/
+#accordion2 label:nth-child(1) div div, #accordion2big label:nth-child(1) div div{ 
+    border-top: 0; 
+} 
+
+#accordion2 label:last-child div div, #accordion2big label:last-child div div{ 
+    border-bottom: 0; 
+} 
+
+
+/**カテゴリオンマウス**/
+
+#accordion2 div div:hover, #accordion2big div div:hover { 
+    cursor: pointer; 
+} 
+
+/**サブカテゴリ全体**/
+
+#accordion2 ul, #accordion2big ul{ 
+    list-style: none; 
+    margin: 0; 
+    text-align: left; 
+} 
+#accordion2 ul li, #accordion2big ul li{ 
+    list-style: none; 
+    margin: 0; 
+    text-align: left; 
+} 
+
+/*左メニューTOPのdiv用*/
+.lefttop {
+    padding: 0px !important;
+    border-top: 0px !important; 
+}
+.lefttop:hover { 
+    padding: 0px !important; 
+} 
+/*左メニューTOPのdiv選択中用*/
+.lefttopchoice {
+    padding: 0px !important; 
+    border-top: 0px !important; 
+}
+.lefttopchoice:hover { 
+    padding: 0px !important; 
+} 
+
+/*左メニューTOPのaタグ用*/
+.alefttop {
+    padding: 10px 10px 10px 30px; 
+    display: block;
+    text-decoration: none;
+}
+
+/*1番目のメニューの選択中用*/
+.choice {
+    position: relative; 
+    padding: 10px 10px 10px 30px; 
+}
+.choice:hover { 
+    cursor: pointer; 
+} 
+
+ul { 
+    list-style: none;
+    z-index: 1;
+}
+
+/**************************二番目のメニュー部分***************************/
+
+#accordion2 ul li a, #accordion2big ul li a{ 
+    display: block; 
+    overflow: hidden; 
+    height: 0; 
+    padding: 0px 10px; 
+    text-decoration: none; 
+    -moz-transition: .3s; 
+    -webkit-transition: .3s; 
+    -o-transition: .3s; 
+    -ms-transition: .3s; 
+    transition: .3s; 
+} 
+
+/***************二番目開いてるメニューのリンク部分*****************/
+#accordion2 input:checked + div ul li a, #accordion2big input:checked + div ul li a{ 
+    position:relative; 
+    background: none; 
+    line-height: 1; 
+    height: auto; 
+    padding: 10px 10px; 
+} 
+
+#accordion2 input:checked + div ul li:last-child a, #accordion2big input:checked + div ul li:last-child a{ 
+    border-bottom: 0; 
+} 
+
+
+/***メニュー表示モードの形***/
+#menuMode  {
+    width: 100%;
+    display: inline-block;
+    position: relative; 
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+    font-size: 80%;
+}
+#menuMode a {
+    text-decoration: none;
+    border-radius:0;
+    width:50%;
+    text-align: center;
+    display:inline-block;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/***ログアウトの形***/
+#logout  {
+    position: relative; 
+    font-size: 90%;
+    width: 100%;
+}
+#logout a {
+    width: 90%;
+    float: left;
+    border-radius: 15px;
+    margin: 0 0 0 20%;
+    text-decoration: none;
+    text-align: center;
+    display:inline-block;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 100%;    
+}
+
+/*左側メニュー全体のdiv(スクロール用)*/
+.leftMenu {
+    position:relative;
+    width:90%;
+    float:left;
+    padding-left:15px;
+    padding-right:15px;
+    box-sizing: border-box;
+    
+    height: 98%;
+    overflow-y:scroll;
+}
+
+/*右側メニュー全体のdiv(スクロール用)*/
+.rightMenu {
+    position:relative;
+    width:100%;
+    float:left;
+    padding-left:15px;
+    padding-right:15px;
+    box-sizing: border-box;    
+    
+    height: 98%;
+    overflow-y:scroll;
+}
+
+/*右側メニュー用(.rightMenuの中のテーブル全体)*/
+table.right, table.rightbig  {
+    width: 100%;
+    border: 0;
+    font-size: 120%;
+}
+.right table, .rightbig table{
+    width:100%;
+    border-collapse:collapse;
+}
+.right td{
+    font-weight: normal;
+    font-size: 110%;    /*←右側全体の文字サイズ*/
+}
+.rightbig td{
+    font-weight: normal;
+    font-size: 150%;    /*←右側全体の文字サイズ*/
+}
+.right td a, .rightbig td a{
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 110%;    
+}
+
+.right td a:hover, .rightbig td a:hover{
+    text-decoration: underline;
+}
+
+
+.right th , .rightbig th{
+    font-weight: normal;
+}
+.right th a, .right th a:hover, .rightbig th a, .rightbig th a:hover{
+    font-size: 100%;    /*←右側選択タイトルの文字サイズ*/
+    font-weight: normal;
+    text-decoration: none;
+}
+.rightbig th a, .rightbig th a:hover{
+    font-weight: normal;
+    text-decoration: none;
+}
+
+
+/*右側メニューテーブルのタイトル帯用*/
+.title {
+    font-size:115%;     /*←右側表帯の文字サイズ*/
+    font-weight: bold;
+    padding: 5px;
+    text-align: left;
+}
+
+/******TOPお知らせテーブル用******/
+.right table.top, .rightbig table.top{ 
+    /*width: 90%;*/
+    /*display: block;*/
+    float: left;
+    text-align: center;
+    /*margin-left: 5%;*/
+    border-collapse: collapse;
+}
+
+.right table.top th{ 
+/*    font-size: 120%; */
+    padding: 5px;
+}
+
+.right table.top td{ 
+    font-size: 100%;
+    padding: 5px;
+}
+
+.rightbig table.top th{ 
+    font-size: 150%;
+    padding: 5px;
+}
+
+.rightbig table.top td{ 
+    font-size: 150%;
+    padding: 5px;
+}
+
+
+
+/*****右側上部の学校名の装飾(kenjaMenu1～7まで用)*****/
+#gakuname {
+    position: relative;
+    padding: 20px 10px 0px 45px;
+}
+#gakuname:before, #gakuname:after{
+    content: "";
+    position: absolute;
+    margin: auto;
+}
+#gakuname:before{
+    width: 12px;
+    height: 12px;
+    top: 15px;
+    left: 30px;
+    transform: rotate(50deg);
+}
+#gakuname:after{
+    width: 8px;
+    height: 8px;
+    top: 30px;
+    left: 20px;
+    transform: rotate(20deg);
+}
+.rightbig #gakuname:before, #gakuname:after{
+    content: "";
+    position: absolute;
+    margin: auto;
+}
+.rightbig #gakuname:before{
+    width: 18px;
+    height: 18px;
+    top: 10px;
+    left: 20px;
+    transform: rotate(50deg);
+}
+.rightbig #gakuname:after{
+    width: 14px;
+    height: 14px;
+    top: 35px;
+    left: 10px;
+    transform: rotate(20deg);
+}
+
+/*****ここからSCHEDULE_YEAR(たぶん使ってない。使うならrightbigにも対応させる)*****/
+.right table.schedule_year{ 
+    width: 46%;
+    display: block;
+    float: left;
+    text-align: center;
+    margin-left: 30px;
+    border-collapse: collapse;
+}
+
+.schedule_year th{ 
+    font-size: 25px;
+    padding: 5px;
+}
+
+.schedule_year td{ 
+    font-size: 19px;
+    padding: 5px;
+}
+
+.month {
+    width: 100px;
+}
+
+.syori {
+    width: 600px;
+}
+
+.syori a{
+    display : block;
+    width: 100%;
+}
+
+.syori a:hover{
+    cursor: pointer; 
+    font-weight:bold;
+}
+
+
+.right table.todolist{ 
+    width: 46%;
+    display: block;
+    float: left;
+    text-align: center;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    border-collapse: collapse;
+}
+
+.todolist th{ 
+    font-size: 25px;
+    padding: 5px;
+}
+
+.todolist td{ 
+    font-size: 19px;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    padding: 5px;
+}
+
+.box {
+    width: 50px;
+    border-right: hidden;
+}
+
+.task {
+    width: 650px;
+    text-align: left;
+}
+
+.task:hover{
+    color: pink;
+    font-weight: bold;
+}
+
+/*右側メニューのタイトル部分(選択した二番目のメニュー名)のリンク用に*/
+.link  {
+    text-decoration: none ; 
+    width: 50%;
+    font-size: 19px;
+    padding: 10px;
+}
+
+/*つーるちっぷよう(右側メニュー上部タイトル部分用)*/
+table.fsample  {
+    width: 100%;
+}       /*メニュー名表示部分のテーブル*/
+.fsample tr{ 
+    padding: 10px;
+}
+
+.fsample th{ 
+    border: 0px;
+    padding: 4px;
+    font-size: 110%;
+}
+
+.fsample td{ 
+    border: 0px;
+    padding: 5px;
+}
+table.fsamplebig  {
+    width: 100%;
+}       /*文字サイズ大きいやつ用*/
+
+.fsamplebig tr{ 
+    padding: 5px;
+}
+.fsamplebig th{ 
+    border: 0px;
+    font-size: 140%;    
+    padding: 3px;
+}
+
+.fsamplebig td{ 
+    border: 0px;
+    font-size: 150%;    
+    padding: 5px;
+}
+
+/*つーるちっぷよう(右側メニュー下部テーブル部分用)*/
+table.sample {
+}       /*ないとだめらしい*/
+
+.sample th { 
+    padding: 1px;
+}
+
+.sample td{ 
+    padding: 5px;
+    font-size: 100%;    
+}
+table.samplebig {
+}       /*文字サイズ大きいやつ用*/
+
+.samplebig th{ 
+    font-size: 120%;    
+    padding: 1px;
+}
+
+.samplebig td{ 
+    padding: 5px;
+}
+
+
+/***********メインメニューのほう(右側下部テーブル)のチップ用************************************/
+/*表示文字*/
+div.sample3{
+    color: #555;
+    display: inline-block;                        /* インライン要素化 */
+}
+ 
+/* ツールチップ部分を隠す */
+div.sample3 span {
+    display: none;
+}
+ 
+/* マウスオーバー */
+div.sample3:hover {
+    position: relative;
+    color: #333;
+}
+ 
+/* マウスオーバー時にツールチップを表示 */
+div.sample3:hover span {
+    display: block;                  /* ボックス要素にする */
+    position: absolute;            /* relativeからの絶対位置 */
+    top: 25px;
+    left:-120px;
+    text-align: center;
+    font-size: 90%;
+    color: #000;
+    background-color: #adff2f;
+    width: 150px;
+    padding: 5px;
+    border-radius:3px;
+    -webkit-box-shadow: 0 0 8px gray;
+            box-shadow: 0 0 8px gray;
+    z-index:100;
+}
+ 
+/* フキダシ部分を作成 */
+div.sample3 span:before{
+    content:''; 
+    display:block; 
+    position:absolute;                         /* relativeからの絶対位置 */
+    height:0; 
+    width:0; 
+    top:-10px; 
+    left:130px;
+    border:10px transparent solid; 
+    border-right-width:0; 
+    border-left-color:#adff2f; 
+    z-index:100;
+}
+/**********メインメニューの上(右側上部)のちっぷよう*******************************/
+/* 表示文字 */
+div.sample2{
+    color: #555;
+    display: inline-block;                        /* インライン要素化 */
+}
+ 
+/* ツールチップ部分を隠す */
+div.sample2 span {
+    display: none;
+}
+ 
+/* マウスオーバー */
+div.sample2:hover {
+    position: relative;
+    color: #333;
+}
+ 
+/* マウスオーバー時にツールチップを表示 */
+div.sample2:hover span {
+    display: block;                  /* ボックス要素にする */
+    position: absolute;            /* relativeからの絶対位置 */
+    top: 30px;
+    left:-125px;
+    text-align: center;
+    font-size: 90%;
+    color: #fff;
+    background-color: #ff9e3d;
+    width: 150px;
+    padding: 5px;
+    border-radius:5px;
+    -webkit-box-shadow: 0 0 8px white;
+            box-shadow: 0 0 8px white;      /*IE*/
+    z-index:100;
+}
+ 
+/* フキダシ部分を作成 */
+div.sample2 span:before{
+    content:''; 
+    display:block; 
+    position:absolute;                         /* relativeからの絶対位置 */
+    height:0; 
+    width:0; 
+    top:-10px; 
+    left:135px;
+    border:13px transparent solid; 
+    border-right-width:0; 
+    border-left-color:#ff9e3d; 
+    z-index:100;
+}
+
+/*TOP画面の色変え部分デザイン*/
+.css0{
+    background-color: #7379ae;
+    border-radius:  10px;
+    color:#7379ae !important;
+    padding: 5px 8px;
+    box-shadow: -2px -3px 5px #444444 inset, 1px 2px 3px #d3d3d3 inset;
+    }
+
+.css1{
+    background-color: #316f9b; 
+    border-radius:  10px;
+    color:#316f9b !important;
+    padding: 5px 8px;
+    box-shadow: -2px -3px 5px #444444 inset, 1px 2px 3px #d3d3d3 inset;
+}
+.css2{
+    background-color: #47885e;
+    border-radius:  10px;
+    color:#47885e !important;
+    padding: 5px 8px;
+    box-shadow: -2px -3px 5px #444444 inset, 1px 2px 3px #d3d3d3 inset;
+}
+.css3{
+    background-color: #96514d;
+    border-radius:  10px;
+    color:#96514d !important;
+    padding: 5px 8px;
+    box-shadow: -2px -3px 5px #444444 inset, 1px 2px 3px #d3d3d3 inset;
+}
+/*SATT３と４のやつ用
+.css2{
+    background-color: #4183d7;
+    border-radius:  10px;
+    color:#ffffff !important;
+    padding: 5px 8px;
+    box-shadow: -2px -3px 5px #444444 inset, 1px 2px 3px #d3d3d3 inset;
+}
+.css3{
+    background-color: #6390d3;
+    border-radius:  10px;
+    color:#ffffff !important;
+    padding: 5px 8px;
+    box-shadow: -2px -3px 5px #444444 inset, 1px 2px 3px #d3d3d3 inset;
+}*/
+.css4{
+    background-color: gray;
+    border-radius:  10px;
+    color:gray !important;
+    padding: 5px 8px;
+    box-shadow: -2px -3px 5px #444444 inset, 1px 2px 3px #d3d3d3 inset;
+}
+.css5{
+    background-color: #000000;
+    border-radius:  10px;
+    color:#000000 !important;
+    padding: 5px 8px;
+    box-shadow: -2px -3px 5px #444444 inset, 1px 2px 3px #d3d3d3 inset;
+    }
+.css6{
+    background-color: blue;
+    border-radius:  10px;
+    color:blue !important;
+    padding: 5px 8px;
+    box-shadow: -2px -3px 5px #444444 inset, 1px 2px 3px #d3d3d3 inset;
+}
+/*薄い紫用
+.css7{
+    background: #A59EBD;
+    border-radius:  10px;
+    color:#ffffff !important;
+    padding: 5px 8px;
+    box-shadow: -2px -3px 5px #444444 inset, 1px 2px 3px #d3d3d3 inset;
+}*/
+.css7{
+    background-color: yellow;
+    border-radius:  10px;
+    color:yellow !important;
+    padding: 5px 8px;
+    box-shadow: -2px -3px 5px #444444 inset, 1px 2px 3px #d3d3d3 inset;
+}
+
+.css8{
+    background-color: #ffbe84;
+    border-radius:  10px;
+    color:#ffbe84 !important;
+    padding: 5px 8px;
+    box-shadow: -2px -3px 5px #444444 inset, 1px 2px 3px #f5f5f5 inset;
+}
+.csschoice{
+    -webkit-box-shadow: 0 0 3px 2px #E23E57;
+            box-shadow: 0 0 3px 2px #E23E57;      /*IE*/
+    box-shadow: 2px 3px 5px #444444 inset, -1px -2px 3px #d3d3d3 inset;
+    border: 2px solid white;
+}
+
+.css0:hover, .css1:hover, .css2:hover, .css3:hover, 
+.css4:hover, .css5:hover, .css6:hover, .css7:hover, .css8:hover {
+    text-decoration: none !important;
+}
+/*IEで色変えの部分が最後のやつだけ崩れるのでIEだけで表示が変わるように*/
+/*@media all and (-ms-high-contrast:none){
+    .css7 {
+        padding: 5px 17px;
+    }
+    
+    .rightbig .css7 {
+        padding: 5px 20px;
+    }
+}*/
+/*TOP画面文字サイズ変更リンクデザイン*/
+.size0 {
+    text-decoration: none !important;
+    border-radius:5px;
+    text-align: center;
+    font-size: 90% !important;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    box-shadow: 2px 3px 5px #444444 inset, 1px 2px 3px #f5f5f5 inset;
+}
+.size1 {
+    text-decoration: none !important;
+    border-radius:5px;
+    text-align: center;
+    font-size:90% !important;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    box-shadow: -2px -3px 5px #444444 inset, 1px 2px 3px #f5f5f5 inset;
+}
+.size {
+    text-decoration: none !important;
+    border-radius:5px;
+    text-align: center;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    box-shadow: -2px -3px 5px #444444 inset, 1px 2px 3px #f5f5f5 inset;
+}
+.sizechoice {
+    text-decoration: none !important;
+    border-radius:5px;
+    text-align: center;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    box-shadow: 2px 3px 5px #444444 inset, -1px -2px 3px #d3d3d3 inset;
+    border: 1px solid white;
+}
+/*二回目のログイン画面*/
+.seclogin {
+    width: 30%;
+    font-size: 150%;
+    border-collapse: collapse;
+}
+.seclogin th {
+    text-align: center;
+    font-weight:normal;
+}
+.seclogin td {
+    padding: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: #ffffff;
+}
+.seclogin input {
+    margin-bottom: 0px;
+    font-size: 100%;
+}
+.seclogin select {
+    font-size: 100%;
+}
+/*お知らせ入力画面へのリンク*/
+.oshirase {
+    background:#eeeeee;
+    color:black !important;
+    padding:5px 10px;
+    border-radius:5px;
+    font-size:90% !important;
+    box-shadow: -2px -3px 5px #444444 inset,
+                 1px  2px 3px #f5f5f5 inset;
+}
+.oshirase:hover {
+    text-decoration: none !important;
+}
+input[name^="NOT_DISP"] {
+    transform: scale(1.4);
+}
+

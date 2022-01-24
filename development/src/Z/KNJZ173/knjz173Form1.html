@@ -1,0 +1,55 @@
+{rval start}
+<table width="670" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr > 
+          <td >
+             <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line">
+               <th>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search"> 
+                <th width="*%" align="left">&nbsp;&nbsp;対象年度： &nbsp{rval year/VAL}&nbsp;&nbsp;{rval button/copy}</th>
+                </tr>
+            </table>
+               </th>
+              </tr>
+             </table>
+            <BR>
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="15%" nowrap>皆勤コード</th>
+                      <th width="10%" nowrap>区分</th>
+                      <th width="15%" nowrap>皆勤名称</th>
+                      <th width="15%" nowrap>参照年数</th>
+                      <th width="15%" nowrap>優先順位</th>
+                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+          <tr  align="center" nowrap> 
+             <td bgcolor="#ffffff" align="left" nowrap>{val data/KAIKIN_CD}</td>
+             <td bgcolor="#ffffff" align="left" nowrap>{val data/KAIKIN_DIV}</td>
+             <td bgcolor="#ffffff" align="left" nowrap>{val data/KAIKIN_NAME}</td>
+             <td bgcolor="#ffffff" align="left" nowrap>{val data/REF_YEAR}</td>
+             <td bgcolor="#ffffff" align="left" nowrap>{val data/PRIORITY}</td>
+          </tr> 
+<!--{/each}-->
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval close}</script>

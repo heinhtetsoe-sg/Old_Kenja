@@ -1,0 +1,47 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr >
+      <td >
+    <hr width="25%" align="left">
+      {rval SCHREGNO}　{val NAME}
+    <hr width="25%" align="left">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+          <table width="100%" border="0" cellspacing="1" cellpadding="3" onclick="selectRow();" id="list_table" >
+          <tr class="no_search">
+            <th align="center" nowrap height="30">年度</th>
+            <th align="center" nowrap height="30">学期</th>
+            <th align="center" nowrap height="30">学年</th>
+            <th align="center" nowrap height="30">委員会区分</th>
+            <th align="center" nowrap height="30">委員会名</th>
+            <th align="center" nowrap height="30">役職</th>
+          </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+          <tr bgcolor="#ffffff">
+            <td align="left" nowrap>{val data/YEAR}</td>
+            <td align="left" nowrap>{val data/SEMESTERNAME}</td>
+            <td align="left" nowrap>{val data/GRADE}</td>
+            <td align="left" nowrap>{val data/COMMITTEE_FLG_NAME}</td>
+            <td align="left" nowrap>{val data/COMMITTEENAME}</td>
+            <td align="left" nowrap>{val data/EXECUTIVECD}　{val data/NAME1}</td>
+          </tr>
+<!--{/each}-->
+<!--{/def}-->
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+<script language="JavaScript">{rval reload}{rval close}</script>
+{rval finish}

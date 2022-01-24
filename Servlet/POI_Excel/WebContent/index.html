@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>POI テスト</title>
+<script type="text/javascript" src="etc/CallServlet.js"></script>
+<script type="text/javascript" src="etc/sha1.js"></script>
+<script type="text/javascript">
+<!--
+	function goServlet(forwadPath) {
+		codec();
+		document.getElementById('form').action = forwadPath;
+		document.getElementById('form').submit();
+	}
+// -->
+</script>
+</head>
+<body>
+<h1>グループウエアExcel</h1>
+  <FORM id='form' name='form' method="POST" >
+  <BR><BR>
+  　プログラムID指定：<INPUT type="text" size="20" name="programID" value="Tr_Sagcr_07_5">
+  <BR><BR>
+  　Excel作成パラメータ<BR>
+  　<INPUT type="text" size="60" name="Information" value="2019">
+  <BR><BR>
+  　パスワード：<INPUT type="password" name="pass" size="20" value="" >
+  <BR><BR>
+  　　<INPUT type="button" value="Excel作成 " onclick="goServlet('/POI_Excel/EXCEL_Request');" >
+  <INPUT type="hidden" name="token" value="">
+  </FORM>
+</body>
+</html>

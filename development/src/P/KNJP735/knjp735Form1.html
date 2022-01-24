@@ -1,0 +1,136 @@
+{rval start}
+{rval IFRAME}
+<script language="JavaScript">
+//画面のリサイズ
+var timer = 0;
+window.onresize = function () {
+    if (timer > 0) {
+        clearTimeout(timer);
+    }
+
+    timer = setTimeout(function () {
+        bodyHeight = (window.innerHeight || document.body.clientHeight || 0);
+        document.getElementById("tbody").style.height = bodyHeight - 150;
+    }, 200);
+};
+
+</script>
+<br>
+<br>
+<table width="1160px" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="1160" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td align="center">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <td align="left" bgcolor="#ffffff">　　　　<b>納期限月{rval PAID_LIMIT_MONTH}
+                                                         　表示順（{rval SORT_DIV1}<LABEL for="SORT_DIV1">入金グループ</LABEL>
+                                                                   {rval SORT_DIV2}<LABEL for="SORT_DIV2">年組番号</LABEL>
+                                                                   {rval SORT_DIV3}<LABEL for="SORT_DIV3">学籍番号</LABEL>）
+                                                         　入金日{rval PAID_DATE}
+                                                         　入金方法{rval PLAN_PAID_MONEY_DIV}
+                                                         　表示件数：{rval COLLECT_CNT}件</b></td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                            <td>
+                              <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                <tr class="no_search" nowrap align="center">
+                                  <th width="120">年組番号</th>
+                                  <th width="80">学籍番号</th>
+                                  <th width="220">氏名</th>
+                                  <th width="80">転退学日</th>
+                                  <th width="220">入金グループ</th>
+                                  <th width="120">伝票番号</th>
+                                  <th width="100">納期限</th>
+                                  <th width="100">入金必要額</th>
+                                  <th width="*"  ><LABEL for="ALL_CHECK">入金{rval ALL_CHECK}</LABEL></th>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td bgcolor="#ffffff">
+                              <div id="tbody" style="width: 100%; height:{rval valWindowHeight}px; overflow: auto">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr class="no_search_line">
+                                  <td>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="3"> 
+                                      <!--結果一覧-->
+                                      <!--{each data}--> 
+                                      <tr bgcolor="#ffffff" >
+                                      <!--{def data/ROWSPAN}-->
+                                        <th width="120" align="left"   rowspan={rval data/ROWSPAN}>{rval data/HR_ATTEND_NAME}</th>
+                                        <td width="80"  align="left"   rowspan={rval data/ROWSPAN}>{rval data/SCHREGNO}</td>
+                                        <td width="220" align="left"   rowspan={rval data/ROWSPAN}>{rval data/NAME}</td>
+                                        <td width="80" align="center"  rowspan={rval data/ROWSPAN}>{rval data/GRD_DATE}</td>
+                                        <td width="220" align="left"   rowspan={rval data/ROWSPAN}>{rval data/COLLECT_GRP_NAME}</td>
+                                        <td width="120" align="center" rowspan={rval data/ROWSPAN}>{rval data/SLIP_NO}</td>
+                                      <!--{/def}-->
+                                        <td width="100" align="center">{rval data/PAID_LIMIT_DATE}</td>
+                                        <td width="100" align="right" >{rval data/PLAN_MONEY}</td>
+                                        <td width="*"   align="center" class="changeColor" data-name="{rval data/PAID_FLG_NAME}">{rval data/PAID_FLG}</td>
+                                      </tr> 
+                                      <!--{/each}-->
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="right" bgcolor="#ffffff">{rval button/btn_print}　　　　{rval button/btn_update}{rval button/btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<input type='hidden' name='windowHeight' value=''>
+<script language="JavaScript">{rval reload}</script>
+{rval finish}
+<script language="JavaScript">
+    document.addEventListener('click', function(e) {tdChangeColor(e)});
+    document.addEventListener('mouseover', function(e) {tdChangeColor(e)});
+    document.addEventListener('mouseout', function(e) {tdChangeColor(e)});
+
+    function tdChangeColor(e) {
+        var t = e.target;
+        if (t.className == "changeColor") {
+            var objName = e.target.getAttribute('data-name');
+            targetCheckBox = document.getElementById(objName);
+            switch (e.type) {
+                case "mouseover":
+                    targetCheckBox.parentNode.style.backgroundColor = "pink";
+                    break;
+                case "mouseout":
+                    targetCheckBox.parentNode.style.backgroundColor = "white";
+                    break;
+                case "click":
+                    if (e.target.type != "checkbox") {
+                        targetCheckBox.checked = targetCheckBox.checked ? false: true;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+</script>

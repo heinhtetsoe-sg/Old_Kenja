@@ -1,0 +1,129 @@
+﻿{rval start}
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="150" nowrap bgcolor="#00FFFF" align="center">
+            <b><font size="3" color="#000080">基本情報</font><font size="2" color="#000080"><BR>(視力・聴力)</font></b>
+          </td>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="800px" border="0" cellspacing="0" cellpadding="0">
+        <tr><td height="20"></td></tr>
+<!--{def data}-->
+<!--{def button}-->
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th class="no_search" nowrap colspan="2">健康診断実施日</th>
+                <td bgcolor="#ffffff"width="*">{rval data/DATE}</td>
+              </tr>
+              <tr>
+                <th class="no_search" nowrap colspan="3">視力</th>
+              </tr>
+              <tr>
+                <th class="no_search" nowrap rowspan="3" width=100>視力</th>
+                <th width="100" align="right" class="no_search" nowrap>右</th>
+                <td bgcolor="#ffffff" width="*">
+                  &nbsp;裸眼：{rval data/R_BAREVISION}
+                  &nbsp;&nbsp;矯正：{rval data/R_VISION}
+                  &nbsp;&nbsp;{rval data/R_VISION_CANTMEASURE}<LABEL for="R_VISION_CANTMEASURE">測定困難</LABEL>
+                </td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>左</th>
+                <td bgcolor="#ffffff" width="*">
+                  &nbsp;裸眼：{rval data/L_BAREVISION}
+                  &nbsp;&nbsp;矯正：{rval data/L_VISION}
+                  &nbsp;&nbsp;{rval data/L_VISION_CANTMEASURE}<LABEL for="L_VISION_CANTMEASURE">測定困難</LABEL>
+                </td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>両眼</th>
+                <td bgcolor="#ffffff" width="*">
+                  &nbsp;裸眼：{rval data/RL_BAREVISION}
+                  &nbsp;&nbsp;矯正：{rval data/RL_VISION}
+                  &nbsp;&nbsp;{rval data/RL_VISION_CANTMEASURE}<LABEL for="RL_VISION_CANTMEASURE">測定困難</LABEL>
+                </td>
+              </tr>
+
+              <tr>
+                <th class="no_search" nowrap colspan="3">聴力</th>
+              </tr>
+              <tr>
+                <th class="no_search" nowrap rowspan="5" width=100>聴力</th>
+                <th align="right" class="no_search" nowrap>右</th>
+                <td bgcolor="#ffffff" width="*">
+                  &nbsp;{rval data/R_EAR_DB}&nbsp;dB
+                  &nbsp;&nbsp;状態：{rval data/R_EAR}
+                  &nbsp;&nbsp;{rval data/R_EAR_CANTMEASURE}<LABEL for="R_EAR_CANTMEASURE">測定困難</LABEL>
+                </td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>左</th>
+                <td bgcolor="#ffffff" width="*">
+                  &nbsp;{rval data/L_EAR_DB}&nbsp;dB
+                  &nbsp;&nbsp;状態：{rval data/L_EAR}
+                  &nbsp;&nbsp;{rval data/L_EAR_CANTMEASURE}<LABEL for="L_EAR_CANTMEASURE">測定困難</LABEL>
+                </td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>両耳</th>
+                <td bgcolor="#ffffff" width="*">
+                  &nbsp;{rval data/DET_REMARK3}&nbsp;dB
+                </td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>閾値（補聴器装用時）</th>
+                <td bgcolor="#ffffff" width="*">
+                  &nbsp;{rval data/DET_REMARK4}&nbsp;dB
+                </td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>閾値（人工内耳）</th>
+                <td bgcolor="#ffffff"width="*">
+                  &nbsp;{rval data/DET_REMARK5}&nbsp;dB
+                </td>
+              </tr>
+              <tr>
+                <th class="no_search" nowrap colspan="2">メーカー・機種・シリアル番号</th>
+                <td bgcolor="#ffffff"width="*">
+                  &nbsp;{rval data/DET_REMARK6}<br>
+                  <font size="2" color="red">&nbsp;{rval data/DET_REMARK6_SIZE}</font>
+                </td>
+              </tr>
+              <tr>
+                <th class="no_search" nowrap colspan="2">主なコミュニケーション手段</th>
+                <td bgcolor="#ffffff"width="*">
+                  &nbsp;{rval data/DET_REMARK7}<br>
+                  <font size="2" color="red">&nbsp;{rval data/DET_REMARK7_SIZE}</font>
+                </td>
+              </tr>
+
+              <tr>
+                <th align="right" class="no_search" nowrap colspan=2>&nbsp;</th>
+                <td align="left" bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_clear}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+<!--{/def}-->
+<!--{/def}-->
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish} 

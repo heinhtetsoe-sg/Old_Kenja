@@ -1,0 +1,138 @@
+<style type="text/css">
+<!--
+body {
+    text-align:center;
+    padding-top:50px;
+}
+h1 {
+    width:300px;
+    border:1px solid #255476;
+    font-size:1em;
+    font-weight:500;
+    text-align:center;
+}
+span {
+    padding:5px 20px 5px 20px;
+    height:20px;
+}
+span#top_title {
+    padding:5px 20px 5px 20px;
+    background-color:#316F9B;
+    height:29px;
+    float:left;
+    color:#ffffff;
+}
+div#main_container {
+    width:600px;
+    text-align:left;
+}
+div.text_left {
+    text-align:left;
+}
+div.text_right{
+    text-align:right;
+}
+div#top_container {
+    margin-bottom:20px;
+    width:500px;
+}
+div#bottom_container {
+    width:700px;
+}
+div#top_container table {
+    width:500px;
+}
+div#bottom_container table {
+}
+table {
+    border:1px solid;
+}
+table, th, td {
+    border-collapse:collapse;
+    border:1px solid #255476;
+    text-align:center;
+}
+table td.on_color, table th {
+    background-color:#316F9B;
+    color:#ffffff;
+}
+th, td {
+    width:300px;
+}
+div#top_container table input {
+    width:1.5em;
+}
+div#bottom_container table td.nomal_width input {
+    width:6em;
+}
+-->
+</style>
+
+<div id="main_container">
+{rval start}
+    <h1><span id="top_title">対象年度</span><span>{rval YEAR}</span>
+    </h1>
+        {rval IFRAME}
+
+
+        <div id="top_container" class="text_right">
+
+            <table>
+                <tr>
+                    <th>学期コード</th>
+                    <th>学期名称</th>
+                    <th>学期開始日付</th>
+                    <th>学期終了日付</th>
+                    <th>学期詳細数</th>
+                </tr>
+<!--{def data}-->
+<!--{each data}-->
+                <tr>
+                    <td class="on_color">{rval data/SEME_CD}</td>
+                    <td class="on_color">{rval data/SEME_NAME}</td>
+                    <td>{rval data/SDATE}</td>
+                    <td>{rval data/EDATE}</td>
+                    <td>{rval data/SEME_SEP_NUM}</td>
+                </tr>
+<!--{/each}-->
+<!--{/def}-->
+            </table>
+            {rval button/btn_decision}
+        </div>
+
+        <div id="bottom_container" class="text_left">
+            <table>
+                <tr>
+                    <th>学期</th>
+                    <th>詳細コード</th>
+                    <th>詳細学期</th>
+                    <th>開始日</th>
+                    <th>終了日</th>
+                </tr>
+
+<!--{def date}-->
+<!--{each date}-->
+                <tr>
+                    {rval IFRAME}
+                    <input type="hidden" name="sem_key[]" value="{val date/SEM_KEY}">
+<!--{def date/ROWSPAN}-->
+                    <td class="on_color" rowspan="{val date/ROWSPAN}">{val date/SEM_CD} : {val date/SEM_NAME}</td>
+<!--{/def}-->
+                    <td class="on_color">{val date/SEM_DITAIL_CD}</td>
+                    <td class="nomal_width">{val date/SEMESTER_NAME}</td>
+                    <td>{val date/SDATE}</td>
+                    <td>{val date/EDATE}</td>
+                </tr>
+<!--{/each}-->
+<!--{/def}-->
+            </table>
+            {rval button/btn_update}
+
+            {rval button/btn_reset}
+
+            {rval button/btn_end}
+
+        </div>
+    {rval finish}
+</div>
+

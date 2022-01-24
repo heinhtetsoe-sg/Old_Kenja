@@ -1,0 +1,71 @@
+{rval start}
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr> 
+     <td valign="top"> 
+    <BR>
+    <table width="80%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+        <td>
+        <hr style="width:100%">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr align="left">
+                    <td width="45%">&nbsp;&nbsp;{rval header/SCHREGNO}&nbsp;：&nbsp;{rval header/NAME_SHOW}</td>
+                    <td width="35%">&nbsp;{rval header/BIRTHDAY}&nbsp;生まれ</td>
+                </tr>
+            </table>
+            <hr style="width:100%">
+        </td>
+        </tr>
+    </table>
+    </td>
+    </tr>
+    <tr>
+      <table width="1600" border="0" cellspacing="0" cellpadding="10">
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr align="center" class="no_search" nowrap>
+                      <th width="3%" >連番</th>
+                      <th width="15%">氏名</th>
+                      <th width="18%">氏名(かな)</th>
+                      <th width="4%" >性別</th>
+                      <th width="5%">生年月日</th>
+                      <th width="4%" >続柄</th>
+                      <th width="15%">職業又は学校</th>
+                      <th width="5%" >学籍番号</th>
+                      <th width="5%" >在卒区分</th>
+                      <th width="5%" >学年</th>
+                      <th width="5%">同居<br>区分</th>
+                      <th width="25%">備考</th>
+                    </tr>
+<!--結果一覧-->
+<!--{each data}-->
+                    <tr>
+                      <td align="center" bgcolor="#ffffff" nowrap>{rval data/RELANO}</td>
+                      <td align="left"   bgcolor="#ffffff" nowrap>{rval data/RELANAME}</td>
+                      <td align="left"   bgcolor="#ffffff" nowrap>{rval data/RELAKANA}</td>
+                      <td align="center" bgcolor="#ffffff" nowrap>{rval data/RELASEX}</td>
+                      <td align="left"   bgcolor="#ffffff" nowrap>{rval data/RELABIRTHDAY}</td>
+                      <td align="left"   bgcolor="#ffffff" nowrap>{rval data/RELATIONSHIP}</td>
+                      <td align="left"   bgcolor="#ffffff" nowrap>{rval data/OCCUPATION}</td>
+                      <td align="left"   bgcolor="#ffffff" nowrap>{rval data/RELA_SCHREGNO}</td>
+                      <td align="left"   bgcolor="#ffffff" nowrap>{rval data/REGD_GRD_FLG}</td>
+                      <td align="left"   bgcolor="#ffffff" nowrap>{rval data/RELA_GRADE}</td>
+                      <td align="left"   bgcolor="#ffffff" nowrap>{rval data/REGIDENTIALCD}</td>
+                      <td align="left"   bgcolor="#ffffff" nowrap>{rval data/REMARK}</td>
+                    </tr>
+<!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<script language="JavaScript">{rval reload}</script>

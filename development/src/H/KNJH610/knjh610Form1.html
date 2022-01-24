@@ -1,0 +1,43 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="40%" align="center">対象年度：{rval YEAR}</th>
+                      <th nowrap align="right" colspan="2">{rval button/btn_copy}&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    </tr>
+                    <tr class="no_search"> 
+                      <th nowrap width="*%">共通テスト科目コード</th>
+                      <th nowrap width="45%">共通テスト科目名称</th>
+                      <th nowrap width="20%">科目略称</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}--> 
+                    <tr> 
+                      <td nowrap align="center" bgcolor="#ffffff"><a href="knjh610index.php?cmd=edit&CENTER_SUBCLASS_CD={val data/CENTER_SUBCLASS_CD}&CENTER_CLASS_CD={val data/CENTER_CLASS_CD}" target="right_frame">{val data/CENTER_SUBCLASS_CD}</a></td>
+                      <td nowrap bgcolor="#ffffff">{val data/SUBCLASS_NAME}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/SUBCLASS_ABBV}</td>
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

@@ -1,0 +1,68 @@
+{rval start} 
+<!--{def button}--> 
+<!--{def data}-->
+
+<INPUT type="hidden" name="selectdata" size="70"><br>
+
+<br><br><br><br>
+<table style="width: 600px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+    <table style="width: 600px" border="0" cellspacing="5" cellpadding="0">
+    <tr>
+    <td>
+        <tablestyle="width: 600px" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 600px"  border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search" height="30">
+                    <td align = "center">
+                        <b>{rval data/YEAR}年度</b>
+                    </td>
+                </tr>
+                <tr bgcolor="#ffffff" height="70">
+                    <td align = "center">
+                        <table>
+                          <tr bgcolor="#ffffff">
+                            <td >
+                                学年&nbsp;{rval data/GRADE}&nbsp;&nbsp;学期&nbsp;{rval data/SEMESTER}&nbsp;&nbsp;テスト種別&nbsp;{rval data/TESTCD}
+                            </td>
+                          </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr bgcolor="#ffffff" height="70">
+                    <td>
+                        <table>
+                          <tr bgcolor="#ffffff">
+                            <td>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>●優秀者</b><br>
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;平均が&nbsp;&nbsp;{rval data/EXCELLENT_PERSON}&nbsp;以上の者</p>
+
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>●欠点数多数保有者</b><br>
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欠点数&nbsp;&nbsp;{rval data/UNSKILFUL_PERSON}&nbsp;個以上</p>
+                            </td>
+                          </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr class="no_search">
+                    <td align="left">
+                        {rval button/btn_print}{rval button/btn_end}
+                    </td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+    </table>
+</td>
+</tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

@@ -1,0 +1,112 @@
+{rval start}
+
+<table width="65%" border="0" cellspacing="0" cellpadding="5" align="center" style="margin-top:15px;">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="30">
+                      <td width="17%" class="no_search" align="left">{rval TOP/YEAR}年度&nbsp;&nbsp;学校種別</td>
+                      <td width="8%"  bgcolor="#ffffff"> {rval TOP/APPLICANTDIV}</td>
+                      <td width="10%" class="no_search" align="center">入試種別</td>
+                      <td width="14%"  bgcolor="#ffffff">{rval TOP/TESTDIV}</td>
+                      <td width="13%" class="no_search" align="center">入試方式</td>
+                      <td width="*"  bgcolor="#ffffff">{rval TOP/EXAMTYPE}　{rval btn_back}{rval btn_next}&nbsp;</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" align="center" height="30">
+                            <td width="100" nowrap>受験番号</td>
+                            <td width="250" nowrap>氏名</td>
+                            <td width="350" nowrap>氏名かな</td>
+                            <td width="*" nowrap>整理番号</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <div style="height: 500px; overflow: auto;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--結果一覧-->
+                          <!--{def data}-->
+                          <!--{each data}-->
+                          <tr bgcolor="#ffffff" id="ROWID{rval data/RECEPTNO}" nowrap>
+                            <td width="100" align="center" nowrap>{rval data/RECEPTNO}</td>
+                            <td width="250" align="center" nowrap>{rval data/NAME}</td>
+                            <td width="350" align="left" nowrap>{rval data/NAME_KANA}</td>
+                            <td width="*" align="left" nowrap>{rval data/ORDERNO}</td>
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <td align = "right" width="30%" nowrap>{rval btn_update}{rval btn_reset}{rval btn_end}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">
+    change_flg = false;
+    var aPerfect = new Array();
+    <!--{def data2}-->
+    <!--{each data2}-->
+        aPerfect['{rval data2/key}'] = '{rval data2/perf}';
+    <!--{/each}-->
+    <!--{/def}-->
+</script>
+{rval finish}

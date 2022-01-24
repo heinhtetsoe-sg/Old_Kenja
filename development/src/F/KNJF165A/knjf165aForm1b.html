@@ -1,0 +1,66 @@
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="5">
+  <tbody>
+    <tr>
+      <td nowrap>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr class="no_search" height="30">
+              <th nowrap><b>
+                {rval data/YEAR}年度　{rval data/SEMESTER}
+              </b></th>
+            </tr>
+            <tr align="center">
+              <th nowrap><b>
+                　　来室日付範囲{rval data/SDATE}　～　{rval data/EDATE}<br>
+              </b></th>
+            </tr>
+            <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search_line">
+                      <td width="5%" align="center">　</td>
+                      <td width="5%" >種別</td>
+                      <td width="5%" >年
+                      <td width="5%" >組
+                      <td width="5%" >番
+                      <td width="5%" >氏名
+                      <td width="5%" >災害発生日
+                      <td width="10%" >転帰
+                      <td width="10%" >支給日
+                      <td width="10%" >医療点数
+                      <td width="10%" >支給額
+                      <td width="10%" >受給日給
+                      <td width="10%" >備考
+                    </tr>
+      <!--{each list}-->
+                    <tr>
+                      <td width="5%" align="center">{rval data/CHECKED}</td>
+                      <td width="5%" >{rval data/TYPE}</td>
+                      <td width="5%" >{rval data/GRADE}</td>
+                      <td width="5%" >{rval data/HR_CLASS}</td>
+                      <td width="5%" >{rval data/ATTENDNO}</td>
+                      <td width="5%" >{rval data/NAME}</td>
+                      <td width="5%" >{rval data/VISIT_DATE}</td>
+                      <td width="10%" bgcolor="#ffffff">{rval data/REMARK2}</td>
+                      <td width="10%" bgcolor="#ffffff">{rval data/REMARK3}</td>
+                      <td width="10%" bgcolor="#ffffff">{rval data/REMARK4}</td>
+                      <td width="10%" bgcolor="#ffffff">{rval data/REMARK5}</td>
+                      <td width="10%" bgcolor="#ffffff">{rval data/REMARK6}</td>
+                      <td width="10%" bgcolor="#ffffff">{rval data/REMARK7}</td>
+                      <td width="10%" bgcolor="#ffffff">{rval data/REMARK8}</td>
+                    </tr>
+      <!--{/each}-->
+                    <tr>
+                      <td colspan="3" class="no_search" align="right">{rval btn_print}{rval btn_update}{rval btn_end}</td>
+                    </tr>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}

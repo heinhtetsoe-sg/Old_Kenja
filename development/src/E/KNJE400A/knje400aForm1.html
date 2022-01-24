@@ -1,0 +1,128 @@
+{rval start} 
+{rval IFRAME}
+<BR>
+<table width="800" border="0" cellpadding="0" cellspacing="0" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+              <th align="left" colspan="6"><b>　処理年度{rval data/YEAR}年度</th>
+            </tr>
+            <tr class="no_search" nowrap align="center">
+              <th width="90">文書番号</th>
+              <th width="50">通達</th>
+              <th width="150">提出期限</th>
+              <th width="50">件数</th>
+              <th width="250">通達タイトル</th>
+              <th width="*">作成日</th>
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 100%; height: 130;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def data2}-->
+                <!--{each data2}-->
+                  <tr bgcolor="#ffffff">
+                    <td width="90" align="right"><a href="knje400aindex.php?cmd=list_set&YEAR={val data2/YEAR}&SEND_DOC_NUMBER={val data2/DOC_NUMBER}">{rval data2/DOC_NUMBER}</a></td>
+                    <td width="50" align="center">{rval data2/TRANSMISSION_STATUS}</td>
+                    <td width="150" align="center">{rval data2/SUBMISSION_DATE}</td>
+                    <td width="50" align="right">{rval data2/SCHOOL_COUNT}件</td>
+                    <td width="250" align="left">{rval data2/NOTICE_TITLE}</td>
+                    <td width="*" align="center">{rval data2/WRITING_DATE}</td>
+                  </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+        
+        <tr><td height="10"></td></tr>
+<!--{def button}--> 
+<!--{def data}-->
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr>
+                      <th width="100" align="center" class="no_search">文書番号</th>
+                      <td bgcolor="#ffffff">{rval data/DOC_NUMBER}　　　　　{rval button/btn_notify}</td>
+                    </tr>
+                    <tr>
+                      <th width="100" align="center" class="no_search">タイトル</th>
+                      <td bgcolor="#ffffff">{rval data/NOTICE_TITLE}</td>
+                    </tr>
+                    <tr>
+                      <th width="100" align="center" class="no_search">通達文</th>
+                      <td bgcolor="#ffffff">{rval data/NOTICE_MESSAGE}</td>
+                    </tr>
+                    <tr>
+                      <th width="100" align="center" class="no_search">掲載期間</th>
+                      <td bgcolor="#ffffff">{rval data/VIEWING_PERIOD_FROM} ～ {rval data/VIEWING_PERIOD_TO}</td>
+                    </tr>
+                    <tr>
+                      <th width="100" align="center" class="no_search">提出期限</th>
+                      <td bgcolor="#ffffff">{rval data/SUBMISSION_DATE}　{rval data/REQUEST_ANSWER_FLG}<LABEL for="REQUEST_ANSWER_FLG">回答要</LABEL>　調査報告：{rval data/REQUEST_ANSWER_PRG}</td>
+                    </tr>
+                    <tr>
+                      <th width="100" align="center" class="no_search">作成日</th>
+                      <td bgcolor="#ffffff">{rval data/WRITING_DATE}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>選択対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>学校一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>              
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_add}{rval button/btn_update}{rval button/btn_delete}{rval button/btn_reset}{rval button/btn_end}</td>
+  </tr>
+  <!--{/def}-->
+  <!--{/def}-->
+</table>
+<script language="JavaScript">{rval jscript}</script>
+
+{rval finish} 

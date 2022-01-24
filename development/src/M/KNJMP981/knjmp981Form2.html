@@ -1,0 +1,153 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr> 
+      <td > 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" height="28"> 
+              <th width="30%">項 目</th>
+              <th width="70%">値</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>会計科目コード</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/LEVY_L_CD}</td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>会計項目コード</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/LEVY_M_CD}</td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>収入支出区分</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/LEVY_IN_OUT_DIV}</td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>会計項目名称</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/LEVY_M_NAME}</td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap></th>
+                  <th align="right" nowrap>会計項目略称</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/LEVY_M_ABBV}</td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>会計細目有無</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff"><LABEL for="LEVY_S_EXIST_FLG1">{rval data/LEVY_S_EXIST_FLG1}有</LABEL>　<LABEL for="LEVY_S_EXIST_FLG2">{rval data/LEVY_S_EXIST_FLG2}無</LABEL></td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap></th>
+                  <th align="right" nowrap>雑収入の設定</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff"><LABEL for="ZATU_FLG">{rval data/ZATU_FLG}有効</LABEL></td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap></th>
+                  <th align="right" nowrap>予備費の設定</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff"><LABEL for="YOBI_FLG">{rval data/YOBI_FLG}有効</LABEL></td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap></th>
+                  <th align="right" nowrap>繰越金の設定</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff"><LABEL for="KURIKOSI_FLG">{rval data/KURIKOSI_FLG}有効</LABEL></td>
+            </tr>
+
+            <tr height="28">
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap></th>
+                  <th align="right" nowrap>備考</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/REMARK}</td>
+            </tr>
+            <!--{/def}--> 
+            <!--{def button}--> 
+            <tr height="28"> 
+              <th align="right" class="no_search" nowrap>&nbsp;</th>
+              <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}<BR>{rval button/btn_shousai}</td>
+            </tr>
+            <!--{/def}--> 
+            </table>
+          </td>
+        </tr>
+    </table>
+  </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

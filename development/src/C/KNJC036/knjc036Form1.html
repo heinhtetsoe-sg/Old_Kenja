@@ -1,0 +1,143 @@
+{rval start}
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+    <th valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+        <tr class="no_search" nowrap>
+            <td>
+                &nbsp;&nbsp;処理年度：{rval year}年度
+                &nbsp;&nbsp;対象学期：{rval TOP/SEMESTER}
+                &nbsp;&nbsp;クラス：{rval TOP/HR_CLASS}
+                &nbsp;&nbsp;※指定された対象学期の情報のみ訂正可能です。
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </th>
+</tr>
+<tr><td><br></td></tr>
+<tr>
+    <th valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <th align="right">
+        <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+        <tr class="no_search" nowrap>
+            <th colspan="2" bgcolor="#FFFFFF"></th>
+            <th colspan="7">{rval TOP/SEMESTERNAME1}</th>
+            <th colspan="7">{rval TOP/SEMESTERNAME2}</th>
+            <th colspan="7">{rval TOP/SEMESTERNAME3}</th>
+            <th colspan="4">年間（累計）</th>
+        </tr>
+        <tr class="no_search" align="center" nowrap>
+            <td rowspan="2" width="19">No.</td>
+            <td rowspan="2" width="100">氏&nbsp;&nbsp;名</td>
+
+            <td colspan="3">遅刻</td>
+            <td rowspan="2" width="28">欠<br>時<br>数</td>
+            <td colspan="3">欠課</td>
+
+            <td colspan="3">遅刻</td>
+            <td rowspan="2" width="28">欠<br>時<br>数</td>
+            <td colspan="3">欠課</td>
+
+            <td colspan="3">遅刻</td>
+            <td rowspan="2" width="28">欠<br>時<br>数</td>
+            <td colspan="3">欠課</td>
+
+            <td rowspan="2" width="28">遅<br>刻</td>
+            <td rowspan="2" width="28">欠<br>時<br>数</td>
+            <td rowspan="2" width="#">欠<br>課<br>回<br>数</td>
+        </tr>
+        <tr class="no_search" align="center" nowrap>
+            <td rowspan="2" width="28">回<br>数</td>
+            <td rowspan="2" width="30">訂<br>正</td>
+            <td rowspan="2" width="28">確<br>定</td>
+            <td rowspan="2" width="27">回<br>数</td>
+            <td rowspan="2" width="30">訂<br>正</td>
+            <td rowspan="2" width="27">確<br>定</td>
+
+            <td rowspan="2" width="28">回<br>数</td>
+            <td rowspan="2" width="30">訂<br>正</td>
+            <td rowspan="2" width="28">確<br>定</td>
+            <td rowspan="2" width="27">回<br>数</td>
+            <td rowspan="2" width="30">訂<br>正</td>
+            <td rowspan="2" width="27">確<br>定</td>
+
+            <td rowspan="2" width="28">回<br>数</td>
+            <td rowspan="2" width="30">訂<br>正</td>
+            <td rowspan="2" width="28">確<br>定</td>
+            <td rowspan="2" width="27">回<br>数</td>
+            <td rowspan="2" width="30">訂<br>正</td>
+            <td rowspan="2" width="27">確<br>定</td>
+        </tr>
+        </table>
+        </th>
+    </tr>
+    <tr>
+        <th align="right">
+        <div style="height:480;overflow:auto">
+        <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+        <!--{each attend_data}-->
+        <tr bgcolor="#FFFFFF" align="center" nowrap>
+            <td width="19">{rval attend_data/ATTENDNO}</td>
+            <td width="100" align="left">{rval attend_data/NAME_SHOW}</td>
+
+            <td width="28">{rval attend_data/LATE1}</td>
+            <td width="30">{rval attend_data/LATE_COR1}</td>
+            <td width="28">{rval attend_data/LATE_FIX1}</td>
+            <td width="28">{rval attend_data/JISUU1}</td>
+            <td width="27">{rval attend_data/KEKKA1}</td>
+            <td width="30">{rval attend_data/KEKKA_COR1}</td>
+            <td width="27">{rval attend_data/KEKKA_FIX1}</td>
+
+            <td width="28">{rval attend_data/LATE2}</td>
+            <td width="30">{rval attend_data/LATE_COR2}</td>
+            <td width="28">{rval attend_data/LATE_FIX2}</td>
+            <td width="28">{rval attend_data/JISUU2}</td>
+            <td width="27">{rval attend_data/KEKKA2}</td>
+            <td width="30">{rval attend_data/KEKKA_COR2}</td>
+            <td width="27">{rval attend_data/KEKKA_FIX2}</td>
+
+            <td width="28">{rval attend_data/LATE3}</td>
+            <td width="30">{rval attend_data/LATE_COR3}</td>
+            <td width="28">{rval attend_data/LATE_FIX3}</td>
+            <td width="28">{rval attend_data/JISUU3}</td>
+            <td width="27">{rval attend_data/KEKKA3}</td>
+            <td width="30">{rval attend_data/KEKKA_COR3}</td>
+            <td width="27">{rval attend_data/KEKKA_FIX3}</td>
+
+            <td width="28">{rval attend_data/SUM_LATE_FIX}</td>
+            <td width="28">{rval attend_data/SUM_JISUU}</td>
+            <td width="#">{rval attend_data/SUM_KEKKA_FIX}{rval attend_data/SCHREGNO}</td>
+        </tr>
+        <!--{/each}-->
+        </table>
+        </div>
+        </th>
+    </tr>
+    <tr>
+        <th align="right">
+        <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+        <tr class="no_search" align="right" nowrap>
+            <td>※遅刻／欠課確定数の算出は、更新後に行います。
+{rval btn_update}
+{rval btn_reset}
+{rval btn_end}
+{rval btn_print}&nbsp;&nbsp;
+            </td>
+        </tr>
+        </table>
+        </th>
+    </tr>
+    </table>
+    </th>
+</tr>
+</table>
+{rval finish}

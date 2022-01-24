@@ -1,0 +1,131 @@
+{rval start}
+<!--CSS-->  
+<style>
+</style>
+
+
+{rval IFRAME}
+{rval maintenance_kenja}
+
+<div class="rightMenu" id="right">
+<table class="right{rval csssize}">
+  <tr>
+  <td>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+        <td align="center" width="20%" id="gakuname" nowrap>{rval GAKU_NAME}</td>
+        <td align="center" width="*">{rval CTRL_YEAR}</td>
+        <td align="center" width="10%" nowrap><i class="fa fa-user"></i> {rval STAFFNAME_SHOW}</td>
+        <td align="right" width="15%">
+            <div id="logout">
+            <a href="#" onClick="logout2();"><i class="fa fa-sign-out"></i> {rval LOGOUT}</a>
+            </div>
+        </td>
+        </tr>
+      </table>
+  </td>
+  </tr>
+
+<!--メニュータイトル-->
+  <tr>
+  <td>
+      <table class="fsample{rval csssize}">
+        <tr>
+        <th class="link" align="right">{rval MENUNAME}</th>
+        <th align="left">{rval MANUAL}</th>
+        <th align="right">{rval gakkichange}</th>
+        <th width="15%"></th>
+        </tr>
+      </table>
+  </td>
+  </tr>
+
+<!--{def table}-->
+  <tr>
+  <td>
+  <table class="sample{rval csssize}" >
+    <tr>
+        <th width="1%" style="border-right: 0;">　</th>
+        <th width="*" style="border-left: 0;">{rval THSHORI}</th>
+        <th width="11%" nowrap>{rval THMANUAL}</th>
+        <th width="5%">P_ID</th>
+        <th width="5%">M_ID</th>
+    </tr>
+    <!--{each table}-->
+    <tr {rval table/class}>
+        <td align="center" style="border-right: 0;">{rval table/Image}</td>
+        <td style="border-left: 0;">{rval table/NAME}</td>
+        <td>{rval table/manual}</td>
+        <td>{rval table/PROGRAMID}</td>
+        <td>{rval table/MENUID}</td>
+    </tr>
+    <!--{/each}-->
+  </table>
+  </td>
+  </tr>
+    
+      
+<!--{/def}-->
+
+<!--{def menu}-->
+<tr>
+<td>
+<table style="width:100%;margin-top:10px;margin-bottom:15px;">
+    <tr>
+        <td align="left" width="45%" nowrap><span style="padding:10px;">{rval CSS}</span></td>
+        <td align="center" width="20%" nowrap><span style="padding:10px;"></span></td>
+        <!--<td align="center" width="20%" nowrap><span style="padding:10px;">{rval SIZE}</span></td> -->
+        <!--{def useLanguageChange}-->
+        <td align="center" width="15%" nowrap><span style="padding:10px;">{rval CHANGE_LANGUAGE}</span></td>
+        <!--{/def}-->
+        <!--{def useImeOrAtok}-->
+        <td align="center" width="15%" nowrap><span style="padding:10px 5px;">{rval INPUT}</span></td>
+        <!--{/def}-->
+    </tr>
+</table>
+<table class="top" >
+    <tr>
+        <th width="13%" >{rval hihyouji}</th>
+        <th width="22%">{rval THHYOUZI}</th>
+        <th width="*%" align="center" style="border-right:0px;">{rval THNAIYO} {rval osirase}</th>
+        <th width="10%">{rval THTEMP_FILE}</th>
+        <th width="15%">{rval THSEND}</th>
+    </tr>
+<!--{def anno}-->
+    <!--{each anno}-->
+    <tr>
+        <td>{rval anno/NOT_DISP}</td>
+        <td>{rval anno/DATE}</td>
+        <td align="left" valign="middle">{rval anno/ANNOUNCE}</td>
+        <td>{rval anno/TEMP_FILE}</td>
+        <td>{rval anno/STAFF}</td>
+    </tr>
+    <!--{/each}-->
+<!--{/def}-->
+
+<!--{def not}-->
+    <tr>
+        <td></td>
+        <td></td>
+        <td>{rval not}</td>
+        <td></td>
+        <td></td>
+    </tr>
+<!--{/def}-->
+</table>
+
+</td>
+</tr>
+<!--{/def}-->
+
+
+</table>
+</div>
+<script language="JavaScript">
+{rval schoolWareMenu}
+{rval closeMenu}
+{rval misyukketu}
+{rval tuutatu}
+{rval zoom}
+</script>
+{rval finish}

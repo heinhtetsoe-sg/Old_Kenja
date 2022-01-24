@@ -1,0 +1,76 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <tr>
+                      <th align="center" class="no_search" nowrap>項目</th>
+                      <th align="center" class="no_search" nowrap>値{rval data/SEQ}</th>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※日付</th>
+                      <td bgcolor="#ffffff">{rval data/DIARY_DATE}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>出来事・その他連絡事項</th>
+                      <td bgcolor="#ffffff">{rval data/REMARK1}<font size=2, color="red">{rval data/REMARK1_COMMENT}</font></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>対処・経過</th>
+                      <td bgcolor="#ffffff">{rval data/REMARK2}<font size=2, color="red">{rval data/REMARK2_COMMENT}</font></td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{def button}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}</td>
+                    </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<div style="display:none;">{rval data/DUMMY}</div>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>
+<script language="JavaScript">
+    
+    var aElement = document.querySelector('input[name=DIARY_DATE]');
+    var flag=true;
+    var flag2=true;
+    
+    setInterval(function(){
+        var date=document.querySelector('input[name=DIARY_DATE]').value;
+        var def=document.querySelector('input[name=DIARY_DATE_DEF]').value;
+        if(date!=def.replace(/-/g,'/')){
+            if(document.activeElement != aElement){
+                if(flag){
+                    if(flag2){
+                        falg2=false;
+                        if(isDate(document.querySelector('input[name=DIARY_DATE]'))){
+                            btn_submit('updEdit2');
+                            flag=false;
+                        }
+                        flag2=true;
+                    }
+                }
+            }
+        }
+    },100);
+    
+</script>

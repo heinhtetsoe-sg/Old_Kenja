@@ -1,0 +1,66 @@
+<style>
+input[type=checkbox] {
+    /*height:0px;*/
+    width:0px;
+}
+label {
+    color:midnightblue;
+    text-decoration:underline;
+}
+label:hover {
+    font-weight:bold;
+}
+</style>
+{rval start}
+
+<br>
+<table width="1100" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <hr width="300" align="left">
+            &nbsp;&nbsp;{rval SCHINFO}
+            <hr width="300" align="left"><br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th width="140">来室日時</th>
+                      <th width="120">相談者</th>
+                      <th width="120">相談区分</th>
+                      <th width="240">相談内容</th>
+                      <th width="#">特記事項</th>
+                      <th width="50">添付</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td align="center">{rval data/VISIT_DATE}</td>
+                      <td>{rval data/RELATIONSHIP_SHOW}</td>
+                      <td>{rval data/CONSULTATION_METHOD_SHOW}</td>
+                      <td>{rval data/CONSULTATION_KIND}</td>
+                      <td>{rval data/SPECIAL_NOTE}</td>
+                      <td>{rval data/PDF}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval reload}</script>
+{rval finish}

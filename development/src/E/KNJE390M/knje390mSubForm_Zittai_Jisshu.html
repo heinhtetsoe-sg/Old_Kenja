@@ -1,0 +1,100 @@
+﻿{rval start}
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="150" nowrap bgcolor="#FF7F27" align="center">
+            <b><font size="3" color="#FFFFFF">実態表</font><font size="2" color="#FFFFFF"><BR>(実習の記録)</font></b>
+          </td>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="100">項目</th>
+              <th width="200">実習先</th>
+              <th width="250">期間</th>
+              <th width="*">備考</th>
+            </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <div style="width: 100%; height=170; overflow: auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <!--{def data2}-->
+                <!--{each data2}-->
+                  <tr bgcolor="#ffffff">
+                    <td width="100" align="left"><a href="knje390mindex.php?cmd=subformZittaiJisshu_set&SCHREGNO={val data2/SCHREGNO}&START_DATE={val data2/START_DATE}">{rval data2/RECORD_DIV_NAME}</a></td>
+                    <td width="200" align="left">{rval data2/COMPANY_NAME}</td>
+                    <td width="250" align="left">{rval data2/S_E_YEAR_MONTH}</td>
+                    <td width="*" align="left">{rval data2/REMARK}</td>
+                  </tr>
+                <!--{/each}-->
+                <!--{/def}-->
+                </table>
+              </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        </tr>
+        
+        <tr><td height="20"></td></tr>
+        
+<!--{def data}-->
+<!--{def button}-->
+        <tr class="no_search_line">
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th align="right" class="no_search" nowrap>実習先</th>
+                <td bgcolor="#ffffff">{rval data/COMPANY_NAME}{rval data/NAME_SIZE}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>期間</th>
+                <td bgcolor="#ffffff">{rval data/START_DATE}　～　{rval data/FINISH_DATE}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>備考</th>
+                <td bgcolor="#ffffff">{rval data/REMARK}{rval data/REMARK_SIZE}</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td align="left" bgcolor="#ffffff">{rval button/btn_insert}{rval button/btn_update}{rval button/btn_delete}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish} 

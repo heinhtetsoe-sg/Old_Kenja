@@ -1,0 +1,72 @@
+{rval start}
+
+<br>
+<table width=1050 border="0" cellspacing="0" cellpadding="3" align="center">
+  <tr>
+    <th valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+              <tr class="no_search" nowrap>
+                <td>&nbsp;&nbsp;年度</td>
+                <td bgcolor="#ffffff"><font color="black">&nbsp;&nbsp;{rval YEAR}年度</font></td>
+                <td>&nbsp;&nbsp;※学年</td>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval GRADE}</td>
+                <td>&nbsp;&nbsp;※組</td>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval HR_CLASS}</td>
+                <td>&nbsp;&nbsp;※皆勤区分</td>
+                <td bgcolor="#ffffff">&nbsp;&nbsp;{rval KAIKIN_CD}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </th>
+  </tr>
+  <tr><td><br></td></tr>
+  <tr>
+    <th valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <th align="right">
+            <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+              <tr class="no_search" align="center" nowrap>
+                <td width="25%">出席番号</td>
+                <td width="25%">氏名</td>
+                <td width="25%">皆勤・精勤フラグ</td>
+                <td width="25%">無効フラグ</td>
+              </tr>
+            </table>
+          </th>
+        </tr>
+        <tr>
+          <th align="right">
+            <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+              <!--{each data}-->
+              <tr align="center" nowrap bgcolor="#ffffff">
+                <td width="25%">{rval data/ATTENDNO}</td>
+                <td width="25%">{rval data/NAME}</td>
+                <td width="25%">{rval data/KAIKIN_FLG}</td>
+                <td width="25%">{rval data/INVALID_FLG}</td>
+              </tr>
+              <!--{/each}-->
+            </table>
+          </th>
+        </tr>
+        <tr>
+          <th align="right">
+            <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+              <tr class="no_search">
+                <td colspan="3" width="75%">&nbsp;</td>
+                <td bgcolor="#ffffff" align="center" width="25%">{rval btn_update}{rval btn_reset}{rval btn_end}</td>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </table>
+    </th>
+  </tr>
+</table>
+
+{rval finish}

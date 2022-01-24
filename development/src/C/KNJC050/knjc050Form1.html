@@ -1,0 +1,131 @@
+{rval start} 
+<!--{def button}--> 
+<!--{def data}-->
+
+<INPUT type="hidden" name="selectdata" size="70"><br>
+
+<br>
+<table style="width: 450px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+    <table style="width: 450px" border="0" cellspacing="5" cellpadding="0">
+	<tr>
+	<td>
+		<tablestyle="width: 450px" border="0" cellspacing="0" cellpadding="0">
+		<tr class="no_search_line">
+		<td>
+			<table style="width: 450px"	 border="0" cellspacing="1" cellpadding="4">
+			<tr class="no_search" height="30">
+			<td>
+		            　　　　<b>{rval data/YEAR}年度　　{rval data/SEME_NAME}　　<font size="1">(1.1)</font></b>
+			</td>
+			</tr>
+			<tr bgcolor="#ffffff" height="120">
+			　<td>
+			    <table>
+				<tr>
+				<td>
+			        <b>　対象クラス</b>
+				</td>
+				</tr>
+				<tr>
+				<td>
+			    	　　 {rval data/GRADE_HR_CLASS}{rval explore}<br>
+　
+				</td>
+				</tr>
+				<tr>
+				<td>
+				<table>
+				<tr>
+				<td>
+					　　　　科目名
+				</td>
+				<td>
+					　：
+				</td>
+				<td>
+                	　{rval data/SUBCLASSNAME}
+				</td>
+				</tr>
+				<tr>
+				<td>
+					　　　　実施期間
+				</td>
+				<td>
+					　：
+				</td>
+				<td>
+                	　{rval data/STARTENDDAY}
+				</td>
+				</tr>
+				</table>
+			  </td>
+				</tr>
+				</table>
+			  </td>
+			</tr>
+			<tr bgcolor="#ffffff" height="80">
+			　<td>
+			    <table>
+				<tr>
+				<td>
+			        <b>　印刷範囲</b>
+				</td>
+				</tr>
+				<tr>
+				<td>
+					　　{rval data/DATE}　～　{rval data/DATE2}
+				</td>
+				</tr>
+				<tr>
+				<td>
+					　　 {rval data/OUTPUT3}同一科目を３回遅刻・早退すると１回欠課の扱いとする
+				</td>
+				</tr>
+				</table>
+			  </td>
+			</tr>
+<!-- 2004/07/07 delete by nakamoto
+			<tr bgcolor="#ffffff" height="70">
+			　<td>
+			    <table>
+				<tr>
+				<td>
+			        <b>　累計範囲</b>
+				</td>
+				</tr>
+				<tr>
+				<td>
+		        	　　 {rval data/OUTPUT21}学期間の累計　　{rval data/OUTPUT22}指定印刷範囲の累計
+				</td>
+				</tr>
+				</table>
+			  </td>
+			</tr>
+-->
+			<tr class="no_search">
+			<td align="left">
+			    {rval button/btn_print}{rval button/btn_end}
+			</td>
+			</tr>
+			</table>
+		</td>
+		</tr>
+		</table>
+	</td>
+	</tr>
+    </table>
+</td>
+</tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 
+<script language="JavaScript">
+{rval ONLOAD}
+<!-- 2004/03/30 nakamoto add --> 
+window.onunload=function(){if (newWin) newWin.close();}
+</script>

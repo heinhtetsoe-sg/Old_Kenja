@@ -1,0 +1,44 @@
+<?php
+
+require_once('for_php7.php');
+
+require_once('knjx_a125pModel.inc');
+require_once('knjx_a125pQuery.inc');
+
+class knjx_a125pController extends Controller
+{
+    public $ModelClassName = "knjx_a125pModel";
+    public $ProgramID      = "knjx_a125p";
+
+    public function main()
+    {
+        $sessionInstance =& Model::getModel($this);
+        while (true) {
+            switch (trim($sessionInstance->cmd)) {
+                case "exec":    //CSV取込
+                    $sessionInstance->getExecModel();
+                    $sessionInstance->setCmd("main");
+                    break 1;
+                case "csv":     //CSV出力
+                    if (!$sessionInstance->getDownloadModel()) {
+                        $this->callView("knjx_a125pForm1");
+                    }
+                    break 2;
+                case "":
+                case "sign":
+                case "main":
+                    $sessionInstance->getMainModel();
+                    $this->callView("knjx_a125pForm1");
+                    break 2;
+                case "error":
+                    $this->callView("error");
+                    break 2;
+                default:
+                    $sessionInstance->setError(new PEAR_Error("未対応のアクション{$sessionInstance->cmd}です"));
+                    $this->callView("error");
+                    break 2;
+            }
+        }
+    }
+}
+$knjx_a125pCtl = new knjx_a125pController();

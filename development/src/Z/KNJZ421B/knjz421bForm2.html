@@ -1,0 +1,214 @@
+{rval start}
+
+<!--{def data}-->
+<!--{def button}-->
+
+<table width="1000px" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="150px">項 目</th>
+                      <th width="850px" colspan = "5">値</th>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※求人番号</th>
+                      <td bgcolor="#ffffff">{rval data/SENKOU_NO}</td>
+                      <th align="right" class="no_search" nowrap>※受付年月日</th>
+                      <td bgcolor="#ffffff">{rval data/ACCEPTANCE_DATE}</td>
+                      <th align="right" class="no_search" nowrap>※管轄</th>
+                      <td bgcolor="#ffffff">{rval data/KANKATSU}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※会社コード</th>
+                      <td bgcolor="#ffffff" colspan = "5" id="COMPANY_CD">{rval data/COMPANY_CD}　{rval button/btn_company}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※会社名</th>
+                      <td bgcolor="#ffffff" colspan = "5">{rval data/COMPANY_NAME}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>ふりがな</th>
+                      <td bgcolor="#ffffff" colspan = "5">{rval data/COMPANY_NAMEKANA}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>事業内容</th>
+                      <td bgcolor="#ffffff" colspan = "5">{rval data/COMPANY_CONTENTS}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>設立年度</th>
+                      <td bgcolor="#ffffff">{rval data/MAKECOMPANY_YEAR}年</td>
+                      <th align="right" class="no_search" nowrap>資本金</th>
+                      <td bgcolor="#ffffff" colspan = "3">{rval data/SHIHONKIN}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>全体人数</th>
+                      <td bgcolor="#ffffff">{rval data/SONINZU}人</td>
+                      <th align="right" class="no_search" nowrap>就業場所人数</th>
+                      <td bgcolor="#ffffff" colspan = "3">{rval data/TONINZU}人</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>郵便番号</th>
+                      <td bgcolor="#ffffff" colspan = "5">{rval data/COMPANY_ZIPCD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※住所1</th>
+                      <td bgcolor="#ffffff" colspan = "5">{rval data/COMPANY_ADDR1}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap><!--{def requiredinput1}-->※<!--{/def}-->住所2</th>
+                      <td bgcolor="#ffffff" colspan = "5">{rval data/COMPANY_ADDR2}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※電話番号1</th>
+                      <td bgcolor="#ffffff">{rval data/COMPANY_TELNO1}</td>
+                      <th align="right" class="no_search" nowrap>電話番号2</th>
+                      <td bgcolor="#ffffff">{rval data/COMPANY_TELNO2}</td>
+                      <th align="right" class="no_search" nowrap>FAX番号</th>
+                      <td bgcolor="#ffffff">{rval data/COMPANY_FAXNO}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※産業分類</th>
+                      <td bgcolor="#ffffff" colspan = "5">{rval data/INDUSTRY_SCD}　{rval button/btn_industry}　<span id="label_name">{rval data/INDUSTRY_SNAME}</span><br></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※職業分類</th>
+                      <td bgcolor="#ffffff" colspan = "5">{rval data/JOBTYPE_SCD} - {rval data/JOBTYPE_SSCD}　{rval button/btn_jobType}{rval button/btn_apply_jobtype}　<span id="label_jobtype_name">{rval data/JOBTYPE_SNAME}</span></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>就業場所</th>
+                      <td bgcolor="#ffffff" colspan = "5">{rval data/SHUSHOKU_NAME}　{rval data/SAMEADDR}<LABEL for="SAMEADDR">会社所在地と同じ</LABEL></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap><!--{def requiredinput2}-->※<!--{/def}-->郵便番号&nbsp;</th>
+                      <td bgcolor="#ffffff" colspan = "5">{rval data/SHUSHOKU_ZIPCD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap><!--{def requiredinput3}-->※<!--{/def}-->住所1&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                      <td bgcolor="#ffffff" colspan = "5">{rval data/SHUSHOKU_ADDR1}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap><!--{def requiredinput4}-->※<!--{/def}-->住所2&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                      <td bgcolor="#ffffff" colspan = "5">{rval data/SHUSHOKU_ADDR2}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap><!--{def requiredinput5}-->※<!--{/def}-->電話番号1</th>
+                      <td bgcolor="#ffffff">{rval data/SHUSHOKU_TELNO1}</td>
+                      <th align="right" class="no_search" nowrap>電話番号2</th>
+                      <td bgcolor="#ffffff">{rval data/SHUSHOKU_TELNO2}</td>
+                      <th align="right" class="no_search" nowrap>FAX番号</th>
+                      <td bgcolor="#ffffff">{rval data/SHUSHOKU_FAXNO}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>雇用形態</th>
+                      <td bgcolor="#ffffff">{rval data/EMPLOYMENT_STATUS}</td>
+                      <th align="right" class="no_search" nowrap>職種</th>
+                      <!--{def data/COMPANY_SORT}-->
+                      <td bgcolor="#ffffff" colspan = "3">{rval data/COMPANY_SORT}</td>
+                      <!--{/def}-->
+                      <!--{def data/COMPANY_SORT_REMARK}-->
+                      <td bgcolor="#ffffff" colspan = "3">{rval data/COMPANY_SORT_REMARK}</td>
+                      <!--{/def}-->
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>募集対象</th>
+                      <td bgcolor="#ffffff" colspan="5">{rval data/APPLICATION_TARGET}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※求人数</th>
+                      <td bgcolor="#ffffff" colspan = "3">通勤：{rval data/TSUKIN_NINZU}　住込：{rval data/SUMIKOMI_NINZU}　不問：{rval data/FUMON_NINZU}</td>
+                      <th align="right" class="no_search" nowrap>※推薦人数</th>
+                      <td bgcolor="#ffffff">{rval data/SUISEN_NINZU}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>二次募集</th>
+                      <td bgcolor="#ffffff" colspan = "5">{rval data/NIJI_BOSYU}<LABEL for="NIJI_BOSYU">有</LABEL></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>賃金</th>
+                      <td bgcolor="#ffffff" colspan = "5">通勤：{rval data/TSUKIN_SALARY}&nbsp;円　住込：{rval data/SUMIKOMI_SALARY}&nbsp;円</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>選考受付</th>
+                      <td bgcolor="#ffffff">{rval data/SELECT_RECEPT_DATE}</td>
+                      <th align="right" class="no_search" nowrap>選考日</th>
+                      <td bgcolor="#ffffff" colspan = "3">{rval data/SELECT_DATE}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>選考方法</th>
+                      <td bgcolor="#ffffff" colspan = "5">{rval data/JUDGING_MEANS1}　{rval data/JUDGING_MEANS2}　{rval data/JUDGING_MEANS3}　{rval data/JUDGING_MEANS4}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>担当者名</th>
+                      <td bgcolor="#ffffff">{rval data/PERSONNEL_MANAGER}</td>
+                      <th align="right" class="no_search" nowrap>担当者課係</th>
+                      <td bgcolor="#ffffff" colspan = "3">{rval data/DEPARTMENT_POSITION}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>見学会</th>
+                      <td bgcolor="#ffffff" colspan = "5">{rval data/KENGAKU_KAI}<LABEL for="KENGAKU_KAI">有</LABEL></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>休日・休暇</th>
+                      <td bgcolor="#ffffff" colspan = "3">{rval data/HOLIDAY1}土　{rval data/HOLIDAY2}日　{rval data/HOLIDAY3}祝　{rval data/HOLIDAY4}その他&nbsp;{rval data/HOLIDAY_REMARK}</td>
+                      <th align="right" class="no_search" nowrap>休暇</th>
+                      <td bgcolor="#ffffff">{rval data/OTHER_HOLIDAY}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>備考</th>
+                      <td bgcolor="#ffffff" colspan = "5">{rval data/REMARK}</td>
+                    </tr>
+                    <!--{def kyujinhyoPDFtorikomi}-->
+                    <tr>
+                      <th align="left" class="no_search" nowrap>PDF取込</th>
+                      <td bgcolor="#ffffff" colspan = "5">{rval data/PDF_FILE}&nbsp;&nbsp;{rval button/BTN_OK}　　{rval button/btn_pdf}</td>
+                    </tr>
+                    <!--{/def}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff" colspan = "5">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+                    </tr>
+
+                    <tr>
+                      <th align="left" class="no_search" nowrap>CSV入出力</th>
+                      <td bgcolor="#ffffff" colspan = "5">
+                        <table width="100%">
+                          <tr height="25">
+                            <td nowrap>
+                                {rval data/OUTPUT4}<LABEL for="OUTPUT4">ヘッダ出力(見本)</LABEL>　
+                                {rval data/OUTPUT1}<LABEL for="OUTPUT1">取込</LABEL>　
+                                {rval data/OUTPUT2}<LABEL for="OUTPUT2">書出</LABEL>　
+                                {rval data/OUTPUT3}<LABEL for="OUTPUT3">エラー出力</LABEL>　
+                            </td>
+                          </tr>
+                          <tr height="25">
+                            <td nowrap>
+                                　ファイル：<span id="type_file">{rval FILE}</span>{rval button/btn_exec}　{rval data/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}{rval Jobtype}</script>

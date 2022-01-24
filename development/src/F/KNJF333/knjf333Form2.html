@@ -1,0 +1,84 @@
+{rval start}
+<br>
+&nbsp;&nbsp;「※」のある項目は必須入力
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+        <td valign="top"> 
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr > 
+                  <td > 
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line"> 
+                                <td> 
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search"> 
+                                          <th width="30%" colspan="2">項 目</th>
+                                          <th width="70%">値</th>
+                                        </tr>
+<!--結果一覧-->
+<!--{def data}-->
+                                        <tr>
+                                          <th class="no_search" align="right" colspan="2" nowrap>※生徒情報</th>
+                                          <td bgcolor="#ffffff">{rval data/SCH_INFO}</td>
+                                        </tr>
+
+                                        <tr class="no_search">
+                                          <th align="right" rowspan="5" nowrap>長期欠席</th>
+                                          <th align="right" nowrap>病気</th>
+                                          <td bgcolor="#ffffff">{rval data/DATA001_01}</td>
+                                        </tr>
+
+                                        <tr>
+                                           <th align="right" class="no_search" nowrap>けが</th>
+                                           <td bgcolor="#ffffff">{rval data/DATA001_02}</td>
+                                        </tr>
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap>欠席日数</th>
+                                          <td bgcolor="#ffffff">{rval data/DATA002_01}</td>
+                                        </tr>
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap>継続区分</th>
+                                          <td bgcolor="#ffffff">{rval data/DATA002_02}</td>
+                                        </tr>
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap>入院</th>
+                                          <td bgcolor="#ffffff">{rval data/DATA003_01}</td>
+                                        </tr>
+                                        <tr>
+                                          <th align="right" rowspan="4" class="no_search" nowrap>保健室登校</th>
+                                          <th align="right" class="no_search" nowrap>保健室登校理由</th>
+                                          <td bgcolor="#ffffff">{rval data/DATA004_01}</td>
+                                        </tr>
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap>医師の診断</th>
+                                          <td bgcolor="#ffffff">{rval data/DATA005_01}</td>
+                                        </tr>
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap>保健室登校日数</th>
+                                          <td bgcolor="#ffffff">{rval data/DATA006_01}</td>
+                                        </tr>
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap>継続区分</th>
+                                          <td bgcolor="#ffffff">{rval data/DATA006_02}</td>
+                                        </tr>
+<!--{/def}--> 
+<!--{def button}--> 
+                                        <tr> 
+                                          <th align="right" colspan="2" class="no_search" nowrap>&nbsp;</th>
+                                          <td bgcolor="#ffffff">
+                                            {rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}<br>
+                                          </td>
+                                        </tr>
+<!--{/def}--> 
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

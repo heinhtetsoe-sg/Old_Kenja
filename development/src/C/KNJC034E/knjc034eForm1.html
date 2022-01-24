@@ -1,0 +1,388 @@
+{rval start}
+
+<br><br>
+<table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <th valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#000066">
+              <tr class="no_search" nowrap>
+                <td>
+                    　　　　処理年度：{rval YEAR}年度　{rval SEMESTER}　　　科目：{rval SUBCLASSCD}　　　講座：{rval CHAIRCD}<br>
+                    　　　　生徒：{rval SCHREGNO}　　移動方向({rval MOVE_ENTER1}<LABEL for="MOVE_ENTER1">縦</LABEL>　{rval MOVE_ENTER2}<LABEL for="MOVE_ENTER2">横</LABEL>)
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </th>
+  </tr>
+  <tr>
+    <td><br></td>
+  </tr>
+  <tr>
+    <th valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <th>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <tr class="no_search" align="center" nowrap>
+                <td width="6%">対象月</td>
+                <td width="6%">締<br>め<br>日</td>
+                <td width="6%">授業<br>時数</td>
+                <!--{def A004_2}-->
+                <td width="6%">休学<br>時数</td>
+                <!--{/def}-->
+                <!--{def A004_1}-->
+                <td width="6%">留学<br>時数</td>
+                <!--{/def}-->
+                <!--{def C001_1}-->
+                <td width="6%">公欠<br>時数</td>
+                <!--{/def}-->
+                <!--{def C001_2}-->
+                <td width="6%">出停<br>{rval SUSPEND_NAME}</td>
+                <!--{/def}-->
+                <!--{def C001_25}-->
+                <td width="6%">出停<br>交止<br>時数</td>
+                <!--{/def}-->
+                <!--{def C001_19}-->
+                <td width="6%">出停<br>伝染<br>時数</td>
+                <!--{/def}-->
+                <!--{def C001_3}-->
+                <td width="6%">忌引<br>時数</td>
+                <!--{/def}-->
+                <!--{def C001_4}-->
+                <td width="6%">{rval TITLE_4}</td>
+                <!--{/def}-->
+                <!--{def C001_5}-->
+                <td width="6%">{rval TITLE_5}</td>
+                <!--{/def}-->
+                <!--{def C001_6}-->
+                <td width="6%">{rval TITLE_6}</td>
+                <!--{/def}-->
+                <!--{def C001_14}-->
+                <td width="6%">保健室<br>欠課</td>
+                <!--{/def}-->
+                <!--{def C001_15}-->
+                <td width="6%">遅刻</td>
+                <!--{/def}-->
+                <!--{def C001_16}-->
+                <td width="6%">早退</td>
+                <!--{/def}-->
+              </tr>
+              <!--{def attend_data1}-->
+              <!--{each attend_data1}-->
+              <tr bgcolor="#FFFFFF" align="center" nowrap height="26">
+                <td {rval attend_data1/BGCOLOR_MONTH_NAME}>{rval attend_data1/MONTH_NAME}{rval attend_data1/MONTH}</td>
+                <td {rval attend_data1/BGCOLOR_IDOU}>{rval attend_data1/APPOINTED_DAY}</td>
+                <td {rval attend_data1/BGCOLOR_IDOU}>{rval attend_data1/LESSON}</td>
+                <!--{def A004_2}-->
+                <td {rval attend_data1/BGCOLOR_IDOU}>{rval attend_data1/OFFDAYS}</td>
+                <!--{/def}-->
+                <!--{def A004_1}-->
+                <td {rval attend_data1/BGCOLOR_IDOU}>{rval attend_data1/ABROAD}</td>
+                <!--{/def}-->
+                <!--{def C001_1}-->
+                <td {rval attend_data1/BGCOLOR_IDOU}>{rval attend_data1/ABSENT}</td>
+                <!--{/def}-->
+                <!--{def C001_2}-->
+                <td {rval attend_data1/BGCOLOR_IDOU}>{rval attend_data1/SUSPEND}</td>
+                <!--{/def}-->
+                <!--{def C001_25}-->
+                <td {rval attend_data1/BGCOLOR_IDOU}>{rval attend_data1/KOUDOME}</td>
+                <!--{/def}-->
+                <!--{def C001_19}-->
+                <td {rval attend_data1/BGCOLOR_IDOU}>{rval attend_data1/VIRUS}</td>
+                <!--{/def}-->
+                <!--{def C001_3}-->
+                <td {rval attend_data1/BGCOLOR_IDOU}>{rval attend_data1/MOURNING}</td>
+                <!--{/def}-->
+                <!--{def C001_4}-->
+                <td {rval attend_data1/BGCOLOR_IDOU}>{rval attend_data1/SICK}</td>
+                <!--{/def}-->
+                <!--{def C001_5}-->
+                <td {rval attend_data1/BGCOLOR_IDOU}>{rval attend_data1/NOTICE}</td>
+                <!--{/def}-->
+                <!--{def C001_6}-->
+                <td {rval attend_data1/BGCOLOR_IDOU}>{rval attend_data1/NONOTICE}</td>
+                <!--{/def}-->
+                <!--{def C001_14}-->
+                <td {rval attend_data1/BGCOLOR_IDOU}>{rval attend_data1/NURSEOFF}</td>
+                <!--{/def}-->
+                <!--{def C001_15}-->
+                <td {rval attend_data1/BGCOLOR_IDOU}>{rval attend_data1/LATE}</td>
+                <!--{/def}-->
+                <!--{def C001_16}-->
+                <td {rval attend_data1/BGCOLOR_IDOU}>{rval attend_data1/EARLY}</td>
+                <!--{/def}-->
+              </tr>
+              <!--{/each}-->
+              <!--{/def}-->
+              <!--{def sum_semester1}-->
+              <!--{each sum_semester1}-->
+              <tr style="background-color:deepskyblue; color:white;" align="center" nowrap height="26">
+                <td>{rval sum_semester1/MONTH_NAME}</td>
+                <td>{rval sum_semester1/APPOINTED_DAY}</td>
+                <td>{rval sum_semester1/LESSON}</td>
+                <!--{def A004_2}-->
+                <td>{rval sum_semester1/OFFDAYS}</td>
+                <!--{/def}-->
+                <!--{def A004_1}-->
+                <td>{rval sum_semester1/ABROAD}</td>
+                <!--{/def}-->
+                <!--{def C001_1}-->
+                <td>{rval sum_semester1/ABSENT}</td>
+                <!--{/def}-->
+                <!--{def C001_2}-->
+                <td>{rval sum_semester1/SUSPEND}</td>
+                <!--{/def}-->
+                <!--{def C001_25}-->
+                <td>{rval sum_semester1/KOUDOME}</td>
+                <!--{/def}-->
+                <!--{def C001_19}-->
+                <td>{rval sum_semester1/VIRUS}</td>
+                <!--{/def}-->
+                <!--{def C001_3}-->
+                <td>{rval sum_semester1/MOURNING}</td>
+                <!--{/def}-->
+                <!--{def C001_4}-->
+                <td>{rval sum_semester1/SICK}</td>
+                <!--{/def}-->
+                <!--{def C001_5}-->
+                <td>{rval sum_semester1/NOTICE}</td>
+                <!--{/def}-->
+                <!--{def C001_6}-->
+                <td>{rval sum_semester1/NONOTICE}</td>
+                <!--{/def}-->
+                <!--{def C001_14}-->
+                <td>{rval sum_semester1/NURSEOFF}</td>
+                <!--{/def}-->
+                <!--{def C001_15}-->
+                <td>{rval sum_semester1/LATE}</td>
+                <!--{/def}-->
+                <!--{def C001_16}-->
+                <td>{rval sum_semester1/EARLY}</td>
+                <!--{/def}-->
+              </tr>
+              <!--{/each}-->
+              <!--{/def}-->
+              <!--{def attend_data2}-->
+              <!--{each attend_data2}-->
+              <tr bgcolor="#FFFFFF" align="center" nowrap height="26">
+                <td {rval attend_data2/BGCOLOR_MONTH_NAME}>{rval attend_data2/MONTH_NAME}{rval attend_data2/MONTH}</td>
+                <td {rval attend_data2/BGCOLOR_IDOU}>{rval attend_data2/APPOINTED_DAY}</td>
+                <td {rval attend_data2/BGCOLOR_IDOU}>{rval attend_data2/LESSON}</td>
+                <!--{def A004_2}-->
+                <td {rval attend_data2/BGCOLOR_IDOU}>{rval attend_data2/OFFDAYS}</td>
+                <!--{/def}-->
+                <!--{def A004_1}-->
+                <td {rval attend_data2/BGCOLOR_IDOU}>{rval attend_data2/ABROAD}</td>
+                <!--{/def}-->
+                <!--{def C001_1}-->
+                <td {rval attend_data2/BGCOLOR_IDOU}>{rval attend_data2/ABSENT}</td>
+                <!--{/def}-->
+                <!--{def C001_2}-->
+                <td {rval attend_data2/BGCOLOR_IDOU}>{rval attend_data2/SUSPEND}</td>
+                <!--{/def}-->
+                <!--{def C001_25}-->
+                <td {rval attend_data2/BGCOLOR_IDOU}>{rval attend_data2/KOUDOME}</td>
+                <!--{/def}-->
+                <!--{def C001_19}-->
+                <td {rval attend_data2/BGCOLOR_IDOU}>{rval attend_data2/VIRUS}</td>
+                <!--{/def}-->
+                <!--{def C001_3}-->
+                <td {rval attend_data2/BGCOLOR_IDOU}>{rval attend_data2/MOURNING}</td>
+                <!--{/def}-->
+                <!--{def C001_4}-->
+                <td {rval attend_data2/BGCOLOR_IDOU}>{rval attend_data2/SICK}</td>
+                <!--{/def}-->
+                <!--{def C001_5}-->
+                <td {rval attend_data2/BGCOLOR_IDOU}>{rval attend_data2/NOTICE}</td>
+                <!--{/def}-->
+                <!--{def C001_6}-->
+                <td {rval attend_data2/BGCOLOR_IDOU}>{rval attend_data2/NONOTICE}</td>
+                <!--{/def}-->
+                <!--{def C001_14}-->
+                <td {rval attend_data2/BGCOLOR_IDOU}>{rval attend_data2/NURSEOFF}</td>
+                <!--{/def}-->
+                <!--{def C001_15}-->
+                <td {rval attend_data2/BGCOLOR_IDOU}>{rval attend_data2/LATE}</td>
+                <!--{/def}-->
+                <!--{def C001_16}-->
+                <td {rval attend_data2/BGCOLOR_IDOU}>{rval attend_data2/EARLY}</td>
+                <!--{/def}-->
+              </tr>
+              <!--{/each}-->
+              <!--{/def}-->
+              <!--{def sum_semester2}-->
+              <!--{each sum_semester2}-->
+              <tr style="background-color:deepskyblue; color:white;" align="center" nowrap height="26">
+                <td>{rval sum_semester2/MONTH_NAME}</td>
+                <td>{rval sum_semester2/APPOINTED_DAY}</td>
+                <td>{rval sum_semester2/LESSON}</td>
+                <!--{def A004_2}-->
+                <td>{rval sum_semester2/OFFDAYS}</td>
+                <!--{/def}-->
+                <!--{def A004_1}-->
+                <td>{rval sum_semester2/ABROAD}</td>
+                <!--{/def}-->
+                <!--{def C001_1}-->
+                <td>{rval sum_semester2/ABSENT}</td>
+                <!--{/def}-->
+                <!--{def C001_2}-->
+                <td>{rval sum_semester2/SUSPEND}</td>
+                <!--{/def}-->
+                <!--{def C001_25}-->
+                <td>{rval sum_semester2/KOUDOME}</td>
+                <!--{/def}-->
+                <!--{def C001_19}-->
+                <td>{rval sum_semester2/VIRUS}</td>
+                <!--{/def}-->
+                <!--{def C001_3}-->
+                <td>{rval sum_semester2/MOURNING}</td>
+                <!--{/def}-->
+                <!--{def C001_4}-->
+                <td>{rval sum_semester2/SICK}</td>
+                <!--{/def}-->
+                <!--{def C001_5}-->
+                <td>{rval sum_semester2/NOTICE}</td>
+                <!--{/def}-->
+                <!--{def C001_6}-->
+                <td>{rval sum_semester2/NONOTICE}</td>
+                <!--{/def}-->
+                <!--{def C001_14}-->
+                <td>{rval sum_semester2/NURSEOFF}</td>
+                <!--{/def}-->
+                <!--{def C001_15}-->
+                <td>{rval sum_semester2/LATE}</td>
+                <!--{/def}-->
+                <!--{def C001_16}-->
+                <td>{rval sum_semester2/EARLY}</td>
+                <!--{/def}-->
+              </tr>
+              <!--{/each}-->
+              <!--{/def}-->
+              <!--{def attend_data3}-->
+              <!--{each attend_data3}-->
+              <tr bgcolor="#FFFFFF" align="center" nowrap height="26">
+                <td {rval attend_data3/BGCOLOR_MONTH_NAME}>{rval attend_data3/MONTH_NAME}{rval attend_data3/MONTH}</td>
+                <td {rval attend_data3/BGCOLOR_IDOU}>{rval attend_data3/APPOINTED_DAY}</td>
+                <td {rval attend_data3/BGCOLOR_IDOU}>{rval attend_data3/LESSON}</td>
+                <!--{def A004_2}-->
+                <td {rval attend_data3/BGCOLOR_IDOU}>{rval attend_data3/OFFDAYS}</td>
+                <!--{/def}-->
+                <!--{def A004_1}-->
+                <td {rval attend_data3/BGCOLOR_IDOU}>{rval attend_data3/ABROAD}</td>
+                <!--{/def}-->
+                <!--{def C001_1}-->
+                <td {rval attend_data3/BGCOLOR_IDOU}>{rval attend_data3/ABSENT}</td>
+                <!--{/def}-->
+                <!--{def C001_2}-->
+                <td {rval attend_data3/BGCOLOR_IDOU}>{rval attend_data3/SUSPEND}</td>
+                <!--{/def}-->
+                <!--{def C001_25}-->
+                <td {rval attend_data3/BGCOLOR_IDOU}>{rval attend_data3/KOUDOME}</td>
+                <!--{/def}-->
+                <!--{def C001_19}-->
+                <td {rval attend_data3/BGCOLOR_IDOU}>{rval attend_data3/VIRUS}</td>
+                <!--{/def}-->
+                <!--{def C001_3}-->
+                <td {rval attend_data3/BGCOLOR_IDOU}>{rval attend_data3/MOURNING}</td>
+                <!--{/def}-->
+                <!--{def C001_4}-->
+                <td {rval attend_data3/BGCOLOR_IDOU}>{rval attend_data3/SICK}</td>
+                <!--{/def}-->
+                <!--{def C001_5}-->
+                <td {rval attend_data3/BGCOLOR_IDOU}>{rval attend_data3/NOTICE}</td>
+                <!--{/def}-->
+                <!--{def C001_6}-->
+                <td {rval attend_data3/BGCOLOR_IDOU}>{rval attend_data3/NONOTICE}</td>
+                <!--{/def}-->
+                <!--{def C001_14}-->
+                <td {rval attend_data3/BGCOLOR_IDOU}>{rval attend_data3/NURSEOFF}</td>
+                <!--{/def}-->
+                <!--{def C001_15}-->
+                <td {rval attend_data3/BGCOLOR_IDOU}>{rval attend_data3/LATE}</td>
+                <!--{/def}-->
+                <!--{def C001_16}-->
+                <td {rval attend_data3/BGCOLOR_IDOU}>{rval attend_data3/EARLY}</td>
+                <!--{/def}-->
+              </tr>
+              <!--{/each}-->
+              <!--{/def}-->
+              <!--{def sum_semester3}-->
+              <!--{each sum_semester3}-->
+              <tr style="background-color:deepskyblue; color:white;" align="center" nowrap height="26">
+                <td>{rval sum_semester3/MONTH_NAME}</td>
+                <td>{rval sum_semester3/APPOINTED_DAY}</td>
+                <td>{rval sum_semester3/LESSON}</td>
+                <!--{def A004_2}-->
+                <td>{rval sum_semester3/OFFDAYS}</td>
+                <!--{/def}-->
+                <!--{def A004_1}-->
+                <td>{rval sum_semester3/ABROAD}</td>
+                <!--{/def}-->
+                <!--{def C001_1}-->
+                <td>{rval sum_semester3/ABSENT}</td>
+                <!--{/def}-->
+                <!--{def C001_2}-->
+                <td>{rval sum_semester3/SUSPEND}</td>
+                <!--{/def}-->
+                <!--{def C001_25}-->
+                <td>{rval sum_semester3/KOUDOME}</td>
+                <!--{/def}-->
+                <!--{def C001_19}-->
+                <td>{rval sum_semester3/VIRUS}</td>
+                <!--{/def}-->
+                <!--{def C001_3}-->
+                <td>{rval sum_semester3/MOURNING}</td>
+                <!--{/def}-->
+                <!--{def C001_4}-->
+                <td>{rval sum_semester3/SICK}</td>
+                <!--{/def}-->
+                <!--{def C001_5}-->
+                <td>{rval sum_semester3/NOTICE}</td>
+                <!--{/def}-->
+                <!--{def C001_6}-->
+                <td>{rval sum_semester3/NONOTICE}</td>
+                <!--{/def}-->
+                <!--{def C001_14}-->
+                <td>{rval sum_semester3/NURSEOFF}</td>
+                <!--{/def}-->
+                <!--{def C001_15}-->
+                <td>{rval sum_semester3/LATE}</td>
+                <!--{/def}-->
+                <!--{def C001_16}-->
+                <td>{rval sum_semester3/EARLY}</td>
+                <!--{/def}-->
+              </tr>
+              <!--{/each}-->
+              <!--{/def}-->
+              <tr class="no_search" align="center" nowrap height="26">
+                <td width="6%">累積</td>
+                <!--{each sum_attend}-->
+                <td width="6%">{rval sum_attend}</td>
+                <!--{/each}-->
+              </tr>
+              <tr class="no_search" align="right" nowrap>
+                <td colspan="{rval useGedanCol}">
+                  ※'0'データは、空白で表示します。
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                  {rval btn_update}
+                  {rval btn_reset}
+                  {rval btn_end}
+                </td>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </table>
+    </th>
+  </tr>
+</table>
+
+{rval finish}

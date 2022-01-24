@@ -1,0 +1,60 @@
+{rval start}
+
+<table height="180"><tr><td>　</td></tr></table>
+<table width="500" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="5">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr class="no_search" height="30">
+                <td colspan="2" align="center"><B>AI時間割　設定CSV取込</B></td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" width="30%" align="right">年度&nbsp;</td>
+                <td bgcolor="#ffffff" width="70%">{rval data/YEAR}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" width="30%" align="right">学期&nbsp;</td>
+                <td bgcolor="#ffffff" width="70%">{rval data/SEMESTER}</td>
+              </tr>
+              <tr height="30">
+                <td class="no_search" align="right">基本時間割一覧&nbsp;</td>
+                <td bgcolor="#ffffff">{rval data/BSCSEQ}</td>
+              </tr>
+              <!--{def new}-->
+              <tr height="30">
+                <td class="no_search" align="right">タイトル&nbsp;</td>
+                <td bgcolor="#ffffff">{rval data/TITLE}</td>
+              </tr>
+              <!--{/def}-->
+              <tr bgcolor="#ffffff">
+                <td colspan="2">
+                  <table width="90%" align="right" style="line-height: 230%;">
+                    <tr>
+                      <td><b>{rval data/OUTPUT1}<LABEL for="OUTPUT1">データ取込</LABEL></b>（処理名：更新）</b><br>
+                          　　　　　　&nbsp;{rval FILE}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><b>{rval data/OUTPUT2}<LABEL for="OUTPUT2">エラー出力</LABEL></b>（データ取込後のエラー確認）</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search" height="30">
+                <td align="center" colspan="2">
+                  {val btn_exec}&nbsp;{rval data/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL>&nbsp;{val btn_end}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval jscript}</script>
+{rval finish}

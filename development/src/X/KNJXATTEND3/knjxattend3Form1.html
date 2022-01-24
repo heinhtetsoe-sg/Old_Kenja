@@ -1,0 +1,288 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  <td valign="top" >
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search">
+            <th width="100%"colspan="8">
+                {rval HEADERS/HR_NAME}&nbsp;&nbsp;{rval HEADERS/SCHREGNO}&nbsp;&nbsp;{rval HEADERS/NAME}
+            </th>
+          </tr>
+          <tr class="no_search">
+            <th width="40%" colspan="2" rowspan="2" >出欠の記録</th>
+            <th width="60%" colspan="2">
+                年度：{rval GRADEITEM/GRADE_COMBO}
+            </th>
+          </tr>
+          <tr class="no_search">
+            <th width="30%">1:前校</th>
+            <th width="30%">0:本校</th>
+          <tr align="center">
+            <th align="center" class="no_search" nowrap colspan="2" >※&nbsp;年次(学年)</th>
+            <td bgcolor="#ffffff" height="30">{rval ANNUAL1}</td>
+            <td bgcolor="#ffffff" height="30">{rval ANNUAL0}</td>
+           </tr>
+          <tr align="center">
+            <th align="center" class="no_search" nowrap colspan="2">授&nbsp;&nbsp;業&nbsp;&nbsp;日&nbsp;&nbsp;数</th>
+            <td bgcolor="#ffffff" height="30">{rval CLASSDAYS1}</td>
+            <td bgcolor="#ffffff" height="30">{rval CLASSDAYS0}</td>
+          </tr>
+          </tr>
+          <tr align="center">
+            <th align="center" class="no_search" nowrap colspan="2">休&nbsp;&nbsp;学&nbsp;&nbsp;日&nbsp;&nbsp;数</th>
+            <td bgcolor="#ffffff"  height="30">{rval OFFDAYS1}</td>
+            <td bgcolor="#ffffff"  height="30">{rval OFFDAYS0}</td>
+          </tr>
+          <tr align="center">
+            <th align="center" class="no_search" nowrap colspan="2">
+                出席停止の日数
+            </th>
+            <td bgcolor="#ffffff"  height="30">{rval SUSPEND1}</td>
+            <td bgcolor="#ffffff"  height="30">{rval SUSPEND0}</td>
+          </tr>
+          <tr align="center">
+            <th align="center" class="no_search" nowrap colspan="2">
+                忌&nbsp;&nbsp;引&nbsp;&nbsp;の&nbsp;&nbsp;日&nbsp;&nbsp;数
+            </th>
+            <td bgcolor="#ffffff"  height="30">{rval MOURNING1}</td>
+            <td bgcolor="#ffffff"  height="30">{rval MOURNING0}</td>
+          </tr>
+          <tr align="center">
+            <th align="center" class="no_search" nowrap colspan="2">
+                留学中の授業日数
+            </th>
+            <td bgcolor="#ffffff"  height="30">{rval ABROAD1}</td>
+            <td bgcolor="#ffffff"  height="30">{rval ABROAD0}</td>
+          </tr>
+          <tr align="center">
+            <th align="center" class="no_search" nowrap colspan="2">
+                出席しなければ<br>
+                ならない日数
+            </th>
+            <td bgcolor="#ffffff" height="35">
+                <span id="REQUIREPRESENT{rval ID1}">{rval REQUIREPRESENT1}</span>
+            </td>
+            <td bgcolor="#ffffff" height="35">
+                <span id="REQUIREPRESENT{rval ID0}">{rval REQUIREPRESENT0}</span>
+            </td>
+          </tr>
+          <tr align="center">
+            <th rowspan="3" class="no_search" >欠<br>
+            席<br>
+            日<br>
+            数</th>
+            <th align="center" class="no_search" nowrap>病&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欠</th>
+            <td bgcolor="#ffffff"  height="30">{rval SICK1}</td>
+            <td bgcolor="#ffffff"  height="30">{rval SICK0}</td>
+          </tr>
+          <tr align="center">
+            <th align="center" class="no_search" nowrap>事故欠(届)</th>
+            <td bgcolor="#ffffff"  height="30">{rval ACCIDENTNOTICE1}</td>
+            <td bgcolor="#ffffff"  height="30">{rval ACCIDENTNOTICE0}</td>
+          </tr>
+          <tr align="center">
+            <th align="center" class="no_search" nowrap>事故欠(無)</th>
+            <td bgcolor="#ffffff"  height="30">{rval NOACCIDENTNOTICE1}</td>
+            <td bgcolor="#ffffff"  height="30">{rval NOACCIDENTNOTICE0}</td>
+          </tr>
+          <tr align="center">
+            <th align="center" class="no_search" nowrap colspan="2">出&nbsp;&nbsp;席&nbsp;&nbsp;日&nbsp;&nbsp;数</th>
+            <td bgcolor="#ffffff" align="center" height="35">
+                <span id="PRESENT{rval ID1}">{rval PRESENT1}</span>
+            </td>
+            <td bgcolor="#ffffff" align="center" height="35">
+                <span id="PRESENT{rval ID0}">{rval PRESENT0}</span>
+            </td>
+          </tr>
+          <!--{def button}-->
+          <tr>
+            <td class="no_search" colspan="2"></td>
+            <td align="left" nowrap colspan="6" bgcolor="#ffffff">
+                {rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}
+            </td>
+          </tr>
+          <!--{/def}-->
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+<script language="JavaScript">{rval check_schregno}</script>
+
+
+
+<!--{def useRireki}-->
+<table width="840" border="0" cellspacing="0" cellpadding="10">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="840" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr><td>＜実行履歴＞</td></tr>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search" height="30">
+                        <th nowrap width="150" rowspan="3">処理日時</th>
+                        <th nowrap width="150" rowspan="3">更新者</th>
+                        <th nowrap width="60" rowspan="3">年度</th>
+                        <th nowrap colspan="18">1:前校</th>
+                        <th nowrap colspan="18">0:本校</th>
+                      </tr>
+                      <tr class="no_search" height="30">
+                        <!--1:前校-->
+                        <th nowrap colspan="2">年次(学年)</th>
+                        <th nowrap colspan="2">授業日数</th>
+                        <th nowrap colspan="2">休学</th>
+                        <th nowrap colspan="2">出停</th>
+                        <th nowrap colspan="2">忌引</th>
+                        <th nowrap colspan="2">留学中</th>
+                        <th nowrap colspan="2">病欠</th>
+                        <th nowrap colspan="2">事故欠(届)</th>
+                        <th nowrap colspan="2">事故欠(無)</th>
+                        <!--0:本校-->
+                        <th nowrap colspan="2">年次(学年)</th>
+                        <th nowrap colspan="2">授業日数</th>
+                        <th nowrap colspan="2">休学</th>
+                        <th nowrap colspan="2">出停</th>
+                        <th nowrap colspan="2">忌引</th>
+                        <th nowrap colspan="2">留学中</th>
+                        <th nowrap colspan="2">病欠</th>
+                        <th nowrap colspan="2">事故欠(届)</th>
+                        <th nowrap colspan="2">事故欠(無)</th>
+                      </tr>
+                      <tr class="no_search" height="30">
+                        <!--1:前校-->
+                        <th nowrap width="40">FROM</th>
+                        <th nowrap width="40">TO</th>
+                        <th nowrap width="40">FROM</th>
+                        <th nowrap width="40">TO</th>
+                        <th nowrap width="40">FROM</th>
+                        <th nowrap width="40">TO</th>
+                        <th nowrap width="40">FROM</th>
+                        <th nowrap width="40">TO</th>
+                        <th nowrap width="40">FROM</th>
+                        <th nowrap width="40">TO</th>
+                        <th nowrap width="40">FROM</th>
+                        <th nowrap width="40">TO</th>
+                        <th nowrap width="40">FROM</th>
+                        <th nowrap width="40">TO</th>
+                        <th nowrap width="40">FROM</th>
+                        <th nowrap width="40">TO</th>
+                        <th nowrap width="40">FROM</th>
+                        <th nowrap width="40">TO</th>
+                        <!--0:本校-->
+                        <th nowrap width="40">FROM</th>
+                        <th nowrap width="40">TO</th>
+                        <th nowrap width="40">FROM</th>
+                        <th nowrap width="40">TO</th>
+                        <th nowrap width="40">FROM</th>
+                        <th nowrap width="40">TO</th>
+                        <th nowrap width="40">FROM</th>
+                        <th nowrap width="40">TO</th>
+                        <th nowrap width="40">FROM</th>
+                        <th nowrap width="40">TO</th>
+                        <th nowrap width="40">FROM</th>
+                        <th nowrap width="40">TO</th>
+                        <th nowrap width="40">FROM</th>
+                        <th nowrap width="40">TO</th>
+                        <th nowrap width="40">FROM</th>
+                        <th nowrap width="40">TO</th>
+                        <th nowrap width="40">FROM</th>
+                        <th nowrap width="40">TO</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <div style="width:100%;height:110;overflow-y:scroll">
+            <table width="840" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <!--結果一覧--><!--{def dataR}--><!--{each dataR}-->
+                      <tr style="background-color:{rval dataR/COLOR}">
+                        <td align="center" nowrap width="150">{rval dataR/CALC_DATE} {rval dataR/CALC_TIME}</td>
+                        <td align="left"  nowrap width="150">{rval dataR/STAFFNAME}</td>
+                        <td align="center" nowrap width="60">{rval dataR/YEAR}</td>
+                        <!--1:前校-->
+                        <td align="right" nowrap width="40">{rval dataR/ANNUAL1_1}</td>
+                        <td align="right" nowrap width="40">{rval dataR/ANNUAL1_2}</td>
+                        <td align="right" nowrap width="40">{rval dataR/CLASSDAYS1_1}</td>
+                        <td align="right" nowrap width="40">{rval dataR/CLASSDAYS1_2}</td>
+                        <td align="right" nowrap width="40">{rval dataR/OFFDAYS1_1}</td>
+                        <td align="right" nowrap width="40">{rval dataR/OFFDAYS1_2}</td>
+                        <td align="right" nowrap width="40">{rval dataR/SUSPEND1_1}</td>
+                        <td align="right" nowrap width="40">{rval dataR/SUSPEND1_2}</td>
+                        <td align="right" nowrap width="40">{rval dataR/MOURNING1_1}</td>
+                        <td align="right" nowrap width="40">{rval dataR/MOURNING1_2}</td>
+                        <td align="right" nowrap width="40">{rval dataR/ABROAD1_1}</td>
+                        <td align="right" nowrap width="40">{rval dataR/ABROAD1_2}</td>
+                        <td align="right" nowrap width="40">{rval dataR/SICK1_1}</td>
+                        <td align="right" nowrap width="40">{rval dataR/SICK1_2}</td>
+                        <td align="right" nowrap width="40">{rval dataR/ACCIDENTNOTICE1_1}</td>
+                        <td align="right" nowrap width="40">{rval dataR/ACCIDENTNOTICE1_2}</td>
+                        <td align="right" nowrap width="40">{rval dataR/NOACCIDENTNOTICE1_1}</td>
+                        <td align="right" nowrap width="40">{rval dataR/NOACCIDENTNOTICE1_2}</td>
+                        <!--0:本校-->
+                        <td align="right" nowrap width="40">{rval dataR/ANNUAL0_1}</td>
+                        <td align="right" nowrap width="40">{rval dataR/ANNUAL0_2}</td>
+                        <td align="right" nowrap width="40">{rval dataR/CLASSDAYS0_1}</td>
+                        <td align="right" nowrap width="40">{rval dataR/CLASSDAYS0_2}</td>
+                        <td align="right" nowrap width="40">{rval dataR/OFFDAYS0_1}</td>
+                        <td align="right" nowrap width="40">{rval dataR/OFFDAYS0_2}</td>
+                        <td align="right" nowrap width="40">{rval dataR/SUSPEND0_1}</td>
+                        <td align="right" nowrap width="40">{rval dataR/SUSPEND0_2}</td>
+                        <td align="right" nowrap width="40">{rval dataR/MOURNING0_1}</td>
+                        <td align="right" nowrap width="40">{rval dataR/MOURNING0_2}</td>
+                        <td align="right" nowrap width="40">{rval dataR/ABROAD0_1}</td>
+                        <td align="right" nowrap width="40">{rval dataR/ABROAD0_2}</td>
+                        <td align="right" nowrap width="40">{rval dataR/SICK0_1}</td>
+                        <td align="right" nowrap width="40">{rval dataR/SICK0_2}</td>
+                        <td align="right" nowrap width="40">{rval dataR/ACCIDENTNOTICE0_1}</td>
+                        <td align="right" nowrap width="40">{rval dataR/ACCIDENTNOTICE0_2}</td>
+                        <td align="right" nowrap width="40">{rval dataR/NOACCIDENTNOTICE0_1}</td>
+                        <td align="right" nowrap width="40">{rval dataR/NOACCIDENTNOTICE0_2}</td>
+                      </tr>
+                      <!--{/each}--><!--{/def}-->
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!--{/def}-->
+{rval finish}{rval javascript}

@@ -1,0 +1,90 @@
+{rval start}
+<style type="text/css"> 
+<!-- 
+#eisuFuka { 
+width: 150px; 
+ime-mode: disabled; 
+} 
+--> 
+</style> 
+
+<table width="350" border="0" cellspacing="10" cellpadding="0" style="margin-top:10px;" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td align="center">
+            <table width="100%" border="0" cellspacing="5" cellpadding="0">
+              <tr nowrap>
+                <td>
+                  検索方法　{rval SEARCH_DIV1}<LABEL for="SEARCH_DIV1">学校名</LABEL>　{rval SEARCH_DIV2}<LABEL for="SEARCH_DIV2">学校コード</LABEL>
+                </td>
+              </tr>
+              <tr>
+                <td nowrap>
+                  <!--{def SEARCH_DIV_1}-->
+                  学校名　{rval data/SEARCH_TXT}{rval button/btn_search}　<span style="font-size: small;color: red;">（検索結果：{rval COUNTER}件）</span><br>
+                  　<span style="font-size: 85%;">※ 学校名の一部を入力してください（頭文字でなくても可）</span><br>
+                  　<span style="font-size: 85%;">※ 複数ワードで検索する場合は全角スペースで区切ります<br>
+                                                  　　 例.「東京大　早稲田　慶応」</span><br>
+                  <!--{/def}-->
+                  <!--{def SEARCH_DIV_2}-->
+                  学校コード　{rval data/SEARCH_NO}{rval button/btn_search}　<span style="font-size: small;color: red;">（検索結果：{rval COUNTER}件）</span><br>
+                  　<span style="font-size: 85%;">※ 学校コード<span style="font-size: small;color: red;">4</span>桁を入力してください</span><br>
+                  　<span style="font-size: 85%;">※ 複数コードで検索する場合は半角スペースで区切ります<br>
+                                                  　　 例.「0123&nbsp;1234&nbsp;8765」</span><br>
+                  <!--{/def}-->
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="300" border="0" cellspacing="0" cellpadding="3" align="center">
+        <tr>
+          <td nowrap>
+              {rval button/btn_select}{rval button/btn_back}　<span style="font-size: small;color: red;">※100件まで選択可</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="all" onclick="selectRowAll()">
+                    <tr class="no_search" nowrap align="center" height="25">
+                      <th width="40">{rval CHECKALL}</th>
+                      <th width="*">学校名</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <div style="{rval HEIGHT}overflow-y:scroll">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="list" onclick="selectRowList()">
+                    <!--結果一覧--><!--{def list}--><!--{each list}-->
+                    <tr bgcolor="#ffffff">
+                      <td width="40" align="center" bgcolor="{rval list/BGCOLOR}" nowrap>{rval list/CHECKED}</td>
+                      <td width="*" align="left" bgcolor="{rval list/BGCOLOR}" nowrap>&nbsp;{rval list/SCHOOL_NAME}</td>
+                    </tr>
+                  <!--{/each}--><!--{/def}-->
+                  </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}{rval reload}</script>

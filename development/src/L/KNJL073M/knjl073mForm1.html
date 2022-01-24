@@ -1,0 +1,64 @@
+{rval start}
+<style>
+    body {
+        padding-top:30px;
+    }
+</style>
+
+<table width="40%" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr>
+<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  <td>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr class="no_search_line">
+    <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+      <tr class="no_search">
+        <td align="center" nowrap colspan="3"><b>入試年度：{rval YEAR}</b></td>
+      </tr>
+      <tr class="no_search">
+        <td align="center" nowrap width="80">受験番号</td>
+        <td align="center" nowrap width="200">氏名</td>
+        <td align="center" nowrap width="*">補員順位</td>
+      </tr>
+      </table>
+    </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+  <tr>
+  <td>
+    <div style="width:100%;height:365;overflow:auto; margin-bottom : 10px;">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr class="no_search_line">
+    <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{each data}-->
+      <tr>
+        <td bgcolor="#ffffff" nowrap width="80" align="center">{rval data/EXAMNO}</td>
+        <td bgcolor="#ffffff" nowrap width="200">{rval data/NAME}</td>
+        <td bgcolor="#ffffff" nowrap width="*">{rval data/SUB_ORDER}</td>
+      </tr>
+<!--{/each}-->
+      </table>
+    </td>
+    </tr>
+    </table>
+    </div>
+    {val btn_update}{val btn_reset}{val btn_end}
+  </td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+
+{rval finish}
+
+<script language="JavaScript">{rval Closing}</script>
+
+
+

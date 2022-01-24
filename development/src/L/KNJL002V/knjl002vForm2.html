@@ -1,0 +1,136 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th width="25%" colspan="2">項 目</th>
+                      <th width="75%">値</th>
+                    </tr>
+                    <tr height="25">
+                      <td class="no_search" rowspan="3" width="5%" style="padding:10px;line-height:1.5;">志<br>望<br>区<br>分</td>
+                      <td class="no_search" width="15%">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search" height="25">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>入試コード</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff" width="75%">{rval TOP/APPLICANT_DIV}</td>
+                    </tr>
+                    <tr height="25">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search" height="25">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>志望コース</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval TOP/COURSE_DIV}</td>
+                    </tr>
+                    <tr height="25">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search" height="25">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>回数</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval TOP/FREQUENCY}</td>
+                    </tr>
+                    <tr height="25">
+                      <td class="no_search" colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search" height="25">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>試験名</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval TOP/EXAM_NAME}</td>
+                    </tr>
+                    <tr height="25">
+                      <td class="no_search" colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search" height="25">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>試験日</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval TOP/EXAM_DATE}</td>
+                    </tr>
+                    <tr height="25">
+                      <td class="no_search" colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search" height="25">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>午前／午後</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval TOP/AM_PM}</td>
+                    </tr>
+                    <tr height="25">
+                      <td class="no_search" colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search" height="25">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>受験番号開始番号</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval TOP/EXAM_NO_BAND}</td>
+                    </tr>
+                    <tr height="25">
+                      <td class="no_search" colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search" height="25">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>試験科目</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">
+                        <!--結果一覧-->
+                        <!--{def data}-->
+                        <!--{each data}-->
+                        {rval data/EXAM_SUBCLASS}{rval data/EXAM_SUBCLASS_NAME}&nbsp;
+                        <!--{/each}-->
+                        <!--{/def}-->
+                      </td>
+                    </tr>
+
+                    <!--{def button}-->
+                    <tr>
+                      <th align="right" class="no_search" colspan="2" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">
+                        {rval button/btn_perfect}
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" colspan="2" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">
+                        {rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}
+                    </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload} {rval jscript}</script>

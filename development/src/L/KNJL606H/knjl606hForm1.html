@@ -1,0 +1,56 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap align="left" colspan="6">　対象年度：{rval ENTEXAMYEAR}　{rval button/btn_copy}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="10%">類別コード</th>
+                      <th nowrap width="25%">類別</th>
+                      <th nowrap width="10%">記号</th>
+                      <th nowrap width="10%">表示順</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff">{rval data/CLASSIFY_CD}</td>
+                      <td nowrap bgcolor="#ffffff">{rval data/CLASSIFY_NAME}</td>
+                      <td nowrap bgcolor="#ffffff">{rval data/MARK}</td>
+                      <td nowrap bgcolor="#ffffff">{rval data/ORDER}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload} {rval jscript}</script>

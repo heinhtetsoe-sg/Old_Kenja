@@ -1,0 +1,71 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+    <tr>
+      <td nowrap>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+           <td>
+            <hr align="left" width="50%">&nbsp;{rval NAME_SHOW}<hr align="left" width="50%">
+           </td>
+          </tr>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+               <tr class="no_search">
+                 <th nowrap align="center" width="15%"<!--{def shokenlist1}--> rowspan="2"<!--{/def}-->>学年</th>
+                 <!--{def shokenlist1_Hyouji}--><th nowrap width="*" colspan="3">総合的な学習の時間の記録と特別活動所見/th><!--{/def}-->
+                 <!--{def shokenlist1_Not_Hyouji}--><th nowrap width="*" colspan="2">総合的な学習の時間の記録と特別活動所見</th><!--{/def}-->
+                 <!--{def shokenlist2}--><th nowrap width="*">総合所見</th><!--{/def}-->
+                 <!--{def shokenlist3}--><th nowrap width="*">出欠の記録備考</th><!--{/def}-->
+               </tr>
+            <!--{def shokenlist1}-->
+               <tr class="no_search">
+                 <td nowrap align="center">学習活動</td>
+                 <!--{def KantenHyouji}-->
+                 <td nowrap align="center">観点</td>
+                 <!--{/def}-->
+                 <td nowrap align="center">評価</td>
+               </tr>
+            <!--{/def}-->
+            <!--結果一覧--><!--{def data}--><!--{each data}-->
+<!--{def shokenlist1}-->
+                <tr>
+                  <th nowrap bgcolor="#ffffff" align="center" width="15%">{rval data/ANNUAL}学年</th>
+                  <td nowrap bgcolor="#ffffff">{rval data/TOTALSTUDYACT}</td>
+                  <!--{def KantenHyouji}-->
+                  <td nowrap bgcolor="#ffffff">{rval data/VIEWREMARK}</td>
+                  <!--{/def}-->
+                  <td nowrap bgcolor="#ffffff">{rval data/TOTALSTUDYVAL}</td>
+                </tr>
+<!--{/def}-->
+<!--{def shokenlist2}-->
+                <tr>
+                  <th nowrap bgcolor="#ffffff" align="center" width="15%">{rval data/ANNUAL}学年</th>
+                  <td nowrap bgcolor="#ffffff">{rval data/TOTALREMARK}</td>
+                </tr>
+<!--{/def}-->
+<!--{def shokenlist3}-->
+                <tr>
+                  <th nowrap bgcolor="#ffffff" align="center" width="15%">{rval data/ANNUAL}学年</th>
+                  <td nowrap bgcolor="#ffffff">{rval data/ATTENDREC_REMARK}</td>
+                </tr>
+<!--{/def}-->
+            <!--{/each}--><!--{/def}-->
+                <tr class="no_search">
+                  <td width="50">{rval btn_back}</td>
+                  <td <!--{def shokenlist1}--> colspan="3"<!--{/def}-->></td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}

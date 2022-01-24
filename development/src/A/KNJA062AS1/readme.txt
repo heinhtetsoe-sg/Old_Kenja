@@ -1,0 +1,5 @@
+# $Id: readme.txt 56585 2017-10-22 12:47:53Z maeshiro $
+
+2015/05/19  1.KNJA070S1を元に新規作成
+
+2016/01/19  1.参照テーブルをSEMESTER_MST→V_SEMESTER_GRADE_MSTに変更

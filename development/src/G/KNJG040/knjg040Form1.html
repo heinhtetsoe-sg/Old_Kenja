@@ -1,0 +1,63 @@
+{rval start}
+<BR>
+<table width="450" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr >
+          <td >
+              <table width="100%" border="0" cellspacing="0" cellpadding="1" >
+              <tr class="no_search_line">
+                 <th>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#cccccc">
+                  <tr>
+                    <th align="left">&nbsp;<B>年度 &nbsp;{rval header/CTRL_CHAR1}年度</B></th>
+                    </tr>
+                  <tr>
+                  <th align="left">申請区分：{rval APPLY/VAL}{rval APPLY/BUTTON}</th>
+
+                  <th align="left">許可区分：{rval PERM/VAL}{rval PERM/BUTTON}</th>
+<!--
+                  <th width="60%" align="left">&nbsp;申請区分： &nbsp;{rval APPLY/VAL}&nbsp; &nbsp; {rval APPLY/BUTTON}</th>
+
+                  <th width="40%" align="left">&nbsp;許可区分： &nbsp;{rval PERM/VAL}&nbsp; &nbsp; {rval PERM/BUTTON}</th>
+-->
+                  </tr>
+                </table>
+                </th>
+              </tr>
+            </table>
+<br>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" nowrap>
+                      <th width="80">申請日</th>
+                      <th width="50">許可<BR>区分</th>
+                      <th width="150">理由</th>
+                      <th width="100">申請者</th>
+                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+          <tr bgcolor="#ffffff" align="center">
+             <td width="80" nowrap>{val data/APPLYDAY}</td>
+             <td width="50" nowrap>{val data/PERM_NAME}</td>
+             <td width="150" align="left" nowrap>{val data/REASON}</td>
+             <td width="100" align="left" nowrap>{val data/STAFFNAME_SHOW}</td>
+          </tr>
+<!--{/each}-->
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval close_win}</script>

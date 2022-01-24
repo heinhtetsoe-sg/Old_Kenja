@@ -1,0 +1,18 @@
+--部クラブ顧問データ 2004/9/13
+
+DROP TABLE CLUB_ADVISER_DAT
+
+CREATE TABLE CLUB_ADVISER_DAT \
+(  \
+        "YEAR"                  VARCHAR(4)      NOT NULL, \
+        "CLUBCD"                VARCHAR(4)      NOT NULL, \
+        "ADVISER"               VARCHAR(8)      NOT NULL, \
+        "CLUBDIV"               VARCHAR(2), \
+        "REGISTERCD"            VARCHAR(8), \
+        "UPDATED"               TIMESTAMP DEFAULT CURRENT TIMESTAMP  \
+) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE CLUB_ADVISER_DAT  \
+ADD CONSTRAINT PK_CLUB_ADVISER  \
+PRIMARY KEY  \
+(YEAR,CLUBCD,ADVISER)

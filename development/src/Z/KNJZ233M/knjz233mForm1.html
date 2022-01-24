@@ -1,0 +1,87 @@
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="1">
+  <tr> 
+    <td> 
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr class="no_search_line"> 
+          <td> 
+            <table border="0" cellpadding="2" cellspacing="0" width="100%">
+              <tr class="no_search"> 
+                <td>&nbsp;&nbsp;対象年度：{rval year}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr> 
+    <td> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr class="no_search_line"> 
+          <td>
+            <table border="0" cellpadding="2" cellspacing="0" width="100%">
+              <tr class="no_search">
+                <td nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;教科：{rval classcd}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+<!--{def useCurriculumcd}-->
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="13%" nowrap>科目コード</th>
+                      <th width="30%" nowrap>科目名</th>
+                      <th width="*%" nowrap>スクーリング実施しない科目</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    {rval data/MAINLIST}
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>  
+<!--{/def}-->
+<!--{def NoCurriculumcd}-->
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="13%" nowrap>科目コード</th>
+                      <th width="30%" nowrap>科目名</th>
+                      <th width="*%" nowrap>スクーリング実施しない科目</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    {rval data/MAINLIST}
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>  
+<!--{/def}--> 
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="javascript">{rval reload}{rval jscript}</script>

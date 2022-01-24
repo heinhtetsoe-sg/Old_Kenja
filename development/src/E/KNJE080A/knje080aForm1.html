@@ -1,0 +1,122 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR>
+
+<table width="40%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5">
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <td>
+                          <div style="text-align: center; padding: 2px; ">
+                              <b>{rval data/REGDDIV1} <label for="REGDDIV1">在校生</label>　　{rval data/REGDDIV2} <label for="REGDDIV2">卒業生</label></b>
+                          </div>
+                          <div style="text-align: center; padding: 2px; ">
+                          <!--{def show_regd_year}-->
+                              <b>{rval data/YEAR}年度　　{rval data/GAKKI}　　　{rval data/GRADE_HR_CLASS}</b>
+                          <!--{/def}-->
+                          <!--{def show_grd_year}-->
+                              <b>年度：{rval data/GRD_YEAR_SEMESTER}　　年組：{rval data/GRADE_HR_CLASS}</b>
+                          <!--{/def}-->
+                          </div>
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="40%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="40%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr height="40%">
+                      <td align="left"  bgcolor="#ffffff">
+                        <table>
+                          <tr>
+                            <td>
+                                <div style="padding-left: 5rem; font-weight: bold;">
+                                    <div>
+                                        {rval data/NOT_PRINT_CERTIFNO} <label for="NOT_PRINT_CERTIFNO">発行番号は印刷しない</label>
+                                    </div>
+                                    <div>
+                                        {rval data/USE_CERTIFNO_START} <label for="USE_CERTIFNO_START">印刷する発行番号を指定する</label>
+                                    </div>
+                                    <div style="padding-left: 2em;" >
+                                        発行番号： {rval data/CERTIFNO_START} から印刷
+                                    </div>
+                                    <div style="margin-top: 1rem;" >
+                                        発行年月日　　 {rval data/DATE}
+                                    </div>
+                                    <div>
+                                        出欠集計範囲　 {rval data/ATTEND_START_DATE}　～　{rval data/ATTEND_END_DATE}
+                                    </div>
+                                    <div style="margin-top: 1rem;" >
+                                        {rval data/NOT_PRINT_RISHUTYU} <label for="NOT_PRINT_RISHUTYU">履修中は印刷しない</label>
+                                    </div>
+                                    <div>
+                                        {rval data/PRINT_RI} <label for="PRINT_RI">履修中は「履」を印刷する。</label>
+                                    </div>
+                                    <div style="margin-top: 1rem;" >
+                                        備考欄へ出力する内容
+                                        <div>
+                                            {rval data/BIKO}
+                                        </div>
+                                        <span style="font-size: 0.8em; color: red;">{rval data/BIKO_SIZE}</span>
+                                        <span id="statusareaBIKO" style="color:blue">残り文字数</span>
+                                    </div>
+                                    <div style="margin-top: 1rem;" >
+                                        {rval data/PRINT_SOTSU} <label for="PRINT_SOTSU">在学生を卒業と出力する。</label>
+                                    </div>
+                                    <div>
+                                        卒業日　{rval data/PRINT_GRD_DATE}
+                                    </div>
+                                </div>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

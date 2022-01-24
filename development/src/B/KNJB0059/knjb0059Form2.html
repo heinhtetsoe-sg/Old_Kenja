@@ -1,0 +1,104 @@
+{rval start}
+<!--{def button}-->
+
+<br>
+<table width="600" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="2">
+                    <tr class="no_search" height="25"> 
+                      <th width="25%">項 目</th>
+                      <th width="*">値</th>
+                    </tr>
+                    <tr class="no_search">
+                      <th align="right">履修パターンコード</th>
+                      <td bgcolor="#ffffff">{rval PATTERN_CD}</td>
+                    </tr>                                        
+                    <tr class="no_search">
+                      <th align="right">履修パターン名称</th>
+                      <td bgcolor="#ffffff">{rval PATTERN_NAME}</td>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th width="50" nowrap>履修</th>
+                      <th width="400" nowrap>科目名</th>
+                      <th width="50" nowrap>単位数</th>
+                      <th width="*" nowrap>必/選</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div style="width:100%;height:460;overflow-y:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td width="50" align="center">{rval data/PATTERN_CHK}</td>
+                      <td width="400">&nbsp;{rval data/SUBCLASSNAME}</td>
+                      <td width="50" align="center" nowrap>{rval data/CREDITS}</td>
+                      <td width="*" align="center">&nbsp;{rval data/REQUIRE_NAME}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <td>{rval button/btn_insert}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}　　　　　　　　　　単位計　<span id="CREDITS_SUM_ID">{rval CREDITS_SUM}</span></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<script language="javascript">{rval jscript}</script>
+{rval finish}

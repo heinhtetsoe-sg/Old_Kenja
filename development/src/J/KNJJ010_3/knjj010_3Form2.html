@@ -1,0 +1,83 @@
+{rval start}
+<br><br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td>
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+      <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr class="no_search_line">
+              <td>
+              <table width="100%" border="0" cellspacing="1" cellpadding="2">
+
+                <tr class="no_search" height="30px">
+                  <th width="130px">項 目</th>
+                  <th width="500px">値</th>
+                </tr>
+
+                <tr class="no_search">
+                  <td class="no_search">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30px">
+                      <th align="right" nowrap>部クラブコード</th>
+                    </tr>
+                  </table>
+                  </td>
+                  <td bgcolor="#ffffff"><font color="black">{rval data/CLUBCD}</font></td>
+                </tr>
+
+                <tr class="no_search">
+                  <td class="no_search">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30px">
+                      <th align="right" nowrap>部クラブ名</th>
+                    </tr>
+                  </table>
+                  </td>
+                  <td bgcolor="#ffffff"><font color="black">{rval data/CLUBNAME}</font></td>
+                </tr>
+
+                <tr class="no_search">
+                  <th align="right">校種設定</th>
+                  <td>
+                  <table width="100%" border="0" cellpadding="3" cellspacing="0">
+                    <!--{def KIND_LIST}-->
+                    <tr align="center" class="no_search" height="25px">
+                      <th><font color="white">対象校種</font></th>
+                      <th class="no_search">&nbsp;</th>
+                      <th><font color="white">校種一覧</font></th>
+                    </tr>
+
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval KIND_LIST/LEFT_PART}</td>
+                      <td width="*%" class="no_search">{rval KIND_LIST/SEL_ADD_ALL} <br>
+                        {rval KIND_LIST/SEL_ADD} <br>
+                        {rval KIND_LIST/SEL_DEL} <br>
+                        {rval KIND_LIST/SEL_DEL_ALL}</td>
+                      <td width="45%">{rval KIND_LIST/RIGHT_PART}</td>
+                    <!--{/def}-->
+                    </tr>
+
+                  </table>
+                  </td>
+                </tr>
+
+                <!--{def button}-->
+                <tr height="30px">
+                  <th align="right" class="no_search" nowrap>&nbsp;</th>
+                  <td bgcolor="#ffffff">{rval button/btn_udpate}{rval button/btn_reset}{rval button/btn_back}</td>
+                </tr>
+                <!--{/def}-->
+              </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+<script language="javascript">{rval jmsg}{rval jscript}{rval reload}</script>
+{rval finish}

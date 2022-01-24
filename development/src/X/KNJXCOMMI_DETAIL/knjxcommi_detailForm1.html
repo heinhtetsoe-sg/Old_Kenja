@@ -1,0 +1,52 @@
+{rval start}
+
+<br>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="5" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search"> 
+                      <th><b>対象年度 : {rval YEAR}</b></th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th nowrap width="30%"><b>委員会・係り</b></th>
+                      <th nowrap width="15%"><b>役職</b></th>
+                      <th nowrap width="15%"><b>日付</b></th>
+                      <th nowrap width="*"><b>記録備考</b></th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}--> 
+                    <tr> 
+                      <td bgcolor="#ffffff" nowrap><a href="knjxcommi_detailindex.php?cmd=edit&SEQ={rval data/SEQ}&DETAIL_DATE={rval data/DETAIL_DATE}&DETAIL_SEQ={rval data/DETAIL_SEQ}" target="right_frame">{rval data/COMMITTEENAME}</a></td>
+                      <td bgcolor="#ffffff" nowrap>{rval data/EXECUTIVENAME}</td>
+                      <td bgcolor="#ffffff" align="center" nowrap>{rval data/DETAIL_DATE}</td>
+                      <td bgcolor="#ffffff" nowrap>{rval data/DETAIL_REMARK}</td>
+                    </tr>
+                    <!--{/each}--> 
+                    <!--{/def}--> 
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

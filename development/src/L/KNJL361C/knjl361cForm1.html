@@ -1,0 +1,59 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr > 
+      <td > 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" height="25"> 
+                <th norwarp width="17%">入試年度</th>
+                <td norwarp width="*" bgcolor="#ffffff">{val year}&nbsp;&nbsp;{val btn_year_add}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr height="5">
+          <td></td>
+        </tr>
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search"> 
+              <th nowrap width="10%">商品コード</th>
+              <th nowrap width="30%">商品名</th>
+              <th nowrap width="30%">男子金額</th>
+              <th nowrap width="30%">女子金額</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+            <!--{each data}--> 
+            <tr> 
+             <td nowrap bgcolor="#ffffff" align="center">{val data/ITEMCD}</td>
+             <td nowrap bgcolor="#ffffff" align="center">{val data/ITEMNAME}</td>
+             <td nowrap bgcolor="#ffffff" align="right">{val data/MONEY_BOY}</td>
+             <td nowrap bgcolor="#ffffff" align="right">{val data/MONEY_GIRL}</td>
+            </tr> 
+            <!--{/each}--> 
+            <!--{/def}--> 
+            </table>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">
+<!--{def reload}-->
+<!--{each reload}-->
+{rval reload}
+<!--{/each}-->
+<!--{/def}-->
+</script>

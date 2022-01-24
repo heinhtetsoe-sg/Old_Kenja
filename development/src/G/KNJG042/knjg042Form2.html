@@ -1,0 +1,76 @@
+{rval start}
+<!--{def data}-->
+<!--{def button}--> 
+
+<BR>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="5" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="6">
+                    <tr>
+                      <th class="no_search" width="15%" nowrap>項目</th>
+                      <th class="no_search" width="85%">値</th>
+                    </tr>
+                    <tr>
+                      <th class="no_search" nowrap>申請区分</th>
+                      <td bgcolor="white">{rval data/APPLYCD}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" nowrap>申請日付</th>
+                      <td bgcolor="white">{rval data/APPLY_CAL}　　<span id="week"></span></td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" nowrap>許可区分</th>
+                      <td bgcolor="white">{rval data/PERM}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" nowrap>期　間<BR></th>
+                      <td bgcolor="white" nowrap>&nbsp;自&nbsp;{rval data/START}　<span id="sweek"></span>　{rval data/HOUR1}時&nbsp;{rval data/MINUTE1}分&nbsp;
+                      <BR>&nbsp;至&nbsp;{rval data/FINISH}　<span id="eweek"></span>　{rval data/HOUR2}時&nbsp;{rval data/MINUTE2}分 &nbsp; {rval data/TOTAL_HOURS}時間 &nbsp;{rval data/TOTAL_MINUTES}分</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" nowrap>{rval data/LOC_CAP}</th>
+                      <td bgcolor="white">{rval data/LOCATION}</td>
+                    </tr>
+                    <tr>
+                      <th class="no_search" nowrap>{rval data/REA_CAP}</th>
+                      <td bgcolor="white">{rval data/REASON}</td>
+                    </tr>
+                    {rval data/OTHERS}
+                    <tr>
+                      <th class="no_search"></th>
+                      <td bgcolor="white">
+                        {rval button/btn_update}　　{rval button/btn_print}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+{rval finish}
+<script language="JavaScript">{rval reload}
+    setInterval('callfunc()',1000);
+
+    function callfunc() {
+        var ds = new Date(document.forms[0].sdate.value);
+        var de = new Date(document.forms[0].edate.value);
+        var w = ["日","月","火","水","木","金","土"];
+        if (w[ds.getDay()]) outputLAYER('sweek', w[ds.getDay()]+"曜日");
+        if (w[de.getDay()]) outputLAYER('eweek', w[de.getDay()]+"曜日");
+    }
+</script>

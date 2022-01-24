@@ -1,0 +1,92 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <th>
+      <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#FFFFFF">
+        <tr> 
+          <th align="left">年度：{rval YEAR}&nbsp;&nbsp;学期{rval SEMESTER}&nbsp;&nbsp;学年{rval GRADE}<br>試験{rval KOUSA}<br>実施日{rval EXECUTEDATE}&nbsp;&nbsp;校時{rval PERIODCD}</th>
+        </tr>
+      </table>
+    </th>
+  </tr>
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr>
+                <td bgcolor="#FFFFFF">
+                  <div id="box1" style="overflow:auto;height:350px">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr class="no_search_line">
+                        <td style="vertical-align:top">
+                          <table width="100%" border="0" cellspacing="1" cellpadding="2">
+                            <tr class="no_search" nowrap>
+                              <th>科目名</th>
+                              <th>講座名</th>
+                              <th>年組</th>
+                            </tr>
+                            <!--{each data1}-->
+                            <tr bgcolor="{rval data1/COLOR}">
+                              <td>{rval data1/SUBCLASSNAME}</td>
+                              <td>{rval data1/link}</td>
+                              <td>{rval data1/HR_NAME}</td>
+                            </tr>
+                            <!--{/each}-->
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <hr>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr>
+                <td bgcolor="#FFFFFF">年組{rval GRADE_HR_CLASS}</td>
+              </tr>
+              <tr>
+                <td>
+                  <div id="box2" style="overflow:auto;height:350px">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr class="no_search_line">
+                        <td style="vertical-align:top">
+                          <table width="100%" border="0" cellspacing="1" cellpadding="2" id="box3">
+                            <tr class="no_search" nowrap>
+                              <th>年-組-番</th>
+                              <th>氏名</th>
+                            </tr>
+                            <!--{each data2}-->
+                            <tr bgcolor="{rval data2/COLOR}" id="{rval data2/ID}" data-schregno="{rval data2/SCHREGNO}" draggable="true" ondragstart="f_dragstart(event)">
+                              <td>{rval data2/ATTENDNO}</td>
+                              <td>{rval data2/NAME}</td>
+                            </tr>
+                            <!--{/each}-->
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  <tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

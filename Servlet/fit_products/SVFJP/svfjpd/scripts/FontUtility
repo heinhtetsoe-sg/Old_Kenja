@@ -1,0 +1,19 @@
+#!/bin/sh
+##############################################################################
+# SVF JPD's JavaFontUtility control script  Copyright(C) by FIT.
+##############################################################################
+
+SCRIPT_NAME="FontUtility"
+
+if [ "$FIT_PRODUCTS_BASE" = "" ]; then
+    echo "FIT_PRODUCTS_BASE not found!"
+    echo "please set 'FIT_PRODUCTS_BASE' environment variable and try again."
+    exit 1
+fi
+
+CLASSPATH="$CLASSPATH:$FIT_PRODUCTS_BASE/svfjpd/util/fontutil/jdom.jar"
+CLASSPATH="$CLASSPATH:$FIT_PRODUCTS_BASE/svfjpd/util/fontutil/FontUtil.jar"
+export CLASSPATH
+
+java -Xms64M -Xmx768M jp.co.fit.fontutil.Application SETTING=Setting.ja_JP.xml SVFDIR=$FIT_PRODUCTS_BASE
+exit 0

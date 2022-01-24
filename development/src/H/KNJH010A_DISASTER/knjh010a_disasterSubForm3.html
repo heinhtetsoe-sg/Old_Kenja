@@ -1,0 +1,71 @@
+{rval start}
+<style>
+.eki_select_a {
+    width:150px;
+}
+.eki_select_b {
+    width:150px;
+}
+td.td_select_a {
+    width:150px;
+}
+td.td_select_b {
+    width:150px;
+}
+span.train_title {
+    font-weight: bold;
+}
+</style>
+<table width="90%" align="center" border="0" cellspacing="0" cellpadding="5">
+<tr>
+<td>
+  <table style="width: 100%" border="0" cellspacing="5" cellpadding="1">
+  <tr> 
+  <td>
+    <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+<!-- 選択データ -->
+    <tr class="no_search_line">
+    <td><!-- first table for subclass -->
+      <table style="width: 100%" border="0" cellspacing="1" cellpadding="4">
+      <tr class="no_search" height="35" nowrap>
+        <td align="center" nowrap colspan="3">{rval data/TUGAKU_NAME}
+            <span style="margin-left:70px;">経路 : 経路1</span>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="white">
+            <table cellpadding="10">
+                <tr valign="top">
+                    <td class="td_select_a">
+                        <span class="train_title">バスコース</span>
+                        {rval data/ROSEN_TEXT}<br><span class="eki_select_a">{rval data/ROSEN_SELECT}</span>
+                    </td>
+                    <td class="td_select_b">
+                        <span class="train_title">乗車駅</span>
+                        {rval data/JOSYA_TEXT}
+                    </td>
+                    <td class="td_select_b">
+                        <span class="train_title">降車駅</span>
+                        {rval data/GESYA_TEXT}
+                    </td>
+                </tr>
+            </table>
+        </td>
+      </tr>
+      <tr class="no_search">
+        <td align="right">
+          {rval btn_up}
+          {rval btn_close}
+        </td>
+      </tr>
+      </table>
+    </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+  </table>
+</td>
+</tr>
+</table>
+{rval finish}

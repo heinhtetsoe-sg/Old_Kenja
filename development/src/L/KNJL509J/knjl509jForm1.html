@@ -1,0 +1,107 @@
+{rval start}
+
+<br>
+<table width="800" border="0" cellspacing="0" cellpadding="5" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="30">
+                      <td width="10%" class="no_search" align="center" nowrap>入試年度</td>
+                      <td width="10%" bgcolor="#ffffff" align="center" nowrap>{rval data/YEAR}</td>
+                      <td width="10%" class="no_search" align="center" nowrap>学校種別</td>
+                      <td width="10%" bgcolor="#ffffff" nowrap>&nbsp;{rval data/APPLICANTDIV}</td>
+                      <td width="10%" class="no_search" align="center" nowrap>入試種別</td>
+                      <td width="25%"  bgcolor="#ffffff" nowrap>&nbsp;{rval data/TESTDIV}</td>
+                    </tr>
+                    <tr height="30">
+                      <td class="no_search" align="center" nowrap>対象者</td>
+                      <td bgcolor="#ffffff" colspan="5" nowrap>&nbsp;{rval data/TARGET_DIV1}<LABEL for="TARGET_DIV1">合格者</LABEL>　{rval data/TARGET_DIV2}<LABEL for="TARGET_DIV2">手続修了者</LABEL></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th>出力対象者一覧</th>
+                      <th class="no_search"></th>
+                      <th>{rval data/RIGHT_TITLE}</th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">
+                        {rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      </td>
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr>
+                            <td width="100%" bgcolor="#ffffff" nowrap><BR>
+                              &nbsp;　　　帳票種類　　{rval data/OUTPUT1}<LABEL for="OUTPUT1">合格証</LABEL>　{rval data/OUTPUT2}<LABEL for="OUTPUT2">入学許可証</LABEL><BR><BR>
+                              &nbsp;　　　発行年月日　{rval data/PRINT_DATE}<BR><BR>
+<!--
+                              &nbsp;　　{rval data/OUTPUT1}<LABEL for="OUTPUT1">合格証</LABEL><BR><BR>
+                              &nbsp;　　{rval data/OUTPUT2}<LABEL for="OUTPUT2">入学許可証</LABEL><BR><BR>
+                              &nbsp;　　&nbsp;発行年月日　{rval data/PRINT_DATE}<BR><BR>
+-->
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <td width="40%" bgcolor="#ffffff" nowrap>{rval button/btn_print}{rval button/btn_end}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}

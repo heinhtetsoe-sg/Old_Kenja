@@ -1,0 +1,69 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR>
+
+<table width="65%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td align="left"><b>
+                        {rval data/SEARCH_DIV2}<LABEL for="SEARCH_DIV2">在校生</LABEL>
+                        <!--{def CHOICE2_HYOUJI}-->
+                        　{rval data/CHOICE1}<LABEL for="CHOICE1">個人指定</LABEL>　
+                        　{rval data/CHOICE2}<LABEL for="CHOICE2">クラス指定</LABEL>　{rval data/GRADE_HR_CLASS}
+                        <!--{/def}-->
+                        　{rval data/CHOICE1}<LABEL for="CHOICE1">クラス</LABEL>　{rval data/GRADE_HR_CLASS}
+                        　　登録年度{rval data/EXE_YEAR}
+                        <br>
+                        <!--{def SEARCH_DIV1_HYOUJI}-->
+                        {rval data/SEARCH_DIV1}<LABEL for="SEARCH_DIV1">新入生</LABEL>
+                        <!--{/def}-->
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>{rval data/CATEGORY_LABEL}一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_NAME}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_left2}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_right2}
+                      <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

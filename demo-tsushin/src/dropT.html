@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery</title>
+<link rel="stylesheet" href="dropT.css" />
+</head>
+<body>
+<form action="" method="post">
+　文字列<br><input type=text id="drop" SIZE=40 value="" draggable=true><br>
+<input type=button value="intext" onClick="intext()">
+</form>
+<script src="/jquery-3.3.1.min.js"></script>
+<!-- script src="common/js/jquery-1.9.1.js"></script -->
+<script>
+$(function() {
+  $("input[type='text'],input[type='textarea']").on({
+    'drop': function(e) {
+       var outtext = $(this).text() + e.originalEvent.dataTransfer.getData('text');
+        $(this).text(outtext);
+       e.preventDefault();
+    },
+    'dragover': function(e) {
+      e.preventDefault();
+    }
+  });
+});
+</script>
+
+<script>
+function intext() {
+   alert(document.getElementById("drop").value);
+}
+</script>
+</body>
+</html>

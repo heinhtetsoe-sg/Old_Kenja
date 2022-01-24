@@ -1,0 +1,92 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr></tr><tr></tr><tr></tr><tr></tr>
+    <td valign="top">
+        
+      <table width="90%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tbody>
+                    <tr class="no_search" height="30">
+                      <td width="100%" align="left" nowrap>
+                        {rval YEAR}年度　　学年：{rval GRADE}
+                      </td>
+                    </tr>
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr></tr><tr></tr><tr></tr><tr></tr>
+  <tr>
+    <td>
+        
+          <table width="90%" border="0" cellspacing="0" cellpadding="10">
+            <tr>
+              <td >
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                  <tr class="no_search_line">
+                    <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tr class="no_search">
+                          <th nowrap>教科</th>
+                          <th nowrap>観点</th>
+        <!--{each gakki}-->
+                          <th nowrap>{rval gakki/LABEL}</th>
+        <!--{/each}-->
+                          <th nowrap>満点</th>
+                          <th nowrap><font size="1">評定<BR>段階値設定済</font></th>
+                        </tr>
+  <!--結果一覧-->
+  <!--{def data}-->
+  <!--{each data}-->
+                        <tr>
+  <!--{def data/ROWSPAN}-->
+      <!--{def useCurriculumcd}-->
+                          <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN}><a href="knjz211bindex.php?cmd=edit&SUBCLASSCD={val data/CLASSCD}-{val data/SCHOOL_KIND}-{val data/CURRICULUM_CD}-{val data/SUBCLASSCD}&SUBCLASSNAME={val data/SUBCLASSNAME}&GRADE={val data/GRADE}" target="right_frame">{val data/SUBCLASSNAME}</a></td>
+      <!--{/def}-->
+      <!--{def no_useCurriculumcd}-->
+                          <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN}><a href="knjz211bindex.php?cmd=edit&SUBCLASSCD={val data/SUBCLASSCD}&SUBCLASSNAME={val data/SUBCLASSNAME}&GRADE={val data/GRADE}" target="right_frame">{val data/SUBCLASSNAME}</a></td>
+      <!--{/def}-->
+  <!--{/def}-->
+                          <td nowrap bgcolor="#ffffff">{val data/VIEWCD}</td>
+                          <td nowrap bgcolor="#ffffff">{val data/VIEWFLG1}</td>
+                          <td nowrap bgcolor="#ffffff">{val data/VIEWFLG2}</td>
+  <!--{def 3gakki}-->
+                          <td nowrap bgcolor="#ffffff">{val data/VIEWFLG3}</td>
+  <!--{/def}-->
+                          <td nowrap bgcolor="#ffffff">{val data/ASSESSHIGH}</td>
+  <!--{def data/ROWSPAN}-->
+                          <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN} align="center">{val data/HYOUTEICHECK}</td>
+  <!--{/def}-->
+                        </tr>
+<!--{/each}-->
+<!--{/def}-->
+                      </table>
+                    </td>
+                  </tr>
+                  
+                </table>
+              </td>
+            </tr>
+          </table>
+          
+        </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval close_win}</script>
+

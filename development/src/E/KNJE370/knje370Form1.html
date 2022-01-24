@@ -1,0 +1,98 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR>
+
+<table width="{rval ALLWIDTH}" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search" height="30">
+                      <td>　　　{rval data/YEAR}</td>
+                    </tr>
+                    <tr align="left" bgcolor="#ffffff" height="60">
+                      <td nowrap>
+                        　　　　　<B>帳票</B>　
+                        {rval data/OUT_DIV1}<LABEL for="OUT_DIV1">進学</LABEL>　
+                        {rval data/OUT_DIV2}<LABEL for="OUT_DIV2">就職</LABEL>
+                        <BR>　　　<B>出力指定</B>　
+                        {rval data/DATA_DIV1}<LABEL for="DATA_DIV1">クラス指定</LABEL>　
+                        {rval data/DATA_DIV2}<LABEL for="DATA_DIV2">個人指定</LABEL>　　{rval data/KAIPAGE}<LABEL for="KAIPAGE">生徒毎に出力する。</LABEL>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search" height="30">
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>{rval data/GRADE_HR}</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CLASS_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="left" bgcolor="#ffffff">
+                      <td>
+                        <BR>　　　対象(合否・進路状況)　：　{rval data/GOUHI}
+                        <BR>　
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+                      <th><b>種別(設置区分)一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="40%">{rval data/CATEGORY_SELECTED_TYPE}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts_type}<BR>
+                        {rval button/btn_left1_type}<BR>
+                        {rval button/btn_right1_type}<BR>
+                        {rval button/btn_rights_type}
+                      <td width="40%">{rval data/CATEGORY_NAME_TYPE}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_csv}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

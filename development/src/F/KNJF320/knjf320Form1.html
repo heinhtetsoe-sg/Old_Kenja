@@ -1,0 +1,54 @@
+{rval start}
+
+<br>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td nowrap align="center"><b>対象年度：{rval YEAR}</b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th nowrap width="100">執務日付</th>
+                      <th nowrap width="*">執務者</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}--> 
+                    <tr> 
+                      <td bgcolor="#ffffff" align="center"><a href="knjf320index.php?cmd=edit&SEND_FLG=1&YEAR={rval data/YEAR}&WORK_DATE={rval data/WORK_DATE}&STAFFCD={rval data/STAFFCD}" target="right_frame">{rval data/WORK_DATE}</a></td>
+                      <td bgcolor="#ffffff" align="left">{rval data/STAFFNAME}</td>
+                    </tr>
+                    <!--{/each}--> 
+                    <!--{/def}--> 
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

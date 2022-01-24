@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- kanji=漢字 -->
+<!-- $Id: build.xml 74420 2020-05-20 03:33:07Z maeshiro $ -->
+<project name="kenja_common" default="compile" basedir=".">
+
+	<property environment="env"/>
+
+	<property file="${user.home}/my.build.properties" />
+	<property file="${basedir}/build.properties" />
+
+	<!-- 賢者共通 -->
+	<property name="pkg.title"			value="\u8ce2\u8005\u5171\u901a"/>
+	<property name="pkg.version"		value="Ver 1.5"/>
+	<property name="pkg.copyright"		value="Copyright(C) 2004-2005. by アルプ沖縄(株)"/>
+
+	<property name="basename"			value="kenja_common"/>
+
+	<property name="src"				location="src"/>
+	<property name="build"				location="build"/>
+	<property name="dist"				location="dist"/>
+	<property name="dir.reports"		location="reports"/>
+	<property name="dir.docs"			location="docs"/>
+
+	<path id="project.classpath">
+		<pathelement location="${build}"/>
+		<!--pathelement location="../kenja_common/dist/kenja_common.jar"/-->
+		<pathelement location="${jar.j2ee}"/>
+		<pathelement location="${jar.junit}"/>
+		<pathelement location="${dir.xalan}/bin/xalan.jar"/>
+		<pathelement location="${dir.xerces}/xmlParserAPIs.jar"/>
+		<pathelement location="${dir.xerces}/xercesImpl.jar"/>
+		<pathelement location="${jar.commons-beanutils}"/>
+		<pathelement location="${jar.commons-collections}"/>
+		<pathelement location="${jar.commons-dbcp}"/>
+		<pathelement location="${jar.commons-dbutils}"/>
+		<pathelement location="${jar.commons-lang}"/>
+		<pathelement location="${jar.commons-logging}"/>
+		<pathelement location="${jar.commons-pool}"/>
+		<pathelement location="${jar.jakarta-log4j}"/>
+		<pathelement location="${jar.jakarta-oro}"/>
+		<pathelement location="${jar.djunit}"/>
+	</path>
+
+	<!-- **** INFO -->
+	<target name="info">
+		<echo level="info">user.home=${user.home}</echo>
+		<echo level="info">basedir=${basedir}</echo>
+		<echo level="info">ant.file=${ant.file}</echo>
+		<echo level="info">ant.version=${ant.version}</echo>
+		<echo level="info">ant.project.name=${ant.project.name}</echo>
+		<echo level="info">ant.java.version=${ant.java.version}</echo>
+		<echo level="info">env.JAVA_HOME=${env.JAVA_HOME}</echo>
+		<echo level="info">env.ANT_HOME=${env.ANT_HOME}</echo>
+		<echo level="info">env.CLASSPATH=${env.CLASSPATH}</echo>
+	</target>
+
+	<!-- **** 初期化 -->
+	<target name="init">
+		<tstamp/>
+		<mkdir dir="${build}"/>
+	</target>
+
+	<!-- **** コンパイル -->
+	<target name="compile" description="compile java" depends="init">
+		<!-- MEMO:javacタスクのencodingは、"SJIS"または"EUCJIS"または"EUC-JP" -->
+		<javac
+				encoding="UTF-8"
+				target="1.6"
+				source="1.6"
+				deprecation="true"
+				srcdir="${src}"
+				destdir="${build}"
+				classpathref="project.classpath"
+				bootclasspath="${dir.jre13_home}/lib/rt.jar"
+				extdirs="${dir.jre13_home}/lib/ext"
+				includeantruntime="false"
+				debug="on">
+			<include name="**/*.java"/>
+			<exclude name="**/test/*.java"/>
+			<exclude name="**/examples/*.java"/>
+			<exclude name="**/djtest/*.java"/>
+		</javac>
+	</target>
+
+	<!-- **** JUnit 実行 -->
+	<target name="junit" description="run junit">
+		<taskdef resource="djunittasks.properties"/>
+
+		<!-- MEMO:javacタスクのencodingは、"SJIS"または"EUCJIS"または"EUC-JP" -->
+		<javac
+				encoding="UTF-8"
+				target="1.3"
+				source="1.3"
+				deprecation="true"
+				srcdir="${src}"
+				destdir="${build}"
+				classpathref="project.classpath"
+				bootclasspath="${dir.jre13_home}/lib/rt.jar"
+				extdirs="${dir.jre13_home}/lib/ext"
+				includeantruntime="false"
+				debug="on">
+			<include name="**/test/*.java"/>
+			<include name="**/djtest/*.java"/>
+		</javac>
+
+		<copy overwrite="true" file="${src}/ant.log4j.properties" tofile="${build}/log4j.properties"/>
+		<copy overwrite="true" file="${src}/version.txt" toDir="${build}"/>
+
+		<mkdir dir="${dir.reports}/xml" />
+		<echo level="info">run junit and djUnit</echo>
+
+		<!-- junit to XML -->
+		<echo level="info">  junit to XML.</echo>
+		<junit printsummary="false" haltonfailure="true" haltonerror="true">
+			<classpath>
+				<path refid="project.classpath"/>
+			</classpath>
+			<batchtest todir="${dir.reports}/xml">
+				<formatter type="xml"/>
+				<fileset dir="${build}">
+					<include name="**/test/*Test.class" />
+				</fileset>
+			</batchtest>
+		</junit>
+
+		<!-- djUnit to XML -->
+		<echo level="info">  djUnit to XML.</echo>
+		<djunit printsummary="false" haltonfailure="true" haltonerror="true" virtualmock="true" coverage="false" targetSrcDir="${src}">
+			<classpath>
+				<path refid="project.classpath"/>
+				<fileset dir="${dir.java_extlib}/DJUNIT">
+					<include name="**/*.jar" />
+				</fileset>
+			</classpath>
+			<batchtest todir="${dir.reports}/xml">
+				<formatter type="xml"/>
+				<fileset dir="${build}">
+					<include name="**/djtest/*DJTest.class" />
+				</fileset>
+			</batchtest>
+		</djunit>
+
+		<echo level="info">junit done.</echo>
+	</target>
+
+	<!-- **** JUnitReport -->
+	<target name="junitreport" description="run JUnitReport">
+		<!-- XML to HTML -->
+		<!-- MEMO: junitreportタスクは、Xalan 2.x または J2SE1.4が必要 -->
+		<delete dir="${dir.reports}/html"/>
+		<mkdir dir="${dir.reports}/html"/>
+		<junitreport todir="${dir.reports}/xml">
+			<fileset dir="${dir.reports}/xml">
+				<include name="TEST-*.xml"/>
+			</fileset>
+			<report format="frames" todir="${dir.reports}/html"/>
+		</junitreport>
+
+		<echo level="info">JUnitReport done.</echo>
+	</target>
+
+	<!-- *** Checkstyle 実行 -->
+	<target name="check" description="run checkstyle">
+		<echo level="info">run checkstyle</echo>
+		<taskdef resource="checkstyletask.properties"
+				classpath="${jar.checkstyle}"/>
+		<checkstyle
+				classpathref="project.classpath"
+				config="../kenja_common/mycheckstyle4.xml"
+				failOnViolation="true">
+			<fileset dir="${src}">
+				<include name="**/*.java"/>
+				<exclude name="**/test/"/>
+				<exclude name="**/examples/"/>
+				<exclude name="**/djtest/"/>
+				<exclude name="**/jp/co/alp/kenja/common/lang/enum/"/>
+			</fileset>
+		</checkstyle>
+	</target>
+
+	<!-- **** Javadoc ドキュメント生成 -->
+	<target name="javadoc" description="generate JavaDoc">
+		<delete dir="${dir.docs}/api"/>
+		<mkdir dir="${dir.docs}/api"/>
+
+		<javadoc
+				source="1.3"
+				overview="${src}/overview.html"
+				sourcepath="${src}"
+				encoding="UTF-8"
+				classpathref="project.classpath"
+				destdir="${dir.docs}/api"
+				private="false"
+				author="true"
+				version="true"
+				use="true"
+				Verbose="false"
+				windowtitle="${pkg.title}">
+
+			<packageset dir="${src}" defaultexcludes="true">
+				<include name="jp/co/alp/**" />
+				<exclude name="jp/co/alp/kenja/common/lang/enum/**" />
+				<exclude name="**/examples/**"/>
+				<exclude name="**/test/**" />
+				<exclude name="**/djtest/**" />
+			</packageset>
+
+			<!--link href="file:../kenja_common/docs/api/"/-->
+
+			<link href="http://java.sun.com/j2se/1.3/ja/docs/ja/api/"/>
+			<link href="http://java.sun.com/j2ee/sdk_1.3/ja/techdocs/api/"/>
+
+			<link href="http://jakarta.apache.org/commons/pool/apidocs/"/>
+			<link href="http://jakarta.apache.org/commons/lang/api/"/>
+			<link href="http://jakarta.apache.org/commons/logging/commons-logging-1.0.3/docs/api/"/>
+			<link href="http://jakarta.apache.org/commons/beanutils/api/"/>
+			<link href="http://jakarta.apache.org/commons/dbcp/apidocs/"/>
+			<link href="http://jakarta.apache.org/commons/collections/apidocs-COLLECTIONS_3_0/"/>
+			<link href="http://jakarta.apache.org/commons/dbutils/apidocs/"/>
+			<link href="http://logging.apache.org/log4j/docs/api/"/>
+			<link href="http://jakarta.apache.org/oro/api/"/>
+
+			<doctitle><![CDATA[<h1>${pkg.title}</h1>]]></doctitle>
+			<header><![CDATA[<b>${pkg.title}</b><br><font size=-1>${pkg.version}</font>]]></header>
+			<bottom><![CDATA[<i>${pkg.copyright}</i>]]></bottom>
+			<group title="ドメイン" 		packages="jp.co.alp.kenja.common.domain*"/>
+			<group title="ＤＢアクセス" 	packages="jp.co.alp.kenja.common.dao*"/>
+			<group title="${pkg.title}・コア"	packages="jp.co.alp.kenja.common*"/>
+		</javadoc>
+	</target>
+
+	<!-- **** JARファイル作成 -->
+	<target name="dist" description="generate the distribution" depends="compile">
+		<mkdir dir="${dist}"/>
+
+		<move overwrite="true" failonerror="false" file="${dist}/${basename}.jar" tofile="${dist}/${basename}.jar.bak" />
+
+		<jar index="true" destfile="${dist}/${basename}.jar" filesonly="false">
+			<fileset dir="${build}">
+				<include name="**/*.class"/>
+				<exclude name="**/test/*.class"/>
+				<exclude name="**/djtest/*.class"/>
+				<exclude name="**/examples/*.class"/>
+			</fileset>
+			<fileset dir="${src}">
+				<include name="version*.txt"/>
+			</fileset>
+			<manifest>
+				<attribute name="Main-Class" value="jp.co.alp.kenja.common.ShowVersionMain"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<!-- **** src.zipファイル作成 -->
+	<target name="srczip" description="generate the src-zip">
+		<mkdir dir="${dist}"/>
+
+		<zip destfile="${dist}/${basename}-src.zip" filesonly="true">
+			<fileset dir="${src}">
+				<include name="**/*.java"/>
+				<include name="version*.txt"/>
+			</fileset>
+		</zip>
+	</target>
+
+	<!-- **** リビルド -->
+	<target name="rebuild" description="re-build">
+		<antcall target="clean"/>
+		<antcall target="dist"/>
+		<antcall target="srczip"/>
+	</target>
+
+	<!-- **** フル・リビルド -->
+	<target name="full" description="full-re-build">
+		<antcall target="check"/>
+		<antcall target="distclean"/>
+		<antcall target="dist"/>
+		<antcall target="junit"/>
+		<antcall target="srczip"/>
+	</target>
+
+	<!-- **** .classファイルを削除 -->
+	<target name="clean" description="clean up" >
+		<delete dir="${build}"/>
+	</target>
+
+	<!-- **** 作成したディレクトリ配下を削除 -->
+	<target name="distclean" description="clean up dist" >
+		<delete dir="${build}"/>
+		<delete dir="${dist}"/>
+		<delete dir="${dir.reports}"/>
+		<delete dir="${dir.docs}"/>
+	</target>
+
+	<!-- **** JARファイルなどを配備（サーバーにコピー） -->
+	<target name="deploy" description="deployment">
+		<copy
+				preservelastmodified="true"
+				file="${dist}/${basename}.jar"
+				toDir="${dir.base.deployment}/common/java"
+		/>
+	</target>
+</project>

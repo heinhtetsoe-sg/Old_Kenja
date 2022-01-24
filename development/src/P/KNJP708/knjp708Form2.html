@@ -1,0 +1,143 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="600px" border="0" cellspacing="0" cellpadding="10">
+        <tr> 
+          <td > 
+            <table width="600px" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="600px" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="28"> 
+                      <th width="180px">項 目</th>
+                      <th width="420px">値</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>コード</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/REDUCTION_DIV_CD}</td>
+                    </tr>
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>減免種別名</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/REDUCTION_DIV_NAME}</td>
+                    </tr>
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap>※</th>
+                            <th align="right" nowrap>特待区分</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/SCHOLARSHIP}</td>
+                    </tr>
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>期間区分</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/SEMESTER_DIV}</td>
+                    </tr>
+
+                    <tr height="28">
+                      <td class="no_search">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>減免割引タイミング</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff">{rval data/REDUCTION_TIMING1}<LABEL for="REDUCTION_TIMING1">先</LABEL>　{rval data/REDUCTION_TIMING2}<LABEL for="REDUCTION_TIMING2">後</LABEL></td>
+                    </tr>
+
+                    <!--{/def}--> 
+                    <!--{def button}--> 
+                    <tr height="28"> 
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+                    </tr>
+                    <!--{/def}--> 
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        
+        <!--{def mlist}-->
+        <!--{each mlist}-->
+        <tr>
+          <td>
+            <table width="600px" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="600px" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="28" align="center">
+                      <td width="420px" colspan="2" align="left" style="background:#00FFFF;color:#000080;font:bold">
+                        <span style="margin-left:180px;">{val mlist/COLLECT_NAME}</span>
+                      </td>
+                    </tr>
+                    <tr height="28">
+                      <td class="no_search" width="30%">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="right" nowrap>金額区分</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td bgcolor="#ffffff" width="70%">{rval mlist/MONEY_DIV1}<LABEL for="MONEY_DIV{rval mlist/REDUCTION_TARGET}1">割合</LABEL>　{rval mlist/MONEY_DIV2}<LABEL for="MONEY_DIV{rval mlist/REDUCTION_TARGET}2">絶対額</LABEL></td>
+                    </tr>
+                    <tr height="28">
+                      <td class="no_search" width="30%">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="left" nowrap></th>
+                            <th align="right" nowrap>割合/金額</th>
+                          </tr>
+                        </table>
+                      </td>
+                      <td id="moneyDisp{rval mlist/REDUCTION_TARGET}" bgcolor="#ffffff" width="30%">
+                        <div id="wariaiDisp{rval mlist/REDUCTION_TARGET}" {rval mlist/WARIAI_DISP}>{rval mlist/NUMERATOR}&nbsp;/&nbsp;{rval mlist/DENOMINATOR}</div>
+                        <div id="zettaiDisp{rval mlist/REDUCTION_TARGET}" {rval mlist/ZETTAI_DISP}>{rval mlist/MONEY}&nbsp;円</div>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!--{/each}-->
+        <!--{/def}-->
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

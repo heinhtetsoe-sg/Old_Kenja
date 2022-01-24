@@ -1,0 +1,92 @@
+{rval start}
+{rval IFRAME}
+<table width="1050" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td align="center">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--結果一覧-->
+                    <tr class="no_search">
+                      <td nowrap>学籍番号：{rval info/SCHREGNO}　氏名：{rval info/NAME}　入学年月：{rval info/ENT_DATE}　卒業予定月：{rval info/GRD_SCHEDULE_DATE}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td nowrap>高校入学年度：{rval info/CURRICULUM_YEAR}　{rval info/MAJOR}&nbsp{rval info/COURSECODENAME}　担任：{rval info/STAFFNAME}</td>
+                    </tr>
+
+                    <tr>
+                      <td bgcolor="#ffffff" colspan="{rval ALL_COL}">
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                          <tr class="no_search_line">
+                          <td>
+                            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <tr class="no_search" nowrap align="center">
+                              <td colspan="4">連携データ状況</th>
+                              <td colspan="5">前籍校教科・科目</th>
+                            </tr>
+                            <tr class="no_search" nowrap align="center">
+                              <th width="56">教育課<br>程年度</th>
+                              <th width="50">教科名</th>
+                              <th width="70">科目名</th>
+                              <th width="30">修得<br>単位</th>
+                              <th width="56">教育課<br>程年度</th>
+                              <th width="40">教科<br>コード</th>
+                              <th width="50">教科名</th>
+                              <th width="50">科目<br>コード</th>
+                              <th width="70">科目名</th>
+                            </tr>
+                            </table>
+                          </td>
+                          </tr>
+                          <tr>
+                          <td bgcolor="#ffffff">
+                            <div style="width: 100%; height=230; overflow: auto">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr class="no_search_line">
+                                <td>
+                                  <table id="list" width="100%" border="0" cellspacing="1" cellpadding="3" onclick="selectRow();"> 
+                                  <!--結果一覧-->
+                                  <!--{each data2}--> 
+                                    <tr bgcolor="#ffffff" >
+                                    <td width="56" align="right">{rval data2/APP_CURRICULUM_NAME}</td>
+                                    <td width="50" align="right">{rval data2/APP_CLASSNAME}</td>
+                                    <td width="70" align="right"style="font-size:13px;">{rval data2/APP_SUBCLASSNAME}</td>
+                                    <td width="30" align="right" >{rval data2/GET_CREDIT}</td>
+                                    <td width="56" align="right">{rval data2/CURRICULUM_CD_NAME}</td>
+                                    <td width="40" align="right">{rval data2/REP_CLASSCD}</td>
+                                    <td width="50" align="right">{rval data2/CLASSNAME}</td>
+                                    <td width="50" align="right">{rval data2/REP_SUBCLASSCD}</td>
+                                    <td width="70" align="right"style="font-size:13px;">{rval data2/SUBCLASSNAME}</td>
+                                    </tr> 
+                                  <!--{/each}--> 
+                                  </table>
+                                </td>
+                              </table>
+                            </div>
+                          </td>
+                          </tr>
+                      </table>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td colspan="{rval ALL_COL}" bgcolor="#ffffff">&nbsp{rval button/btn_update}&nbsp{rval button/btn_end}</td>
+                    </tr>
+
+                </table>
+                </td>
+               </tr>
+              </table>
+           </td>
+          </tr>
+       </table>
+      </td>
+   </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

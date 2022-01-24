@@ -1,0 +1,80 @@
+{rval start}
+<br><br><br><br> 
+<table style="width: 450px" border="0" cellpadding="10" cellspacing="10" align="center">
+<td>
+    <table style="width: 450px" border="0" cellspacing="5" cellpadding="1">
+    <tr>
+    <td>
+        <table style="width: 450px" border="0" cellpadding="0" cellspacing="1">
+            <tr class="no_search_line" height="25">
+                <td class="no_search" align="center" width="25%">処理年度:{rval YEAR}年度</td>
+            </tr>
+        </table>
+    </td>
+    </tr>
+    <tr>
+    <td>
+        <table style="width: 450px" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 450px" border="0" cellpadding="0" cellspacing="1">
+                <tr class="no_search_line" height="25">
+                    <td class="no_search" align="center">
+                        <!--{def SCHOOL_KIND}-->校種:{rval SCHOOL_KIND}　<!--{/def}-->対象月:{rval TARGET_MONTH}　締め日:{rval SIMEBI}
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor='#ffffff'>
+                        <div style="text-indent:-35px; padding-left:50px; margin:10px 0;">
+                        ●保存で、下記のテーブルが更新されます。<br>
+                            1.出欠締め日管理テーブル<br>
+                            2.出欠月別累積データ<br>
+                            3.出欠科目別累積データ<br>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="no_search_line" height="25">
+                    <td align="center" class="no_search" align="right" width="25%" <!--{def NotuseAppointedDayGradeMst}-->style="padding-left:200px;"<!--{/def}-->>
+                        <!--{def button}-->
+                        {rval button/btn_updte}{rval button/btn_clear}{rval button/btn_end}<!--{def useAppointedDayGradeMst}-->　{rval button/btn_grade_sime}<!--{/def}-->
+                        <!--{/def}-->
+                    </td>
+                </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+    <tr>
+    <td>
+        <table style="width: 450px" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+            <table style="width: 450px" border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search" >
+                    <td align="center" width="25%">学期</td>
+                    <td align="center" width="25%">対象月</td>
+                    <td align="center" width="25%">締め日</td>
+                </tr>
+            <!--{def data}-->
+            <!--結果一覧-->
+            <!--{each data}-->
+                <tr class="no_search_line" >
+                    {val data/td}
+                </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </tr>
+            </table>
+        </td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+    </table>
+</td>
+</tr>
+</table>
+<script language="JavaScript">{rval close}</script>
+{rval finish} 

@@ -1,0 +1,92 @@
+{rval start}
+
+<BR><BR><BR>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+    <td valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+        <th>
+          <table width="85%" border="0" cellspacing="0" cellpadding="0" align="center">
+            <tr>{rval head/copy_cmb}&nbsp;&nbsp;&nbsp;{rval head/BUTTON}</tr>
+            <BR>
+            <tr class="no_search_line">
+              <th>
+                <table width="100%" border="0" cellspacing="1" cellpadding="4" align="center">
+                    <tr> 
+                        <th width="20%" class="no_search">
+                            学期
+                        </th>
+                        <td width="20%" bgcolor="#FFFFFF" colspan="3">
+                            &nbsp;&nbsp;{rval head/SEMESTERNAME}&nbsp;
+                        </td>
+                    </tr>
+                    <tr> 
+                        <th width="20%" class="no_search">
+                            学年(年次)
+                        </th>
+                        <td width="20%" bgcolor="#FFFFFF">
+                            &nbsp;&nbsp;{rval head/GRADE}&nbsp;
+                        </td>
+                        <th width="20%" class="no_search">
+                            科目名
+                        </th>
+                        <td width="40%" bgcolor="#FFFFFF">
+                            &nbsp;{rval head/CODE}&nbsp;&nbsp;{rval head/SUBJECT}
+                        </td>
+
+                    </tr>
+                </table>
+              </th>
+            </tr>
+          </table>
+        <br><br>
+
+       <table width="85%" border="0" cellspacing="1" cellpadding="0" align="center" frame="box">
+         <tr class="no_search"> 
+             <td align="center">評定段階数&nbsp;{rval sepa/ASSESSLEVELCNT}&nbsp;{rval sepa/btn_level}</td>
+         </tr>
+
+         <tr class="no_search_line">
+           <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
+                    <tr class="no_search">
+                        <th width="25%">評定</th>
+                        <th width="25%">評定名称</th>
+                        <th width="25%">下限</th>
+                        <th width="25%">上限</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr align="center">
+                        <td bgcolor="#ffffff">{val data/ASSESSLEVEL}</td>
+                        <td bgcolor="#ffffff">{val data/ASSESSMARKTEXT}</td>
+                        <td bgcolor="#ffffff">{val data/ASSESSLOWTEXT}</td>
+                        <td bgcolor="#ffffff">{val data/ASSESSHIGHTEXT}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                    <tr>
+                        <td colspan="4" bgcolor="#ffffff" align="center">
+                            {rval button/btn_def}   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            {rval button/btn_update}&nbsp;
+                            {rval button/btn_reset} &nbsp;
+                            {rval button/btn_end}   &nbsp;
+                        </td>
+                    </tr>
+                </table>
+             </td>
+          </tr>
+        </table>
+       </th>
+      </tr>
+    </table>
+
+    </td> 
+    </tr>
+    
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

@@ -1,0 +1,94 @@
+{rval start}
+<table width="37%" border="0" cellpadding="0" cellspacing="5" align="center" style="padding-top: 48px;">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search" height="30">
+                      <th nowrap><b>
+                        {rval YEAR}年度　英語力判定試験度数分布刻み幅設定
+                      </b></th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff" height="60"> 
+                      <td>
+                        <table>
+                          <tr>
+                            <td nowrap><b>
+                              　　データ種別：{rval data/PROFICIENCYDIV}<br>
+                            </b></td>
+                          </tr>
+                          <tr>
+                            <td nowrap><b>
+                              　　テスト名称：{rval data/PROFICIENCYCD}<br>
+                            </b></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search" height="30">
+                      <th nowrap><b>
+                        度数分布表示行数　2 ＜ {rval data/ROWNUM} ＜ 12　{rval button/btn_changeRow}
+                      </b></th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+<!--{def scorelist}-->
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <!--{each scorelist}--> 
+                      <tr class="no_search_line">
+                        <td align="center" width="200px" bgcolor="#ffffff">
+                            {rval scorelist/LOWER_LIMIT}点
+                        </td>
+                        <td align="center" width="200px" bgcolor="#ffffff">
+                          <label style="text-align: right;">
+                            {rval scorelist/UPPER_LIMIT}点
+                          </label>
+                        </td>
+                      </tr>
+                    <!--{/each}--> 
+                    </table>
+  <!--{/def}-->
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search" height="30">
+                      <th nowrap><b></b></th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap>{rval button/btn_update}　{rval button/btn_cancel}　{rval button/btn_end}</td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>
+

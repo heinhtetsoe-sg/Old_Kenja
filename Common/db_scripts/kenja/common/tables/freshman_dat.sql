@@ -1,0 +1,41 @@
+-- $Id$
+
+DROP TABLE FRESHMAN_DAT
+CREATE TABLE FRESHMAN_DAT( \
+    ENTERYEAR         VARCHAR(4)    NOT NULL, \
+    SCHREGNO          VARCHAR(8)    NOT NULL, \
+    ENT_DIV           VARCHAR(1), \
+    GRADE             VARCHAR(2), \
+    HR_CLASS          VARCHAR(3), \
+    ATTENDNO          VARCHAR(3), \
+    INOUTCD           VARCHAR(1), \
+    COURSECD          VARCHAR(1), \
+    MAJORCD           VARCHAR(3), \
+    COURSECODE        VARCHAR(4), \
+    NAME              VARCHAR(120), \
+    NAME_KANA         VARCHAR(240), \
+    BIRTHDAY          DATE, \
+    SEX               VARCHAR(1), \
+    FINSCHOOLCD       VARCHAR(12), \
+    FINSCHOOLGRADDATE DATE, \
+    ADDR_FLG          VARCHAR(1), \
+    ISSUEDATE         DATE, \
+    EXPIREDATE        DATE, \
+    ZIPCD             VARCHAR(8), \
+    ADDR1             VARCHAR(150), \
+    ADDR2             VARCHAR(150), \
+    TELNO             VARCHAR(14), \
+    FAXNO             VARCHAR(14), \
+    EMAIL             VARCHAR(50), \
+    EMERGENCYCALL     VARCHAR(60), \
+    EMERGENCYTELNO    VARCHAR(14), \
+    SCALASHIPDIV      VARCHAR(2), \
+    CURRICULUM_YEAR   VARCHAR(4), \
+    EXAMNO            VARCHAR(10), \
+    AREACD            VARCHAR(2), \
+    REGISTERCD        VARCHAR(10), \
+    UPDATED           TIMESTAMP DEFAULT CURRENT TIMESTAMP, \
+    PRISCHOOLCD       VARCHAR(7) \
+) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE FRESHMAN_DAT ADD CONSTRAINT PK_FRESHMAN_DAT PRIMARY KEY (ENTERYEAR,SCHREGNO)

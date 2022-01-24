@@ -1,0 +1,65 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+       <table width="400" border="0" cellspacing="0" cellpadding="1" >
+          <tr class="no_search_line">
+            <th>
+              <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#CCCCCC">
+                <tr> 
+                  <th align="left">年度{rval YEAR2}&nbsp;&nbsp;学期{rval SEMESTER2}</th>
+                  <th align="right">{rval copy_btn}</th>
+                </tr>
+              </table>
+            </th>
+          </tr>
+        </table>
+     </td>
+  </tr>
+  <tr>
+    <th>
+      <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#FFFFFF">
+        <tr> 
+          <th align="left">年度{rval YEAR}&nbsp;&nbsp;学期{rval SEMESTER}</th>
+        </tr>
+      </table>
+    </th>
+  </tr>
+    <tr> 
+  <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr >
+        <td > 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line"> 
+        <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search"> 
+              <th nowrap >教室コード</th>
+              <th nowrap >教室名</th>
+              <th nowrap >講座名</th>
+          </tr>
+          <!--{each data}--> 
+          <tr> 
+              <td nowrap align="center"bgcolor="#ffffff" rowspan="{rval data/rowspan}" width="30%">{rval data/FACCD}</td>
+              <td nowrap bgcolor="#ffffff" rowspan="{rval data/rowspan}" width="30%">{rval data/FACILITYNAME}</td>
+              <td nowrap align="right" bgcolor="{rval data/COLOR}" width="*"><a href="{rval data/link}" target="right_frame">{rval data/CHAIRNAME}</a></td>
+          </tr> 
+          <!--{each data/subdata}--> 
+          <tr> 
+              <td nowrap align="right" bgcolor="{rval data/subdata/COLOR}" width="*"><a href="{rval data/subdata/link}" target="right_frame">{rval data/subdata/CHAIRNAME}</a></td>
+          </tr> 
+          <!--{/each}--> 
+          <!--{/each}--> 
+            </table>
+        </td>
+          </tr>
+      </table>
+        </td>
+    </tr>
+      </table>
+  </td>
+   </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

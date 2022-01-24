@@ -1,0 +1,103 @@
+{rval start} 
+
+<!--{def button}--> 
+<!--{def data}-->
+
+<BR><BR><BR><BR><BR><BR><BR><BR>
+<table style="width: 570px" border="0" cellpadding="10" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                    <tr class="no_search" height="35">
+                      <td align="center">
+                        <b>{rval data/YEAR}年度　　{rval data/SEMESTER}
+                        </b>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="80">
+                      <td>
+                        <table width="100%">
+                          <tr>
+                            <td>
+                              <table>
+                                <tr>
+                                  <td align="center">
+                                    {rval data/OUTPUT_KAIKIN1}<LABEL for="OUTPUT_KAIKIN1">皆勤者</LABEL>　　{rval data/OUTPUT_KAIKIN2}<LABEL for="OUTPUT_KAIKIN2">精勤者</LABEL>
+                                  </td>
+                                </tr>
+                                <tr bgcolor="#ffffff" height="80">
+                                  <td>
+                                    　　　　　異動対象日付、及び出欠集計日付　{rval data/DATE}
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    　　　　　出力対象
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                          <!--{def bunkyo}-->
+                              　　　　　　　{rval data/OUTPUT1}<LABEL for="OUTPUT1">当年度{rval data/TEXT_KAIKIN}者</LABEL>
+                          <!--{/def}-->
+                          <!--{def bunkyoIgai}-->
+                              　　　　　　　{rval data/OUTPUT1}<LABEL for="OUTPUT1">学年毎{rval data/TEXT_KAIKIN}者</LABEL>
+                          <!--{/def}-->
+                                    {rval data/OUTPUT1_RUIKEI}<LABEL for="OUTPUT1_RUIKEI">累計{rval data/TEXT_KAIKIN}者除く</LABEL>
+                                              　　{rval data/OUTPUT2}<LABEL for="OUTPUT2">累計{rval data/TEXT_KAIKIN}者</LABEL><br><br>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    　　　　　条件
+                                  </td>
+                                </tr>
+                                <tr>
+                                <td>
+                        <table width="100%">
+                          <!--{def bunkyo}-->
+                          <tr><td align="right">遅刻・早退{rval bunkyoKansanCount}回で欠席１日として </td><td>{rval data/BUNKYO_KANSAN_KESSEKI}回以下<td></tr>
+                          <!--{/def}-->
+                          <!--{def bunkyoIgai}-->
+                          <tr><td align="right">欠席 </td><td>{rval data/KESSEKI}回以下<td></tr>
+                          <tr><td align="right">かつ遅刻早退数</td><td>{rval data/CHIKOKU_SOUTAI}回以下<td></tr>
+                          <tr><td align="right">かつ遅刻</td><td> {rval data/CHIKOKU}回以下<td></tr>
+                          <tr><td align="right">かつ早退</td><td> {rval data/SOUTAI}回以下<td></tr>
+                          <tr><td align="right">かつ欠課</td><td> {rval data/KEKKA}回以下<td></tr>
+                          <!--{/def}-->
+                              </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <td>
+                        {rval button/btn_print}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 
+<script language="JavaScript">{rval jscript}</script>

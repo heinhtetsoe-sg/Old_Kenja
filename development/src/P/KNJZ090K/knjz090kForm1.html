@@ -1,0 +1,86 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="8">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th norwarp width="25%">対象年度&nbsp;{rval YEAR}</th>
+                      <td norwarp width="75%">&nbsp;{rval btn_pre_copy}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th nowrap width="120px" colspan="2">都道府県</th>
+                      <th nowrap width="40px" rowspan="2">学年</th>
+                      <th nowrap width="80px" rowspan="2">支援額1</th>
+                      <th nowrap width="80px" rowspan="2">支援額2</th>
+                      <th nowrap width="160px" colspan="2">所得割額1</th>
+                      <th nowrap width="40px" rowspan="2">兄弟<br>姉妹1</th>
+                      <th nowrap width="60px" rowspan="2">ランク1</th>
+                      <th nowrap width="160px" colspan="2">所得割額2</th>
+                      <th nowrap width="40px" rowspan="2">兄弟<br>姉妹2</th>
+                      <th nowrap width="60px" rowspan="2">ランク2</th>
+                      <th nowrap width="100px" rowspan="2">備考</th>
+                    </tr>
+                    <tr class="no_search" height="25">
+                      <th nowrap width="60px">コード</th>
+                      <th nowrap width="60px">名称</th>
+                      <th nowrap width="80px">下限額</th>
+                      <th nowrap width="80px">上限額</th>
+                      <th nowrap width="80px">下限額</th>
+                      <th nowrap width="80px">上限額</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/PREFECTURESCD}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/NAME1}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/GRADE}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/REDUCTIONMONEY_1}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/REDUCTIONMONEY_2}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/INCOME_LOW1}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/INCOME_HIGH1}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/INCOME_SIBLINGS1}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/INCOME_RANK1}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/INCOME_LOW2}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/INCOME_HIGH2}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">{val data/INCOME_SIBLINGS2}</td>
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/INCOME_RANK2}</td>
+
+                      <td nowrap bgcolor="#ffffff">{val data/REDUCTIONREMARK}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

@@ -1,0 +1,104 @@
+{rval start}
+<table width="800" border="0" cellspacing="0" cellpadding="10" align="center">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+
+          <tr>
+            <td>
+            <hr width="25%" align="left">
+            {rval SCHREGNO}&nbsp;&nbsp;{val NAME}&nbsp;&nbsp;<font color="red">{val ENT_DIV}</font>
+            <hr width="25%" align="left">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th align="center" nowrap width="100">年度</th>
+                        <th align="center" nowrap width="50">学年</th>
+                        <th align="center" nowrap width="100">教科</th>
+                        <th align="center" nowrap width="200">科目</th>
+                        <th align="center" nowrap width="35">①</th>
+                        <th align="center" nowrap width="35">②</th>
+                        <th align="center" nowrap width="35">③</th>
+                        <th align="center" nowrap width="35">④</th>
+                        <th align="center" nowrap width="35">⑤</th>
+                        <th align="center" nowrap width="*">評定</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+            <div style="width:100%;height:500;overflow-y:scroll">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table id="list" width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <!--結果一覧-->
+                      <!--{def data}-->
+                      <!--{each data}-->
+                      <tr height="30">
+                        <td width="100" align="center" bgcolor="#ffffff">{rval data/YEAR}</td>
+                        <td width="50"  align="left"   bgcolor="#ffffff">{rval data/GRADE_NAME1}</td>
+                        <td width="100" align="left"   bgcolor="#ffffff">{rval data/CLASSNAME}</td>
+                        <td width="200" align="left"   bgcolor="#ffffff">{val data/SUBCLASSNAME}</td>
+                        <td width="35" align="center"  bgcolor="#ffffff">{rval data/STATUS1}</td>
+                        <td width="35" align="center"  bgcolor="#ffffff">{rval data/STATUS2}</td>
+                        <td width="35" align="center"  bgcolor="#ffffff">{rval data/STATUS3}</td>
+                        <td width="35" align="center"  bgcolor="#ffffff">{rval data/STATUS4}</td>
+                        <td width="35" align="center"  bgcolor="#ffffff">{rval data/STATUS5}</td>
+                        <td width="*"  align="center"  bgcolor="#ffffff">{rval data/STATUS9}</td>
+                      </tr>
+                      <!--{/each}-->
+                      <!--{/def}-->
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th align="right" nowrap width="20" height="30">{rval button/btn_end}　　</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<script language="JavaScript">{rval reload}</script> 
+{rval finish}

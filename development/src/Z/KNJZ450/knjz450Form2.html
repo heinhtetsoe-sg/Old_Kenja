@@ -1,0 +1,81 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th width="15%">項 目</th>
+                <th width="80%">値</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+            <tr>
+                <th align="right" class="no_search" nowrap>※資格コード</th>
+                <td bgcolor="#ffffff">{rval data/QUALIFIED_CD}<font color="red" size="-1">(半角4桁)</font></td>
+            </tr>
+            <tr>
+                <th align="right" class="no_search" nowrap>※　資格名称</th>
+                <td bgcolor="#ffffff">
+                  {rval data/QUALIFIED_NAME}<br>
+                  <font color="red" size="-1">(全角50文字まで)</font>
+                </td>
+            </tr>
+            <tr>
+                <th align="right" class="no_search" nowrap>※　資格略称</th>
+                <td bgcolor="#ffffff">
+                  {rval data/QUALIFIED_ABBV}<br>
+                  <font color="red" size="-1">(全角25文字まで)</font>
+                </td>
+            </tr>
+            <tr>
+                <th align="right" class="no_search" nowrap>※　設定区分</th>
+                <td bgcolor="#ffffff">
+                  {rval data/CONDITION_DIV}
+                </td>
+            </tr>
+            <tr>
+                <th align="right" class="no_search" nowrap>取得可能検定</th>
+                <td bgcolor="#ffffff">
+                  {rval data/SAKI_FLG}
+                </td>
+            </tr>
+            <tr>
+                <th align="right" class="no_search" nowrap>主催</th>
+                <td bgcolor="#ffffff">
+                  {rval data/PROMOTER}<br>
+                  <font color="red" size="-1">(全角50文字まで)</font>
+                </td>
+            </tr>
+            <!--{def useQualifiedManagementFlg}-->
+            <tr>
+                <th align="right" class="no_search" nowrap>学校管理資格</th>
+                <td bgcolor="#ffffff">
+                  {rval data/MANAGEMENT_FLG}
+                </td>
+            </tr>
+            <!--{/def}-->
+            <!--{/def}-->
+            <!--{def button}-->
+            <tr>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_upate}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}</td>
+            </tr>
+            <!--{/def}-->
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

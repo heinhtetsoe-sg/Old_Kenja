@@ -1,0 +1,128 @@
+{rval start}
+{rval IFRAME}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td width="75%">
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left"><br>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                          <tr height="30">
+                            <td width="15%" class="no_search" align="center">部活動</td>
+                            <td width="30%" bgcolor="#ffffff">{rval data/CLUB}</td>
+                            <td width="15%" class="no_search" align="center">委員会</td>
+                            <td width="40%" bgcolor="#ffffff">{rval data/COMMI_CHARGE}</td>
+                          </tr>
+                          <tr height="30">
+                            <td class="no_search" align="center">評定平均</td>
+                            <td bgcolor="#ffffff">{rval data/AVERAGE}</td>
+                            <td class="no_search" align="center">出身学校</td>
+                            <td bgcolor="#ffffff">{rval data/FINSCHOOL}</td>
+                          </tr>
+                        </table>
+                      </tb>
+                    </tr>
+                  </table>
+                </tb>
+              </tr>
+            </table>
+          </td>
+        <!--{def img}-->
+        <!--{def dispPicture}-->
+          <td width="25%" align="center">
+          <img src="{rval img/FACE_IMG}" alt="生徒顔写真&nbsp;{rval img/IMG_PATH}" width="120" height="160">
+          </td>
+        <!--{/def}-->
+        <!--{def unDispPicture}-->
+          <td width="25%" align="center" onmouseover="image1.style.display='';" onmouseout="image1.style.display='none';">
+          <img name="image1" src="{rval img/FACE_IMG}" alt="生徒顔写真&nbsp;{rval img/IMG_PATH}" width="120" height="160" style="display:none">
+          </td>
+        <!--{/def}-->
+        <!--{/def}-->
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="10" cellpadding="0">
+        <tr>
+          <td>
+            {rval button/btn_shinro}{rval button/btn_shingaku}{rval button/btn_syuusyoku}{rval button/btn_sonota}　{rval button/btn_shinroSoudan}　　{rval button/btn_del}{rval button/btn_end}
+          </tb>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <div style="width:970;height:400;overflow-x:scroll;overflow-y:scroll">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="center" nowrap width="30">削<br>除<br>{val CHECKALL}</th>
+                            <th align="center" nowrap width="80">日付</th>
+                            <th align="center" nowrap width="70">種別</th>
+                            <th align="center" nowrap width="100">１</th>
+                            <th align="center" nowrap width="100">２</th>
+                            <th align="center" nowrap width="100">３</th>
+                            <th align="center" nowrap width="100">４</th>
+                            <th align="center" nowrap width="100">５</th>
+                            <th align="center" nowrap width="100">６</th>
+                            <th align="center" nowrap width="100">７</th>
+                          </tr>
+                          <!--結果一覧--><!--{def list}--><!--{each list}-->
+                          <tr bgcolor="#ffffff">
+                            <td align="center" nowrap>{val list/CHECKED}</td>
+                            <td align="center" nowrap>{val list/DATE}</td>
+                            <td align="center" nowrap>{val list/KINDNAME}</td>
+                            <td nowrap>{val list/ONE}</td>
+                            <td nowrap>{val list/TWO}</td>
+                            <td nowrap>{val list/THREE}</td>
+                            <td nowrap>{val list/FOUR}</td>
+                            <td nowrap>{val list/FIVE}</td>
+                            <td nowrap>{val list/SIX}</td>
+                            <td nowrap>{val list/SEVEN}</td>
+                          </tr>
+                          <!--{/each}--><!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

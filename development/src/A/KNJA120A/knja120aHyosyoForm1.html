@@ -1,0 +1,40 @@
+{rval start}
+<table width="100%" border="0" cellspacing="10" cellpadding="5">
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellspacing="10" cellpadding="0">
+        <tr>
+          <td>
+            <hr width="40%" align="left">
+              &nbsp;&nbsp;&nbsp;{rval NAME_SHOW}
+            <hr width="40%" align="left">
+          </td>
+        </tr>
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search">
+                <th align="center" nowrap width="10%" height="30">登録日</th>
+                <th align="center" nowrap width="15%" height="30">詳細区分</th>
+                <th align="center" nowrap width="15%" height="30">詳細種類</th>
+                <th align="center" nowrap width="60%" height="30">詳細内容</th>
+              </tr>
+              <!--{each data}--> 
+              <tr>
+                <td align="center" nowrap bgcolor="#ffffff">{val data/DETAIL_SDATE}</td>
+                <td align="left"   nowrap bgcolor="#ffffff">{val data/DETAIL_DATA}</td>
+                <td align="left"   nowrap bgcolor="#ffffff">{val data/DETAILCD}</td>
+                <td align="left"   nowrap bgcolor="#ffffff">{val data/CONTENT}</td>
+              </tr>
+              <!--{/each}-->
+              <tr class="no_search">
+                <td align="right" colspan="4">{rval btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}

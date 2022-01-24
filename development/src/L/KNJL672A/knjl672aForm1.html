@@ -1,0 +1,106 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="30">
+                      <th width="10%" class="no_search" align="center">入試年度</th>
+                      <td width="10%" bgcolor="#ffffff" align="center">{rval top/YEAR}</td>
+                      <th width="10%" class="no_search" align="center">※入試制度</th>
+                      <td width="10%" bgcolor="#ffffff">{rval top/APPLICANTDIV}</td>
+                      <th width="10%" class="no_search" align="center">※入試区分</th>
+                      <td width="10%" bgcolor="#ffffff">{rval top/TESTDIV}</td>
+                      <th width="10%" class="no_search" align="center">※入学課程学科</th>
+                      <td width="10%" bgcolor="#ffffff">{rval top/COURSEMAJOR}</td>
+                      <th width="10%" class="no_search" align="center">入学コース</th>
+                      <td width="*" bgcolor="#ffffff">{rval top/COURSECODE}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td align="center">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" align="center" height="30">
+                            <th width="45%">入学決定者</th>
+                            <th width="10%"></th>
+                            <th width="45%">合格者一覧</th>
+                          </tr>
+
+                          <tr>
+                            <td bgcolor="#ffffff" align="center">
+                              {rval data/LEFT_SEL}
+                              <br><span style="float: right;">人数：{rval data/LEFT_CNT}</span>
+                            </td>
+                            <td class="no_search" align="center">
+                              {rval button/btn_lefts}<br>
+                              {rval button/btn_left1}<br>
+                              {rval button/btn_right1}<br>
+                              {rval button/btn_rights}
+                            </td>
+                            <td bgcolor="#ffffff" align="center">
+                              {rval data/RIGHT_SEL}
+                              <br><span style="float: right;">人数：{rval data/RIGHT_CNT}</span>
+                            </td>
+                          </tr>
+
+
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <td>
+                              　<label>{rval csv/CSV_INOUT1}取り込み</label>　<label>{rval csv/CSV_INOUT2}書き出し</label>
+                              {rval csv/FILE}{rval csv/btn_csv}　<label>{rval csv/HEADER}ヘッダ有り</label>
+                            </td>
+                          </tr>
+                          <tr class="no_search">
+                            <td width="30%" bgcolor="#ffffff" nowrap>{val button/btn_update}{val button/btn_clear}{val button/btn_end}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}

@@ -1,0 +1,58 @@
+<!-- kanji=漢字 -->
+<!-- <?php # $Id: knjxsearch8Form1.html 56591 2017-10-22 13:04:39Z maeshiro $ ?> -->{rval start}
+<table width="400" border="0" cellspacing="5" cellpadding="1">
+  <tr bgcolor="#006633">
+    <td>
+      <table border="0" cellpadding="3" cellspacing="0" width="100%">
+        <tr bgcolor="#cccccc">
+          <td>{rval SEARCH_BTN}　　　{rval RESULT}　　　<font size="1">(1.1)</font></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table width="400" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="10%">学校コード</th>
+                      <th>学校名</th>
+                      <th>学部</th>
+                      <th>学科</th>
+                      <th nowrap width="10%">郵便番号</th>
+                      <th>住所</th>
+                      <th width="10%">電話番号</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap align="center" bgcolor="#ffffff">{val data/SCHOOL_CD}</td>
+                      <td nowrap bgcolor="#ffffff"><A href="javascript:GoWin('{val data/SCHOOL_CD}')">{val data/SCHOOL_NAME}</A></td>
+                      <td nowrap bgcolor="#ffffff">{val data/BUNAME}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/KANAME}</td>
+                      <td nowrap align="center" bgcolor="#ffffff">{val data/ZIPCD}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/ADDRESS1}</td>
+                      <td nowrap align="center" bgcolor="#ffffff">{val data/TELNO}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="javascript">{rval reload}{rval jscript}{rval search_result}</script>

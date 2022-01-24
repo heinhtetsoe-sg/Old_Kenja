@@ -1,0 +1,90 @@
+{rval start}
+
+<table width="950" border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" height="30">
+                <td nowrap align="center">
+                    対象幼稚園：{rval COURSECODE}　　対象クラス：{rval GRADE_HR_CLASS}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="80">クラス</th>
+                      <th width="50">番号</th>
+                      <th width="*">園児</th>
+                      <th width="110">バスコース</th>
+                      <th width="230">乗車名</th>
+                      <th width="230">降車名</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width:100%;height:550;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+<!--{each data}-->
+                    <tr>
+                      <td width="80" align="left" bgcolor="{rval data/COLOR}">&nbsp;{rval data/HR_NAME}</td>
+                      <td width="50" align="center" bgcolor="{rval data/COLOR}">{rval data/ATTENDNO}</td>
+                      <td width="*" align="left" bgcolor="{rval data/COLOR}">&nbsp;{rval data/NAME_SHOW}</td>
+                      <td width="110" align="center" bgcolor="{rval data/COLOR}">{rval data/ROSEN_2}</td>
+                      <td width="230" align="center" bgcolor="{rval data/COLOR}">{rval data/JOSYA_2}</td>
+                      <td width="230" align="center" bgcolor="{rval data/COLOR}">{rval data/GESYA_2}</td>
+                    </tr>
+<!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <td align="right">
+                        {rval btn_update}{rval btn_reset}{rval btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

@@ -1,0 +1,128 @@
+{rval start} <br /><br /><br />
+<table align="center" width="80%" border="0" cellspacing="5" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>
+        <table align="center" width="70%" border="0" cellspacing="1" cellpadding="0">
+          <tbody>
+            <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tbody>
+                    <tr height="35" bgcolor="#ffffff">
+                      <th class="no_search" align="left" colspan="2">
+                        <b>&nbsp;席次算出処理&nbsp;&nbsp;{rval YEAR}&nbsp;&nbsp;{rval SEMESTER}<!--{def use_school_detail_gcm_dat}-->&nbsp;&nbsp;課程学科：{rval COURSE_MAJOR}<!--{/def}--></b>
+                      </th>
+                    </tr>
+                    <tr height="35" bgcolor="#ffffff">
+                      <th class="no_search" align="right" width="40%">※ 処理学年</th>
+                      <td>&nbsp;{rval GRADE}</td>
+                    </tr>
+                    <tr height="35" bgcolor="#ffffff">
+                      <th class="no_search" align="right">※ 処理種別(成績)</th>
+                      <td>&nbsp;{rval EXAM}</td>
+                    </tr>
+                    <tr height="35" bgcolor="#ffffff">
+                      <th class="no_search" align="right">※ 講座基準日</th>
+                      <td>&nbsp;{rval CHAIRDATE}</td>
+                    </tr>
+                    <tr height="35" bgcolor="#ffffff">
+                      <th class="no_search" align="right">※ 選択科目</th>
+                      <td>&nbsp;{rval ELECTDIV}<label for="ELECTDIV">選択科目を除く</label></td>
+                    </tr>
+                    <!--{def knjd210v_notUsetSubclassCombo}-->
+                    <tr height="35" bgcolor="#ffffff">
+                      <th class="no_search" align="right">※ 処理科目</th>
+                      <td>&nbsp;{rval SUBCLASSCD}</td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{def knjd210v_useRelativeAssessCheckbox}-->
+                    <tr height="35" bgcolor="#ffffff">
+                      <th class="no_search" align="right">※ 評定マスタ作成</th>
+                      <td>&nbsp;{rval ASSESS_CHK}<label for="ASSESS_CHK">作成する</label></td>
+                    </tr>
+                    <!--{/def}-->
+                    <tr height="35" bgcolor="#ffffff">
+                      <th class="no_search">&nbsp;</th>
+                      <td>&nbsp;{rval btn_exec}{rval btn_end}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="font-weight: 700; color: white">
+        <marquee><span id="marq_msg">集計しています...しばらくおまちください</span></marquee>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+            <td>
+              <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                <tr>
+                  <td bgcolor="#cccccc">&nbsp;&nbsp;●&nbsp;<b>実行履歴</b></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr class="no_search_line">
+            <td>
+              <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search">
+                  <td align="center" width="90">処理日付</td>
+                  <td align="center" width="80">処理時間</td>
+                  <!--{def use_school_detail_gcm_dat}-->
+                  <td align="center" width="100">課程学科</td>
+                  <!--{/def}-->
+                  <td align="center" width="70">処理学年</td>
+                  <td align="center" width="100">処理種別</td>
+                  <td align="center" width="90">講座基準日</td>
+                  <td align="center" width="60">選択科目</td>
+                  <td align="center" width="*">処理科目</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <div style="width: 100%; height: 200; overflow: auto">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr class="no_search_line">
+              <td>
+                <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                  <!--{def data2}-->
+                  <!--結果一覧-->
+                  <!--{each data2}-->
+                  <tr class="no_search_line">
+                    <td bgcolor="#ffffff" align="center" width="90">{rval data2/CALC_DATE}</td>
+                    <td bgcolor="#ffffff" align="center" width="80">{rval data2/CALC_TIME}</td>
+                    <!--{def use_school_detail_gcm_dat}-->
+                    <td bgcolor="#ffffff" align="center" width="100">{rval data2/COURSE_MAJOR_NAME}</td>
+                    <!--{/def}-->
+                    <td bgcolor="#ffffff" align="center" width="70">{rval data2/GRADE_NAME1}</td>
+                    <td bgcolor="#ffffff" align="center" width="100">{rval data2/TESTITEMNAME}</td>
+                    <td bgcolor="#ffffff" align="center" width="90">{rval data2/CHAIRDATE}</td>
+                    <td bgcolor="#ffffff" align="center" width="60">{rval data2/ELECTDIV_FLG}</td>
+                    <td bgcolor="#ffffff" align="left" width="*">{val data2/SUBCLASSNAME}</td>
+                  </tr>
+                  <!--{/each}-->
+                  <!--{/def}-->
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}
+<script language="JavaScript">
+  {rval jscript}
+</script>

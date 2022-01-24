@@ -1,0 +1,96 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="5" cellpadding="1">
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="25%">項 目</th>
+                      <th width="75%">値</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※グループCD</th>
+                      <td bgcolor="#ffffff">{rval data/GROUPCD}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>※グループ名</th>
+                      <td bgcolor="#ffffff">{rval data/GROUPNAME}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap>グループ略称</th>
+                      <td bgcolor="#ffffff">{rval data/GROUPABBV}</td>
+                    </tr>
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tr bgcolor="#ffffff">
+                <td>
+                  <table width="100%" border="0" cellpadding="0" cellspacing="5">
+
+                    <tr class="no_search_line">
+                      <td width="100%">
+                        <table width="100%" border="0" cellpadding="5" cellspacing="1">
+
+                          <tr align="center" class="no_search">
+                            <th><b>対象模試一覧</b></th>
+                            <th class="no_search"></th>
+                            <th><b>模試一覧</b></th>
+                          </tr>
+
+                          <tr align="center" bgcolor="#ffffff">
+                            <td width="45%">
+                              <div style="width:200px; overflow:scroll">{rval SUBCLASS/SUBCLASS_SELECTED}</div>
+                            </td>
+                            <td width="*%" class="no_search">
+                              {rval SUBCLASS/SUBCLASS_LEFTS}<BR>
+                              {rval SUBCLASS/SUBCLASS_LEFT1}<BR>
+                              {rval SUBCLASS/SUBCLASS_RIGHT1}<BR>
+                              {rval SUBCLASS/SUBCLASS_RIGHTS}
+                            <td width="45%">
+                              <div style="width:200px; overflow:scroll">{rval SUBCLASS/SUBCLASS_NAME}</div>
+                            </td>
+                          </tr>
+
+                        </table>
+                      </td>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}  {rval button/btn_end}</td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

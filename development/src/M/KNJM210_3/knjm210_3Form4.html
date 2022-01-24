@@ -1,0 +1,72 @@
+{rval start}
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td align="center">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th class="no_search" style="text-align: center" height="30"><B>個人異動情報画面{rval NAME}</B></th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr > 
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th align="center" nowrap width="90px">異動区分</th>
+                      <th align="center" nowrap width="90px">異動期間開始</th>
+                      <th align="center" nowrap width="90px">異動期間終了</th>
+                      <th align="center" nowrap width="400px">事由</th>
+                      <th align="center" nowrap width="400px">異動先名称</th>
+                      <th align="center" nowrap width="400px">異動先住所</th>
+                      <th align="center" nowrap width="90px">授業日数</th>
+                      <th align="center" nowrap width="90px">修得単位</th>
+
+                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}--> 
+          <tr> 
+             <td align="center" bgcolor="#ffffff">{val data/TRANSFERCD}：{val data/TRANSFERNAME}</td>
+             <td align="center" bgcolor="#ffffff">{val data/TRANSFER_SDATE}</td>
+             <td align="center" bgcolor="#ffffff">{val data/TRANSFER_EDATE}</td>
+             <td align="left" bgcolor="#ffffff">{val data/TRANSFERREASON}</td>
+             <td align="left" bgcolor="#ffffff">{val data/TRANSFERPLACE}</td>
+             <td align="left" bgcolor="#ffffff">{val data/TRANSFERADDR}</td>
+             <td align="right" bgcolor="#ffffff">{val data/ABROAD_CLASSDAYS}</td>
+             <td align="right" bgcolor="#ffffff">{val data/ABROAD_CREDITS}</td>
+
+          </tr> 
+<!--{/each}--> 
+<!--{/def}--> 
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table><script language="JavaScript">{rval close}</script>
+{rval finish}

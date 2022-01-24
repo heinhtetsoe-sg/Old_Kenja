@@ -1,0 +1,94 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th width="30%" class="no_search" nowrap><b>年度</b></td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval YEAR}　　{rval button/btn_copy}</td>
+                    </tr>
+                    <tr>
+                      <th width="30%" class="no_search" nowrap><b>学期</b></td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval SEMESTER}</td>
+                    </tr>
+                    <tr>
+                      <th width="30%" class="no_search" nowrap><b>学部</b></td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval GAKUBU_SCHOOL_KIND}</td>
+                    </tr>
+                    <tr>
+                      <th width="30%" class="no_search" nowrap><b>年組</b></td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>
+                        <!--{def useSpecial_Support_School}-->
+                        {rval HUKUSIKI_RADIO1}<LABEL for="HUKUSIKI_RADIO1">法定クラス</LABEL>　{rval HUKUSIKI_RADIO2}<LABEL for="HUKUSIKI_RADIO2">実クラス</LABEL>　　
+                        <!--{/def}-->
+                        &nbsp;{rval GRADE_HR_CLASS}<!--{def ghr}-->&nbsp;>>&nbsp;{rval GRADE_HR_CLASS2}<!--{/def}--></td>
+                    </tr>
+                    <tr>
+                      <th width="30%" class="no_search" nowrap><b>状態区分</b></td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval CONDITION}</td>
+                    </tr>
+                    <tr>
+                      <th width="30%" class="no_search" nowrap><b>グループコード</b></td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval GROUPCD}</td>
+                    </tr>
+                    <tr>
+                      <th width="30%" class="no_search" nowrap><b>指導計画帳票<br>パターン</b></td>
+                      <td width="70%" bgcolor="#ffffff" nowrap>&nbsp;{rval GUIDANCE_PATTERN}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="10"></td>
+        </tr>
+        <tr>
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="30%" nowrap><b>教科・科目</b></th>
+                      <th width="50%" nowrap><font size="1"><b>「指導のねらい」<br>区分</b></font></th>
+                      <th width="50%" nowrap><b>単元({rval ITEM_NAME})</b></th>
+                      <th width="20%" nowrap><b>所見登録</b></th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/ROWSPAN}-->
+                      <td nowrap bgcolor="#ffffff" align="left" rowspan={rval data/ROWSPAN}><a href="knjd419index.php?cmd=edit2&CLASSCD={val data/CLASSCD}&SCHOOL_KIND={val data/SCHOOL_KIND}&CURRICULUM_CD={val data/CURRICULUM_CD}&SUBCLASSCD={val data/SUBCLASSCD}&SEND_UNIT_AIM_DIV={val data/SEND_UNIT_AIM_DIV}" target="right_frame">{val data/SUBCLASS}</a></td>
+                      <td nowrap bgcolor="#ffffff" align="center" rowspan={rval data/ROWSPAN}>{val data/UNIT_AIM_DIV}</td>
+                      <!--{/def}-->
+                      <td nowrap bgcolor="#ffffff" align="left">{val data/UNIT_SHOW}</td>
+                      <!--{def data/ROWSPAN2}-->
+                      <td nowrap bgcolor="#ffffff" align="center" rowspan={rval data/ROWSPAN2}>{val data/ZUMI}</td>
+                      <!--{/def}-->
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+   </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

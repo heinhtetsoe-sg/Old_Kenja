@@ -1,0 +1,201 @@
+-- $Id: 81da233e422fcdba7047a1bda60e7008f1ad4433 $
+
+DROP TABLE NURSEOFF_VISITREC_DAT_OLD
+RENAME TABLE NURSEOFF_VISITREC_DAT TO NURSEOFF_VISITREC_DAT_OLD
+CREATE TABLE NURSEOFF_VISITREC_DAT( \
+    SCHREGNO            VARCHAR(8)    NOT NULL, \
+    VISIT_DATE          DATE          NOT NULL, \
+    VISIT_HOUR          VARCHAR(2)    NOT NULL, \
+    VISIT_MINUTE        VARCHAR(2)    NOT NULL, \
+    TYPE                VARCHAR(1)    NOT NULL, \
+    VISIT_PERIODCD      VARCHAR(2), \
+    LESSON_CLASS        VARCHAR(60), \
+    CONDITION1          VARCHAR(1), \
+    CONDITION2          VARCHAR(1), \
+    SLEEPTIME           VARCHAR(2), \
+    SLEEPTIME_M         VARCHAR(2), \
+    BEDTIME_H           VARCHAR(2), \
+    BEDTIME_M           VARCHAR(2), \
+    CONDITION3          VARCHAR(1), \
+    CONDITION4          VARCHAR(1), \
+    MEAL                VARCHAR(90), \
+    CONDITION5          VARCHAR(1), \
+    CONDITION6          VARCHAR(60), \
+    CONDITION7          VARCHAR(2), \
+    CONDITION7_TEXT     VARCHAR(90), \
+    CONDITION8          VARCHAR(2), \
+    CONDITION8_TEXT     VARCHAR(90), \
+    CONDITION9          VARCHAR(2), \
+    CONDITION10         VARCHAR(2), \
+    CONDITION11         VARCHAR(2), \
+    CONDITION12         VARCHAR(2), \
+    CONDITION12_TEXT    VARCHAR(90), \
+    VISIT_REASON1       VARCHAR(2), \
+    VISIT_REASON1_TEXT  VARCHAR(90), \
+    VISIT_REASON2       VARCHAR(2), \
+    VISIT_REASON2_TEXT  VARCHAR(90), \
+    VISIT_REASON3       VARCHAR(2), \
+    VISIT_REASON3_TEXT  VARCHAR(90), \
+    OCCUR_SITUATION     VARCHAR(90), \
+    OCCUR_CAUSE         VARCHAR(2), \
+    OCCUR_DATE          DATE, \
+    OCCUR_HOUR          VARCHAR(2), \
+    OCCUR_MINUTE        VARCHAR(2), \
+    OCCUR_ACT           VARCHAR(2), \
+    OCCUR_ACT_DETAIL    VARCHAR(4), \
+    OCCUR_ACT_REMARK    VARCHAR(45), \
+    OCCUR_PLACE         VARCHAR(2), \
+    OCCUR_PLACE_TEXT    VARCHAR(90), \
+    SINCE_WHEN          VARCHAR(1), \
+    SINCE_WHEN_TEXT     VARCHAR(90), \
+    INJURY_PART1        VARCHAR(2), \
+    INJURY_PART1_TEXT   VARCHAR(90), \
+    INJURY_PART2        VARCHAR(2), \
+    INJURY_PART2_TEXT   VARCHAR(90), \
+    INJURY_PART3        VARCHAR(2), \
+    INJURY_PART3_TEXT   VARCHAR(90), \
+    TREATMENT1          VARCHAR(2), \
+    TREATMENT1_TEXT     VARCHAR(90), \
+    TREATMENT2          VARCHAR(2), \
+    TREATMENT2_TEXT     VARCHAR(90), \
+    TREATMENT3          VARCHAR(2), \
+    TREATMENT3_TEXT     VARCHAR(90), \
+    TEMPERATURE1        VARCHAR(4), \
+    MEASURE_HOUR1       VARCHAR(2), \
+    MEASURE_MINUTE1     VARCHAR(2), \
+    TEMPERATURE2        VARCHAR(4), \
+    MEASURE_HOUR2       VARCHAR(2), \
+    MEASURE_MINUTE2     VARCHAR(2), \
+    TEMPERATURE3        VARCHAR(4), \
+    MEASURE_HOUR3       VARCHAR(2), \
+    MEASURE_MINUTE3     VARCHAR(2), \
+    PULSE               VARCHAR(3), \
+    BLOOD_PRESSURE_L    VARCHAR(3), \
+    BLOOD_PRESSURE_H    VARCHAR(3), \
+    RESTTIME            VARCHAR(2), \
+    LEAVE_HOUR          VARCHAR(2), \
+    LEAVE_MINUTE        VARCHAR(2), \
+    LEAVE_PERIODCD      VARCHAR(2), \
+    RESULT_REST         VARCHAR(1), \
+    RESULT_EARLY        VARCHAR(1), \
+    RESULT_MEDICAL      VARCHAR(1), \
+    CONTACT             VARCHAR(2), \
+    CONTACT_TEXT        VARCHAR(90), \
+    CONTACT2            VARCHAR(2), \
+    CONTACT3            VARCHAR(2), \
+    HOSPITAL            VARCHAR(90), \
+    COMPANION           VARCHAR(90), \
+    COMPANION_DIV       VARCHAR(2), \
+    DIAGNOSIS           VARCHAR(90), \
+    SPECIAL_NOTE        VARCHAR(1100), \
+    CONSULTATION_NAME   VARCHAR(90), \
+    RELATIONSHIP        VARCHAR(2), \
+    CONSULTATION_METHOD VARCHAR(2), \
+    CONSULTATION_KIND1  VARCHAR(2), \
+    CONSULTATION_KIND2  VARCHAR(2), \
+    SERIAL_NUMBER       VARCHAR(3), \
+    REMARK              VARCHAR(350), \
+    REGISTERCD          VARCHAR(10), \
+    UPDATED             TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+) IN USR1DMS INDEX IN IDX1DMS
+
+INSERT INTO NURSEOFF_VISITREC_DAT \
+    SELECT \
+        SCHREGNO, \
+        VISIT_DATE, \
+        VISIT_HOUR, \
+        VISIT_MINUTE, \
+        TYPE, \
+        VISIT_PERIODCD, \
+        LESSON_CLASS, \
+        CONDITION1, \
+        CONDITION2, \
+        SLEEPTIME, \
+        SLEEPTIME_M, \
+        BEDTIME_H, \
+        BEDTIME_M, \
+        CONDITION3, \
+        CONDITION4, \
+        MEAL, \
+        CONDITION5, \
+        CONDITION6, \
+        CONDITION7, \
+        CONDITION7_TEXT, \
+        CONDITION8, \
+        CONDITION8_TEXT, \
+        CONDITION9, \
+        CONDITION10, \
+        CONDITION11, \
+        CONDITION12, \
+        CONDITION12_TEXT, \
+        VISIT_REASON1, \
+        VISIT_REASON1_TEXT, \
+        VISIT_REASON2, \
+        VISIT_REASON2_TEXT, \
+        VISIT_REASON3, \
+        VISIT_REASON3_TEXT, \
+        OCCUR_SITUATION, \
+        OCCUR_CAUSE, \
+        OCCUR_DATE, \
+        OCCUR_HOUR, \
+        OCCUR_MINUTE, \
+        OCCUR_ACT, \
+        OCCUR_ACT_DETAIL, \
+        OCCUR_ACT_REMARK, \
+        OCCUR_PLACE, \
+        OCCUR_PLACE_TEXT, \
+        SINCE_WHEN, \
+        SINCE_WHEN_TEXT, \
+        INJURY_PART1, \
+        INJURY_PART1_TEXT, \
+        INJURY_PART2, \
+        INJURY_PART2_TEXT, \
+        INJURY_PART3, \
+        INJURY_PART3_TEXT, \
+        TREATMENT1, \
+        TREATMENT1_TEXT, \
+        TREATMENT2, \
+        TREATMENT2_TEXT, \
+        TREATMENT3, \
+        TREATMENT3_TEXT, \
+        TEMPERATURE1, \
+        MEASURE_HOUR1, \
+        MEASURE_MINUTE1, \
+        TEMPERATURE2, \
+        MEASURE_HOUR2, \
+        MEASURE_MINUTE2, \
+        TEMPERATURE3, \
+        MEASURE_HOUR3, \
+        MEASURE_MINUTE3, \
+        PULSE, \
+        BLOOD_PRESSURE_L, \
+        BLOOD_PRESSURE_H, \
+        RESTTIME, \
+        LEAVE_HOUR, \
+        LEAVE_MINUTE, \
+        LEAVE_PERIODCD, \
+        RESULT_REST, \
+        RESULT_EARLY, \
+        RESULT_MEDICAL, \
+        CONTACT, \
+        CONTACT_TEXT, \
+        CONTACT2, \
+        CONTACT3, \
+        HOSPITAL, \
+        COMPANION, \
+        COMPANION_DIV, \
+        DIAGNOSIS, \
+        SPECIAL_NOTE, \
+        CONSULTATION_NAME, \
+        RELATIONSHIP, \
+        CONSULTATION_METHOD, \
+        CAST(NULL AS VARCHAR(2)) AS CONSULTATION_KIND1, \
+        CAST(NULL AS VARCHAR(2)) AS CONSULTATION_KIND2, \
+        SERIAL_NUMBER, \
+        REMARK, \
+        REGISTERCD, \
+        UPDATED \
+    FROM \
+        NURSEOFF_VISITREC_DAT_OLD
+
+ALTER TABLE NURSEOFF_VISITREC_DAT ADD CONSTRAINT PK_NRS_VIS_DAT PRIMARY KEY (SCHREGNO,VISIT_DATE,VISIT_HOUR,VISIT_MINUTE,TYPE)

@@ -1,0 +1,159 @@
+{rval start}
+<style type="text/css">
+#tyousei {
+    height : 68px;
+}
+#tyousei2 {
+    height : 25px;
+}
+#tyousei3 {
+    height : 30px;
+}
+</style>
+
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td>
+        <table width="1150" border="0" cellspacing="0" cellpadding="1">
+          <tr class="no_search_line">
+            <th>
+              <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                <tr>
+                  <th align="left" class="no_search" height="35">
+                    　　　　
+                    処理年度：{rval YEAR}年度　{rval SEMESTER}　　　
+                    月：{rval MONTHCD}　　　
+                    学級：{rval GRADE_HR_CLASS}
+                  </th>
+                </tr>
+              </table>
+            </th>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="height: 70px;" >
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tbody>
+                            <tr class="no_search" id="tyousei">
+                              <th width="*" nowrap>№</th>
+                              <th width="150" nowrap>氏　名</th>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td>
+                <div id="trow" style="overflow:hidden; width: 923px;">
+                <div style="width: {rval WIDTH}; ">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3" style="height: 70px;" >
+                          <tbody>
+                            <tr class="no_search" id="tyousei2">
+                              <!--{each subclass}-->
+                              <th colspan="{rval subclass/col}" style="width: 60px;" nowrap>{rval subclass/LABEL}</hd>
+                              <!--{/each}-->
+                            </tr>
+                            <tr class="no_search" id="tyousei2">
+                              <!--{each c001}-->
+                              <th width="60" nowrap>{rval c001/LABEL}</th>
+                              <!--{/each}-->
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                </div>
+              </td>
+            </tr>
+            <tr valign="TOP">
+              <td>
+                <div id="tcol" style="overflow: hidden; height: 483px;">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                          <tbody>
+                            <!--{each attend_data}-->
+                            <tr bgcolor="#ffffff" id="tyousei3">
+                              <td width="*" align="center" nowrap>{rval attend_data/ATTENDNO}</td>
+                              <td width="150" align="left" nowrap>{rval attend_data/NAME_SHOW}{rval attend_data/SCHREGNO}{rval attend_data/ATTEND_FIELD}</td>
+                            </tr>
+                            <!--{/each}-->
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                </div>
+              </td>
+              <td>
+                <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 940px; height: 500px;">
+                <div style="width: {rval WIDTH};">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                          <tbody>
+                            <!--{each attend_data}-->
+                            <tr {rval attend_data/BGCOLOR_IDOU} id="tyousei3">
+                              {rval attend_data/ATTEND}
+                            </tr>
+                            <!--{/each}-->
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table width="1150" border="0" cellspacing="0" cellpadding="1" >
+          <tr class="no_search_line">
+            <th>
+              <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                <tr>
+                  <td class="no_search">&nbsp;{rval btn_update}{rval btn_reset}{rval btn_end}{rval COMMENT}</td>
+                </tr>
+              </table>
+            </th>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

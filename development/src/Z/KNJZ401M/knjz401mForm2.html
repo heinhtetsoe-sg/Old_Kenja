@@ -1,0 +1,57 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <hr>
+            &nbsp;&nbsp;&nbsp;&nbsp;{rval SUBCLASSNAME}
+            <hr>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="*">観点</th>
+                      <th width="420">めあて</th>
+                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+
+                    <tr bgcolor="#ffffff">
+                      <td width="*">{rval data/VIEW_SHOW}</td>
+                      <td width="420">{rval data/REMARK1}<br><span style="color:red;font-size:80%;">{rval data/REMARK1_COMMENT}</span></td>
+                    </tr>
+<!--{/each}-->
+<!--{/def}-->
+
+                    <tr>
+                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}</td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="50">
+                      <td align="left" nowrap colspan="4">
+                        　{rval csv/OUTPUT4}<LABEL for="OUTPUT4">ヘッダ出力(見本)</LABEL>　　{rval csv/OUTPUT1}<LABEL for="OUTPUT1">取込</LABEL>　　{rval csv/OUTPUT2}<LABEL for="OUTPUT2">書出</LABEL>　　{rval csv/OUTPUT3}<LABEL for="OUTPUT3">エラー出力</LABEL>
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="left" nowrap colspan="4">
+                        　ファイル：<span id="type_file">{rval FILE}</span>{rval btn_exec}　（{rval csv/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL>）
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

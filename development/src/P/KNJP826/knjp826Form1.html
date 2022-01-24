@@ -1,0 +1,71 @@
+{rval start} 
+<style type="text/css">
+.selectTR{
+    background-color:#ffffff;
+    text-align:left;
+    height:80px;
+}
+.selectTH{
+    padding-left:80px;
+}
+</style>
+<table height="20%">
+  <tr> 
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<table style="width: 460px" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr> 
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="50"> 
+                      <th><b>{rval data/YEAR_SEMESTER}</th>
+                    </tr>
+                    <td style="background-color:#ffffff">
+                    <table>
+                    <tr class="selectTR">
+                      <th class="selectTH">
+                      {rval data/CSV_DIV1}<LABEL for="CSV_DIV1">引落日</LABEL>　{rval data/CSV_DIV2}<LABEL for="CSV_DIV2">振込日</LABEL><br><br>
+                      {rval DATE_NAME}：{rval data/DIRECT_DEBIT}&nbsp;{rval REDISTER_DISP}<LABEL for="REDISTER_DISP">済も表示する。</LABEL>
+                      </th>
+                      </tr>
+                    </tr>
+                  <!--{def DISP_HURIKOMI}-->
+                      <tr style="background-color:#ffffff;" align="left">
+                      <th class="selectTH" style="text-align:left;" >
+                      &nbsp;&nbsp;対象月&nbsp;&nbsp;:{rval data/PLAN_MONTH}
+                      </th>
+                      </tr>
+                      <tr style="background-color:#ffffff;" align="left">
+                      <th class="selectTH" style="text-align:left">
+                      &nbsp;&nbsp;対象科目:{rval data/COLLECT_L_CD}
+                      </th>
+                      </tr>
+                      <tr style="background-color:#ffffff;" height="10">
+                      </tr>
+                  <!--{/def}-->
+                    </table>
+                    </td>
+                    <tr class="no_search" height="30" align="left"> 
+                      <th class="selectTH">
+                        {rval btn_exec}&nbsp;{rval data/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL>&nbsp;{rval btn_end}
+                      </th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<script language="JavaScript">{rval jscript}</script>
+{rval finish} 

@@ -1,0 +1,40 @@
+#!/bin/sh
+#[EUC]
+# ---------------------------------------
+# $Id: otr_read.sh.DB2v8 56574 2017-10-22 11:21:06Z maeshiro $
+# OTR(磁気カードリーダ)取り込み
+# ---------------------------------------
+
+# check
+if [ $# -lt 1 ]; then
+	echo "Usage: $0 <DbName> "
+	exit 1
+fi
+
+# 初期設定
+DB=$1
+
+LOG_PROPERTIES_FILE=./log4j.properties
+if [ ! -f $LOG_PROPERTIES_FILE ]; then
+	echo "Can not found log4j.properties file: $LOG_PROPERTIES_FILE"
+	exit 1
+fi
+
+JAVA_HOME=/opt/WebSphere/AppServer/java
+
+# クラスパス設定
+CLASSPATH=.	# log4j.properties.xx の為
+CLASSPATH=$CLASSPATH:OtrRead.jar
+CLASSPATH=$CLASSPATH:/waslib/commons-collections-3.0.jar
+CLASSPATH=$CLASSPATH:/waslib/commons-lang-2.0.jar
+CLASSPATH=$CLASSPATH:/waslib/commons-logging.jar
+CLASSPATH=$CLASSPATH:/waslib/commons-dbutils-1.0.jar
+CLASSPATH=$CLASSPATH:/waslib/log4j-1.2.8.jar
+CLASSPATH=$CLASSPATH:/waslib/nao_package.jar
+
+#---- DB2 V8 ----
+CLASSPATH=$CLASSPATH:/opt/IBM/db2/V8.1/java/db2jcc.jar:/opt/IBM/db2/V8.1/java/db2jcc_license_cu.jar
+$JAVA_HOME/bin/java -Dlog4j.configuration=$LOG_PROPERTIES_FILE \
+	-classpath $CLASSPATH \
+	jp.co.alp.kenja.batch.otr.Main //localhost:50000/$DB
+

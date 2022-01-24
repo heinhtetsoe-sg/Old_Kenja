@@ -1,0 +1,42 @@
+-- $Id: bfa3066e92fe00e97a83f013d8310c37a24127c9 $
+
+DROP TABLE JVIEWSTAT_LEVEL_MST_OLD
+RENAME TABLE JVIEWSTAT_LEVEL_MST TO JVIEWSTAT_LEVEL_MST_OLD
+CREATE TABLE JVIEWSTAT_LEVEL_MST( \
+    YEAR            VARCHAR(4)  NOT NULL, \
+    CLASSCD         VARCHAR(2)  NOT NULL, \
+    SCHOOL_KIND     VARCHAR(2)  NOT NULL, \
+    CURRICULUM_CD   VARCHAR(2)  NOT NULL, \
+    SUBCLASSCD      VARCHAR(6)  NOT NULL, \
+    VIEWCD          VARCHAR(4)  NOT NULL, \
+    DIV             VARCHAR(1)  NOT NULL, \
+    GRADE           VARCHAR(2)  NOT NULL, \
+    ASSESSLEVEL     SMALLINT    NOT NULL, \
+    ASSESSMARK      VARCHAR(6), \
+    ASSESSLOW       DECIMAL, \
+    ASSESSHIGH      DECIMAL, \
+    REGISTERCD      VARCHAR(8), \
+    UPDATED         timestamp default current timestamp \
+) in usr1dms index in idx1dms
+
+INSERT INTO JVIEWSTAT_LEVEL_MST \
+    SELECT \
+        YEAR, \
+        LEFT(SUBCLASSCD, 2) AS CLASSCD, \
+        'H' AS SCHOOL_KIND, \
+        '2' AS CURRICULUM_CD, \
+        SUBCLASSCD, \
+	    VIEWCD, \
+	    DIV, \
+	    GRADE, \
+	    ASSESSLEVEL, \
+	    ASSESSMARK, \
+	    ASSESSLOW, \
+	    ASSESSHIGH, \
+        REGISTERCD, \
+        UPDATED \
+    FROM \
+        JVIEWSTAT_LEVEL_MST_OLD
+
+alter table JVIEWSTAT_LEVEL_MST add constraint pk_jvs_lvl_mst \
+      primary key (YEAR, CLASSCD, SCHOOL_KIND, CURRICULUM_CD, SUBCLASSCD, VIEWCD, DIV, GRADE, ASSESSLEVEL)

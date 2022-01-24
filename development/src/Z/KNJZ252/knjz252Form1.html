@@ -1,0 +1,73 @@
+{rval start}
+<BR>
+<table width="500" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="1" >
+            <tr class="no_search_line">
+               <th>
+                <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#cccccc">
+                <tr>
+                  <th align="left">&nbsp;<B>&nbsp;&nbsp;&nbsp;{rval YEAR}年度</B>　<!--{def schkind}-->{rval SCHOOL_KIND}<!--{/def}-->&nbsp;&nbsp;{rval button/btn_copy}</th>
+                  </tr>
+                <tr>
+                </tr>
+              </table>
+              </th>
+            </tr>
+            </table>
+
+            <br>
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="2">
+
+                    <tr class="no_search" nowrap>
+                      <th width="100">プログラムID</th>
+                      <th width="70">表示順</th>
+                      <!--{def useInei}-->
+                      <th width="100">印影欄<BR>表示名称</th>
+                      <th width="250">印影<BR>職員番号</th>
+                      <!--{/def}-->
+                      <!--{def unUseInei}-->
+                      <th width="250">印影欄<BR>表示名称</th>
+                      <!--{/def}-->
+                    </tr>
+
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff" align="center">
+                       <!--{def data/ROWSPAN}-->
+                       <td width="100" rowspan={rval data/ROWSPAN} nowrap>{rval data/PROGRAMID}</td>
+                       <!--{/def}-->
+                       <td width="70" nowrap>{rval data/SEQ}</td>
+                       <!--{def useInei}-->
+                       <td width="100" align="left" nowrap>{rval data/TITLE}</td>
+                       <td width="250" align="left" nowrap>{rval data/FILE_NAME}</td>
+                       <!--{/def}-->
+                       <!--{def unUseInei}-->
+                       <td width="250" align="left" nowrap>{rval data/TITLE}</td>
+                       <!--{/def}-->
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval close_win}</script>

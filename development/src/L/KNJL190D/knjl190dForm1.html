@@ -1,0 +1,99 @@
+{rval start}
+
+<table height="130"><tr><td>　</td></tr></table>
+<table width="600" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr class="no_search" height="30">
+                <td colspan="2" align="center"><b>各種通知書</b></td>
+              </tr>
+              <tr height="40">
+                <td class="no_search" width="20%" align="center">入試年度</td>
+                <td bgcolor="#ffffff" width="*">&nbsp;{rval data/YEAR}</td>
+              </tr>
+              <tr height="40">
+                <td class="no_search" align="center">志望区分</td>
+                <td bgcolor="#ffffff">&nbsp;{rval data/DESIREDIV}</td>
+              </tr>
+              <tr height="40">
+                <td class="no_search" align="center">入試区分</td>
+                <td bgcolor="#ffffff">&nbsp;{rval data/TESTDIV}</td>
+              </tr>
+              <tr height="40">
+                <td class="no_search" align="center">送付先</td>
+                <td bgcolor="#ffffff">&nbsp;{rval data/SEND_TO1}<LABEL for="SEND_TO1">志願者</LABEL>　{rval data/SEND_TO2}<LABEL for="SEND_TO2">出身校</LABEL></td>
+              </tr>
+              <tr height="40">
+                <td class="no_search" align="center">通知種別</td>
+                <td bgcolor="#ffffff" nowrap>&nbsp;{rval data/FORM_KIND}</td>
+              </tr>
+              <tr height="80">
+                <td class="no_search" align="center">日付</td>
+                <td bgcolor="#ffffff">
+                  <table width="100%">
+                    <tr>
+                      <td width="40%">通知書発行日&nbsp;{rval data/NOTICE_DATE}
+                                  <!--{def form_kind1}-->
+                                  <br>納入締切日　　{rval data/TRANSFER_DATE1}
+                                  <br>転入学日　　　{rval data/TENNYUGAKU_DATE}
+                                  <!--{/def}-->
+                                  <!--{def form_kind3}-->
+                                  <br>納入締切日　　{rval data/TRANSFER_DATE1}
+                                  <br>転籍許可日　　{rval data/TENSEKI_DATE}
+                                  <!--{/def}-->
+                                  <!--{def form_kind6}-->
+                                  <br>{rval data/TENNYUGAKU_DATE_TITLE}　{rval data/TENNYUGAKU_DATE}
+                                  <!--{/def}-->
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!--{def form_kind6}-->
+              <!--list to list-->
+              <tr>
+                <td colspan="2" bgcolor="#ffffff" align="center">
+                  {rval data/SPORT_CERTIF}<LABEL for="SPORT_CERTIF"><b>日本スポーツ振興センター加入証明書</b></LABEL><br>
+                  <table width="100%" border="1" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <td>証明書必要合格者一覧</td>
+                      <td></td>
+                      <td>合格者一覧</td>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/SPORT_SELECTED}</td>
+                      <td width="*%" class="no_search">
+                        {rval button/btn_lefts}  <BR>
+                        {rval button/btn_left1}  <BR>
+                        {rval button/btn_right1} <BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/PASS_LIST}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!--{/def}-->
+              <!--{def form_kind5to8}-->
+              <tr height="40">
+                <td class="no_search" align="center">時候の挨拶</td>
+                <td bgcolor="#ffffff" nowrap>&nbsp;{rval data/MONTH}月&nbsp;{rval data/GREET}</td>
+              </tr>
+              <!--{/def}-->
+              <tr class="no_search" height="20">
+                <td nowrap></td>
+                <td bgcolor="#ffffff" nowrap>{rval button/btn_print}{rval button/btn_end}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

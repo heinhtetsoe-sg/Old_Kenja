@@ -1,0 +1,83 @@
+{rval start}
+
+<br>
+<table width={rval useAllWidth} border="0" cellspacing="0" cellpadding="10">
+  <tr align="center">
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="5" bgcolor="#000066">
+              <tr class="no_search">
+                <td nowrap>
+                    　　　　処理年度：{rval YEAR}年度　{rval SEMESTER}<!--{def SCHOOL_KIND}-->　{rval SCHOOL_KIND}<!--{/def}--><!--{def COURSE_MAJOR}-->　　課程学科：{rval COURSE_MAJOR}<!--{/def}-->　　科目：{rval SUBCLASSCD}　　講座：{rval CHAIRCD}<br>
+                    　　　　対象月：{rval MONTHCD}　　※締め日：{rval APPOINTED_DAY}　　※授業時数：{rval LESSON_SET} {rval btn_reflect}
+                    &nbsp;&nbsp;移動方向({rval MOVE_ENTER1}<LABEL for="MOVE_ENTER1">縦</LABEL>　{rval MOVE_ENTER2}<LABEL for="MOVE_ENTER2">横</LABEL>)　　　{rval EXECUTED}{rval EXECUTED_LABEL}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </th>
+  </tr>
+  <tr>
+    <th valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <tr class="no_search" align="center" nowrap>
+                <td rowspan="2" width="100">年-組-番</td>
+                <td rowspan="2" width="200" aria-label="">氏名</td>
+                <td rowspan="2" width={rval APPOINTED_DAY_WIDTH} aria-label="">締め<br>日</td>
+                {rval TITLE}
+                <!--{def useRuikeiCol}-->
+                <td colspan={rval useRuikeiCol}">累積</td>
+                <!--{/def}-->
+              </tr>
+              <tr class="no_search" align="center" nowrap>
+                {rval RUISEKI_TITLE}
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width:100%; height:500; overflow:auto">
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <!--{def attend_data}-->
+              <!--{each attend_data}-->
+              <tr bgcolor="#FFFFFF" align="center" nowrap height="26">
+                <!-- Add by PP for PC-Talker 2020-01-20 start -->
+                <td align="left" width="100" {rval attend_data/BGCOLOR_MONTH_NAME}>{rval attend_data/HR_ATTENDNO}</td>
+                <td align="left" width="200" {rval attend_data/BGCOLOR_MONTH_NAME}>{rval attend_data/SCHREGNO_SHOW}{rval attend_data/NAME}{rval attend_data/SCHREGNO}</td>
+                <td aria-label="" width={rval APPOINTED_DAY_WIDTH} {rval attend_data/BGCOLOR_IDOU}>{rval attend_data/APPOINTED_DAY}</td>
+                {rval attend_data/ATTEND_DATA}
+              </tr>
+              <!-- Add by PP for PC-Talker 2020-01-31 end -->
+              <!--{/each}-->
+              <!--{/def}-->
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <tr class="no_search" align="right" height="30">
+                <td nowrap>
+                    {rval ZERO_HYOJI_COMMENT}　　　　　　　　　　　　　　
+                    {rval btn_update} {rval btn_reset} {rval btn_end} {rval btn_csv}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

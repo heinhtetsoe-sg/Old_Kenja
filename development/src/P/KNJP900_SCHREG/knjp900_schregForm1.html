@@ -1,0 +1,121 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR>
+
+<table width="800px" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tr>
+          <td>
+            <hr width="40%" align="left">
+                NO.{rval data/NO}&nbsp;&nbsp;{rval data/INCOME_M_NAME}
+            <hr width="40%" align="left">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th width="15%" align="right" class="no_search" nowrap>会費名等</th>
+                      <td width="*" bgcolor="#ffffff" colspan="6">{rval data/COMMODITY_NAME}　　{rval data/WARIHURI_DIV1}<LABEL for="WARIHURI_DIV1">生徒</LABEL>　{rval data/WARIHURI_DIV2}<LABEL for="WARIHURI_DIV2">生徒以外</LABEL><!--{def WARIHURI_OK}-->　{rval data/HR_CLASS_HYOUJI_FLG}<LABEL for="HR_CLASS_HYOUJI_FLG">年組表示</LABEL><!--{/def}-->
+                                                                  <br><font color="red" style="font-size:10pt">(全角で30文字)</font>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th width="15%" align="right" class="no_search" nowrap>単価</th>
+                      <td width="18%" bgcolor="#ffffff">{rval data/COMMODITY_PRICE}</td>
+                      <th width="15%" align="right" class="no_search" nowrap>数量</th>
+                      <td width="18%" bgcolor="#ffffff">{rval data/COMMODITY_CNT}</td>
+                      <th width="15%" align="right" class="no_search" nowrap>合計額</th>
+                      <td width="*%" bgcolor="#ffffff">{rval data/TOTAL_PRICE}</td>
+                    </tr>
+                    <tr>
+                      <th width="15%" align="right" class="no_search" nowrap>備考</th>
+                      <td width="*" bgcolor="#ffffff" colspan="6">{rval data/REMARK}&nbsp;<font color="red" style="font-size:10pt">(全角で10文字)</font></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+<!--{def WARIHURI_OK}-->
+  <tr height="10">
+  </tr>
+
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>対象生徒</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="40%">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                          <tr class="no_search_line">
+                            <td width="100%">{rval data/CATEGORY_SELECTED}</td>
+                          </tr>
+                          <tr>
+                            <td align="right">
+                              人数：<span id="LEFT_PART_NUM"></span>&nbsp;
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                                                        {rval button/btn_left1}<BR>
+                                                        {rval button/btn_right1}<BR>
+                                                        {rval button/btn_rights}
+                      <td width="40%">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                          <tr class="no_search_line">
+                            <td width="100%">{rval data/CATEGORY_NAME}</td>
+                          </tr>
+                          <tr>
+                            <td align="right">
+                              人数：<span id="RIGHT_PART_NUM"></span>&nbsp;
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+<!--{/def}-->
+  <tr>
+    <td nowrap> {rval button/btn_update}{rval button/btn_delete}{rval button/btn_back}
+    　　　　　　　　　　　　　　　　　　　　　　　　　　　　<font color="red">※残高不足の生徒(●)は対象外です。</font>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+<script language="JavaScript">
+    document.getElementById("LEFT_PART_NUM").innerHTML  = document.forms[0].category_selected.options.length;
+    document.getElementById("RIGHT_PART_NUM").innerHTML = document.forms[0].category_name.options.length;
+</script>
+{rval finish} 
+<script language="JavaScript">{rval javascript}</script>
+

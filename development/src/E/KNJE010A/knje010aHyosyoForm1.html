@@ -1,0 +1,82 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="10" cellpadding="5">
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <hr align="left" width="300">
+            &nbsp;&nbsp;&nbsp;{rval NAME_SHOW}
+            <hr align="left" width="300">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <td width="40" align="center"><LABEL for="CHECKALL">選択</LABEL><br>{rval CHECKALL}</td>
+                      <td width="120" align="center">詳細種類</td>
+                      <td width="250" align="center"><LABEL for="CHECK_CONTENT">詳細内容</LABEL><br>{rval CHECK_CONTENT}</td>
+                      <td width="*" align="center">日付</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="height:160;overflow-y:scroll">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr height="25" bgcolor="#ffffff">
+                      <td width="40" align="center">{rval data/CHECKED}</td>
+                      <td width="120">{rval data/DETAILCDNAME}</td>
+                      <td width="250">{rval data/CONTENT_SHOW}</td>
+                      <td width="*" align="center">{rval data/DETAIL_SDATE}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td align="right" nowrap>{rval btn_torikomi}{rval btn_back}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

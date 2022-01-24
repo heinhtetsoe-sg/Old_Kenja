@@ -1,0 +1,224 @@
+{rval start}
+
+<style>
+#all {
+	position:relative;
+	width:100%;
+	height:75%;
+}
+#header_x {
+    width:265px;
+    position:absolute;
+    left:10px;
+    top:0px;
+    height:40px;
+    border-collapse:collapse;
+}
+#header_x th {
+    border: 1px solid #000000;
+    width:85px;
+}
+#right_header {
+   position: absolute;
+   left:275px;
+   top:0px;
+   width:957px;    /*表示部分の幅*/
+   overflow-x:hidden;
+   overflow-y:hidden;
+   }
+#left_body {
+   position: absolute;
+   left:10px;
+   top:40px;
+   width:511px;
+   height:600px;    /*表示部分の高さ*/
+   overflow-x:hidden;
+   overflow-y:hidden;
+   }
+#right_body {
+   position: absolute;
+   left:275px;
+   top:40px;
+   overflow-x:scroll;
+   overflow-y:scroll;
+   width:974px;    /*表示部分の幅【スクロール部分込み】*/
+   height:617px;    /*表示部分の高さ【スクロール込み】*/
+   }
+#holizon {
+    width:200%; /*ここでtdの幅が調整される*/
+}
+
+table.right_h {
+    height:40px;
+    border-collapse:collapse;
+    text-align: center;
+}
+table.right_h th {
+    border: 1px solid #000000;
+    width: 114px;
+    min-width: 114px;
+}
+table.right_b {
+    border-collapse:collapse;
+    text-align: center;
+}
+table.right_b td {
+    border: 1px solid #000000;
+    width: 114px;
+    min-width: 114px;
+    background: #ffffff;
+    height:30px;
+}
+table.left_b {
+    border-collapse:collapse;
+    text-align: center;
+}
+table.left_b td {
+    border: 1px solid #000000;
+    width: 85px;
+    background: #ffffff;
+    height:30px;
+}
+
+</style>
+
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="5" cellpadding="1">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="0" width="100%">
+              <tr class="no_search">
+                <td nowrap align="center">実戦演習CBT一覧</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap align="center" class="no_search" width="234">年組番</th>
+                <td nowrap bgcolor="#ffffff">{rval GRADE}</td>
+              </tr>
+              <tr>
+                <th nowrap align="center" class="no_search">氏名</th>
+                <td nowrap bgcolor="#ffffff">{rval NAME}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap class="no_search" rowspan="4" width="114">表示内容</th>
+                <th nowrap class="no_search" width="114">教科</th>
+                <td nowrap bgcolor="#ffffff">{rval data/KYOKA}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search">科目</th>
+                <td nowrap bgcolor="#ffffff">{rval data/KAMOKU}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search">テスト種類</th>
+                <td nowrap bgcolor="#ffffff">{rval data/TEST_KIND}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search"></th>
+                <td nowrap bgcolor="#ffffff">{rval button/btn_search}&nbsp;{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <table width="100%" border="0" cellspacing="5" cellpadding="1">
+        <tr>
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="0" width="100%">
+              <tr>
+                <td nowrap align="left" bgcolor="#ffffff">{rval data/KIRIKAE}&nbsp;&nbsp;{rval button/btn_csv}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+                <table border="0" cellpadding="3" cellspacing="0" width="100%">
+                  <tr>
+                    <td nowrap align="right" bgcolor="#ffffff">{rval example}&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                  </tr>
+                </table>
+          
+            <div id="all">
+                <table id="header_x">
+                  <tr>
+                    <th nowrap align="center" class="no_search">回数</th>
+                    <th nowrap align="center" class="no_search">出題内容</th>
+                    <th nowrap align="center" class="no_search">配点</th>
+                  </tr>
+                </table>
+              
+              <div id="right_header">
+                <table class="right_h" {rval width}>
+                  <tr>
+                    {rval right_h}
+                  </tr>
+                </table>
+              </div>
+          
+              <div id="left_body">
+                <table class="left_b">
+                  <!--{def data2}-->
+                  <!--{each data2}-->
+                  <tr>
+                    {rval data2/left_b}
+                  </tr>
+                  <!--{/each}-->
+                  <!--{/def}-->
+                </table>
+              </div>
+                
+              <div id="right_body">
+                <table class="right_b" {rval width}>
+                  <!--{def data2}-->
+                  <!--{each data2}-->
+                  <tr>
+                    {rval data2/right_b}
+                  </tr>
+                  <!--{/each}-->
+                  <!--{/def}-->
+                </table>
+              </div>
+          
+            </div>
+            
+          </td>
+        </tr>
+      </table>
+      </td>
+   </tr>
+</table>
+
+<script type="text/javascript">
+function $E(id){ return document.getElementById(id); }
+function scroll(){
+   $E("right_header").scrollLeft= $E("right_body").scrollLeft;// 左右連動させる
+   $E("left_body").scrollTop = $E("right_body").scrollTop;// 上下連動させる
+   }
+$E("right_body").onscroll=scroll;
+</script>
+
+{rval finish}

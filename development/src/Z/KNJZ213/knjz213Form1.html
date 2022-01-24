@@ -1,0 +1,71 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th align=left>処理年度：{rval YEAR}　　学年：{rval GRADE}</th>
+                    </tr>
+                    <tr class="no_search">
+                      <th align=left>　　　教科：{rval CLASSCD}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <br>
+          </td>
+        </tr>
+
+        <tr >
+          <td >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="15%">読替先科目コード</th>
+                      <th nowrap width="25%">読替先科目名</th>
+                      <th nowrap width="25%">読替元科目名</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+<!--{def useCurriculumcd}-->
+                      <td nowrap align="center" width="10%" bgcolor="#ffffff"><a href="knjz213index.php?cmd=edit&COMBINED_SUBCLASSCD_SEND={rval data/COMBINED_SUBCLASSCD_SEND}&COMBINED_CLASSCD_SEND={rval data/COMBINED_CLASSCD_SEND}&COMBINED_SCHOOL_KIND_SEND={rval data/COMBINED_SCHOOL_KIND_SEND}&COMBINED_CURRICULUM_CD_SEND={rval data/COMBINED_CURRICULUM_CD_SEND}&GRADE_SEND={rval data/GRADE_SEND}" target="right_frame">{rval data/COMBINED_CLASSCD}-{rval data/COMBINED_SCHOOL_KIND}-{rval data/COMBINED_CURRICULUM_CD}-{rval data/COMBINED_SUBCLASSCD}</a></td>
+<!--{/def}--> 
+<!--{def NoCurriculumcd}-->
+                      <td nowrap align="center" width="10%" bgcolor="#ffffff"><a href="knjz213index.php?cmd=edit&COMBINED_SUBCLASSCD_SEND={rval data/COMBINED_SUBCLASSCD_SEND}&GRADE_SEND={rval data/GRADE_SEND}" target="right_frame">{rval data/COMBINED_SUBCLASSCD}</a></td>
+<!--{/def}--> 
+                      <td nowrap width="15%" bgcolor="#ffffff">{rval data/COMBINED_SUBCLASS_NAME}</td>
+                      <td nowrap width="15%" bgcolor="#ffffff">{rval data/ATTEND_SUBCLASSCD_NAME}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                    </table>
+                  </td>
+                </tr>
+              </td>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

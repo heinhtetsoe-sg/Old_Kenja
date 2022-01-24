@@ -1,0 +1,80 @@
+{rval start}
+
+<table width="50%" border="0" cellspacing="3" cellpadding="1">
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellspacing="5" cellpadding="1">
+        <tr bgcolor="#006633">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="0" width="100%">
+              <tr bgcolor="#cccccc">
+                <td nowrap colspan="2">{rval btn_search}&nbsp;&nbsp;結果：{rval CLASS_SUM}名</td>
+              </tr>
+              <tr bgcolor="#cccccc">
+                <td nowrap width="25%"><font size="2">&nbsp;年度：{rval GRD_YEAR}</font></td>
+                <td nowrap width="75%"><font size="2">&nbsp;年組：{rval GRADE_HR_CLASS}</font></td>
+              </tr>
+              <tr bgcolor="#cccccc">
+                <td nowrap><font size="2">&nbsp;コース：{rval COURSECODE}</font></td>
+                <td nowrap><font size="2">&nbsp;学籍番号：{rval S_SCHREGNO}</font></td>
+              </tr>
+              <tr bgcolor="#cccccc">
+                <td nowrap><font size="2">&nbsp;氏名：{rval NAME}</font></td>
+                <td nowrap><font size="2">&nbsp;氏名表示用：{rval NAME_SHOW}</font></td>
+              </tr>
+              <tr bgcolor="#cccccc">
+                <td nowrap><font size="2">&nbsp;氏名かな：{rval NAME_KANA}</font></td>
+                <td nowrap><font size="2">&nbsp;性別：{rval SEX}</font></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th nowrap width="70">年-組-番</th>
+                            <th nowrap width="150">氏名</th>
+                            <th nowrap width="150">氏名かな</th>
+                            <th nowrap width="50">学籍<BR>番号</th>
+                            <th nowrap width="50">年度</th>
+                          </tr>
+                          <!--{def data}-->
+                          <!--{each data}-->
+                          <tr bgcolor="#ffffff">
+                            <td nowrap align="right" >{val data/ATTENDNO}</td>
+                            <td nowrap><img src="{val data/IMAGE}" width="16" height="16">&nbsp;{val data/NAME_SHOW}</td>
+                            <td nowrap>{val data/NAME_KANA}</td>
+                            <td nowrap>{val data/SCHREGNO}</td>
+                            <td nowrap align="center">{val data/YEAR}</td>
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="javascript">{rval Closing}</script>

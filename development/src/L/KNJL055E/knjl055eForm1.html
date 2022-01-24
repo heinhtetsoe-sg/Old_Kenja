@@ -1,0 +1,61 @@
+{rval start}
+
+<style>
+.trCenter {
+    height:30px;
+    text-align:center;
+}
+.trNormal {
+    height:30px;
+}
+.tdTitle {
+    width:100px;
+    text-align:right;
+}
+.tdVal {
+    width:350px;
+    background-color:#ffffff;
+}
+</style>
+
+<table width="450px" border="0" cellpadding="0" cellspacing="5" align="center" style="margin-top:250px;">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="5">
+        <tr class="no_search_line">
+          <td width="100%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+
+              <tr class="no_search trCenter">
+                <td colspan="2"><B>{rval data/YEAR}年度入試　得点データCSV取込</B></td>
+              </tr>
+
+              <tr class="trNormal">
+                <td class="no_search tdTitle">入試制度&nbsp;</td>
+                <td class="tdVal">{rval data/APPLICANTDIV}</td>
+              </tr>
+              <tr class="trNormal">
+                <td class="no_search tdTitle">入試区分&nbsp;</td>
+                <td class="tdVal">{rval data/TESTDIV}</td>
+              </tr>
+              <tr class="trNormal">
+                <td class="no_search tdTitle"></td>
+                <td class="tdVal">{rval FILE}</td>
+              </tr>
+
+              <tr class="no_search trNormal">
+                <td style="padding-left:100px" colspan="2">
+                  {val btn_exec}&nbsp;{rval data/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL>&nbsp;&nbsp;{val btn_end}
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval jscript}</script>
+{rval finish}

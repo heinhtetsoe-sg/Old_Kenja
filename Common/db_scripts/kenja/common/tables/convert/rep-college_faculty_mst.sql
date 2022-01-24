@@ -1,0 +1,3 @@
+-- $Id$
+
+alter table COLLEGE_FACULTY_MST add column CAMPUS_FACULTYCD  VARCHAR(3)

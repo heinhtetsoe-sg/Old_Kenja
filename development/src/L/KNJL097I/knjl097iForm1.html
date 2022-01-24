@@ -1,0 +1,133 @@
+{rval start}
+
+<br>
+<table width="65%" border="0" cellspacing="0" cellpadding="5" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" nowrap>
+                      <td width="12%" align="center">入試年度</td>
+                      <td width="10%" bgcolor="#ffffff" style="color:black; text-align:center">{rval TOP/YEAR}</td>
+                      <td width="12%" align="center">※ 入試制度</td>
+                      <td width="10%" bgcolor="#ffffff">{rval TOP/APPLICANTDIV}</td>
+                      <td width="12%" align="center">※ 入試区分</td>
+                      <td width="12%" bgcolor="#ffffff">{rval TOP/TESTDIV}</td>
+                    </tr>
+                    <tr class="no_search">
+                      <td width="12%" align="center">表示順</td>
+                      <td width="*" align="left" bgcolor="#ffffff" style="color:black" colspan="5">{rval TOP/SORT1}<LABEL for="SORT1">成績順</LABEL>　　{rval TOP/SORT2}<LABEL for="SORT2">受験番号順</LABEL></td>
+                    </tr>
+                    <tr class="no_search">
+                      <td width="12%" align="center">抽出</td>
+                      <td width="*" align="left" bgcolor="#ffffff" style="color:black" colspan="5">{rval TOP/SEX1}<LABEL for="SEX1">全員</LABEL>　　{rval TOP/SEX2}<LABEL for="SEX2">男子</LABEL>　　{rval TOP/SEX3}<LABEL for="SEX3">女子</LABEL></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr bgcolor="#FFFFFF">
+                <td width="270px">更新　【合否　{rval TOP/JUDGEDIV}　】　</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr bgcolor="#006633">
+          <td align="right">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" nowrap align="center"> 
+                            <td width="30px"  align="center" nowrap>{rval CHECKALL}</td>
+                            <th width="100px"  align="center" nowrap>受験番号</th>
+                            <td width="280px" align="center" nowrap>氏名</td>
+                            <td width="100px" align="center" nowrap>成績</td>
+                            <td width="100px" align="center" nowrap>合否</th>
+                            <td width="100px" align="center" nowrap>他方式<br>受験番号</th>
+                            <td width="*" align="center" nowrap>他方式<br>合否</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <div style="width: 100%; height:500; overflow-y:scroll">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{def data}-->
+<!--結果一覧-->
+<!--{each data}--> 
+                          <tr bgcolor="#ffffff" bgcolor="no_search" id="ROWID{rval data/RECEPTNO}" nowrap>
+                            <td width="30px"  align="center">{rval data/CHECKED}</td>
+                            <td width="100px" align="center" nowrap>{rval data/EXAMNO}</th>
+                            <td width="280px" align="left" nowrap>{rval data/NAME}</th>
+                            <td width="100px" align="center" nowrap>{rval data/TOTAL1}</th>
+                            <td width="100px" align="center" nowrap>{rval data/JUDGEDIV_NAME}</th>
+                            <td width="100px" align="center" nowrap>{rval data/RECOM_EXAMNO}</th>
+                            <td width="*" align="center" nowrap>{rval data/RECOM_JUDGEDIV_NAME}</th>
+                          </tr>
+<!--{/each}-->
+<!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" nowrap>
+                            <th nowrap></th>
+                            <th width="30%" align="left" bgcolor="#ffffff" nowrap>{rval btn_update}{rval btn_reset}{rval btn_end}</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

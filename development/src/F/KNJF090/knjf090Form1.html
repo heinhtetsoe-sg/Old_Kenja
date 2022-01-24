@@ -1,0 +1,54 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="2050" border="0" cellspacing="0" cellpadding="10">
+        <tr >
+          <td >
+             <hr width="10%" align="left">{rval SCHREGNO}　{val NAME}
+         <hr width="10%" align="left">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" nowrap>
+                      <th width="7%">来室日時</th>
+                      <th width="5%">来室校時</th>
+                      <th width="5%">来室診療区分</th>
+                      <th width="7%">来室理由</th>
+                      <th width="10%">症状が出た時間</th>
+                      <th width="3%">体温</th>
+                      <th width="10%">朝食</th>
+                      <th width="3%">就寝<BR>時間</th>
+                      <th width="3%">起床<BR>時間</th>
+                      <th width="10%">状況</th>
+                      <th width="10%">保健室での処置</th>
+                      <th width="*%">備考</th>
+                    </tr>
+<!--結果一覧-->
+<!--{each data}-->
+                    <tr>
+                      <td align="left" bgcolor="#ffffff" nowrap>&nbsp;{rval data/DATE}</td>
+                      <td align="left" bgcolor="#ffffff" nowrap>&nbsp;{rval data/PERIOD}</td>
+                      <td align="left" bgcolor="#ffffff" nowrap>&nbsp;{rval data/TREATMENT_DIV}</td>
+                      <td align="left" bgcolor="#ffffff" nowrap>&nbsp;{rval data/VISIT_REASON}</td>
+                      <td align="left" bgcolor="#ffffff" nowrap>&nbsp;{rval data/OCCURTIMECD}&nbsp;&nbsp;{rval data/OCCURTIME}</td>
+                      <td align="left" bgcolor="#ffffff" nowrap>&nbsp;{rval data/TEMPERATURE}</td>
+                      <td align="left" bgcolor="#ffffff" nowrap>&nbsp;{rval data/BREAKFAST}</td>
+                      <td align="left" bgcolor="#ffffff" nowrap>&nbsp;{rval data/BEDTIME}</td>
+                      <td align="left" bgcolor="#ffffff" nowrap>&nbsp;{rval data/RISINGTIME}</td>
+                      <td align="left" bgcolor="#ffffff" nowrap>&nbsp;{rval data/SLEEPING}</td>
+                      <td align="left" bgcolor="#ffffff" nowrap>&nbsp;{rval data/NURSETREAT}</td>
+                      <td align="left" bgcolor="#ffffff" nowrap>&nbsp;{rval data/REMARK}</td>
+                    </tr>
+<!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<script language="JavaScript">{rval reload}</script>

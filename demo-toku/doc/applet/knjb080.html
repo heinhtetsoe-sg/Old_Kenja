@@ -1,0 +1,524 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 7.0.0.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+<STYLE type="text/css">
+<!--
+@import url(default.ja.css);
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1>施設別時間割確認(KNJB080)</H1>
+<H2>施設ごとに１週間単位での割り当て状況（時間割）を確認できる。</H2>
+<TABLE border="1">
+  <CAPTION>パラメータ</CAPTION>
+  <TBODY>
+    <TR>
+      <TD>年度</TD>
+      <TD>year</TD>
+      <TD><BR>
+      </TD>
+    </TR>
+    <TR>
+      <TD>施設コード</TD>
+      <TD>faccd</TD>
+      <TD>1234</TD>
+    </TR>
+    <TR>
+      <TD>シーケンス番号</TD>
+      <TD>seq</TD>
+      <TD><BR>
+      </TD>
+    </TR>
+    <TR>
+      <TD>年月日</TD>
+      <TD>ymd</TD>
+      <TD>yyyymmdd</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<H3>パラメータの受け取りパターンは以下の２通り</H3>
+<UL>
+  <LI>?year=2004&amp;faccd=1234&amp;seq=1
+  <LI>?year=2004&amp;faccd=1234&amp;ymd=20040101
+</UL>
+<H3>主な関連テーブル</H3>
+<UL type="circle">
+  <LI>schreg_regd_hdat
+  <LI>sch_ptrn_dat
+  <LI>sch_chr_dat
+  <LI>chair_dat
+  <LI>sch_fac_dat
+  <LI>chair_fac_dat
+</UL>
+<H3>その他</H3>
+<UL>
+  <LI>各マスには「年－組」を表示する。
+  <LI>同時展開の場合、「年－組＊」と表示する。
+  <LI>パラメータはデフォルト表示のためである。
+  <LI>表示した後はラジオボタンやコンボなどで表示する内容を操作できる。
+  <LI>「基本」から「通常」画面に遷移した際は、システム日付をデフォルトとする。
+</UL>
+<H4>メニューバー</H4>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD align="center"><B>ファイル(F)</B></TD>
+      <TD align="center"><B>情報(I)</B></TD>
+    </TR>
+    <TR>
+      <TD>終了(X)</TD>
+      <TD>施設別時間割確認について．．．(About)</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<HR>
+<P>◎基本</P>
+<P>year=2004<BR>
+faccd=1234<BR>
+seq=1</P>
+<BLOCKQUOTE>
+<TABLE border="1" width="617">
+  <TBODY>
+    <TR>
+      <TD>
+      <FORM>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD>対象年度／学期<BR>
+            <INPUT size="5" type="text" disabled readonly value="2004">年度 <INPUT size="2" type="text" disabled readonly value="3">学期</TD>
+            <TD>時間割種別<BR>
+            <INPUT type="radio" checked name="syubetu" value="1">基本 <INPUT type="radio" name="syubetu" value="2">通常</TD>
+            <TD>SEQ:タイトル<BR>
+            <SELECT name="asdf">
+              <OPTION>１：基本時間割１　　　　　　　　　　　　</OPTION>
+            </SELECT></TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      <BR>
+      <SELECT>
+        <OPTION>体育館Ａ　　　　</OPTION>
+      </SELECT><BR>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD nowrap bgcolor="#cccccc">校時＼曜日</TD>
+            <TD width="50" align="center" nowrap bgcolor="#cccccc">月曜日</TD>
+            <TD width="50" align="center" nowrap bgcolor="#cccccc">火曜日</TD>
+            <TD width="50" align="center" nowrap bgcolor="#cccccc">水曜日</TD>
+            <TD width="50" align="center" nowrap bgcolor="#cccccc">木曜日</TD>
+            <TD width="50" align="center" nowrap bgcolor="#cccccc">金曜日</TD>
+            <TD width="50" align="center" nowrap bgcolor="#cccccc">土曜日</TD>
+            <TD width="50" align="center" nowrap bgcolor="#cccccc">日曜日</TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">０校時</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">ＳＨＲ</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">１校時</TD>
+            <TD><BR>
+            </TD>
+            <TD>3-1*</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">２校時</TD>
+            <TD><BR>
+            </TD>
+            <TD>3-2*</TD>
+            <TD>3-8*</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">２校時</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD>2-11</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">３校時</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">４校時</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">５校時</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">６校時</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">７校時</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      <BR>
+      <CENTER><INPUT type="submit" value="閉じる"></CENTER>
+      </FORM>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<HR>
+<P>◎通常</P>
+<P>year=2004<BR>faccd=1234<BR>
+ymd=2004-4-28</P>
+<BLOCKQUOTE>
+<TABLE border="1" width="623">
+  <TBODY>
+    <TR>
+      <TD>
+      <FORM>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD>対象年度／学期<BR>
+            <INPUT size="5" type="text" disabled readonly value="2004">年度 <INPUT size="2" type="text" disabled readonly value="1">学期</TD>
+            <TD>時間割種別<BR>
+            <INPUT type="radio" name="syubetu" value="1">基本 <INPUT type="radio" name="syubetu" value="2" checked>通常</TD>
+            <TD>実施期間<BR>
+            <INPUT type="submit" value="2004年04月28日(水)">～<INPUT size="20" type="text" disabled readonly value="2004年05月01日(日)"> <INPUT type="submit" value="確定"></TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      <SELECT>
+        <OPTION>体育館Ａ　　　　</OPTION>
+      </SELECT><BR>
+      <TABLE border="1" width="556">
+        <TBODY>
+          <TR>
+            <TD nowrap bgcolor="#cccccc">校時＼曜日</TD>
+            <TD width="80" align="center" nowrap bgcolor="#cccccc">4月26日<BR>
+            (月)</TD>
+            <TD width="80" align="center" nowrap bgcolor="#cccccc">4月27日<BR>
+            (火)</TD>
+            <TD width="80" align="center" nowrap bgcolor="#cccccc">4月28日<BR>
+            (水)</TD>
+            <TD width="80" align="center" nowrap bgcolor="#cccccc">4月29日<BR>
+            (木)</TD>
+            <TD width="80" align="center" nowrap bgcolor="#cccccc">4月30日<BR>
+            (金)</TD>
+            <TD width="80" align="center" nowrap bgcolor="#cccccc">5月1日<BR>
+            (土)</TD>
+            <TD width="80" align="center" nowrap bgcolor="#cccccc">5月2日<BR>
+            (日)</TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">０校時</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">ＳＨＲ</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">１校時</TD>
+            <TD><BR>
+            </TD>
+            <TD>3-1*</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">２校時</TD>
+            <TD><BR>
+            </TD>
+            <TD>3-2*</TD>
+            <TD>3-8*</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">２校時</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD>2-11</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">３校時</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">４校時</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">５校時</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">６校時</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+          <TR>
+            <TD bgcolor="#cccccc">７校時</TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+            <TD><BR>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      <BR>
+      <CENTER><INPUT type="submit" value="閉じる"></CENTER>
+      </FORM>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<UL>
+  <LI>指定された日の週を月曜日から日曜日まで表示する。
+  <LI>先頭を月曜日固定とする。
+  <LI>実施期間の開始ボタンは指定の日を表示し、終了のテキストフィールドはその週の最後（日曜日）が表示される。
+</UL>
+<P><BR>
+</P>
+</BODY>
+</HTML>

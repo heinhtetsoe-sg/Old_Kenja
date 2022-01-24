@@ -1,0 +1,23 @@
+-- kanji=漢字
+-- $Id: 798d4b66de93a057fdf7847f69e354ffeb3a8f42 $
+
+-- 注意:このファイルは EUC/LFのみ でなければならない。
+-- 適用方法:
+--    1.データベース接続
+--    2.db2 +c -f <このファイル>
+--    3.コミットするなら、db2 +c commit。やり直すなら、db2 +c rollback
+--
+
+DROP TABLE COLLEGE_DAT
+CREATE TABLE COLLEGE_DAT( \
+    SCHOOL_CD    VARCHAR(8)    NOT NULL, \
+    FACULTYCD    VARCHAR(3)    NOT NULL, \
+    DEPARTMENTCD VARCHAR(3)    NOT NULL, \
+    COURSECD     VARCHAR(1), \
+    REGISTERCD   VARCHAR(8), \
+    UPDATED      TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+) IN USR1DMS INDEX IN IDX1DMS
+
+
+ALTER TABLE COLLEGE_DAT ADD CONSTRAINT PK_COLLEGE_DAT PRIMARY KEY (SCHOOL_CD,FACULTYCD,DEPARTMENTCD)
+

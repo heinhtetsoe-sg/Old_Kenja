@@ -1,0 +1,108 @@
+{rval start}
+<br><br>
+<table width="600" align="center" width="" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellspacing="1" cellpadding="0">
+        <tr class="no_search_line">
+          <td >
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search_line">
+                <th class="no_search" colspan="3">
+                  <font color="#ffffff"><b>{rval SEMESTERNAME}</b>　校種：{rval data/SCHOOL_KIND}</font>
+                </th>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <th class="no_search" align="right">学年・コース</th>
+                <td align="left">{rval data/GRADE}　{rval data/CMC}</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <th class="no_search" align="right" width="150"></th>
+                <td>{rval data/OFFSET_REFUND_DIV1}<label for="OFFSET_REFUND_DIV1">相殺</label>
+                    {rval data/OFFSET_REFUND_DIV2}<label for="OFFSET_REFUND_DIV2">還付</label>
+                </td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <th class="no_search" align="right">種別</th>
+                <td align="left">{rval data/REDUCTION_KIND}</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <th class="no_search" align="right">処理日</th>
+                <td>{rval data/PROCESS_DATE}</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <th class="no_search" align="right">期間</th>
+                <td>{rval data/MONTH_FROM}&nbsp;～&nbsp;{rval data/MONTH_TO}</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <th class="no_search">&nbsp;</th>
+                <td>{rval button/btn_exec}{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<table width="1200" border="0" cellspacing="0" cellpadding="5" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4">
+              <tr>
+                <td bgcolor="#cccccc">&nbsp;&nbsp;●&nbsp;<B>{rval titleName}</B></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4">
+              <tr class="no_search" >
+                <td align="center" width="80">処理日</td>
+                <td align="center" width="80">相殺／還付</td>
+                <td align="center" width="150">種別</td>
+                <td align="center" width="80">学年</td>
+                <td align="center" width="200">コース</td>
+                <td align="center" width="100">期間</td>
+                <td align="center" width="*">実行日時</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <div style="width: 100%; height:250; overflow: auto">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4">
+              <!--{def data2}-->
+              <!--結果一覧-->
+              <!--{each data2}-->
+              <tr class="no_search_line" >
+                <td bgcolor='#ffffff' align="center" width="80">{rval data2/PROCESS_DATE}</td>
+                <td bgcolor='#ffffff' align="center" width="80">{rval data2/OFFSET_REFUND_DIV}</td>
+                <td bgcolor='#ffffff' align="center" width="150">{rval data2/REDUCTION_KIND}</td>
+                <td bgcolor='#ffffff' align="center" width="80">{rval data2/GRADE_NAME1}</td>
+                <td bgcolor='#ffffff' align="center" width="200">{rval data2/CMC_NAME}</td>
+                <td bgcolor='#ffffff' align="center" width="100">{rval data2/MONTH_FROM}月～{rval data2/MONTH_TO}月</td>
+                <td bgcolor='#ffffff' align="center" width="*">{rval data2/EXE_TIME}</td>
+              </tr>
+              <!--{/each}-->
+              <!--{/def}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+      </div>
+
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

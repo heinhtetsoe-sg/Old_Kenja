@@ -1,0 +1,100 @@
+{rval start}
+
+<br>
+<table width="1100" border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" height="30">
+                <td nowrap align="center">
+                    {rval YEAR}年度　　校種：{rval SCHOOL_KIND}　　入金グループ：{rval COLLECT_GRP_CD}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th width="300" rowspan="2">入金項目</th>
+                      <th width="60" rowspan="2">年額</th>
+                      <th width="60" rowspan="2">回数</th>
+                      <th width="*" colspan="13">入　金　月</th>
+                    </tr>
+                    <tr class="no_search" height="30">
+                      <th width="50">全月</th>
+                      <th width="40">4</th>
+                      <th width="40">5</th>
+                      <th width="40">6</th>
+                      <th width="40">7</th>
+                      <th width="40">8</th>
+                      <th width="40">9</th>
+                      <th width="40">10</th>
+                      <th width="40">11</th>
+                      <th width="40">12</th>
+                      <th width="40">1</th>
+                      <th width="40">2</th>
+                      <th width="*">3</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="height: 65vh; overflow: auto;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff" height="30">
+                      <td width="300">&nbsp;{rval data/COLLECT_M_SHOW}</td>
+                      <td width="60" align="right">{rval data/COLLECT_M_MONEY}&nbsp;</td>
+                      <td width="60" align="center">{rval data/MONTH_CNT_SHOW}</td>
+                      <td width="50" align="center">{rval data/ALL_MONTH}</td>
+                      <td width="40" align="center">{rval data/COLLECT_MONTH_4}</td>
+                      <td width="40" align="center">{rval data/COLLECT_MONTH_5}</td>
+                      <td width="40" align="center">{rval data/COLLECT_MONTH_6}</td>
+                      <td width="40" align="center">{rval data/COLLECT_MONTH_7}</td>
+                      <td width="40" align="center">{rval data/COLLECT_MONTH_8}</td>
+                      <td width="40" align="center">{rval data/COLLECT_MONTH_9}</td>
+                      <td width="40" align="center">{rval data/COLLECT_MONTH_10}</td>
+                      <td width="40" align="center">{rval data/COLLECT_MONTH_11}</td>
+                      <td width="40" align="center">{rval data/COLLECT_MONTH_12}</td>
+                      <td width="40" align="center">{rval data/COLLECT_MONTH_1}</td>
+                      <td width="40" align="center">{rval data/COLLECT_MONTH_2}</td>
+                      <td width="*" align="center">{rval data/COLLECT_MONTH_3}</td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr class="no_search" height="30">
+          <td>&nbsp;{rval btn_update}{rval btn_reset}{rval btn_end}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

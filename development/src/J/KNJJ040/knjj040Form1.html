@@ -1,0 +1,52 @@
+{rval start}
+
+<br>
+<table width="97%" border="0" cellspacing="0" cellpadding="5" bgcolor="#cccccc" align="center">
+  <tr>
+    <td bgcolor="#cccccc" nowrap>
+        　　年度：{rval YEAR}<!--{def schkind}-->　　校種：{rval SCHKIND}<!--{/def}-->　　　部・クラブ：{rval CLUB_YEAR_LIST}
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap>年－組－番　氏名</th>
+                      <th nowrap>入部日付</th>
+                      <th nowrap>退部日付</th>
+                      <th nowrap>役職</th>
+                      <th nowrap>備考</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap bgcolor="#ffffff"><a href="knjj040index.php?cmd=edit&GAKUSEKINO={val data/SCHREGNO}&CLUBCD={val data/CLUBCD}&SDATE={val data/SDATE}" target="right_frame">{val data/STUDENTINFO}</a></td>
+                      <td nowrap bgcolor="#ffffff">{val data/EDITSDATE}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/EDATE}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/EXECUTIVECD}</td>
+                      <td nowrap bgcolor="#ffffff">{val data/REMARK}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

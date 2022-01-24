@@ -1,0 +1,108 @@
+{rval start}
+<style type="text/css">
+body {
+    padding:0 5px;
+}
+tr#haba td{
+    height:34px;
+}
+#tyousei {
+    height : 55px;
+}
+</style>
+
+<!--[if IE 6]>
+<style type="text/css">
+#tyousei {
+    height : 56px;
+}
+</style>
+<![endif]-->
+
+<table width="990px" border="0" cellspacing="0" cellpadding="0" style="margin-bottom:10px;">
+    <tr>
+        <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#255476">
+                <tr class="no_search" nowrap>
+                    <td>
+                        &nbsp;&nbsp;履修登録年度：{rval YEAR}
+                        &nbsp;&nbsp;学期：{rval SEMESTER}
+                        &nbsp;&nbsp;年組：{rval GRADE_CLASS}
+                        &nbsp;&nbsp;{rval GROUP_SELECT1}<LABEL for="GROUP_SELECT1">&nbsp;選択</LABEL>
+                        &nbsp;{rval GROUP_SELECT2}<LABEL for="GROUP_SELECT2">&nbsp;選択以外</LABEL>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<table width="990px" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <th width="200px">
+            <table width="200px" border="0" cellspacing="1" cellpadding="3" bgcolor="#255476">
+                <tr class="no_search" align="center" nowrap id="tyousei">
+                    <td width="50">No.</td>
+                    <td width="150">氏&nbsp;&nbsp;名</td>
+                </tr>
+            </table>
+        </th>
+        <th align="LEFT">
+            <div id="trow" style="overflow:hidden; width:790px;">
+                <table border="0" cellspacing="1" cellpadding="3" bgcolor="#255476" style="width:{rval TOTAL_WIDTH}px; margin-right:740px;">
+                    <tr class="no_search">
+                    <!--{each GROUP}-->
+                        <td {rval GROUP/COLOR} colspan="{rval GROUP/COUNT}" style="width:{rval GROUP/SIZE}px; align="center">{rval GROUP/NAME}</td>
+                    <!--{/each}-->
+                    </tr>
+                    <tr class="no_search" id="haba">
+                    <!--{each SUBCLASSABBV}-->
+                        <td {rval SUBCLASSABBV/COLOR} style="width:50px; font-size: 11px;">{rval SUBCLASSABBV/SUBCLASSABBV}</td>
+                    <!--{/each}-->
+                    </td>
+                </table>
+            </div>
+        </th>
+    </tr>
+    <tr valign="TOP">
+        <th>
+            <div id="tcol" style="overflow: hidden; width: 200px; height:500px;">
+                <table border="0" cellspacing="1" cellpadding="3" bgcolor="#255476" style="width:200px; margin-bottom:469px;">
+                    <!--{each attend_data2}-->
+                    <tr bgcolor="#FFFFFF" align="center" height="30" nowrap>
+                        <td width="50">{rval attend_data2/ATTENDNO}</td>
+                        <td width="150" align="left">{rval attend_data2/NAME_SHOW}</td>
+                    </tr>
+                    <!--{/each}-->
+                </table>
+            </div>
+        </th>
+        <th>
+            <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width:790px; height: 500px;">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#255476" style="width: {rval TOTAL_WIDTH}px; margin:0 723px 452px 0;" id="list_table">
+                    <!--{each attend_data}-->
+                    <tr align="center" nowrap height="30">
+                        {rval attend_data/TD}
+                    </tr>
+                    <!--{/each}-->
+                </table>
+            </div>
+        </th>
+    </tr>
+    <tr>
+        <th align="right" colspan="2">
+            <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#255476">
+                <tr class="no_search" align="right" nowrap>
+                    <td>
+                        {rval btn_update}
+                        {rval btn_reset}
+                        {rval btn_end}
+                        {rval btn_print}
+                    </td>
+                </tr>
+            </table>
+        </th>
+    </tr>
+</table>
+{rval finish}
+

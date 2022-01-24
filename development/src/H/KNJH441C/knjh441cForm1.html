@@ -1,0 +1,85 @@
+{rval start} 
+<!--{def button}--> 
+<!--{def data}-->
+
+<br>
+
+<table width="850" border="0" cellpadding="0" cellspacing="0" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" height="30">
+                      <td align="center">
+                        <b>{rval data/YEAR}年度</b>
+                      </td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="40">
+                      <td>
+                        <table>
+
+                          <tr bgcolor="#ffffff">
+                            <td><br>
+                              　<b>学年 {rval data/GRADE}　学科 {rval data/MAJOR}　学期 {rval data/SEMESTER}　模試種別 {rval data/MOCKCD}</b><br><br>
+                            </td>
+                          </tr>
+                          
+                        </table>
+                      </td>
+                    </tr>
+
+                    <tr bgcolor="#ffffff" height="80">
+                      <td>
+                        <table>
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              　　　　　　　<b>●科目別度数分布表</b> {rval data/OUTPUT_DOSUBUPU}<LABEL for="OUTPUT_DOSUBUPU">出力する</LABEL>
+                            </td>
+                          </tr>
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                                　　　　　　　<b>●成績上位者</b> {rval data/OUTPUT_YURYO}<LABEL for="OUTPUT_YURYO">出力する</LABEL>
+                                <div id="div_yuryo">　　　　　　　　　　{rval data/YURYO}位まで表示
+                                </div>
+                            </td>
+                          </tr>
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              　　　　　　　<b>●成績下位者</b> {rval data/OUTPUT_FUSHIN}<LABEL for="OUTPUT_FUSHIN">出力する</LABEL>
+                              <div id="div_fushin"> 　　　　　　　　　　{rval data/FUSHIN}位まで表示</LABEL>
+                              </div>
+                            </td>
+                          </tr>
+                          
+                        </table>
+                      </td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td align="left">
+                        {rval button/btn_print}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

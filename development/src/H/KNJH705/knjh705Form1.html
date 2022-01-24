@@ -1,0 +1,62 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="25">
+                      <th align="left">
+                        &nbsp;&nbsp;{val YEAR}年度　　　　学力テスト{val TESTID}
+                      </th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="list">
+                    <tr class="no_search" height="25">
+                      <th nowrap width="25%">試験日</th>
+                      <th nowrap width="5%">時限</th>
+                      <th nowrap width="10%">教室</th>
+                      <th nowrap width="20%">監督1</th>
+                      <th nowrap width="20%">監督2</th>
+                      <th nowrap width="20%">監督3</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff" height="25">
+                      <td nowrap align="center"  bgcolor="{rval data/BGCOLOR_ROW}">{val data/EXAM_DATE}</td>
+                      <td nowrap align="center"  bgcolor="{rval data/BGCOLOR_ROW}">{val data/ABBV1}</td>
+                      <td nowrap align="center"  bgcolor="{rval data/BGCOLOR_ROW}"><a href="knjh705index.php?cmd=edit&TESTID={val data/TESTID}&PERIODID={val data/PERIODID}&FACCD={val data/FACCD}&STAFFCD1={val data/STAFFCD1}" target="right_frame">{val data/FACILITYNAME}</a></td>
+                      <td nowrap align="center"  bgcolor="{rval data/BGCOLOR_ROW}">{val data/STAFFNAME1}</td>
+                      <td nowrap align="center"  bgcolor="{rval data/BGCOLOR_ROW}">{val data/STAFFNAME2}</td>
+                      <td nowrap align="center"  bgcolor="{rval data/BGCOLOR_ROW}">{val data/STAFFNAME3}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

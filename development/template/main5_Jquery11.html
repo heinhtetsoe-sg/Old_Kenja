@@ -1,0 +1,91 @@
+<html>
+<head><title>{rval TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={rval CHARSET}">
+<link rel="stylesheet" href="{rval CSS_FILE}" type="text/css">
+<script language="JavaScript" src="{rval JQUERY}"></script>
+<script language="JavaScript" src="{rval COMMON_JS_FILE}"></script>
+<script language="JavaScript" src="{rval COMMON_TEXTAREAJS_FILE}"></script>
+<script language="JavaScript">
+{rval JAVASCRIPT}
+</script>
+</head>
+<body bgcolor="#ffffff" text="#000000" leftmargin="0" topmargin="0" marginwidth="5" marginheight="5"
+link="#666699" vlink="#666699" alink="#666699" onload="inittextarea();">
+<style>
+#lockScreen {
+    z-index:500;
+    position:absolute;
+    top:0px;
+    left:0px;
+    background-color:#000000;
+    display:none;
+}
+#lockScreen #lockScreenInner{
+    display: table-cell;
+    text-align:center;
+    vertical-align: middle;
+    color:red;
+    font-size:3em;
+}
+#lockScreenPopUp {
+    z-index:999;
+    position:absolute;
+    top:0px;
+    left:0px;
+    background-color:transparent;
+    display:none;
+}
+#lockScreenPopUp #lockScreenPopInner{
+    display: table-cell;
+    text-align:center;
+    vertical-align: middle;
+    color:gray;
+    font-size:3em;
+}
+</style>
+{rval BODY}
+<script language="JavaScript">
+var msg = '{rval ERROR_MESSAGE}';
+if (msg != ''){
+    alert(msg);
+}
+</script>
+<script language="javascript">
+function checktextarea(e) {
+    var setId = e.target.id;
+    var setKeta = document.forms[0][setId + "_KETA"].value;
+    var setGyo = document.forms[0][setId + "_GYO"].value;
+    var setStat = document.forms[0][setId+"_STAT"].value;
+    check(e, setKeta, setGyo, setStat);
+}
+function inittextarea() {
+	for (var i=0; i < document.forms[0].elements.length; i++) {
+	    var eleTextArea = document.forms[0].elements[i];
+	    if (eleTextArea.type == "textarea" || eleTextArea.type == "text") {
+	        var setId = eleTextArea.id;
+            if (document.forms[0][setId + "_KETA"] === undefined) {
+                continue;
+            }
+	        $("#" + setId).japaneseInputChange(checktextarea);
+	        eleTextArea.focus();
+	    }
+	}
+    //‰æ–Ê‚ªÅŒã‚ÌƒeƒLƒXƒgˆÊ’u‚ÉˆÚ“®‚·‚é‚Ì‚ÅATOP‚É–ß‚·ˆ×‚Ìˆ—
+    document.forms[0].elements[0].focus();
+    document.forms[0].elements[0].blur();
+    window.scrollTo(0, 0);
+}
+</script>
+<!--•`‰æ’†‚É‰æ–Ê‚ðG‚ê‚È‚¢‚æ‚¤‚É‚·‚é-->
+<div id="lockScreen">
+    <div id="lockScreenInner">
+    </div>
+</div>
+<!--•`‰æ’†‚É‰æ–Ê‚ðG‚ê‚È‚¢‚æ‚¤‚É‚·‚é-->
+<div id="lockScreenPopUp">
+    <div id="lockScreenPopInner">
+    <br><br><progress max="100"></progress>
+    </div>
+</div>
+</body>
+</html>

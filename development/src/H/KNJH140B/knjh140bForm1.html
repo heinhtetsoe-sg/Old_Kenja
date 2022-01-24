@@ -1,0 +1,42 @@
+{rval start}
+<br><br><br><br><br><br>
+<table style="width: 600px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+    <table style="width: 600px" border="0" cellspacing="0" cellpadding="0">
+    <tr class="no_search_line">
+    <td>
+        <table style="width: 600px" border="0" cellspacing="1" cellpadding="4">
+        <tr class="no_search" height="30" align="center">
+          <td colspan="3"><b>{rval data/TITLE}</b></td>
+        </tr>
+        <tr height="30">
+          <td class="no_search" align="right">対象データ&nbsp;</td>
+          <td bgcolor="#ffffff">&nbsp;&nbsp;{rval data/TARGET}&nbsp;{rval button/btn_output}</td>
+        </tr>
+        <tr height="30">
+          <td class="no_search" align="right">対象ファイル&nbsp;</td>
+          <td bgcolor="#ffffff">&nbsp;{rval data/FILE}&nbsp;&nbsp;&nbsp;&nbsp;{rval data/HEADERCHECK}<LABEL for="HEADERCHECK">ヘッダ有り</LABEL></td>
+        </tr>
+        <tr height="30">
+          <td class="no_search" align="right">出力データ<BR></td>
+          <td bgcolor="#ffffff">年度＆学期：{rval data/YEAR}<BR>
+            年組&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：{rval data/GRADE_HR_CLASS}<BR>
+            　　　　　　{rval data/GRD_CHECK}<LABEL for="GRD_CHECK">退学者・転学者・卒業生は出力しない</LABEL>
+          </td>
+        </tr>
+        <!--{def button}-->
+        <tr height="30">
+          <td class="no_search"></td>
+          <td bgcolor="#ffffff">&nbsp;{rval button/btn_csv}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_ok}{rval button/btn_end}&nbsp;&nbsp;</td>
+        </tr>
+        <!--{/def}-->
+        </table>
+    </td>
+    </tr>
+    </table>
+</td>
+</tr>
+</table>
+<script language="JavaScript">{rval jscript}{rval max_semes_cl}</script>
+{rval finish}

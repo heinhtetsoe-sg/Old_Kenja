@@ -1,0 +1,253 @@
+{rval start}
+
+<style type="text/css">
+
+</style>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" align="center">
+
+<tr> 
+
+<td valign="top" > 
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+    <tr> 
+
+    <td > 
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+      <tr class="no_search_line"> 
+
+      <td> 
+
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+        <tr class="no_search" nowrap> 
+
+            <td align="center">入試年度</td>
+            <td bgcolor="#ffffff" style="color:black; text-align:center">{rval TOP/YEAR}</td>
+            <td align="center">※ 入試制度</td>
+            <td bgcolor="#ffffff">{rval TOP/APPLICANTDIV}</td>
+            <td align="center">※ 受験番号</td>
+            <td bgcolor="#ffffff" style="color:black">{rval TOP/EXAMNO} ～ {rval TOP/END_EXAMNO}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval TOP/button}</td>
+
+        </tr>
+
+        </table>
+
+       </td>
+
+      </tr>
+
+      </table>
+
+    </td>
+
+    </tr>
+
+    </table>
+
+</td>
+
+</tr>
+
+<tr > 
+
+<td valign="top" > 
+
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+  <tr bgcolor="#006633"> 
+
+  <td align="right">
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+    <tr> 
+
+    <td>
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+      <tr class="no_search_line">
+
+      <td>    
+
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+        <tr class="no_search" nowrap align="center"> 
+
+        <th width="40" align="center" nowrap>受験<BR>番号</th>
+
+        <th width="120" align="center" nowrap>※ 氏名<br><font style="font-size:9pt">(全角20文字まで)</font></th>
+
+        <th width="155" align="center" nowrap>※ 氏名かな<br><font style="font-size:9pt">(全角40文字まで)</font></th>
+
+        <th width="57" align="center" nowrap>※ 性別<br><font style="font-size:9pt">1:男 2:女</font></th>
+
+        <th width="202" align="center" nowrap>出身学校</th>
+
+        <th width="80" align="center" nowrap>国公私立</th>
+
+        <th width="210" align="center" nowrap>※ 入試区分</th>
+
+        <th width="*" align="center" nowrap>推薦受<BR>験番号</th>
+
+        </tr>
+
+        </table>
+
+      </td>
+
+      </tr>
+
+      </table>
+
+    </td>
+
+    </tr>
+
+    <tr>
+
+    <td bgcolor="#ffffff">
+
+      <div style="width: 100%; height=540; overflow: auto">
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+      <tr class="no_search_line" >
+
+      <td>
+
+      <table width="100%" border="0" cellspacing="1" cellpadding="3">  
+
+      <!--{def data}-->
+
+      <!--結果一覧-->
+
+      <!--{each data}--> 
+
+      <tr style="height:30"; bgcolor="{rval data/BGCOLOR}" id="ROWID{rval data/EXAMNO}" nowrap>
+
+        <td width="40" align="center" nowrap>{rval data/EXAMNO}</th>
+
+        <td width="120"  align="center" nowrap>{rval data/NAME}</th>
+
+        <td width="155" align="center" nowrap>{rval data/NAME_KANA}</th>
+
+        <td width="20" align="center" nowrap>{rval data/SEX}</th>
+
+        <td width="30" align="center" id="{rval data/SEX_ID}" nowrap>{rval data/SEX_NAME}</th>
+
+        <td width="65" align="center" nowrap>{rval data/FS_CD}</th>
+
+        <td width="130" align="left" id="{rval data/FS_NAME_ID}" nowrap>{rval data/FS_NAME}</th>
+
+        <td width="30" align="center" nowrap>{rval data/FS_NATPUBPRIDIV}</th>
+        <td width="43" align="left" id="{rval data/FS_NATPUB_ID}" nowrap>{rval data/FS_NATPUB_NAME}</th>
+
+        <td width="210" align="center"  nowrap>{rval data/TESTDIV1}<label for="{rval data/TESTDIV1_ID}">第1回</label>{rval data/TESTDIV2}<label for="{rval data/TESTDIV2_ID}">第2回</label>{rval data/TESTDIV3}<label for="{rval data/TESTDIV3_ID}">第3回</label></th>
+
+        <td width="*" align="center"  nowrap>{rval data/RECOM_EXAMNO}</th>
+
+      </tr>
+
+      <!--{/each}--> 
+
+      <!--{/def}-->
+
+      </table>
+
+      </td>
+
+      </tr>
+
+      </table>
+
+      </div>
+
+    </td>
+
+    </tr>
+
+    <tr> 
+
+    <td>
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+      <tr class="no_search_line">
+
+      <td>    
+
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+        <tr class="no_search" nowrap> 
+
+          <th nowrap>{rval FILE}</th>
+
+          <th width="30%" align="left" bgcolor="#ffffff" nowrap>{rval btn_update}{rval btn_reset}{rval btn_end}</th>
+
+        </tr>
+
+        </table>
+
+      </td>
+
+      </tr>
+
+      </table>
+
+    </td>
+
+    </tr>
+
+    </table>
+
+  </td>
+
+  </tr>
+
+
+  </table>
+
+</td>
+
+</tr>
+
+</table>
+<script language="JavaScript">
+  var change_flg = {rval change_flg};
+  var sex_name = {};
+  var fs_natpub_name = {};
+  var fs_name = {};
+<!--{def data2}-->
+<!--{each data2}--> 
+ sex_name['{rval data2/sex_cd}'] = '{rval data2/sex_name}';
+<!--{/each}-->
+<!--{/def}-->
+
+<!--{def data4}-->
+<!--{each data4}--> 
+ fs_natpub_name['{rval data4/fs_natpubpridiv}'] = '{rval data4/fs_natpub_name}';
+<!--{/each}-->
+<!--{/def}-->
+
+<!--{def data5}-->
+<!--{each data5}--> 
+ fs_name['{rval data5/fs_cd}'] = '{rval data5/fs_name}';
+<!--{/each}-->
+<!--{/def}-->
+
+for (i = 0; i < document.forms[0].elements.length; i++){
+    var el = document.forms[0].elements[i];
+    if (el.type == "text" && el.tabIndex!=-1 && el.disabled==false && el.style.display != "none"){
+        el.focus();
+        break;
+    }
+}
+</script>
+<script language="JavaScript">{rval Closing}</script>
+{rval finish}

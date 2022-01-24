@@ -1,0 +1,76 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="10" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" height="25">
+                      <th norwarp width="17%" nowrap>入試年度</th>
+                      <td norwarp width="*" bgcolor="#ffffff">{rval year}&nbsp;&nbsp;{rval btn_year_add}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" height="25">
+                      <th norwarp width="17%" nowrap>受験校種</th>
+                      <td norwarp width="*" bgcolor="#ffffff">{rval APPLICANTDIV}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="7%">取扱票種類</th>
+                      <th nowrap width="7%">取扱票種類名</th>
+                      <th nowrap width="10%">特待生</th>
+                      <th nowrap width="10%">都道府県</th>
+                      <th nowrap width="16%">口座番号</th>
+                      <th nowrap width="7%">加入者名</th>
+                      <th nowrap width="20%">件名</th>
+                      <th nowrap width="18%">金額</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td nowrap align="center">{rval data/PATTERN_CD}</td>
+                      <td nowrap align="center">{rval data/PATTERN_NAME}</td>
+                      <td nowrap>{rval data/TOKUTAI_SELECT_NAME}</td>
+                      <td nowrap>{rval data/PREF_NAME}</td>
+                      <td nowrap>{rval data/ACCOUNT_NUMBER1}-{rval data/ACCOUNT_NUMBER2}-{rval data/ACCOUNT_NUMBER3}</td>
+                      <td nowrap align="center">{rval data/MEMBER}</td>
+                      <td nowrap>{rval data/SUBJECT}</td>
+                      <td nowrap>{rval data/TRANSFER_MONEY}</td>
+                    </tr> 
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+
+<script language="JavaScript">
+<!--{def reload}-->
+{rval reload}
+<!--{/def}-->
+</script>

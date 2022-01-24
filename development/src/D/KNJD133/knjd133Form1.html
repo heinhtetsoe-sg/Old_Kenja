@@ -1,0 +1,162 @@
+{rval start}
+{rval IFRAME}
+<table width="{rval ALLWIDTH}" border="0" cellspacing="10" cellpadding="0" align="center">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search" height="30">
+                        <th width="10%" nowrap>処理年度：{rval YEAR}年度</th>
+                        <th width="40%" nowrap>科目：{rval SUBCLASSCD}</th>
+                        <td width="*" nowrap>学級・講座：{rval CHAIRCD}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+
+<!--{def isKomazawa}-->
+    <tr>
+      <td align="right">
+        <font size="3" color="red"><b>学年評定　　11:A　22:B　33:C　　　</b></font>
+      </td>
+
+
+    </tr>
+<!--{/def}-->
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="100">クラス-<br>出席番号</th>
+                        <th width="200">氏名</th>
+                        <th width="80">項目名</th>
+                        <th width="{rval VALUEWIDTH}">
+                          値
+                          <!--{def isTeikei}-->　　{rval btn_teikei1}{rval btn_teikei2}
+                            <!--{def isKomazawa}-->評価の定型文：{rval label_teikei2}<!--{/def}-->
+                          <!--{/def}-->
+                        </th>
+                        <th width="45">単位<br>自動<br>{rval CHECKALL}</th>
+                        <th width="45">学年<br>評定</th>
+                        <th width="45">履修<br>単位</th>
+                        <th width="*">修得<br>単位</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <div style="width:100%;height:425;overflow:auto">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each data}-->
+                        <tr>
+                          <td width="100"  align="center" bgcolor="{rval data/COLOR}" rowspan="2">{rval data/ATTENDNO}</td>
+                          <td width="200" align="left"   bgcolor="{rval data/COLOR}" rowspan="2">{rval data/SCHREGNO_SHOW}{rval data/NAME_SHOW}</td>
+                          <td width="80" class="no_search" align="center">学習<br>内容</td>
+                          <td width="{rval VALUEWIDTH}" align="left" bgcolor="{rval data/COLOR}">
+                            <table width="100%">
+                              <tr>
+                                <td width="90">
+                                  <!--{def isTeikei}-->{rval data/TOTALSTUDYACT_TEIKEI}　<!--{/def}-->
+                                </td>
+                                <td>
+                                  {rval data/TOTALSTUDYACT}<br>
+                                  <font size="2" color="red">{rval data/TOTALSTUDYACT_COMMENT}</font>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                          <td width="45"  align="center" bgcolor="{rval data/COLOR}" rowspan="2">{rval data/CHK_CALC_CREDIT}</td>
+                          <td width="45"  align="center" bgcolor="{rval data/COLOR}" rowspan="2">{rval data/GRAD_VALUE}</td>
+                          <td width="45"  align="center" bgcolor="{rval data/COLOR}" rowspan="2">{rval data/COMP_CREDIT}</td>
+                          <td width="*"  align="center" bgcolor="{rval data/COLOR}" rowspan="2">{rval data/GET_CREDIT}</td>
+                        </tr>
+                        <tr>
+                          <td class="no_search" width="80"   align="center">評価</td>
+                          <td width="{rval VALUEWIDTH}"   align="left"   bgcolor="{rval data/COLOR}">
+                            <table width="100%">
+                              <tr>
+                                <td width="90">
+                                  <!--{def isTeikei}-->{rval data/TOTALSTUDYTIME_TEIKEI}　<!--{/def}-->
+                                </td>
+                                <td>
+                                  {rval data/TOTALSTUDYTIME}<br>
+                                  <font size="2" color="red">{rval data/TOTALSTUDYTIME_COMMENT}</font>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <td align="right">
+                        {rval FILE}{val btn_input}&nbsp;{val btn_output}　{val btn_replace}　　{val btn_update}{val btn_reset}{val btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                  </td>
+                </tr>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}
+<script language="JavaScript">{rval close_win}</script>

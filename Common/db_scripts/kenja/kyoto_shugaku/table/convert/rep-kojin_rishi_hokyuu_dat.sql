@@ -1,0 +1,35 @@
+-- $Id: rep-kojin_rishi_hokyuu_dat.sql 74435 2020-05-20 07:59:16Z yamashiro $
+
+DROP TABLE KOJIN_RISHI_HOKYUU_DAT_OLD
+RENAME TABLE KOJIN_RISHI_HOKYUU_DAT TO KOJIN_RISHI_HOKYUU_DAT_OLD
+CREATE TABLE KOJIN_RISHI_HOKYUU_DAT( \
+    SHUUGAKU_NO                 VARCHAR(7)  NOT NULL, \
+    SHIKIN_SHUBETSU             VARCHAR(1)  NOT NULL, \
+    KOJIN_NO                    VARCHAR(7)  NOT NULL, \
+    SHUTARU_CD                  VARCHAR(7)  NOT NULL, \
+    S_SHINSEI_YEAR              VARCHAR(4), \
+    KARIIRE_TOTAL_GK            INT         NOT NULL, \
+    RISHI_TOTAL_GK              INT         NOT NULL, \
+    KOUFU_SHINSEI_TOTAL_GK      INT         NOT NULL, \
+    RISHI_HOKYUUSHORI_TOTAL_GK  INT         NOT NULL, \
+    REGISTERCD                  VARCHAR(8), \
+    UPDATED                     TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+) IN USR1DMS INDEX IN IDX1DMS
+
+INSERT INTO KOJIN_RISHI_HOKYUU_DAT \
+    SELECT \
+        SHUUGAKU_NO, \              
+        SHIKIN_SHUBETSU, \           
+        KOJIN_NO, \                  
+        SUBSTR(SHUTARU_CD, 1, 7), \
+        S_SHINSEI_YEAR, \            
+        KARIIRE_TOTAL_GK, \          
+        RISHI_TOTAL_GK, \            
+        KOUFU_SHINSEI_TOTAL_GK, \    
+        RISHI_HOKYUUSHORI_TOTAL_GK, \
+        REGISTERCD, \
+        UPDATED \
+    FROM \
+        KOJIN_RISHI_HOKYUU_DAT_OLD
+
+ALTER TABLE KOJIN_RISHI_HOKYUU_DAT ADD CONSTRAINT PK_K_RISHI_HO_DAT PRIMARY KEY (SHUUGAKU_NO)

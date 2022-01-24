@@ -1,0 +1,121 @@
+{rval start}
+
+<table width="1310px" border="0" cellspacing="0" cellpadding="5" align="center">
+
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td width="100" align="center">入試年度</td>
+                      <td width="100" bgcolor="#ffffff" style="color:black; text-align:center">{rval TOP/YEAR}</td>
+                      <td width="100" align="center">※ 入試制度</td>
+                      <td width="100" bgcolor="#ffffff">{rval TOP/APPLICANTDIV}</td>
+                      <td width="100" align="center">※ 出身学校</td>
+                      <td width="200" bgcolor="#ffffff">{rval TOP/FINSCHOOLCD}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr bgcolor="#006633">
+          <td align="right">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" align="center"> 
+                            <th width="80" height="30" align="center">指導要録<BR>受領</th>
+                            <th width="80" height="30" align="center">健康診断<BR>受領</th>
+                            <th width="100" align="center">受験番号</th>
+                            <td width="260" align="center">氏名</th>
+                            <td width="260" align="center">ふりがな</th>
+                            <th width="300" align="center">合否コース</th>
+                            <th width="100" align="center"><LABEL for="PRINT_ZUMI">印刷状態<BR>済表示</LABEL>{rval TOP/PRINT_ZUMI}</th>
+                            <th width="*" height="30" align="center">印刷<BR>{rval TOP/PRINT_ALL}</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td bgcolor="#ffffff">
+                <div style="width: 100%; height: 450; overflow: auto">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{def data}-->
+<!--{each data}-->
+                          <tr bgcolor="#ffffff" bgcolor="no_search" id="ROWID{rval data/RECEPTNO}">
+                            <td width="80" align="center">{rval data/YOUROKU_DATA}</td>
+                            <td width="80" align="center">{rval data/MEDEXAM_DATA}</td>
+                            <td width="100" align="center">{rval data/RECEPTNO}</td>
+                            <td width="260" align="left">{rval data/NAME}</td>
+                            <td width="260" align="left">{rval data/NAME_KANA}</td>
+                            <td width="300" align="center">{rval data/EXAMCOURSE_NAME}</td>
+                            <td width="100" align="center">{rval data/PRINT_STATE}</td>
+                            <td width="*" align="center">{rval data/PRINT_DATA}</td>
+                          </tr>
+<!--{/each}-->
+<!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th width="160px" align="right">{rval btn_update}</th>
+                            <th width="*px" align="right"><B>印刷日：</B>{rval PRINT_DATE}&nbsp;{rval btn_updatePrint}　{rval btn_reset}{rval btn_end}</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+</table>
+
+<script language="JavaScript">
+change_flg = false;
+</script>
+{rval finish}
+<script>{rval print}</script>

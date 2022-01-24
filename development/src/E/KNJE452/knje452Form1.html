@@ -1,0 +1,70 @@
+{rval start}
+<table align=center width="600" border="0" cellspacing="0" cellpadding="0">
+        <br><br><br><br><br>
+        <tr>
+        <td valign="top">
+                <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                <tr>
+                <th>
+                    <table width="100%" border="0" cellspacing="3" cellpadding="0" align="center">
+                      <tr class="no_search_line">
+                      <th>
+                         <table width="100%" border="0" cellspacing="1" cellpadding="1">
+
+                              <tr height="25">
+                                <td class="no_search" align="right" nowrap>処理年度&nbsp;</td>
+                                <td bgcolor="#ffffff" nowrap>&nbsp;{rval YEAR}年度　　　　　{rval button/btn_copy}</td>
+                              </tr>
+
+                              <tr height="25">
+                                <td class="no_search" align="right" nowrap>設問区分&nbsp;</td>
+                                <td bgcolor="#ffffff" nowrap>&nbsp;{rval sepa/ASSESS_DIV}</td>
+                              </tr>
+
+                         </table>
+
+                      </th>
+                      </tr>
+                    </table>
+
+                    <br><br>
+
+                    <table width="100%" border="0" cellspacing="3" cellpadding="0" align="center">
+                      <tr class="no_search_line">
+                        <td>
+                            <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" frame="box">
+
+                                <tr class="no_search">
+                                    <th width="100">設問</th>
+                                    <th width="*%">設問内容</th>
+                                </tr>
+
+                                <!--結果一覧-->
+                                <!--{def data}-->
+                                <!--{each data}--> 
+                                <tr align="center" bgcolor="#ffffff"> 
+                                        <td >{val data/ASSESS_CD}</td>
+                                        <td >{val data/QUESTION}</td>
+                                </tr> 
+                                <!--{/each}--> 
+                                <!--{/def}--> 
+
+                                <tr>
+                                    <td colspan="4" bgcolor="#ffffff" align="right">
+                                        {rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </td>
+                      </tr>
+                    </table>
+
+                </th>
+                </tr>
+                </table>
+       </td>
+       </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval Closing}</script>

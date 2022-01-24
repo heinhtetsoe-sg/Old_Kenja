@@ -1,0 +1,141 @@
+{rval start}
+{rval IFRAME}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td width="75%">
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left"><br>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                          <tr height="30">
+                            <td width="15%" class="no_search" align="center">部活動</td>
+                            <td width="30%" bgcolor="#ffffff">{rval data/CLUB}</td>
+                            <td width="15%" class="no_search" align="center">委員会</td>
+                            <td width="40%" bgcolor="#ffffff">{rval data/COMMI_CHARGE}</td>
+                          </tr>
+                          <tr height="30">
+                            <td class="no_search" align="center">評定平均</td>
+                            <td bgcolor="#ffffff">{rval data/AVERAGE}</td>
+                            <td class="no_search" align="center">出身学校</td>
+                            <td bgcolor="#ffffff">{rval data/FINSCHOOL}</td>
+                          </tr>
+                        </table>
+                      </tb>
+                    </tr>
+                  </table>
+                </tb>
+              </tr>
+            </table>
+          </td>
+        <!--{def img}-->
+        <!--{def dispPicture}-->
+          <td width="25%" align="center">
+          <img src="{rval img/FACE_IMG}" alt="生徒顔写真&nbsp;{rval img/IMG_PATH}" width="120" height="160">
+          </td>
+        <!--{/def}-->
+        <!--{def unDispPicture}-->
+          <td width="25%" align="center" onmouseover="image1.style.display='';" onmouseout="image1.style.display='none';">
+          <img name="image1" src="{rval img/FACE_IMG}" alt="生徒顔写真&nbsp;{rval img/IMG_PATH}" width="120" height="160" style="display:none">
+          </td>
+        <!--{/def}-->
+        <!--{/def}-->
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="10" cellpadding="0">
+        <tr>
+          <td>
+            {rval button/btn_subform1}{rval button/btn_subform2}{rval button/btn_subform3}{rval button/btn_subform5}　{rval button/btn_subform4}　{rval button/btn_subform6}　　{rval button/btn_del}{rval button/btn_end}
+          </tb>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                    {rval data/OUTPUT1}<LABEL for="OUTPUT1">全て</LABEL>　{rval data/OUTPUT2}<LABEL for="OUTPUT2">受験報告（進学）</LABEL>　{rval data/OUTPUT3}<LABEL for="OUTPUT3">受験報告（就職)</LABEL>
+                </tb>
+              </tr>
+              <tr>
+                <td>
+                  <div style="width:1020;height:400;overflow-x:scroll;overflow-y:scroll">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th align="center" nowrap width="30">削<br>除<br>{rval CHECKALL}</th>
+                            <th align="center" nowrap width="80">{rval DATE_LABEL}</th>
+                            <th align="center" nowrap width="70">種別</th>
+                            <th align="center" nowrap width="100">{rval LABEL1}</th>
+                            <th align="center" nowrap width="100">{rval LABEL2}</th>
+                            <th align="center" nowrap width="100">{rval LABEL3}</th>
+                            <th align="center" nowrap width="100">{rval LABEL4}</th>
+                            <th align="center" nowrap width="100">{rval LABEL5}</th>
+                            <th align="center" nowrap width="100">{rval LABEL6}</th>
+                            <th align="center" nowrap width="100">{rval LABEL7}</th>
+<!--{def useCollegeExamCalendar}-->
+                            <th align="center" nowrap width="100">{rval LABEL8}</th>
+                            <th align="center" nowrap width="100">{rval LABEL9}</th>
+<!--{/def}-->
+                          </tr>
+                          <!--結果一覧--><!--{def list}--><!--{each list}-->
+                          <tr bgcolor="#ffffff">
+                            <td align="center" nowrap>{rval list/CHECKED}</td>
+                            <td align="center" nowrap>{rval list/DATE}</td>
+                            <td align="center" nowrap>{rval list/KINDNAME}</td>
+                            <td nowrap>{rval list/ONE}</td>
+                            <td nowrap>{rval list/TWO}</td>
+                            <td nowrap>{rval list/THREE}</td>
+                            <td nowrap>{rval list/FOUR}</td>
+                            <td nowrap>{rval list/FIVE}</td>
+                            <td nowrap>{rval list/SIX}</td>
+                            <td nowrap>{rval list/SEVEN}</td>
+<!--{def useCollegeExamCalendar}-->
+                            <td nowrap>{rval list/EIGHT}</td>
+                            <td nowrap>{rval list/NINE}</td>
+<!--{/def}-->
+                          </tr>
+                          <!--{/each}--><!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

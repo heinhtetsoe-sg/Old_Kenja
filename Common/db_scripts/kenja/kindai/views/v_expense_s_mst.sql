@@ -1,0 +1,27 @@
+-- kanji=´Á»ú
+-- $Id: v_expense_s_mst.sql 56577 2017-10-22 11:35:50Z maeshiro $
+
+DROP VIEW V_EXPENSE_S_MST
+
+CREATE VIEW V_EXPENSE_S_MST \
+    (YEAR, \
+     EXPENSE_S_CD, \
+     EXPENSE_M_CD, \
+     EXPENSE_S_NAME, \
+     EXPENSE_S_MONEY, \
+     SEX, \
+     REGISTERCD, \
+     UPDATED) \
+AS SELECT \
+    T1.YEAR, \
+    T1.EXPENSE_S_CD, \
+    T1.EXPENSE_M_CD, \
+    T2.EXPENSE_S_NAME, \
+    T2.EXPENSE_S_MONEY, \
+    T2.SEX, \
+    T1.REGISTERCD, \
+    T1.UPDATED \
+FROM     EXPENSE_MS_MST T1, \
+    EXPENSE_S_MST T2 \
+WHERE    T1.YEAR = T2.YEAR AND T1.EXPENSE_S_CD = T2.EXPENSE_S_CD
+

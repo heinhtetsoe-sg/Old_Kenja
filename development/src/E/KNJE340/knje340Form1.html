@@ -1,0 +1,51 @@
+<!--kanji=漢字-->
+<!-- <?php # $Id: knje340Form1.html 56587 2017-10-22 12:54:51Z maeshiro $ ?> -->
+
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr >
+
+      <td >
+    <hr width="30%" align="left">
+&nbsp;{rval SCHREGNO}&nbsp;&nbsp;{val NAME}
+    <hr width="30%" align="left">
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search" height="30">
+            <th nowrap width="8%" >会社訪問日</th>  <!-- <?php # JOB_DATE1 ?> -->
+            <th nowrap width="*%">会社</th>         <!-- <?php # STAT_NAME ?> -->
+            <th nowrap width="8%" >応募方法</th>    <!-- <?php # NM_HOWTOEXAM ?> -->
+            <th nowrap width="8%" >受験結果</th>    <!-- <?php # NM_DECISION ?> -->
+            <th nowrap width="8%" >進路状況</th>    <!-- <?php # NM_PLANSTAT ?> -->
+          </tr>
+<!-- <?php # 結果一覧 ?> -->
+<!--{def data}-->
+<!--{each data}-->
+          <tr bgcolor="#ffffff">
+             <td nowrap>{val data/JOB_DATE1}</td>
+             <td nowrap>{val data/STAT_NAME}</td>
+             <td nowrap>{val data/NM_HOWTOEXAM}</td>
+             <td nowrap>{val data/NM_DECISION}</td>
+             <td nowrap>{val data/NM_PLANSTAT}</td>
+          </tr>
+<!--{/each}-->
+<!--{/def}-->
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval reload}{rval close}</script>
+{rval finish}

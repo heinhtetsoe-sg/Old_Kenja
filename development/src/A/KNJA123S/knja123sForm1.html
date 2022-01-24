@@ -1,0 +1,112 @@
+{rval start}
+<!--{def useApplet}-->
+<APPLET CODE="attest.JePass.class" codebase={rval APP/APPHOST}
+        name=signatureApplet
+        ARCHIVE="jApplet.jar,
+                 ../lib/commons-logging-1.1.1.jar,
+                 ../lib/log4j-1.2.15.jar,
+                 ../lib/plugin.jar"
+        ALT="SSL"
+        WIDTH=""
+        HEIGHT="">
+
+    <param name="PASS" value={rval APP/PASS}>
+    <param name="RANDM" value={rval APP/RANDM}>
+    <param name="STAFF" value={rval APP/STAFF}>
+    <param name="EXEDIV" value={rval APP/EXEDIV}>
+
+</APPLET>
+<!--{/def}-->
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+        <td valign="top">
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr>
+                  <td>
+                       <div style="text-align:right">
+                           <div style="float:left;width:300px;text-align:left;">
+                               <hr>
+                                  {rval SCHREGNO}&nbsp;&nbsp;{val NAME}
+                               <hr>
+                           </div>
+                           <div style="width:200px;">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr class="no_search_line">
+                                      <td> 
+                                          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                              <tr class="no_search"> 
+                                                  <th width="20%">担任</th>
+                                                  <th width="20%">校長</th>
+                                              </tr>
+                                              <tr style="background-color:#ffffff;text-align:center;height:90px;">
+                                                  <td>{rval IMAGE1}</td>
+                                                  <td>{rval IMAGE2}</td>
+                                              </tr>
+                                          </table>
+                                      </td>
+                                  </tr>
+                              </table>
+                           </div>
+                       <div>
+                       <br>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                                <td> 
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search"> 
+                                          <th colspan="2" width="20%">項 目</th>
+                                          <th width="80%">値</th>
+                                        </tr>
+<!--結果一覧-->
+<!--{def data}-->
+                                        <tr>
+                                          <th rowspan="2" class="no_search" nowrap>総<br>合<br>的<br>な<br>学<br>習<br>の<br>時<br>間<br>の<br>記<br>録</th>
+                                          <th align="right" class="no_search" nowrap Valign="top">活動内容</th>
+                                          <td bgcolor="#ffffff">{rval data/TOTALSTUDYACT}<br><font size=2, color="red">{rval data/TOTALSTUDYACT_TYUI}</font></td>
+                                        </tr>
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap Valign="top">評価</th>
+                                          <td bgcolor="#ffffff">{rval data/TOTALSTUDYVAL}<br><font size=2, color="red">{rval data/TOTALSTUDYVAL_TYUI}</font></td>
+                                        </tr>
+                                        <tr>
+                                          <th colspan="2" align="right" class="no_search" nowrap Valign="top">特別活動所見</th>
+                                          <td bgcolor="#ffffff">{rval data/SPECIALACTREMARK}<br><font size=2, color="red">{rval data/SPECIALACTREMARK_TYUI}</font></td>
+                                        </tr>
+<!--{def button}-->
+                                        <tr>
+                                          <th colspan="2" align="right" class="no_search" nowrap Valign="top">総合所見</th>
+                                          <td bgcolor="#ffffff">{rval data/TOTALREMARK}<br><font size=2, color="red">{rval data/TOTALREMARK_TYUI}</font>  {rval button/btn_popup}</td>
+                                        </tr>
+                                        <tr>
+                                          <th colspan="2" align="right" class="no_search" nowrap Valign="top">出欠の記録備考</th>
+<!--{/def}-->
+                                          <td bgcolor="#ffffff">{rval data/ATTENDREC_REMARK}<br><font size=2, color="red">{rval data/ATTENDREC_REMARK_TYUI}</font></td>
+                                        </tr>
+<!--{/def}-->
+<!--{def button}-->
+                                        <tr align="right">
+                                          <th colspan="2" class="no_search" nowrap>&nbsp;</th>
+                                          <td bgcolor="#ffffff"><span style="float:left;">{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_end}</span>
+                                          {rval button/btn_cancel}</td>
+                                        </tr>
+<!--{/def}-->
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+
+  <tr>
+    <td style="font-weight: 700; color:{rval marpColor}">
+      <marquee><span id="marq_msg">認証中です...しばらくおまちください</span></marquee>
+    </td>
+  </tr>
+
+</table>
+{rval finish}
+<script language="javascript">{rval jscript}</script>

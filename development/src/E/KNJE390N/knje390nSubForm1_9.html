@@ -1,0 +1,67 @@
+﻿{rval start}
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top">
+      <table width="100%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td width="150" nowrap bgcolor="#00FFFF" align="center">
+            <b><font size="3" color="#000080">基本情報</font><font size="2" color="#000080"><BR>(視力・聴力)</font></b>
+          </td>
+          <td>
+            <hr width="70%" align="left">
+              &nbsp;&nbsp;{rval SCHINFO}&nbsp;
+            <hr width="70%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="700px" border="0" cellspacing="0" cellpadding="0">
+        <tr><td height="20"></td></tr>
+<!--{def data}-->
+<!--{def button}-->
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr>
+                <th class="no_search" nowrap colspan=2>健康診断実施日</th>
+                <td bgcolor="#ffffff"width="*">{rval data/DATE}</td>
+              </tr>
+              <tr>
+                <th class="no_search" nowrap colspan=3>視力・聴力</th>
+              </tr>
+              <tr>
+                <th class="no_search" nowrap rowspan=2 width=100>視力</th>
+                <th width="100" align="right" class="no_search" nowrap>裸眼</th>
+                <td bgcolor="#ffffff"width="*">&nbsp;右&nbsp;&nbsp;{rval data/R_BAREVISION}&nbsp;&nbsp;左&nbsp;&nbsp;{rval data/L_BAREVISION}</td>
+              </tr>
+              <tr>
+                <th width="100" align="right" class="no_search" nowrap>矯正</th>
+                <td bgcolor="#ffffff"width="*">&nbsp;右&nbsp;&nbsp;({rval data/R_VISION})&nbsp;&nbsp;左&nbsp;&nbsp;({rval data/L_VISION})</td>
+              </tr>
+              <tr>
+                <th width="200" align="center" class="no_search" nowrap colspan=2>聴力</th>
+                <td bgcolor="#ffffff"width="*">&nbsp;右&nbsp;&nbsp;{rval data/R_EAR_DB}dB&nbsp;&nbsp;左&nbsp;&nbsp;{rval data/L_EAR_DB}dB</td>
+              </tr>
+              <tr>
+                <th width="200" align="center" class="no_search" nowrap colspan=2>補聴器</th>
+                <td bgcolor="#ffffff" width="*">&nbsp;装着開始&nbsp;{rval data/DET_REMARK1}&nbsp;才&nbsp;{rval data/DET_REMARK2}ヵ月&nbsp;&nbsp;&nbsp;&nbsp;人工内耳施術&nbsp;{rval data/DET_REMARK3}&nbsp;才&nbsp;{rval data/DET_REMARK4}ヵ月</td>
+              </tr>
+              <tr>
+                <th align="right" class="no_search" nowrap colspan=2>&nbsp;</th>
+                <td align="left" bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_clear}{rval button/btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+<!--{/def}-->
+<!--{/def}-->
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish} 

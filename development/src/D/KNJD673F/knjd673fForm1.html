@@ -1,0 +1,97 @@
+{rval start}
+
+<br>
+<table width="1000" border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tr class="no_search" height="30">
+                      <td width="100%" align="center" nowrap>
+                        {rval YEAR}年度　　学期：{rval SEMESTER}　　FIクラス：{rval GRADE_HR_CLASS}　　面談区分：{rval INTERVIEW_DIV}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th width="80">出席番号</th>
+                      <th width="230">氏名</th>
+                      <th width="*">コメント　<font color="red" size="2">(全角45文字X2行まで)</font></th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width:100%;height:450;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+  <!--{each data}-->
+                    <tr>
+                      <td width="80" align="center" bgcolor="{rval data/COLOR}" nowrap>{rval data/ATTENDNO}</td>
+                      <td width="230" align="left" bgcolor="{rval data/COLOR}" nowrap>{rval data/SCHREGNO}　{rval data/NAME_SHOW}</td>
+                      <td width="*" align="left" bgcolor="{rval data/COLOR}">{rval data/REMARK}</td>
+                    </tr>
+  <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td>
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                          <tr class="no_search" height="30">
+                            <td align="right">
+                                {val btn_update}{val btn_reset}{val btn_end}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

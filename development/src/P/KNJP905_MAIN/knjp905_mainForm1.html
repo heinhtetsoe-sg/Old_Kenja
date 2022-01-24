@@ -1,0 +1,431 @@
+{rval start}
+<style>
+.changeColor {
+    background-color:#316F9B;
+}
+</style>
+<table style="width: 100%" border="0" cellpadding="5" cellspacing="5" align="center">
+  <tr>
+    <td>
+      <table style="width: 100%" border="0" cellspacing="5" cellpadding="1">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="1">
+              <tr class="no_search_line">
+                <th>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                    <tr> 
+                      <th height="30" align="left" class="no_search"><B>　　支出伺</B>　　　伝票番号:{rval data/REQUEST_NO}</th>
+                    </tr>
+                  </table>
+                </th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th width="13%" align="right" class="no_search" nowrap>預り金項目(収入)</th>
+                      <td width="35%" bgcolor="#ffffff">{rval data/INCOME_LM_CD}</td>
+                      <th width="13%" align="right" class="no_search" nowrap>現入金残高</th>
+                      <td width="*%" bgcolor="#ffffff"><span id="TOTAL_ZAN_GK">{rval data/TOTAL_ZAN_GK}</span></td>
+                    </tr>
+                    <tr>
+                      <td width="35%" bgcolor="#ffffff" colspan="2"></td>
+                      <th width="13%" align="right" class="no_search" nowrap>収入伺い日入金残高</th>
+                      <td width="*%" bgcolor="#ffffff"><span id="TOTAL_ZAN_GK">{rval data/TOTAL_ZAN_DATE_GK}</span></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr height="5"></tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+
+                <!--{def DEFAULT_FLG}-->
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th width="13%" align="right" class="no_search" nowrap>預り金項目(支出)</th>
+                      <td width="35%" bgcolor="#ffffff">{rval data/OUTGO_L_M_CD}</td>
+                      <th width="13%" align="right" class="no_search" nowrap>支出伺い日</th>
+                      <td width="*%" bgcolor="#ffffff">{rval data/REQUEST_DATE}</td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff" nowrap rowspan="2" colspan="2"></td>
+                      <th align="right" class="no_search" >起案者</th>
+                      <td bgcolor="#ffffff">{rval data/REQUEST_STAFF}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" >支出額</th>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/REQUEST_GK}</td>
+                    </tr>
+                  </table>
+                <!--{/def}-->
+
+                <!--{def LEVY_BUDGET_FLG}-->
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th width="13%" align="right" class="no_search" nowrap>預り金項目(支出)</th>
+                      <td width="35%" bgcolor="#ffffff">{rval data/OUTGO_L_M_CD}</td>
+                      <th width="13%" align="right" class="no_search" nowrap>予算額</th>
+                      <td width="*%" bgcolor="#ffffff">{rval data/BUDGET_TOTAL}</td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" >支出伺い日</th>
+                      <td width="*%" bgcolor="#ffffff">{rval data/REQUEST_DATE}</td>
+                      <th align="right" class="no_search" >予算残高</th>
+                      <td bgcolor="#ffffff">{rval data/BUDGET_ZAN}</td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#ffffff" nowrap rowspan="2" colspan="2"></td>
+                      <th align="right" class="no_search" >支出額</th>
+                      <td bgcolor="#ffffff">&nbsp;{rval data/REQUEST_GK}</td>
+                    </tr>
+                  </table>
+                <!--{/def}-->
+
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr height="5"></tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th width="13%" align="right" class="no_search" nowrap>件名</th>
+                      <td bgcolor="#ffffff" colspan="3">{rval data/REQUEST_REASON}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr height="5"></tr>
+
+        <tr>
+          <td>
+            <table width="85%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th width="3%"  align="center" class="no_search" nowrap>{rval data/COPY_CHECK_ALL}</th>
+                      <th width="5%"  align="center" class="no_search" nowrap>NO</th>
+                      <th width="25%" align="center" class="no_search" nowrap>品名等</td>
+                      <th width="12%" align="center" class="no_search" nowrap>単価</td>
+                      <th width="5%"  align="center" class="no_search" nowrap>税込</th>
+                      <th width="5%"  align="center" class="no_search" nowrap>数量</td>
+                      <th width="5%"  align="center" class="no_search" nowrap>消費税</td>
+                      <th width="12%" align="center" class="no_search" nowrap>税込金額</td>
+<!--{def LEVY_BUDGET_FLG}-->
+                      <th width="12%" align="center" class="no_search" nowrap>予算額</td>
+<!--{/def}-->
+                      <th width="20%" align="center" class="no_search" nowrap>摘要</td>
+                      <th width="*"   align="center" class="no_search" nowrap></td>
+                    </tr>
+                    <tr>
+                      <th align="center" class="changeColor" nowrap data-name="{rval data/COPY_CHECK1_NAME}">{rval data/COPY_CHECK1}</th>
+                      <th align="center" class="no_search" nowrap>1</th>
+                      <th align="left"   bgcolor="#ffffff">{rval data/LEVY_S_NAME1}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_PRICE1}</td>
+                      <th align="center" bgcolor="#ffffff">{rval data/IN_TAX1}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_CNT1}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_TAX1}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_PRICE1}</td>
+<!--{def LEVY_BUDGET_FLG}-->
+                      <th align="right"  bgcolor="#ffffff">{rval data/BUDGET_MONEY1}</td>
+<!--{/def}-->
+                      <th align="left"   bgcolor="#ffffff">{rval data/REMARK1}</td>
+                      <th align="center" bgcolor="#ffffff">{rval button/btn_schreg1}</td>
+                    </tr>
+                    <tr>
+                      <th align="center" class="changeColor" nowrap data-name="{rval data/COPY_CHECK2_NAME}">{rval data/COPY_CHECK2}</th>
+                      <th align="center" class="no_search" nowrap>2</th>
+                      <th align="left"   bgcolor="#ffffff">{rval data/LEVY_S_NAME2}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_PRICE2}</td>
+                      <th align="center" bgcolor="#ffffff">{rval data/IN_TAX2}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_CNT2}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_TAX2}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_PRICE2}</td>
+<!--{def LEVY_BUDGET_FLG}-->
+                      <th align="right"  bgcolor="#ffffff">{rval data/BUDGET_MONEY2}</td>
+<!--{/def}-->
+                      <th align="left"   bgcolor="#ffffff">{rval data/REMARK2}</td>
+                      <th align="center" bgcolor="#ffffff">{rval button/btn_schreg2}</td>
+                    </tr>
+                    <tr>
+                      <th align="center" class="changeColor" nowrap data-name="{rval data/COPY_CHECK3_NAME}">{rval data/COPY_CHECK3}</th>
+                      <th align="center" class="no_search" nowrap>3</th>
+                      <th align="left"   bgcolor="#ffffff">{rval data/LEVY_S_NAME3}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_PRICE3}</td>
+                      <th align="center" bgcolor="#ffffff">{rval data/IN_TAX3}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_CNT3}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_TAX3}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_PRICE3}</td>
+<!--{def LEVY_BUDGET_FLG}-->
+                      <th align="right"  bgcolor="#ffffff">{rval data/BUDGET_MONEY3}</td>
+<!--{/def}-->
+                      <th align="left"   bgcolor="#ffffff">{rval data/REMARK3}</td>
+                      <th align="center" bgcolor="#ffffff">{rval button/btn_schreg3}</td>
+                    </tr>
+                    <tr>
+                      <th align="center" class="changeColor" nowrap data-name="{rval data/COPY_CHECK4_NAME}">{rval data/COPY_CHECK4}</th>
+                      <th align="center" class="no_search" nowrap>4</th>
+                      <th align="left"   bgcolor="#ffffff">{rval data/LEVY_S_NAME4}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_PRICE4}</td>
+                      <th align="center" bgcolor="#ffffff">{rval data/IN_TAX4}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_CNT4}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_TAX4}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_PRICE4}</td>
+<!--{def LEVY_BUDGET_FLG}-->
+                      <th align="right"  bgcolor="#ffffff">{rval data/BUDGET_MONEY4}</td>
+<!--{/def}-->
+                      <th align="left"   bgcolor="#ffffff">{rval data/REMARK4}</td>
+                      <th align="center" bgcolor="#ffffff">{rval button/btn_schreg4}</td>
+                    </tr>
+                    <tr>
+                      <th align="center" class="changeColor" nowrap data-name="{rval data/COPY_CHECK5_NAME}">{rval data/COPY_CHECK5}</th>
+                      <th align="center" class="no_search" nowrap>5</th>
+                      <th align="left"   bgcolor="#ffffff">{rval data/LEVY_S_NAME5}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_PRICE5}</td>
+                      <th align="center" bgcolor="#ffffff">{rval data/IN_TAX5}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_CNT5}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_TAX5}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_PRICE5}</td>
+<!--{def LEVY_BUDGET_FLG}-->
+                      <th align="right"  bgcolor="#ffffff">{rval data/BUDGET_MONEY5}</td>
+<!--{/def}-->
+                      <th align="left"   bgcolor="#ffffff">{rval data/REMARK5}</td>
+                      <th align="center" bgcolor="#ffffff">{rval button/btn_schreg5}</td>
+                    </tr>
+                    <tr>
+                      <th align="center" class="changeColor" nowrap data-name="{rval data/COPY_CHECK6_NAME}">{rval data/COPY_CHECK6}</th>
+                      <th align="center" class="no_search" nowrap>6</th>
+                      <th align="left"   bgcolor="#ffffff">{rval data/LEVY_S_NAME6}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_PRICE6}</td>
+                      <th align="center" bgcolor="#ffffff">{rval data/IN_TAX6}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_CNT6}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_TAX6}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_PRICE6}</td>
+<!--{def LEVY_BUDGET_FLG}-->
+                      <th align="right"  bgcolor="#ffffff">{rval data/BUDGET_MONEY6}</td>
+<!--{/def}-->
+                      <th align="left"   bgcolor="#ffffff">{rval data/REMARK6}</td>
+                      <th align="center" bgcolor="#ffffff">{rval button/btn_schreg6}</td>
+                    </tr>
+                    <tr>
+                      <th align="center" class="changeColor" nowrap data-name="{rval data/COPY_CHECK7_NAME}">{rval data/COPY_CHECK7}</th>
+                      <th align="center" class="no_search" nowrap>7</th>
+                      <th align="left"   bgcolor="#ffffff">{rval data/LEVY_S_NAME7}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_PRICE7}</td>
+                      <th align="center" bgcolor="#ffffff">{rval data/IN_TAX7}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_CNT7}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_TAX7}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_PRICE7}</td>
+<!--{def LEVY_BUDGET_FLG}-->
+                      <th align="right"  bgcolor="#ffffff">{rval data/BUDGET_MONEY7}</td>
+<!--{/def}-->
+                      <th align="left"   bgcolor="#ffffff">{rval data/REMARK7}</td>
+                      <th align="center" bgcolor="#ffffff">{rval button/btn_schreg7}</td>
+                    </tr>
+                    <tr>
+                      <th align="center" class="changeColor" nowrap data-name="{rval data/COPY_CHECK8_NAME}">{rval data/COPY_CHECK8}</th>
+                      <th align="center" class="no_search" nowrap>8</th>
+                      <th align="left"   bgcolor="#ffffff">{rval data/LEVY_S_NAME8}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_PRICE8}</td>
+                      <th align="center" bgcolor="#ffffff">{rval data/IN_TAX8}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_CNT8}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_TAX8}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_PRICE8}</td>
+<!--{def LEVY_BUDGET_FLG}-->
+                      <th align="right"  bgcolor="#ffffff">{rval data/BUDGET_MONEY8}</td>
+<!--{/def}-->
+                      <th align="left"   bgcolor="#ffffff">{rval data/REMARK8}</td>
+                      <th align="center" bgcolor="#ffffff">{rval button/btn_schreg8}</td>
+                    </tr>
+                    <tr>
+                      <th align="center" class="changeColor" nowrap data-name="{rval data/COPY_CHECK9_NAME}">{rval data/COPY_CHECK9}</th>
+                      <th align="center" class="no_search" nowrap>9</th>
+                      <th align="left"   bgcolor="#ffffff">{rval data/LEVY_S_NAME9}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_PRICE9}</td>
+                      <th align="center" bgcolor="#ffffff">{rval data/IN_TAX9}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_CNT9}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_TAX9}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_PRICE9}</td>
+<!--{def LEVY_BUDGET_FLG}-->
+                      <th align="right"  bgcolor="#ffffff">{rval data/BUDGET_MONEY9}</td>
+<!--{/def}-->
+                      <th align="left"   bgcolor="#ffffff">{rval data/REMARK9}</td>
+                      <th align="center" bgcolor="#ffffff">{rval button/btn_schreg9}</td>
+                    </tr>
+                    <tr>
+                      <th align="center" class="changeColor" nowrap data-name="{rval data/COPY_CHECK10_NAME}">{rval data/COPY_CHECK10}</th>
+                      <th align="center" class="no_search" nowrap>10</th>
+                      <th align="left"   bgcolor="#ffffff">{rval data/LEVY_S_NAME10}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_PRICE10}</td>
+                      <th align="center" bgcolor="#ffffff">{rval data/IN_TAX10}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/COMMODITY_CNT10}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_TAX10}</td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/TOTAL_PRICE10}</td>
+<!--{def LEVY_BUDGET_FLG}-->
+                      <th align="right"  bgcolor="#ffffff">{rval data/BUDGET_MONEY10}</td>
+<!--{/def}-->
+                      <th align="left"   bgcolor="#ffffff">{rval data/REMARK10}</td>
+                      <th align="center" bgcolor="#ffffff">{rval button/btn_schreg10}</td>
+                    </tr>
+                    <tr height="25">
+                      <th align="center" class="no_search" nowrap colspan="2">{rval button/btn_lineCopy}</th>
+                      <th align="left"   bgcolor="#ffffff">消費税</td>
+                      <th align="right"  bgcolor="#ffffff"></td>
+                      <th align="center" bgcolor="#ffffff"></td>
+                      <th align="right"  bgcolor="#ffffff"></td>
+                      <th align="right"  bgcolor="#ffffff">{rval data/SUM_TOTAL_TAX}</td>
+                      <th align="right"  bgcolor="#ffffff"></td>
+<!--{def LEVY_BUDGET_FLG}-->
+                      <th align="right"  bgcolor="#ffffff"></td>
+<!--{/def}-->
+                      <th align="left"   bgcolor="#ffffff"></td>
+                      <th align="center" bgcolor="#ffffff">{rval button/tesuryo_bikou}</td>
+                    </tr>
+                    <tr height="25">
+                      <th align="center" class="no_search" colspan="3" nowrap>計</th>
+                      <th align="center" bgcolor="#ffffff"></td>
+                      <th align="center" bgcolor="#ffffff"></td>
+                      <th align="center" bgcolor="#ffffff"></td>
+                      <th align="right"  bgcolor="#ffffff"></td>
+                      <th align="right"  bgcolor="#ffffff"><span id="SUM_TOTAL_PRICE_ALL">{rval data/SUM_TOTAL_PRICE_ALL}</span></td>
+<!--{def LEVY_BUDGET_FLG}-->
+                      <th align="right"  bgcolor="#ffffff">{rval data/SUM_BUDGET_MONEY_ALL}</td>
+<!--{/def}-->
+                      <th align="center" bgcolor="#ffffff">{rval data/SET_STATUS}</td>
+                      <th align="center" bgcolor="#ffffff"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr height="5"></tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr>
+                      <th width="13%" align="right" class="no_search" nowrap>業者コード</th>
+                      <td width="35%" bgcolor="#ffffff">{rval data/TRADER_CD}　{rval btn_torikomi}</td>
+                      <th width="13%" align="right" class="no_search" nowrap>業者名</th>
+                      <td width="*%" bgcolor="#ffffff">{rval data/TRADER_NAME}</td>
+                    </tr>
+                    <tr>
+                      <th width="13%" align="right" class="no_search" nowrap>銀行コード</th>
+                      <td width="35%" bgcolor="#ffffff">{rval data/BANKCD}</td>
+                      <th width="13%" align="right" class="no_search" nowrap>支店コード</th>
+                      <td width="*%" bgcolor="#ffffff">{rval data/BRANCHCD}</td>
+                    </tr>
+                    <tr>
+                      <th width="13%" align="right" class="no_search" nowrap>口座種別</th>
+                      <td width="35%" bgcolor="#ffffff">{rval data/BANK_DEPOSIT_ITEM}</td>
+                      <th width="13%" align="right" class="no_search" nowrap>口座番号</th>
+                      <td width="*%" bgcolor="#ffffff">{rval data/BANK_ACCOUNTNO}</td>
+                    </tr>
+                    <tr>
+                      <th width="13%" align="right" class="no_search" nowrap>口座名義</th>
+                      <td width="35%" bgcolor="#ffffff">{rval data/ACCOUNTNAME}</td>
+                      <th width="13%" align="right" class="no_search" nowrap>口座名義カナ</th>
+                      <td width="*%" bgcolor="#ffffff">{rval data/ACCOUNTNAME_KANA}</td>
+                    </tr>
+                    <tr>
+                      <th width="13%" align="right" class="no_search" nowrap>支払方法</th>
+                      <td width="*%" bgcolor="#ffffff" colspan="3">{rval data/PAY_DIV}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!--{def button}-->
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="1">
+              <tr class="no_search_line">
+                <th>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                    <tr> 
+                        <th height="30" align="center" class="no_search">{rval button/btn_update}{rval button/btn_delete}{rval button/btn_reset}{rval button/btn_end}　　<!--{def updOk}-->{rval button/btn_kessai}<!--{/def}-->
+                                                                         <!--{def kounyu_hyouji}-->　{rval button/btn_kounyu}<!--{/def}-->
+                                                                         <!--{def sekou_hyouji}-->　{rval button/btn_sekou}<!--{/def}-->
+                                                                         <!--{def seisan_hyouji}-->　{rval button/btn_seisan}<!--{/def}-->　{rval button/btn_print}　{rval data/CHANGE_CLASS}<LABEL for="CHANGE_CLASS">クラス毎に出力</LABEL></b></th>
+                    </tr>
+                  </table>
+                </th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!--{/def}-->
+      </table>
+    </td>
+  </tr>
+</table>
+<div id="lay"></div>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>
+<script language="JavaScript">
+    document.addEventListener('click', function(e) {tdChangeColor(e)});
+    document.addEventListener('mouseover', function(e) {tdChangeColor(e)});
+    document.addEventListener('mouseout', function(e) {tdChangeColor(e)});
+
+    function tdChangeColor(e) {
+        var t = e.target;
+        if (t.className == "changeColor") {
+            var objName = e.target.getAttribute('data-name');
+            targetCheckBox = document.getElementById(objName);
+            if (targetCheckBox) {
+                switch (e.type) {
+                    case "mouseover":
+                        targetCheckBox.parentNode.style.backgroundColor = "pink";
+                        break;
+                    case "mouseout":
+                        targetCheckBox.parentNode.style.backgroundColor = "#316F9B";
+                        break;
+                    case "click":
+                        if (e.target.type != "checkbox") {
+                            targetCheckBox.checked = targetCheckBox.checked ? false: true;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+    }
+</script>

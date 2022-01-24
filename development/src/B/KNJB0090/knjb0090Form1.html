@@ -1,0 +1,113 @@
+{rval start}
+<table style="width: 700px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+  <table style="width: 700px" border="0" cellspacing="5" cellpadding="1">
+  <tr> 
+  <td>
+    <table style="width: 700px" border="0" cellspacing="0" cellpadding="0">
+    <tr class="no_search_line">
+    <td>
+      <table style="width: 700px" border="0" cellspacing="1" cellpadding="4">
+      <tr class="no_search" nowrap>
+      <td  nowrap colspan="2"><B>{rval SEMESTERNAME}</B></td>
+      </tr>
+      <tr  bgcolor="#ffffff" height="200">
+      <td align="center" width="40%">Fromの年度・学期
+      <br><br>{rval FROM_YEAR_SEMESTER}
+      <br><br>基本時間割一覧
+      <br><br>{rval FROM_SEQ}
+      </td>
+
+      <td align="center">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td align="center" width="40%">Toの年度・学期<br><br>{rval TO_YEAR_SEMESTER}<br><br></td>
+            <td align="center">{rval TO_LIST}</td>
+          </tr>
+          <tr>
+            <td align="center" colspan="2"><br>タイトル：<br><br>{rval TO_TITLE}</td>
+          </tr>
+        </table>
+      </td>
+      </tr>
+      <tr  bgcolor="#ffffff">
+      <td colspan="2">{rval STF_CHK}<LABEL for="STF_CHK">時間割担当もコピーする。</LABEL><br>&nbsp;&nbsp;（時間割担当とは特定の時間割に割当てられた職員です。これに対し通常は”講座担当”となります。）</td>
+      </tr>
+      <tr class="no_search" >
+      <td colspan="2" align="right">{rval btn_exec}{rval btn_end}&nbsp;&nbsp;</td>
+      </tr>
+      </table>
+    </td>
+    </tr>
+    <tr>
+      <td><BR>
+       <table width="100%" border="0" cellspacing="0" cellpadding="1" >
+        <tr class="no_search_line">
+           <th>
+          <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#cccccc">
+          <tr> 
+          <th align="center"><B>反映履歴</B>（基本時間割を通常時間割に反映した履歴です。）</th>
+          </tr>
+          </table>
+          </th>
+        </tr>
+        </table>
+      </td>
+    </tr>
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="30">No.</th>
+              <th width="150">実施日時</th>
+              <th width="100">反映区分</th>
+              <th width="170">適用期間</th>
+              <th width="*">適用パターン</th>
+             </tr>
+            </table>
+          </td>
+          </tr>
+         </table>
+        </td>
+        </tr>
+    </tr>
+    <tr>
+    <td>
+      <div style="width: 100%; height=240; overflow: auto">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3"> 
+            <!--{def data2}-->
+            <!--結果一覧-->
+            <!--{each data2}--> 
+              <tr bgcolor="#ffffff" >            
+                <td width="30" align="left" nowrap>{rval data2/NO}</td>
+                <td width="150" align="left" nowrap>{rval data2/REFLECTDATE}</td>
+                <td width="100" align="left" nowrap>{rval data2/REFLECTDIV}</td>
+                <td width="170" align="left" nowrap {rval data2/dayshelp}>{rval data2/SEDATE}</td>
+                <td width="*" align="left" nowrap>{rval data2/B_TITLE}</td>
+              </tr> 
+            <!--{/each}--> 
+            <!--{/def}-->
+            </table>
+          </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+  </table>
+</td>
+</tr>
+</table>
+<div id="lay"></div>
+<script language="JavaScript">{rval jscript}</script>
+{rval finish} 

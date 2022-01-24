@@ -1,0 +1,112 @@
+{rval IFRAME}
+{rval start}
+<table  align="center" width="90%" border="0" cellspacing="10" cellpadding="10">
+  <tr>
+    <td bgcolor="#ffffff">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line"> 
+        <td> 
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search_line" height="25">
+            <th colspan="2" class="no_search" width="12%">項目</th>
+            <th class="no_search" >値</th>
+          </tr>
+          <!--結果一覧-->
+          <!--{def data}-->
+          <tr height="30">
+            <th colspan="2" align="right" class="no_search" nowrap>更新データ指定</th>
+            <td bgcolor="#ffffff">更新対象費目：{rval data/TOTALCD}<br>
+                                  更新対象データ：<input type="radio" id="radio1" name="radiodiv" value="1" OnClick="Checkdisabled(1);" {rval data/checked1}><LABEL for="radio1">銀行処理結果入金情報</LABEL>
+                                                  <input type="radio" id="radio2" name="radiodiv" value="2" OnClick="Checkdisabled(1);" {rval data/checked2}><LABEL for="radio2">その他</LABEL>
+            </td>
+          </tr>
+          <tr height="30">
+            <th class="no_search" nowrap>{rval data/CHECKED1}</th>
+            <th align="right" class="no_search" nowrap>入金</th>
+            <td bgcolor="#ffffff" nowrap>入金必要額：{rval data/MONEY_DUE}&nbsp;円&nbsp;&nbsp;
+                                         入金額：{rval data/PAID_MONEY}&nbsp;円&nbsp;&nbsp;
+                                         入金日：{rval data/PAID_MONEY_DATE}&nbsp;&nbsp;
+                                         入金区分：{rval data/PAID_MONEY_DIV}
+            </td>
+          </tr>
+          <tr height="30">
+            <th class="no_search" nowrap>{rval data/CHECKED2}</th>
+            <th align="right" class="no_search" nowrap>返金</th>
+            <td bgcolor="#ffffff" nowrap>　　　　　　　　　　　　　　
+                                         返金額：{rval data/REPAY_MONEY}&nbsp;円&nbsp;&nbsp;
+                                         返金日：{rval data/REPAY_DATE}&nbsp;&nbsp;
+                                         返金区分：{rval data/REPAY_DEV}
+            </td>
+          </tr>
+          <tr height="30">
+            <th class="no_search" nowrap>{rval data/CHECKED3}</th>
+            <th align="right" class="no_search" nowrap>備考</th>
+            <td bgcolor="#ffffff">{rval data/REMARK}</td>
+          </tr>
+          <!--{/def}-->
+          <tr height="30">
+            <th colspan="2" class="no_search" nowrap></th>
+            <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_back}</td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+      <tr class="no_search_line"> 
+        <td nowrap> 
+        <table width="100%" border="0" cellpadding="0" cellspacing="1">
+          <tr bgcolor="#ffffff"> 
+            <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="10" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                  <tr align="center" class="no_search"> 
+                    <th><font color="white">{rval info/LEFT_LIST}</font></th>
+                    <th class="no_search">&nbsp;</th>
+                    <th><font color="white">{rval info/RIGHT_LIST}</font><BR>{rval data/HRCLASS}　{rval data/SEX}</th>
+                  </tr>
+                  <tr align="center" bgcolor="#ffffff">
+                  <!--{def main_part}--> 
+                    <td width="45%">{rval main_part/LEFT_PART}</td>
+                    <td width="*%" class="no_search">{rval main_part/SEL_ADD_ALL} <br>
+                    {rval main_part/SEL_ADD} <br>
+                    {rval main_part/SEL_DEL} <br>
+                    {rval main_part/SEL_DEL_ALL}</td>
+                    <td width="45%">{rval main_part/RIGHT_PART}</td>
+                  <!--{/def}-->
+                  </tr>
+                </table>
+                </td>
+              </tr>
+            </table>
+            </td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+<script language="JavaScript">{rval jscript}</script>
+<script language="JavaScript">
+var money = new Array();
+var mday  = new Array();
+var sFlg  = new Array();
+<!--{def data2}-->
+<!--{each data2}-->
+money['{rval data2/idx}'] = '{rval data2/money}';
+mday['{rval data2/idx}']  = '{rval data2/mday}';
+sFlg['{rval data2/idx}']  = '{rval data2/sFlg}';
+<!--{/each}-->
+{rval SetVal}
+<!--{/def}-->
+{rval Checkdisabled}
+</script>
+{rval finish} 

@@ -1,0 +1,180 @@
+{rval start}
+
+<table width="1250px" height="400px" border="0" cellspacing="5" cellpadding="0" align="center">
+    <tr height="60px">
+        <td valign="TOP">
+            <table width="1250px" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line">
+                    <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <tr class="no_search">
+                                <td>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                        <tr class="no_search" height="20">
+                                            <th width="*%" align="left" nowrap>&nbsp;&nbsp;処理年度：{rval YEAR}年度　　<b>{rval TITLE}</b>　　文書番号：{rval DOC_NUMBER}&nbsp;&nbsp;作成日：{rval EXECUTE_DATE}　{rval btn_houkoku}　{rval REPORT}</th>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr class="no_search">
+                                <td>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                        <tr class="no_search" height="20">
+                                            <th width="*%" align="left" nowrap>&nbsp;&nbsp;学年：{rval GRADE}　　学科：{rval COURSE_MAJOR}　　性別：{rval SEX}　　実施日：{rval SOKUTEI_DATE}　　天候：{rval WEATHER}　　気温：{rval TEMPERATURE} ℃</th>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr height="300px">
+        <td valign="TOP">
+            <table width="1250px" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td>
+                                    <table height="55px" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+                                        <tr class="no_search">
+                                            <th width="30">連番</th>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td align="LEFT">
+                                    <div id="trow" style="overflow: hidden; width: 1200px; height: 55px">
+                                        <div style="width: 1600px; height: 55px">
+                                            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+                                                <tr class="no_search">
+                                                    {rval ITEMABBV}
+                                                    <th width="70">
+                                                        <font size="2">総合計</font>
+                                                    </th>
+                                                    <th width="85">
+                                                        <font size="2">総合<br />判定</font>
+                                                    </th>
+                                                    <th width="70">
+                                                        <font size="2">身長</font>
+                                                    </th>
+                                                    <th width="70">
+                                                        <font size="2">体重</font>
+                                                    </th>
+                                                    <th width="70">
+                                                        <font size="2">座高</font>
+                                                    </th>
+                                                </tr>
+                                                <tr class="no_search">
+                                                    {rval UNIT}
+                                                    <th width="70"><font size="2">(点)</font></th>
+                                                    <th width="85"><font size="2">(A,B,C,D,E)</font></th>
+                                                    <th width="70"><font size="2">(cm)</font></th>
+                                                    <th width="70"><font size="2">(kg)</font></th>
+                                                    <th width="70"><font size="2">(cm)</font></th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td valign="TOP" align="CENTER">
+                                    <div id="tcol" style="overflow: hidden; width: 38px; height: 482px">
+                                        <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+                                            <!--{each data2}-->
+                                            <tr height="30">
+                                                <td align="center" bgcolor="{rval data2/COLOR}">{rval data2/ROWNO}</td>
+                                            </tr>
+                                            <!--{/each}-->
+                                        </table>
+                                    </div>
+                                </td>
+                                <td align="LEFT">
+                                    <div onScroll="scrollRC()" id="tbody" style="overflow: scroll; height: 500px">
+                                        <div style="width: 1600px">
+                                            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+                                                <!--{each data}-->
+                                                <tr height="30">
+                                                    <td width="{rval INQUIRY_WIDTH}" align="center" bgcolor="{rval data/COLOR}">{rval data/INQUIRY1}</td>
+                                                    <td width="{rval INQUIRY_WIDTH}" align="center" bgcolor="{rval data/COLOR}">{rval data/INQUIRY2}</td>
+                                                    <td width="{rval INQUIRY_WIDTH}" align="center" bgcolor="{rval data/COLOR}">{rval data/INQUIRY3}</td>
+                                                    <td width="{rval INQUIRY_WIDTH}" align="center" bgcolor="{rval data/COLOR}">{rval data/INQUIRY4}</td>
+                                                    <td width="{rval INQUIRY_WIDTH}" align="center" bgcolor="{rval data/COLOR}">{rval data/INQUIRY5}</td>
+                                                    <td width="{rval INQUIRY_WIDTH}" align="center" bgcolor="{rval data/COLOR}">{rval data/INQUIRY6}</td>
+                                                    <td width="{rval RECORD_WIDTH}" align="center" bgcolor="{rval data/COLOR}">{rval data/RECORD1}</td>
+                                                    <td width="{rval RECORD_WIDTH}" align="center" bgcolor="{rval data/COLOR}">{rval data/RECORD2}</td>
+                                                    <td width="{rval RECORD_WIDTH}" align="center" bgcolor="{rval data/COLOR}">{rval data/RECORD3}</td>
+                                                    <td width="{rval RECORD_WIDTH}" align="center" bgcolor="{rval data/COLOR}">{rval data/RECORD4}</td>
+                                                    <td width="{rval RECORD_WIDTH}" align="center" bgcolor="{rval data/COLOR}">{rval data/RECORD5}</td>
+                                                    <td width="{rval RECORD_WIDTH}" align="center" bgcolor="{rval data/COLOR}">{rval data/RECORD6}</td>
+                                                    <td width="{rval RECORD_WIDTH}" align="center" bgcolor="{rval data/COLOR}">{rval data/RECORD7}</td>
+                                                    <td width="{rval RECORD_WIDTH}" align="center" bgcolor="{rval data/COLOR}">{rval data/RECORD8}</td>
+                                                    <td width="{rval RECORD_WIDTH}" align="center" bgcolor="{rval data/COLOR}">{rval data/RECORD9}</td>
+                                                    <td width="70" align="center" bgcolor="{rval data/COLOR}"><font color="black">{rval data/TOTAL}</font></td>
+                                                    <td width="85" align="center" bgcolor="{rval data/COLOR}"><font color="black">{rval data/VALUE}</font></td>
+                                                    <td width="70" align="center" bgcolor="{rval data/COLOR}">{rval data/HEIGHT}</td>
+                                                    <td width="70" align="center" bgcolor="{rval data/COLOR}">{rval data/WEIGHT}</td>
+                                                    <td width="70" align="center" bgcolor="{rval data/COLOR}">{rval data/SITHEIGHT}</td>
+                                                </tr>
+                                                <!--{/each}-->
+                                            </table>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr class="no_search_line">
+                                <td>
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search">
+                                            <td>
+                                                <table cellpadding="0" cellspacing="0">
+                                                    <tr class="no_search" height="30">
+                                                        <td>
+                                                            <table cellpadding="0" cellspacing="0">
+                                                                <tr class="no_search">
+                                                                    <td align="left">&nbsp;&nbsp;&nbsp;{rval btn_recalc}　{rval btn_update}{rval btn_can}{rval btn_end}&nbsp;{rval HEADER}<label for="HEADER">ヘッダ有</label>&nbsp;{val btn_exec}</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<div id="lay"></div>
+{rval finish}
+<script language="JavaScript">
+    window.onload = function () {
+    var trowWidth = document.getElementById("trow").clientWidth;
+        console.log(trowWidth);
+        var tbody = document.getElementById("tbody");
+        tbody.style.width = trowWidth + 16
+
+    };
+    {rval close_win}
+</script>

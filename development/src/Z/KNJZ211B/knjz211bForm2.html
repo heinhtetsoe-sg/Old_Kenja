@@ -1,0 +1,73 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="80%" align="center" border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr>
+          <td>
+             <br>
+             <hr width="60%" align="left">
+                {rval SUBCLASSCD}&nbsp;&nbsp;{val SUBCLASSNAME}
+             <hr width="60%" align="left">
+             <br><br>
+            &nbsp;評定段階数&nbsp;{rval MAX_ASSESSLEVEL}　{rval btn_kakutei}
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                  <tbody>
+                    <tr class="no_search" height="40">
+                      <th width="100" align="center">段階値</th>
+                      <th width="100" align="center">下限</th>
+                      <th width="100" align="center">上限</th>
+                    </tr>
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width:100%;height:300;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                  <tbody>
+  <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td width="100" height="40" align="center" >{rval data/ASSESSLEVEL}</td>
+                      <td width="100" height="40" align="center">{rval data/ASSESSLOW}</td>
+                      <td width="100" height="40" align="center">{rval data/ASSESSHIGHTEXT}</td>
+                    </tr>
+  <!--{/each}-->
+                    <tr class="no_search">
+                    <td colspan="4" align="center">
+                        {rval btn_update}&nbsp;
+                        {rval btn_reset} &nbsp;
+                        {rval btn_end}   &nbsp;
+                    </td>
+                    </tr>
+                  </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      </table>
+          
+        </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}{rval viewCheck}</script>

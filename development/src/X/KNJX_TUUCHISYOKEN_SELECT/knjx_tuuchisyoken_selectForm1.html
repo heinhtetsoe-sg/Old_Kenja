@@ -1,0 +1,95 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="10" cellpadding="5">
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <hr align="left" width="300">
+            &nbsp;&nbsp;&nbsp;{rval NAME_SHOW}
+            <hr align="left" width="300">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <!--{def isTarget}-->
+                      <td width="40" align="center" nowrap><LABEL for="CHECKALL">選択</LABEL><br>{rval CHECKALL}</td>
+                      <!--{/def}-->
+                      <td width="120" align="center" nowrap>詳細種類</td>
+<!--{each SEMESTER}-->
+                      <td width="380" align="center">
+                        <LABEL for="CHECK_CONTENT">詳細内容({rval SEMESTER/SEMESTERNAME})</LABEL><br><!--{def isTarget}-->{rval SEMESTER/CHECK}<!--{/def}-->
+                      </td>
+<!--{/each}-->
+                      <td width="18"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="height:160;overflow-y:scroll">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--{def data}-->
+<!--{each data}-->
+                    <tr height="25" bgcolor="#ffffff">
+                      <!--{def isTarget}-->
+                      <td width="40" align="center" nowrap>{rval data/CHECK}</td>
+                      <!--{/def}-->
+                      <td width="120" nowrap>{rval data/TITLE}</td>
+<!--{each data/SEMESTER}-->
+                      <td width="380">{rval data/SEMESTER/VALUE}</td>
+<!--{/each}-->
+                      <td width="*"></td>
+
+                    </tr>
+<!--{/each}-->
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search">
+                <td align="right" nowrap><!--{def isTarget}-->{rval btn_torikomi}<!--{/def}-->{rval btn_back}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

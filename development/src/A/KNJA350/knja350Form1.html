@@ -1,0 +1,58 @@
+{rval start}
+
+<style>
+</style>
+<div style="width: 600px; margin: 100px auto;" >
+    <table style="width: 600px; border: 1px solid; border-collapse: collapse; " >
+        <tr class="no_search" style="height: 35px;" >
+            <td style="text-align: center;"  colspan="2">
+                処理年度&nbsp;&nbsp;{rval data/THIS_YEAR}年度&nbsp;&nbsp;&nbsp;&nbsp;総合部データ取込
+            </td>
+        </tr>
+        <tr style=" background-color: #ffffff; border-bottom: solid 1px;" >
+            <td style="wdith: 30%; padding: 1em 0em 1em 3em;">
+                <b>対象人数</b>
+            </td>
+            <td>
+                総合部<span style="margin-left: 0.5em;">{rval data/GRADE_NAME}</span><span style="margin-left: 5em;">{rval data/STD_COUNT} 名</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 30%; margin-top: 1em; padding: 1em 0em 1em 3em;" ><b>対象データ</b>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 30%; padding: 1em 1em 1em 3em;" >{rval data/PROC1}<label for="PROC1"> 第1回目</label>
+            </td>
+            <td style="padding: 1em 0em;" >
+                <label for="PROC1">マスタ、職員、学籍、在籍</label>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 30%; padding: 1em 1em 3em 3em;" >{rval data/PROC2}<label for="PROC2"> 第2回目</label>
+            </td>
+            <td style="padding: 1em 0em; vertical-align: top;">
+                <label for="PROC2">成績、出欠、指導要録所見</br>部活動、委員会、資格、保健</label>
+            </td>
+        </tr>
+        <tr class="no_search">
+           <td style=" padding: 5px; padding-top: 10px; padding-right: 15px; text-align: right;" colspan="2" >
+               {rval button/btn_exec}{rval button/btn_finish}
+           </td>
+        </tr>
+    </table>
+</div>
+<script language="JavaScript">
+{rval reload}{rval Closing}
+
+<!--{def SDATE}-->
+var sdate = {rval SDATE};
+<!--{/def}-->
+<!--{def EDATE}-->
+var edate = {rval EDATE};
+<!--{/def}-->
+{rval close}
+</script>
+{rval finish} 

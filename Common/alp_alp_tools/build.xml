@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="Shift_JIS" ?>
+<!-- kanji=漢字 -->
+<!-- $Id: build.xml 56576 2017-10-22 11:25:31Z maeshiro $ -->
+<project name="alp_alp_tools" default="full" basedir=".">
+
+	<property environment="env"/>
+
+	<property file="${user.home}/my.build.properties" />
+	<property file="${basedir}/build.properties" />
+
+	<property name="basename"			value="alp_alp_tools"/>
+
+	<property name="src"				location="src/java"/>
+	<property name="build"				location="build"/>
+	<property name="dist"				location="dist"/>
+
+	<path id="project.classpath">
+		<pathelement location="${build}"/>
+
+		<pathelement location="${jar.junit}"/>
+		<pathelement location="${dir.xalan}/bin/xalan.jar"/>
+		<pathelement location="${dir.xerces}/xmlParserAPIs.jar"/>
+		<pathelement location="${dir.xerces}/xercesImpl.jar"/>
+		<pathelement location="${jar.commons-beanutils}"/>
+		<pathelement location="${jar.commons-collections}"/>
+		<pathelement location="${jar.commons-dbcp}"/>
+		<pathelement location="${jar.commons-dbutils}"/>
+		<pathelement location="${jar.commons-lang}"/>
+		<pathelement location="${jar.commons-logging}"/>
+		<pathelement location="${jar.commons-pool}"/>
+		<pathelement location="${jar.commons-io}"/>
+		<pathelement location="${jar.jakarta-log4j}"/>
+		<pathelement location="${jar.jakarta-oro}"/>
+		<pathelement location="${dir.jp.gr.java_conf.tame}/jp.gr.java_conf.tame.jar"/>
+		<pathelement location="${dir.java_swing_misc}/java_swing_misc.jar"/>
+	</path>
+
+	<!-- **** INFO -->
+	<target name="info">
+		<echo level="info">user.home=${user.home}</echo>
+		<echo level="info">basedir=${basedir}</echo>
+		<echo level="info">ant.file=${ant.file}</echo>
+		<echo level="info">ant.version=${ant.version}</echo>
+		<echo level="info">ant.project.name=${ant.project.name}</echo>
+		<echo level="info">ant.java.version=${ant.java.version}</echo>
+		<echo level="info">env.JAVA_HOME=${env.JAVA_HOME}</echo>
+		<echo level="info">env.ANT_HOME=${env.ANT_HOME}</echo>
+		<echo level="info">env.CLASSPATH=${env.CLASSPATH}</echo>
+	</target>
+
+	<!-- **** 初期化 -->
+	<target name="init">
+		<tstamp/>
+		<mkdir dir="${build}"/>
+	</target>
+
+	<!-- **** コンパイル -->
+	<target name="compile" description="compile java" depends="init">
+		<!-- MEMO:javacタスクのencodingは、"SJIS"または"EUCJIS"または"EUC-JP" -->
+		<javac
+				encoding="SJIS"
+				target="1.4"
+				source="1.4"
+				deprecation="true"
+				srcdir="${src}"
+				destdir="${build}"
+				classpathref="project.classpath"
+				debug="on">
+			<include name="**/*.java"/>
+			<exclude name="**/test/*.java"/>
+			<exclude name="**/examples/*.java"/>
+		</javac>
+	</target>
+
+	<!-- **** JARファイル作成 -->
+	<target name="dist" description="generate the distribution" depends="compile">
+		<mkdir dir="${dist}"/>
+
+		<move overwrite="true" failonerror="false" file="${dist}/${basename}.jar" tofile="${dist}/${basename}.jar.bak" />
+
+		<jar index="true" destfile="${dist}/${basename}.jar" filesonly="false">
+			<fileset dir="${build}">
+				<include name="**/*.class"/>
+				<exclude name="**/test/*.class"/>
+				<exclude name="**/examples/*.class"/>
+			</fileset>
+			<!--
+			<fileset dir="${src}">
+				<include name="version*.txt"/>
+			</fileset>
+			-->
+			<!--
+			<manifest>
+				<attribute name="Main-Class" value="jp.co.alp.kenja.ShowVersionMain"/>
+			</manifest>
+			-->
+		</jar>
+	</target>
+
+	<!-- **** フル・ビルド -->
+	<target name="full" description="full-re-build">
+		<antcall target="distclean"/>
+		<antcall target="dist"/>
+	</target>
+
+	<!-- **** 作成したディレクトリ配下を削除 -->
+	<target name="distclean" description="clean up dist" >
+		<delete dir="${build}"/>
+		<delete dir="${dist}"/>
+	</target>
+</project>

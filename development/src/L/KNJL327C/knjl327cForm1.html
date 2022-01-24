@@ -1,0 +1,127 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<br>
+
+<table width="50%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr > 
+	<td > 
+	  <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+        <tr class="no_search_line"> 
+          <td width="100%"> 
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+			  <tr align="center" class="no_search"> 
+			    <td colspan="2" nowrap><b>
+                    &nbsp;&nbsp;年度:{rval TOP/YEAR}　　入試制度:{rval data/APPLICANTDIV}　入試区分:{rval data/TESTDIV}　専併区分:{rval data/SHDIV}&nbsp;&nbsp;
+				</b></td>
+			  </tr>
+			  <tr align="center" bgcolor="#ffffff" height="50"> 
+			  	<td colspan="2">
+				    通知日付：{rval data/PRINT_DATE}
+			    </td>
+			  </tr>
+
+			  <tr align="center" class="no_search"> 
+			  	<td width="50%">
+                    <b>＜帳票種類＞</b>
+                </td>
+			  	<td width="50%">
+                    <b>＜出力範囲＞</b>
+			    </td>
+			  </tr>
+
+			  <tr bgcolor="#ffffff" height="100"> 
+			  	<td>
+                    　　{rval data/OUTPUT1}<LABEL for="OUTPUT1">&nbsp;合格通知書</LABEL>
+                </td>
+			  	<td>
+                    　　{rval data/OUTPUTA1}<LABEL for="OUTPUTA1">&nbsp;合格者全員</LABEL><!--{def isWakayamaJ}-->　{rval data/OUTPUTA4}<LABEL for="OUTPUTA4">&nbsp;S合格者全員</LABEL><!--{/def}--><br>
+                    　　{rval data/OUTPUTA2}<LABEL for="OUTPUTA2">&nbsp;志願者全員</LABEL><!--{def isWakayamaJ}-->　{rval data/OUTPUTA5}<LABEL for="OUTPUTA5">&nbsp;G合格者全員</LABEL><!--{/def}--><!--{def isCollegeJ}-->　{rval data/SG_CLASS_A}<!--{/def}--><br>
+                    　　{rval data/OUTPUTA3}<LABEL for="OUTPUTA3">&nbsp;受験者指定</LABEL><br>
+                    　　　　受験番号：{rval data/EXAMNOA}
+			    </td>
+			  </tr>
+
+			  <tr bgcolor="#ffffff" height="100"> 
+			  	<td>
+                    　　{rval data/OUTPUT5}<LABEL for="OUTPUT5">&nbsp;補欠合格通知書</LABEL><br>
+                </td>
+			  	<td nowrap>
+                    　　{rval data/OUTPUTE1}<LABEL for="OUTPUTE1">&nbsp;補欠合格者全員</LABEL><br>
+                    　　{rval data/OUTPUTE2}<LABEL for="OUTPUTE2">&nbsp;受験者指定</LABEL><br>
+                    　　　　受験番号：{rval data/EXAMNOE}<br>
+                    　　来校日付：{rval data/VISIT_DATE}　　{rval data/VISIT_HOUR}&nbsp;時&nbsp;{rval data/VISIT_MINUTE}&nbsp;分&nbsp;&nbsp;
+			    </td>
+			  </tr>
+
+			  <tr bgcolor="#ffffff" height="100"> 
+			  	<td>
+                    　　{rval data/OUTPUT3}<LABEL for="OUTPUT3">&nbsp;移行合格通知書</LABEL><br>
+                </td>
+			  	<td>
+                    　　{rval data/OUTPUTB1}<LABEL for="OUTPUTB1">&nbsp;移行希望者全員</LABEL><br>
+                    　　{rval data/OUTPUTB2}<LABEL for="OUTPUTB2">&nbsp;受験者指定</LABEL><br>
+                    　　　　受験番号：{rval data/EXAMNOB}<br>
+                    　　移行先：{rval data/SHIFT_COURSE}<br>
+                    　　{rval data/SHIFT_SEND}<LABEL for="SHIFT_SEND">&nbsp;移行先から送付</LABEL><br>
+			    </td>
+			  </tr>
+
+			  <tr bgcolor="#ffffff" height="100"> 
+			  	<td>
+                    　　{rval data/OUTPUT2}<LABEL for="OUTPUT2">&nbsp;入学許可書</LABEL>
+                </td>
+			  	<td>
+                    　　{rval data/OUTPUTD1}<LABEL for="OUTPUTD1">&nbsp;合格者全員</LABEL><br>
+                    　　{rval data/OUTPUTD2}<LABEL for="OUTPUTD2">&nbsp;志願者全員</LABEL><br>
+                    　　{rval data/OUTPUTD3}<LABEL for="OUTPUTD3">&nbsp;受験者指定</LABEL><br>
+                    　　　　受験番号：{rval data/EXAMNOD}
+<!--{def isGojouOnly}-->
+                    <br>
+                    　　{rval data/OUTPUTD4}<LABEL for="OUTPUTD4">&nbsp;入学手続者全員</LABEL><br>
+<!--{/def}-->
+			    </td>
+			  </tr>
+
+			  <tr bgcolor="#ffffff" height="100"> 
+			  	<td>
+                    　　{rval data/OUTPUT4}<LABEL for="OUTPUT4">&nbsp;追加合格通知書</LABEL><br>
+                </td>
+			  	<td>
+                    　　{rval data/OUTPUTC1}<LABEL for="OUTPUTC1">&nbsp;追加合格者全員</LABEL><br>
+                    　　{rval data/OUTPUTC2}<LABEL for="OUTPUTC2">&nbsp;受験者指定</LABEL><br>
+                    　　　　受験番号：{rval data/EXAMNOC}
+			    </td>
+			  </tr>
+
+<!--{def isGojou}-->
+              <tr bgcolor="#ffffff" height="100"> 
+                <td>
+                    　　{rval data/OUTPUT6}<LABEL for="OUTPUT6">&nbsp;進学通知書</LABEL><br>
+                </td>
+                <td>
+                    　　{rval data/OUTPUTF1}<LABEL for="OUTPUTF1">&nbsp;入学手続者全員</LABEL><br>
+                    　　{rval data/OUTPUTF2}<LABEL for="OUTPUTF2">&nbsp;入学手続者指定</LABEL><br>
+                    　　　　受験番号：{rval data/EXAMNOF}<br>
+                    　　入学日付：{rval data/SINGAKU_DATE}
+                </td>
+              </tr>
+<!--{/def}-->
+
+			  <tr align="left" class="no_search" height="20"> 
+				<td colspan="2" nowrap>&nbsp;{rval button/btn_print}{rval button/btn_end}</td>
+			  </tr>
+			</table>
+		  </td>
+		</tr>
+	  </table>
+	</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

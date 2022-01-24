@@ -1,0 +1,120 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="5" align="left">
+<tr> 
+<td valign="top" > 
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+    <td > 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line"> 
+      <td> 
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr class="no_search"> 
+            <td width="10%" align="center">入試年度</td>
+            <td width="10%" bgcolor="#ffffff" style="color:black; text-align:center">{rval TOP/YEAR}</td>
+            <td width="10%" align="center">※ 入試制度</td>
+            <td width="10%" bgcolor="#ffffff">{rval TOP/APPLICANTDIV}</td>
+            <td width="10%" align="center">※ 入試区分</td>
+            <td width="10%" bgcolor="#ffffff">{rval TOP/TESTDIV}</td>
+            <td width="10%" align="center">※ 志望区分</td>
+            <td width="*"bgcolor="#ffffff" style="color:black">{rval TOP/TOTALCD}</td>
+        </tr>
+        </table>
+       </td>
+      </tr>
+      </table>
+    </td>
+    </tr>
+    </table>
+</td>
+</tr>
+<tr > 
+<td valign="top" > 
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr bgcolor="#006633"> 
+  <td align="right">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line">
+      <td>    
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr class="no_search" align="center"> 
+        <th width="80" height="30" align="center">受験番号</th>
+        <th width="170"  align="center">氏名</th>
+        <th width="170"  align="center">中学校名</th>
+        <th width="170"  align="center">備考2</th>
+        <td width="40" align="center">面接<BR>評価</th>
+        <td width="230" align="center">面接</th>
+        <td width="40" align="center">音読<BR>評価</th>
+        <td width="*" align="center">音読</th>
+        </tr>
+        </table>
+      </td>
+      </tr>
+      </table>
+    </td>
+    </tr>
+    <tr>
+    <td bgcolor="#ffffff">
+      <div style="width: 100%; height: 535; overflow: auto">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line" >
+      <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="3">  
+      <!--{def data}-->
+      <!--結果一覧-->
+      <!--{each data}--> 
+      <tr bgcolor="#ffffff" bgcolor="no_search" id="ROWID{rval data/RECEPTNO}">
+        <td width="80"  align="center">{rval data/RECEPTNO}</th>
+        <td width="170" align="left">{rval data/NAME}</th>
+        <td width="170" align="left">{rval data/FINSCHOOL_NAME}</th>
+        <td width="170" align="left">{rval data/REMARK2}</th>
+        <td width="40" align="center">{rval data/INTERVIEW_VALUE}</th>
+        <td width="230" align="left">{rval data/INTERVIEW_REMARK}</th>
+        <td width="40" align="center">{rval data/INTERVIEW_VALUE2}</th>
+        <td width="*" align="left">{rval data/INTERVIEW_REMARK2}</th>
+      </tr>
+      <!--{/each}--> 
+      <!--{/def}-->
+      </table>
+      </td>
+      </tr>
+      </table>
+      </div>
+    </td>
+    </tr>
+    <tr> 
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="no_search_line">
+      <td>    
+        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr class="no_search"> 
+          <th></th>
+          <th width="30%" align="left" bgcolor="#ffffff">{rval btn_update}{rval btn_reset}{rval btn_end}　　{rval btn_csv}</th>
+        </tr>
+        </table>
+      </td>
+      </tr>
+      </table>
+    </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+  </table>
+</td>
+</tr>
+</table>
+<script language="JavaScript">
+  change_flg = false;
+ var aPerfect = new Array();
+<!--{def data2}-->
+<!--{each data2}--> 
+ aPerfect['{rval data2/key}'] = '{rval data2/perf}';
+<!--{/each}-->
+<!--{/def}-->
+</script>
+{rval finish}

@@ -1,0 +1,58 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th align="left">{val YEAR}年度　　　　{val TESTID}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="list">
+                    <tr class="no_search">
+                      <th nowrap width="30%">試験日</th>
+                      <th nowrap width="10%">時限</th>
+                      <th nowrap width="20%">科目名</th>
+                      <th nowrap width="20%">開始時間</th>
+                      <th nowrap width="20%">終了時間</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td nowrap align="center"  bgcolor="{rval data/BGCOLOR_ROW}">{val data/EXAM_DATE}</td>
+                      <td nowrap align="center"  bgcolor="{rval data/BGCOLOR_ROW}">{val data/PERIODNAME}</td>
+                      <td nowrap align="center"  bgcolor="{rval data/BGCOLOR_ROW}"><a href="knjh704index.php?cmd=edit&TESTID={val data/TESTID}&PERIODID={val data/PERIODID}&SUBCLASSCD={val data/SUBCLASSCD}&START_HOUR={val data/START_HOUR}&START_MINUTE={val data/START_MINUTE}&END_HOUR={val data/END_HOUR}&END_MINUTE={val data/END_MINUTE}" target="right_frame">{val data/SUBCLASSNAME}</a></td>
+                      <td nowrap align="center"  bgcolor="{rval data/BGCOLOR_ROW}">{val data/STARTTIME}</td>
+                      <td nowrap align="center"  bgcolor="{rval data/BGCOLOR_ROW}">{val data/ENDTIME}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

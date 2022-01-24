@@ -1,0 +1,111 @@
+{rval start} 
+
+<!--{def button}-->
+<!--{def data}-->
+
+<BR><BR><BR><BR>
+
+<table width="65%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td><b>　　　{rval data/YEAR}年度　　　{rval data/SEMESTER}</b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td nowrap> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr bgcolor="#ffffff"> 
+                      <td>
+                        　　●更新種別<BR>
+                        　　　{rval data/UPDATE_DIV1}<LABEL for="UPDATE_DIV1">新規：加算設定されていて、未認定生徒全員の申請状態を全て削除し<BR>
+                        　　　　　　　&nbsp;対象データの申請状態を「申請」にする</LABEL><BR>
+                        　　　{rval data/UPDATE_DIV2}<LABEL for="UPDATE_DIV2">追加：対象データの申請状態を「申請」にする</LABEL><BR>
+                        　　●出力種別<BR>
+                        　　　開始年月：{rval data/KASAN_MONTH}<BR>
+                        　　●表示設定<BR>
+                        　　　{rval data/KUBUN1}<LABEL for="KUBUN1">クラス指定</LABEL>&nbsp;{rval data/KUBUN2}<LABEL for="KUBUN2">個人指定</LABEL>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <!--{def clsno}-->
+                      <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<b>クラス選択</b>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {rval data/GRADE}
+                      </td>
+                      <!--{/def}-->
+
+                      <!--{def schno}-->
+                      <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<b>個人選択</b>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {rval data/GRADE_HR_CLASS}
+                      </td>
+                      <!--{/def}-->
+
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+<!--{def clsno}-->
+                      <th><b>出力対象クラス</b></th>
+                      <th class="no_search"></th>
+                      <th><b>クラス一覧</b></th>
+<!--{/def}-->
+<!--{def schno}-->
+                      <th><b>出力対象生徒</b></th>
+                      <th class="no_search"></th>
+                      <th><b>生徒一覧</b></th>
+<!--{/def}-->
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CLASS_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="45%">{rval data/CLASS_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

@@ -1,0 +1,72 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+        <td valign="top"> 
+        
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search">
+                    <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <tbody>
+                        <tr class="no_search" height="30">
+                          <td width="100%" align="left" nowrap>
+                            　{rval YEAR}年度　　　　{rval button/copy}
+                          </td>
+                        </tr>
+                      </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+                </table>
+              </td>
+            </tr>
+          </table>
+          
+        </td>
+      </tr>
+      <tr></tr><tr></tr><tr></tr>
+      <tr>
+        <td>
+        
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr > 
+              <td > 
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr class="no_search_line"> 
+                    <td> 
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tr class="no_search"> 
+                          <th nowrap width="20%">学年</th>
+                          <th nowrap width="40%">行動の記録</th>
+                          <th nowrap width="40%">観点名称</th>
+                          <th nowrap width="20%">指導要録用<br>行動の記録コード</th>
+                        </tr>
+                        <!--{def data}-->
+                        <!--結果一覧-->
+                        <!--{each data}--> 
+                        <tr> 
+                            <td nowrap width="20%" bgcolor="#ffffff">{val data/GRADE_NAME1}</td>
+                            <td nowrap width="40%" bgcolor="#ffffff"><a href="knjz403index.php?cmd=edit&GRADE={val data/GRADE}&CODE={val data/CODE}" target="right_frame">{val data/VALUE}</a></td>
+                            <td nowrap width="40%" bgcolor="#ffffff">{val data/VIEWNAME}</td>
+                            <td nowrap width="20%" bgcolor="#ffffff">{val data/STUDYREC_CODE}</td>
+                        </tr> 
+                        <!--{/each}--> 
+                        <!--{/def}-->
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+            
+        </td>
+    </tr>
+</table><script language="JavaScript">{rval reload}{rval jscript}</script>
+{rval finish}
+<!--                        <div style="width:100%;height:550;overflow:auto";>-->

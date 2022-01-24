@@ -1,0 +1,85 @@
+{rval start}
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+   <tr>
+     <table width="100%" border="0" cellspacing="1" cellpadding="1">
+     <tr>
+       <th>
+         <table width="70%" border="0" cellspacing="3" cellpadding="0" align="center">
+           <tr class="no_search_line">
+             <th>
+               <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                 <tr class="no_search">
+                   <th width="30%" nowrap>項　目</th>
+                   <th width="*" nowrap>値</th>
+                 </tr>
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap>対象テスト名称</td>
+                   <td bgcolor="#ffffff" nowrap><font color="black">&nbsp;{rval sepa/TEST_NAME}</font></td>
+                 </tr>
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap>区分</td>
+                   <td bgcolor="#ffffff" nowrap><font color="black">&nbsp;{rval sepa/DIV_NAME}</font></td>
+                 </tr>
+                 <tr class="no_search">
+                   <td class="no_search" style="padding-left:20px" nowrap>学年</td>
+                   <td bgcolor="#ffffff" nowrap><font color="black">&nbsp;{rval sepa/GRADE_NAME}</font>&nbsp;</td>
+                 </tr>
+               </table>
+             </th>
+           </tr>
+         </table>
+         <table width="70%" border="0" cellspacing="3" cellpadding="0" align="center">
+           <tr>
+             <td>{rval button/btn_end}</td>
+           </tr>
+         </table>
+         <table width="70%" border="0" cellspacing="3" cellpadding="0" align="center">
+           <tr class="no_search_line">
+             <td>
+               <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" frame="box">
+               <tr class="no_search">
+<!--{def show1}-->
+                 <th width="30%">学年</th>
+<!--{/def}-->
+<!--{def show2}-->
+                 <th width="30%">クラス</th>
+<!--{/def}-->
+<!--{def show3}-->
+                 <th width="30%">コース</th>
+<!--{/def}-->
+                 <th width="45%">科目</th>
+                 <th width="*">評定段階数</th>
+               </tr>
+
+               <!--結果一覧-->
+               <!--{def data}-->
+               <!--{each data}-->
+               <tr align="center" bgcolor="#ffffff">
+<!--{def show1}-->
+                 <td>{val data/GRADE_NAME}</td>
+<!--{/def}-->
+<!--{def show2}-->
+                 <td>{val data/HR_NAME}</td>
+<!--{/def}-->
+<!--{def show3}-->
+                 <td>{val data/COURSE_NAME}</td>
+<!--{/def}-->
+                 <td align="left">&nbsp;{val data/MOCK_SUBCLASS_CD}：{val data/SUBCLASS_NAME}</td>
+                 <td>{val data/CNT_DANKAI}</td>
+               </tr>
+               <!--{/each}-->
+               <!--{/def}-->
+
+               </table>
+             </td>
+           </tr>
+         </table>
+       </th>
+     </tr>
+     </table>
+  </td>
+   </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval Closing}</script>

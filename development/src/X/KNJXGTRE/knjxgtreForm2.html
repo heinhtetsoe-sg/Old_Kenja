@@ -1,0 +1,60 @@
+{rval start}
+<DIV id="TipLayer" style="visibility:hidden;position:absolute;z-index:1000;top:-100"></DIV>
+<script language='JavaScript' src='{rval REQUESTROOT}/common/popMsg.js'></script>
+<script language="JavaScript">
+var FiltersEnabled = 1 // if your not going to use transitions or filters in any of the tips set this to 0
+applyCssFilter()
+
+var Style=["#0EC2B8","black","#316F9B","#FFFFFF","","","","","","","","","","",200,"",2,2,10,10,51,0.5,75,"simple","#F4F0FB"]
+</script>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+  <td nowrap>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr class="no_search_line">
+      <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr class="no_search">
+        <td>{rval BTN_GTRE}&nbsp;&nbsp;{rval TITLE}&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+  <tr>
+  <td nowrap>{rval TABLE}</td>
+  </tr>
+<!--{def btn_ok}-->
+  <tr>
+  <td nowrap>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr class="no_search_line">
+      <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr class="no_search">
+        <td align="center">{rval btn_ok}{rval btn_can}</td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+<!--{/def}-->
+</table>
+{rval finish}
+<script language="JavaScript">
+<!--{def GTREDATA}-->
+for (var i = 0; i < parent.frames.length; i++){
+  if (parent.frames[i].getGtreData){
+    var f = parent.frames[i];
+    break;
+  }
+}
+f.getGtreData('{rval GTREDATA}');
+<!--{/def}-->
+{rval ONLOAD}
+window.onunload=function(){if (newWin) newWin.close();}
+</script>

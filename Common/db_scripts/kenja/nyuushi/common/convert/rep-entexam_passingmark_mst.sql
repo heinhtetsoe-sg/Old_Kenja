@@ -1,0 +1,3 @@
+-- $Id: ff47cfb5a65a79b27c62ed15d0f16a88dba24592 $
+
+alter table ENTEXAM_PASSINGMARK_MST add column JUDGE_STATE VARCHAR(1) 

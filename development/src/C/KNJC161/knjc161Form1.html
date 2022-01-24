@@ -1,0 +1,69 @@
+{rval start} 
+<!--{def button}--> 
+<!--{def data}-->
+
+<INPUT type="hidden" name="selectdata" size="70"><br>
+
+<br><br><br><br><br><br><br><br><br><br>
+
+<table width="450" border="0" cellpadding="0" cellspacing="0" align="center">
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+
+                    <tr class="no_search" height="30">
+                      <td align="center">
+                        <b>{rval data/YEAR}年度　　{rval data/SEMESTER}</b>
+                      </td>
+                    </tr>
+
+                    <tr bgcolor="#ffffff" height="130" align="center">
+                      <td>
+                        <table>
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              <BR>
+                              <b>&nbsp;&nbsp;&nbsp;&nbsp;校種：</b>{rval data/SCHOOL_KIND}<BR>
+                              <b>対象月日：</b>{rval data/STRT_DATE}&nbsp;～&nbsp;{rval data/DATE}<BR><BR>
+                            </td>
+                          </tr>
+
+                          <tr bgcolor="#ffffff">
+                            <td>
+                              {rval data/OUTPUT_SELECT1}<LABEL for="OUTPUT_SELECT1">全校指定月</LABEL><br>
+                              {rval data/OUTPUT_SELECT2}<LABEL for="OUTPUT_SELECT2">クラス指定月</LABEL><br>
+                              {rval data/OUTPUT_SELECT3}<LABEL for="OUTPUT_SELECT3">全校月毎</LABEL><br>
+                            </td>
+                          </tr>
+
+                        </table>
+                      </td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <td align="left">
+                        {rval button/btn_print}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish} 

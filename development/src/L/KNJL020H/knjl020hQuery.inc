@@ -1,0 +1,105 @@
+<?php
+
+require_once('for_php7.php');
+
+class knjl020hQuery extends Query {
+
+    //名称
+    function GetName($namecd1,$ObjYear)
+    {
+        $query = "SELECT namecd2, name1, name2,namespare1 , namespare2, namespare3 FROM v_name_mst
+                   WHERE year    = '".$ObjYear."'
+                     AND namecd1 = '".$namecd1."'";
+
+        return $query;
+    }
+    
+    //一覧表示
+    function SelectQuery($model)
+    {
+        $query  = "SELECT T1.examno ";
+        $query .= "      ,T1.name";
+        $query .= "      ,T1.name_kana";
+//        $query .= "      ,substr(T1.name,1,30)         AS name";
+//        $query .= "      ,substr(T1.name_kana,1,60)    AS name_kana ";
+        $query .= "      ,T1.sex AS sexcd ";
+        $query .= "      ,N1.NAME2 AS sex ";
+        for ($i = 1; $i < 13; $i++) {
+            $fieldname = ",T2.CONFIDENTIAL_RPT" .sprintf("%02d",$i);
+            $query .= $fieldname;
+        }
+        $query .= "      ,T2.ABSENCE_DAYS ";
+//        $query .= "      ,T2.AVERAGE5 ";
+//        $query .= "      ,T2.AVERAGE_ALL ";
+        $query .= "      ,T2.TOTAL_ALL ";
+        $query .= "      ,T2.KASANTEN_ALL ";
+        $query .= "  FROM entexam_applicantbase_dat T1 ";
+        $query .= "       LEFT OUTER JOIN entexam_applicantconfrpt_dat T2 ";
+        $query .= "                    ON T1.entexamyear = T2.entexamyear ";
+        $query .= "                   AND T1.examno      = T2.examno ";
+        $query .= "       LEFT JOIN NAME_MST N1 ON N1.NAMECD1='Z002' AND N1.NAMECD2=T1.sex ";
+        $query .= " WHERE T1.entexamyear    = '".$model->ObjYear."'";
+        $query .= "   AND T1.applicantdiv   = '".$model->applicantdiv."' ";
+        $query .= "   AND T1.examno BETWEEN '".$model->examno."' AND '".$model->e_examno."' ";
+        $query .= " ORDER BY T1.examno";
+        return $query;
+    }
+
+    function suisenCheck($year, $examno) {
+        $query  = "SELECT ";
+        $query .= "    RECOM_EXAMNO ";
+        $query .= "FROM ";
+        $query .= "    ENTEXAM_APPLICANTBASE_DAT ";
+        $query .= "WHERE ";
+        $query .= "    ENTEXAMYEAR = '{$year}' AND ";
+        $query .= "    EXAMNO      = '{$examno}' ";
+
+        return $query;
+    }
+
+    //更新(一度すべて削除してから追加）
+    function getUpdateQuery(&$model)
+    {
+        $db = Query::dbCheckOut();
+        $db->autoCommit(false);
+
+        //削除
+        $query  = "DELETE FROM entexam_applicantconfrpt_dat";
+        $query .= " WHERE entexamyear    = '".$model->ObjYear."'";
+        $query .= "   AND examno IN ('".implode("','",array_keys($model->score))."')";
+        $db->query($query);
+
+        foreach ($model->score as $examno => $val)
+        {
+            $query  = "INSERT INTO entexam_applicantconfrpt_dat";
+            $query .= " VALUES ('".$model->ObjYear."'";
+            $query .= "        ,'".$examno."'";
+            $query .= "        ,".(strlen($val["RPT01"]) ? $val["RPT01"] : "NULL");
+            $query .= "        ,".(strlen($val["RPT02"]) ? $val["RPT02"] : "NULL");
+            $query .= "        ,".(strlen($val["RPT03"]) ? $val["RPT03"] : "NULL");
+            $query .= "        ,".(strlen($val["RPT04"]) ? $val["RPT04"] : "NULL");
+            $query .= "        ,".(strlen($val["RPT05"]) ? $val["RPT05"] : "NULL");
+            $query .= "        ,".(strlen($val["RPT06"]) ? $val["RPT06"] : "NULL");
+            $query .= "        ,".(strlen($val["RPT07"]) ? $val["RPT07"] : "NULL");
+            $query .= "        ,".(strlen($val["RPT08"]) ? $val["RPT08"] : "NULL");
+            $query .= "        ,".(strlen($val["RPT09"]) ? $val["RPT09"] : "NULL");
+            $query .= "        ,".(strlen($val["RPT10"]) ? $val["RPT10"] : "NULL");
+            $query .= "        ,".(strlen($val["RPT11"]) ? $val["RPT11"] : "NULL");
+            $query .= "        ,".(strlen($val["RPT12"]) ? $val["RPT12"] : "NULL");
+            $query .= "        ,".(strlen($val["absence_days"]) ? $val["absence_days"] : "NULL");
+            $query .= "        ,".$val["avg5"];         //５教科平均
+            $query .= "        ,".$val["avgA"];         //全体平均
+            $query .= "        ,".$val["sumA"];         //全体合計
+            $query .= "        ,".$val["addA"];         //加算点
+            $query .= "        ,'".STAFFCD."'";
+            $query .= "        ,SYSDATE()";
+            $query .= ")";
+            $db->query($query);
+        }
+
+        $db->commit();
+        Query::dbCheckIn($db);
+        return true;
+    }
+}
+?>

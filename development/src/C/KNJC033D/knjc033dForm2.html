@@ -1,0 +1,51 @@
+{rval start}
+<!--{def button}-->
+
+<table width="90%" border="0" cellpadding="0" cellspacing="10" align="center">
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="center" class="no_search" height="35">
+                <th colspan="3"><b>{rval DATE}　{rval HR_NAME}</b></th>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td nowrap colspan="3" align="center">
+                  <!--結果一覧--><!--{def c001}--><!--{each c001}-->
+                  &nbsp;&nbsp;{val c001/btn_di_cd}
+                  <!--{/each}--><!--{/def}-->
+                  　　　{rval button/btn_delete}
+                  　{rval button/btn_clear}
+                  　{rval button/btn_update}
+                  　{rval button/btn_back}
+                </td>
+              </tr>
+              <!--結果一覧--><!--{def sch}--><!--{each sch}-->
+              <tr bgcolor="#ffffff" height="53px">
+                <td width="33%" nowrap align="center">
+                  &nbsp;{val sch/ATTENDNO1}&nbsp;{val sch/btn_sch1}&nbsp;&nbsp;{val sch/txt_sch11}{val sch/txt_sch12}{val sch/txt_sch13}
+                </td>
+                <td width="33%" nowrap align="center">
+                  &nbsp;{val sch/ATTENDNO2}&nbsp;{val sch/btn_sch2}&nbsp;&nbsp;{val sch/txt_sch21}{val sch/txt_sch22}{val sch/txt_sch23}
+                </td>
+                <td width="33%" nowrap align="center">
+                  &nbsp;{val sch/ATTENDNO3}&nbsp;{val sch/btn_sch3}&nbsp;&nbsp;{val sch/txt_sch31}{val sch/txt_sch32}{val sch/txt_sch33}
+                </td>
+              </tr>
+              <!--{/each}--><!--{/def}-->
+              <tr align="center" class="no_search" height="25">
+                <th colspan="3"></th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+{rval finish} 
+<script language="JavaScript">{rval jscript}</script>

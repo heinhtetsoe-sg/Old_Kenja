@@ -1,0 +1,63 @@
+{rval start} <br>
+&nbsp;&nbsp;「※」のある項目は必須入力
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="20%">項 目</th>
+                        <th width="80%">値</th>
+                      </tr>
+                      <!--結果一覧--><!--{def data}-->
+                      <tr>
+                        <th align="right" class="no_search" nowrap>※指導日付</th>
+                        <td bgcolor="#ffffff">{rval data/TRAINDATE}<input type='text' name='DUMMY' style='display:none;'></td>
+                      </tr>
+                      <tr>
+                        <th align="right" class="no_search" nowrap>※　相談者</th>
+                        <td bgcolor="#ffffff">{rval data/PATIENTCD}</td>
+                      </tr>
+                      <tr>
+                        <th align="right" class="no_search" nowrap>※　対応者</th>
+                        <td bgcolor="#ffffff">{rval data/STAFFCD}</td>
+                      </tr>
+                      <tr>
+                        <th align="right" class="no_search" nowrap>※指導方法</th>
+                        <td bgcolor="#ffffff">{rval data/HOWTOTRAINCD}</td>
+                      </tr>
+                      <tr>
+                        <th align="right" class="no_search" nowrap>指導内容</th>
+                        <td bgcolor="#ffffff">{rval data/CONTENT}</td>
+                      </tr>
+                      <!--{/def}--><!--{def button}-->
+                      <tr>
+                        <th align="right" class="no_search" nowrap>&nbsp;</th>
+                        <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}</td>
+                      </tr>
+                      <!--{/def}-->
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish} 
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

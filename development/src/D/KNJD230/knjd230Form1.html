@@ -1,0 +1,94 @@
+{rval start} 
+
+<br><br><br>
+<table style="width: 450px" border="0" cellpadding="10" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table style="width: 450px" border="0" cellspacing="5" cellpadding="0">
+	    <tr>
+	      <td>
+		    <tablestyle="width: 450px" border="0" cellspacing="0" cellpadding="0">
+		      <tr class="no_search_line">
+		        <td>
+			      <table style="width: 450px"	 border="0" cellspacing="1" cellpadding="4">
+			        <tr class="no_search" height="35">
+			          <td><b>
+					    　　　{rval data/YEAR}年度　　　{rval data/GAKKI}
+			          </b></td>
+			        </tr>
+			        <tr bgcolor="#ffffff" height="50">
+			　        <td>
+			  　        <b>　　　　　　対象クラス</b>　　　{rval data/GRADE_HR_CLASS}
+			          </td>
+			        </tr>
+			        <tr bgcolor="#ffffff" height="200">
+			　        <td>
+					    <table>
+						  <tr>
+						    <td>
+			  　                <b>出力する情報</b>
+							</td>
+						  </tr>
+						  <tr>
+						    <td colspan="2">
+							    　　{rval data/KINTAI}１．出欠に関する情報
+							</td>
+						  </tr>
+						  <tr>
+						    <td colspan="2">
+							    　　{rval data/IDO}２．異動に関する情報
+							</td>
+						  </tr>
+						  <tr>
+							<!-- 2004/07/07 update(皆出席者→皆勤者) by nakamoto -->
+						    <td>
+							    　　{rval data/ALL}３．皆勤者
+							</td>
+						    <td>
+							    　　※日付{rval data/DATE}現在まで
+							</td>
+						  </tr>
+						  <tr>
+						    <td>
+							    　　{rval data/SEISEKI}４．成績優良者
+							</td>
+						    <td>
+						        　　※評価平均が{rval data/H_OVER}以上の生徒
+							</td>
+						  </tr>
+						  <tr>
+						    <td>
+							</td>
+						    <td>
+								　　　　　　（　{rval data/H_UNDER}未満は除く）
+							</td>
+						  </tr>
+						  <tr>
+						    <td>
+								　　{rval data/HORYU}５．成績不振者
+							</td>
+						    <td>
+						        　　※評価が{rval data/ASSESS}以下の生徒
+							</td>
+						  </tr>
+						</table>
+			          </td>
+			        </tr>
+			        <tr class="no_search">
+			          <td align="left">
+			            {rval button/btn_print}{rval button/btn_end}
+			          </td>
+			        </tr>
+			      </table>
+		        </td>
+		      </tr>
+		    </table>
+	      </td>
+	    </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+					
+{rval finish} 
+<script language="JavaScript">{rval Dis_Date}</script>

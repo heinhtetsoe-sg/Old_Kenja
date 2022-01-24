@@ -1,0 +1,160 @@
+{rval start} 
+
+<BR>
+
+<table width="40%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td><b>
+                      　　　{rval data/YEAR}年度　　　{rval data/GAKKI}
+                      </b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search"> 
+                      <td><b>
+                            　　{rval data/OUTPUT1}<LABEL for="OUTPUT1">　個人</LABEL>　　　{rval data/OUTPUT2}<LABEL for="OUTPUT2">　クラス</LABEL>　　　　　　{rval data/GRADE_HR_CLASS}
+                      </b>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search"> 
+                      <th><b>出力対象一覧</b></th>
+                      <th class="no_search"></th>
+<!--{def student}-->
+                      <th><b>生徒一覧</b></th>
+<!--{/def}-->
+<!--{def hr_class}-->
+                      <th><b>クラス一覧</b></th>
+<!--{/def}-->
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="40%">{rval data/CATEGORY_SELECTED}</td>
+                      <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                        {rval button/btn_left1}<BR>
+                        {rval button/btn_right1}<BR>
+                        {rval button/btn_rights}
+                      <td width="40%">{rval data/CATEGORY_NAME}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line">
+              <td>
+              <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <TR bgcolor="#ffffff" height="130">
+                <TD align="left">
+                  <TABLE>
+                    <TR>
+                      <TD>
+                        <B>　出力する帳票</B>
+                      </TD>
+                    </TR>
+                    <TR>
+                      <TD>
+                        　　　　１．　{rval data/SEITO}<LABEL for="SEITO">生徒指導要録</LABEL>
+                          <!--{def data/SEITO_OPT}-->
+                          <!--{each data/SEITO_OPT}-->
+                          {rval data/SEITO_OPT/SPACE}<FONT style="font-size:0.8em"> 　 　{rval data/SEITO_OPT/FORM}<LABEL for="{rval data/SEITO_OPT/ID}">{rval data/SEITO_OPT/TITLE}</LABEL></FONT><br>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                      </TD>
+                    </TR>
+                    <TR>
+                      <TD>
+                        　　　　２．　{rval data/TANI}<LABEL for="TANI">修得単位の記録</LABEL>
+<!--{def showIbCourse}-->
+                                                           <FONT style="font-size:0.8em">　　　{rval data/IB_COURSE}<LABEL for="IB_COURSE">IBコース</LABEL></FONT><br>
+<!--{/def}-->
+                      </TD>
+                    </TR>
+<!--{def printShukketsu}-->
+                    <TR>
+                      <TD>
+                        　　　　３．　{rval data/SHUKKETSU}<LABEL for="SHUKKETSU">出欠の記録</LABEL>
+                      </TD>
+                    </TR>
+<!--{/def}-->
+                    <TR>
+                      <TD>
+                        　　　　{rval data/NUM_GAKUSHU}．　{rval data/GAKUSHU}<LABEL for="GAKUSHU">学習の記録</LABEL>　　
+                        <!--{def showCheckHanki}-->
+                                                           <FONT style="font-size:0.8em">　　　{rval data/HANKI}<LABEL for="HANKI">半期認定対応様式で出力</LABEL></FONT><br>
+                        <!--{/def}-->
+                      </TD>
+                    </TR>
+                    <TR>
+                      <TD>
+                        　　　　{rval data/NUM_KATSUDO}．　{rval data/KATSUDO}<LABEL for="KATSUDO">活動の記録</LABEL><!--　　　　　<b>処理日</b>　　{rval el/DATE}-->
+                      </TD>
+                    </TR>
+<!--{def showOnline}-->
+                    <TR>
+                      <TD>
+                        　　　　{rval data/NUM_ONLINE}．　{rval data/ONLINE}<LABEL for="ONLINE">特例の授業等の記録</LABEL>
+                      </TD>
+                    </TR>
+<!--{/def}-->
+                  </TABLE>
+                  <TABLE>
+                    <TR>
+                      <TD><B>　未履修科目出力</B></TD><TD>　　　　{rval data/MIRISYU1}<LABEL for="MIRISYU1">する</LABEL>　　　　{rval data/MIRISYU2}<LABEL for="MIRISYU2">しない</LABEL></TD>
+                    </TR>
+                    <TR>
+                      <TD><B>　履修のみ科目出力</B></TD><TD>　　　　{rval data/RISYU1}<LABEL for="RISYU1">する</LABEL>　　　　{rval data/RISYU2}<LABEL for="RISYU2">しない</LABEL></TD>
+                    </TR>
+                    <TR>
+                      <TD><B>　履修登録のみ科目出力</B></TD><TD>　　　　{rval data/RISYUTOUROKU1}<LABEL for="RISYUTOUROKU1">する</LABEL>　　　　{rval data/RISYUTOUROKU2}<LABEL for="RISYUTOUROKU2">しない</LABEL></TD>
+                    </TR>
+                      <!--{def showHyoteiYomikaeRadio}-->
+                      <TR style="margin-top: 0.5em; ">
+                        <TD><B>　評定読替・切替</B></TD>
+                        <TD>　　　　{rval data/HYOTEI1}<LABEL for="HYOTEI1">しない</LABEL><br>
+                            　　　　{rval data/HYOTEI2}<LABEL for="HYOTEI2">評定１を表示しない</LABEL><br>
+                            　　　　{rval data/HYOTEI3}<LABEL for="HYOTEI3">100段階評価を表示</LABEL><br>
+                        </TD>
+                      </TR>
+                      <!--{/def}-->
+                  </TABLE>
+                </TD>
+              </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <!--{def button}--> 
+  <tr>
+    <td nowrap> {rval button/btn_print}{rval button/btn_csv}{rval button/btn_end}</td>
+  </tr>
+  <!--{/def}--> 
+</table>
+<script type="text/javascript">
+if (window.addEventListener) {
+    window.addEventListener("load", function() {
+        kubun();
+    }, false);
+}
+</script>
+{rval finish} 

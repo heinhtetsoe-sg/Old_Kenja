@@ -1,0 +1,97 @@
+{rval start}
+<BR><BR><BR>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr > 
+      <td > 
+        <hr width="40%" align="left">
+          &nbsp;{rval data/SUBCLASSCD_SET}&nbsp;&nbsp;{val data/SUBCLASSNAME}
+        <hr width="40%" align="left">
+<BR>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+        <td> 
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search"> 
+            <th width="10%">SEQ</th>
+            <th width="15%">項 目</th>
+            <th width="75%">内 容</th>
+          </tr>
+<!--結果一覧-->
+<!--{def data}-->
+    <!--{def kari_useMiyagiTokiwa}--> 
+          <tr>
+            <th align="center" class="no_search" nowrap>{rval data/001}</th>
+            <th align="right" class="no_search" nowrap>成績入力</th>
+            <td bgcolor="#ffffff">{rval data/SEQ_001}<LABEL for="SEQ_001">成績入力の対象科目とする</LABEL></td>
+          </tr>
+          <tr>
+            <th align="center" class="no_search" nowrap>{rval data/004}</th>
+            <th align="right" class="no_search" nowrap>序列確定処理の総合計</th>
+            <td bgcolor="#ffffff">{rval data/SEQ_004}<LABEL for="SEQ_004">総合計に含まない</LABEL></td>
+          </tr>
+          <tr>
+            <th align="center" class="no_search" nowrap>{rval data/005}</th>
+            <th align="right" class="no_search" nowrap>原簿印刷</th>
+            <td bgcolor="#ffffff">{rval data/SEQ_005}<LABEL for="SEQ_005">原簿に出力しない</LABEL></td>
+          </tr>
+          <tr>
+            <th align="center" class="no_search" nowrap>{rval data/006}</th>
+            <th align="right" class="no_search" nowrap>調査書印刷</th>
+            <td bgcolor="#ffffff">{rval data/SEQ_006}<LABEL for="SEQ_006">調査書に出力しない</LABEL></td>
+          </tr>
+          <tr>
+            <th align="center" class="no_search" nowrap>{rval data/007}</th>
+            <th align="right" class="no_search" nowrap>通知票・成績一覧</th>
+            <td bgcolor="#ffffff">{rval data/SEQ_007}出力対象の学期を指定する<BR>
+                                  （{rval data/setData_007}　{rval data/REMARK4_007}<LABEL for="REMARK4_007">学年末</LABEL>）</td>
+          </tr>
+          <tr>
+            <th align="center" class="no_search" nowrap>{rval data/008}</th>
+            <th align="right" class="no_search" nowrap>個人成績表</th>
+            <td bgcolor="#ffffff">{rval data/SEQ_008}個人成績表に出力しない<BR>
+                                  （{rval data/setData_008}　{rval data/REMARK4_008}<LABEL for="REMARK4_008">学年末</LABEL>）</td>
+          </tr>
+          <tr>
+            <th align="center" class="no_search" nowrap>{rval data/009}</th>
+            <th align="right" class="no_search" nowrap>評価</th>
+            <td bgcolor="#ffffff">{rval data/SEQ_009}<LABEL for="SEQ_009">評価しない科目とする</LABEL></td>
+          </tr>
+          <tr>
+            <th align="center" class="no_search" nowrap>{rval data/010}</th>
+            <th align="right" class="no_search" nowrap>通知票印刷</th>
+            <td bgcolor="#ffffff">{rval data/SEQ_010}<LABEL for="SEQ_010">通知票に印刷しない合併先科目とする</LABEL></td>
+          </tr>
+          <tr>
+            <th align="center" class="no_search" nowrap>{rval data/011}</th>
+            <th align="right" class="no_search" nowrap>調査書印刷</th>
+            <td bgcolor="#ffffff">{rval data/SEQ_011}<LABEL for="SEQ_011">成績データは単位数のみを表示する</LABEL></td>
+          </tr>
+    <!--{/def}--> 
+          <tr>
+            <th align="center" class="no_search" nowrap>{rval data/012}</th>
+            <th align="right" class="no_search" nowrap>修得科目</th>
+            <td bgcolor="#ffffff">{rval data/SEQ_012}修得科目に指定する（※通年科目は指定無し）<BR>
+                                  （{rval data/setData_012}）</td>
+          </tr>
+<!--{/def}--> 
+<!--{def button}--> 
+          <tr> 
+            <th align="right" colspan = "2" class="no_search"nowrap>&nbsp;</th>
+            <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+          </tr>
+<!--{/def}--> 
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}</script>

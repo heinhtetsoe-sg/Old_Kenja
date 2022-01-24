@@ -1,0 +1,123 @@
+{rval start} 
+<table width="60%" border="0" cellpadding="10" cellspacing="10" align="center">
+  <tbody>
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="5" cellpadding="1">
+        <tbody>
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="4">
+                    <tbody>
+                      <tr class="no_search" height="35" nowrap>
+                        <td nowrap>&nbsp;&nbsp;処理年度&nbsp;{rval CTRL_YEAR}</td>
+                      </tr>
+
+                      <tr bgcolor="#ffffff" height="90">
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;銀行引落しデータ生成処理 <br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出力ファイル様式：&nbsp;{rval OUTFORMAT}
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;留年生：&nbsp;&nbsp;&nbsp;&nbsp;{rval RADIO1}省かない&nbsp;&nbsp;{rval RADIO2}省く</td>
+                      </tr>
+
+                      <tr bgcolor="#ffffff" height="100" valign="top">
+                        <td>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="10">
+                          <tbody>
+                            <tr class="no_search_line">
+                              <td width="100%">
+                              <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                                <tbody>
+                                  <tr align="center" class="no_search">
+                                    <th><font color="white">対象一覧</font></th>
+                                    <th class="no_search">&nbsp;</th>
+                                    <th><font color="white">クラス一覧<br>{rval GRADE}</font></th>
+                                  </tr>
+                                  <tr align="center" bgcolor="#ffffff">
+                                    <!--{def main_part}-->
+                                    <td width="45%">{rval main_part/LEFT_PART}</td>
+                                    <td width="*%" class="no_search">{rval main_part/SEL_ADD_ALL} <br>
+                                    {rval main_part/SEL_ADD} <br>
+                                    {rval main_part/SEL_DEL} <br>
+                                    {rval main_part/SEL_DEL_ALL}</td>
+                                    <td width="45%">{rval main_part/RIGHT_PART}</td>
+                                    <!--{/def}-->
+                                  </tr>
+                                </tbody>
+                              </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        </td>
+                      </tr>
+
+                      <!--{def button}-->
+                      <tr class="no_search" height="35">
+                        <td bgcolor="#ffffff" align="right">
+                            {rval button/btn_read}
+                        </td>
+                      </tr>
+                      <!--{/def}-->
+
+                      <tr bgcolor="#ffffff" height="100" valign="top">
+                        <td>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="10">
+                          <tbody>
+                            <tr class="no_search_line">
+                              <td width="100%">
+                              <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                                <tbody>
+                                  <tr align="center" class="no_search">
+                                    <th><font color="white">対象外</font></th>
+                                    <th class="no_search">&nbsp;</th>
+                                    <th><font color="white">生徒一覧<br>{rval GRADE_HR}</font></th>
+                                  </tr>
+                                  <tr align="center" bgcolor="#ffffff">
+                                    <!--{def main_part}-->
+                                    <td width="45%">{rval main_part/LEFTSCH_PART}</td>
+                                    <td width="*%" class="no_search">{rval main_part/SELSCH_ADD_ALL} <br>
+                                    {rval main_part/SELSCH_ADD} <br>
+                                    {rval main_part/SELSCH_DEL} <br>
+                                    {rval main_part/SELSCH_DEL_ALL}</td>
+                                    <td width="45%">{rval main_part/RIGHTSCH_PART}</td>
+                                    <!--{/def}-->
+                                  </tr>
+                                </tbody>
+                              </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        </td>
+                      </tr>
+
+                      <!--{def button}-->
+                      <tr class="no_search" height="35">
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#ffffff" align="right">{rval button/btn_ok}{rval button/btn_cancel}</td>
+                      </tr>
+                      <!--{/def}-->
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<script language="JavaScript">{rval reload}{rval jscript}</script> 
+{rval finish}

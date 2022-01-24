@@ -1,0 +1,46 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr > 
+          <td > 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th nowrap width="15%">課程コード</th>
+                      <th nowrap width="25%">課程名称</th>
+                      <th nowrap width="15%">課程略称</th>
+                      <th nowrap width="15%">課程英字</th>
+                      <th nowrap width="15%">開始校時</th>
+                      <th nowrap width="15%">終了校時</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--結果一覧-->
+                    <!--{each data}--> 
+                    <tr> 
+                      <td nowrap align="center" width="10%" bgcolor="#ffffff"><a href="knjz040_2index.php?cmd=edit&COURSECD={val data/COURSECD}" target="right_frame">{val data/COURSECD}</a></td>
+                      <td nowrap width="15%" bgcolor="#ffffff">{val data/COURSENAME}</td>
+                      <td nowrap width="15%" bgcolor="#ffffff">{val data/COURSEABBV}</td>
+                      <td nowrap width="15%" bgcolor="#ffffff">{val data/COURSEENG}</td>
+                      <td nowrap width="15%" bgcolor="#ffffff" align="center">{val data/S_NAME}</td>
+                      <td nowrap width="15%" bgcolor="#ffffff" align="center">{val data/E_NAME}</td>
+                    </tr> 
+                    <!--{/each}--> 
+                    <!--{/def}-->
+                    </table>
+                  </td>
+                </tr>
+              </td>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

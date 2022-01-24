@@ -1,0 +1,284 @@
+{rval start}
+<style>
+td,th {
+    font-size:12px;
+}
+
+#button_td {
+    padding-right : 500px;
+}
+#tyousei {
+    height : 76px;
+}
+#tyousei2 {
+    height : 30px;
+}
+#shien {
+    background-color : skyBlue;
+    color : black;
+}
+#fuken {
+    background-color : pink;
+    color : black;
+}
+#genmen {
+    background-color : yellowGreen;
+    color : black;
+}
+
+</style>
+<DIV id="TipLayer"  style="visibility:hidden;position:absolute;z-index:1000;top:-100"></DIV>
+<script language="JavaScript" src="<?php
+
+require_once('for_php7.php');
+ echo REQUESTROOT ?>/common/popMsg.js"></script>
+
+<script language="JavaScript">
+var Style =["white","black","#3399cc","#FFFFFF","","","","","","","left","","","",250,"",2,2,10,10,"","","","",""];
+var Style2=["white","black","#3399cc","#FFFFFF","","","","","","","left","","","",500,"",2,2,10,10,"","","","",""];
+var FiltersEnabled = 1;
+applyCssFilter();
+
+//画面のリサイズ
+var timer = 0;
+window.onresize = function () {
+    if (timer > 0) {
+        clearTimeout(timer);
+    }
+
+    timer = setTimeout(function () {
+        bodyWidth  = (window.innerWidth  || document.body.clientWidth  || 0);
+        bodyHeight = (window.innerHeight || document.body.clientHeight || 0);
+
+        document.getElementById("table1").style.width = bodyWidth - 36;
+        document.getElementById("trow").style.width = bodyWidth - 477;
+        document.getElementById("tbody").style.width = bodyWidth - 460;
+        document.getElementById("tbody").style.height = bodyHeight - 200;
+        document.getElementById("tcol").style.height = bodyHeight - 217;
+    }, 200);
+};
+
+</script>
+<div id='debug'></div>
+    <table id="table1" cellspacing="0" cellpadding="10" width="{rval WindowWidth}px" border="0">
+      <tbody>
+        <tr>
+          <td valign="top">
+          <table cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tbody>
+              <tr>
+                <td>
+                <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                  <tbody>
+                    <tr class="no_search">
+                      <td>
+                      <table cellspacing="1" cellpadding="3" width="100%" border="0">
+                        <tbody>
+                          <tr class="no_search">
+                            <td nowrap width="900" align="left">&nbsp;対象年度&nbsp;{rval CTRL_YEAR}
+                          </tr>
+                          <tr class="no_search">
+                            <td nowrap>&nbsp;学年 ：{rval GRADE}&nbsp;年-組 ：{rval HR_CLASS}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table width="250px" border="0" cellspacing="10" cellpadding="0">
+      <tbody>
+        <tr>
+          <td>
+
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+
+              <tr>
+
+                <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="no_search_line">
+                      <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tbody>
+                          <tr class="no_search" id="tyousei">
+                              <th nowrap width="60" rowspan="2">年-組-番</th>
+                              <th nowrap width="120" rowspan="2">生徒氏名</th>
+                              <th nowrap width="60" rowspan="2">学籍番号</th>
+                              <th nowrap width="30" rowspan="2">再<br>計<br>算<br>{rval CALC_FLG_ALL}</th>
+                              <th nowrap width="120" rowspan="2">伝票番号<br><br>（<span style="color:#ffa500;">■</span>入金済み）</th>
+                          </tr>
+                        </tbody>
+                      </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                </td>
+
+                <td>
+                <div id="trow" style="overflow:hidden; width: {rval titleWindowWidth}px; ">
+                    <div style="width: {rval setWidth}px; ">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tbody>
+                        <tr class="no_search_line">
+                          <td>
+                          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <tbody>
+                              <tr class="no_search" height="25px">
+                                  <th nowrap width="90" rowspan="2">所得割額1</th>
+                                  <th id="genmen" nowrap width="60" rowspan="2">入学金</th>
+                                  <th id="fuken" nowrap width="50" rowspan="2">補助対象<br>都道府県</th>
+                                  <th id="fuken" nowrap width="55" rowspan="2">特殊<br>フラグ</th>
+                                  <th id="fuken" nowrap width="170" colspan="3">補助額&nbsp;確定月：{rval PREF_DEC_MONTH}</th>
+                                  <th nowrap width="70" rowspan="2">負担金</th>
+                                  <th nowrap width="70" rowspan="2">調整金</th>
+                                  <th id="genmen" nowrap width="100" colspan="2">減免</th>
+                                  <th nowrap width="60" rowspan="2">減免情報</th>
+                                  <th nowrap width="180" rowspan="2">備考</th>
+                              </tr>
+                              <tr class="no_search" height="50px">
+                                  <th id="fuken" nowrap width="60">ランク</th>
+                                  <th id="fuken" nowrap width="80">補助額</th>
+                                  <th id="fuken" nowrap width="30">確定{rval PREFALL}</th>
+                                  <th id="genmen" nowrap width="70">入学金</th>
+                                  <th id="genmen" nowrap width="30">確定{rval REDUC_SCHOOL_ALL}</th>
+                              </tr>
+                            </tbody>
+                          </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+                </div>
+                </td>
+              </tr>
+
+              <tr valign="TOP">
+
+                <td>
+                <div id="tcol" style="overflow: hidden; height: {rval tcolWindowHeight}px;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                      <tr class="no_search_line">
+                        <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                          <tbody>
+      <!--{each data}-->
+                            <tr bgcolor="#ffffff" id="tyousei2">
+                              <!--{def data/HR_NAMEABBV}-->
+                              <td nowrap {rval data/LEFT_ROWSPAN} align="center" width="60">{rval data/HR_NAMEABBV}</td>
+                              <td nowrap {rval data/LEFT_ROWSPAN} align="left" width="120">{rval data/NAME_SHOW}</td>
+                              <th nowrap {rval data/LEFT_ROWSPAN} align="center" width="60">{rval data/SCHREGNO}</th>
+                              <!--{/def}-->
+                              <th nowrap align="center" width="30">{rval data/CALC_FLG}</th>
+                              <th nowrap align="center" width="120" bgcolor={rval data/SLIP_NO_BGCOLOR}>{rval data/SLIP_NO}</th>
+                            </tr>
+      <!--{/each}-->
+                          </tbody>
+                        </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                </td>
+
+                <td>
+                <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: {rval valWindowWidth}px; height: {rval valWindowHeight}px;">
+                    <div style="width: {rval setWidth}px;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                      <tr class="no_search_line">
+                        <td>
+
+                        <div id="main_container">
+                            <!-- tables inside this DIV could have draggable content -->
+                            <div id="redips-drag">
+
+                            <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                              <tbody>
+                                  <!--{each data2}-->
+                                    <tr  bgcolor="#ffffff" id="tyousei2">
+                                      <td bgcolor="#ffffff" align="center" width="90" style="background-color: #EEEEEE">{rval data2/REDUCTION_SEQ}{rval data2/REDUC_INCOME}</td>
+                                      <th nowrap align="center" width="60" style="background-color: #EEEEEE"><span id="NYUGAKUKIN_{rval data2/SLIP_NO}">{rval data2/NYUGAKUKIN}</span></th>
+                                      <td bgcolor="#ffffff" align="center" width="50"><span id="G_PREF_CD_{rval data2/SLIP_NO}">{rval data2/G_PREF}</span></td>
+                                      <td nowrap align="center" width="55">{rval data2/PREF_RARE_CASE_CD}</td>
+                                      <td bgcolor="#ffffff" align="center" width="60">{rval data2/PREF_RANK}</td>
+                                      <td nowrap align="right" width="80"><span id="PREF_DISP_{rval data2/SLIP_NO}">{rval data2/PREF_DISP}</span>{rval data2/PREF_MONEY}</span></td>
+                                      <th nowrap align="center" width="30">{rval data2/PREF_FLG}</th>
+                                      <th nowrap align="center" width="70" style="background-color: #EEEEEE"><span id="BURDEN_CHARGE_{rval data2/SLIP_NO}">{rval data2/BURDEN_CHARGE}</span></th>
+                                      <th nowrap align="center" width="70" style="background-color: #EEEEEE"><span id="ADJUSTMENT_MONEY_{rval data2/SLIP_NO}">{rval data2/ADJUSTMENT_MONEY}</span></th>
+                                      <td nowrap align="center" width="70"><span id="REDUCTION_NYUGAKUKIN_{rval data2/SLIP_NO}">{rval data2/REDUCTION_NYUGAKUKIN}</span></td>
+                                      <th nowrap align="center" width="30">{rval data2/REDUC_SCHOOL_FLG}</th>
+                                      <td nowrap align="center" width="60">{rval data2/GENMEN_TRANSFER_MARK}</td>
+                                      <td nowrap align="middle" width="180">{rval data2/REDUC_REMARK}</td>
+                                    </tr>
+                                  <!--{/each}-->
+                              </tbody>
+                            </table>
+
+                            </div>
+                        </div>
+
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                    </div>
+                </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td bgcolor="#ffffff">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td width="500">
+                                <span style="margin-left:200px;">{rval btn_update}{rval btn_cancel}{rval btn_close}　　{rval btn_calc}</span>
+                            </td>
+                            <td width="*" style="color:red;margin-left:50px;">
+                                ※確定済みデータは、確定済みを外して更新すると変更可能になります。<br>
+                                ※入金済みデータは更新対象外です。
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+<input type='hidden' name='windowWidth' value=''>
+<input type='hidden' name='windowHeight' value=''>
+<script language="JavaScript">{rval reload}{rval javascript}</script>
+{rval finish}

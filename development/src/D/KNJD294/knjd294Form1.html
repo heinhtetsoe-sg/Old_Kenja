@@ -1,0 +1,116 @@
+{rval start}
+
+<table width="840" border="0" cellspacing="10" cellpadding="0" style="margin-top:20px;" align="center">
+  <tbody>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+              <tr class="no_search">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                    <tr class="no_search" height="30">
+                      <th><B>{rval YEAR}年度　　　{rval SEMESTER}　　　{rval GRADE_HR_CLASS}</B></th>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                    <tr class="no_search" height="50">
+                      <th nowrap width="100"><LABEL for="CHECKALL">卒業予定者</LABEL><br>{rval CHECKALL}</th>
+                      <th nowrap width="100">学籍番号</th>
+                      <th nowrap width="180">氏名</th>
+                      <th nowrap width="100">修得済単位</th>
+                      <th nowrap width="100">履修中単位</th>
+                      <th nowrap width="100">合計予定単位</th>
+                      <th nowrap width="*">在籍期間</th>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width:100%;height:480;overflow:auto">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="list" onclick="selectRowList()">
+                    <tbody>
+                    <!--結果一覧--><!--{def data}--><!--{each data}-->
+                    <tr bgcolor="{rval data/BGCOLOR}">
+                      <td align="center" nowrap width="100">{rval data/CHECKED}</td>
+                      <td align="center" nowrap width="100">{rval data/SCHREGNO}</td>
+                      <td width="180">&nbsp;{rval data/NAME_SHOW}</td>
+                      <td align="center" nowrap width="100">{rval data/GET_CREDITS}</td>
+                      <td align="center" nowrap width="100">{rval data/RISYUTYU_CREDITS}</td>
+                      <td align="center" nowrap width="100">{rval data/TOTAL_CREDITS}</td>
+                      <td align="center" nowrap width="*">{rval data/REGD_MONTHS}</td>
+                    </tr>
+                    <!--{/each}--><!--{/def}-->
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <td>
+                        &nbsp;{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

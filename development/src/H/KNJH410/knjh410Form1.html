@@ -1,0 +1,252 @@
+<style>
+input[type=radio] {
+    /*height:0px;*/
+    width:0px;
+}
+label {
+    color:midnightblue;
+    text-decoration:underline;
+}
+label:hover {
+    font-weight:bold;
+}
+</style>
+{rval start}
+{rval IFRAME}
+<BR><BR>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td align="center">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--結果一覧-->
+<!--{def data}-->
+                    <tr>
+                      <th class="no_search" width="10%" align="right" nowrap>年-組-番</th>
+                      <td width="30%" bgcolor="#ffffff">&nbsp{rval data/HR_NAME}&nbsp&nbsp{rval data/ATTENDNO}&nbsp番</td>
+                      <th class="no_search" width="10%" align="right" nowrap>年次    </th>
+                      <td width="*%" bgcolor="#ffffff">&nbsp{rval data/ANNUAL}</td>
+                      <td width="20%" bgcolor="#ffffff" rowspan="6"><img src="{rval data/FACE_IMG}" alt="生徒顔写真&nbsp{rval data/IMG_PATH}" width="120" height="160"></td>
+                    </tr>
+
+                    <tr>
+                      <th class="no_search" align="right" nowrap>課程学科</th>
+                      <td bgcolor="#ffffff">&nbsp{rval data/COURSEMAJOR_NAME}</td>
+                      <th class="no_search" align="right" nowrap>コース  </th>
+                      <td bgcolor="#ffffff">&nbsp{rval data/COURSE_NAME}</td>
+                    </tr>
+
+                    <tr>
+                      <th class="no_search" width="10%" align="right" nowrap>学籍番号</th>
+                      <td bgcolor="#ffffff">&nbsp{rval data/SCHREGNO}</td>
+                      <th class="no_search" align="right" nowrap>性別</th>
+                      <td bgcolor="#ffffff">&nbsp{rval data/SEX}</td>
+                    </tr>
+
+                    <tr>
+                      <th class="no_search" width="10%" align="right" nowrap>氏 名</th>
+                      <td bgcolor="#ffffff">&nbsp{rval data/NAME}</td>
+                      <th class="no_search" align="right" nowrap>クラブ</th>
+                      <td bgcolor="#ffffff">&nbsp{rval data/CLUBNAME}</td>
+                    </tr>
+
+                    <tr>
+                      <th class="no_search" width="10%" align="right" nowrap>&nbsp氏名かな</th>
+                      <td bgcolor="#ffffff">&nbsp{rval data/NAME_KANA}</td>
+                      <th class="no_search" align="right" nowrap>委員会</th>
+                      <td bgcolor="#ffffff">&nbsp{rval data/COMMITTEENAME}</td>
+                    </tr>
+
+                    <tr>
+                      <th class="no_search" width="10%" align="right" nowrap>&nbsp英字氏名</th>
+                      <td bgcolor="#ffffff" colspan="3">&nbsp{rval data/NAME_ENG}</td>
+                    </tr>
+
+                    <tr>
+                      <th class="no_search" width="10%" align="right" nowrap>各種情報</th>
+                      <td bgcolor="#ffffff" colspan="4">{rval data3/btnRadio1}　{rval data3/btnRadio2}　{rval data3/btnRadio3}　{rval data3/btnRadio4}
+                      <!--{def btn}-->
+                      <br><br>
+                      {rval data/BTN_NENDO}{rval data/BTN_SCHREG}{rval data/BTN_CLUB}{rval data/BTN_COMMITTEE}{rval data/BTN_SHIKAKU}{rval data/BTN_TRAIN}{rval data/BTN_DETAIL}
+                      {rval data/BTN_TSUGAKU}{rval data/BTN_HOKEN}{rval data/BTN_MEDICAL}{rval data/BTN_EVERY}{rval data/BTN_ASSESS}{rval data/BTN_ACTION_DOCUMENT}
+                      {rval data/BTN_SEITO}{rval data/BTN_HOGOSYA}{rval data/BTN_HOGOSYA2}{rval data/BTN_HOSYOUNIN}{rval data/BTN_SONOTA}{rval data/BTN_KAZOKU}{rval data/BTN_ZYUSYO}
+                      {rval data/BTN_TEST}{rval data/BTN_APPEND}{rval data/BTN_SHAM}
+                      {rval data/BTN_SHIBOU}{rval data/BTN_HANTEI}{rval data/BTN_SEISEKI}{rval data/BTN_KYOUKA}
+                      <!--{/def}-->
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th class="no_search" ></th>
+                      <td colspan="3" bgcolor="#ffffff">
+                          &nbsp{rval FILE_LINK}
+                      </td>
+                      <td bgcolor="#ffffff" align="right">
+                      </td>
+                    </tr>
+
+                <!--{def choice}-->
+                    <tr>
+                      <th class="no_search" width="10%" align="right" nowrap>{rval choice/TITLE}</th>
+
+                        <td bgcolor="#ffffff" colspan="4">
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                          <!--{def choice/thRow}-->
+                          <td>
+                            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                            <tr class="no_search" nowrap align="center">
+                                {rval choice/thRow}
+                            </tr>
+                            </table>
+                          </td>
+                          </tr>
+                          <tr>
+                          <!--{/def}-->
+                          <td bgcolor="#ffffff">
+                            <div style="width: 100%; max-height:300; overflow-y: auto">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr class="no_search_line">
+                                    <td>
+                                      <table width="100%" border="0" cellspacing="1" cellpadding="3"> 
+                                      <!--結果一覧-->
+                                      <!--{each choice1}--> 
+                                        <tr bgcolor="{rval choice1/color}" align="left">
+                                            {rval choice1/tdRow}
+                                        </tr> 
+                                      <!--{/each}--> 
+                                      </table>
+                                    </td>
+                                </tr>
+                              </table>
+                            </div>
+                          </td>
+                          </tr>
+                          </table>
+                        </td>
+                    </tr>
+                <!--{/def}-->
+                <!--{def schreg}-->
+                    <tr>
+                      <th class="no_search" width="10%" align="right" nowrap>学籍基礎情報</th>
+
+                        <td bgcolor="#ffffff" colspan="4">
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                          <td bgcolor="#ffffff">
+                            <div style="width: 100%;">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr class="no_search_line">
+                                <td>
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3"> 
+                                  <!--結果一覧-->
+                                    <tr bgcolor="#ffffff" >
+                                        <th class="no_search" rowspan="2" width="100"  align="right">生年月日</th>
+                                        <td rowspan="2">{rval schreg/BIRTHDAY}</td>
+                                        <th class="no_search" align="right" width="100">性別</th>
+                                        <td>{rval schreg/SEX}</td>
+                                        <th class="no_search" align="right" width="100">血液</th>
+                                        <td>{rval schreg/BLOOD}</td>
+                                    </tr>
+                                    <tr bgcolor="#ffffff" >
+                                        <th class="no_search" align="right">その他</th>
+                                        <td>{rval schreg/OTHER}</td>
+                                        <th class="no_search" align="right">国籍</th>
+                                        <td>{rval schreg/NATION}</td>
+                                    </tr>
+                                    <tr bgcolor="#ffffff" >
+                                        <th class="no_search" align="right">出身学校</th>
+                                        <td colspan="5">{rval schreg/FINSCHOOL}　{rval schreg/FINISH_DATE}</td>
+                                    </tr>
+                                    <tr bgcolor="#ffffff" >
+                                        <th class="no_search" rowspan="{rval schreg/ROWSPAN}" width="100" align="right">入学<!--{def schreg/CB_ENT_DATE}--><br>入学日付<br>{rval schreg/CB_ENT_DATE}<!--{/def}--></th>
+                                        <td rowspan="{rval schreg/ROWSPAN}">{rval schreg/ENTER}</td>
+                                        <th class="no_search" align="right">事由</th>
+                                        <td colspan="3">{rval schreg/ENT_REASON}</td>
+                                    </tr>
+                                    <tr bgcolor="#ffffff" >
+                                        <th class="no_search" align="right">学校名</th>
+                                        <td colspan="3">{rval schreg/ENT_SCHOOLNAME}</td>
+                                    </tr>
+                                    <tr bgcolor="#ffffff" >
+                                        <th class="no_search" align="right">住所1</th>
+                                        <td colspan="3">{rval schreg/ENT_SCHOOL_ADDR1}</td>
+                                    </tr>
+                                    <!--{def ADDR2}-->
+                                    <tr bgcolor="#ffffff" >
+                                        <th class="no_search" align="right">{rval schreg/ADDR2_NAME}</th>
+                                        <td bgcolor="#ffffff" colspan="3">{rval data/ENT_SCHOOL_ADDR2}</td>
+                                    </tr>
+                                    <!--{/def}-->
+                                    <tr bgcolor="#ffffff" >
+                                        <th class="no_search" rowspan="{rval schreg/ROWSPAN}" width="100" align="right">卒業</th>
+                                        <td rowspan="{rval schreg/ROWSPAN}">{rval schreg/OUT}</td>
+                                        <th class="no_search" align="right">事由</th>
+                                        <td colspan="3">{rval schreg/OUT_REASON}</td>
+                                    </tr>
+                                    <tr bgcolor="#ffffff" >
+                                        <th class="no_search" align="right">学校名</th>
+                                        <td colspan="3">{rval schreg/OUT_SCHOOLNAME}</td>
+                                    </tr>
+                                    <tr bgcolor="#ffffff" >
+                                        <th class="no_search" align="right">住所1</th>
+                                        <td colspan="3">{rval schreg/OUT_SCHOOL_ADDR1}</td>
+                                    </tr>
+                                    <!--{def ADDR2}-->
+                                    <tr bgcolor="#ffffff" >
+                                        <th class="no_search" align="right">{rval schreg/ADDR2_NAME}</th>
+                                        <td colspan="3">{rval schreg/OUT_SCHOOL_ADDR2}</td>
+                                    </tr>
+                                    <!--{/def}-->
+                                    <tr bgcolor="#ffffff" >
+                                        <th class="no_search" align="right">出身塾</th>
+                                        <td colspan="5">{rval schreg/PRISCHOOL}</td>
+                                    </tr>
+                                    <tr bgcolor="#ffffff" >
+                                        <th class="no_search" align="right">備考1</th>
+                                        <td colspan="5">{rval schreg/REMARK1}</td>
+                                    </tr>
+                                    <tr bgcolor="#ffffff" >
+                                        <th class="no_search" align="right">備考2</th>
+                                        <td colspan="5">{rval schreg/REMARK2}</td>
+                                    </tr>
+                                    <tr bgcolor="#ffffff" >
+                                        <th class="no_search" align="right">備考3</th>
+                                        <td colspan="5">{rval schreg/REMARK3}</td>
+                                    </tr>
+                                    
+                                  </table>
+                                </td>
+                              </table>
+                            </div>
+                          </td>
+                          </tr>
+                          </table>
+                        </td>
+                    </tr>
+                <!--{/def}-->
+                    <tr>
+                        <th class="no_search"></th>
+                        <td bgcolor="#ffffff" colspan="4" align="right">
+                          <!--{def button/btn_insert}-->{rval button/btn_insert}<!--{/def}-->
+                          <!--{def button/btn_del}-->{rval button/btn_del}<!--{/def}-->
+                          {rval button/btn_end}
+                        </td>
+                    </tr>
+                </table>
+                   </td>
+               </tr>
+              </table>
+           </td>
+          </tr>
+       </table>
+      </td>
+   </tr>
+</table>
+<!--{/def}-->
+{rval finish}

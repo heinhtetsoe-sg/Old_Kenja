@@ -1,0 +1,91 @@
+{rval start}
+<style>
+.all {
+    height:80%;
+    margin-top: 2%;
+}
+.scrollbody {
+    height: 100%;
+    overflow-y: scroll;
+}
+@media all and (-ms-high-contrast:none){
+    .scrollbody {
+        height: 500px;
+        overflow-y: scroll;
+    }
+}
+</style>
+<div class="all">
+<table width="650" height="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+  <tbody>
+    <tr class="no_search_line">
+      <td valign="top" nowrap>
+      
+      <div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tbody>
+                      <tr>
+                        <td class="no_search" style="text-align:center;" width="120">受験番号</td>
+                        <td class="no_search" style="text-align:center;" width="*">氏名</td>
+                        <td class="no_search" style="text-align:center;" width="120">{rval KAMOKU}得点({rval KAISU})</td>
+                        <td class="no_search" style="text-align:center;" width="120">{rval KAMOKU}欠席</td>
+                        <td class="no_search" width="6"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      <div class="scrollbody">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line"> 
+           <td> 
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+             <tbody>
+               <!--{def data}-->
+               <!--{each data}-->
+               <tr>
+                 <td bgcolor="#ffffff" style="text-align:left;" width="120">{rval data/EXAM_NO}</td>
+                 <td bgcolor="#ffffff" style="text-align:left;" width="*">{rval data/NAME}</td>
+                 <td bgcolor="#ffffff" style="text-align:center;" width="120">{rval data/TOKUTEN}{rval data/btn_delete}</td>
+                 <td bgcolor="#ffffff" style="text-align:center;" width="120">{rval data/ABSENCE}</td>
+               </tr>
+               <!--{/each}-->
+               <!--{/def}-->
+             </tbody>
+            </table>
+           </td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line"> 
+            <td> 
+              <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                <tbody>
+                  <tr>
+                    <td class="no_search" style="text-align:center;">　</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<script language="JavaScript">{rval jscript}</script> 
+{rval java}
+{rval finish}

@@ -1,0 +1,179 @@
+<?php
+
+require_once('for_php7.php');
+require_once("iniFile.php");
+
+/**
+ * メインファイルの前に自動的に実行されるファイル
+ * 
+ * /usr/local/??????/src/.htaccessへ
+ * php_value auto_prepend_fileを定義のこと。
+ * 2010/02/25 シンボリックリンク対策
+ */
+
+/**
+ * 作業ディレクトリから対象の$CONFDIR決定
+ *   2009/04/20 K.M
+ */
+//$str=getcwd();
+//$pos=strpos($str,"/src");
+//if ($pos>0) {
+//    $CONFDIR=substr($str,0,$pos);
+//}
+$CONFDIR="/usr/local/demo-toku/config";
+define("CONFDIR" , $CONFDIR);
+//define("SERVLET_URL", "/servlet_tokushi");	// サーブレットのＵＲＬ
+define("SERVLET_URL", "http://".$_SERVER['SERVER_NAME'].":50001/servlet");
+
+
+
+/*
+ * Gk設定ファイル情報取得
+ */
+$objIni = new iniFile(CONFDIR."/gk.conf");
+$charset = array( "SJIS" => "SHIFT_JIS",
+                  "EUC"  => "EUC-JP",
+                  "JIS"  => "ISO-2022-JP" );
+
+/*
+ * パッケージ情報
+ */
+//define("NAME"    , "教育事務支援システム");
+//define("NAME"    , "学校教務システム　“賢者”");
+//define("NAME"    , "学校教務システム");
+//define("NAME"    , "東京都管理（学籍）システム");
+define("NAME"    , "教務支援システム　“賢者”");
+define("EDITION" , "Enterprise");
+define("VERSION" , "10.01");
+
+/**
+ * ディレクトリ、ファイル指定
+ */
+define("GKDIRECTORY"    , $objIni->param("General","GKDirectory"));
+define("GKLIBDIRECTORY" , $objIni->param("General","GKlibDirectory"));
+define("TMPLDIRECTORY"  , $objIni->param("General","TmplDirectory"));
+define("PEARDIRECTORY"  , $objIni->param("General","PEARDirectory"));
+define("ERRORINIFILE"   , $objIni->param("General","ErroriniFile"));
+define("DOCUMENTROOT"   , $objIni->param("pc","DocumentRoot"));
+define("REQUESTROOT"    , $objIni->param("pc","RequestRoot"));
+define("COMMON_JS_FILE" , REQUESTROOT."/common/common.js");
+define("COMMON_TEXTAREAJS_FILE" , REQUESTROOT."/common/textareacheck.js");
+define("COMMON_JS_PROTO" , REQUESTROOT."/common/prototype.js");
+define("COMMON_JS_EFFECT" , REQUESTROOT."/common/scriptaculous.js?load=effects");
+define("COMMON_JS_SMARTDIALOG" , REQUESTROOT."/common/smartdialog.js");
+define("COMMON_TABLE_SORT" , REQUESTROOT."/common/tablesort.js");
+define("CSS_FILE"       , REQUESTROOT."/common/gk.css");
+define("CSS_FILE2"      , REQUESTROOT."/common/js/jquery-ui-1.10.1.custom.min.css");
+define("JQUERY"         , REQUESTROOT."/common/js/jquery-1.9.1.js");
+define("UI_CORE"        , REQUESTROOT."/common/js/jquery-ui-1.10.1.custom.min.js");
+/* アプレットのルートパス 2010/02/02 K.M */
+define("APPLET_ROOT"    , $objIni->param("pc","Applet_Root"));
+
+/**
+ * Cache
+ */
+define("CACHING"        , $objIni->param("Cache","Caching"));
+define("CACHEDIRECTORY" , $objIni->param("Cache","CacheDirectory"));
+define("CACHEEXPIRES"   , $objIni->param("Cache","CacheExpires"));
+
+/**
+ * Database 接続オプション
+ */
+define("PHPTYPE"     , $objIni->param("database","phptype"));
+define("DB_HOST"     , $objIni->param("database","Host"));
+define("DB_DATABASE" , $objIni->param("database","Database"));
+define("DB_DATABASE2", $objIni->param("database","Database2"));
+define("DB_USER"     , $objIni->param("database","User"));
+define("DB_PASSWORD" , $objIni->param("database","Password"));
+define("DB_USER2"    , $objIni->param("database","User2"));
+define("DB_PASSWORD2", $objIni->param("database","Password2"));
+define("DB_PORT"     , $objIni->param("database","Port"));
+
+$_ = function($s){return $s;};
+
+/**
+ * PDO通常接続用のDSN記述(DBNAME,HOST,PORT必要)
+ */
+//$dsn = "ibm:DRIVER={IBM DB2 ODBC DRIVER};DATABASE={$_(DB_DATABASE)};" . "HOSTNAME={$_(DB_HOST)};PORT={$_(DB_PORT)};PROTOCOL=TCPIP;";
+//$dsn2 = "ibm:DRIVER={IBM DB2 ODBC DRIVER};DATABASE={$_(DB_DATABASE2)};" . "HOSTNAME={$_(DB_HOST)};PORT={$_(DB_PORT)};PROTOCOL=TCPIP;";
+
+/**
+ * PDOカタログ登録DBへの接続用DSN記述(hosts追加要)
+ */
+$dsn = "ibm:{$_(DB_DATABASE)}";
+$dsn2 = "ibm:{$_(DB_DATABASE2)}";
+
+define("DSN" , $dsn);
+define("DSN2" , $dsn2);
+
+/**
+ * HTML定数
+ */
+define("TITLE"     , NAME." Ver".VERSION);
+//define("CHARSET"   , $charset[mb_http_output()]);
+//define("CHARSET"   , "ISO-2022-JP");
+define("CHARSET"   , "UTF-8");
+define("COPYRIGHT" , "Copyright&copy; 2020 ALP All Rights Reserved.");
+unset($charset);
+define("IRO"   , "2");
+define("SCHOOLCD"   , "000000000000");
+define("SCHOOLKIND"   , "H");
+
+define("DB_FETCHMODE_ASSOC", "DB_FETCHMODE_ASSOC");
+define("DB_FETCHMODE_ORDERED", "DB_FETCHMODE_ORDERED");
+define("DB_FETCHMODE_OBJECT", "DB_FETCHMODE_OBJECT");
+
+
+/* 基本ファイルの読み込み */
+require_once("localPEAR.php");
+require_once("localPHPlib.php");
+require_once("Reload.php");
+require_once("VARS.php");
+require_once('Controller.php');
+require_once('Model.php');
+require_once("Query.php");
+require_once("View.php");
+require_once("Tree.inc");
+require_once("Html.inc");
+require_once("common.php");
+require_once("knj_html_create_obj.php");
+require_once("const.php");
+
+function add_include_path ($path)
+{
+    foreach (func_get_args() AS $path)
+    {
+        if (!file_exists($path) OR (file_exists($path) && filetype($path) !== 'dir'))
+        {
+            //2010/02/25 trigger_error("Include path '{$path}' not exists", E_USER_WARNING);
+            continue;
+        }
+        
+        $paths = explode(PATH_SEPARATOR, get_include_path());
+        
+        if (array_search($path, $paths) === false)
+            array_push($paths, $path);
+        
+        set_include_path(implode(PATH_SEPARATOR, $paths));
+    }
+}
+
+function prepare_alp(&$db, $sql, $options=array())
+{
+    return Query::prepare_odbc($db, $sql);
+    //return Query::prepare_db2($db, $sql, $options);
+}
+
+function execute_alp(&$stmt, $options=array())
+{
+    return Query::execute_odbc($stmt, $options);
+    //return Query::execute_db2($stmt, $options);
+}
+
+function fetch_object_alp(&$stmt, $rownumber=-1)
+{
+    return Query::fetch_object_odbc($stmt, $rownumber);
+    //return Query::fetch_object_db2($stmt, $rownumber);
+}
+
+?>

@@ -1,0 +1,100 @@
+{rval start}
+
+<br>
+<table width=100% border="0" cellspacing="0" cellpadding="10">
+  <tr align="center">
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="5" bgcolor="#000066">
+              <tr class="no_search">
+                <td nowrap>
+                  対象年度
+                </td>
+                <td nowrap>
+                  {rval YEAR}年度
+                </td>
+              </tr>
+              <tr class="no_search">
+                <td nowrap>
+                  参照考査
+                </td>
+                <td nowrap>
+                  参照年度{rval sansyouYear}&nbsp;&nbsp;&nbsp;学期{rval sansyouSemester}&nbsp;&nbsp;&nbsp;考査{rval sansyouKousa}&nbsp;&nbsp;&nbsp;科目{rval sansyouKamoku}&nbsp;&nbsp;&nbsp;{rval btn_copy}
+                </td>
+              </tr>
+              <tr class="no_search">
+                <td nowrap>
+                  対象考査
+                </td>
+                <td nowrap>
+                  学期{rval taisyouSemester}&nbsp;&nbsp;&nbsp;科目{rval taisyouKamoku}&nbsp;&nbsp;&nbsp;考査{rval taisyouKousa}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </th>
+  </tr>
+  <tr>
+    <th valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <tr class="no_search" align="center" nowrap>
+                <th colspan="5">講座一覧</th>
+              </tr>
+              <tr class="no_search" align="center" nowrap>
+                <th width="100">講座コード</th>
+                <th width="300">講座名称</th>
+                <th width="307">科目担任(正)(副)</th>
+                <th width="*">注意点</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width:100%; height:500; overflow:auto">
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <!--{each data}-->
+              <tr bgcolor="#FFFFFF" align="center" nowrap height="26">
+                <td width="100" align="left" rowspan="{rval data/STAFFCNT}">{rval data/CHAIRCD}</td>
+                <td width="300" align="left" rowspan="{rval data/STAFFCNT}">{rval data/CHAIRNAME}</td>
+                <td width="50">{rval data/STAFF_ONE/CHARGEDIV}</td>
+                <td width="250" align="left">{rval data/STAFF_ONE/STAFFNAME}</td>
+                <td width="*" rowspan="{rval data/STAFFCNT}">{rval data/ATTENTION_SCORE}</td>
+              </tr>
+              <!--{each data/STAFF}-->
+              <tr bgcolor="#FFFFFF" align="center" nowrap height="26">
+                <td width="50">{rval data/STAFF/CHARGEDIV}</td>
+                <td width="250" align="left">{rval data/STAFF/STAFFNAME}</td>
+              </tr>
+              <!--{/each}-->
+              <!--{/each}-->
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#000066">
+              <tr class="no_search" align="right" height="30">
+                <td nowrap>
+                    {rval ZERO_HYOJI_COMMENT}　　　　　　　　　　　　　　
+                    {rval btn_update} {rval btn_reset} {rval btn_end} {rval btn_csv}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

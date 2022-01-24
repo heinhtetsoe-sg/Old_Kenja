@@ -1,0 +1,55 @@
+{rval start} 
+
+<br><br><br><br>
+<table style="width: 400px" border="0" cellpadding="10" cellspacing="10" align="center">
+  <tr>
+    <td>
+      <table style="width: 400px" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <td>
+            <tablestyle="width: 400px" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table style="width: 400px"    border="0" cellspacing="1" cellpadding="4">
+                    <tr class="no_search" height="35" align="center">
+                      <td><b>
+                        {rval YEAR}年度
+                      </b></td>
+                    </tr>
+                    <tr bgcolor="#ffffff" height="100">
+            　        <td>
+                        &nbsp&nbsp&nbsp&nbsp受付日：{rval data/DATE}<br><br>
+                        &nbsp&nbsp&nbsp&nbsp区　分：{rval data/OUTPUT1}&nbsp&nbspレポート受付日<br>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{rval data/OUTPUT2}&nbsp&nbspレポート評価返送日<br><br>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp担当者：&nbsp{rval data/STAFF}<br>
+                      </td>
+                    </tr>
+                    <tr class="no_search">
+                      <td align="left">
+                        {rval button/btn_print}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+                    
+{rval finish}
+<script language="JavaScript">
+    var sem = 0;
+    document.forms[0].DATE.focus();
+    setInterval('callfunc()',500);
+
+function callfunc()
+{
+    if (sem == 0){
+        datecheck(document.forms[0].DATE.value);
+    }
+}
+</script>

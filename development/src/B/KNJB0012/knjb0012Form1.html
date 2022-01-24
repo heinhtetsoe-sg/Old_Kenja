@@ -1,0 +1,188 @@
+{rval start} 
+
+<table width="1300" border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                    <tbody>
+                      <tr class="no_search">
+                          <th width="*%" align="left" nowrap>
+                            <b>
+                                　　　　{rval data/YEAR}年度　{rval data/SCHREG_INFO}<br>
+                                　　　　学期：{rval data/SEMESTER}　履修登録日：{rval data/RIREKI_CODE}　基本時間割：{rval data/SCH_PTRN}<BR>
+                            </b>
+                          </th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+
+          <tr>
+
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th width="300" height="61"></th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+
+            <td>
+            <div id="trow" style="overflow:hidden; width: 1200px; height; 63;">
+                <div style="width: 1750px; height:63;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+
+                    <tr class="no_search" align="center">
+                      <th width="250" height="61">(月)</th>
+                      <th width="250" height="61">(火)</th>
+                      <th width="250" height="61">(水)</th>
+                      <th width="250" height="61">(木)</th>
+                      <th width="250" height="61">(金)</th>
+                      <th width="250" height="61">(土)</th>
+                      <th width="250" height="61">(日)</th>
+
+                    </tr>
+
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+          <tr valign="TOP">
+
+            <td>
+            <div id="tcol" style="overflow: hidden; height: 433px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each head}-->
+                        <tr height="{rval head/PERI_HEIGHT}" class="no_search">
+                          <td width="300" align="center" >{rval head/PERIOD_NAME}</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </td>
+
+            <td>
+            <div onScroll="scrollRC()" id="tbody" style="overflow:scroll; width: 1217px; height: 450px;">
+                <div style="width: 1749px;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="no_search_line">
+                    <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" id="REC">
+                      <tbody>
+  <!--{each meisai}-->
+                        <tr height="30" align="center">
+                            <td align="left" bgcolor="#ffffff" width="250" height="{rval meisai/PERI_HEIGHT}">{rval meisai/MEISAI2}</td>
+                            <td align="left" bgcolor="#ffffff" width="250" height="{rval meisai/PERI_HEIGHT}">{rval meisai/MEISAI3}</td>
+                            <td align="left" bgcolor="#ffffff" width="250" height="{rval meisai/PERI_HEIGHT}">{rval meisai/MEISAI4}</td>
+                            <td align="left" bgcolor="#ffffff" width="250" height="{rval meisai/PERI_HEIGHT}">{rval meisai/MEISAI5}</td>
+                            <td align="left" bgcolor="#ffffff" width="250" height="{rval meisai/PERI_HEIGHT}">{rval meisai/MEISAI6}</td>
+                            <td align="left" bgcolor="#ffffff" width="250" height="{rval meisai/PERI_HEIGHT}">{rval meisai/MEISAI7}</td>
+                            <td align="left" bgcolor="#ffffff" width="250" height="{rval meisai/PERI_HEIGHT}">{rval meisai/MEISAI1}</td>
+                        </tr>
+  <!--{/each}-->
+                      </tbody>
+                    </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
+            </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <td>
+                          <table cellpadding="0" cellspacing="0">
+                            <tr class="no_search">
+                              <td align="left">
+                              　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+                              　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+                              {rval btn_print}{rval btn_update}{rval btn_end}
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                  </table>
+                  </td>
+                </tr>
+            </table>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+        　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+        　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+        <b><font color="red">※指定学期の全ての講座名簿をクリアして、新規作成します。</font></b>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish} 
+<script language="JavaScript">{rval jscript}{rval Closing}</script>

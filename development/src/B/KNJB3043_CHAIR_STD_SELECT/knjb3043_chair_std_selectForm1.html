@@ -1,0 +1,164 @@
+{rval start}
+
+<style>
+  #lockScreen {
+  z-index:999;
+  position:absolute;
+  top:0px;
+  left:0px;
+  background-color:#CECECE;
+  display:none;
+}
+#lockScreen #lockScreenInner{
+  display: table-cell;
+  text-align:center;
+  vertical-align: middle;
+  color:red;
+  font-size:3em;
+}
+</style>
+
+<!--{def button}-->
+<table width="100%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td>
+
+      <table width="100%" border="0" cellpadding="2" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr height="30">
+                      <td class="no_search" align="left" colspan="9" nowrap>
+                        　　{rval button/btn_backHr}
+                        　　重複講座：{rval OVERLAP_CHAIR}
+                        　　適用開始日：{rval START_DATE}
+                        　　{rval SELECT_TYPE1}<label for="SELECT_TYPE1">科目</label>
+                        &nbsp;{rval SELECT_TYPE2}<label for="SELECT_TYPE2">選択群</label>
+                        　　　{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <!--{def data}-->
+                <td width="200px" style="vertical-align:top;" nowrap>
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr style="background-color:LightBlue;color:#000000">
+                      <th style="min-width: 192px;"  nowrap>
+                        {rval data/CHAIRCD} {rval data/CHAIRNAME}
+                        <span style="float:right;"><input type="button" value="移動" onclick="dataMove('{rval data/CHAIRCD}');"></span><br>
+                        {rval data/SUBCLASSCD} {rval data/SUBCLASSNAME}
+                        <hr>
+                        <!--{each data/STAFFLIST}-->
+                        {rval data/STAFFLIST/LABEL}<br>
+                        <!--{/each}-->
+                      </th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td>
+                        {rval data/STDLIST}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <!--{/def}-->
+                <td width="50px" bgcolor="#ffffff" nowrap></td>
+                <!--{each data2/CHAIRLIST}-->
+                <td width="200px" style="vertical-align:top;" nowrap>
+                  <table style="height:100%;width:100%;" border="0" cellpadding="3" cellspacing="1">
+                    <tr style="background-color:LightBlue;color:#000000">
+                      <th style="min-width: 192px;"  nowrap>
+                        {rval data2/CHAIRLIST/CHAIRCD} {rval data2/CHAIRLIST/CHAIRNAME}
+                        <span style="float:right;"><input type="button" value="移動" onclick="dataMove('{rval data2/CHAIRLIST/CHAIRCD}');"></span><br>
+                        {rval data2/CHAIRLIST/SUBCLASSCD} {rval data2/CHAIRLIST/SUBCLASSNAME}
+                        <hr>
+                        <!--{each data2/CHAIRLIST/STAFFLIST}-->
+                        {rval data2/CHAIRLIST/STAFFLIST/LABEL}<br>
+                        <!--{/each}-->
+                      </th>
+                    </tr>
+                    <tr height="100%" align="center" bgcolor="#ffffff">
+                      <td width="100%">
+                        {rval data2/CHAIRLIST/STDLIST}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <!--{/each}-->
+
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <!--{each data/HRLIST}-->
+                <td width="200px">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr align="center" class="no_search" style="background-color:LightBlue;color:#000000">
+                      <th style="min-width: 192px;">{rval data/HRLIST/HR_NAME}</th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td>{rval data/HRLIST/HR_STDLIST}</td>
+                    </tr>
+                  </table>
+                </td>
+                <!--{/each}-->
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <table width="100%" border="0" cellpadding="2" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5" >
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                    <tr height="25">
+                      <td class="no_search" align="left" colspan="9" nowrap>
+                        　　{rval HR_TO_CHAIR_CMB}{rval button/btn_HrToChair}　　　{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+<!--{/def}-->
+
+<!--描画中に画面を触れないようにする-->
+<div id="lockScreen" style="display:none">
+  <div id="lockScreenInner">処理中です。しばらくお待ちください。
+  <br><br><progress max="100"></progress>
+  </div>
+</div>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

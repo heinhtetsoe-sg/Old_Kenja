@@ -1,0 +1,191 @@
+{rval start}
+<table width="100%" border="0" cellpadding="1" cellspacing="1" align="left">
+<tr>
+<td>
+  <table width="100%" border="0" cellspacing="10" cellpadding="1">
+  <tr> 
+  <td>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>
+       <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+        <tr class="no_search_line">
+          <th>
+          <table width="100%" border="0" cellspacing="0" cellpadding="3">
+          <tr class="no_search">
+          <th width="120">&nbsp;</th>
+          <th width="*"><B>{rval data/NAME}{rval data/SUBCLASSNAME}</B></th>
+          <th width="120" height="35">{rval button/BTN_CLEAR}</th>
+          </tr>
+          </table>
+          </th>
+        </tr>
+       </table>
+      </td>
+    </tr>
+            <!-------------------------スクーリング------------------------->
+    <tr>
+      <td><br>
+       <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+        <tr>
+          <th>
+          <table width="100%" border="0" cellspacing="5" cellpadding="1">
+          <tr> 
+          <th width="120">{rval button/BTN_PRINT1}</th>
+          <th width="*"><B>スクーリング出席状況詳細</B></th>
+          <th width="120">&nbsp;</th>
+          </tr>
+          </table>
+          </th>
+        </tr>
+       </table>
+      </td>
+    </tr>
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="40">&nbsp;</th>
+              <th width="80">実施日</th>
+              <th width="60">校時</th>
+              <th width="150">科目</th>
+              <th width="60">回</th>
+              <th width="150">担当者</th>
+              <th width="150">種別</th>
+              <th width="*">備考</th>
+            </tr>
+            </table>
+          </td>
+          </tr>
+         </table>
+        </td>
+        </tr>
+    </tr>
+    <tr>
+    <td>
+      <div style="width: 100%; height=200; overflow: auto">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3"> 
+            <!--{def data1}-->
+            <!--結果一覧-->
+            <!--{each data1}--> 
+              <tr bgcolor="#ffffff">
+                <td width="40" align="right">{rval data1/REC_NO}</td>
+                <td width="80" align="right">{rval data1/EXECUTEDATE}</td>
+                <td width="60" align="center">{rval data1/PERIOD_NAME}</td>
+                <td width="150" align="left">{rval data1/SUBCLASSNAME}</td>
+                <td width="60" align="center">{rval data1/SCH_SEQ_NAME}</td>
+                <td width="150" align="left">{rval data1/TANTOU}</td>
+                <td width="150" align="left">{rval data1/KIND_NAME}</td>
+                <td width="*" align="left">{rval data1/REMARK}</td>
+              </tr> 
+            <!--{/each}--> 
+            <!--{/def}-->
+            </table>
+          </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+    </tr>
+            <!-------------------------レポート------------------------->
+    <tr>
+      <td><br>
+       <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+        <tr>
+          <th>
+          <table width="100%" border="0" cellspacing="5" cellpadding="1">
+          <tr> 
+          <th width="120">{rval button/BTN_PRINT2}</th>
+          <th width="*"><B>レポート提出状況詳細</B></th>
+          <th width="120">&nbsp;</th>
+          </tr>
+          </table>
+          </th>
+        </tr>
+       </table>
+      </td>
+    </tr>
+        <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" nowrap align="center">
+              <th width="40">&nbsp;</th>
+              <th width="80">受付日</th>
+              <th width="150">科目</th>
+              <th width="60">回</th>
+              <th width="150">添削者</th>
+              <th width="80">評価返送日</th>
+              <th width="80">評価</th>
+              <th width="*">再提出</th>
+            </tr>
+            </table>
+          </td>
+          </tr>
+         </table>
+        </td>
+        </tr>
+    </tr>
+    <tr>
+    <td>
+      <div style="width: 100%; height=200; overflow: auto">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3"> 
+            <!--{def data2}-->
+            <!--結果一覧-->
+            <!--{each data2}--> 
+              <tr bgcolor="#ffffff">
+                <td width="40" align="right">{rval data2/REC_NO}</td>
+                <td width="80" align="right">{rval data2/RECEIPT_DATE}</td>
+                <td width="150" align="left">{rval data2/SUBCLASSNAME}</td>
+                <td width="60" align="center">{rval data2/REP_SEQ_NAME}</td>
+                <td width="150" align="left">{rval data2/TENSAKU}</td>
+                <td width="80" align="right">{rval data2/GRAD_DATE}</td>
+                <td width="80" align="center">{rval data2/HYOUKA}</td>
+                <td width="*" align="left">{rval data2/SAIHYOUKA}</td>
+              </tr> 
+            <!--{/each}--> 
+            <!--{/def}-->
+            </table>
+          </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+  </table>
+</td>
+</tr>
+</table>
+{rval finish} 
+<script language="JavaScript">
+function is_opener() {
+
+    var ua = navigator.userAgent
+    if(!!top.window.opener)
+        if( ua.indexOf('MSIE 4')!=-1 && ua.indexOf('Win')!=-1) 
+             return !top.window.opener.closed
+        else return typeof top.window.opener.document  == 'object'
+    else return false
+
+}
+function observeDisp(){
+    if (!is_opener()){
+        top.window.close();
+    }
+}
+setInterval('observeDisp()',5000);
+</script>

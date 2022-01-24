@@ -1,0 +1,61 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr > 
+    
+      <td >
+    <hr width="35%" align="left">
+      {rval SCHREGNO}&nbsp{val NAME}
+    <hr width="35%" align="left">
+      
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+        <td> 
+          <table width="100%" border="0" cellspacing="1" cellpadding="3">
+          <tr class="no_search"> 
+            <th align="center" nowrap height="30">年度</th>
+            <th align="center" width="95" nowrap height="30">取得日</th>
+            <th align="center" nowrap height="30">区分</th>
+            <th align="center" nowrap height="30">名称（略称）</th>
+            <th align="center" nowrap height="30">級・段位</th>
+            <!--{def showScore}-->
+            <th align="center" nowrap height="30">資格点</th>
+            <!--{/def}-->
+            <th align="center" nowrap height="30">主催</th>
+            <th align="center" nowrap height="30">得点</th>
+            <th align="center" nowrap height="30">備考</th>
+          </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}--> 
+          <tr> 
+             <td align="center" nowrap bgcolor="{rval data/COLOR}">{rval data/YEAR}</td>
+             <td align="center" nowrap bgcolor="{rval data/COLOR}">{val data/URL}</td>
+             <td align="left" nowrap bgcolor="{rval data/COLOR}">{val data/CONDITION_DIV_NAME}</td>
+             <td align="left" nowrap bgcolor="{rval data/COLOR}">{rval data/QUALIFIED_CD}:{rval data/QUALIFIED_NAME}（{rval data/QUALIFIED_ABBV}）</td>
+             <td align="left" nowrap bgcolor="{rval data/COLOR}">{val data/RANK_NAME}</td>
+             <!--{def showScore}-->
+             <td align="left" nowrap bgcolor="{rval data/COLOR}">{val data/SCORE}</td>
+             <!--{/def}-->
+             <td align="left" nowrap bgcolor="{rval data/COLOR}">{val data/PROMOTER}</td>
+             <td align="left" nowrap bgcolor="{rval data/COLOR}">{val data/HOBBY_SCORE}</td>
+             <td align="left" nowrap bgcolor="{rval data/COLOR}">{val data/REMARK}</td>
+             
+          </tr> 
+<!--{/each}--> 
+<!--{/def}--> 
+          </table>
+        </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval reload}{rval close}</script>
+{rval finish}

@@ -1,0 +1,125 @@
+{rval start} 
+<table width="80%" border="0" cellpadding="0" cellspacing="10" align="center">
+  <tr class="no_search_line">
+    <td>
+      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+        <tr class="no_search" nowrap> 
+          <td align="center">入試年度</td>
+          <td bgcolor="#ffffff" style="color:black; text-align:center">{rval TOP/YEAR}</td>
+          <td align="center">※ 入試制度</td>
+          <td bgcolor="#ffffff">{rval TOP/APPLICANTDIV}</td>
+          <td align="center">※ 入試区分</td>
+          <td bgcolor="#ffffff">{rval TOP/TESTDIV}</td>
+          <td align="center">※ 対象処理</td>
+          <td bgcolor="#ffffff">{rval TOP/APPLI_TYPE}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr class="no_search_line"> 
+    
+    <td nowrap> 
+      
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" >
+        
+        <tr class="no_search_line"> 
+          
+          <td width="100%"> 
+            
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              
+              <tr align="center" class="no_search"> 
+                
+                <th><font color="white">合格対象者一覧</font></th>
+                <th class="no_search">&nbsp;</th>
+                <th><font color="white">合格候補者一覧</font></th>
+              
+              </tr>
+              
+              <tr align="center" bgcolor="#ffffff"> <!--{def main_part}--> 
+                
+                <td width="45%">
+                  
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0" >
+                    
+                    <tr class="no_search_line"> 
+                      
+                      <td width="100%">{rval main_part/SPECIALS}</td>
+                    
+                    </tr>
+                  
+                    <tr>
+                    
+                      <td style="color:black; text-align:right">人数：<span id="SPECIALS_NUM"></span>&nbsp;</td>
+                  
+                    </tr>
+                
+                  </table>
+                
+                </td>
+
+                <td width="*%" class="no_search">
+                  {rval main_part/SEL_ADD_ALL} <br>
+                  {rval main_part/SEL_ADD} <br>
+                  {rval main_part/SEL_DEL} <br>
+                  {rval main_part/SEL_DEL_ALL}
+                </td>
+
+                <td width="45%">
+                
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0" >
+                    
+                    <tr class="no_search_line"> 
+                      
+                      <td width="100%">{rval main_part/APPROVED}</td>
+                    
+                    </tr>
+                    
+                    <tr>
+                    
+                      <td style="color:black; text-align:right">人数：<span id="APPROVED_NUM"></span>&nbsp;</td>
+                    
+                    </tr>
+                 
+                  </table>
+                
+                </td>
+              
+              </tr>
+              <tr class="no_search">
+
+                <td colspan="3" nowrap>
+                  <input type="radio" name="csv" value="1" id="csv1" onclick="clickRadio(1)" checked><label for="csv1">取込</label>
+                  <input type="radio" name="csv" value="2" id="csv2" onclick="clickRadio(2)"><label for="csv2">書出</label>
+                  {rval CSV_ITEM}ヘッダ有り
+                </td>
+
+              </tr>
+              
+               <!--{/def}--> 
+              <!--{def button}--> 
+              <tr bgcolor="#ffffff">
+
+                <td colspan="3"> {rval button/btn_csv}{rval button/btn_update}{rval button/btn_clear}{rval button/btn_end}&nbsp;&nbsp;<font color="red" style="font-size:9pt">※更新後、対象者は候補者に戻せません。合否判定メンテナンス処理画面で戻して下さい。</font></td>
+
+              </tr>
+              <!--{/def}--> 
+            </table>
+
+          </td>
+
+        </tr>
+
+    </table>
+
+    </td>
+
+  </tr>
+
+</table>
+<script language="JavaScript">
+    document.getElementById("SPECIALS_NUM").innerHTML = document.forms[0].SPECIALS.options.length;
+    document.getElementById("APPROVED_NUM").innerHTML = document.forms[0].APPROVED.options.length;
+</script>
+{rval finish} 

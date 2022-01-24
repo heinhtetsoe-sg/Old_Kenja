@@ -1,0 +1,51 @@
+{rval start}
+<!--{def button}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                <hr width="55%" align="left">
+                    &nbsp;{rval NAME_SHOW}
+                <hr width="55%" align="left">
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th colspan="2">特　別　活　動　の　記　録　　{val SEMESTER}</th>
+                    </tr>
+
+                    <!--{each data}-->
+                    <tr align="center" height="30">
+                      <th width="15%" align="center" class="no_search" nowrap>{rval data/RECORD_NAME}</th>
+                      <td width="15%" align="left" bgcolor="#ffffff">{rval data/RECORD_VAL}<br><font size=2, color="red">{rval data/RECORD_COMMENT}</font></td>
+                    </tr>
+                    <!--{/each}-->
+
+                    <tr>
+                      <td class="no_search" colspan="4" align="right" nowrap>
+                        {rval button/btn_update}{rval button/btn_reset}{rval button/btn_back}
+                      </td>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+{rval finish}
+{rval javascript}

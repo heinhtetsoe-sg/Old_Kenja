@@ -1,0 +1,69 @@
+{rval start}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr>
+      <td >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+          <table width="100%" border="0" cellspacing="1" cellpadding="5">
+          <tr>
+            <th width="25%" height="*" align="right" class="no_search" nowrap>項目</th>
+            <th class="no_search" height="25">値</th>
+          </tr>
+<!--結果一覧-->
+<!--{def data}-->
+          <tr>
+            <th width="25%" height="*" align="right" class="no_search" nowrap>※ 証明書区分コード</th>
+            <td height="*" bgcolor="#ffffff">{rval data/CERTIF_DIV}</td>
+          </tr>
+          <tr>
+            <th width="25%" height="*" align="right" class="no_search" nowrap>※ 証明書区分名称</th>
+            <td height="*" bgcolor="#ffffff">{rval data/CERTIF_DIV_NAME}</td>
+          </tr>
+<!--{/def}-->
+          </table>
+        </td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:10px;">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="5">
+<!--結果一覧-->
+<!--{def data}-->
+              <tr align="center" class="no_search">
+                <th><b>対象証明書種類</b></th>
+                <th class="no_search"></th>
+                <th><b>証明書種類一覧</b></th>
+              </tr>
+              <tr align="center" bgcolor="#ffffff">
+                <td width="45%">{rval data/CATEGORY_SELECTED}</td>
+                <td width="*%"  class="no_search">{rval button/btn_lefts}<BR>
+                  {rval button/btn_left1}<BR>
+                  {rval button/btn_right1}<BR>
+                  {rval button/btn_rights}
+                <td width="45%">{rval data/CATEGORY_NAME}</td>
+              </tr>
+<!--{/def}-->
+            </table>
+          </td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    <!--{def button}-->
+    <tr>
+      <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+    </tr>
+    <!--{/def}-->
+    </table>
+  </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

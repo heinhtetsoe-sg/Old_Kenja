@@ -1,0 +1,130 @@
+{rval start}
+{rval IFRAME}
+
+<!--{def data}-->
+<!--{def button}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+          <hr width="60%" align="left">
+                &nbsp;{rval data/SCHREGNO}&nbsp;&nbsp;{val data/NAME}
+          <hr width="60%" align="left">
+          <br>
+          <!--{def SHOW_SEMESTER}-->
+          学期：{rval data/SEMESTER}<br><br>
+          <!--{/def}-->
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+
+                    <tr class="no_search">
+                      <th width="20%" colspan="2">項 目</th>
+                      <th width="80%">値&nbsp;({rval data/PATTERN})</th>
+                    </tr>
+
+                    <!--{def SHOW_TOTALSTUDYTIME}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap Valign="top" colspan="2">
+                      　総合的な学習の時間　
+                      </th>                      
+                      <td bgcolor="#ffffff">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/TOTALSTUDYTIME}</br>
+                        <font size=2, color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/TOTALSTUDYTIME_COMMENT}</font>
+                        <span id="statusarea_TOTALSTUDYTIME" style="color:blue">残り文字数</span>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+
+                    <!--{def SHOW_CLUB_AND_COMMITTEE}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap Valign="top" width="10%" rowspan="2">
+                      　特別活動　
+                      </th>
+                      <th align="right" class="no_search" nowrap Valign="top" width="10%">
+                      　部活動　
+                      </th>                      
+                      <td bgcolor="#ffffff">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/CLUB}　　　{rval button/btn_club}</br>
+                        <font size=2, color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/CLUB_COMMENT}</font>
+                        <span id="statusarea_CLUB" style="color:blue">残り文字数</span>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th align="right" class="no_search" nowrap Valign="top" width="10%">
+                      　委員会　
+                      </th>                      
+                      <td bgcolor="#ffffff">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/COMMITTEE}　　　{rval button/btn_committee}</br>
+                        <font size=2, color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/COMMITTEE_COMMENT}</font>
+                        <span id="statusarea_COMMITTEE" style="color:blue">残り文字数</span>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+
+                    <!--{def SHOW_REMARK1}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap Valign="top" colspan="2">
+                      　備考　
+                      </th>                      
+                      <td bgcolor="#ffffff">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/REMARK1}</br>
+                        <font size=2, color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/REMARK1_COMMENT}</font>
+                        <span id="statusarea_REMARK1" style="color:blue">残り文字数</span>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+                    
+                    <!--{def SHOW_COMMUNICATION}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap Valign="top" colspan="2">
+                      　所見　
+                      </th>                      
+                      <td bgcolor="#ffffff">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/COMMUNICATION}</br>
+                        <font size=2, color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/COMMUNICATION_COMMENT}</font>
+                        <span id="statusarea_COMMUNICATION" style="color:blue">残り文字数</span>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+                    
+                    <!--{def SHOW_ATTENDREC_REMARK}-->
+                    <tr>
+                      <th align="right" class="no_search" nowrap Valign="top" colspan="2">
+                      　出欠備考　
+                      </th>                      
+                      <td bgcolor="#ffffff">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/ATTENDREC_REMARK}</br>
+                        <font size=2, color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval data/ATTENDREC_REMARK_COMMENT}</font>
+                        <span id="statusarea_ATTENDREC_REMARK" style="color:blue">残り文字数</span>
+                      </td>
+                    </tr>
+                    <!--{/def}-->
+
+                    <tr> 
+                      <th align="right" class="no_search" nowrap colspan="2">&nbsp;</th>
+                      <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}--> 
+
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval reload}{rval next}</script>
+<!--{/def}-->

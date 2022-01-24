@@ -1,0 +1,184 @@
+<!--knji120Form2.html-->
+{rval start}
+<BR><BR>
+&nbsp;&nbsp;「※」のある項目は必須入力
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td align="center">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+<!--結果一覧-->
+<!--{def data}-->   
+                    <tr>
+                      <th bgcolor="#00FF00" width="10%" style="text-align: right" nowrap>※&nbsp;年-組-番</th><td width="30%" bgcolor="#ffffff">{rval data/GRADE_CLASS}&nbsp;&nbsp;{rval data/ATTENDNO}&nbsp;番</td>
+                      <th bgcolor="#00FF00" width="10%" style="text-align: right" nowrap>※&nbsp;年次    </th><td width="30%" bgcolor="#ffffff" colspan="2">{rval data/ANNUAL}</td>
+                                                                                                              <td width="20%" bgcolor="#ffffff" rowspan="6" colspan="2"><img src="{rval data/FACE_IMG}" alt="生徒顔写真&nbsp;{rval data/IMG_PATH}" width="120" height="160"></td>
+                    </tr>
+
+                    <tr bgcolor="#00FF00">
+                      <th style="text-align: right" nowrap>※&nbsp;課程学科</th><td bgcolor="#ffffff">{rval data/COURSEMAJORCD}</td>
+                      <th style="text-align: right" nowrap>※&nbsp;コース  </th><td bgcolor="#ffffff" colspan="2">{rval data/COURSECODE}</td>
+                    </tr>
+
+                    <tr bgcolor="#00FF00">
+                      <th style="text-align: right" nowrap>※&nbsp;学籍番号</th><td bgcolor="#ffffff">{rval data/SCHREGNO}</td>
+                      <th style="text-align: right" nowrap>※&nbsp;内外区分</th><td bgcolor="#ffffff" colspan="2">{rval data/INOUTCD}</td>
+                    </tr>
+
+                    <tr bgcolor="#00FF00">
+                      <th style="text-align: right" nowrap>※&nbsp;氏 名</th><td bgcolor="#ffffff" colspan="4">{rval data/NAME}<font size=2, color="red">&nbsp;(※全角20文字)</font></td>
+                    </tr>
+
+                    <tr bgcolor="#00FF00">
+                      <th style="text-align: right" nowrap>※&nbsp;氏名表示用</th><td bgcolor="#ffffff" colspan="4">{rval data/NAME_SHOW}<font size=2, color="red">&nbsp;(※全角10文字)</font></td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <th style="text-align: right" nowrap>&nbsp;氏名かな</th><td bgcolor="#ffffff" colspan="4">{rval data/NAME_KANA}<BR><font size=2, color="red">&nbsp;(※全角40文字)</font></td>
+                    </tr>
+
+                    <tr class="no_search">
+                      <th style="text-align: right" nowrap>&nbsp;英字氏名</th><td bgcolor="#ffffff" colspan="6">{rval data/NAME_ENG}<font size=2, color="red">&nbsp;&nbsp;(※半角40文字)</font></td>
+                    </tr>
+
+                    <tr>
+                      <th bgcolor="#00FF00" style="text-align: right" nowrap rowspan="2">※&nbsp;生年月日</th>
+                        <td bgcolor="#FFFFFF" rowspan="2">
+                          <table>
+                            <tr>
+                              <td>{rval data/BIRTHDAY}</td>
+                            </tr>
+                            <tr>
+                              <td>&nbsp;<span id="label_birthday"></span></td>
+                            </tr>
+                          </table>
+                        </td>
+                      <th class="no_search" style="text-align: right" nowrap>性別            </th><td width="20%" bgcolor="#ffffff">{rval data/SEX}</td>
+                      <th class="no_search" style="text-align: right" nowrap colspan="2">血液</th><td bgcolor="#ffffff">&nbsp;型:{rval data/BLOODTYPE}&nbsp;RH:{rval data/BLOOD_RH}</td>
+                    </tr>
+
+                    <tr>
+                      <th class="no_search" style="text-align: right" nowrap>その他</td>
+                      <td bgcolor="#ffffff">{rval data/HANDICAP}</td>
+                      <th class="no_search"style="text-align: right" nowrap colspan="2">国籍</td>
+                      <td bgcolor="#ffffff">{rval data/NATIONALITY}</td>
+                    </tr>
+
+                    <tr>
+                      <th class="no_search" style="text-align: right" nowrap>&nbsp;出身学校</th><td bgcolor="#ffffff" colspan="6" nowrap>{rval data/FINSCHOOLCD}&nbsp;&nbsp;&nbsp;卒業年月日:{rval data/FINISH_DATE}&nbsp;&nbsp;<span id="label_findate"></span></td>
+                    </tr>
+
+                    <tr >
+                      <th bgcolor="#00FF00" rowspan="{rval addrSpan}" style="text-align: right">※&nbsp;入学</th>
+                        <td bgcolor="#ffffff" rowspan="{rval addrSpan}" >
+                          <table>
+                            <tr>
+                              <td>&nbsp;日付:{rval data/ENT_DATE}</td>
+                            </tr>
+                            <tr>
+                              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="label_ent_date"></span></td>
+                            </tr>
+                            <tr>
+                              <td>&nbsp;区分:{rval data/ENT_DIV}</td>
+                            </tr>
+                          </table>
+                        </td>
+                      <th class="no_search" style="text-align: right">事由</th><td bgcolor="#ffffff" colspan="4">{rval data/ENT_REASON}</td>
+                            <tr>
+                              <th class="no_search" style="text-align: right">学校名</th><td bgcolor="#ffffff" colspan="4">{rval data/ENT_SCHOOL}</td>
+                            </tr>
+                            <tr>
+                              <th class="no_search" style="text-align: right">学校住所{rval addr1}</th><td bgcolor="#ffffff" colspan="4">{rval data/ENT_ADDR}</td>
+                            </tr>
+                            <!--{def useAddrField2}-->
+                            <tr>
+                              <th class="no_search" style="text-align: right">学校住所2</th><td bgcolor="#ffffff" colspan="4">{rval data/ENT_ADDR2}</td>
+                            </tr>
+                            <!--{/def}-->
+                    </tr>
+
+                    <tr>
+                      <th bgcolor="#00FF00" rowspan="{rval addrSpan}" style="text-align: right">※&nbsp;卒業</th>
+                        <td bgcolor="#ffffff" rowspan="{rval addrSpan}" >
+                          <table>
+                            <tr>
+                              <td>&nbsp;日付:{rval data/GRD_DATE}</td>
+                            </tr>
+                            <tr>
+                              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="label_grd_date"></span></td>
+                            </tr>
+                            <tr>
+                              <td>&nbsp;区分:{rval data/GRD_DIV}</td>
+                            </tr>
+                           </table>
+                         </td>
+                      <th class="no_search" style="text-align: right">事由</th><td bgcolor="#ffffff" colspan="4">{rval data/GRD_REASON}</td>
+                            <tr>
+                              <th class="no_search" style="text-align: right">学校名</th><td bgcolor="#ffffff" colspan="4">{rval data/GRD_SCHOOL}</td>
+                            </tr>
+                            <tr>
+                              <th class="no_search" style="text-align: right">学校住所{rval addr1}</th><td bgcolor="#ffffff" colspan="4">{rval data/GRD_ADDR}</td>
+                            </tr>
+                            <!--{def useAddrField2}-->
+                            <tr>
+                              <th class="no_search" style="text-align: right">学校住所2</th><td bgcolor="#ffffff" colspan="4">{rval data/GRD_ADDR2}</td>
+                            </tr>
+                            <!--{/def}-->
+                    </tr>
+
+                    <tr>
+                        <th class="no_search" style="text-align: right">出身塾</th><td bgcolor="#ffffff" colspan="6" nowrap>{rval data/PRISCHOOLCD}
+                    </tr>
+
+                    <tr>
+                        <th class="no_search" style="text-align: right">備考１</th><td bgcolor="#ffffff" colspan="6">{rval data/REMARK1}</td>
+                    </tr>
+
+                    <tr>
+                        <th class="no_search" style="text-align: right">備考２</th><td bgcolor="#ffffff" colspan="6">{rval data/REMARK2}</td>
+                    </tr>
+
+                    <tr>
+                        <th class="no_search" style="text-align: right">備考３</th><td bgcolor="#ffffff" colspan="6">{rval data/REMARK3}</td>
+                    </tr>
+
+
+                    <tr>
+                      <th class="no_search"></th>
+                      <td bgcolor="#ffffff" colspan="6">
+<!--{def button}-->
+                      &nbsp;{rval button/btn_replace}&nbsp;{rval button/btn_add}{rval button/btn_update}{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_end}
+<!--{/def}-->
+                        </td>
+                    </tr>
+                </table>
+                   </td>
+               </tr>
+              </table>
+           </td>
+          </tr>
+       </table>
+      </td>
+   </tr>
+</table>
+<!--{/def}-->
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval Closing}
+
+  setInterval('callfunc()',1000);
+
+function callfunc()
+{
+    Calc_Wareki('label_findate', document.forms[0].FINISH_DATE.value,1);
+    Calc_Wareki('label_ent_date', document.forms[0].ENT_DATE.value,1);
+    Calc_Wareki('label_grd_date', document.forms[0].GRD_DATE.value,1);
+    Calc_Wareki('label_birthday', document.forms[0].BIRTHDAY.value,1);
+} 
+</script>
+

@@ -1,0 +1,58 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+        <td valign="top">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr > 
+                  <td > 
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line"> 
+                                <td> 
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search"> 
+                                          <th nowrap width="70">教科書<br>コード</th>
+                                          <th nowrap width="50">教科書<br>区分</th>
+                                          <th nowrap width="290">教科書名称</th>
+                                          <th nowrap width="80">教科書略称</th>
+                                          <th nowrap width="70">記号漢字</th>
+                                          <th nowrap width="70">記号数字</th>
+                                          <th nowrap width="290">著作名</th>
+                                          <th nowrap width="40">定価</th>
+                                          <th nowrap width="40">単価</th>
+                                          <th nowrap width="220">発行者</th>
+<!--                                          <th nowrap width="220">業者名</th> NO001 -->
+                                          <th nowrap width="290">備考</th>
+                                        </tr>
+                                        <!--{def data}-->
+                                        <!--結果一覧-->
+                                        <!--{each data}--> 
+                                        <tr> 
+                                            <td nowrap align="center" width="70" bgcolor="#ffffff"><a href="knjz150t_2index.php?cmd=edit&TEXTBOOKCD={val data/TEXTBOOKCD}" target="right_frame">{val data/TEXTBOOKCD}</a></td>
+                                            <td nowrap align="center" width="50" bgcolor="#ffffff">{val data/TEXTBOOKDIV}</td>
+                                            <td nowrap width="290" bgcolor="#ffffff">{val data/TEXTBOOKNAME}</td>
+                                            <td nowrap width="80" bgcolor="#ffffff">{val data/TEXTBOOKABBV}</td>
+                                            <td nowrap width="70" bgcolor="#ffffff">{val data/TEXTBOOKMK}</td>
+                                            <td nowrap width="70" bgcolor="#ffffff">{val data/TEXTBOOKMS}</td>
+                                            <td nowrap width="290" bgcolor="#ffffff">{val data/TEXTBOOKWRITINGNAME}</td>
+                                            <td nowrap align="right" width="40" bgcolor="#ffffff">{val data/TEXTBOOKPRICE}</td>
+                                            <td nowrap align="right" width="40" bgcolor="#ffffff">{val data/TEXTBOOKUNITPRICE}</td>
+                                            <td nowrap width="220" bgcolor="#ffffff">{val data/ISSUECOMPANYNAME}</td>
+<!--                                            <td nowrap width="220" bgcolor="#ffffff">{val data/CONTRACTORNAME}</td> NO001-->
+                                            <td nowrap width="290" bgcolor="#ffffff">{val data/REMARK}</td>
+                                        </tr> 
+                                        <!--{/each}--> 
+                                        <!--{/def}-->
+                                        </table>
+                                    </td>
+                                </tr>
+                            </td>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--<div style="width:100%;height:550;overflow:auto";>-->

@@ -1,0 +1,311 @@
+<?php
+
+require_once('for_php7.php');
+
+class knjz290_2Form2
+{
+    function main(&$model)
+    {
+        $objForm = new form;
+
+        //フォーム作成
+        $arg["start"]   = $objForm->get_start("edit", "POST", "knjz290_2index.php", "", "edit");
+
+        //警告メッセージを表示しない場合
+        if (!isset($model->warning) && isset($model->staffcd))
+        {   
+            $Row = knjz290_2Query::getRow($model->staffcd);
+        } else {
+            $Row =& $model->field;
+            $Row["JOBCD"] = $model->field["JOBNAME"];
+            $Row["CHARGECLASSCD"] = $model->field["CHARGECLASS"];
+            $Row["SECTIONCD"] = $model->field["SECTIONABBV"];
+            $Row["DUTYSHARECD"] = $model->field["SHARENAME"];
+            $Row["STAFFSEX"] = $model->field["NAME2"];
+        }
+    
+        //職名コンボボックス
+        $db         = Query::dbCheckOut();
+        $optnull    = array("label" => "","value" => "");   //初期値：空白項目
+        $result     = $db->query(knjz290_2Query::getJOBNAME());   
+        $opt        = array();
+        $opt[]      = $optnull;
+        while($row = $result->fetchRow(DB_FETCHMODE_ASSOC))
+        {
+            $opt[] = array("label" => $row["JOBCD"]."  ".$row["JOBNAME"], 
+                           "value" => $row["JOBCD"]);
+        }
+        $result->free();
+
+        //所属コンボボックス
+        $result = $db->query(knjz290_2Query::getSECTION());
+        $opt2   = array();
+        $opt2[] = $optnull;
+        while($row = $result->fetchRow(DB_FETCHMODE_ASSOC))
+        {
+            $opt2[] = array("label" => $row["SECTIONCD"]."  ".$row["SECTIONABBV"], 
+                            "value" => $row["SECTIONCD"]);
+        }
+        $result->free();
+
+        //校務分掌部コンボボックス
+        $result = $db->query(knjz290_2Query::getDUTYSHARE());
+        $opt3   = array();
+        $opt3[] = $optnull;
+        while($row = $result->fetchRow(DB_FETCHMODE_ASSOC))
+        {
+            $opt3[] = array("label" => $row["DUTYSHARECD"]."  ".$row["SHARENAME"], 
+                            "value" => $row["DUTYSHARECD"]);
+        }
+        $result->free();
+
+        //授業受持ちコンボボックス
+#        $result = $db->query(knjz290_2Query::getCHARGECLASSCD());
+        $opt4   = array();
+        $opt4[] = $optnull;
+        $opt4[] = array("label" => "0 無し", "value" => "0");
+        $opt4[] = array("label" => "1 有り", "value" => "1");
+#        while($row = $result->fetchRow(DB_FETCHMODE_ASSOC))
+#        {
+#            if($row["CHARGECLASSCD"] != ""){
+#                if($row["CHARGECLASSCD"] == 0){
+#                    $label = "無し";
+#                }elseif($row["CHARGECLASSCD"] == 1){
+#                    $label = "有り";
+#                }
+#                $opt4[] = array("label" => $row["CHARGECLASSCD"]."  ".$label,
+#                                "value" => $row["CHARGECLASSCD"]);
+#            }
+#        }
+        $result->free();
+        
+        //職員性別コンボボックス
+        $result = $db->query(knjz290_2Query::getSTAFFSEX());
+        $opt5   = array();
+        $opt5[] = $optnull;
+        while($row = $result->fetchRow(DB_FETCHMODE_ASSOC))
+        {
+            $opt5[] = array("label" => $row["NAMECD2"]."  ".$row["NAME2"],
+                            "value" => $row["NAMECD2"]);
+        }
+        $result->free();
+        Query::dbCheckIn($db);
+        //職員コード
+        $objForm->ae( array("type"        => "text",
+                            "name"        => "STAFFCD",
+                            "size"        => 8,
+                            "maxlength"   => 8,
+                            "extrahtml"   => "",
+                            "value"       => $Row["STAFFCD"]));
+
+        $arg["data"]["STAFFCD"] = $objForm->ge("STAFFCD");
+
+        //職員氏名
+        $objForm->ae( array("type"        => "text",
+                            "name"        => "STAFFNAME",
+                            "size"        => 40,
+                            "maxlength"   => 60,
+                            "extrahtml"   => "",
+                            "value"       => $Row["STAFFNAME"] ));
+
+        $arg["data"]["STAFFNAME"] = $objForm->ge("STAFFNAME");
+
+        //職員氏名表示用
+        $objForm->ae( array("type"        => "text",
+                            "name"        => "STAFFNAME_SHOW",
+                            "size"        => 10,
+                            "maxlength"   => 15,
+                            "extrahtml"   => "",
+                            "value"       => $Row["STAFFNAME_SHOW"] ));
+
+        $arg["data"]["STAFFNAME_SHOW"] = $objForm->ge("STAFFNAME_SHOW");
+    
+        //職員氏名かな
+        $objForm->ae( array("type"        => "text",
+                            "name"        => "STAFFNAME_KANA",
+                            "size"        => 80,
+                            "maxlength"   => 120,
+                            "extrahtml"   => "",
+                            "value"       => $Row["STAFFNAME_KANA"] ));
+
+        $arg["data"]["STAFFNAME_KANA"] = $objForm->ge("STAFFNAME_KANA");
+
+        //職員氏名英字
+        $objForm->ae( array("type"        => "text",
+                            "name"        => "STAFFNAME_ENG",
+                            "size"        => 40,
+                            "maxlength"   => 60,
+                            "extrahtml"   => "",
+                            "value"       => $Row["STAFFNAME_ENG"] ));
+
+        $arg["data"]["STAFFNAME_ENG"] = $objForm->ge("STAFFNAME_ENG");
+
+        //職名コンボボックス
+        $objForm->ae( array("type"        => "select",
+                            "name"        => "JOBNAME",
+                            "size"        => "1",
+                            "extrahtml"   => "style=\"width:165px;\"",
+                            "value"       => $Row["JOBCD"],
+                            "options"     => $opt ));
+
+        $arg["data"]["JOBNAME"] = $objForm->ge("JOBNAME");
+
+        //所属コンボボックス
+        $objForm->ae( array("type"        => "select",
+                            "name"        => "SECTIONABBV",
+                            "size"        => "1",
+                            "extrahtml"   => "style=\"width:165px;\"",
+                            "value"       => $Row["SECTIONCD"],
+                            "options"     => $opt2 ));
+
+        $arg["data"]["SECTIONABBV"] = $objForm->ge("SECTIONABBV");
+
+        //所属コンボボックス
+        $objForm->ae( array("type"        => "select",
+                            "name"        => "SHARENAME",
+                            "size"        => "1",
+                            "extrahtml"   => "style=\"width:165px;\"",
+                            "value"       => $Row["DUTYSHARECD"],
+                            "options"     => $opt3 ));
+
+        $arg["data"]["SHARENAME"] = $objForm->ge("SHARENAME");
+
+        //授業受持ちコンボボックス
+        $objForm->ae( array("type"        => "select",
+                            "name"        => "CHARGECLASS",
+                            "size"        => "1",
+                            "extrahtml"   => "style=\"width:70px;\"",
+                            "value"       => $Row["CHARGECLASSCD"],
+                            "options"     => $opt4 ));
+
+        $arg["data"]["CHARGECLASS"] = $objForm->ge("CHARGECLASS");
+
+        //職員性別コンボボックス
+        $objForm->ae( array("type"        => "select",
+                            "name"        => "NAME2",
+                            "size"        => "1",
+                            "extrahtml"   => "style=\"width:70px;\"",
+                            "value"       => $Row["STAFFSEX"],
+                            "options"     => $opt5 ));
+
+        $arg["data"]["NAME2"] = $objForm->ge("NAME2");
+
+        //職員生年月日
+        $Row["STAFFBIRTHDAY"] = str_replace("-","/",$Row["STAFFBIRTHDAY"]);
+        $arg["data"]["STAFFBIRTHDAY"] = View::popUpCalendar($objForm, "STAFFBIRTHDAY" ,$Row["STAFFBIRTHDAY"]);
+
+        //出身学校郵便番号
+        $arg["data"]["STAFFZIPCD"] = View::popUpZipCode($objForm, "STAFFZIPCD", $Row["STAFFZIPCD"],"STAFFADDR1");
+
+        //職員住所１
+        $objForm->ae( array("type"        => "text",
+                            "name"        => "STAFFADDR1",
+                            "size"        => 50,
+                            "maxlength"   => 75,
+                            "extrahtml"   => "",
+                            "value"       => $Row["STAFFADDR1"] ));
+
+        $arg["data"]["STAFFADDR1"] = $objForm->ge("STAFFADDR1");
+    
+        //職員住所2
+        $objForm->ae( array("type"        => "text",
+                            "name"        => "STAFFADDR2",
+                            "size"        => 50,
+                            "maxlength"   => 75,
+                            "extrahtml"   => "",
+                            "value"       => $Row["STAFFADDR2"] ));
+
+        $arg["data"]["STAFFADDR2"] = $objForm->ge("STAFFADDR2");
+
+        //職員電話番号
+        $objForm->ae( array("type"        => "text",
+                            "name"        => "STAFFTELNO",
+                            "size"        => 14,
+                            "maxlength"   => 14,
+                            "extrahtml"   => "",
+                            "value"       => $Row["STAFFTELNO"] ));
+
+        $arg["data"]["STAFFTELNO"] = $objForm->ge("STAFFTELNO");
+
+        //職員FAX番号
+        $objForm->ae( array("type"        => "text",
+                            "name"        => "STAFFFAXNO",
+                            "size"        => 14,
+                            "maxlength"   => 14,
+                            "extrahtml"   => "",
+                            "value"       => $Row["STAFFFAXNO"] ));
+
+        $arg["data"]["STAFFFAXNO"] = $objForm->ge("STAFFFAXNO");
+
+        //職員E-Mailアドレス
+        $objForm->ae( array("type"        => "text",
+                            "name"        => "STAFFE_MAIL",
+                            "size"        => 25,
+                            "maxlength"   => 25,
+                            "extrahtml"   => "",
+                            "value"       => $Row["STAFFE_MAIL"] ));
+
+        $arg["data"]["STAFFE_MAIL"] = $objForm->ge("STAFFE_MAIL");
+
+        //追加ボタンを作成する
+        $objForm->ae( array("type"        => "button",
+                            "name"        => "btn_add",
+                            "value"       => "追 加",
+                            "extrahtml"   => "onclick=\"return btn_submit('add');\"" ) );
+
+        $arg["button"]["btn_add"] = $objForm->ge("btn_add");
+
+        //修正ボタンを作成する
+        $objForm->ae( array("type"        => "button",
+                            "name"        => "btn_udpate",
+                            "value"       => "更 新",
+                            "extrahtml"   => "onclick=\"return btn_submit('update');\"" ) );
+
+        $arg["button"]["btn_update"] = $objForm->ge("btn_udpate");
+
+        //削除ボタンを作成する
+        $objForm->ae( array("type"        => "button",
+                            "name"        => "btn_del",
+                            "value"       => "削 除",
+                            "extrahtml"   => "onclick=\"return btn_submit('delete');\"" ) );
+
+        $arg["button"]["btn_del"] = $objForm->ge("btn_del");
+
+        //クリアボタンを作成する
+        $objForm->ae( array("type"        => "button",
+                            "name"        => "btn_reset",
+                            "value"       => "取 消",
+                            "extrahtml"   => "onclick=\"return btn_submit('reset');\"" ) );
+
+        $arg["button"]["btn_reset"] = $objForm->ge("btn_reset");
+
+        //終了ボタンを作成する
+        $link = REQUESTROOT."/Z/KNJZ290/knjz290index.php";
+        $objForm->ae( array("type"        => "button",
+                            "name"        => "btn_back",
+                            "value"       => "戻 る",
+                            "extrahtml"   => "onclick=\"parent.location.href='$link';\"" ) );
+
+        $arg["button"]["btn_back"] = $objForm->ge("btn_back");
+
+        //hiddenを作成する
+        $objForm->ae( array("type"      => "hidden",
+                            "name"      => "cmd"
+                            ) );
+
+        //hiddenを作成する
+        $objForm->ae( array("type"      => "hidden",
+                            "name"      => "UPDATED",
+                            "value"     => $Row["UPDATED"]
+                            ) );
+    
+        $arg["finish"]  = $objForm->get_finish();
+        if (VARS::get("cmd") != "edit"){
+            $arg["reload"]  = "parent.left_frame.location.href='knjz290_2index.php?cmd=list';";
+        }
+                                
+        //テンプレートのHTMLを読み込んでデータを$arg経由で渡す。 
+        View::toHTML($model, "knjz290_2Form2.html", $arg);
+    }
+} 
+?>

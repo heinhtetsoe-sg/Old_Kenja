@@ -1,0 +1,69 @@
+{rval start}
+<BR>
+<!--{def Z010ABBV1}-->
+&nbsp;&nbsp;{rval SCH_NASI}<LABEL for="SCH_NASI"><B>該当児童なし</B></LABEL>　作成日{rval EXECUTE_DATE}　{rval btn_houkoku}　報告日：{rval REPORT}<BR>
+<!--{/def}-->
+&nbsp;&nbsp;{rval btn_print}{rval btn_csv}<BR>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+  <td valign="top"> 
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr > 
+      <td >
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search"> 
+              <th align="center" width="120" nowrap height="30">年組番</th>
+              <th align="center" nowrap height="30">氏名</th>
+              <th align="center" nowrap height="30">年齢</th>
+              <th align="center" nowrap height="30">性別</th>
+              <th align="center" nowrap width="180" height="30">病気</th>
+              <th align="center" nowrap width="180" height="30">けが</th>
+              <th align="center" nowrap height="30">欠席<BR>日数</th>
+              <th align="center" nowrap height="30">継続<BR>区分</th>
+              <th align="center" nowrap height="30">入院</th>
+              <th align="center" nowrap height="30">保健室<BR>登校<BR>理由</th>
+              <th align="center" nowrap height="30">医師の<BR>診断</th>
+              <th align="center" nowrap height="30">保健室<BR>登校<BR>日数</th>
+              <th align="center" nowrap height="30">継続<BR>区分</th>
+            </tr>
+  <!--結果一覧-->
+  <!--{def data}-->
+  <!--{each data}--> 
+            <tr> 
+               <td align="center" nowrap bgcolor="#ffffff">{val data/URL}</td>
+               <td align="left" nowrap bgcolor="#ffffff">{val data/NAME}</td>
+               <td align="right" nowrap bgcolor="#ffffff">{val data/AGE}</td>
+               <td align="right" nowrap bgcolor="#ffffff">{val data/SEX_NAME}</td>
+               <td align="left" nowrap bgcolor="#ffffff">{val data/CDATA001_01}</td>
+               <td align="left" nowrap bgcolor="#ffffff">{val data/CDATA001_02}</td>
+               <td align="right" nowrap bgcolor="#ffffff">{val data/IDATA002_01}</td>
+               <td align="right" nowrap bgcolor="#ffffff">{val data/IDATA002_02}</td>
+               <td align="right" nowrap bgcolor="#ffffff">{val data/IDATA003_01}</td>
+               <td align="right" nowrap bgcolor="#ffffff">{val data/IDATA004_01}</td>
+               <td align="right" nowrap bgcolor="#ffffff">{val data/IDATA005_01}</td>
+               <td align="right" nowrap bgcolor="#ffffff">{val data/IDATA006_01}</td>
+               <td align="right" nowrap bgcolor="#ffffff">{val data/IDATA006_02}</td>
+               
+            </tr> 
+  <!--{/each}--> 
+  <!--{/def}--> 
+            </table>
+          </td>
+          </tr>
+        </table>
+
+      </td>
+    </tr>
+    </table>
+
+  </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval reload}{rval close}</script>
+{rval finish}

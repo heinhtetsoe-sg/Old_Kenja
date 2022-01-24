@@ -1,0 +1,107 @@
+<!-- knje010aForm1.html -->
+{rval start}
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td nowrap>
+      <table width="100%" border="0" cellspacing="10" cellpadding="0">
+        <tbody>
+          <tr>
+           <td width="50%">
+            <hr>{rval NAME_SHOW}<hr>
+           </td>
+           <td align="left" width="50%">
+           </td>
+          </tr>
+          <tr class="no_search_line">
+            <td colspan="2">
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <th width="30%">
+                    ５．出欠の記録<br>
+                    ６．特別活動の記録<br>
+                    ７．指導上参考となる諸事項
+<!--{def tyousasyoSougouHyoukaNentani_for_title}-->
+                    ８．総合的な学習の時間
+<!--{/def}-->
+                  </th>
+                  <td bgcolor="#ffffff" colspan="4">{rval btn_form2}</td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+
+          <tr class="no_search_line">
+            <td colspan="2">
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+<!--{def tyousasyoSougouHyoukaNentani}-->
+                <tr>
+                  <th rowspan="2" width="10%" class="no_search">８．<br>総合的な<br>学習の時<br>間の内容<br>・評価
+                  <BR><BR>{rval button/btn_yomikomi}<br>{rval btn_form4}
+                  </th>
+                  <th width="6%" class="no_search">活動<br>内容</th>
+                  <td bgcolor="#ffffff">
+                    {rval TOTALSTUDYACT}<br><font color="red" size="-1">{rval TOTALSTUDYACT_TYUI}</font>
+<!--{def useTotalstudySlashFlg}-->
+                    <br>{rval TOTALSTUDYACT_SLASH_FLG}<LABEL for="TOTALSTUDYACT_SLASH_FLG">斜線を入れる</LABEL>
+<!--{/def}-->
+                  </td>
+                </tr>
+                <tr>
+                  <th width="6%" class="no_search">評価</th>
+                  <td bgcolor="#ffffff">
+                    {rval TOTALSTUDYVAL}<br><font color="red" size="-1">{rval TOTALSTUDYVAL_TYUI}</font>
+<!--{def useTotalstudySlashFlg}-->
+                    <br>{rval TOTALSTUDYVAL_SLASH_FLG}<LABEL for="TOTALSTUDYVAL_SLASH_FLG">斜線を入れる</LABEL>
+<!--{/def}-->
+                  </td>
+                </tr>
+<!--{/def}-->
+                <tr class="no_search">
+                  <th colspan="1" rowspan="2" width="6%">９．備考</th>
+                  <th width="3%">１</th>
+                  <td bgcolor="#ffffff">
+                    {rval REMARK}<br>
+                    {rval NO_COMMENTS}<font color="black"><LABEL for="NO_COMMENTS">{rval NO_COMMENTS_LABEL}</LABEL></font>　　<font color="red" size="-1">{rval REMARK_TYUI}</font>
+					<span>
+					<!--{def UseMaruA_avg}-->
+					　　　　　<font color="black">学習成績概評のマルＡ評定平均値（{rval MARU_A_AVG}）</font>
+					<!--{/def}-->
+					<!--{def UnUseMaruA_avg}-->
+					　　　　　{rval COMMENTEX_A_CD}<font color="black"><label for="comment">学習成績概評のマルＡ表示対象者</label></font>
+					<!--{/def}-->
+					</span>
+                  </td>  
+                </tr>
+<!--{def useHexamRemark2Flg}-->
+                <tr class="no_search">
+                  <th width="3%">２</th>
+                  <td bgcolor="#ffffff">
+                    {rval REMARK2}<br>
+                    <font color="red" size="-1">{rval REMARK2_TYUI}</font>
+                  </td>
+                </tr>
+<!--{/def}-->
+                <tr class="no_search">
+                  <td colspan="3" bgcolor="#ffffff">{rval button/btn_remark_all}　<!--{def tyousasyoSougouHyoukaNentani_for_title}-->{rval btn_form4}<!--{/def}-->{rval btn_form3}　{rval btn_update}{rval btn_up_pre}{rval btn_up_next}{rval btn_reset}{rval btn_back}
+                  <br>{rval button/btn_check1}{rval button/btn_check2}&nbsp;&nbsp;{rval button/btn_print}</td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->
+<script language="javascript">{rval reload}</script>

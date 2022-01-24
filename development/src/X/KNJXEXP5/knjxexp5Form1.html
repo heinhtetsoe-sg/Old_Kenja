@@ -1,0 +1,105 @@
+<!--knjxexp5Form1.html -->
+{rval start}
+<table width="50%" border="0" cellspacing="3" cellpadding="1">
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellspacing="5" cellpadding="1">
+        <tr bgcolor="#006633">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="0" width="100%">
+              <tr bgcolor="#cccccc">
+                <td nowrap>{rval EXP_YEAR}</td>
+              </tr>
+              <tr bgcolor="#cccccc">
+                <td nowrap>&nbsp;{rval GRADE}&nbsp;{rval GRADE_HR_CLASS}{rval btn_ungrd}{rval btn_grd}</td>
+              </tr>
+              <!--{def DISPDIAGTYPE}-->
+              <tr bgcolor="#cccccc">
+                <td nowrap>&nbsp;診療科目：{rval DIAGTYPE}</td>
+              </tr>
+              <!--{/def}-->
+              <tr bgcolor="#cccccc">
+                <td nowrap>&nbsp;結果：{rval CLASS_SUM}名&nbsp;{rval STAFFNAME}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap>
+    <table width="100%" border="0" cellspacing="5" cellpadding="0">
+      <tr>
+        <td valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr >
+              <td >
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr class="no_search_line">
+                    <td>
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tr class="no_search">
+                        <!--{def CHECK_ALL}-->
+                          <th width="10">{val CHECK_ALL}</th>
+                        <!--{/def}-->
+                        <!--{def INFO}-->
+                          <th nowrap width="70" >情報</th>
+                        <!--{/def}-->
+                        <!--{def SEARCH_A}-->
+                          <th nowrap width="70">年-組-番</th>
+                          <th nowrap width="150">氏名</th>
+                          <th nowrap width="150">氏名かな</th>
+                          <th nowrap width="50">学籍<BR>番号</th>
+                          <th nowrap width="50">卒業<BR>年度</th>
+                        <!--{/def}-->
+                        <!--{def SEARCH_B}-->
+                          <th nowrap width="50">学籍<BR>番号</th>
+                          <th nowrap width="150">氏名</th>
+                          <th nowrap width="150">氏名かな</th>
+                          <th nowrap width="70">年-組-番</th>
+                          <th nowrap width="50">卒業<BR>年度</th>
+                        <!--{/def}-->
+                        </tr>
+                        <!--{def data}-->
+                        <!--結果一覧-->
+                        <!--{each data}-->
+                        <tr bgcolor="#ffffff">
+                        <!--{def data/CHECKED}-->
+                          <td width="10" align="center">{val data/CHECKED}</td>
+                        <!--{/def}-->
+                        <!--{def INFO}-->
+                          <td nowrap width="70" align="center" >{val data/BASE}&nbsp;{val data/HOME}&nbsp;{val data/MOVE}</td>
+                        <!--{/def}-->
+                        <!--{def SEARCH_A}-->
+                          <td nowrap align="right" >{val data/ATTENDNO}</td>
+                          <td nowrap><img src="{val data/IMAGE}" width="16" height="16">&nbsp;{val data/NAME_SHOW}</td>
+                          <td nowrap>{val data/NAME_KANA}</td>
+                          <td nowrap>{val data/SCHREGNO}</td>
+                          <td nowrap align="center" >{val data/GRD_YEAR}</td>
+                        <!--{/def}-->
+                        <!--{def SEARCH_B}-->
+                          <td nowrap>{val data/SCHREGNO}</td>
+                          <td nowrap><img src="{val data/IMAGE}" width="16" height="16">&nbsp;{val data/NAME_SHOW}</td>
+                          <td nowrap>{val data/NAME_KANA}</td>
+                          <td nowrap align="right" >{val data/ATTENDNO}</td>
+                          <td nowrap align="center" >{val data/GRD_YEAR}</td>
+                        <!--{/def}-->
+                        </tr>
+                        <!--{/each}-->
+                        <!--{/def}-->
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="javascript">{rval reload}{rval jscript}</script>

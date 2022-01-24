@@ -1,0 +1,55 @@
+{rval start}
+
+<br><br>
+<table width="95%" border="0" cellspacing="0" cellpadding="10" align="center">
+  <!--{def schkind}-->
+  <tr >
+    <td >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search">
+                <th nowrap align="left" width="*%">校種：{rval SCHKIND}</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <!--{/def}-->
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="20%">コード</th>
+                      <th nowrap width="80%">開催地域名称</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <td align="center" nowrap bgcolor="#ffffff"><a href="knjz461index.php?cmd=edit&HOSTCD={val data/HOSTCD}&SEND_SCHKIND={val data/SCHOOL_KIND}" target="right_frame">{val data/HOSTCD}</a></td>
+                      <td nowrap bgcolor="#ffffff">{val data/HOSTNAME}</td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

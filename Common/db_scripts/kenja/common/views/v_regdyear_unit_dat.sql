@@ -1,0 +1,37 @@
+
+DROP VIEW V_REGDYEAR_UNIT_DAT
+
+CREATE VIEW V_REGDYEAR_UNIT_DAT \
+    (SCHREGNO, \
+     YEAR, \
+     SEMESTER, \
+     GRADE, \
+     ANNUAL, \
+     HR_CLASS, \
+     ATTENDNO, \
+     COURSECD, \
+     MAJORCD, \
+     COURSECODE \
+    ) \
+AS \
+SELECT \
+       SCHREGNO, \
+       YEAR, \
+       SEMESTER, \
+       GRADE, \
+       ANNUAL, \
+       HR_CLASS, \
+       ATTENDNO, \
+       COURSECD, \
+       MAJORCD, \
+       COURSECODE \
+ FROM  SCHREG_REGD_DAT TBL \
+WHERE (SCHREGNO, YEAR, SEMESTER) IN \
+      ( \
+       SELECT SCHREGNO, YEAR, MAX(CHK.SEMESTER) \
+         FROM SCHREG_REGD_DAT CHK \
+        WHERE CHK.SCHREGNO = TBL.SCHREGNO \
+          AND CHK.GRADE    = TBL.GRADE \
+        GROUP BY CHK.SCHREGNO, CHK.YEAR \
+      )
+

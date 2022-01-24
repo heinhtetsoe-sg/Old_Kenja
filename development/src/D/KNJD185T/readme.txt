@@ -1,0 +1,7 @@
+// kanji=漢字
+// $Id: readme.txt 69517 2019-09-03 09:26:41Z yogi $
+
+2018/05/18  1.新規作成(KNJD171J参考)
+
+2019/09/03  1.HREPORTREMARK_DETAIL_DAT_04_01_REMARK1_SIZE_Jプロパティを帳票側に渡すよう、処理を追加
+            --HREPORTREMARK_DETAIL_DAT_04_01_REMARK1_SIZE_Jプロパティ参照

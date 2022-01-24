@@ -1,0 +1,129 @@
+{rval start}
+<!--{def useApplet}-->
+<APPLET CODE="attest.JePass.class" codebase={rval APP/APPHOST}
+        name=signatureApplet
+        ARCHIVE="jApplet.jar,
+                 ../lib/commons-logging-1.1.1.jar,
+                 ../lib/log4j-1.2.15.jar,
+                 ../lib/plugin.jar"
+        ALT="SSL"
+        WIDTH=""
+        HEIGHT="1">
+
+    <param name="PASS" value={rval APP/PASS}>
+    <param name="RANDM" value={rval APP/RANDM}>
+    <param name="STAFF" value={rval APP/STAFF}>
+    <param name="EXEDIV" value={rval APP/EXEDIV}>
+
+</APPLET>
+<!--{/def}-->
+{rval IFRAME}
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <div style="text-align:right">
+            <div style="float:left;width:300px;text-align:left;">
+            <hr>
+                {rval SCHREGNO}&nbsp;&nbsp;{val NAME}
+            <hr>
+            </div>
+            <div style="width:200px;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td> 
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th width="20%">担任</th>
+                      <th width="20%">校長</th>
+                    </tr>
+                    <tr style="background-color:#ffffff;text-align:center;height:90px;">
+                      <td>{rval IMAGE1}</td>
+                      <td>{rval IMAGE2}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+            <div align="left">
+              　　　　　　　　　　　　　　　　　　　　
+              　　　　　　　　　　　　　　　　　　　　{rval button/btn_shomei}
+            </div>
+            <div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search"> 
+                      <th colspan="2" width="25%">項 目</th>
+                      <th width="25%">値</th>
+                      <th colspan="2" width="14%">項 目</th>
+                      <th width="36%">値</th>
+                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{def button}-->
+                    <tr>
+                      <th rowspan="3" width="30" class="no_search" nowrap>外<br>国<br>語<br>活<br>動<br>の<br>記<br>録</th>
+                      <th align="right" class="no_search" nowrap Valign="top"><font size=2>コミュニケーションへ<br>の関心・意欲・態度</font></th>
+                      <td bgcolor="#ffffff" Valign="top">{rval data/FOREIGNLANGACT1}<br><font size=2, color="red">(全角10文字X4行まで)</font></td>
+                      <th align="center" colspan="2" class="no_search" nowrap>道徳</th>
+                      <td bgcolor="#ffffff">{rval data/FOREIGNLANGACT4}<br><font size=2, color="red">(全角32文字X2行まで)</font></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap Valign="top"><font size=2>外国語への慣れ親しみ</font></th>
+                      <td bgcolor="#ffffff" Valign="top">{rval data/FOREIGNLANGACT2}<br><font size=2, color="red">(全角10文字X4行まで)</font></td>
+                      <th rowspan="3" width="30" class="no_search" nowrap>総<br>合<br>的<br>な<br>学<br>習<br>の<br>時<br>間<br>の<br>記<br>録</th>
+                      <th align="right" class="no_search" nowrap Valign="top">学習活動</th>
+                      <td bgcolor="#ffffff">{rval data/TOTALSTUDYACT}<br><font size=2, color="red">(全角10文字X8行まで)</font></td>
+                    </tr>
+                    <tr>
+                      <th align="right" class="no_search" nowrap Valign="top"><font size=2>言語や文化に関する<br>気付き</font></th>
+                      <td bgcolor="#ffffff" Valign="top">{rval data/FOREIGNLANGACT3}<br><font size=2, color="red">(全角10文字X4行まで)</font></td>
+                      <th align="right" class="no_search" nowrap Valign="top">観点</th>
+                      <td bgcolor="#ffffff" Valign="top">{rval data/VIEWREMARK}<br><font size=2, color="red">(全角5文字X8行まで)</font></td>
+                    </tr>
+                    <tr>
+                      <th rowspan="4" class="no_search" nowrap>総<br>合<br>所<br>見<br>及<br>び<br>指<br>導<br>上<br>参<br>考<br>と<br>な<br>る<br>諸<br>事<br>項</th>
+                      <td rowspan="4" colspan="2" bgcolor="#ffffff" Valign="top">{rval data/TOTALREMARK}<br><font size=2, color="red">(全角22文字X15行まで)</font></td>
+                      <th align="right" class="no_search" nowrap Valign="top">評価</th>
+                      <td bgcolor="#ffffff" Valign="top">{rval data/TOTALSTUDYVAL}<br><font size=2, color="red">(全角10文字X8行まで)</font></td>
+                    </tr>
+                    <tr>
+                      <th colspan="2" align="right" class="no_search" nowrap Valign="top">行動の<br>記録備考</th>
+                      <td bgcolor="#ffffff">{rval button/btn_form2}</td>
+                    </tr>
+                     <tr>
+                      <th colspan="2" align="right" class="no_search" nowrap Valign="top">出欠の<br>記録備考</th>
+                      <td bgcolor="#ffffff" Valign="top">{rval data/ATTENDREC_REMARK}<br><font size=2, color="red">(全角35文字X1行まで)</font></td>
+                    </tr>
+                    <tr align="right">
+                      <th colspan="2" class="no_search" nowrap>&nbsp;</th>
+                      <td bgcolor="#ffffff"><span style="float:left;">{rval button/btn_up_pre}{rval button/btn_up_next}{rval button/btn_end}</span>
+                      <br>{rval button/btn_sasimodosi}</td>
+                    </tr>
+<!--{/def}-->
+<!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td style="font-weight: 700; color:{rval marpColor}">
+      <marquee><span id="marq_msg">認証中です...しばらくおまちください</span></marquee>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="javascript">{rval jscript}</script>

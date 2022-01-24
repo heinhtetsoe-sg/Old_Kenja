@@ -1,0 +1,17 @@
+-- $Id: 3b9f7486e367fb60c2372a14d870f8c4dba5942c $
+
+DROP TABLE SCHREG_CHALLENGED_OPERATOR_TAKEOVER_DOCUMENTS_DAT
+CREATE TABLE SCHREG_CHALLENGED_OPERATOR_TAKEOVER_DOCUMENTS_DAT( \
+    YEAR                                VARCHAR(4)    NOT NULL, \
+    SCHREGNO                            VARCHAR(8)    NOT NULL, \
+    RECORD_DATE                         VARCHAR(10)   NOT NULL, \
+    DATA_DIV                            VARCHAR(2)    NOT NULL, \
+    OUTLINE                             VARCHAR(285), \
+    MEASURE                             VARCHAR(285), \
+    FUTURE_DEVELOPMENT                  VARCHAR(285), \
+    REMARK                              VARCHAR(285), \
+    REGISTERCD                          VARCHAR(8), \
+    UPDATED                             TIMESTAMP DEFAULT CURRENT TIMESTAMP \ 
+) IN USR1DMS INDEX IN IDX1DMS
+
+ALTER TABLE SCHREG_CHALLENGED_OPERATOR_TAKEOVER_DOCUMENTS_DAT ADD CONSTRAINT PK_SCH_CHA_OP_T_DC PRIMARY KEY (YEAR, SCHREGNO, RECORD_DATE, DATA_DIV)

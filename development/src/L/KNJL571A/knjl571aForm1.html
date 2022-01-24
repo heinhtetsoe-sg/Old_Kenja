@@ -1,0 +1,146 @@
+{rval start}
+
+<br>
+<table width="1240" border="0" cellspacing="0" cellpadding="5" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="30">
+                      <td colspan="6" class="no_search" align="left">&nbsp;{rval TOP/TITLE}</td>
+                    </tr>
+                    <tr height="30">
+                      <td width="15%" class="no_search" align="center">入試年度</td>
+                      <td width="10%" bgcolor="#ffffff" align="center">&nbsp;{rval TOP/YEAR}</td>
+                      <td width="10%" class="no_search" align="center">入試区分</td>
+                      <td width="10%" bgcolor="#ffffff" align="left">&nbsp;{rval TOP/TESTDIV}</td>
+                      <td width="15%" class="no_search" align="center">志望区分</td>
+                      <td width="40%" bgcolor="#ffffff" align="left">&nbsp;{rval TOP/DESIREDIV}</td>
+                    </tr>
+                    <tr height="30">
+                      <td class="no_search" align="center">{rval TOP/SIBORI1}<LABEL for="SIBORI1">得点絞り込み</LABEL></td>
+                      <td bgcolor="#ffffff" align="left" colspan="3">
+                        {rval TOP/POINT_FROM}点～{rval TOP/POINT_TO}点&nbsp;{rval btn_search_left}&nbsp;{rval TOP/IGNORE_GOUHI_LEFT}<LABEL for="IGNORE_GOUHI_LEFT">合否入力済みを除く</LABEL>
+                      </td>
+                      <td class="no_search" align="center">{rval TOP/SIBORI2}<LABEL for="SIBORI2">内申絞り込み</LABEL></td>
+                      <td bgcolor="#ffffff" align="left">
+                        {rval TOP/SEL_TOTAL1}<LABEL for="SEL_TOTAL1">5科合計</LABEL>{rval TOP/TOTAL5_FROM}　～　{rval TOP/TOTAL5_TO}<BR>
+                        {rval TOP/SEL_TOTAL2}<LABEL for="SEL_TOTAL2">9科合計</LABEL>{rval TOP/TOTAL9_FROM}　～　{rval TOP/TOTAL9_TO}
+                        &nbsp;{rval btn_search_right}&nbsp;{rval TOP/IGNORE_GOUHI_RIGHT}<LABEL for="IGNORE_GOUHI_RIGHT">合否入力済みを除く</LABEL>
+                      </td>
+                    </tr>
+                    <tr height="30">
+                      <td class="no_search" align="center">入力項目</td>
+                      <td bgcolor="#ffffff" align="left" colspan="5">
+                        {rval TOP/INPUT1}<LABEL for="INPUT1">合否</LABEL>　
+                        {rval TOP/INPUT2}<LABEL for="INPUT2">奨学生</LABEL>　
+                        {rval TOP/INPUT3}<LABEL for="INPUT3">勧誘</LABEL>　
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" align="center" height="30">
+                            <td width="4%"  align="center" nowrap>{rval CHECKALL}</td>
+                            <td width="8%"  align="center" nowrap>受験番号</td>
+                            <td width="10%" align="center" nowrap>氏名</td>
+                            <td width="8%"  align="center" nowrap>{rval POINT_SORT}</td>
+                            <td width="8%"  align="center" nowrap>{rval NAISIN5_SORT}</td>
+                            <td width="8%"  align="center" nowrap>{rval NAISIN9_SORT}</td>
+                            <td width="10%" align="center" nowrap>志望区分</td>
+                            <td width="10%" align="center" nowrap>合否</td>
+                            <td width="10%" align="center" nowrap>合否ラベル</td>
+                            <td width="8%"  align="center" nowrap>奨学生</td>
+                            <td width="8%"  align="center" nowrap>勧誘</td>
+                            <td width="8%"  align="center" nowrap>{rval PROMISED_SORT}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff">
+                  <div style="height: 500px; overflow: auto;">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--結果一覧-->
+                          <!--{def data}-->
+                          <!--{each data}-->
+                          <tr bgcolor="#ffffff" id="ROWID{rval data/EXAMNO}" nowrap>
+                            <td width="4%"  align="center">{rval data/CHECKED}</td>
+                            <td width="8%"  align="center">{rval data/EXAMNO}</td>
+                            <td width="10%" align="center">{rval data/NAME}</td>
+                            <td width="8%"  align="center">{rval data/POINT_TOTAL}</td>
+                            <td width="8%"  align="center">{rval data/NAISIN5_TOTAL}</td>
+                            <td width="8%"  align="center">{rval data/NAISIN9_TOTAL}</td>
+                            <td width="10%" align="center">{rval data/HOPE_COURSE}</td>
+                            <td width="10%" align="center">{rval data/PASS_UNPASS}</td>
+                            <td width="10%" align="center">{rval data/PU_LABEL}</td>
+                            <td width="8%"  align="center">{rval data/SCHOLARSHIP_STUDENT}</td>
+                            <td width="8%"  align="center">{rval data/SP_SOLICIT}</td>
+                            <td width="8%"  align="center">{rval data/PROMISED}</td>
+                          </tr>
+                          <!--{/each}-->
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search">
+                            <th nowrap>&nbsp;</th>
+                            <td width="14%" bgcolor="#ffffff" nowrap>
+                                {rval btn_update}{rval btn_reset}{rval btn_end}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval pre_check}</script>
+{rval finish}

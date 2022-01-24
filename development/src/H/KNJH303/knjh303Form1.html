@@ -1,0 +1,55 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tbody>
+          <tr>
+            <td>
+            <hr width="25%" align="left">
+            	{rval SCHREGNO}&nbsp;&nbsp;{val NAME}
+            <hr width="25%" align="left">
+				{rval button/btn_end}
+		  </td>
+		</tr>
+        <tr> 
+		  <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="no_search_line">
+                  <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tbody>
+                      <tr class="no_search">
+                        <th align="center" nowrap width="90" height="30">指導日</th>
+                        <th align="center" nowrap width="130" height="30">相談者</th>
+                        <th align="center" nowrap width="150" height="30">対応者</th>
+                        <th align="center" nowrap width="130" height="30">指導方法</th>
+                        <th align="center" nowrap width="180" height="30">指導内容</th>
+                      </tr>
+                      <!--結果一覧--><!--{def data}--><!--{each data}-->
+                      <tr>
+                        <td align="center" nowrap bgcolor="#ffffff">{val data/TRAINDATE}</td>
+                        <td align="left" nowrap bgcolor="#ffffff">{val data/PATIENT}</td>
+                        <td align="left" nowrap bgcolor="#ffffff">{val data/STAFFNAME_SHOW}</td>
+                        <td align="left" nowrap bgcolor="#ffffff">{val data/HOWTOTRAIN}</td>
+                        <td align="left" nowrap bgcolor="#ffffff">{val data/CONTENT}</td>
+                      </tr>
+                      <!--{/each}--><!--{/def}-->
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<script language="JavaScript">{rval reload}{rval close}</script> 
+{rval finish}

@@ -1,0 +1,61 @@
+{rval start}
+
+<BR>
+<table width="450" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="1">
+              <tr class="no_search_line">
+                <th>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#cccccc">
+                    <tr height="40">
+                      <th align="left">
+                        　　所属：{rval SECTIONNAME}
+                        　　職名：{rval JOBNAME}
+                        　　氏名：{rval STAFFNAME}
+                      </th>
+                    </tr>
+                  </table>
+                </th>
+              </tr>
+            </table>
+            <br>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" nowrap>
+                      <th width="80">申請日</th>
+                      <th width="50">申請<BR>区分</th>
+                      <th width="50">許可<BR>区分</th>
+                      <th width="100">理由</th>
+                      <th width="150">期間</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td width="80" align="center" nowrap>{val data/APPLYDAY}</td>
+                      <td width="50" nowrap>{val data/APPLYNAME}</td>
+                      <td width="50" nowrap>{val data/PERM_NAME}</td>
+                      <td width="100" >{val data/REASON}</td>
+                      <td width="150" nowrap>{val data/KIKAN}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval close_win}</script>

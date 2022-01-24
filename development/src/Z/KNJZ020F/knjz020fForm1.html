@@ -1,0 +1,82 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="10" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" height="25">
+                      <th nowrap width="17%">入試年度</th>
+                      <td nowrap width="*" bgcolor="#ffffff">{val year}&nbsp;&nbsp;{val btn_year_add}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" height="25">
+                      <th nowrap width="17%">入試制度</th>
+                      <td nowrap width="25%" bgcolor="#ffffff">{val APPLICANTDIV}</td>
+                      <th nowrap width="17%">入試区分</th>
+                      <td nowrap width="*" bgcolor="#ffffff">{val TESTDIV}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="35%">課程学科</th>
+                      <th nowrap width="*">受験コース</th>
+                      <th nowrap width="15%">試験科目</th>
+                      <!--{def exam_type}-->
+                      <th nowrap width="15%">受験型</th>
+                      <!--{/def}-->
+                      <th nowrap width="10%">&nbsp;満点&nbsp;</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/ROWSPAN1}-->
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN1}>{val data/TOTALCD_NAME}</td>
+                      <!--{/def}-->
+                      <!--{def data/ROWSPAN2}-->
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN2}>{val data/EXAMCOURSE_NAME}</td>
+                      <!--{/def}-->
+                      <td nowrap bgcolor="#ffffff">{val data/TESTSUBCLASSCD}</td>
+                      <!--{def exam_type}-->
+                      <td nowrap bgcolor="#ffffff">{val data/EXAM_TYPE_NAME}</td>
+                      <!--{/def}-->
+                      <td nowrap bgcolor="#ffffff" align="center">{val data/PERFECT}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+
+<script language="JavaScript">
+<!--{def reload}-->
+<!--{each reload}-->
+{rval reload}
+<!--{/each}-->
+<!--{/def}-->
+</script>

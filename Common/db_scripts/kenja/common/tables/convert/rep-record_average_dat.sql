@@ -1,0 +1,58 @@
+-- $Id: 3ac218cf3f0c5c496d7e0a28f1be78f047bc20ae $
+
+DROP TABLE RECORD_AVERAGE_DAT_OLD
+RENAME TABLE RECORD_AVERAGE_DAT TO RECORD_AVERAGE_DAT_OLD
+CREATE TABLE RECORD_AVERAGE_DAT( \
+    YEAR            VARCHAR(4) NOT NULL, \
+    SEMESTER        VARCHAR(1) NOT NULL, \
+    TESTKINDCD      VARCHAR(2) NOT NULL, \
+    TESTITEMCD      VARCHAR(2) NOT NULL, \
+    CLASSCD         VARCHAR(2) NOT NULL, \
+    SCHOOL_KIND     VARCHAR(2) NOT NULL, \
+    CURRICULUM_CD   VARCHAR(2) NOT NULL, \
+    SUBCLASSCD      VARCHAR(6) NOT NULL, \
+    AVG_DIV         VARCHAR(1) NOT NULL, \
+    GRADE           VARCHAR(2) NOT NULL, \
+    HR_CLASS        VARCHAR(3) NOT NULL, \
+    COURSECD        VARCHAR(1) NOT NULL, \
+    MAJORCD         VARCHAR(3) NOT NULL, \
+    COURSECODE      VARCHAR(4) NOT NULL, \
+    SCORE           INTEGER, \
+    HIGHSCORE       INTEGER, \
+    LOWSCORE        INTEGER, \
+    COUNT           SMALLINT, \
+    AVG             DECIMAL (9,5), \
+    STDDEV          DECIMAL (5,1), \
+    REGISTERCD      VARCHAR(8), \
+    UPDATED         timestamp default current timestamp \
+) in usr1dms index in idx1dms
+
+insert into RECORD_AVERAGE_DAT \
+SELECT \
+    YEAR, \
+    SEMESTER, \
+    TESTKINDCD, \
+    TESTITEMCD, \
+    LEFT(SUBCLASSCD, 2) AS CLASSCD, \
+    'H' AS SCHOOL_KIND, \
+    '2' AS CURRICULUM_CD, \
+    SUBCLASSCD, \
+    AVG_DIV, \
+    GRADE, \
+    HR_CLASS, \
+    COURSECD, \
+    MAJORCD, \
+    COURSECODE, \
+    SCORE, \
+    HIGHSCORE, \
+    LOWSCORE, \
+    COUNT, \
+    AVG, \
+    STDDEV, \
+    REGISTERCD, \
+    UPDATED \
+FROM \
+RECORD_AVERAGE_DAT_OLD
+
+alter table RECORD_AVERAGE_DAT add constraint pk_record_avg_dat \
+      primary key (YEAR, SEMESTER, TESTKINDCD, TESTITEMCD, CLASSCD, SCHOOL_KIND, CURRICULUM_CD, SUBCLASSCD, AVG_DIV, GRADE, HR_CLASS, COURSECD, MAJORCD, COURSECODE)

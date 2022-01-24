@@ -1,0 +1,23 @@
+-- kanji=´Á»ú
+-- $Id:
+
+DROP TABLE MEDEXAM_DISEASE_ADDITION3_DAT
+
+CREATE TABLE MEDEXAM_DISEASE_ADDITION3_DAT \
+      (EDBOARD_SCHOOLCD     VARCHAR(12) NOT NULL, \
+       YEAR                 VARCHAR(4) NOT NULL, \
+       SUSPEND_DIRECT_DATE  DATE       NOT NULL, \
+       TOTAL_DIV            VARCHAR(1) NOT NULL, \
+       DISEASECD            VARCHAR(3) NOT NULL, \
+       DISEASECD_REMARK     VARCHAR(150), \
+       SUSPEND_S_DATE       DATE, \
+       SUSPEND_E_DATE       DATE, \
+       SUSPEND_REMARK       VARCHAR(150), \
+       REMARK1              VARCHAR(150), \
+       REMARK2              VARCHAR(150), \
+       REMARK3              VARCHAR(150), \
+       REGISTERCD           VARCHAR(10), \
+       UPDATED      TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+      ) in usr1dms index in idx1dms
+
+alter table MEDEXAM_DISEASE_ADDITION3_DAT add constraint PK_MEDEXAM_D_A3_D primary key (EDBOARD_SCHOOLCD, YEAR, SUSPEND_DIRECT_DATE, TOTAL_DIV, DISEASECD)

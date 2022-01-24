@@ -1,0 +1,40 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="10" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="15%">校種</th>
+                      <th nowrap width="30%">行動の記録コード</th>
+                      <th nowrap width="55%">行動の記録名称</th>
+                    </tr>
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr bgcolor="#ffffff">
+                      <td nowrap align="center">{rval data/SCHOOL_KIND_NAME}</td>
+                      <td nowrap align="center"><a href="knjz403jindex.php?cmd=edit&SCHOOL_KIND={rval data/SCHOOL_KIND}&STUDYREC_CODE={rval data/STUDYREC_CODE}" target="right_frame">{rval data/STUDYREC_CODE}</a></td>
+                      <td nowrap>&nbsp;{rval data/STUDYREC_CODENAME}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<script language="JavaScript">{rval jscript}</script>
+{rval finish}

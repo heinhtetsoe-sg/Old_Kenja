@@ -1,0 +1,70 @@
+{rval start}
+<style>
+.tdVal{
+    background-color:#ffffff;
+    text-align: center;
+}
+.tdVa2{
+    background-color:#ffffff;
+}
+</style>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+  <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr >
+      <td >
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search" height="25">
+                <th norwarp width="25%" align="left">　対象年度&nbsp;{rval year}　{rval btn_copy}</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr height="10">
+          <td></td>
+        </tr>
+
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" height="25">
+              <th nowrap width="10%">校種</th>
+              <th nowrap width="10%">フォーマット<br>区分</th>
+              <th nowrap width="10%">契約種別<br>コード</th>
+              <th nowrap width="10%">事業主番号</th>
+              <th nowrap width="20%">事業主名</th>
+              <th nowrap width="10%">金融機関<br>コード</th>
+              <th nowrap width="*">金融機関名</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+            <!--{each data}-->
+            <tr>
+              <!--{def data/ROWSPAN}-->
+              <td class="tdVal" rowspan="{val data/ROWSPAN}">{val data/SCHOOL_KIND_NAME}</td>
+              <!--{/def}-->
+              <td class="tdVal" nowrap>{rval data/FORMAT_DIV}</td>
+              <td class="tdVal" nowrap>{rval data/SHUBETSU_CD}</td>
+              <td class="tdVal" nowrap>{rval data/ACCOUNT_CD}</td>
+              <td class="tdVa2" nowrap>{rval data/ACCOUNTNAME_KANA}</td>
+              <td class="tdVal" nowrap>{rval data/BANK_CD}</td>
+              <td class="tdVa2" nowrap>{rval data/BANKNAME_KANA}</td>
+            </tr>
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<script language="JavaScript">{rval reload}</script>
+{rval finish}

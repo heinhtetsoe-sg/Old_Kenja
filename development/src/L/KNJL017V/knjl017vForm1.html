@@ -1,0 +1,67 @@
+{rval start} {rval IFRAME}
+
+<!--{def button}-->
+<!--{def data}-->
+
+<br /><br /><br />
+
+<table width="60%" border="0" cellpadding="0" cellspacing="5" align="center">
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="5" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="5">
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <th>入試年度</th>
+                      <th align="center" bgcolor="#ffffff"><span style="color: #000000">{rval data/YEAR}</span>></th>
+                      <th>校種</th>
+                      <th align="left" bgcolor="#ffffff">{rval data/EXAM_SCHOOL_KIND}</th>
+                      <th>試験ID</th>
+                      <th align="left" bgcolor="#ffffff">{rval data/EXAM_ID}</th>
+                      <th>会場リスト</th>
+                      <th align="left" bgcolor="#ffffff">{rval data/PLACE_ID}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td width="100%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr class="no_search">
+                      <th>{rval data/TITLE_LEFT}</th>
+                      <th class="no_search"></th>
+                      <th>{rval data/TITLE_RIGHT}</th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff">
+                      <td width="45%">{rval data/CATEGORY_SELECTED}<br>選択人数：{rval data/leftCount}/収容人数：{rval data/seatsCnt}</td>
+                      <td width="*%" class="no_search">
+                        {rval button/btn_lefts}<br />
+                        {rval button/btn_left1}<br />
+                        {rval button/btn_right1}<br />
+                        {rval button/btn_rights}
+                      </td>
+
+                      <td width="45%">{rval data/CATEGORY_NAME}<br>未割振人数：{rval data/rgihtCount}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td nowrap>{rval button/btn_update}{rval button/btn_csv}{rval button/btn_reset}{rval button/btn_end}</td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<!--{/def}-->
+
+{rval finish}

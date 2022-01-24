@@ -1,0 +1,119 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+        <td valign="top">
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr >
+                  <td >
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line">
+                                <td>
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                    <tr class="no_search">
+                                      <th width="30%">項 目</th>
+                                      <th width="70%">値</th>
+                                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+                                    <tr>
+                                      <th align="right" class="no_search" nowrap>※　　会社コード</th>
+                                      <td bgcolor="#ffffff">{rval data/COMPANY_CD}</td>
+                                    </tr>
+
+                                    <tr>
+                                      <th align="right" class="no_search" nowrap>会社名</th>
+                                      <td bgcolor="#ffffff">{rval data/COMPANY_NAME}</td>
+                                    </tr>
+                                    <tr>
+                                      <th align="right" class="no_search" nowrap>就業場所</th>
+                                      <td bgcolor="#ffffff">{rval data/SHUSHOKU_ADDR}</td>
+                                    </tr>
+                                    <tr>
+                                      <th align="right" class="no_search" nowrap>資本金</th>
+                                      <td bgcolor="#ffffff">{rval data/SHIHONKIN}</td>
+                                    </tr>
+                                    <tr>
+                                      <th align="right" class="no_search" nowrap>全体人数</th>
+                                      <td bgcolor="#ffffff">{rval data/SONINZU}</td>
+                                    </tr>
+                                    <tr>
+                                      <th align="right" class="no_search" nowrap>当事務所人数</th>
+                                      <td bgcolor="#ffffff">{rval data/TONINZU}</td>
+                                    </tr>
+                                    <tr>
+                                      <th align="right" class="no_search" nowrap>産業大分類</th>
+                                      <td bgcolor="#ffffff">{rval data/INDUSTRY_LCD}</td>
+                                    </tr>
+                                    <tr>
+                                      <th align="right" class="no_search" nowrap>産業中分類</th>
+                                      <td bgcolor="#ffffff">{rval data/INDUSTRY_MCD}</td>
+                                    </tr>
+
+                                    <tr>
+                                      <th align="right" class="no_search" nowrap>職種コード</th>
+                                      <td bgcolor="#ffffff">{rval data/COMPANY_SORT}</td>
+                                    </tr>
+                                    <tr>
+                                      <th align="right" class="no_search" nowrap>募集対象</th>
+                                      <td bgcolor="#ffffff">{rval data/TARGET_SEX}</td>
+                                    </tr>
+                                    <tr>
+                                      <th align="right" class="no_search" nowrap>郵便番号</th>
+                                      <td bgcolor="#ffffff">{rval data/ZIPCD}</td>
+                                    </tr>
+                                    <tr>
+                                      <th align="right" class="no_search" nowrap>住所１</th>
+                                      <td bgcolor="#ffffff">{rval data/ADDR1}</td>
+                                    </tr>
+                                    <tr>
+                                      <th align="right" class="no_search" nowrap>住所２</th>
+                                      <td bgcolor="#ffffff">{rval data/ADDR2}</td>
+                                    </tr>
+                                    <tr>
+                                      <th align="right" class="no_search" nowrap>電話番号</th>
+                                      <td bgcolor="#ffffff">{rval data/TELNO}</td>
+                                    </tr>
+                                    <tr>
+                                      <th align="right" class="no_search" nowrap>備考</th>
+                                      <td bgcolor="#ffffff">{rval data/REMARK}</td>
+                                    </tr>
+<!--{/def}-->
+<!--{def button}-->
+                                    <tr>
+                                      <th align="right" class="no_search" nowrap>&nbsp;</th>
+                                      <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+                                    </tr>
+<!--{/def}-->
+                                    <tr>
+                                      <th align="right" class="no_search" nowrap>CSV入出力</th>
+                                      <td bgcolor="#ffffff" colspan = "5">
+                                        <table width="100%">
+                                          <tr height="25">
+                                            <td nowrap>
+                                                {rval data/OUTPUT4}<LABEL for="OUTPUT4">ヘッダ出力(見本)</LABEL>　
+                                                {rval data/OUTPUT1}<LABEL for="OUTPUT1">取込</LABEL>　
+                                                {rval data/OUTPUT2}<LABEL for="OUTPUT2">書出</LABEL>　
+                                                {rval data/OUTPUT3}<LABEL for="OUTPUT3">エラー出力</LABEL>　
+                                            </td>
+                                          </tr>
+                                          <tr height="25">
+                                            <td nowrap>
+                                                  ファイル：<span id="type_file">{rval FILE}</span>{rval button/btn_exec}　{rval data/HEADER}<LABEL for="HEADER">ヘッダ有</LABEL>
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                                    </tr>
+
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

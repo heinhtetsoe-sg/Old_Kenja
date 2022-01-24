@@ -1,0 +1,173 @@
+{rval start}
+<br><br>
+<table style="width: 600px" border="0" cellpadding="10" cellspacing="10" align="center">
+    <tr>
+        <td>
+            <table style="width: 600px" border="0" cellspacing="5" cellpadding="1">
+                <tr>
+                    <td>
+                        <table style="width: 600px" border="0" cellspacing="0" cellpadding="0">
+                            <tr class="no_search_line">
+                                <td>
+                                    <table style="width: 600px" border="0" cellspacing="1" cellpadding="4">
+                                        <tr class="no_search" height="35">
+                                            <td colspan="2">
+                                                &nbsp;&nbsp;&nbsp&nbsp;処理年度&nbsp;&nbsp;{rval data/THIS_YEAR}年度&nbsp;&nbsp;台帳番号採番処理&nbsp;&nbsp;
+                                                <!--{def useKnja050_select_schoolKind}-->{rval data/SCHOOL_KIND}
+                                                <!--{/def}-->
+                                            </td>
+                                        </tr>
+                                        <!--{def SORT_PATTERN1}-->
+                                        <tr bgcolor="#ffffff" height="130">
+                                            <!--{/def}-->
+                                            <!--{def SORT_PATTERN2}-->
+                                        <tr bgcolor="#ffffff" height="80">
+                                            <!--{/def}-->
+
+                                            <td valign="center" colspan="2" nowrap>
+                                                <br>&nbsp;&nbsp;&nbsp;卒業生台帳番号：&nbsp;{rval data/MODE}
+                                                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                {rval data/WHICH_WAY1}<LABEL for="WHICH_WAY1">連番&nbsp;&nbsp;{rval data/GRD_NO}から開始</LABEL>
+                                                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <!--{def SORT_PATTERN1}-->
+                                                {rval data/WHICH_WAY_DIV1}<LABEL for="WHICH_WAY_DIV1">&nbsp;卒業日＋年組番順</LABEL>
+                                                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                {rval data/WHICH_WAY_DIV2}<LABEL for="WHICH_WAY_DIV2">&nbsp;学科＋氏名かな順</LABEL>
+                                                <!--{def SORT_PATTERN1_1}-->
+                                                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                {rval data/WHICH_WAY_DIV4}
+                                                <!--{/def}-->
+                                                <!--{/def}-->
+                                                <!--{def SORT_PATTERN2}-->
+                                                総合成績＋年組番順</LABEL><br>
+                                                <!--{/def}-->
+                                                <!--{def SORT_PATTERN1}-->
+                                                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                {rval data/WHICH_WAY2}<LABEL for="WHICH_WAY2">学籍番号を使用</LABEL><br></td>
+                                        </tr>
+                                        <!--{/def}-->
+                                        <tr bgcolor="#ffffff" height="60">
+                                            <td colspan="2" nowrap>
+                                                &nbsp;&nbsp;●卒業生台帳番号採番処理<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;・全卒業生採番・・・・卒業生全員の卒業生台帳番号の採番を行ないます。<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;・未採番者のみ採番・・卒業生未採番者の卒業生台帳番号の採番を行います。<br>
+                                                <br>
+                                        <tr class="no_search">
+                                            <td width="45%"></td>
+                                            <!--{def button}-->
+                                            <td bgcolor="#ffffff" align='right'>{rval button/BTN_UP}&nbsp;&nbsp;&nbsp;{rval button/BTN_CLEAR}</td>
+                                            <!--{/def}-->
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table style="width: 600px" border="0" cellspacing="0" cellpadding="0">
+                            <tr bgcolor="#ffffff" height="10">
+                                <td>
+
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table style="width: 600px" border="0" cellspacing="0" cellpadding="0">
+                            <tr class="no_search_line">
+                                <td>
+                                    <table style="width: 600px" border="0" cellspacing="1" cellpadding="4">
+                                        <tr class="no_search" height="35">
+                                            <td colspan="2">&nbsp;&nbsp;&nbsp&nbsp;処理年度&nbsp;&nbsp;{rval data/THIS_YEAR}年度&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;処理学期&nbsp;&nbsp;{rval data/THIS_SEMESTER}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;処理学年&nbsp;{rval data/GRADE}
+                                            </td>
+                                        </tr>
+
+                                        <tr bgcolor="#ffffff" height="50">
+                                            <td colspan="2" nowrap>&nbsp;&nbsp;&nbsp;設定年度：{rval data/NEXT_YEAR}年度
+                                                <br><br>&nbsp;&nbsp;&nbsp;{rval data/SYORITITLE}：{rval data/syoribi}
+                                                <!--{def data/grd_syoribi}-->
+                                                &nbsp;{rval data/GRD_SYORITITLE}：{rval data/grd_syoribi}
+                                                <!--{/def}-->
+                                            </td>
+                                        </tr>
+
+                                        <tr bgcolor="#ffffff">
+                                            <!--{def dataaa}-->
+                                            <td colspan="2">
+
+                                                <table height="120" width="100%">
+                                                    <!--{each dataaa}-->
+                                                    <tr bgcolor="#ffffff" nowrap>
+                                                        <td width='95' align='left'>&nbsp;&nbsp;{rval dataaa/GRADE_NAME1}
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td width='25' align='right'>{rval dataaa/STDCNT}</td>
+                                                        <td>(内</td>
+                                                        <td width='15' align='right'>{rval dataaa/RE_STDCNT}</td>
+                                                        <td>)</td>
+                                                        <td>名</td>
+                                                        <td>(未設定</td>
+                                                        <td>組</td>
+                                                        <td width='20' align='right'>{rval dataaa/HRCNT}</td>
+                                                        <td>名/</td>
+                                                        <td>番</td>
+                                                        <td width='20' align='right'>{rval dataaa/ATCNT}</td>
+                                                        <td>名/</td>
+                                                        <td>コース</td>
+                                                        <td width='20' align='right'>{rval dataaa/CSCNT}</td>
+                                                        <td>名)&nbsp;&nbsp;</td>
+                                                    </tr>
+                                                    <!--{/each}-->
+                                                    <tr bgcolor="#ffffff">
+                                                        <td align='center'>&nbsp;卒 業 生</td>
+                                                        <td>:</td>
+                                                        <td width='25' align='right'>{rval dataa/GRD}</td>
+                                                        <td colspan='15'>名</td>
+                                                    </tr>
+                                                </table>
+
+                                            </td>
+                                            <!--{/def}-->
+                                        </tr>
+
+                                        <tr bgcolor="#ffffff" height="110">
+                                            <td colspan="2" nowrap>
+                                                &nbsp;&nbsp;●年度確定処理<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;・年度確定処理は現在処理年度の設定を変更します。<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;※処理実行後は過去のデータは修正できません。<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;・年度確定処理によって下記のデータが作成されます。<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・次年度の学籍データ(新入生含む)<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・卒業生データ
+                                            </td>
+                                        </tr>
+                                        <tr class="no_search">
+                                            <td width="45%"></td>
+                                            <!--{def button}-->
+                                            <td bgcolor="#ffffff" align='right'>{rval button/BTN_OK}&nbsp;&nbsp;&nbsp;{rval button/BTN_CLEAR}</td>
+                                            <!--{/def}-->
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<script language="JavaScript">
+{rval reload}{rval Closing}
+
+<!--{def SDATE}-->
+var sdate = {rval SDATE};
+<!--{/def}-->
+<!--{def EDATE}-->
+var edate = {rval EDATE};
+<!--{/def}-->
+{rval close}
+</script>
+{rval finish}

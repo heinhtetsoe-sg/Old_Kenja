@@ -1,0 +1,186 @@
+{rval start}
+{rval IFRAME}
+
+<BR>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <hr width="50%" align="left">
+              &nbsp;&nbsp;{rval HEADER_INFO}&nbsp;
+            <hr width="50%" align="left">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <div style="width:950;height:260;overflow-x:scroll;overflow-y:scroll">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <tr class="no_search" height="25">
+                            <th align="center" nowrap width="100">登録日付</th>
+                            <th align="center" nowrap width="150">分類</th>
+                            <th align="center" nowrap width="150">イベント</th>
+                            <th align="center" nowrap width="80">媒体</th>
+                            <th align="center" nowrap width="100">参加状況</th>
+                            <th align="center" nowrap width="120">希望課程学科&nbsp;コース１</th>
+                            <th align="center" nowrap width="120">希望課程学科&nbsp;コース２</th>
+                            <th align="center" nowrap width="120">希望課程学科&nbsp;コース３</th>
+                            <th align="center" nowrap width="120">希望課程学科&nbsp;コース４</th>
+                            <th align="center" nowrap width="120">希望課程学科&nbsp;コース５</th>
+                            <th align="center" nowrap width="300">備考</th>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="780" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table id="list" width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--結果一覧--><!--{def data}--><!--{each data}-->
+                          <tr bgcolor="#ffffff">
+                            <td nowrap nowrap width="100" align="center"><a href="knjl411index.php?cmd=knjl411&TOUROKU_DATE={rval data/TOUROKU_DATE}&EVENT_CLASS_CD={rval data/EVENT_CLASS_CD}&EVENT_CD={rval data/EVENT_CD}&MEDIA_CD={rval data/MEDIA_CD}" target="">{rval data/TOUROKU_DATE}</a></td>
+                            <td nowrap nowrap width="150">{rval data/EVENT_CLASS_NAME}</td>
+                            <td nowrap nowrap width="150">{rval data/EVENT_NAME}</td>
+                            <td nowrap nowrap width="80">{rval data/MEDIA_NAME}</td>
+                            <td nowrap nowrap width="100">{rval data/STATE_NAME}</td>
+                            <td nowrap nowrap width="120">{rval data/MAJORNAME1}{rval data/COURSECODENAME1}</td>
+                            <td nowrap nowrap width="120">{rval data/MAJORNAME2}{rval data/COURSECODENAME2}</td>
+                            <td nowrap nowrap width="120">{rval data/MAJORNAME3}{rval data/COURSECODENAME3}</td>
+                            <td nowrap nowrap width="120">{rval data/MAJORNAME4}{rval data/COURSECODENAME4}</td>
+                            <td nowrap nowrap width="120">{rval data/MAJORNAME5}{rval data/COURSECODENAME5}</td>
+                            <td nowrap width="300">{rval data/REMARK}</td>
+                          </tr>
+                          <!--{/each}--><!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="80%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="no_search_line">
+                      <td>
+                        <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                          <!--{def data1}-->
+                          <tr>
+                            <th class="no_search">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td class="no_search" nowrap>&nbsp;※</td>
+                                  <td class="no_search" align="right" nowrap>登録日付&nbsp;</td>
+                                </tr>
+                              </table>
+                            </th>
+                            <td bgcolor="#ffffff">{rval data1/TOUROKU_DATE}</td>
+                          </tr>
+                          <tr>
+                            <th class="no_search">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td class="no_search" nowrap>&nbsp;※</td>
+                                  <td class="no_search" align="right" nowrap>分類&nbsp;</td>
+                                </tr>
+                              </table>
+                            </th>
+                            <td bgcolor="#ffffff" nowrap>{rval data1/EVENT_CLASS_CD}</td>
+                          </tr>
+                          <tr>
+                            <th class="no_search">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td class="no_search" nowrap>&nbsp;※</td>
+                                  <td class="no_search" align="right" nowrap>イベント&nbsp;</td>
+                                </tr>
+                              </table>
+                            </th>
+                            <td bgcolor="#ffffff" nowrap>{rval data1/EVENT_CD}</td>
+                          </tr>
+                          <tr>
+                            <th class="no_search">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td class="no_search" nowrap>&nbsp;※</td>
+                                  <td class="no_search" align="right" nowrap>媒体&nbsp;</td>
+                                </tr>
+                              </table>
+                            </th>
+                            <td bgcolor="#ffffff" nowrap>{rval data1/MEDIA_CD}</td>
+                          </tr>
+                          <tr>
+                            <th align="right" class="no_search" nowrap width="120">参加状況&nbsp;</th>
+                            <td bgcolor="#ffffff" nowrap>{rval data1/STATE_CD}</td>
+                          </tr>
+                          <tr>
+                            <th align="right" class="no_search" nowrap>希望課程学科&nbsp;コース１</th>
+                            <td bgcolor="#ffffff" nowrap>{rval data1/HOPE_COURSE_MAJOR1}{rval data1/HOPE_COURSECODE1}</td>
+                          </tr>
+                          <tr>
+                            <th align="right" class="no_search" nowrap>希望課程学科&nbsp;コース２</th>
+                            <td bgcolor="#ffffff" nowrap>{rval data1/HOPE_COURSE_MAJOR2}{rval data1/HOPE_COURSECODE2}</td>
+                          </tr>
+                          <tr>
+                            <th align="right" class="no_search" nowrap>希望課程学科&nbsp;コース３</th>
+                            <td bgcolor="#ffffff" nowrap>{rval data1/HOPE_COURSE_MAJOR3}{rval data1/HOPE_COURSECODE3}</td>
+                          </tr>
+                          <tr>
+                            <th align="right" class="no_search" nowrap>希望課程学科&nbsp;コース４</th>
+                            <td bgcolor="#ffffff" nowrap>{rval data1/HOPE_COURSE_MAJOR4}{rval data1/HOPE_COURSECODE4}</td>
+                          </tr>
+                          <tr>
+                            <th align="right" class="no_search" nowrap>希望課程学科&nbsp;コース５</th>
+                            <td bgcolor="#ffffff" nowrap>{rval data1/HOPE_COURSE_MAJOR5}{rval data1/HOPE_COURSECODE5}</td>
+                          </tr>
+                          <tr>
+                            <th align="right" class="no_search" nowrap>備考&nbsp;</th>
+                            <td bgcolor="#ffffff" nowrap>{rval data1/REMARK}</td>
+                          </tr>
+                          <!--{/def}-->
+                          <!--{def button}-->
+                          <tr>
+                            <th align="center" class="no_search" nowrap>　</th>
+                            <td bgcolor="#ffffff" nowrap>{rval button/btn_insert}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+                          </tr>
+                          <!--{/def}-->
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

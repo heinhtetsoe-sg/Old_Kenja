@@ -1,0 +1,358 @@
+{rval start}
+
+<style>
+/* 内容 */
+.tooltip-content {
+    position: relative;
+    left: -3px;
+    top: -3px;
+
+    background-color: #C15151;
+    border: 0px;
+    padding: 3px;
+    color: white;
+    font-size: 90%;
+    border-radius: 3px;
+}
+/* 影 */
+.tooltip-shadow {
+    position: absolute;
+    background-color: rgba(220,220,220,0.7);
+    border-radius: 3px;
+    //background-image: url('images/shadow.png');
+}
+
+#all {
+	position:relative;
+	width:100%;
+	height:75%;
+}
+#header_x {
+    width:250px;
+    position:absolute;
+    left:20px;
+    top:0px;
+    border-collapse:collapse;
+}
+#header_x2 {
+    width:137px;
+    position:absolute;
+    left:20px;
+    top:0px;
+    border-collapse:collapse;
+}
+/*#header_x th {
+    border: 1px solid #000000;
+    width:85px;
+}*/
+#right_header {
+   position: absolute;
+   left:269px;
+   top:0px;
+   width:1333px;    /*表示部分の幅*/
+   overflow-x:hidden;
+   overflow-y:hidden;
+   border-right: 1px solid black;
+   border-left: 1px solid black;
+}
+#right_header2 {
+   position: absolute;
+   left:156px;
+   top:0px;
+   width:1446px;    /*表示部分の幅*/
+   overflow-x:hidden;
+   overflow-y:hidden;
+   border-right: 1px solid black;
+   border-left: 1px solid black;
+   }
+#left_body {
+   position: absolute;
+   left:20px;
+   top:181px;
+   width:250px;
+   height:450px;    /*表示部分の高さ*/
+   overflow-x:hidden;
+   overflow-y:hidden;
+   border-bottom: 1px solid black;
+
+   }
+#left_body2 {
+   position: absolute;
+   left:20px;
+   top:181px;
+   width:137px;
+   //height:450px;    /*表示部分の高さ*/
+   overflow-x:hidden;
+   overflow-y:hidden;
+   }
+#right_body {
+   position: absolute;
+   left:270px;
+   top:181px;
+   overflow-x:scroll;
+   overflow-y:scroll;
+   width:1351px;    /*表示部分の幅【スクロール部分込み】*/
+   height:468px;    /*表示部分の高さ【スクロール込み】*/
+   }
+#right_body2 {
+   position: absolute;
+   left:156px;
+   top:181px;
+   overflow-x:scroll;
+   overflow-y:hidden;
+   width:1446px;    /*表示部分の幅*/
+   //height:467px;    /*表示部分の高さ【スクロール込み】*/
+   border-right: 1px solid black;
+   border-left: 1px solid black;
+   }
+#holizon {
+    width:200%; /*ここでtdの幅が調整される*/
+}
+
+table.right_h {
+    height:40px;
+    border-collapse:collapse;
+    text-align: center;
+}
+table.right_h th {
+    border: 1px solid #000000;
+    width: 114px;
+}
+table.right_b {
+    border-collapse:collapse;
+    text-align: center;
+   border-right: 1px solid black;
+   border-top: 1px solid black;
+}
+table.right_b td {
+    border: 1px solid #000000;
+    width: 114px;
+    background: #ffffff;
+    height:31px;
+}
+table.left_b {
+    border-collapse:collapse;
+    text-align: center;
+    width:100%;
+}
+table.left_b th {
+    height:31px;
+}
+table.left_b td {
+    border: 1px solid #000000;
+    width: 85px;
+    background: #ffffff;
+    height:31px;
+}
+
+/*header_xから下用*/
+.title {
+    width: 137px;
+    height: 30px;
+    border: 1px solid #000000;
+    text-align: center;
+}
+.sum {
+    width: 100px;
+    height: 30px;
+    min-width: 100px;
+}
+.normal {
+    border: 1px solid #000000;
+}
+td.normal {
+    background: #ffffff;
+    text-align: right;
+    padding-right: 10px;
+}
+.abnormal {
+    border: 0px !important;
+    background: #ffffff;
+}
+/*学年平均･最高点*/
+.grade {
+    background: #fffacd !important;
+}
+/*left_bodyの色付いてるとこ*/
+.changecolor {
+    border: 1px solid #000000;
+    background: #008080 !important;
+    color: #ffffff;
+    font-weight:bold;
+}
+/*回数別のときのleft_bodyの色つき部分用*/
+.tokuten {
+    text-align: center;
+    width: 75px;
+}
+.percent {
+    text-align: left;
+    width: 75px;
+}
+/*小分野別のときのleft_bodyの色つき部分*/
+.large_field {
+    width: 50px;
+    text-align: center;
+}
+.small_field {
+    width: 100px;
+    text-align: center;
+}
+/*大分野・小分野のときに5つ区切りで太線にする*/
+.field_border {
+    border-top: 2px black solid !important;
+}
+/*大分野･小分野のとき配点行に色を付ける*/
+.field_color {
+    background: #dcdcdc !important;
+}
+/*右側のtd*/
+th.right_td {
+    height: 30px;
+    padding: 0;
+}
+td.right_td {
+    border: 1px solid #000000;
+    text-align: right;
+    padding-right: 10px;
+    height: 30px;
+    min-width: 80px;
+}
+
+
+</style>
+
+{rval IFRAME}
+<script type="text/javascript">
+  // ツールチップを生成する
+  var tooltip = new Tooltip();
+</script>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="5" cellpadding="1">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="0" width="100%">
+              <tr class="no_search">
+                <td nowrap align="center">講座別成績一覧</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap align="center" class="no_search" width="10%">年度・学期</th>
+                <td nowrap bgcolor="#ffffff">{rval EXP_YEAR}　{rval SEMESTER}</td>
+                <th nowrap align="center" class="no_search" width="10%">科目</th>
+                <td nowrap bgcolor="#ffffff" width="30%">{rval SUBCLASSCD}</td>
+                <th nowrap align="center" class="no_search" width="10%">学級・講座</th>
+                <td nowrap bgcolor="#ffffff" width="30%">{rval CHAIRCD}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap class="no_search" rowspan="5" width="114">表示内容</th>
+                <th nowrap class="no_search" width="114">サイト名</th>
+                <td nowrap bgcolor="#ffffff">{rval data/SITE}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="114">教科</th>
+                <td nowrap bgcolor="#ffffff">{rval data/KYOKA}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search">科目</th>
+                <td nowrap bgcolor="#ffffff">{rval data/KAMOKU}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search">表示対象</th>
+                <td nowrap bgcolor="#ffffff">{rval data/TEST_CNT}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search">&nbsp;</th>
+                <td nowrap bgcolor="#ffffff">{rval button/btn_search}&nbsp;{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <table width="100%" border="0" cellspacing="5" cellpadding="1">
+        <tr>
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="0" width="100%">
+              <tr>
+                <td nowrap align="left" bgcolor="#ffffff">&nbsp;区分&nbsp;{rval data/KUBUN}&nbsp;&nbsp;日付選択&nbsp;{rval data/F_DATE} ～ {rval data/T_DATE}&nbsp;&nbsp;{rval button/btn_csv}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    
+    <!--{def HYOUZI}-->
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+                <table border="0" cellpadding="3" cellspacing="0" width="100%">
+                  <tr>
+                    <td nowrap align="right" bgcolor="#ffffff">取込日：{rval IMPORTDATE}&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                  </tr>
+                </table>
+          
+            <div id="all">
+                <table id="{rval left_h_id}">
+                  <tr>
+                        {rval header_x}
+                  </tr>
+                </table>
+              
+              <div id="{rval right_h_id}">
+                <table class="right_h" {rval width}>
+                  <tr>
+                    {rval right_header}
+                  </tr>
+                </table>
+              </div>
+          
+              <div id="{rval left_b_id}">
+                <table class="left_b">
+                  <tr>
+                    {rval left_body}
+                  </tr>
+                </table>
+              </div>
+                
+              <div id="{rval right_b_id}">
+                <table class="right_b" {rval width}>
+                  <tr>
+                    {rval right_body}
+                  </tr>
+                </table>
+              </div>
+          
+            </div>
+            
+          </td>
+        </tr>
+      </table>
+    <!--{/def}-->
+      </td>
+   </tr>
+</table>
+
+{rval java}
+
+{rval finish}

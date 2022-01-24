@@ -1,0 +1,89 @@
+{rval start}
+<!--knjz020kForm2.html -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr> 
+  <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr> 
+      <td > 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line"> 
+          <td> 
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search"> 
+              <th width="30%">項 目</th>
+              <th width="70%">値</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+
+            <tr>
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>試験区分</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/TESTDIV}</td>
+            </tr>
+
+            <tr>
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>試験科目</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/TESTSUBCLASSCD}</td>
+            </tr>
+
+            <tr>
+              <td class="no_search">
+                <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tr class="no_search">
+                  <th align="left" nowrap>※</th>
+                  <th align="right" nowrap>満点</th>
+                </tr>
+                </table>
+              </td>
+              <td bgcolor="#ffffff">{rval data/A_PERFECT}</td>
+            </tr>
+
+
+            <tr>
+              <th align="right" class="no_search" nowrap>自動計算<span id="check1">あり</span><span id="check2">なし</span></th>
+              <td bgcolor="#ffffff">{rval data/AUTOCALC}
+              <font color="#000000"><span id="check">{rval data/style}</span></font>
+              </td>
+            </tr>
+            <tr>
+              <th align="right" class="no_search" nowrap>傾斜倍率</th>
+              <td bgcolor="#ffffff">{rval data/INC_MAGNIFICATION}</td>
+            </tr>
+            <tr>
+              <th align="right" class="no_search" nowrap>アラカルト</th>
+              <td bgcolor="#ffffff">{rval data/ADOPTIONDIV}</td>
+            </tr>
+            <!--{/def}--> 
+            <!--{def button}--> 
+            <tr> 
+              <th align="right" class="no_search" nowrap>&nbsp;</th>
+              <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_del}{rval button/btn_reset}{rval button/btn_back}</td>
+            </tr>
+            <!--{/def}--> 
+            </table>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

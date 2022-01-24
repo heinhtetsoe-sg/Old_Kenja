@@ -1,0 +1,67 @@
+{rval start}
+
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                    <tr class="no_search" height="25">
+                      <th norwarp width="15%">入試年度</th>
+                      <td norwarp width="*" bgcolor="#ffffff">{val year}&nbsp;&nbsp;{val btn_year_add}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr height="5">
+                <td></td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="15%">入試制度</th>
+                      <th nowrap width="25%">諸費コード</th>
+                      <th nowrap width="40%">費目コード</th>
+                      <th nowrap width="*%">金額</th>
+                    </tr>
+                    <!--結果一覧-->
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr>
+                      <!--{def data/ROWSPAN1}-->
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN1} align="center">{val data/APPLICANTNAME}</td>
+                      <!--{/def}-->
+                      <!--{def data/ROWSPAN2}-->
+                      <td nowrap bgcolor="#ffffff" rowspan={rval data/ROWSPAN2}>{val data/EXEMPTION}</td>
+                      <!--{/def}-->
+                      <td nowrap bgcolor="#ffffff">{val data/ITEM}</td>
+                      <td nowrap bgcolor="#ffffff" align="right">&nbsp;{val data/ITEM_MONEY}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+
+<script language="JavaScript">
+<!--{def reload}-->
+<!--{each reload}-->
+{rval reload}
+<!--{/each}-->
+<!--{/def}-->
+</script>

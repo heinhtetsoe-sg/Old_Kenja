@@ -1,0 +1,40 @@
+<?php
+
+require_once('for_php7.php');
+
+require_once('knjl351wModel.inc');
+require_once('knjl351wQuery.inc');
+
+class knjl351wController extends Controller {
+    var $ModelClassName = "knjl351wModel";
+    var $ProgramID      = "KNJL351W";
+
+    function main()
+    {
+        $sessionInstance =& Model::getModel($this);
+        while ( true ) {
+            switch (trim($sessionInstance->cmd)) {
+                case "csv":     //CSV出力
+                    $sessionInstance->setAccessLogDetail("EO", $ProgramID);
+                    if (!$sessionInstance->getDownloadModel()){
+                        $this->callView("knjl351wForm1");
+                    }
+                    break 2;
+                case "":
+                case "main":
+                    $sessionInstance->getMainModel();
+                    $this->callView("knjl351wForm1");
+                    break 2;
+                case "error":
+                    $this->callView("error");
+                    break 2;
+                default:
+                    $sessionInstance->setError(new PEAR_Error("未対応のアクション{$sessionInstance->cmd}です"));
+                    $this->callView("error");
+                    break 2;
+            }
+        }
+    }
+}
+$knjl351wCtl = new knjl351wController;
+?>

@@ -1,0 +1,21 @@
+
+create table TEST_ATTEND_SDIV_HIST_DAT ( \
+     YEAR           VARCHAR(4)   NOT NULL, \
+     SEMESTER       VARCHAR(1)   NOT NULL, \
+     TESTKINDCD     VARCHAR(2)   NOT NULL , \
+     TESTITEMCD     VARCHAR(2)   NOT NULL , \
+     SCORE_DIV      VARCHAR(2)   NOT NULL , \
+     CLASSCD        VARCHAR(2)   NOT NULL, \
+     SCHOOL_KIND    VARCHAR(2)   NOT NULL, \
+     CURRICULUM_CD  VARCHAR(2)   NOT NULL, \
+     SUBCLASSCD     VARCHAR(6)   NOT NULL, \
+     SCHREGNO       VARCHAR(8)   NOT NULL, \
+     SEQ            SMALLINT     NOT NULL, \
+     TEST_DATE      DATE, \
+     ATTEND         VARCHAR(1) , \
+     REGISTERCD     VARCHAR(10) , \
+     UPDATED        TIMESTAMP    DEFAULT CURRENT TIMESTAMP \
+ ) in usr1dms index in idx1dms
+
+alter table TEST_ATTEND_SDIV_HIST_DAT add constraint PK_TST_ATT_S_H_D primary key (YEAR,SEMESTER,CLASSCD,SCHOOL_KIND,CURRICULUM_CD,SUBCLASSCD,SCHREGNO,SEQ)
+

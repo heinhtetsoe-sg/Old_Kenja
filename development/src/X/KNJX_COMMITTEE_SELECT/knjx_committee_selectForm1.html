@@ -1,0 +1,89 @@
+{rval start}
+<!-- Edit by HPA for PC-talker 読み start 2020/01/20 -->
+<table width="100%" border="0" cellspacing="10" cellpadding="5" id = "screen_id" aria-label="委員会選択画面">
+<!-- Edit by HPA for PC-talker 読み end 2020/01/31 -->
+  <tr>
+    <td nowrap>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <hr align="left" width="400">
+            &nbsp;&nbsp;&nbsp;{rval NAME_SHOW}
+            <hr align="left" width="400">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <td width="40" align="center"><LABEL for="CHECKALL" aria-label="全てを選択">選択</LABEL><br>{rval CHECKALL}</td>
+                      <th width="80" align="center" aria-label = "">学年</th>
+                      <td width="60" align="center"><LABEL for="CHECK_SEMESTER">学期</LABEL><br>{rval CHECK_SEMESTER}</td>
+                      <td width="150" align="center"><LABEL for="CHECK_COMMITTEE_FLG">委員会区分</LABEL><br>{rval CHECK_COMMITTEE_FLG}</td>
+                      <td width="150" align="center"><LABEL for="CHECK_COMMITTEE">委員会・係り</LABEL><br>{rval CHECK_COMMITTEE}</td>
+                      <td width="*" align="center"><LABEL for="CHECK_EXECUTIVE">役職</LABEL><br>{rval CHECK_EXECUTIVE}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="height:160;overflow-y:scroll">
+            <!-- Add by PP for empty data start 2020/01/20 -->
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" id = "data" aria-label="選択できるデータがありません">
+              <!-- Add by PP for empty data end 2020/01/31 -->
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--{def data}-->
+                    <!--{each data}-->
+                    <tr height="25" bgcolor="#ffffff">
+                      <td width="40" align="center">{rval data/CHECKED}</td>
+                      <td width="80" align="center">{rval data/GRADE_NAME1}</td>
+                      <td width="60" align="center">{rval data/SEMESTER_SHOW}</td>
+                      <td width="150">{rval data/COMMITTEE_FLG_SHOW}</td>
+                      <td width="150">{rval data/COMMITTEE_SHOW}</td>
+                      <td width="*">{rval data/EXECUTIVE_SHOW}</td>
+                    </tr>
+                    <!--{/each}-->
+                    <!--{/def}-->
+                  </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td align="right" nowrap>{rval btn_torikomi}{rval btn_back}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}

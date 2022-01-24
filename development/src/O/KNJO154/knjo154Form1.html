@@ -1,0 +1,316 @@
+{rval start}
+
+
+{rval IFRAME}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="5" cellpadding="1">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="0" width="100%">
+              <tr class="no_search" height="30">
+                <td nowrap align="center">学校保健情報</td>
+                <td nowrap align="right">{rval SCHREGNO}：{rval NAME}　　　{rval YEAR}年{rval MONTH}月{rval DAY}日　生まれ　</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap align="center" class="no_search" width="234">年度選択</th>
+                <td nowrap bgcolor="#ffffff">{rval YEARRADIO}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap align="center" class="no_search" width="234">年度</th>
+                <td nowrap bgcolor="#ffffff" width="180">　{rval data/YEAR}　年度</td>
+                <th nowrap align="center" class="no_search" width="234">年齢</th>
+                <td nowrap bgcolor="#ffffff">　{rval data/AGE}　歳</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap align="center" class="no_search" width="114">発育測定</th>
+                <th nowrap align="center" class="no_search" width="114">身長</th>
+                <td nowrap bgcolor="#ffffff" width="180">　{rval data/HEIGHT}　cm</td>
+                <th nowrap align="center" class="no_search" width="114">体重</th>
+                <td nowrap bgcolor="#ffffff">　{rval data/WEIGHT}　kg</td>
+                <th nowrap align="center" class="no_search" width="114">座高</th>
+                <td nowrap bgcolor="#ffffff">　{rval data/SIT_HEIGHT}　cm</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap align="center" class="no_search" width="114">視力</th>
+                <th nowrap align="center" class="no_search" width="114">右</th>
+                <td nowrap bgcolor="#ffffff" width="180">　裸眼：　{rval data/RIGHT_RAGAN}</td>
+                <td nowrap bgcolor="#ffffff">　矯正：　{rval data/RIGHT_KYOUSEI}</td>
+                <th nowrap align="center" class="no_search" width="114">左</th>
+                <td nowrap bgcolor="#ffffff" width="180">　裸眼：　{rval data/LEFT_RAGAN}</td>
+                <td nowrap bgcolor="#ffffff">　矯正：　{rval data/LEFT_KYOUSEI}</td>
+              </tr>
+              <tr>
+                <th nowrap align="center" class="no_search" width="114">聴力</th>
+                <th nowrap align="center" class="no_search" width="114">右</th>
+                <td nowrap bgcolor="#ffffff">　結果：　{rval data/RIGHT_EAR_RESULT}</td>
+                <td nowrap bgcolor="#ffffff">　DB値：　{rval data/RIGHT_EAR_LEVEL}</td>
+                <th nowrap align="center" class="no_search" width="114">左</th>
+                <td nowrap bgcolor="#ffffff">　結果：　{rval data/LEFT_EAR_RESULT}</td>
+                <td nowrap bgcolor="#ffffff">　DB値：　{rval data/LEFT_EAR_LEVEL}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap class="no_search" width="234" colspan="2">栄養状態</th>
+                <td nowrap bgcolor="#ffffff" width="180">　{rval data/NUT_DISORDER}</td>
+                <th nowrap class="no_search" width="114">疾病名</th>
+                <td nowrap bgcolor="#ffffff" colspan="3">　{rval data/NUT_DISEASE_NNAME}{rval data/NUT_DISEASE_GNAME}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" rowspan="4" width="114">脊柱胸郭四肢</th>
+                <th nowrap class="no_search" width="114">疾病及び異常</th>
+                <td nowrap bgcolor="#ffffff">　{rval data/SCL_DISORDER}</td>
+                <th nowrap class="no_search" width="114">疾病名</th>
+                <td nowrap bgcolor="#ffffff" colspan="3">　{rval data/SCL_DISEASE_NNAME}{rval data/SCL_DISEASE_GNAME}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="114">脊柱</th>
+                <td nowrap bgcolor="#ffffff">　{rval data/SPINE_DISORDER}</td>
+                <th nowrap class="no_search" width="114">疾病名</th>
+                <td nowrap bgcolor="#ffffff" colspan="3">　{rval data/SPINE_DISEASE_NNAME}{rval data/SPINE_DISEASE_GNAME}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="114">胸郭</th>
+                <td nowrap bgcolor="#ffffff">　{rval data/CHEST_DISORDER}</td>
+                <th nowrap class="no_search" width="114">疾病名</th>
+                <td nowrap bgcolor="#ffffff" colspan="3">　{rval data/CHEST_DISEASE_NNAME}{rval data/CHEST_DISEASE_GNAME}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="114">四肢</th>
+                <td nowrap bgcolor="#ffffff">　{rval data/LIMB_DISORDER}</td>
+                <th nowrap class="no_search" width="114">疾病名</th>
+                <td nowrap bgcolor="#ffffff" colspan="3">　{rval data/LIMB_DISEASE_NNAME}{rval data/LIMB_DISEASE_GNAME}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="234" colspan="2">眼の疾病及び異常</th>
+                <td nowrap bgcolor="#ffffff">　{rval data/EYE_DISORDER}</td>
+                <th nowrap class="no_search" width="114">疾病名</th>
+                <td nowrap bgcolor="#ffffff" colspan="3">　{rval data/EYE_DISEASE_NNAME}{rval data/EYE_DISEASE_GNAME}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" rowspan="4" width="114">耳鼻咽頭疾患</th>
+                <th nowrap class="no_search" width="114">疾病及び異常</th>
+                <td nowrap bgcolor="#ffffff">　{rval data/ENT_DISORDER}</td>
+                <th nowrap class="no_search" width="114">疾病名</th>
+                <td nowrap bgcolor="#ffffff" colspan="3">　{rval data/ENT_DISEASE_NNAME}{rval data/ENT_DISEASE_GNAME}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="114">耳</th>
+                <td nowrap bgcolor="#ffffff">　{rval data/EAR_DISORDER}</td>
+                <th nowrap class="no_search" width="114">疾病名</th>
+                <td nowrap bgcolor="#ffffff" colspan="3">　{rval data/EAR_DISEASE_NNAME}{rval data/EAR_DISEASE_GNAME}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="114">鼻</th>
+                <td nowrap bgcolor="#ffffff">　{rval data/NOSE_DISORDER}</td>
+                <th nowrap class="no_search" width="114">疾病名</th>
+                <td nowrap bgcolor="#ffffff" colspan="3">　{rval data/NOSE_DISEASE_NNAME}{rval data/NOSE_DISEASE_GNAME}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="114">咽頭</th>
+                <td nowrap bgcolor="#ffffff">　{rval data/THROAT_DISORDER}</td>
+                <th nowrap class="no_search" width="114">疾病名</th>
+                <td nowrap bgcolor="#ffffff" colspan="3">　{rval data/THROAT_DISEASE_NNAME}{rval data/THROAT_DISEASE_GNAME}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="234" colspan="2">皮膚疾患</th>
+                <td nowrap bgcolor="#ffffff">　{rval data/SKIN_DISORDER}</td>
+                <th nowrap class="no_search" width="114">疾病名</th>
+                <td nowrap bgcolor="#ffffff" colspan="3">　{rval data/SKIN_DISEASE_NNAME}{rval data/SKIN_DISEASE_GNAME}</td>
+              </tr>
+              <!--{def HIGHSCHOOL}-->
+              <tr>
+                <th nowrap class="no_search" rowspan="4" width="114">結核</th>
+                <th nowrap class="no_search" width="114">間接撮影撮影日</th>
+                <td nowrap bgcolor="#ffffff">　{rval data/TB_FILM_TAKEDATE}</td>
+                <th nowrap class="no_search" width="114">フィルム番号</th>
+                <td nowrap bgcolor="#ffffff" colspan="3">　{rval data/TB_FILM_NO}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="114">所見</th>
+                <td nowrap bgcolor="#ffffff" colspan="5">　{rval data/TB_SYOKEN}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="114">その他の検査</th>
+                <td nowrap bgcolor="#ffffff" colspan="5">　{rval data/TB_OTHER}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="114">疾病及び異常</th>
+                <td nowrap bgcolor="#ffffff">　{rval data/TB_DISORDER}</td>
+                <th nowrap class="no_search" width="114">疾病名</th>
+                <td nowrap bgcolor="#ffffff" width="180">　{rval data/TB_DISEASE_NNAME}{rval data/TB_DISEASE_GNAME}</td>
+                <th nowrap class="no_search" width="114">指導区分</th>
+                <td nowrap bgcolor="#ffffff">　{rval data/TB_SHIDOU_KUBUN}</td>
+              </tr>
+              <!--{/def}-->
+              <!--{def PRIMARY_JUNIOR}-->
+              <tr>
+                <th nowrap class="no_search" width="114">結核</th>
+                <th nowrap class="no_search" width="114">疾病及び異常</th>
+                <td nowrap bgcolor="#ffffff">　{rval data/TB_DISORDER}</td>
+                <th nowrap class="no_search" width="114">疾病名</th>
+                <td nowrap bgcolor="#ffffff" width="180">　{rval data/TB_DISEASE_NNAME}{rval data/TB_DISEASE_GNAME}</td>
+                <th nowrap class="no_search" width="114">指導区分</th>
+                <td nowrap bgcolor="#ffffff">　{rval data/TB_SHIDOU_KUBUN}</td>
+              </tr>
+              <!--{/def}-->
+              <tr>
+                <th nowrap class="no_search" rowspan="2" width="114">心臓</th>
+                <th nowrap class="no_search" width="114">臨床医学的検査</th>
+                <td nowrap bgcolor="#ffffff" colspan="5">　{rval data/HEART_TEST_NNAME}{rval data/HEART_TEST_GNAME}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="114">疾病及び異常</th>
+                <td nowrap bgcolor="#ffffff">　{rval data/HEART_DISORDER}</td>
+                <th nowrap class="no_search" width="114">疾病名</th>
+                <td nowrap bgcolor="#ffffff" colspan="3">　{rval data/HEART_DISEASE_NNAME}{rval data/HEART_DISEASE_GNAME}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap class="no_search" rowspan="2" width="114">尿</th>
+                <th nowrap class="no_search" width="114">1次</th>
+                <td nowrap bgcolor="#ffffff" width="180">　蛋白：　{rval data/URINE_PROTEINE}</td>
+                <td nowrap bgcolor="#ffffff" width="180" colspan="2">　糖：　{rval data/URINE_SUGER}</td>
+                <td nowrap bgcolor="#ffffff" colspan="3">　潜血：　{rval data/URINE_BLOOD}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="114">その他の検査</th>
+                <td nowrap bgcolor="#ffffff" colspan="6">　{rval data/URINE_OTHER}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="234" colspan="2">寄生虫卵</th>
+                <td nowrap bgcolor="#ffffff">　{rval data/PARA_DISORDER}</td>
+                <th nowrap class="no_search" width="114">疾病名</th>
+                <td nowrap bgcolor="#ffffff" colspan="4">　{rval data/PARA_DISEASE_NNAME}{rval data/PARA_DISEASE_GNAME}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="234" colspan="2">その他の疾病及び異常</th>
+                <td nowrap bgcolor="#ffffff">　{rval data/OTHER_DISORDER}</td>
+                <th nowrap class="no_search" width="114">疾病名</th>
+                <td nowrap bgcolor="#ffffff" colspan="4">　{rval data/OTHER_DISEASE_NNAME}{rval data/OTHER_DISEASE_GNAME}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" rowspan="2" width="114">学校医</th>
+                <th nowrap class="no_search" width="114">所見</th>
+                <td nowrap bgcolor="#ffffff" colspan="6">　{rval data/SCH_DOCTOR_SYOKEN}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="114">日付</th>
+                <td nowrap bgcolor="#ffffff" colspan="6">　{rval data/SCH_DOCTOR_DATE}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="234" colspan="2">事後措置</th>
+                <td nowrap bgcolor="#ffffff" colspan="6">　{rval data/AFTERCARE}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="234" colspan="2">備考</th>
+                <td nowrap bgcolor="#ffffff" colspan="6">　{rval data/BIKOU}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="1" width="100%">
+              <tr>
+                <th nowrap class="no_search" width="234" colspan="8">歯科検査</th>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="234" colspan="2">その他の疾病及び異常</th>
+                <td nowrap bgcolor="#ffffff" width="180">　{rval data/DENT_OTHER_DISORDER}</td>
+                <th nowrap class="no_search" width="114">疾病名</th>
+                <td nowrap bgcolor="#ffffff" colspan="4">　{rval data/DENT_OTHER_DISEASE_NNAME}{rval data/DENT_OTHER_DISEASE_GNAME}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" rowspan="2" width="114">学校歯科医</th>
+                <th nowrap class="no_search" width="114">所見</th>
+                <td nowrap bgcolor="#ffffff" colspan="6">　{rval data/SCH_DENTIST_SYOKEN}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="114">日付</th>
+                <td nowrap bgcolor="#ffffff" colspan="6">　{rval data/SCH_DENTIST_DATE}</td>
+              </tr>
+              <tr>
+                <th nowrap class="no_search" width="234" colspan="2">事後措置</th>
+                <td nowrap bgcolor="#ffffff" colspan="6">　{rval data/DENT_AFTERCARE}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <table width="100%" border="0" cellspacing="5" cellpadding="1">
+        <tr class="no_search_line">
+          <td nowrap>
+            <table border="0" cellpadding="3" cellspacing="0" width="100%">
+              <tr class="no_search" height="30">
+                <td nowrap align="right">{rval button/btn_end}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+     </td>
+   </tr>
+</table>
+
+{rval java}
+
+{rval finish}

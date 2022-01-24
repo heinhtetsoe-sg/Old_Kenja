@@ -1,0 +1,39 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+        <td valign="top"> 
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr > 
+                  <td > 
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line"> 
+                                <td> 
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search">
+                                          <th nowrap colspan="2">対象年度：{val top/YEAR}　　{val button/btn_copy}</th>
+                                        </tr>
+                                        <tr class="no_search">
+                                          <th nowrap width="12%">証明書<br>種類コード</th>
+                                          <th nowrap width="*%">証明書種類名称</th>
+                                        </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}--> 
+          <tr> 
+             <td nowrap align="center" bgcolor={rval data/COLOR}><a href="knjz251index.php?cmd=edit&CERTIF_KINDCD={val data/CERTIF_KINDCD}" target="right_frame">{val data/CERTIF_KINDCD}</td>
+             <td nowrap bgcolor={rval data/COLOR}>{val data/KINDNAME}</a></td>
+          </tr> 
+<!--{/each}--> 
+<!--{/def}--> 
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

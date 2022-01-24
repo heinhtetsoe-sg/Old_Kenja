@@ -1,0 +1,48 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+        <td valign="top"> 
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr > 
+                  <td >
+                     <hr width="60%" align="left">
+                        {rval SCHREGNO}　{val NAME}
+                     <hr width="60%" align="left"> 
+                     <br>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line"> 
+                                <td> 
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search"> 
+                                          <th width="20%">項 目</th>
+                                          <th width="40%">警告指導</th>
+                                          <th width="40%">説論指導</th>
+                                        </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}--> 
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap>{rval data/SEMESTERNAME}</th>
+                                          <td bgcolor="#ffffff" align="center">&nbsp;<input type="checkbox" name="caution_check{rval data/CHECK_NAME}" value="1" {rval data/CAUTION_CHECKED}></td>
+                                          <td bgcolor="#ffffff" align="center">&nbsp;<input type="checkbox" name="admonition_check{rval data/CHECK_NAME}" value="1" {rval data/ADMONITION_CHECKED}></td>
+                                        </tr>
+<!--{/each}-->                                         
+<!--{/def}--> 
+<!--{def button}--> 
+                                        <tr> 
+                                          <th align="right" class="no_search" nowrap>&nbsp;</th>
+                                          <td colspan="2" bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_reset}{rval button/btn_end}</td>
+                                        </tr>
+<!--{/def}--> 
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval disable}</script>

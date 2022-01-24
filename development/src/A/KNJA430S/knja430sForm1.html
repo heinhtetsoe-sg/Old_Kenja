@@ -1,0 +1,55 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr> 
+    <td valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr>
+        <td>
+        <div style="text-align:right">
+            <div style="float:left;width:300px;text-align:left;">
+                <hr>
+                   &nbsp;{rval header/STAFFCD}&nbsp;&nbsp;{rval header/STAFFNAME}
+                <hr>
+            </div>
+        <div>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search">
+                <th nowrap width="5%">印鑑番号</th>
+                <th nowrap width="5%">印影</th>
+                <th nowrap width="5%">登録日付</th>
+                <th nowrap width="*%">登録事由</th>
+                <th nowrap width="5%">走査日付</th>
+                <th nowrap width="4%">校長<BR>フラグ</th>
+                <th nowrap width="5%">除印日付</th>
+                <th nowrap width="*%">除印事由</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+            <!--{each data}-->
+            <tr>
+                <td nowrap align="center" width="5%" bgcolor="#ffffff">{val data/URL}</td>
+                <td nowrap align="center" width="5%" bgcolor="#ffffff">{val data/IMAGE}</td>
+                <td nowrap align="center" width="5%" bgcolor="#ffffff">{val data/START_DATE}</td>
+                <td align="left" width="*%" bgcolor="#ffffff">{val data/START_REASON}</td>
+                <td nowrap align="center" width="5%" bgcolor="#ffffff">{val data/DATE}</td>
+                <td nowrap align="center" width="4%" bgcolor="#ffffff">{val data/DIST}</td>
+                <td nowrap align="center" width="5%" bgcolor="#ffffff">{val data/STOP_DATE}</td>
+                <td align="left" width="*%" bgcolor="#ffffff">{val data/STOP_REASON}</td>
+            </tr> 
+            <!--{/each}-->
+            <!--{/def}-->
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

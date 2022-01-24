@@ -1,0 +1,90 @@
+{rval start}
+
+<br>
+<table width="800" border="0" cellspacing="10" cellpadding="0" align="center">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <td nowrap colspan="2">
+                        　　年度：{rval YEAR}　　校種：{rval GAKUBU_SCHOOL_KIND}
+                      </td>
+                    </tr>
+                    <tr height="50">
+                      <th bgcolor="#cccccc" width="100" nowrap>絞り込み</th>
+                      <td bgcolor="#ffffff" width="*" nowrap style="line-height:25px;">
+                        {rval HUKUSIKI_RADIO1}<LABEL for="HUKUSIKI_RADIO1">法定クラス</LABEL>　{rval HUKUSIKI_RADIO2}<LABEL for="HUKUSIKI_RADIO2">実クラス</LABEL>　　
+                        &nbsp;{rval HR_CLASS}<!--{def ghr}-->&nbsp;>>&nbsp;{rval HR_CLASS2}<!--{/def}--></td>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr><td height="60px">　</td></tr>
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+              <tr>
+                <td>　人数：{rval SCHREG_COUNT}</td>
+                <td align="right">　並び替え：{rval LIST_SORT}</td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" height="30">
+                      <th width="40" nowrap>{rval CHECKALL}</th>
+                      <th width="270" nowrap>科目グループ</th>
+                      <th width="170" nowrap>年組番</th>
+                      <th width="*" nowrap>氏名</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">
+            <div style="height: 60vh; overflow: auto;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line">
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                      <!--{def data}-->
+                      <!--{each data}-->
+                      <tr bgcolor="#ffffff" height="25">
+                        <td width="40" align="center" nowrap>{rval data/CHECKED}</td>
+                        <td width="270" nowrap>&nbsp;{rval data/GROUP}</td>
+                        <td width="170" nowrap>&nbsp;{rval data/HR_CLASS_ATTENDNO}</td>
+                        <td width="*" nowrap>&nbsp;{rval data/NAME_SHOW}</td>
+                      </tr>
+                      <!--{/each}-->
+                      <!--{/def}-->
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr class="no_search" height="30">
+          <td nowrap>&nbsp;{rval button/btn_delete}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{rval finish}
+<script language="JavaScript">{rval jscript}</script>

@@ -1,0 +1,58 @@
+{rval start} 
+<table width="{val SEL_WIDTH}" border="0" cellpadding="0" cellspacing="10" align="center">
+
+  <tr class="no_search_line"> 
+    <td nowrap> 
+      <table width="100%" border="0" cellpadding="0" cellspacing="1">
+        <tr bgcolor="#ffffff"> 
+          <td> 
+            <table width="100%" border="0" cellpadding="0" cellspacing="10" >
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                    <tr align="left" class="no_search" height="25px"> 
+                      <th><font color="white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{rval YEAR}年度&nbsp;&nbsp;&nbsp;特待生選考資料CSV出力</font></th>
+                    </tr>
+                    <tr align="left" bgcolor="#ffffff" height="25px"> 
+                      <td>&nbsp;<LABEL for="SCHOOL_KIND">校種</LABEL>&nbsp;{rval data/SCHOOL_KIND}&nbsp;&nbsp;<LABEL for="GRADE_HR_CLASS">クラス</LABEL>&nbsp;{rval data/GRADE_HR_CLASS}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="no_search_line"> 
+                <td width="100%"> 
+                  <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                    <tr align="center" class="no_search"height="25px"> 
+                      <th><font color="white">出力対象者</font></th>
+                      <th class="no_search">&nbsp;</th>
+                      <th><font color="white">生徒一覧</font></th>
+                    </tr>
+                    <tr align="center" bgcolor="#ffffff"> <!--{def main_part}--> 
+                      <td width="45%">{rval main_part/LEFT_PART}</td>
+                      <td width="*%" class="no_search">{rval main_part/SEL_ADD_ALL} <br>
+                        {rval main_part/SEL_ADD} <br>
+                        {rval main_part/SEL_DEL} <br>
+                        {rval main_part/SEL_DEL_ALL}</td>
+                      <td width="45%">{rval main_part/RIGHT_PART}</td>
+                      <!--{/def}--> </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+        
+      </table>
+    </td>
+  </tr>
+<!--{def button}--> 
+<tr>
+<td nowrap> {rval button/btn_csv}&nbsp{rval button/btn_end}</td>
+</tr>
+<!--{/def}--> 
+
+</table>
+<script language="JavaScript">{rval jscript}</script>
+{rval finish} 

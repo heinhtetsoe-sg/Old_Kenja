@@ -1,0 +1,87 @@
+{rval start} 
+<br><br><br><br>
+<table style="width: 500px" border="0" cellpadding="10" cellspacing="10" align="center">
+<tr>
+<td>
+        <table style="width: 500px" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+        <td>
+                <table style="width: 500px" border="0" cellspacing="1" cellpadding="4">
+                <tr class="no_search" height="35" align="center">
+                <td>{rval data/DISP_YEAR}年度
+                </td>
+                </tr>
+
+                <tr bgcolor="#ffffff" height="300">
+                  <td>
+                    <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td colspan="2">
+                        <b>　　{rval data/OUTPUT1}<LABEL for="OUTPUT1">ヘッダ出力</LABEL></b>（見本）<br><br><br>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td colspan="2">
+                        <b>　　{rval data/OUTPUT2}<LABEL for="OUTPUT2">データ取込</LABEL></b>（処理名：{rval data/SHORI_MEI}）<BR><BR>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td width="40%" align="right">
+                          処理年度：<br><br>
+                        </td>
+                        <td width="60%">
+                          &nbsp;&nbsp;{rval data/YEAR}<br><br>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td align="right">
+                          ファイル名：<br><br>
+                        </td>
+                        <td>
+                          &nbsp;{rval data/FILE}<br><br>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td colspan="2">
+                           　　　　<font size=2 color="red">※一度に処理できる件数は、5千件までです。<BR>
+                           　　　　　超えている場合は、お手数ですが分割してお取込み下さい。</font><BR><BR><BR>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td colspan="2">
+                        <b>　　{rval data/OUTPUT3}<LABEL for="OUTPUT3">エラー出力</LABEL></b>（データ取込後のエラー確認：必須）
+                        </td>
+                      </tr>
+
+                    </table>
+                  </td>
+                </tr>
+
+                <tr class="no_search">
+                <td colspan="2">&nbsp;&nbsp;前回実行&nbsp;&nbsp;&nbsp;&nbsp;{rval data/NOWDATE}
+                </td>
+                </tr>
+                <!--{def button}-->
+            <tr class="no_search" height="30">
+                <td align="center">{rval button/BTN_OK}&nbsp{rval data/HEADERCHECK}<LABEL for="HEADERCHECK">ヘッダ有</LABEL>&nbsp{rval button/BTN_CLEAR}</td>
+            </tr>
+                <!--{/def}-->
+                </table>
+        </td>
+        </tr>
+        </table>
+</td>
+</tr>
+<tr>
+ <td bgcolor="white" style="font-weight: 700; color:white">
+    <marquee><span id="marq_msg">処理中です...しばらくおまちください</span></marquee>
+ </td>
+</tr>
+</table>
+<script language="JavaScript">{rval check}{rval jscript}{rval error}</script>
+{rval finish} 

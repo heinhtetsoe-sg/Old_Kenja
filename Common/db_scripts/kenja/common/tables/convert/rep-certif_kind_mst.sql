@@ -1,0 +1,45 @@
+-- $Id: 717a156664135fc6948f0275fe2f21701f3eb5df $
+
+DROP VIEW V_CERTIF_KIND_MST
+DROP TABLE CERTIF_KIND_MST_OLD
+RENAME TABLE CERTIF_KIND_MST TO CERTIF_KIND_MST_OLD
+CREATE TABLE CERTIF_KIND_MST \
+      (CERTIF_KINDCD      VARCHAR(3)      NOT NULL, \
+       KINDNAME           VARCHAR(24), \
+       ISSUECD            VARCHAR(1), \
+       STUDENTCD          VARCHAR(1), \
+       GRADUATECD         VARCHAR(1), \
+       DROPOUTCD          VARCHAR(1), \
+       ELAPSED_YEARS      SMALLINT, \
+       CERTIF_DIV         varchar(2), \
+       CERTIF_GRPCD       varchar(3), \
+       CURRENT_PRICE      varchar(4), \
+       GRADUATED_PRICE    varchar(4), \
+       ISSUENO_AUTOFLG    varchar(1), \
+       CERTIF_SCHOOL_KIND varchar(2), \
+       REGISTERCD         VARCHAR(10), \
+       UPDATED          TIMESTAMP DEFAULT CURRENT TIMESTAMP \
+      ) IN USR1DMS INDEX IN IDX1DMS
+
+INSERT INTO CERTIF_KIND_MST \
+    SELECT \
+        CERTIF_KINDCD, \
+        KINDNAME, \
+        ISSUECD, \
+        STUDENTCD, \
+        GRADUATECD, \
+        DROPOUTCD, \
+        ELAPSED_YEARS, \
+        CERTIF_DIV, \
+        CERTIF_GRPCD, \
+        CURRENT_PRICE, \
+        GRADUATED_PRICE, \
+        ISSUENO_AUTOFLG, \
+        CAST(NULL AS VARCHAR(2)) AS CERTIF_SCHOOL_KIND, \
+        REGISTERCD, \
+        UPDATED \
+    FROM \
+        CERTIF_KIND_MST_OLD
+
+ALTER TABLE CERTIF_KIND_MST ADD CONSTRAINT PK_CERTKIND_MST PRIMARY KEY \
+      (CERTIF_KINDCD)

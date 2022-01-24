@@ -1,0 +1,157 @@
+{rval IFRAME}
+{rval start}
+<style>
+div {
+    border:0px solid;
+}
+div#main_container {
+    width:100%;
+}
+div#main_container div {
+    width:49%;
+    text-align:center;
+}
+div#top_container {
+    float:left;
+}
+</style>
+<br>
+<br>
+<table align="center" width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tbody>
+    <tr>
+      <td>
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line">
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th style="text-align:center; font-size:50">{rval TOP/YEAR}年度入試　進行状況一覧</th>
+                    </tr>
+                    </table>
+                  </td>
+                </tr>
+                </table>
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line" height="500">
+                  <td bgcolor="#ffffff">
+
+                  <div id="main_container">
+
+                      <div id="top_container">
+                        <table border="2" cellspacing="2" cellpadding="3">
+                        <tr class="no_search_line">
+                          <td bgcolor="#ffffff" color="black" valign="top">
+                          </td>
+                          <!--{each LTOP}-->
+                          <td bgcolor="#ffffff" color="black" valign="top">
+                          <font size="5.5">{rval LTOP/CDNAME}</font>
+                          </td>
+                          <!--{/each}-->
+                        </tr>
+
+                        <!--{each dataL}-->
+                        <tr class="no_search_line">
+                          <td bgcolor="#ffffff" color="black" valign="center">
+                          <font size="2">{rval dataL/TESTNAME}</font>
+                          </td>
+                          <!--{each dataL/LDatas}-->
+                          <td bgcolor="#{rval dataL/LDatas/SET_STYLE}" color="black" valign="center" height="50">
+                          {rval dataL/LDatas/JOUKYOU}
+                          </td>
+                          <!--{/each}-->
+                        </tr>
+                        <!--{/each}-->
+                        </table>
+                      </div>
+
+                      <div id="top_container">
+                        <table border="2" cellspacing="2" cellpadding="3">
+                        <tr class="no_search_line">
+                          <td bgcolor="#ffffff" color="black" valign="top">
+                          </td>
+                          <!--{each RTOP}-->
+                          <td bgcolor="#ffffff" color="black" valign="top">
+                          <font size="5.5">{rval RTOP/CDNAME}</font>
+                          </td>
+                          <!--{/each}-->
+                        </tr>
+
+                        <!--{each dataR}-->
+                        <tr class="no_search_line">
+                          <td bgcolor="#ffffff" color="black" valign="center">
+                          <font size="2">{rval dataR/TESTNAME}</font>
+                          </td>
+                          <!--{each dataR/RDatas}-->
+                          <td bgcolor="#{rval dataR/RDatas/SET_STYLE}" color="black" valign="center" height="50">
+                          {rval dataR/RDatas/JOUKYOU}
+                          </td>
+                          <!--{/each}-->
+                        </tr>
+                        <!--{/each}-->
+                        </table>
+                      </div>
+
+                  </div>
+
+                  </td>
+                </tr>
+                </table>
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line" >
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <td width="140"></td>
+                      <td bgcolor="#ffffff">
+                      &nbsp;&nbsp;{rval button/btn_reload}{rval button/btn_end}
+                      </td>
+                    </tr>
+                    </table>
+                  </td>
+                </tr>
+                </table>
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+
+        </table>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+{rval finish}
+

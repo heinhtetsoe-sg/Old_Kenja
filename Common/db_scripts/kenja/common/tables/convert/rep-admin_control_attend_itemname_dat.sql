@@ -1,0 +1,63 @@
+-- $Id: 51fbfc0eacfb91267d774d3eb79717cb721fc279 $
+
+DROP TABLE ADMIN_CONTROL_ATTEND_ITEMNAME_DAT_OLD
+CREATE TABLE ADMIN_CONTROL_ATTEND_ITEMNAME_DAT_OLD LIKE ADMIN_CONTROL_ATTEND_ITEMNAME_DAT
+INSERT INTO ADMIN_CONTROL_ATTEND_ITEMNAME_DAT_OLD SELECT * FROM ADMIN_CONTROL_ATTEND_ITEMNAME_DAT
+
+drop table ADMIN_CONTROL_ATTEND_ITEMNAME_DAT
+
+create table ADMIN_CONTROL_ATTEND_ITEMNAME_DAT ( \
+    "YEAR"              VARCHAR(4)      NOT NULL, \
+    "SCHOOL_KIND"       VARCHAR(2)      NOT NULL, \
+    "ATTEND_DIV"        VARCHAR(1)      NOT NULL, \
+    "GRADE"             VARCHAR(2)      NOT NULL, \
+    "COURSECD"          VARCHAR(1)      NOT NULL, \
+    "MAJORCD"           VARCHAR(3)      NOT NULL, \
+    "ATTEND_ITEM"       VARCHAR(20)     NOT NULL, \
+    "ATTEND_ITEMNAME"   VARCHAR(30), \
+    "REGISTERCD"        VARCHAR(10), \
+    "UPDATED"           timestamp default current timestamp \
+) in usr1dms index in idx1dms
+
+alter table ADMIN_CONTROL_ATTEND_ITEMNAME_DAT add constraint PK_ADMNCL_ATTNAME \
+primary key (YEAR, SCHOOL_KIND, ATTEND_DIV, GRADE, COURSECD, MAJORCD, ATTEND_ITEM)
+
+INSERT INTO ADMIN_CONTROL_ATTEND_ITEMNAME_DAT \
+SELECT \
+    T1.YEAR, \
+    T1.SCHOOL_KIND, \
+    T1.ATTEND_DIV, \
+    REGD.GRADE, \
+    REGD.COURSECD, \
+    REGD.MAJORCD, \
+    T1.ATTEND_ITEM, \
+    MAX(T1.ATTEND_ITEMNAME), \
+    'ALPOKI', \
+    MAX(T1.UPDATED) \
+FROM \
+    ADMIN_CONTROL_ATTEND_ITEMNAME_DAT_OLD T1 \
+    LEFT JOIN (SELECT \
+                LREGD.YEAR, \
+                LREGD.GRADE, \
+                LREGD.COURSECD, \
+                LREGD.MAJORCD \
+               FROM \
+                SCHREG_REGD_DAT LREGD \
+               WHERE  \
+                LREGD.COURSECD IS NOT NULL  \
+                AND LREGD.MAJORCD IS NOT NULL  \
+               GROUP BY \
+                LREGD.YEAR, \
+                LREGD.GRADE, \
+                LREGD.COURSECD, \
+                LREGD.MAJORCD \
+            ) REGD ON T1.YEAR = REGD.YEAR \
+GROUP BY \
+    T1.YEAR, \
+    T1.SCHOOL_KIND, \
+    T1.ATTEND_DIV, \
+    REGD.GRADE, \
+    REGD.COURSECD, \
+    REGD.MAJORCD, \
+    T1.ATTEND_ITEM, \
+    'ALPOKI'

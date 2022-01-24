@@ -1,0 +1,53 @@
+<?php
+
+require_once('for_php7.php');
+
+require_once('knjz236_2Model.inc');
+require_once('knjz236_2Query.inc');
+
+class knjz236_2Controller extends Controller {
+    var $ModelClassName = "knjz236_2Model";
+    var $ProgramID      = "KNJZ236";
+
+    function main()
+    {
+        $sessionInstance =& Model::getModel($this);
+        while ( true ) {
+            switch (trim($sessionInstance->cmd)) {
+                case "sel":
+                    $sessionInstance->setAccessLogDetail("S", "KNJZ236_2");
+                    $this->callView("knjz236_2Form2");
+                    break 2;
+                case "update":
+                    $sessionInstance->setAccessLogDetail("U", "KNJZ236_2");
+                    $this->checkAuth(DEF_UPDATABLE);
+                    $sessionInstance->getUpdateModel();
+                    //変更済みの場合は詳細画面に戻る
+                    $sessionInstance->setCmd("sel");
+                    break 1;
+                case "list":
+                    $this->callView("knjz236_2Form1");
+                    break 2;
+                case "clear":
+                    $this->callView("knjz236_2Form2");
+                    break 2;
+                case "error":
+                    $this->callView("error");
+                    break 2;
+                case "":
+                    //分割フレーム作成
+                    $args["left_src"] = "knjz236_2index.php?cmd=list";
+                    $args["right_src"] = "knjz236_2index.php?cmd=sel";
+                    $args["cols"] = "45%,*";
+                    View::frame($args);
+                    exit;
+                default:
+                    $sessionInstance->setError(new PEAR_Error("未対応のアクション{$sessionInstance->cmd}です"));
+                    $this->callView("error");
+                    break 2;
+            }
+        }
+    }
+}
+$knjz236_2Ctl = new knjz236_2Controller;
+?>

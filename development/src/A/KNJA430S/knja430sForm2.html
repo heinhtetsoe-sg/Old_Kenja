@@ -1,0 +1,76 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr> 
+    <td valign="top"> 
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+            <tr class="no_search" style="height:30px;"> 
+                <th width="150">項 目</th>
+                <th width="*%">値</th>
+                <th width="100">印影</th>
+            </tr>
+            <!--結果一覧-->
+            <!--{def data}-->
+            <tr style="height:30px;">
+                <th align="right" class="no_search" nowrap>※ 印鑑番号</th>
+                <td bgcolor="#ffffff">{rval data/STAMP_NO}{rval button/btn_new}</td>
+                <td bgcolor="#ffffff" align="center" rowspan="3">{rval data/IMAGE}</td>
+            </tr>
+            <tr style="height:30px;">
+                <th align="right" class="no_search" nowrap>※ 登録日付</th>
+                <td bgcolor="#ffffff">{rval data/START_DATE}</td>
+            </tr>
+            <tr style="height:30px;">
+                <th align="right" class="no_search" nowrap>※ 登録事由</th>
+                <td bgcolor="#ffffff">{rval data/START_REASON}</td>
+            </tr>
+            <tr style="height:30px;">
+                <th align="right" class="no_search" nowrap>走査日付</th>
+                <td bgcolor="#ffffff">{rval data/DATE}</td>
+                <th class="no_search" nowrap>{rval button/btn_inkan}</th>
+            </tr>
+            <tr style="height:30px;">
+                <th align="right" class="no_search" nowrap>校長フラグ</th>
+                <td bgcolor="#ffffff" colspan="2">{rval data/DIST}</td>
+            </tr>
+            <tr style="height:30px;">
+                <th align="right" class="no_search" nowrap>除印日付</th>
+                <td bgcolor="#ffffff" colspan="2">{rval data/STOP_DATE}</td>
+            </tr>
+            <tr style="height:30px;">
+                <th align="right" class="no_search" nowrap>除印事由</th>
+                <td bgcolor="#ffffff" colspan="2">{rval data/STOP_REASON}</td>
+            </tr>
+            <!--{/def}--> 
+            <!--{def button}--> 
+            <tr style="height:30px;">
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+                <td bgcolor="#ffffff">
+{rval button/btn_print1}
+{rval button/btn_print2}
+{rval button/btn_add}
+{rval button/btn_update}
+{rval button/btn_del}
+{rval button/btn_reset}
+{rval button/btn_end}
+                </td>
+                <th align="right" class="no_search" nowrap>&nbsp;</th>
+            </tr>
+            <!--{/def}--> 
+            </table>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>

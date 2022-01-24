@@ -1,0 +1,118 @@
+{rval start}
+{rval IFRAME}
+<style>
+#main_box th{
+    width:33%;
+}
+#main_box td div{
+    height:15em;
+    overflow:scroll;
+}
+</style>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td nowrap>
+      <table width="100%" border="0" cellspacing="10" cellpadding="0">
+        <tbody>
+          <tr>
+           <td width="50%">
+            <hr width="400" align="left">
+            <div style="float:left;">{rval NAME_SHOW}</div><br>
+            <hr width="400" align="left"></hr>
+           </td>
+          </tr>
+
+          <tr class="no_search_line">
+            <td>
+              <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                <tr class="no_search" nowrap height="25">
+                  <td nowrap>&nbsp;年度学年：{rval GRADE_YEAR}</td>
+                  <td align="right">{rval btn_update}{rval btn_reset}{rval btn_back}{rval button/btn_csv}</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr class="no_search_line">
+            <td>
+              <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                <tr class="no_search" nowrap height="25">
+                  <th nowrap>&nbsp;指&nbsp;導&nbsp;上&nbsp;参&nbsp;考&nbsp;と&nbsp;な&nbsp;る&nbsp;諸&nbsp;事&nbsp;項&nbsp;{rval btn_tuutihyou}{rval btn_club}{rval btn_committee}</th>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" id="main_box">
+              <tbody>
+
+                <tr class="no_search">
+                  <th>(1)学習における特徴等</th>
+                  <th>(2)行動の特徴，特技等</th>
+                  <th>(3)部活動，ボランティア活動，留学・海外経験等</th>
+                </tr>
+                <tr bgcolor="#ffffff">
+                  <td><div>{rval SEQ001}</div><p><font color="red" size="-1">{rval SEQ_COMMENT}</font></p></td>
+                  <td><div>{rval SEQ002}</div><p><font color="red" size="-1">{rval SEQ_COMMENT}</font></p></td>
+                  <td><div>{rval SEQ003}</div><p><font color="red" size="-1">{rval SEQ_COMMENT}</font></p>{rval btn_club_tra3}{rval btn_club_kirokubikou_tra3}</td>
+                </tr>
+                <tr class="no_search">
+                  <th>(4)取得資格，検定等</th>
+                  <th>(5)表彰・顕彰等の記録</th>
+                  <th>(6)その他</th>
+                </tr>
+                <tr bgcolor="#ffffff">
+                  <td><div>{rval SEQ004}</div><p><font color="red" size="-1">{rval SEQ_COMMENT}</font></p>{rval btn_qualified}</td>
+                  <td><div>{rval SEQ005}</div><p><font color="red" size="-1">{rval SEQ_COMMENT}</font></p>{rval btn_hyosyo_tra5}{rval btn_club_kirokubikou_tra5}</td>
+                  <td><div>{rval SEQ006}</div><p><font color="red" size="-1">{rval SEQ_COMMENT}</font></p></td>
+                </tr>
+                <tr class="no_search">
+                  <th colspan="3">総合所見</th>
+                </tr>
+                <tr bgcolor="#ffffff">
+                  <td colspan="3"><div style="height:{rval SOUGOU_HEIGHT}px; overflow:hidden;">{rval TOTALREMARK}</div><p><font color="red" size="-1">{rval TOTALREMARK_COMMENT}</font></p></td>
+                </tr>
+
+                <!--{def REMARK}-->
+                <tr class="no_search">
+                  <th colspan="3">{rval REMARK_TITLE}</th>
+                </tr>
+                <tr bgcolor="#ffffff">
+                  <td colspan="3"><div>{rval REMARK}</div><p><font color="red" size="-1">{rval REMARK_COMMENT}</font></p></td>
+                </tr>
+                <!--{/def}-->
+
+              </tbody>
+            </table>
+            </td>
+          </tr>
+
+          <tr class="no_search_line">
+            <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tbody>
+                <tr class="no_search">
+                  <td colspan="3" bgcolor="#ffffff">{rval btn_update}{rval btn_reset}{rval btn_back}{rval button/btn_csv}</td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+{rval finish}
+<script language="javascript">{rval err_alert}</script>
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->
+<script language="javascript">{rval reload}</script>

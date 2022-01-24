@@ -1,0 +1,91 @@
+{rval start}
+{rval IFRAME}
+<style>
+#dataTable td{
+    text-align:center;
+}
+#dataTable td.active{
+    background-color:#FFFFFF;
+}
+#dataTable td.nonActive{
+    background-color:#CCCCCC;
+}
+#dataTable td.setColor1{
+    background-color:#99FFFF;
+}
+#dataTable td.setColor2{
+    background-color:#66CC66;
+}
+
+</style>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search"> 
+                <th colspan="2" width="20%">HR担任欠時入力</th>
+                <th>{rval HR_NAME}{rval ATTENDNO}番&nbsp;&nbsp;{val NAME}</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td bgcolor="#FFFFFF" style="padding-bottom:3px">
+                  {rval SELECT_DATE} ～ {rval END_DATE}　{rval READ_DATE}
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3" id="dataTable">
+                    <tr class="no_search"> 
+                      <th>日付</th>
+<!--{each TITLE}-->
+                      <th>{rval TITLE}</th>
+<!--{/each}-->
+                    </tr>
+<!--{each DATA}-->
+                    {rval DATA}
+<!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="no_search_line">
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr class="no_search"> 
+                <th>{rval button/btn_update}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {rval button/btn_reset}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {rval button/btn_end}</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!--{each MENU}-->
+{rval MENU/DATA}
+<!--{/each}-->
+
+<div id="lay"></div>
+{rval finish}
+<!--{def NOT_WARNING}-->
+<script language="javascript">{rval next}</script>
+<!--{/def}-->

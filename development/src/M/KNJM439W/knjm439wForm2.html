@@ -1,0 +1,57 @@
+{rval start}
+<br>
+&nbsp;&nbsp;「※」のある項目は必須入力
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+        <td valign="top"> 
+          <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                <tr > 
+                  <td > 
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="no_search_line"> 
+                                <td> 
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                        <tr class="no_search"> 
+                                          <th width="20%">項 目</th>
+                                          <th width="80%">値</th>
+                                        </tr>
+<!--結果一覧-->
+<!--{def data}-->
+                                        <tr> 
+                                          <th align="right" class="no_search" nowrap>回数</th>
+                                          <td align="left" bgcolor="#ffffff">{rval data/SEQ}</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="no_search">
+                                             <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                               <tr class="no_search">
+                                                 <th align="left" nowrap>※</th>
+                                                 <th align="right" nowrap>試験日付</th>
+                                               </tr>
+                                             </table>
+                                          </td>
+                                          <td bgcolor="#ffffff">{rval data/TEST_DATE}</td>
+                                        </tr>
+
+                                        <tr>
+                                          <th align="right" class="no_search" nowrap>出席</th>
+                                          <td bgcolor="#ffffff">{rval data/ATTEND}</td>
+                                        </tr>
+
+                                        <tr> 
+                                          <th align="right" class="no_search" nowrap>&nbsp;</th>
+                                          <td bgcolor="#ffffff">{rval button/btn_add}{rval button/btn_update}{rval button/btn_print}{rval button/btn_del}{rval button/btn_end}</td>
+                                        </tr>
+<!--{/def}--> 
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval btn_ctrl}{rval jscript}</script>

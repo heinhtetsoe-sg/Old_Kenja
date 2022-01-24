@@ -1,0 +1,109 @@
+{rval start}
+<br>
+
+<table width="1100" border="0" cellpadding="0" cellspacing="10" align="center">
+  <tr><td>{rval data/SUBSYSTEM}</td></tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <td width="50%" valign="bottom">
+            <table width="100%">
+              <tr><td>区分に関しての出力設定</td></tr>
+              <tr><td>{rval OUTPUT1}<LABEL for="OUTPUT1">コード＋名称</LABEL>&nbsp;{rval OUTPUT2}<LABEL for="OUTPUT2">コードのみ</LABEL>&nbsp;{rval OUTPUT3}<LABEL for="OUTPUT3">名称のみ</LABEL></td></tr>
+            </table>
+          </td>
+          <td width="10%"></td>
+          <td width="40%">
+            <table width="100%" align="left">
+              <tr><td></td><td colspan="3">●異動生徒（退学・転学・卒業）</td></tr>
+              <tr><td></td><td colspan="3">異動対象日付：{rval data/DATE}</td></tr>
+              <tr>
+                <td align="right">課程学科：</td>
+                <td align="left">{rval data/COURSEMAJOR}</td>
+                <td align="right">性別：</td>
+                <td align="left">{rval data/SEX}</td>
+              </tr>
+              <tr>
+                <td align="right">学年：</td>
+                <td align="left">{rval data/GRADE}</td>
+                <td align="right">クラス：</td>
+                <td align="left">{rval data/GRADE_HR_CLASS}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr class="no_search_line">
+    <td nowrap>
+      <table width="100%" border="0" cellpadding="0" cellspacing="1">
+        <tr bgcolor="#ffffff">
+          <td width="50%">
+            <table width="100%" border="0" cellpadding="5" cellspacing="1">
+              <tr align="center" class="no_search">
+                <th nowrap><font color="white">書出し項目一覧</font></th>
+                <th class="no_search">&nbsp;</th>
+                <th nowrap><font color="white">項目一覧</font></th>
+              </tr>
+
+              <tr align="center" bgcolor="#ffffff">
+<!--{def main_part}-->
+                <td width="45%">{rval main_part/LEFT_PART_R}</td>
+                <td width="*%" class="no_search" nowrap>
+                  {rval main_part/SEL_ADD_ALL_R} <br>
+                  {rval main_part/SEL_ADD_R} <br>
+                  {rval main_part/SEL_DEL_R} <br>
+                  {rval main_part/SEL_DEL_ALL_R}</td>
+                <td width="45%">{rval main_part/RIGHT_PART_R}</td>
+<!--{/def}-->
+              </tr>
+            </table>
+          </td>
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="10" >
+              <tr class="no_search_line">
+                <td width="50%">
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr align="center" class="no_search">
+                      <th nowrap><font color="white">出力対象者一覧</font></th>
+                      <th class="no_search">&nbsp;</th>
+                      <th nowrap><font color="white">生徒一覧</font></th>
+                    </tr>
+
+                    <tr align="center" bgcolor="#ffffff">
+<!--{def main_part}-->
+                      <td width="45%">{rval main_part/LEFT_PART_L}</td>
+                      <td width="*%" class="no_search" nowrap>
+                        {rval main_part/SEL_ADD_ALL_L} <br>
+                        {rval main_part/SEL_ADD_L} <br>
+                        {rval main_part/SEL_DEL_L} <br>
+                        {rval main_part/SEL_DEL_ALL_L}</td>
+                      <td width="45%">{rval main_part/RIGHT_PART_L}</td>
+<!--{/def}-->
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+<!--{def button}-->
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="60%" align="right"><font color="red" size="-1">※選択した順に表示します。</font></td>
+          <td width="40%" align="right">{rval button/BTN_CSV}&nbsp{rval button/BTN_END}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+<!--{/def}-->
+</table>
+
+<script language="JavaScript">{rval jscript}</script>
+{rval finish}

@@ -1,0 +1,56 @@
+{rval start}
+<!--{def button}-->
+
+<br>
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr bgcolor="#ffffff">
+          <td>
+            <table width="100%" border="0" cellspacing="5" cellpadding="0">
+              <tr class="no_search_line"> 
+                <td> 
+                  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+                    <tr height="30">
+                      <th width="20%" class="no_search" nowrap><b>教科・科目</b></th>
+                      <td width="80%" bgcolor="#ffffff">&nbsp;{rval SUBCLASS}</td>
+                    </tr>
+                    <!--{def pattern7Igai}-->
+                    <tr height="30">
+                      <th class="no_search" nowrap><b>{rval ITEM_REMARK1}</b></th>
+                      <td bgcolor="#ffffff">&nbsp;{rval UNITCD}</td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{def REMARK_CNT_BTN}-->
+                    <tr height="30">
+                      <th class="no_search" nowrap><b>項目数</b></th>
+                      <td bgcolor="#ffffff">&nbsp;{rval GROUP_REMARK_CNT}&nbsp;{rval REMARK_CNT_BTN}</td>
+                    </tr>
+                    <!--{/def}-->
+                    <!--{def data}-->
+                    <!--{each data}--> 
+                      <tr height="30">
+                        <th class="no_search" nowrap><b>{rval data/ITEM_REMARK}</b></th>
+                        <td bgcolor="#ffffff">&nbsp;{rval data/GROUP_REMARK}<br>&nbsp;<font size=2, color="red">{rval data/GROUP_REMARK_COMMENT}</font></td>
+                      </tr>{rval data/UNITCD7}
+                    <!--{/each}-->
+                    <!--{/def}-->
+                    <tr>
+                      <th class="no_search"></th>
+                      <td bgcolor="#ffffff">{rval button/btn_update}{rval button/btn_delete}{rval button/btn_reset}{rval button/btn_end}&nbsp;&nbsp;&nbsp;&nbsp;{rval button/btn_print}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+<script language="javascript">{rval jscript}</script>
+{rval finish}

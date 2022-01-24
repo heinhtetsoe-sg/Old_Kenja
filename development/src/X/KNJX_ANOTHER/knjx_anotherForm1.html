@@ -1,0 +1,66 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+        <td valign="top"> 
+          <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+              <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="no_search_line" >
+                  <td>
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                        <tr class="no_search">
+                          <td height="30" nowrap>　学籍番号：{val SCHREGNO}</td>
+                        </tr>
+                        <tr class="no_search">
+                          <td height="30" nowrap>　名前：{val NAME}　　高校入学年度：{val CURRICULUM_YEAR}</td>
+                        </tr>
+                    </table>
+                  </td>
+                </tr>
+                </table>
+              </td>
+            </tr>
+                <tr > 
+                    <td > 
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          
+                          <tr class="no_search_line"> 
+                                <td> 
+                                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                                    <tr class="no_search"> 
+                                      <th width="200" nowrap>前籍高校</th>
+                                      <th width="70"  nowrap>前籍校<br>課程</th>
+                                      <th width="50"  nowrap>入学<br>形態</th>
+                                      <th width="100" nowrap>在籍期間</th>
+                                      <th width="40"  nowrap>休学<br>月数</th>
+                                      <th width="40"  nowrap>月数</th>
+                                      <th width="*"   nowrap>事由</th>
+                                      <th width="*"   nowrap>スポーツ</th>
+                                    </tr>
+<!--結果一覧-->
+<!--{def data}-->
+<!--{each data}-->
+                                    <tr>
+                                      <td nowrap bgcolor="#ffffff">{val data/link}</td>
+                                      <td nowrap bgcolor="#ffffff" align="center">{val data/STUDENT_DIV_NAME}</td>
+                                      <td nowrap bgcolor="#ffffff" align="center">{val data/ENT_FORM_NAME}</td>
+                                      <td nowrap bgcolor="#ffffff" align="center">{val data/REGD_S_DATE}&nbsp;～&nbsp;{val data/REGD_E_DATE}</td>
+                                      <td nowrap bgcolor="#ffffff" align="center">{val data/ABSENCE_CNT}</td>
+                                      <td nowrap bgcolor="#ffffff" align="center">{val data/MONTH_CNT}</td>
+                                      <td nowrap bgcolor="#ffffff">{val data/REASON}</td>
+                                      <td nowrap bgcolor="#ffffff" align="center">{val data/ANOTHER_SPORT}</td>
+                                    </tr>
+<!--{/each}--> 
+<!--{/def}--> 
+                                  </table>
+                                </td>
+                          </tr>
+                        </table>
+                  </td>
+                </tr>
+          </table>
+        </td>
+  </tr>
+</table>
+{rval finish}

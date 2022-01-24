@@ -1,0 +1,66 @@
+-- kanji=Š¿Žš
+-- $Id: v_kojin_hist_dat.sql 74435 2020-05-20 07:59:16Z yamashiro $
+
+DROP VIEW V_KOJIN_HIST_DAT
+
+CREATE VIEW V_KOJIN_HIST_DAT \
+    (KOJIN_NO, \
+     ISSUEDATE, \
+     FAMILY_NAME, \
+     FIRST_NAME, \
+     FAMILY_NAME_KANA, \
+     FIRST_NAME_KANA, \
+     BIRTHDAY, \
+     KIKON_FLG, \
+     J_SCHOOL_CD, \
+     J_GRAD_DIV, \
+     J_GRAD_YM, \
+     ZIPCD, \
+     CITYCD, \
+     ADDR1, \
+     ADDR2, \
+     TELNO1, \
+     TELNO2, \
+     TSUUGAKU_DIV, \
+     OLD_SHINKEN_NAME1, \
+     OLD_SHINKEN_NAME2, \
+     REMARK \
+    ) \
+AS \
+WITH MAX_KOJIN AS ( \
+SELECT \
+    KOJIN_NO, \
+    MAX(ISSUEDATE) AS ISSUEDATE \
+FROM \
+    KOJIN_HIST_DAT \
+GROUP BY \
+    KOJIN_NO \
+) \
+SELECT \
+    T1.KOJIN_NO, \
+    T1.ISSUEDATE, \
+    T1.FAMILY_NAME, \
+    T1.FIRST_NAME, \
+    T1.FAMILY_NAME_KANA, \
+    T1.FIRST_NAME_KANA, \
+    T1.BIRTHDAY, \
+    T1.KIKON_FLG, \
+    T1.J_SCHOOL_CD, \
+    T1.J_GRAD_DIV, \
+    T1.J_GRAD_YM, \
+    T1.ZIPCD, \
+    T1.CITYCD, \
+    T1.ADDR1, \
+    T1.ADDR2, \
+    T1.TELNO1, \
+    T1.TELNO2, \
+    T1.TSUUGAKU_DIV, \
+    T1.OLD_SHINKEN_NAME1, \
+    T1.OLD_SHINKEN_NAME2, \
+    T1.REMARK \
+FROM \
+    KOJIN_HIST_DAT T1, \
+    MAX_KOJIN T2 \
+WHERE \
+    T1.KOJIN_NO = T2.KOJIN_NO \
+    AND T1.ISSUEDATE = T2.ISSUEDATE

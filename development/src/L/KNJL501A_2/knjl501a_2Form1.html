@@ -1,0 +1,47 @@
+{rval start}
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:30px;">
+  <tr>
+    <td valign="top">
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search">
+                      <th nowrap width="15%">志望区分コード</th>
+                      <th nowrap width="15%">志望区分名称</th>
+                      <th nowrap width="15%">学籍コースコード</th>
+                      <th nowrap width="15%">学籍コース名称</th>
+                      <th nowrap width="*%">通知用名称</th>
+                      <th nowrap width="15%">コース合格名称</th>
+                      <th nowrap width="15%">コース不合格名称</th>
+                    </tr>
+
+                    <!--結果一覧-->
+                    <!--{each data}-->
+                    <tr>
+                      <td nowrap width="15%" bgcolor="#ffffff"><a href="knjl501a_2index.php?cmd=edit&SEND_FLG=1&HOPE_COURSECODE={val data/HOPE_COURSECODE}" target="right_frame">{val data/HOPE_COURSECODE}</a></td>
+                      <td nowrap width="15%" bgcolor="#ffffff">{val data/HOPE_NAME}</td>
+                      <td nowrap width="15%" bgcolor="#ffffff">{val data/COURSECODE}</td>
+                      <td nowrap width="15%" bgcolor="#ffffff">{val data/COURSECODENAME}</td>
+                      <td nowrap width="*%" bgcolor="#ffffff">{val data/NOTICE_NAME}</td>
+                      <td nowrap width="*%" bgcolor="#ffffff">{val data/PASS_NAME}</td>
+                      <td nowrap width="25%" bgcolor="#ffffff">{val data/NOT_PASS_NAME}</td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{rval finish}
+<script language="JavaScript">{rval reload}{rval jscript}</script>
+<!--            <div style="width:100%;height:550;overflow:auto";>-->

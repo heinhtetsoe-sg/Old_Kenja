@@ -1,0 +1,182 @@
+{rval start}
+{rval IFRAME}
+
+<!--{def button}-->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td>
+            <hr width="80%" align="left">
+                &nbsp;{rval TITLE}&nbsp;&nbsp;&nbsp;&nbsp;{rval SCHREGNO}：{val NAME}
+                &nbsp;&nbsp;{rval CONDITION_NAME} {rval GROUPNAME}
+            <hr width="80%" align="left">
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <!--{def INPUT_ITEMS_1}-->
+            <table width=100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" nowrap align="center">
+                      <th width="20px"></th>
+                      <th width="300px">教科・科目</th>
+                      <th width="100px">構成元教科</th>
+                      <th width="60px">学期</th>
+                      <th width="220px">{rval title/ITEM_REMARK1}</th>
+                      <th width="220px">{rval title/ITEM_REMARK2}</th>
+                      <th width="*">{rval title/ITEM_REMARK3}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <!--{def list}-->
+                  <div id="tbody" style="overflow:scroll; width: 100%; max-height: 200px;">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--{each list}-->
+                    <tr bgcolor="#ffffff">
+                      <td width="20px">{rval list/DEL_CHECK}</td>
+                      <td width="300px">{rval list/SUBCLASSNAME}</td>
+                      <td width="100px">{rval list/TARGET_CLASSNAME}</td>
+                      <td width="60px" align="center">{rval list/SEMESTERNAME}</td>
+                      <td width="220px">{rval list/REMARK_1}</td>
+                      <td width="220px">{rval list/REMARK_2}</td>
+                      <td width="*">{rval list/REMARK_3}</td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                  </div>
+                  <!--{/def}-->
+                </td>
+              </tr>
+            </table>
+            <!--{/def}-->
+
+            <!--{def INPUT_ITEMS_2}-->
+            <table width=100%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr class="no_search" nowrap align="center">
+                      <th width="20px"></th>
+                      <th width="500px">入力項目</th>
+                      <th width="100px">学期</th>
+                      <th width="*">{rval title/ITEM_REMARK}</th>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="no_search_line">
+                <td>
+                  <!--{def list}-->
+                  <div id="tbody" style="overflow:scroll; width: 100%; max-height: 200px;">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <!--{each list}-->
+                    <tr bgcolor="#ffffff">
+                      <td width="20px">{rval list/DEL_CHECK}</td>
+                      <td width="500px">{rval list/KIND_REMARK}</td>
+                      <td width="100px" align="center">{rval list/SEMESTERNAME}</td>
+                      <td width="*">{rval list/REMARK}</td>
+                    </tr>
+                    <!--{/each}-->
+                  </table>
+                  </div>
+                  <!--{/def}-->
+                </td>
+              </tr>
+            </table>
+            <!--{/def}-->
+
+            {rval button/btn_listdelete}
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width=80%" border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table width="100%" border="0" cellspacing="1" cellpadding="3">
+                    <tr height="35">
+                      <th class="no_search" width="25%">入力項目</th>
+                      <td colspan="2" bgcolor="#ffffff" width="70%">
+                        {rval data/INPUT_ITEMS1}<LABEL for="INPUT_ITEMS1">各教科等</LABEL>
+                        　{rval data/INPUT_ITEMS2}<LABEL for="INPUT_ITEMS2">総合所見</LABEL>
+                      </td>
+                    </tr>
+                    <!--{def INPUT_ITEMS_1}-->
+                    <tr height="35">
+                      <th class="no_search" width="25%">教科・科目</th>
+                      <td colspan="2" bgcolor="#ffffff" width="70%">{rval data/SUBCLASSCD}　{rval button/btn_target_class}</td>
+                    </tr>
+                    <!--{/def}-->
+                    <tr height="35">
+                      <th class="no_search" width="25%">学期</th>
+                      <td colspan="2" bgcolor="#ffffff" width="70%">{rval data/SEMESTER}</td>
+                    </tr>
+                    <!--{def INPUT_ITEMS_1}-->
+                    <tr height="35">
+                      <th class="no_search" aria-label="">単元</th>
+                      <td bgcolor="#ffffff">{rval data/UNITCD}</td>
+                    </tr>
+                    <!--{/def}-->
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr class="no_search_line">
+                <td>
+                  <table border="0" cellspacing="1" cellpadding="3">
+                    <!--{def INPUT_ITEMS_1}-->
+                    <tr class="no_search" height="35">
+                      <th width="25%">{rval title/ITEM_REMARK1}</th>
+                      <th width="30%">{rval title/ITEM_REMARK2}</th>
+                      <th width="30%">{rval title/ITEM_REMARK3}</th>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td>{rval data/REMARK_1}<br>{rval data/REMARK_SIZE_1}</td>
+                      <td>{rval data/REMARK_2}<br>{rval data/REMARK_SIZE_2}</td>
+                      <td>{rval data/REMARK_3}<br>{rval data/REMARK_SIZE_3}</td>
+                    </tr>
+                    <!--{/def}-->
+
+                    <!--{def INPUT_ITEMS_2}-->
+                    <tr class="no_search" height="35">
+                      <th>{rval title/ITEM_REMARK}</th>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                      <td>{rval data/REMARK}<br>{rval data/REMARK_SIZE}</td>
+                    </tr>
+                    <!--{/def}-->
+
+                    <tr>
+                      <td align="left" bgcolor="#ffffff" colspan="3">{rval button/btn_update}{rval button/btn_delete}{rval button/btn_reset}{rval button/btn_end}　{rval button/btn_gouri}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!--{/def}-->
+
+{rval finish}
